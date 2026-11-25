@@ -1,0 +1,6 @@
+$ TD_SEED_DB=TicketDesk ops/dev/seed.sh verify
+info  dbo.Projects.Version: not written by the seeder (timestamp)
+info  dbo.TicketEventNotifications.Version: not written by the seeder (timestamp)
+info  dbo.TicketEvents.Version: not written by the seeder (timestamp)
+info  dbo.Tickets.Version: not written by the seeder (timestamp)
+schema check: 0 error(s), 4 note(s)

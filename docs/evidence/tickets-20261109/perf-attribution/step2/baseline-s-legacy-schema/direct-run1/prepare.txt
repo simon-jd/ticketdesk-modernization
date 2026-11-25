@@ -1,0 +1,4 @@
+$ ops/dev/perf-variant-schema.sh
+9 script(s) applied
+app pool restarted
+2026-11-09T06:29:14Z app ready (3 s)

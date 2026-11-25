@@ -1,0 +1,20 @@
+# 2026-11-12T08:56:37Z infra/azure.mk's ttl computation (AZ_TTL_UTC, used by every terraform call through AZ_TF)
+## make azure-ttl TTL_HOURS=3.25
+TTL_HOURS=3.25 -> ttl_utc 2026-11-12T12:11:37Z (now 2026-11-12T08:56:37Z)
+## make azure-ttl TTL_HOURS=4
+TTL_HOURS=4 -> ttl_utc 2026-11-12T12:56:37Z (now 2026-11-12T08:56:37Z)
+## TTL_HOURS=3.25 in the environment (how aks.sh's destroy reached make on 2026-11-12)
+TTL_HOURS=3.25 -> ttl_utc 2026-11-12T12:11:37Z (now 2026-11-12T08:56:37Z)
+## make azure-ttl (default)
+TTL_HOURS=4 -> ttl_utc 2026-11-12T12:56:37Z (now 2026-11-12T08:56:37Z)
+## make azure-ttl TTL_HOURS=abc (must fail)
+TTL_HOURS=abc: not a number of hours
+make: *** [infra/azure.mk:57: azure-ttl] Error 1
+rc=2
+## before the fix: date -u -d "+3.25 hours"
+date: invalid date '+3.25 hours'
+rc=1
+## make -n azure-plan STAGE=none TTL_HOURS=3.25: the ttl part of the AZ_TF line (printed, not run)
+export TF_VAR_ttl_utc=$(m=$(awk -v h='3.25' 'BEGIN { if (h !~ /^[0-9]+([.][0-9]+)?$/) exit 1; printf "%d", h * 60 + 0.5 }') && date -u -d "+$m minutes" +%Y-%m-%dT%H:%M:%SZ) && { [ -n "$TF_VAR_ttl_utc" ] || { echo "TTL_HOURS=3.25: not a number of hours
+check: make azure-check with TTL_HOURS=3.25 in the environment (AZ_TF validate)
+Success! The configuration is valid.

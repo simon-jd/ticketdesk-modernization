@@ -1,0 +1,6 @@
+image: ticketdesk-worker:r3-search-worker (281271411 bytes, configured user 1654)
+process (pid uid args): 3267498             1654                dotnet TicketDesk.Worker.dll
+batch: ticket 10000, event 45646 (two subscribers with unread notifications)
+mails in the sink: 2
+  00001.eml: <12f3a216@lab.test> | Subject: Ticket #10000 : Shared drive stopped syncing for remote staff | X-TicketDesk-Sender: worker
+  00002.eml: <56f30d74@lab.test> | Subject: Ticket #10000 : Shared drive stopped syncing for remote staff | X-TicketDesk-Sender: worker

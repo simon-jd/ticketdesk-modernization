@@ -1,0 +1,27 @@
+2026-11-08T20:34:55Z provision 20261108T203455Z on vm-tdlab-legacy: fetch+site+verify 
+---- ComponentStatus/StdOut/succeeded
+[2026-11-08T20:35:03Z] provision run 20261108T203455Z on tdlab-legacy, steps: fetch+site+verify
+[2026-11-08T20:35:03Z] ==== step fetch
+[2026-11-08T20:35:03Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-fbaaf99-dirty.zip (31,162 bytes, sha256 5DB845F6B4B402A15F3A02B0BE4B5B4B4BC37391DF64B18FD6A76B164BB0A6CF)
+[2026-11-08T20:35:03Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Update-TdSqlServer.ps1
+[2026-11-08T20:35:03Z] publish package already extracted (same SHA-256)
+[2026-11-08T20:35:03Z] step fetch done in 0.3s
+[2026-11-08T20:35:03Z] ==== step site
+[2026-11-08T20:35:04Z] CHANGE certificate 96449D36383AF1798F029D1E77ED04BD8D0EA812 was in LocalMachine\My without a usable private key: removed, importing again
+[2026-11-08T20:35:04Z] CHANGE imported certificate 96449D36383AF1798F029D1E77ED04BD8D0EA812 (CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab)
+[2026-11-08T20:35:04Z] SKIP   IIS AppPool\TicketDesk already has ReadAndExecute on C:\inetpub\ticketdesk
+[2026-11-08T20:35:04Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T20:35:04Z] SKIP   TLS binding 0.0.0.0:443 present
+[2026-11-08T20:35:05Z] SKIP   W3SVC already depends on MSSQL$SQLEXPRESS
+[2026-11-08T20:35:05Z] SKIP   SQL: database TicketDesk and db_owner login IIS AppPool\TicketDesk present
+[2026-11-08T20:35:05Z] INFO   site TicketDesk -> C:\inetpub\ticketdesk, http 80, https 443, cert 96449D36383AF1798F029D1E77ED04BD8D0EA812 (expires 2029-02-10)
+[2026-11-08T20:35:05Z] step site done in 1.8s
+[2026-11-08T20:35:05Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-08T15:51:11.0034930Z","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.191.0","signature_updated_utc":"2026-11-08T06:38:16.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10"},"https_home":{"status":200,"ms":9421,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":"Ready","rows":{"dbo.__MigrationHistory":25,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-08T20:35:19Z] step verify done in 13.7s
+[2026-11-08T20:35:19Z] TDTIMINGS {"fetch":0.3,"site":1.8,"verify":13.7} total 15.9s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T203455Z.log
+---- ComponentStatus/StdErr/succeeded
+
+Alive[################################################################]  100.0000%Finished[#############################################################]  100.0000%
+provision 20261108T203455Z steps=fetch+site+verify elapsed_s=64 rc=0

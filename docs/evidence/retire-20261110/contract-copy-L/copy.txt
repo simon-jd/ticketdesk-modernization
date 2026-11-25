@@ -1,0 +1,2 @@
+$ TD_COPY_SOURCE=TicketDeskL ops/dev/e2e-db.sh TicketDeskL_retire --no-contract
+TicketDeskL_retire restored: 1000000 tickets   

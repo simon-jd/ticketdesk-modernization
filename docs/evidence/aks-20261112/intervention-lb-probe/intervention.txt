@@ -1,0 +1,33 @@
+2026-11-12T07:01:16Z diagnosis: smoke-v1 waits on https://<aks fqdn>/health/live (curl connect timeouts).
+  app via kubectl port-forward: /health/live 200; LB 'kubernetes' DipAvailability 0.0 (last 6 min), rule 443 floating IP, probe TCP nodePort 32653
+  from the VM (VirtualNetwork source, Run Command): node 10.42.16.4:32653 tcp True -> the node port works; only the probe source fails
+  nsg-tdlab-aks: AllowIngressHttp 100 (admin CIDR, 443), DenyInternetInbound 4000 (source Internet, all ports): the probe source 168.63.129.16 is matched by it, so the default AllowAzureLoadBalancerInBound (65001) is never reached
+2026-11-12T07:01:16Z intervention: rule AllowAzureLoadBalancerInbound 3900 (source AzureLoadBalancer, any) on nsg-tdlab-aks, same attributes as the Terraform fix in modules/network
+AllowAzureLoadBalancerInbound	3900	AzureLoadBalancer	Succeeded
+2026-11-12T07:02:29Z after the rule: https://<aks fqdn>/health/live 200 at 07:01:25Z (first try)
+2026-11-12T07:02:29Z Terraform: the same rule in infra/terraform/modules/network/main.tf (worktree, committed after the destroy);
+  plan of stage aks against the live state (-lock=false, the session's sizes and ttl): no change on nsg-tdlab-aks, so retire-vm keeps the rule:
+  # azurerm_key_vault_certificate.iis[0] will be destroyed
+  # azurerm_key_vault_secret.app_admin[0] will be destroyed
+  # azurerm_key_vault_secret.remoteapp_key[0] will be destroyed
+  # azurerm_key_vault_secret.sql_sa[0] will be destroyed
+  # azurerm_role_assignment.vm_artifacts_reader[0] will be destroyed
+  # azurerm_role_assignment.vm_blob_writer["backups"] will be destroyed
+  # azurerm_role_assignment.vm_blob_writer["logs"] will be destroyed
+  # azurerm_role_assignment.vm_dataprotection_key[0] will be destroyed
+  # random_password.sql_sa[0] will be destroyed
+  # random_uuid.remoteapp_key[0] will be destroyed
+  # module.network[0].azurerm_network_security_group.vm will be updated in-place
+  # module.storage[0].azurerm_role_assignment.operator will be destroyed
+  # module.storage[0].azurerm_storage_account.this will be destroyed
+  # module.storage[0].azurerm_storage_container.this["artifacts"] will be destroyed
+  # module.storage[0].azurerm_storage_container.this["backups"] will be destroyed
+  # module.storage[0].azurerm_storage_container.this["logs"] will be destroyed
+  # module.storage[0].time_sleep.rbac_propagation will be destroyed
+  # module.vm[0].azurerm_key_vault_secret.admin_password will be destroyed
+  # module.vm[0].azurerm_network_interface.this will be destroyed
+  # module.vm[0].azurerm_public_ip.this will be destroyed
+  # module.vm[0].azurerm_role_assignment.kv_secrets_user will be destroyed
+  # module.vm[0].azurerm_windows_virtual_machine.this will be destroyed
+  # module.vm[0].random_password.admin will be destroyed
+Plan: 0 to add, 1 to change, 22 to destroy.

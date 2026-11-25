@@ -1,0 +1,257 @@
+{
+  "set": "writes",
+  "database": "TicketDeskL",
+  "capturedAt": "2026-11-08T01:05:00Z",
+  "source": "hand-written in the statement shape EF6 sends for a reassignment and a ticket insert (UPDATE ... WHERE id AND rowversion; SELECT Version WHERE @@ROWCOUNT > 0), each inside a rolled-back transaction; not captured from the legacy app",
+  "values": {
+    "ticket": "1 (first open assigned ticket)",
+    "newAssignee": "001025af-f8cf-414e-a86a-04e001cd97e7",
+    "ticket1Version": "0x00000000000007ec"
+  },
+  "scenarios": [
+    {
+      "name": "write-reassign",
+      "description": "EF6-shaped single-ticket reassignment UPDATE, rolled back",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "BEGIN TRANSACTION;\nUPDATE [dbo].[Tickets]\nSET [AssignedTo] = @0, [LastUpdateBy] = @1, [LastUpdateDate] = @2\nWHERE (([TicketId] = @3) AND ([Version] = @4))\nSELECT [Version]\nFROM [dbo].[Tickets]\nWHERE @@ROWCOUNT > 0 AND [TicketId] = @3;\nROLLBACK TRANSACTION;",
+          "parameters": [
+            {
+              "name": "@0",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "001025af-f8cf-414e-a86a-04e001cd97e7"
+            },
+            {
+              "name": "@1",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "001025af-f8cf-414e-a86a-04e001cd97e7"
+            },
+            {
+              "name": "@2",
+              "sqlDbType": "DateTimeOffset",
+              "size": 0,
+              "precision": 7,
+              "scale": 7,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.DateTimeOffset",
+              "value": "2026-10-31T17:00:00.0000000+00:00"
+            },
+            {
+              "name": "@3",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@4",
+              "sqlDbType": "Binary",
+              "size": 8,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Byte[]",
+              "value": "AAAAAAAAB+w="
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "write-insert",
+      "description": "EF6-shaped ticket INSERT, rolled back",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "BEGIN TRANSACTION;\nINSERT [dbo].[Tickets]([ProjectId], [TicketType], [Category], [Title], [Details], [IsHtml], [TagList], [CreatedBy], [TargetDate], [ResolutionDate], [DueDate], [EstimatedDuration], [ActualDuration], [Owner], [AssignedTo], [TicketStatus], [CurrentStatusDate], [CurrentStatusSetBy], [LastUpdateBy], [LastUpdateDate], [Priority], [AffectsCustomer])\nVALUES (@0, @1, @2, @3, @4, @5, NULL, @6, NULL, NULL, NULL, NULL, NULL, @7, @8, @9, @10, @11, @12, @13, NULL, @14)\nSELECT [TicketId], [CreatedDate], [Version]\nFROM [dbo].[Tickets]\nWHERE @@ROWCOUNT > 0 AND [TicketId] = scope_identity();\nROLLBACK TRANSACTION;",
+          "parameters": [
+            {
+              "name": "@0",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@1",
+              "sqlDbType": "NVarChar",
+              "size": 50,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "Question"
+            },
+            {
+              "name": "@2",
+              "sqlDbType": "NVarChar",
+              "size": 50,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "Hardware"
+            },
+            {
+              "name": "@3",
+              "sqlDbType": "NVarChar",
+              "size": 500,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "Printer jams on the third floor"
+            },
+            {
+              "name": "@4",
+              "sqlDbType": "NVarChar",
+              "size": -1,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "AAAAAAAAB+w="
+            },
+            {
+              "name": "@5",
+              "sqlDbType": "Bit",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Boolean",
+              "value": "False"
+            },
+            {
+              "name": "@6",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "001025af-f8cf-414e-a86a-04e001cd97e7"
+            },
+            {
+              "name": "@7",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "001025af-f8cf-414e-a86a-04e001cd97e7"
+            },
+            {
+              "name": "@8",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "001025af-f8cf-414e-a86a-04e001cd97e7"
+            },
+            {
+              "name": "@9",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "0"
+            },
+            {
+              "name": "@10",
+              "sqlDbType": "DateTimeOffset",
+              "size": 0,
+              "precision": 7,
+              "scale": 7,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.DateTimeOffset",
+              "value": "2026-10-31T17:00:00.0000000+00:00"
+            },
+            {
+              "name": "@11",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "001025af-f8cf-414e-a86a-04e001cd97e7"
+            },
+            {
+              "name": "@12",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "001025af-f8cf-414e-a86a-04e001cd97e7"
+            },
+            {
+              "name": "@13",
+              "sqlDbType": "DateTimeOffset",
+              "size": 0,
+              "precision": 7,
+              "scale": 7,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.DateTimeOffset",
+              "value": "2026-10-31T17:00:00.0000000+00:00"
+            },
+            {
+              "name": "@14",
+              "sqlDbType": "Bit",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Boolean",
+              "value": "False"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+image ticketdesk-worker:r3-search-worker sha256:e67d7afed9ed582687505312274f494b3b319cf645f6995b28f9290db44339d0 281271411 bytes, user 1654, entrypoint ["dotnet","TicketDesk.Worker.dll"], created 2026-11-10T09:48:11.977116204-08:00

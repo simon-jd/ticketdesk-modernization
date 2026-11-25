@@ -1,0 +1,252 @@
+@* Port of the legacy Views/Ticket/New.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd). *@
+@model TicketDesk.Web.Controllers.NewTicketModel
+@using TicketDesk.Web.Views
+@using TicketDesk.Tickets.Writes
+@using NewText = TicketDesk.Localization.Views.Ticket.New
+@{
+    var t = Model.Ticket;
+    var a = Model.Actor;
+    var s = Model.Settings;
+    var culture = CultureInfo.CurrentCulture.Name;
+    var allowPriority = a.IsAdministrator || a.IsHelpDesk || (a.IsInternal && s.AllowInternalUsersToEditPriority);
+    var allowTags = a.IsHelpDesk || s.AllowInternalUsersToEditTags;
+    var allowOwner = (a.IsInternal && s.AllowInternalUsersToSetOwner) || a.IsHelpDesk || a.IsAdministrator;
+    var allowAssigned = (a.IsInternal && s.AllowInternalUsersToSetAssigned) || a.IsHelpDesk || a.IsAdministrator;
+    string? Err(string field) => Model.Errors.TryGetValue(field, out var e) ? e : null;
+    string Enc(string s) => System.Net.WebUtility.HtmlEncode(s);
+    string? Sel(string? v) => string.IsNullOrEmpty(v) ? null : v; // a new ticket's empty fields select nothing (legacy model: null)
+    Context.Items[TicketDesk.Web.Migration.MigrationRegistration.LegacyFormTokenItem] = true;
+}
+@section title { @NewText.Title }
+
+@section scripts
+{
+    @Bundles.Styles("~/content/editor")
+    @Bundles.Styles("~/content/select2")
+    @Bundles.Styles("~/content/summernote")
+    @Bundles.Styles("~/content/datepicker")
+    @Bundles.Scripts("~/bundles/select2")
+    @Bundles.Scripts("~/bundles/select2_locale_" + culture)
+    @Bundles.Scripts("~/bundles/markdown")
+    @Bundles.Scripts("~/bundles/summernote")
+    @Bundles.Scripts("~/bundles/summernote_locale_" + culture)
+    @Bundles.Scripts("~/bundles/editor")
+    @Bundles.Scripts("~/bundles/datepicker")
+    <partial name="_AntiforgeryAjax" />
+
+    <script type="text/javascript">
+
+        (function () {
+            $.ajaxSetup({ cache: false });
+            var uploaderConfig = {
+                dropzoneUploadUrl: '/file/upload',
+                getAttachmentsUrl: '/file/get-attachments-info',
+                deleteFileUrl: '/file/delete',
+                defaultThumbnailUrl: '/content/images/general-file.png',
+                ticketId: null
+            };
+            var tagsConfig = {
+                tagAutoCompleteUrl: '/auto-complete/tag-list'
+            };
+            var detailsConfig = {
+                isHtml: @(t.IsHtml ? "true" : "false")
+                };
+            window.ticketTags.activate(tagsConfig);
+            window.ticketDetails.activate(detailsConfig);
+            window.ticketFileUploader.activate(uploaderConfig);
+            $("#DueDateAsString").datepicker({ autoclose: true, clearBtn:true, todayBtn: "linked" });
+            $("#TargetDateAsString").datepicker({ autoclose: true, clearBtn:true, todayBtn: "linked" });
+            $("#ResolutionDateAsString").datepicker({ autoclose: true, clearBtn:true, todayBtn: "linked" });
+        })();
+    </script>
+}
+<main>
+    <div class="container">
+        <div class="col-lg-10 col-lg-offset-1 col-md-12">
+            <form action="/ticket/new" class="form-horizontal" method="post" asp-antiforgery="false">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">@NewText.Header</h2>
+                    </div>
+                    <div class="panel-body ">
+
+                        @Html.AntiForgeryToken()
+                        @if (Model.Errors.ContainsKey(""))
+                        {
+                            <div class="alert alert-danger validation-summary-errors"><span>@NewText.UnableCreateTicket</span>
+<ul><li>@Model.Errors[""]</li>
+</ul></div>
+                        }
+
+                        @Html.Raw($"<input data-val=\"true\" data-val-number=\"{Enc(FormHtml.Number("TicketTicketId"))}\" data-val-required=\"{Enc(FormHtml.ImplicitRequired("TicketTicketId"))}\" id=\"TicketId\" name=\"TicketId\" type=\"hidden\" value=\"0\" />")
+                        @Html.Raw($"<input data-val=\"true\" data-val-required=\"{Enc(FormHtml.ImplicitRequired("TicketIsHtml"))}\" id=\"IsHtml\" name=\"IsHtml\" type=\"hidden\" value=\"{(t.IsHtml ? "True" : "False")}\" />")
+                        <input type="hidden" name="tempId" value="@Model.TempId" />
+
+                        @if (Model.IsMultiProject)
+                        {
+                            <div class="form-group">
+                                @FormHtml.Label("ProjectId", "TicketProject", "col-md-2 col-sm-1 control-label")
+                                <div class="col-md-8 col-sm-11">
+                                    @FormHtml.Select("ProjectId", FormHtml.WithDefault(Model.Projects.Select(p => new FormHtml.Option(p.ProjectId.ToString(CultureInfo.InvariantCulture), p.ProjectName))),
+                                        t.ProjectId.ToString(CultureInfo.InvariantCulture), new FormHtml.Rules("TicketProject", Number: true, Required: true), "form-control input-sm", 0)
+                                    @FormHtml.ValidationMessage("ProjectId", Err("ProjectId"))
+
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.Raw($"<input data-val=\"true\" data-val-number=\"{Enc(FormHtml.Number("TicketProject"))}\" data-val-required=\"{Enc(FormHtml.Required("TicketProject"))}\" id=\"ProjectId\" name=\"ProjectId\" type=\"hidden\" value=\"{t.ProjectId}\" />")
+                        }
+                        <div class="form-group">
+                            @FormHtml.Label("Title", "TicketTitle", "col-md-2 col-sm-1 control-label focus")
+                            <div class="col-md-8 col-sm-11">
+                                @FormHtml.TextBox("Title", t.Title, new FormHtml.Rules("TicketTitle", MaxLength: 500, Required: true), "form-control input-sm", 1, extra: $" autofocus=\"\" placeholder=\"{Enc(NewText.TicketTitle_Placeholder)}\"")
+                                @FormHtml.ValidationMessage("Title", Err("Title"))
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @FormHtml.Label("TicketType", "TicketTicketType", "col-md-2 col-sm-1 control-label")
+                            <div class="col-md-2 col-sm-3">
+                                @FormHtml.Select("TicketType", FormHtml.WithDefault(FormHtml.Strings(s.TicketTypesList)), Sel(t.TicketType), new FormHtml.Rules("TicketTicketType", MaxLength: 50, Required: true), "form-control input-sm", 2)
+                                @FormHtml.ValidationMessage("TicketType", Err("TicketType"))
+                            </div>
+
+                            @FormHtml.Label("Category", "TicketCategory", "col-md-1 col-sm-1 control-label")
+                            <div class="col-md-2 col-sm-3">
+                                @FormHtml.Select("Category", FormHtml.WithDefault(FormHtml.Strings(s.CategoryList)), Sel(t.Category), new FormHtml.Rules("TicketCategory", MaxLength: 50, Required: true), "form-control input-sm", 3)
+                                @FormHtml.ValidationMessage("Category", Err("Category"))
+                            </div>
+                            @if (allowPriority)
+                            {
+                                @FormHtml.Label("Priority", "TicketPriority", "col-md-1 col-sm-1 control-label")
+                                <div class="col-md-2 col-sm-3">
+                                    @FormHtml.Select("Priority", FormHtml.WithDefault(FormHtml.Strings(s.PriorityList)), Sel(t.Priority), new FormHtml.Rules("TicketPriority", MaxLength: 25), "form-control input-sm", 4)
+                                    @FormHtml.ValidationMessage("Priority", Err("Priority"))
+                                </div>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 col-md-offset-2 col-sm-1 col-sm-offset-1">
+                                <label class="checkbox-inline" for="affectsCustomer">
+                                    <input class="" type="checkbox" name="affectsCustomer" id="affectsCustomer" value="true" tabindex="5" />
+                                    @NewText.AffectsCustomer
+                                </label>
+                            </div>
+                            @FormHtml.Label("DueDate", "TicketDueDate", "col-md-2 col-sm-2 control-label")
+                            <div class="col-md-4 col-sm-6">
+                                @FormHtml.TextBox("DueDateAsString", LegacyDates.ToShortDate(t.DueDate), null, "form-control input-sm", 6)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @FormHtml.Label("TargetDate", "TicketTargetDate", "col-md-2 col-sm-2 control-label")
+                            <div class="col-md-3 col-sm-3">
+                                @FormHtml.TextBox("TargetDateAsString", LegacyDates.ToShortDate(t.TargetDate), null, "form-control input-sm", 7)
+                            </div>
+                            @FormHtml.Label("ResolutionDate", "TicketResolutionDate", "col-md-2 col-sm-2 control-label")
+                            <div class="col-md-3 col-sm-3">
+                                @FormHtml.TextBox("ResolutionDateAsString", LegacyDates.ToShortDate(t.ResolutionDate), null, "form-control input-sm", 8)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @FormHtml.Label("EstimatedDuration", "TicketEstimatedDuration", "col-md-2 col-sm-3 control-label")
+                            <div class="col-md-3 col-sm-6">
+                                @FormHtml.TextBox("EstimatedDuration", Model.EstimatedDurationText, new FormHtml.Rules("TicketEstimatedDuration", Number: true), "form-control input-sm", 9)
+                                @FormHtml.ValidationMessage("EstimatedDuration", Err("EstimatedDuration"))
+                            </div>
+
+                            @FormHtml.Label("ActualDuration", "TicketActualDuration", "col-md-2 col-sm-3 control-label")
+                            <div class="col-md-3 col-sm-6">
+                                @FormHtml.TextBox("ActualDuration", Model.ActualDurationText, new FormHtml.Rules("TicketActualDuration", Number: true), "form-control input-sm", 10)
+                                @FormHtml.ValidationMessage("ActualDuration", Err("ActualDuration"))
+                            </div>
+                        </div>
+                        @if (allowTags)
+                        {
+                            <div class="form-group">
+                                @FormHtml.Label("TagList", "TicketTagList", "col-md-2 col-sm-1 control-label")
+                                <div class="col-md-8 col-sm-11">
+                                    @FormHtml.TextBox("TagList", t.TagList, new FormHtml.Rules("TicketTagList", MaxLength: 100), "form-control input-sm", 11, id: "ticketTags")
+                                </div>
+                            </div>
+                        }
+                        @if (t.IsHtml)
+                        {
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-1 control-label text-right" for="summernote">@NewText.Details</label>
+                                <div class="col-md-8 col-sm-11">
+                                    <textarea id="wmd-input-ticketDetails" name="Details" data-val-required="" data-val="true">@t.Details</textarea>
+                                    @FormHtml.ValidationMessage("Details", Err("Details"))
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <label class="col-md-2 col-sm-1 control-label text-right" for="wmd-input-ticketDetails">@NewText.Details</label>
+                                <div class="col-md-8 col-sm-11 wmd-panel">
+                                    <div class=" tabbable tabs-below">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="tab1">
+                                                <div id="wmd-button-bar-ticketDetails" class="" style="display: inline-block"></div>
+                                                <textarea class="wmd-input form-control" cols="92" data-val="true" data-val-required="" id="wmd-input-ticketDetails" name="Details" rows="15" style="height:200px" tabindex="12">
+@t.Details</textarea>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab2">
+                                                <div class="row" style="min-height: 35px;"></div>
+                                                <div id="wmd-preview-ticketDetails" class="wmd-panel wmd-preview form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="nav nav-tabs navbar-right">
+                                            <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-edit"></i>&nbsp;@NewText.EditOption</a></li>
+                                            <li><a href="#tab2" data-toggle="tab"><i class="fa fa-eye"></i>&nbsp;@NewText.PreviewOption</a></li>
+                                        </ul>
+                                    </div>
+                                    @FormHtml.ValidationMessage("Details", Err("Details"))
+                                </div>
+                            </div>
+                        }
+                        <div class="form-group">
+                            @if (allowOwner)
+                            {
+                                @FormHtml.Label("Owner", "TicketOwner", "col-md-2 col-sm-1 control-label")
+                                <div class="col-md-3 col-sm-5">
+                                    @FormHtml.Select("Owner", Model.InternalUsers.Select(u => new FormHtml.Option(u.Id, u.DisplayName ?? "")), Sel(t.Owner), new FormHtml.Rules("TicketOwner", MaxLength: 256, Required: true), "form-control input-sm", 13)
+                                    @FormHtml.ValidationMessage("Owner", Err("Owner"))
+                                </div>
+                            }
+                            @if (allowAssigned)
+                            {
+                                @FormHtml.Label("AssignedTo", "TicketAssignedTo", "col-md-2 col-sm-2 control-label")
+                                <div class="col-md-3 col-sm-4">
+                                    @FormHtml.Select("AssignedTo", new[] { new FormHtml.Option("", TicketDesk.Localization.Models.Strings.AssignedTo_Unassigned) }.Concat(Model.HelpDeskUsers.Select(u => new FormHtml.Option(u.Id, u.DisplayName ?? ""))),
+                                        t.AssignedTo, new FormHtml.Rules("TicketAssignedTo", MaxLength: 256), "form-control input-sm", 14)
+                                    @FormHtml.ValidationMessage("AssignedTo", Err("AssignedTo"))
+                                </div>
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 col-sm-1 control-label">@NewText.Files</label>
+                            <div class="col-md-8 col-sm-11">
+                                        <div class="dropzone" style="min-height: 40px;" id="attachmentsDropZone">
+                                            <div class="dz-message" data-dz-message><i class="fa fa-download "></i> @NewText.Attachment_Instructions</div>
+                                            <div class="dropzone-previews" id="dz-preview"></div>
+                                        </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-footer">
+                        <div class="">
+                            <button type="submit" class="btn btn-success" tabindex="15">@NewText.SaveOption</button>&nbsp;&nbsp;
+                            <a href="/ticket">@NewText.BackOption</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,5 @@
+2026-11-09T01:45:44Z == direct
+2026-11-09T01:46:03Z 2026-11-09T01:46:03Z reset to baseline-s done in 19 s
+2026-11-09T01:46:18Z 2026-11-09T01:46:18Z deployed td-legacy-publish-b4edcc3.zip (sha256 f1408b12957a6a2bda46123865d471a2f97247f2e19a5fd5e2939c9411574cf6) in 15 s
+2026-11-09T01:46:38Z replay: replayed 262 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/legacy-adapters-20261109/step4-blob/move/disk-golden/direct/candidate.jsonl (0 journey errors)
+2026-11-09T01:46:39Z compare: compared 262, matched 261, mismatched 1 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261109/step4-blob/move/disk-golden/direct/compare/report.md

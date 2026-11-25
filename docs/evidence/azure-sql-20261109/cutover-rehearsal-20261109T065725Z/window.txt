@@ -1,0 +1,29 @@
+2026-11-09T06:57:57Z provision 20261109T065757Z on vm-tdlab-legacy: azsql-wake+freeze+export+import+azsql-users+reconcile+switch SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-17> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=azure
+provision 20261109T065757Z steps=azsql-wake+freeze+export+import+azsql-users+reconcile+switch elapsed_s=124 rc=1
+notifications.ApplicationPushNotificationSettings              1              1  9418a5310a6b0152  ok
+notifications.PushNotificationDestinations              1              1  f120e56bf575a66d  ok
+notifications.PushNotificationItems                 0              0  e3b0c44298fc1c14  ok
+notifications.SubscriberPushNotificationSettings              1              1  d4081e0ac06f9883  ok
+notifications.TicketPushNotificationItems              0              0  e3b0c44298fc1c14  ok
+[2026-11-09T06:59:25Z] TDMARK reconciled 2026-11-09T06:59:25.108Z
+[2026-11-09T06:59:25Z] step reconcile done in 4.2s
+[2026-11-09T06:59:25Z] ==== step switch
+[2026-11-09T06:59:25Z] TDMARK switch_start 2026-11-09T06:59:25.112Z
+[2026-11-09T06:59:26Z] INFO   Azure SQL with the managed identity: first-run setup disabled
+[2026-11-09T06:59:26Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-09T06:59:26Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-09T06:59:26Z] INFO   database: Azure SQL, ManagedIdentity (tcp:sql-tdlab-36d2d4.database.windows.net,1433)
+[2026-11-09T06:59:26Z] FAILED: Exception calling "Replace" with "3" argument(s): "The path is not of a legal form."
+[2026-11-09T06:59:26Z] at <ScriptBlock>, C:\TdOps\windows\Deploy-TdApp.ps1: line 174
+at Invoke-Ops, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script14.ps1: line 122
+at Invoke-AppDeploy, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script14.ps1: line 178
+at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script14.ps1: line 392
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script14.ps1: line 473
+[2026-11-09T06:59:26Z] TDTIMINGS {"azsql-wake":0.3,"freeze":0,"export":29,"import":39.1,"azsql-users":0.2,"reconcile":4.2} total 74.2s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261109T065757Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261109T065757Z steps=azsql-wake+freeze+export+import+azsql-users+reconcile+switch elapsed_s=124 rc=1

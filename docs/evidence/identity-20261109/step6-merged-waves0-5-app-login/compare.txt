@@ -1,0 +1,2 @@
+$ td-replay compare --baseline tests/characterization/golden/legacy-golden.jsonl.xz --candidate ~/Desktop/ticketdesk-modernization/wt-identity/docs/evidence/identity-20261109/step6-merged-waves0-5-app-login/gateway.jsonl --out-dir ~/Desktop/ticketdesk-modernization/wt-identity/docs/evidence/identity-20261109/step6-merged-waves0-5-app-login/compare-golden-gateway
+compared 262, matched 155, mismatched 109 (missing 0, extra 2) -> ~/Desktop/ticketdesk-modernization/wt-identity/docs/evidence/identity-20261109/step6-merged-waves0-5-app-login/compare-golden-gateway/report.md

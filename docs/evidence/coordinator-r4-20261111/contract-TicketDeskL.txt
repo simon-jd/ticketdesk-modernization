@@ -1,0 +1,12 @@
+check|value|expected
+-----|-----|--------
+trigger TR_Tickets_AssignedDate|0|0
+index IX_ProjectId|0|0
+CK_Tickets_AssignedDate trusted and enabled|1|1
+tickets breaking assigned <=> AssignedDate|0|0
+contract scripts in the journal|1|1
+tickets (for the record)|1000000|-
+assigned tickets (for the record)|895163|-
+ScriptName|Kind|AppliedAt|DurationMs
+----------|----|---------|----------
+contract/C0001__assigned_date_contract.sql|C|2026-11-11 08:45:05 +00:00|225

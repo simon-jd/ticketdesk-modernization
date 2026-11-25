@@ -1,0 +1,6 @@
+[01:02:14] writes/write-reassign: 1 command(s)
+    cold: median 1 ms server / 2.6 ms client, cpu 1 ms, reads 6
+    warm: median 0 ms server / 0.3 ms client, cpu 0 ms, reads 6
+[01:02:14] writes/write-insert: 1 command(s)
+    cold: median 1 ms server / 2.6 ms client, cpu 0 ms, reads 12
+    warm: median 0 ms server / 0.3 ms client, cpu 0 ms, reads 12

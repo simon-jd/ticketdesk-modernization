@@ -1,0 +1,30 @@
+$ dotnet list src/modern/TicketDesk.Modern.sln package --vulnerable --include-transitive   (2026-11-10T07:33:58Z, git 7b0e45b + working tree, dotnet 10.0.403)
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+
+The following sources were used:
+   https://api.nuget.org/v3/index.json
+
+The given project `TicketDesk.Replay` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Replay.Cli` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Replay.Tests` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Seed` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Seed.Cli` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Seed.Tests` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Data` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Identity` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Web` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Tickets` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Users` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Attachments` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Projects` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Search` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Notifications` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Data.Tests` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Identity.Tests` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Modules.Tests` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Web.Tests` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Reports` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Database` has no vulnerable packages given the current sources.
+The given project `TicketDesk.SqlPerf` has no vulnerable packages given the current sources.
+The given project `TicketDesk.Database.Tests` has no vulnerable packages given the current sources.

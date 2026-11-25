@@ -1,0 +1,29 @@
+# cycle 3 apply
+# command: make azure-up/down-foundation (bash wrapper in tmux), terraform 1.17.1, azurerm 5.13.0, azuread 3.10.0, azapi 2.13.0, host lab-host
+# lines kept: stage start/end, plan summary, per-resource Creation/Destruction complete, errors; IDs redacted
+apply stage foundation start 2026-11-08T01:15:23Z
+Plan: 21 to add, 0 to change, 0 to destroy.
+azurerm_resource_group.lab[0]: Creation complete after 22s
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Creation complete after 2s
+module.network[0].azurerm_network_security_group.vm: Creation complete after 3s
+module.network[0].azurerm_network_security_group.aks: Creation complete after 3s
+module.network[0].azurerm_network_security_group.pe: Creation complete after 3s
+module.network[0].azurerm_virtual_network.this: Creation complete after 5s
+module.network[0].azurerm_subnet.pe: Creation complete after 5s
+module.network[0].azurerm_subnet.vm: Creation complete after 9s
+module.network[0].azurerm_subnet.aks: Creation complete after 13s
+module.network[0].azurerm_subnet_network_security_group_association.pe: Creation complete after 13s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Creation complete after 13s
+module.network[0].azurerm_subnet_network_security_group_association.aks: Creation complete after 14s
+module.keyvault[0].azurerm_private_dns_zone.kv[0]: Creation complete after 33s
+module.monitoring[0].azurerm_log_analytics_workspace.this: Creation complete after 44s
+module.monitoring[0].azurerm_application_insights.this: Creation complete after 4s
+module.keyvault[0].azurerm_private_dns_zone_virtual_network_link.kv[0]: Creation complete after 33s
+module.keyvault[0].azurerm_key_vault.this: Creation complete after 2m26s
+module.keyvault[0].azurerm_role_assignment.admin: Creation complete after 31s
+module.keyvault[0].azurerm_private_endpoint.kv[0]: Creation complete after 54s
+module.keyvault[0].time_sleep.rbac_propagation: Creation complete after 2m0s
+azurerm_key_vault_secret.appinsights[0]: Creation complete after 2s
+Apply complete! Resources: 21 added, 0 changed, 0 destroyed.
+apply stage foundation end 2026-11-08T01:21:08Z elapsed_s=345 rc=0
+EXIT=0

@@ -1,0 +1,28 @@
+# 2026-11-14T00:49:33Z VM live database before Round 6 load
+dbo.__MigrationHistory|25
+dbo.__ModernSchemaHistory|13
+dbo.ApplicationSettings|1
+dbo.DataProtectionKeys|1
+dbo.IdentityRoles|4
+dbo.IdentityUserClaims|0
+dbo.IdentityUserLogins|0
+dbo.IdentityUserRoles|251
+dbo.IdentityUsers|251
+dbo.Projects|5
+dbo.TicketEventNotifications|96001
+dbo.TicketEvents|45651
+dbo.Tickets|10001
+dbo.TicketSubscribers|20126
+dbo.TicketTags|14700
+dbo.UserSettings|2
+notifications.ApplicationPushNotificationSettings|1
+notifications.PushNotificationDestinations|1
+notifications.PushNotificationItems|0
+notifications.SubscriberPushNotificationSettings|1
+notifications.TicketPushNotificationItems|0
+
+Processed 11112 pages for database 'TicketDesk', file 'TicketDesk' on file 1.
+Processed 1 pages for database 'TicketDesk', file 'TicketDesk_log' on file 1.
+BACKUP DATABASE successfully processed 11113 pages in 0.150 seconds (578.759 MB/sec).
+The backup set on file 1 is valid.
+backup C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\Backup\r6-load-pre.bak on the VM, copy ~/Desktop/ticketdesk-modernization/scratch-load/r6-load-pre.bak (91124224 bytes, sha256 7d9c0bbbcb979ac8)

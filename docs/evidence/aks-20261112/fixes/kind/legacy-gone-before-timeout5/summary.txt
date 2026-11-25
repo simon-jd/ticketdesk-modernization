@@ -1,0 +1,8 @@
+# 2026-11-12T09:14:06Z chart <HEAD chart>/ops/k8s/ticketdesk, image aks-v1, Legacy:BaseUrl https://legacy-gone.lab/ -> 192.0.2.10 (dropped in the node)
+readinessProbe: {"failureThreshold":3,"httpGet":{"path":"/health/ready","port":"http","scheme":"HTTP"},"periodSeconds":10,"successThreshold":1,"timeoutSeconds":5}
+legacy check client timeout: 5 s (image aks-v1, Hosting/HealthChecks.cs)
+/health/ready from the pod: HTTP 200 in 5.020281 s (Degraded [('database', 'Healthy'), ('legacy', 'Degraded')])
+/health/ready from the pod: HTTP 200 in 5.006930 s (Degraded [('database', 'Healthy'), ('legacy', 'Degraded')])
+/health/ready from the pod: HTTP 200 in 5.004913 s (Degraded [('database', 'Healthy'), ('legacy', 'Degraded')])
+144 samples over 09:14:30..09:19:28: pod Ready 0 (0 %), service answered 0 (0 %), Ready -> NotReady 0 time(s)
+readiness probe failures (events): 33

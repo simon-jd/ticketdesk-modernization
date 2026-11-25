@@ -1,0 +1,34 @@
+## 2026-11-11T05:14:23Z before
+ 21:14:23 up 2 days, 21:52, 14 users,  load average: 3.06, 3.70, 3.60
+32
+               total        used        free      shared  buff/cache   available
+Mem:             123          45          34           1          46          77
+# docker stats (top 8 by CPU)
+41.36%	3.944GiB / 123.2GiB	materialflow-control-plane
+17.35%	1.122GiB / 123.2GiB	td-aks-control-plane
+5.84%	70.25MiB / 123.2GiB	td-azurite
+4.60%	645.9MiB / 3GiB	ledgerflow-sandbox-airflow-webserver-1
+3.80%	991.4MiB / 3GiB	ledgerflow-sandbox-airflow-scheduler-1
+2.79%	204.8MiB / 2GiB	ledgerflow-sandbox-postgres-1
+1.85%	1.011GiB / 3GiB	td-aks-sb-sql
+1.68%	1.011GiB / 3GiB	td-sb-sql
+# legacy VM (qemu) process
+    PID %CPU   RSS     ELAPSED COMMAND
+1210678  123 6436740     00:19 qemu-system-x86_64 -name td-legacy-vm,process=td-legacy-vm -machine q35 -accel kvm -cpu h
+## 2026-11-11T05:15:55Z after
+ 21:15:55 up 2 days, 21:53, 14 users,  load average: 4.25, 3.82, 3.65
+32
+               total        used        free      shared  buff/cache   available
+Mem:             123          47          30           1          49          76
+# docker stats (top 8 by CPU)
+57.57%	765.9MiB / 3GiB	td-cd-sb-sql
+30.65%	5.571GiB / 10GiB	td-sql
+21.50%	90.41MiB / 123.2GiB	td-cd-sb-emulator
+18.52%	38.3MiB / 256MiB	ledgerflow-sandbox-billing-1
+15.69%	645.9MiB / 123.2GiB	td-cd-control-plane
+12.24%	3.94GiB / 123.2GiB	materialflow-control-plane
+4.60%	1.133GiB / 123.2GiB	td-aks-control-plane
+0.88%	991.7MiB / 3GiB	ledgerflow-sandbox-airflow-scheduler-1
+# legacy VM (qemu) process
+    PID %CPU   RSS     ELAPSED COMMAND
+1210678 65.1 6439988     01:52 qemu-system-x86_64 -name td-legacy-vm,process=td-legacy-vm -machine q35 -accel kvm -cpu h

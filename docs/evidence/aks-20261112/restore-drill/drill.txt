@@ -1,0 +1,8 @@
+restored database: Basic (0.161 1/Day), deleted right after the drill
+disaster (marker writes stopped) 2026-11-12T07:46:46Z
+restore requested 2026-11-12T07:46:46.528Z (point in time 2026-11-12T07:46:46Z)
+attempt 1 2026-11-12T08:19:49.942Z rc=0: {   "name": "sqldb-ticketdesk-pitr",   "sku": "Basic",   "status": "Online" } 
+restored database online 2026-11-12T08:19:49.949Z
+level=WARN msg="upgrade failed" name=ticketdesk error="resource Deployment/ticketdesk/td-web not ready. status: InProgress, message: Pending termination: 1\ncontext deadline exceeded"
+Error: UPGRADE FAILED: resource Deployment/ticketdesk/td-web not ready. status: InProgress, message: Pending termination: 1
+context deadline exceeded

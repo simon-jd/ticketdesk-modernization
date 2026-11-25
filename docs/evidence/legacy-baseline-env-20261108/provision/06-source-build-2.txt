@@ -1,0 +1,357 @@
+==== 2026-11-08T00:35:10Z step source
+source at revision f510384
+==== 2026-11-08T00:35:20Z step build
+[2026-11-08T00:35:28Z] INFO   restore : C:\BuildTools\nuget\nuget.exe restore C:\TdSrc\ticketdesk\TicketDesk\TicketDesk-2.5.sln -NonInteractive -PackagesDirectory C:\TdSrc\ticketdesk\TicketDesk\packages
+MSBuild auto-detection: using msbuild version '17.14.60.43110' from 'C:\BuildTools\MSBuild\Current\bin'.
+Restoring NuGet package Microsoft.ApplicationInsights.JavaScript.0.11.0-build09387.
+Restoring NuGet package AngleSharp.0.9.5.
+Restoring NuGet package Antlr.3.5.0.2.
+Restoring NuGet package bootstrap.3.3.6.
+Adding package 'Antlr.3.5.0.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Adding package 'AngleSharp.0.9.5' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Adding package 'Microsoft.ApplicationInsights.JavaScript.0.11.0-build09387' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Adding package 'bootstrap.3.3.6' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.JavaScript.0.11.0-build09387' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Bootstrap.Datepicker.1.3.0.
+Adding package 'Bootstrap.Datepicker.1.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Antlr.3.5.0.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package cldrjs.0.4.1.
+Adding package 'cldrjs.0.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'cldrjs.0.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package CsQuery.1.3.4.
+Adding package 'CsQuery.1.3.4' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'CsQuery.1.3.4' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package dropzone.4.2.0.
+Adding package 'dropzone.4.2.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'AngleSharp.0.9.5' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package EntityFramework.6.1.3.
+Adding package 'EntityFramework.6.1.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'bootstrap.3.3.6' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package FontAwesome.4.4.0.
+Adding package 'FontAwesome.4.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'dropzone.4.2.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package HtmlSanitizer.3.2.103.
+Adding package 'HtmlSanitizer.3.2.103' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'FontAwesome.4.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package jQuery.2.2.2.
+Adding package 'jQuery.2.2.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'HtmlSanitizer.3.2.103' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package jQuery.Validation.1.16.0.
+Adding package 'jQuery.Validation.1.16.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'EntityFramework.6.1.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package jQuery.Validation.Globalize.1.0.1.
+Adding package 'jQuery.Validation.Globalize.1.0.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'jQuery.Validation.1.16.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package jquery-globalize.0.1.0.
+Adding package 'jquery-globalize.0.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'jQuery.2.2.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package MarkdownSharp.1.13.0.
+Adding package 'MarkdownSharp.1.13.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'jQuery.Validation.Globalize.1.0.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.2.4.0.
+Adding package 'Microsoft.ApplicationInsights.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'MarkdownSharp.1.13.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.Agent.Intercept.2.4.0.
+Adding package 'Microsoft.ApplicationInsights.Agent.Intercept.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.Agent.Intercept.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.DependencyCollector.2.4.1.
+Adding package 'Microsoft.ApplicationInsights.DependencyCollector.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Bootstrap.Datepicker.1.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.JavaScript.0.22.9-build00167.
+Adding package 'Microsoft.ApplicationInsights.JavaScript.0.22.9-build00167' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1.
+Adding package 'Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.JavaScript.0.22.9-build00167' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.Web.2.4.1.
+Adding package 'Microsoft.ApplicationInsights.Web.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.DependencyCollector.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.WindowsServer.2.4.1.
+Adding package 'Microsoft.ApplicationInsights.WindowsServer.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0.
+Adding package 'Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.WindowsServer.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.Identity.Core.2.2.1.
+Adding package 'Microsoft.AspNet.Identity.Core.2.2.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.Web.2.4.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.Identity.EntityFramework.2.2.1.
+Adding package 'Microsoft.AspNet.Identity.EntityFramework.2.2.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.Identity.Owin.2.2.1.
+Adding package 'Microsoft.AspNet.Identity.Owin.2.2.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.Identity.Core.2.2.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.Mvc.5.2.3.
+Adding package 'Microsoft.AspNet.Mvc.5.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.Identity.EntityFramework.2.2.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.Razor.3.2.3.
+Adding package 'Microsoft.AspNet.Razor.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.Identity.Owin.2.2.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.TelemetryCorrelation.1.0.0.
+Adding package 'Microsoft.AspNet.TelemetryCorrelation.1.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.Mvc.5.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.Web.Optimization.1.1.3.
+Adding package 'Microsoft.AspNet.Web.Optimization.1.1.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.Razor.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.WebPages.3.2.3.
+Adding package 'Microsoft.AspNet.WebPages.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.TelemetryCorrelation.1.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Bcl.1.1.10.
+Adding package 'Microsoft.Bcl.1.1.10' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.Web.Optimization.1.1.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Bcl.Async.1.0.168.
+Adding package 'Microsoft.Bcl.Async.1.0.168' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.WebPages.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Bcl.Build.1.0.21.
+Adding package 'Microsoft.Bcl.Build.1.0.21' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Bcl.Build.1.0.21' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28.
+Adding package 'Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.jQuery.Unobtrusive.Ajax.3.2.3.
+Adding package 'Microsoft.jQuery.Unobtrusive.Ajax.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.jQuery.Unobtrusive.Ajax.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.jQuery.Unobtrusive.Validation.3.2.3.
+Adding package 'Microsoft.jQuery.Unobtrusive.Validation.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.jQuery.Unobtrusive.Validation.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Net.Compilers.2.4.0.
+Adding package 'Microsoft.Net.Compilers.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Bcl.Async.1.0.168' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Owin.3.1.0.
+Adding package 'Microsoft.Owin.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Owin.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Owin.Host.SystemWeb.3.1.0.
+Adding package 'Microsoft.Owin.Host.SystemWeb.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Owin.Host.SystemWeb.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Owin.Security.3.1.0.
+Adding package 'Microsoft.Owin.Security.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Owin.Security.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Owin.Security.Cookies.3.1.0.
+Adding package 'Microsoft.Owin.Security.Cookies.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Bcl.1.1.10' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Owin.Security.OAuth.3.1.0.
+Adding package 'Microsoft.Owin.Security.OAuth.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Owin.Security.Cookies.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Web.Infrastructure.1.0.0.
+Adding package 'Microsoft.Web.Infrastructure.1.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Owin.Security.OAuth.3.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Web.WebJobs.Publish.1.0.12.
+Adding package 'Microsoft.Web.WebJobs.Publish.1.0.12' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Web.Infrastructure.1.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Modernizr.2.8.3.
+Adding package 'Modernizr.2.8.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Modernizr.2.8.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Newtonsoft.Json.9.0.1.
+Adding package 'Newtonsoft.Json.9.0.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Web.WebJobs.Publish.1.0.12' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Owin.1.0.0.
+Adding package 'Owin.1.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Owin.1.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Pagedown.Bootstrap.FontAwesome.1.0.4.
+Adding package 'Pagedown.Bootstrap.FontAwesome.1.0.4' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Newtonsoft.Json.9.0.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Postal.Mvc5.1.2.0.
+Added package 'Microsoft.Net.Compilers.2.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package RazorEngine.3.10.0.
+Adding package 'Postal.Mvc5.1.2.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Adding package 'RazorEngine.3.10.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Postal.Mvc5.1.2.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Select2.js.3.5.2.
+Adding package 'Select2.js.3.5.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Pagedown.Bootstrap.FontAwesome.1.0.4' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Sendgrid.9.5.1.
+Adding package 'Sendgrid.9.5.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'RazorEngine.3.10.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package SimpleInjector.4.0.8.
+Adding package 'SimpleInjector.4.0.8' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Sendgrid.9.5.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package SimpleInjector.Integration.Web.4.0.8.
+Adding package 'SimpleInjector.Integration.Web.4.0.8' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'SimpleInjector.4.0.8' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package SimpleInjector.Integration.Web.Mvc.4.0.8.
+Adding package 'SimpleInjector.Integration.Web.Mvc.4.0.8' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'SimpleInjector.Integration.Web.4.0.8' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.Diagnostics.DiagnosticSource.4.4.0.
+Adding package 'System.Diagnostics.DiagnosticSource.4.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'SimpleInjector.Integration.Web.Mvc.4.0.8' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.Linq.Queryable.4.3.0.
+Adding package 'System.Linq.Queryable.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.Diagnostics.DiagnosticSource.4.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.Net.Http.4.0.0.
+Adding package 'System.Net.Http.4.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.Net.Http.4.0.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.ValueTuple.4.4.0.
+Adding package 'System.ValueTuple.4.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.Linq.Queryable.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Twitter.Bootstrap.3.0.1.1.
+Adding package 'Twitter.Bootstrap.3.0.1.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Select2.js.3.5.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package WebGrease.1.6.0.
+Adding package 'WebGrease.1.6.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Twitter.Bootstrap.3.0.1.1' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package X.PagedList.1.24.1.320.
+Adding package 'X.PagedList.1.24.1.320' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'WebGrease.1.6.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package X.PagedList.Mvc.4.9.1.310.
+Adding package 'X.PagedList.Mvc.4.9.1.310' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'X.PagedList.1.24.1.320' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Lucene.Net.3.0.3.
+Adding package 'Lucene.Net.3.0.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'X.PagedList.Mvc.4.9.1.310' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package SharpZipLib.0.86.0.
+Adding package 'SharpZipLib.0.86.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'SharpZipLib.0.86.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package BlobFileSystem.Azure.0.0.7.
+Adding package 'BlobFileSystem.Azure.0.0.7' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.ValueTuple.4.4.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Azure.KeyVault.Core.2.0.4.
+Adding package 'Microsoft.Azure.KeyVault.Core.2.0.4' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'BlobFileSystem.Azure.0.0.7' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Data.Edm.5.8.2.
+Adding package 'Microsoft.Data.Edm.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Lucene.Net.3.0.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Data.OData.5.8.2.
+Adding package 'Microsoft.Data.OData.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Azure.KeyVault.Core.2.0.4' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Data.Services.Client.5.8.2.
+Adding package 'Microsoft.Data.Services.Client.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Data.Services.Client.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.WindowsAzure.ConfigurationManager.3.2.3.
+Adding package 'Microsoft.WindowsAzure.ConfigurationManager.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Data.Edm.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.ComponentModel.EventBasedAsync.4.3.0.
+Adding package 'System.ComponentModel.EventBasedAsync.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.WindowsAzure.ConfigurationManager.3.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.Dynamic.Runtime.4.3.0.
+Adding package 'System.Dynamic.Runtime.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Data.OData.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.Net.Requests.4.3.0.
+Adding package 'System.Net.Requests.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.ComponentModel.EventBasedAsync.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package System.Spatial.5.8.2.
+Adding package 'System.Spatial.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.Dynamic.Runtime.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package WindowsAzure.Storage.8.2.0.
+Adding package 'WindowsAzure.Storage.8.2.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.Net.Requests.4.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.AspNet.WebApi.Client.5.2.3.
+Adding package 'Microsoft.AspNet.WebApi.Client.5.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'jquery-globalize.0.1.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package RedDog.Search.0.5.2.
+Adding package 'RedDog.Search.0.5.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.AspNet.WebApi.Client.5.2.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package SendGrid.CSharp.HTTP.Client.3.3.0.
+Adding package 'SendGrid.CSharp.HTTP.Client.3.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'WindowsAzure.Storage.8.2.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package SendGrid.SmtpApi.1.3.3.
+Adding package 'SendGrid.SmtpApi.1.3.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'RedDog.Search.0.5.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Azure.WebJobs.1.1.2.
+Adding package 'Microsoft.Azure.WebJobs.1.1.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'SendGrid.CSharp.HTTP.Client.3.3.0' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Restoring NuGet package Microsoft.Azure.WebJobs.Core.1.1.2.
+Adding package 'Microsoft.Azure.WebJobs.Core.1.1.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Azure.WebJobs.1.1.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'SendGrid.SmtpApi.1.3.3' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'Microsoft.Azure.WebJobs.Core.1.1.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+Added package 'System.Spatial.5.8.2' to folder 'C:\TdSrc\ticketdesk\TicketDesk\packages'
+  CACHE https://api.nuget.org/v3/vulnerabilities/index.json
+  CACHE https://api.nuget.org/v3-vulnerabilities/2026.11.07.05.53.18/vulnerability.base.json
+  CACHE https://api.nuget.org/v3-vulnerabilities/2026.11.07.05.53.18/2026.11.07.05.53.18/vulnerability.update.json
+WARNING: NU1902: Package 'AngleSharp' 0.9.5 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-pgww-w46g-26qg
+WARNING: NU1902: Package 'bootstrap' 3.3.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-3mgp-fx93-9xv5
+WARNING: NU1902: Package 'bootstrap' 3.3.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4p24-vmcr-4gqj
+WARNING: NU1902: Package 'bootstrap' 3.3.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-ph58-4vrj-w6hr
+WARNING: NU1902: Package 'bootstrap' 3.3.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-3wqf-4x89-9g79
+WARNING: NU1902: Package 'bootstrap' 3.3.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9v3m-8fp8-mj99
+WARNING: NU1902: Package 'bootstrap' 3.3.6 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-7mvr-5x2g-wfc8
+WARNING: NU1901: Package 'HtmlSanitizer' 3.2.103 has a known low severity vulnerability, https://github.com/advisories/GHSA-8j9v-h2vp-2hhv
+WARNING: NU1902: Package 'HtmlSanitizer' 3.2.103 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-43cp-6p3q-2pc4
+WARNING: NU1902: Package 'HtmlSanitizer' 3.2.103 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-j92c-7v7g-gj3f
+WARNING: NU1902: Package 'jQuery' 2.2.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-rmxg-73gg-4p98
+WARNING: NU1902: Package 'jQuery' 2.2.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6c3j-c64m-qhgq
+WARNING: NU1902: Package 'jQuery' 2.2.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-jpcq-cgw6-v4j6
+WARNING: NU1902: Package 'jQuery' 2.2.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-gxr4-xjj5-5px2
+WARNING: NU1903: Package 'jQuery.Validation' 1.16.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-jxwx-85vp-gvwm
+WARNING: NU1903: Package 'Microsoft.AspNet.Identity.Owin' 2.2.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-25c8-p796-jg6r
+WARNING: NU1903: Package 'Microsoft.Data.OData' 5.8.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-mv2r-q4g5-j8q5
+WARNING: NU1903: Package 'Microsoft.Data.OData' 5.8.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-mv2r-q4g5-j8q5
+WARNING: NU1903: Package 'Microsoft.Owin' 3.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-hxrm-9w7p-39cc
+WARNING: NU1903: Package 'Microsoft.Owin' 3.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-3rq8-h3gj-r5c6
+WARNING: NU1903: Package 'Microsoft.Owin.Security.Cookies' 3.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-3rq8-h3gj-r5c6
+WARNING: NU1903: Package 'Newtonsoft.Json' 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+WARNING: NU1903: Package 'Newtonsoft.Json' 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+WARNING: NU1903: Package 'Newtonsoft.Json' 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+WARNING: NU1903: Package 'Newtonsoft.Json' 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+WARNING: NU1903: Package 'Newtonsoft.Json' 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+WARNING: NU1903: Package 'Newtonsoft.Json' 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr
+WARNING: NU1904: Package 'RazorEngine' 3.10.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-ph3v-2hq5-5qfq
+WARNING: NU1902: Package 'SharpZipLib' 0.86.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cqj4-m2pc-v9m5
+WARNING: NU1902: Package 'SharpZipLib' 0.86.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-cqj4-m2pc-v9m5
+WARNING: NU1903: Package 'SharpZipLib' 0.86.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-m22m-h4rf-pwq3
+WARNING: NU1903: Package 'SharpZipLib' 0.86.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-m22m-h4rf-pwq3
+WARNING: NU1903: Package 'System.Net.Http' 4.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57
+WARNING: NU1903: Package 'System.Net.Http' 4.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57
+
+NuGet Config files used:
+    C:\Users\Administrator\AppData\Roaming\NuGet\NuGet.Config
+
+Feeds used:
+    C:\Users\Administrator\.nuget\packages\
+    https://api.nuget.org/v3/index.json
+
+Installed:
+    84 package(s) to packages.config projects
+[2026-11-08T00:35:44Z] INFO   restore exit 0 in 15.5s (warnings , errors )
+[2026-11-08T00:35:44Z] INFO   build : C:\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe C:\TdSrc\ticketdesk\TicketDesk\TicketDesk-2.5.sln /p:Configuration=Release /m:4 /nr:false /v:minimal /clp:Summary /bl:C:\TdBuild\logs\build.binlog
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+C:\BuildTools\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2433,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "Microsoft.Azure.WebJobs, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors. [C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.IO\TicketDesk.IO.csproj]
+C:\BuildTools\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2433,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "Microsoft.Azure.WebJobs.Host, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors. [C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.IO\TicketDesk.IO.csproj]
+  TicketDesk.IO -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.IO\bin\Release\TicketDesk.IO.dll
+  TicketDesk.Domain.Legacy -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Domain.Legacy\bin\Release\TicketDesk.Domain.Legacy.dll
+  TicketDesk.Search.Common -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Search.Common\bin\Release\TicketDesk.Search.Common.dll
+C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\SerializableMailMessage\SerializableMailMessage.cs(33,4): warning CS0618: 'MailMessage.ReplyTo' is obsolete: 'ReplyTo is obsoleted for this type.  Please use ReplyToList instead which can accept multiple addresses. http://go.microsoft.com/fwlink/?linkid=14202' [C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\S22.Mail.csproj]
+C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\SerializableMailMessage\SerializableMailMessage.cs(70,14): warning CS0618: 'MailMessage.ReplyTo' is obsolete: 'ReplyTo is obsoleted for this type.  Please use ReplyToList instead which can accept multiple addresses. http://go.microsoft.com/fwlink/?linkid=14202' [C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\S22.Mail.csproj]
+  S22.Mail -> C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\bin\Release\S22.Mail.dll
+  TicketDesk.Localization -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Localization\bin\Release\TicketDesk.Localization.dll
+  TicketDesk.Web.Identity -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Web.Identity\bin\Release\TicketDesk.Web.Identity.dll
+  TicketDesk.PushNotifications -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.PushNotifications\bin\Release\TicketDesk.PushNotifications.dll
+  TicketDesk.Search.Azure -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Search.Azure\bin\Release\TicketDesk.Search.Azure.dll
+  TicketDesk.Domain -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Domain\bin\Release\TicketDesk.Domain.dll
+  TicketDesk.Search.Lucene -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Search.Lucene\bin\Release\TicketDesk.Search.Lucene.dll
+  TicketDesk.PushNotifications.Job -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.PushNotifications.Job\bin\Release\TicketDesk.PushNotifications.Job.exe
+  TicketDesk.Web.Client -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Web.Client\bin\TicketDesk.Web.Client.dll
+
+Build succeeded.
+
+C:\BuildTools\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2433,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "Microsoft.Azure.WebJobs, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors. [C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.IO\TicketDesk.IO.csproj]
+C:\BuildTools\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2433,5): warning MSB3245: Could not resolve this reference. Could not locate the assembly "Microsoft.Azure.WebJobs.Host, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL". Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors. [C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.IO\TicketDesk.IO.csproj]
+C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\SerializableMailMessage\SerializableMailMessage.cs(33,4): warning CS0618: 'MailMessage.ReplyTo' is obsolete: 'ReplyTo is obsoleted for this type.  Please use ReplyToList instead which can accept multiple addresses. http://go.microsoft.com/fwlink/?linkid=14202' [C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\S22.Mail.csproj]
+C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\SerializableMailMessage\SerializableMailMessage.cs(70,14): warning CS0618: 'MailMessage.ReplyTo' is obsolete: 'ReplyTo is obsoleted for this type.  Please use ReplyToList instead which can accept multiple addresses. http://go.microsoft.com/fwlink/?linkid=14202' [C:\TdSrc\ticketdesk\TicketDesk\S22.Mail\S22.Mail.csproj]
+    4 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:46.54
+[2026-11-08T00:36:32Z] INFO   build exit 0 in 48.5s (warnings 4, errors 0)
+[2026-11-08T00:36:32Z] INFO   publish : C:\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Web.Client\TicketDesk.Web.Client.csproj /p:Configuration=Release /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:PublishUrl=C:\TdBuild\publish /p:DeleteExistingFiles=true /p:BuildProjectReferences=false /nr:false /v:minimal /clp:Summary /bl:C:\TdBuild\logs\publish.binlog
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+  TicketDesk.Web.Client -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Web.Client\bin\TicketDesk.Web.Client.dll
+  TicketDesk.PushNotifications.Job -> C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.PushNotifications.Job\bin\Release\TicketDesk.PushNotifications.Job.exe
+  Transformed Web.config using C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.Web.Client\Web.Release.config into obj\Release\TransformWebConfig\transformed\Web.config.
+  Copying all files to temporary location below for package/publish:
+  obj\Release\Package\PackageTmp.
+  Auto ConnectionString Transformed obj\Release\Package\PackageTmp\Views\Web.config into obj\Release\CSAutoParameterize\transformed\Views\Web.config.
+  Auto ConnectionString Transformed obj\Release\Package\PackageTmp\Views\Emails\Web.config into obj\Release\CSAutoParameterize\transformed\Views\Emails\Web.config.
+  Auto ConnectionString Transformed obj\Release\Package\PackageTmp\Web.config into obj\Release\CSAutoParameterize\transformed\Web.config.
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.79
+[2026-11-08T00:36:42Z] INFO   publish exit 0 in 9.9s (warnings 0, errors 0)
+[2026-11-08T00:36:43Z] INFO   published 840 files to C:\TdBuild\publish in 75.3s
+==== 2026-11-08T00:36:44Z done: source build
+EXIT=0

@@ -1,0 +1,184 @@
+{
+  "target": "https://localhost:5443",
+  "rate_per_s": 10,
+  "warmup_s": 30,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "med": 12.454766,
+      "avg": 17.57143582058046,
+      "p(90)": 35.962829799999994,
+      "p(95)": 40.560187000000006,
+      "p(99)": 50.26009344000014,
+      "max": 61.83905,
+      "count": 1137,
+      "min": 1.503346
+    },
+    "failed": {
+      "rate": 0,
+      "passes": 0,
+      "fails": 1137
+    }
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 680,
+    "fails": 0
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "min": 10.475719,
+        "med": 32.491932,
+        "avg": 29.653581114678893,
+        "p(90)": 42.888345400000006,
+        "p(95)": 45.498122099999996,
+        "p(99)": 48.74054579999998,
+        "max": 58.121503,
+        "count": 218
+      },
+      "failed": {
+        "fails": 218,
+        "rate": 0,
+        "passes": 0
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "avg": 12.350868121212114,
+        "p(90)": 27.7213638,
+        "p(95)": 30.12343475,
+        "p(99)": 35.21062347999996,
+        "max": 39.629142,
+        "count": 660,
+        "min": 1.503346,
+        "med": 9.677364
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 660
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "p(99)": 59.39222305999999,
+        "max": 61.83905,
+        "count": 82,
+        "min": 11.745853,
+        "med": 33.829128,
+        "avg": 32.083000365853664,
+        "p(90)": 51.0564642,
+        "p(95)": 55.52498975
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 82
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "med": 13.870764000000001,
+        "avg": 14.078514190476193,
+        "p(90)": 24.3418115,
+        "p(95)": 25.475196500000003,
+        "p(99)": 32.76240525,
+        "max": 35.681035,
+        "count": 126,
+        "min": 2.801384
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 126
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "avg": 18.783726803921567,
+        "p(90)": 31.647617,
+        "p(95)": 33.660624,
+        "p(99)": 37.207662,
+        "max": 38.676654,
+        "count": 51,
+        "min": 5.163926,
+        "med": 19.387408
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 51
+      }
+    }
+  },
+  "iterations": {
+    "rate": 9.999941685340064,
+    "count": 900
+  },
+  "dropped_iterations": null,
+  "vus_max": {
+    "value": 20,
+    "min": 20,
+    "max": 20
+  },
+  "root_group_checks": [
+    {
+      "fails": 0,
+      "name": "signed in (302 to /)",
+      "path": "::signed in (302 to /)",
+      "id": "fdcd4b15f72aec2317ac2c1533ca239e",
+      "passes": 20
+    },
+    {
+      "passes": 336,
+      "fails": 0,
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89"
+    },
+    {
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 326,
+      "fails": 0,
+      "name": "view 200",
+      "path": "::view 200"
+    },
+    {
+      "passes": 134,
+      "fails": 0,
+      "name": "filter 200",
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d"
+    },
+    {
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 83,
+      "fails": 0,
+      "name": "comment 200",
+      "path": "::comment 200"
+    },
+    {
+      "passes": 83,
+      "fails": 0,
+      "name": "comment saved",
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216"
+    },
+    {
+      "passes": 27,
+      "fails": 0,
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd"
+    },
+    {
+      "name": "created ticket 200",
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 27,
+      "fails": 0
+    }
+  ]
+}

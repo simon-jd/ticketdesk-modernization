@@ -1,0 +1,146 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261109023541
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script0.ps1 -Steps fetch+prereqs+sql+sqlupdate+site+sqltools+restore+deploy+verify -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-fdff374.zip -BundleSha256 3e85152d4b3ccbcf9e1436de9c7f4c1c0820f48de190bd196bf1500d92357b8f -PublishBlob td-legacy-publish-9fd2eed.zip -PublishSha256 94e210adb6826cb0a906869eb9c35c2e34c7cbde1aeed9a1c9e24b83449f9fcf -AdminEmail <admin-email> -RunId 20261109T023514Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-17> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-fdff374.zip -SqlToolsSha256 a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e -DotnetVersion 10.0.14 -RestorePrefix seed -RestoreName baseline-s-shared -Database express
+Process ID: 1108
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-09T02:35:41Z] provision run 20261109T023514Z on tdlab-legacy, steps: fetch+prereqs+sql+sqlupdate+site+sqltools+restore+deploy+verify
+[2026-11-09T02:35:41Z] ==== step fetch
+[2026-11-09T02:35:43Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-fdff374.zip (38,241 bytes, sha256 3E85152D4B3CCBCF9E1436DE9C7F4C1C0820F48DE190BD196BF1500D92357B8F)
+[2026-11-09T02:35:44Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Move-TdFileStore.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Test-TdBlobStore.ps1, Update-TdSqlServer.ps1
+[2026-11-09T02:35:44Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-legacy-publish-9fd2eed.zip (21,065,912 bytes, sha256 94E210ADB6826CB0A906869EB9C35C2E34C7CBDE1AEED9A1C9E24B83449F9FCF)
+[2026-11-09T02:35:48Z] publish package: 891 files
+[2026-11-09T02:35:48Z] step fetch done in 6.9s
+[2026-11-09T02:35:48Z] ==== step prereqs
+[2026-11-09T02:35:57Z] CHANGE installing: Web-Server, Web-WebServer, Web-Default-Doc, Web-Http-Errors, Web-Static-Content, Web-Http-Redirect, Web-Http-Logging, Web-Request-Monitor, Web-Stat-Compression, Web-Dyn-Compression, Web-Filtering, Web-Net-Ext45, Web-Asp-Net45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Mgmt-Tools, Web-Scripting-Tools, NET-Framework-45-ASPNET
+[2026-11-09T02:38:56Z] INFO   .NET Framework 4.x release key 533509
+[2026-11-09T02:38:56Z] INFO   ASP.NET v4.0 registered with IIS
+
+Name                    InstallState
+----                    ------------
+Web-Server                 Installed
+Web-WebServer              Installed
+Web-Default-Doc            Installed
+Web-Http-Errors            Installed
+Web-Static-Content         Installed
+Web-Http-Redirect          Installed
+Web-Http-Logging           Installed
+Web-Request-Monitor        Installed
+Web-Stat-Compression       Installed
+Web-Dyn-Compression        Installed
+Web-Filtering              Installed
+Web-Net-Ext45              Installed
+Web-Asp-Net45              Installed
+Web-ISAPI-Ext              Installed
+Web-ISAPI-Filter           Installed
+Web-Mgmt-Tools             Installed
+Web-Scripting-Tools        Installed
+NET-Framework-45-ASPNET    Installed
+[2026-11-09T02:38:57Z] step prereqs done in 188.5s
+[2026-11-09T02:38:57Z] ==== step sql
+[2026-11-09T02:38:59Z] CHANGE downloaded C:\TdMedia\sql2022-express\SQL2022-SSEI-Expr.exe (3,751,760 bytes, sha256 E2B8E8AAD30D8B1A1922C6C0976C806F0A2E08D04B2DE100A9D70B9F94750BB1)
+[2026-11-09T02:38:59Z] CHANGE downloading Express media (Core)
+[2026-11-09T02:39:16Z] CHANGE extracting SQLEXPR_x64_ENU.exe
+[2026-11-09T02:39:23Z] CHANGE running SQL Server setup for instance SQLEXPRESS (as SYSTEM)
+[2026-11-09T02:44:02Z] CHANGE setup exit 0
+[2026-11-09T02:44:02Z] CHANGE static TCP port 1433
+[2026-11-09T02:44:03Z] CHANGE restarted MSSQL$SQLEXPRESS
+[2026-11-09T02:44:03Z] INFO   sa login enabled, password set
+[2026-11-09T02:44:03Z] INFO   SQL Server 16.0.1000.6 Express Edition (64-bit) on .\SQLEXPRESS, TCP 1433
+[2026-11-09T02:44:03Z] step sql done in 306.4s
+[2026-11-09T02:44:03Z] ==== step sqlupdate
+[2026-11-09T02:44:03Z] INFO   before: Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) Oct 8 2022 05:58:25 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+[2026-11-09T02:44:10Z] CHANGE downloaded C:\TdMedia\sql2022-cu\sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe (491,045,896 bytes, sha256 8F1A7F0AC5F47FF98F5825687C8CCD897563AA835915F2271F908273E962E7E2)
+[2026-11-09T02:44:10Z] CHANGE stopped W3SVC for the patch
+[2026-11-09T02:44:10Z] CHANGE patching SQLEXPRESS with sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe (as SYSTEM)
+[2026-11-09T02:47:08Z] INFO   started W3SVC
+[2026-11-09T02:47:08Z] CHANGE after: Microsoft SQL Server 2022 (RTM-CU27-GDR) (KB5126934) - 16.0.4305.5 (X64) Oct 2 2026 17:28:11 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor) (exit 0, 178.1s)
+SQLUPDATE {"host":"tdlab-legacy","instance":"SQLEXPRESS","started_utc":"2026-11-09T02:44:03.9687444Z","target_version":"16.0.4305.5","before":{"product_version":"16.0.1000.6","update_level":"","kb":"","version":"Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) Oct 8 2022 05:58:25 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 \u003cX64\u003e (Build 26100: ) (Hypervisor)"},"package":"https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/secu/2026/10/sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe","package_sha256":"8F1A7F0AC5F47FF98F5825687C8CCD897563AA835915F2271F908273E962E7E2","exit_code":0,"seconds":178.1,"restart_required":false,"action":"patched","after":{"product_version":"16.0.4305.5","update_level":"CU27","kb":"KB5126934","version":"Microsoft SQL Server 2022 (RTM-CU27-GDR) (KB5126934) - 16.0.4305.5 (X64) Oct 2 2026 17:28:11 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 \u003cX64\u003e (Build 26100: ) (Hypervisor)"},"finished_utc":"2026-11-09T02:47:08.9333057Z"}
+[2026-11-09T02:47:09Z] step sqlupdate done in 185.2s
+[2026-11-09T02:47:09Z] ==== step site
+[2026-11-09T02:47:10Z] CHANGE imported certificate 96449D36383AF1798F029D1E77ED04BD8D0EA812 (CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab)
+[2026-11-09T02:47:10Z] CHANGE trusted lab CA CN=TicketDesk Lab Root CA, O=TicketDesk Lab
+[2026-11-09T02:47:10Z] CHANGE created app pool TicketDesk
+[2026-11-09T02:47:10Z] CHANGE app pool TicketDesk processModel.loadUserProfile = True
+[2026-11-09T02:47:10Z] CHANGE app pool TicketDesk processModel.idleTimeout = 00:00:00
+[2026-11-09T02:47:10Z] CHANGE created C:\inetpub\ticketdesk
+[2026-11-09T02:47:10Z] CHANGE created C:\inetpub\ticketdesk\App_Data
+[2026-11-09T02:47:10Z] CHANGE granted IIS AppPool\TicketDesk ReadAndExecute on C:\inetpub\ticketdesk
+[2026-11-09T02:47:10Z] CHANGE granted IIS AppPool\TicketDesk Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-09T02:47:10Z] CHANGE stopped Default Web Site (port conflict)
+[2026-11-09T02:47:10Z] CHANGE created site TicketDesk
+[2026-11-09T02:47:10Z] CHANGE binding https *:443:
+[2026-11-09T02:47:11Z] CHANGE TLS binding 0.0.0.0:443 -> 96449D36383AF1798F029D1E77ED04BD8D0EA812
+[2026-11-09T02:47:14Z] CHANGE W3SVC now depends on WAS/HTTP/MSSQL$SQLEXPRESS
+[2026-11-09T02:47:15Z] CHANGE SQL: created database (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-09T02:47:15Z] CHANGE SQL: created login (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-09T02:47:15Z] CHANGE SQL: created user (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-09T02:47:15Z] CHANGE SQL: granted db_owner (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-09T02:47:15Z] INFO   site TicketDesk -> C:\inetpub\ticketdesk, http 80, https 443, cert 96449D36383AF1798F029D1E77ED04BD8D0EA812 (expires 2029-02-10)
+[2026-11-09T02:47:15Z] step site done in 6.5s
+[2026-11-09T02:47:15Z] ==== step sqltools
+[2026-11-09T02:47:15Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-sqltools-fdff374.zip (46,359,658 bytes, sha256 A31A507B9A6CC191786B87765136F4E17831E1609480FAC9305D0F26230C1A7E)
+[2026-11-09T02:47:19Z] CHANGE downloaded C:\TdMedia\dotnet-install.ps1 (76,676 bytes, sha256 E8B873E18A81E5C4CD8AB69D84DAC8FEAD291D50B3C44633CD7FDDAD709A13D6)
+dotnet-install: Remote file https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.14/dotnet-runtime-10.0.14-win-x64.zip size is 36971047 bytes.
+dotnet-install: Downloaded file https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.14/dotnet-runtime-10.0.14-win-x64.zip size is 36971047 bytes.
+dotnet-install: The remote and local file sizes are equal.
+dotnet-install: Extracting the archive.
+dotnet-install: Binaries of dotnet can be found in C:\TdTools\dotnet\
+dotnet-install: Note that the script does not ensure your Windows version is supported during the installation.
+dotnet-install: To check the list of supported versions, go to https://learn.microsoft.com/dotnet/core/install/windows#supported-versions
+dotnet-install: Installed version is 10.0.14
+dotnet-install: Installation finished
+Microsoft.NETCore.App 10.0.14 [C:\TdTools\dotnet\shared\Microsoft.NETCore.App]
+170.5.96.0
+V expand/V0001__tickets_assigned_date.sql                      70f588688a2b tx 2 batch(es)
+V expand/V0002__tickets_assigned_date_backfill.sql             01e98f009723 no-tx 1 batch(es)
+V expand/V0003__ticket_list_and_report_indexes.sql             217e32d05f11 no-tx 1 batch(es)
+V expand/V0004__tickets_rebuild_after_backfill.sql             5c77e2f3c48e no-tx 1 batch(es)
+V expand/V0005__assigned_date_trigger_null_changes.sql         b4aa58c2fd03 tx 1 batch(es)
+V expand/V0006__open_unassigned_include_assignee.sql           9cf2eba50808 no-tx 1 batch(es)
+R programmable/R__usp_report_assignee_workload.sql             8fa638b1c07f tx 1 batch(es)
+R programmable/R__usp_report_open_tickets_aging.sql            50b09e2e23c9 tx 1 batch(es)
+R programmable/R__usp_report_time_to_close.sql                 e712372cf5f8 tx 1 batch(es)
+R programmable/R__usp_ticket_list.sql                          8b0025c817be tx 1 batch(es)
+C contract/C0001__assigned_date_contract.sql                   d098ffe2df1c tx 4 batch(es)
+[2026-11-09T02:47:26Z] step sqltools done in 11.4s
+[2026-11-09T02:47:26Z] ==== step restore
+[2026-11-09T02:47:27Z] CHANGE downloaded 1 files (83,456,512 bytes) from https://sttdlab36d2d4.blob.core.windows.net/backups/seed/baseline-s-shared/ in 0.7s
+[2026-11-09T02:47:27Z] WARN   no manifest.json in seed/baseline-s-shared (staged export): files not checked against a manifest
+[2026-11-09T02:47:27Z] no site.zip: database only
+[2026-11-09T02:47:27Z] CHANGE stopped app pool TicketDesk
+[2026-11-09T02:47:34Z] CHANGE restored TicketDesk from C:\TdBackups\from-blob\baseline-s-shared\TicketDesk.bak
+[2026-11-09T02:47:34Z] INFO   mapped IIS AppPool\TicketDesk as db_owner in TicketDesk
+[2026-11-09T02:47:34Z] INFO   started app pool TicketDesk
+[2026-11-09T02:47:34Z] INFO   restore complete in 6.4s
+ROWCOUNTS {"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":9,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}
+[2026-11-09T02:47:34Z] step restore done in 7.3s
+[2026-11-09T02:47:34Z] ==== step deploy
+PS>TerminatingError(Invoke-WebRequest): "The remote server returned an error: (405) Method Not Allowed."
+>> TerminatingError(Invoke-WebRequest): "The remote server returned an error: (405) Method Not Allowed."
+>> TerminatingError(Invoke-WebRequest): "The remote server returned an error: (405) Method Not Allowed."
+>> TerminatingError(Invoke-WebRequest): "The remote server returned an error: (405) Method Not Allowed."
+>> TerminatingError(Invoke-WebRequest): "The remote server returned an error: (405) Method Not Allowed."
+[2026-11-09T02:47:34Z] FAILED: The remote server returned an error: (405) Method Not Allowed.
+[2026-11-09T02:47:34Z] at Test-TdKeyVaultSecret, C:\TdOps\windows\TdOps.psm1: line 203
+at Get-DeploySecrets, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 159
+at Invoke-AppDeploy, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 173
+at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 244
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 461
+[2026-11-09T02:47:34Z] TDTIMINGS {"fetch":6.9,"prereqs":188.5,"sql":306.4,"sqlupdate":185.2,"site":6.5,"sqltools":11.4,"restore":7.3} total 713.8s
+**********************
+Windows PowerShell transcript end
+End time: 20261109024734
+**********************

@@ -1,0 +1,4 @@
+$ td-db migrate --contract --legacy-retired
+applied contract/C0001__assigned_date_contract.sql in 0.40 s
+1 script(s) applied
+# wall clock .595759289 s

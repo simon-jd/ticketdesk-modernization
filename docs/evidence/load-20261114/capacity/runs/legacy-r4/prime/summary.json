@@ -1,0 +1,185 @@
+{
+  "target": "https://localhost:8443",
+  "rate_per_s": 10,
+  "warmup_s": 0,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "max": 11379.205659,
+      "count": 1030,
+      "min": 6.70127,
+      "med": 54.7899065,
+      "avg": 527.6516961990284,
+      "p(90)": 170.73511480000002,
+      "p(95)": 3589.2108014499936,
+      "p(99)": 10455.786716560002
+    },
+    "failed": {
+      "fails": 1030,
+      "rate": 0,
+      "passes": 0
+    }
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 616,
+    "fails": 0
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "p(90)": 8109.952011700002,
+        "p(95)": 9130.91245025,
+        "p(99)": 10963.463879710001,
+        "max": 11086.324777,
+        "count": 224,
+        "min": 80.905441,
+        "med": 102.645724,
+        "avg": 1451.9325157544647
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 224
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "med": 11.62239,
+        "avg": 257.335839252992,
+        "p(90)": 79.78303380000001,
+        "p(95)": 205.04550799999993,
+        "p(99)": 9776.46336308,
+        "max": 11379.205659,
+        "count": 585,
+        "min": 6.70127
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 585
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "p(95)": 994.0884901,
+        "p(99)": 3734.7124782000014,
+        "max": 3961.654028,
+        "count": 75,
+        "min": 65.08872,
+        "med": 85.890628,
+        "avg": 323.5037563066667,
+        "p(90)": 886.8702486000007
+      },
+      "failed": {
+        "fails": 75,
+        "rate": 0,
+        "passes": 0
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "p(90)": 55.178196600000014,
+        "p(95)": 377.21460049999973,
+        "p(99)": 1695.209442769992,
+        "max": 3169.451561,
+        "count": 74,
+        "min": 17.0867,
+        "med": 26.63317,
+        "avg": 102.59326166216215
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 74
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "avg": 497.9474237083335,
+        "p(90)": 178.05349089999999,
+        "p(95)": 251.16560940000028,
+        "p(99)": 10548.957246560001,
+        "max": 10586.773667,
+        "count": 72,
+        "min": 28.339706,
+        "med": 64.2784065
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 72
+      }
+    }
+  },
+  "iterations": {
+    "rate": 8.787116703354458,
+    "count": 539
+  },
+  "dropped_iterations": {
+    "count": 61,
+    "rate": 0.9944603319195213
+  },
+  "vus_max": {
+    "value": 50,
+    "min": 50,
+    "max": 50
+  },
+  "vus": {
+    "value": 1,
+    "min": 0,
+    "max": 50
+  },
+  "root_group_checks": [
+    {
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 224,
+      "fails": 0
+    },
+    {
+      "name": "filter 200",
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 75,
+      "fails": 0
+    },
+    {
+      "fails": 0,
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 195
+    },
+    {
+      "fails": 0,
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 37
+    },
+    {
+      "name": "comment saved",
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 37,
+      "fails": 0
+    },
+    {
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 24,
+      "fails": 0
+    },
+    {
+      "name": "created ticket 200",
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 24,
+      "fails": 0
+    }
+  ]
+}

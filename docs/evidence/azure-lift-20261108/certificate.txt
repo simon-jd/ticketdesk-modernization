@@ -1,0 +1,9 @@
+# lift.sh cert 2026-11-08T15:49:16Z: IIS certificate for the Azure VM (public part only)
+subject=O=TicketDesk Lab, CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com
+issuer=O=TicketDesk Lab, CN=TicketDesk Lab Root CA
+serial=12337EC53147DEE98219906A9EBB4B041875B963
+notBefore=Nov  8 15:43:51 2026 GMT
+notAfter=Feb 10 15:43:51 2029 GMT
+sha1 Fingerprint=96:44:9D:36:38:3A:F1:79:8F:02:9D:1E:77:ED:04:BD:8D:0E:A8:12
+X509v3 Subject Alternative Name: 
+    DNS:tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, DNS:localhost, DNS:tdlab-legacy, IP Address:127.0.0.1

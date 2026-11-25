@@ -1,0 +1,4 @@
+# 2026-11-10T08:29:28Z k6 k6 v2.3.0 (commit/e088784614, go1.26.8,  against https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com (Azure VM, azure) from lab-host
+# mix tests/perf/ticketdesk-mix.js, rate 5 ops/s, warm-up 20 s, measure 60 s; host load 0.98 2.56 4.25
+# network: TCP connect to the VM from lab-host (5 samples, s):
+0.237393 0.193604 0.237681 0.214570 0.198004 

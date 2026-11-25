@@ -1,0 +1,1 @@
+new reset: database restored from new-base-rcsi.bak, app restarted (3 s); tickets 10001

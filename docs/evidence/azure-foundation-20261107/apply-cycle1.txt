@@ -1,0 +1,34 @@
+# cycle 1 apply
+# command: make azure-up/down-foundation (bash wrapper in tmux), terraform 1.17.1, azurerm 5.13.0, azuread 3.10.0, azapi 2.13.0, host lab-host
+# lines kept: stage start/end, plan summary, per-resource Creation/Destruction complete, errors; IDs redacted
+apply stage foundation start 2026-11-08T00:33:47Z
+Plan: 27 to add, 0 to change, 0 to destroy.
+module.entra[0].azuread_application.web: Creation complete after 3s
+module.entra[0].azuread_service_principal.web: Creation complete after 1s
+module.entra[0].azuread_app_role_assignment.admin: Creation complete after 1s
+azurerm_resource_group.lab[0]: Creation complete after 23s
+module.network[0].azurerm_network_security_group.pe: Creation complete after 2s
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Creation complete after 2s
+module.network[0].azurerm_network_security_group.aks: Creation complete after 2s
+module.network[0].azurerm_network_security_group.vm: Creation complete after 2s
+module.network[0].azurerm_virtual_network.this: Creation complete after 5s
+module.network[0].azurerm_subnet.pe: Creation complete after 4s
+module.network[0].azurerm_subnet.aks: Creation complete after 8s
+module.network[0].azurerm_subnet.vm: Creation complete after 13s
+module.network[0].azurerm_subnet_network_security_group_association.pe: Creation complete after 14s
+module.network[0].azurerm_subnet_network_security_group_association.aks: Creation complete after 14s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Creation complete after 14s
+module.sql[0].azurerm_private_dns_zone.sql: Creation complete after 32s
+module.monitoring[0].azurerm_log_analytics_workspace.this: Creation complete after 44s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Creation complete after 33s
+module.keyvault[0].azurerm_key_vault.this: Creation complete after 2m28s
+module.keyvault[0].azurerm_role_assignment.admin: Creation complete after 32s
+module.keyvault[0].time_sleep.rbac_propagation: Creation complete after 2m0s
+Error: execution halted
+Error: execution halted
+Error: making Read request for Smart Detector Alert Rule (Subscription: "<subscription-id>"
+Error: creating Server (Subscription: "<subscription-id>"
+Status: "ProvisioningDisabled"
+Message: "Provisioning is restricted in this region. Please choose a different region. For exceptions to this rule please open a support request with Issue type of 'Service and subscription limits'. See https://docs.microsoft.com/en-us/azure/sql-database/quota-increase-request for more details."
+apply stage foundation end 2026-11-08T00:54:08Z elapsed_s=1221 rc=1
+make: *** [infra/azure.mk:56: azure-up-foundation] Error 1

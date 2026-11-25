@@ -1,0 +1,9 @@
+2026-11-08T22:30:03Z reaper: rg-ticketdesk-lab ttl 2026-11-08T22:52:56Z (not expired)
+2026-11-08T22:30:04Z reaper: WARN no ttl tag: Microsoft.Sql/servers/databases master
+2026-11-08T22:30:04Z reaper: nothing expired
+2026-11-08T22:45:03Z reaper: rg-ticketdesk-lab ttl 2026-11-08T22:52:56Z (not expired)
+2026-11-08T22:45:04Z reaper: WARN no ttl tag: Microsoft.Sql/servers/databases master
+2026-11-08T22:45:04Z reaper: nothing expired
+2026-11-08T23:00:04Z reaper: rg-ticketdesk-lab ttl 2026-11-08T22:52:56Z has passed: deleting the resource group
+2026-11-08T23:04:19Z reaper: rg-ticketdesk-lab deleted
+2026-11-08T23:15:02Z reaper: rg-ticketdesk-lab does not exist: nothing to reap

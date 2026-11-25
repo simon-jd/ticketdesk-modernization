@@ -1,0 +1,23 @@
+2026-11-08T16:23:12Z provision 20261108T162312Z on vm-tdlab-legacy: restore RestorePrefix=cutover RestoreName=cutover-20261108T162218Z
+provision 20261108T162312Z steps=restore elapsed_s=64 rc=1
+2026-11-08T16:23:12Z provision 20261108T162312Z on vm-tdlab-legacy: restore RestorePrefix=cutover RestoreName=cutover-20261108T162218Z
+---- ComponentStatus/StdOut/succeeded
+[2026-11-08T16:23:32Z] provision run 20261108T162312Z on tdlab-legacy, steps: restore
+[2026-11-08T16:23:32Z] ==== step restore
+[2026-11-08T16:23:33Z] CHANGE downloaded 6 files (98,006,521 bytes) from https://sttdlab36d2d4.blob.core.windows.net/backups/cutover/cutover-20261108T162218Z/ in 1.0s
+[2026-11-08T16:23:33Z] INFO   manifest OK: 5 files, created 20261108T162252Z on TDLEGACY01, SQL 16.0.1000.6
+[2026-11-08T16:23:37Z] CHANGE stopped app pool TicketDesk
+[2026-11-08T16:23:41Z] CHANGE restored TicketDesk from C:\TdBackups\from-blob\cutover-20261108T162218Z\TicketDesk.bak
+[2026-11-08T16:23:41Z] INFO   started app pool TicketDesk
+[2026-11-08T16:23:41Z] FAILED: Exception calling "ExecuteNonQuery" with "0" argument(s): "Failed to update database "TicketDesk" because the database is read-only."
+[2026-11-08T16:23:41Z] at Invoke-TdSql, C:\TdOps\windows\TdOps.psm1: line 83
+at <ScriptBlock>, C:\TdOps\windows\Restore-TdSite.ps1: line 57
+at Invoke-Ops, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script8.ps1: line 89
+at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script8.ps1: line 153
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script8.ps1: line 209
+[2026-11-08T16:23:41Z] TDTIMINGS {} total 9.1s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T162312Z.log
+---- ComponentStatus/StdErr/succeeded
+
+Alive[################################################################]  100.0000%Finished[#############################################################]  100.0000%
+provision 20261108T162312Z steps=restore elapsed_s=64 rc=1

@@ -1,0 +1,2 @@
+# synthetic attachments added on disk for tickets of the seeded data (ops: /tmp script, seed 42 random bytes)
+synthetic files written: 6 (9643184 bytes, tickets 1, 2, 3, 42, 9999)

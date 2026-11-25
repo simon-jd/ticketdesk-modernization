@@ -1,0 +1,13 @@
+## alert drill, deadline 40 s after its start: exit 1
+before: Resolved 2026-11-11T00:00:00Z 2026-11-11T00:05:00Z
+fault 2026-11-11T18:59:15.320Z: NetworkPolicy deny egress to 10.42.2.0/24 for td-web, pods replaced (pooled connections)
+session deadline at 2026-11-11T18:59:25.363Z: alert not seen Fired (last state: Resolved 2026-11-11T00:00:00Z 2026-11-11T00:05:00Z)
+recover 2026-11-11T18:59:25.371Z: policy removed
+2026-11-11T18:59:25Z alert-drill: not measured: session deadline (before the alert was seen Fired)
+## not-measured.txt
+2026-11-11T18:59:25Z alert-drill: not measured: session deadline (before the alert was seen Fired)
+## kubectl calls
+kubectl apply -f <scratch>/ev/alert-drill/deny-sql.yaml
+kubectl -n ticketdesk delete pod -l app.kubernetes.io/name=td-web --wait=false
+kubectl delete -f <scratch>/ev/alert-drill/deny-sql.yaml
+## result.json written: no

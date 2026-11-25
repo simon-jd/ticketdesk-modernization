@@ -1,0 +1,165 @@
+@*
+    Port of the legacy Views/Shared/_Layout.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd,
+    https://github.com/stephenredd). Same markup, same bundle URLs and version hashes, same strings (the legacy .resx files).
+    Links to pages that are not migrated are the legacy URLs; they reach the legacy app through the gateway.
+*@
+@using TicketDesk.Localization.Views.Shared
+@{
+    var culture = CultureInfo.CurrentCulture.Name;
+    // MVC 5 Url.Action("Index", "TicketCenter") on the ticket center itself reused the list name and page of the URL
+    var rv = ViewContext.RouteData.Values;
+    var ticketCenterUrl = "/tickets";
+    if (rv["controller"] as string == "TicketCenter" && rv["action"] as string == "Index")
+    {
+        if (rv["listName"] is string ln && ln.Length > 0) ticketCenterUrl += "/" + Uri.EscapeDataString(ln);
+        if (rv["page"] is string pg && pg.Length > 0) ticketCenterUrl += "/" + pg;
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-config" content="none" />
+    <title>
+        @RenderSection("title", required: false)
+    </title>
+    <style type="text/css">
+        /* S3 (Round 5): menu items that post (sign-out, language, project) look like the dropdown links they replace */
+        .dropdown-menu > li > form.td-menu-post { margin: 0; }
+        .dropdown-menu > li > form.td-menu-post > button { display: block; width: 100%; padding: 3px 20px; clear: both; font: inherit; font-weight: normal; line-height: 1.42857143; color: #333; white-space: nowrap; text-align: left; background: none; border: 0; cursor: pointer; }
+        .dropdown-menu > li > form.td-menu-post > button:hover, .dropdown-menu > li > form.td-menu-post > button:focus { color: #262626; background-color: #f5f5f5; outline: 0; }
+    </style>
+    @Bundles.Styles("~/content/styles")
+    @Bundles.Scripts("~/bundles/modernizr")
+    @RenderSection("customHeader", required: false)
+</head>
+<body>
+    <nav id="mainNav" class="navbar navbar-default " role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-collapse">
+
+                <span class="sr-only">@_Layout.Toggle</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="pull-right" style="margin: 0 5px;">
+
+                <a href="@ticketCenterUrl"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   title="@_Layout.TicketCenter"
+                   class="@Html.IsActiveRoute("Index", "TicketCenter") btn btn-default navbar-btn hidden-sm hidden-md hidden-lg"><i class="fa fa-ticket"></i></a>
+                <a href="/ticket/new"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   title="@_Layout.NewTicket"
+                   class="@Html.IsActiveRoute("New", "Ticket") btn btn-default navbar-btn hidden-sm hidden-md hidden-lg "><i class="fa fa-plus"></i></a>
+            </div>
+            <a class="navbar-brand" href="/"> </a>
+        </div>
+        <div>
+            <div id="main-menu-collapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    @if (Site.Value.HomeEnabled)
+                    {
+                        <li class="@Html.IsActiveRoute("Index", "Home")">
+                            <a href="/"><i class="fa fa-home"></i> @_Layout.Home</a>
+                        </li>
+                    }
+                    <li class="@Html.IsActiveRoute("Index", "TicketCenter")">
+                        <a href="@ticketCenterUrl"><i class="fa fa-ticket"></i> @_Layout.TicketCenter</a>
+                    </li>
+                    <li class="@Html.IsActiveRoute("New", "Ticket")">
+                        <a href="/ticket/new"><i class="fa fa-plus"></i> @_Layout.NewTicket</a>
+                    </li>
+                    <li role="separator" class="nav-divider"></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 5px;">
+                    <li class="dropdown hidden-sm hidden-md hidden-lg" style="padding: 10px 15px;">
+                        <partial name="_QuickSearch" />
+                    </li>
+                    <partial name="_UserMenu" />
+                    <li class="dropdown hidden-sm hidden-md hidden-lg">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-gears"></i>
+                            <span class="">@_Layout.Settings</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <partial name="_AdminMenuItems" />
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-language"></i>
+                            <span class="">@_Layout.Language</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <partial name="_LanguageOptions" />
+                        </ul>
+                    </li>
+                    <li class="@Html.IsActiveRoute("About", "Home")">
+                        <a href="/about"><i class="fa fa-info-circle fa-lg"></i> <span class="hidden-sm">@_Layout.About</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="container-fluid navbar-default" style="border-top: 1px solid #e7e7e7; padding: 7px;">
+                <div class="form form-inline pull-left-xs pull-right-sm">
+                    @await Component.InvokeAsync("ProjectMenu")
+                    <div class="form-group hidden-xs">
+                        <partial name="_QuickSearch" />
+                    </div>
+                    <span class="hidden-xs">
+                        <partial name="_AdminMenu" />
+                    </span>
+                </div>
+            </div>
+        }
+    </nav>
+    <div class="body-content">
+        @RenderBody()
+        <footer>
+            <p class="text-muted">
+                <a href="https://github.com/NullDesk/TicketDesk">TicketDesk</a> v2.5 | &copy; 2008 - @DateTime.Now.Year | NullDesk Solutions (Stephen M. Redd)
+            </p>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        window.currentCulture = '@culture';
+    </script>
+    @Bundles.Scripts("~/bundles/common")
+    @Bundles.Scripts("~/bundles/common_locale_" + culture)
+    <script type="text/javascript">
+        Globalize.culture(window.currentCulture);
+
+        //Fix to decimal separator validation
+        var _number = $.validator.methods.number;
+        $.validator.methods.number = function (value, element) {
+            return _number.call(this, Globalize.parseFloat(value), element);
+        };
+        var _range = $.validator.methods.range;
+        $.validator.methods.range = function (value, element, param) {
+            return _range.call(this, Globalize.parseFloat(value), element, param);
+        };
+    </script>
+    @RenderSection("scripts", required: false)
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+    </script>
+
+</body>
+</html>

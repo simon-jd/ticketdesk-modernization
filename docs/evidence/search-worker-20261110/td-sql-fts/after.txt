@@ -1,0 +1,9 @@
+# after recreate, 2026-11-10T17:24:01Z
+image ticketdesk/td-sql:2022-fts-16.0.4262.2 sha256:a46719888eb521240eee673b243014ea79bb6dca84b2a2e7ffb8c864a815d83b restart=unless-stopped mem=10737418240 ports={"1433/tcp":[{"HostIp":"127.0.0.1","HostPort":"14333"}]} mounts=td-sql-data:/var/opt/mssql
+16.0.4262.2 CU25 Developer Edition (64-bit) full-text=1
+TicketDesk ONLINE
+TicketDeskL ONLINE
+TicketDeskSynth ONLINE
+TicketDesk 10000 45649 10
+TicketDeskL 1000000 4538818 9
+TicketDeskSynth 10000 45649 9

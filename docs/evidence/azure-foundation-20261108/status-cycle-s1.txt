@@ -1,0 +1,19 @@
+$ make azure-status   # 2026-11-08T07:40:38Z
+Name                                                 Ttl                   Usd_h
+---------------------------------------------------  --------------------  -------
+ag-tdlab-email                                       2026-11-08T11:33:54Z  0
+nsg-tdlab-pe                                         2026-11-08T11:33:54Z  0
+privatelink.database.windows.net                     2026-11-08T11:33:54Z  0.0007
+vnet-tdlab-swedencentral                             2026-11-08T11:33:54Z  0
+nsg-tdlab-vm                                         2026-11-08T11:33:54Z  0
+sql-tdlab-36d2d4                                     2026-11-08T11:33:54Z  0
+nsg-tdlab-aks                                        2026-11-08T11:33:54Z  0
+kv-tdlab-36d2d4                                      2026-11-08T11:33:54Z  0
+log-tdlab-swedencentral                              2026-11-08T11:33:54Z  0.0125
+privatelink.database.windows.net/pdnslink-sql-tdlab  2026-11-08T11:33:54Z  0
+appi-tdlab-swedencentral                             2026-11-08T11:33:54Z  0
+sql-tdlab-36d2d4/master
+pe-sql-tdlab                                         2026-11-08T11:33:54Z  0.01
+sql-tdlab-36d2d4/sqldb-ticketdesk                    2026-11-08T11:33:54Z  0
+nic-pe-sql-tdlab                                     2026-11-08T11:33:54Z  0.01
+ledger running estimate USD: 4.23

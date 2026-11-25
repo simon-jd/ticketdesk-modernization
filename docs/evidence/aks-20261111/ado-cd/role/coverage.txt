@@ -1,0 +1,23 @@
+== Azure Kubernetes Service RBAC Writer
+  apps/v1                                    Deployment             read/write/delete
+  batch/v1                                   Job                    read/write/delete
+  secrets-store.csi.x-k8s.io/v1              SecretProviderClass    MISSING read,write,delete
+  v1                                         Service                read/write/delete
+  v1                                         ServiceAccount         read/write/delete
+  v1                                         Secret                 read/write/delete
+  v1                                         Pod                    read/write/delete
+  apps/v1                                    ReplicaSet             read/write/delete
+  v1                                         Event                  read/write/delete
+  -> does not cover: Microsoft.ContainerService/managedClusters/secrets-store.csi.x-k8s.io/secretproviderclasses/delete, Microsoft.ContainerService/managedClusters/secrets-store.csi.x-k8s.io/secretproviderclasses/read, Microsoft.ContainerService/managedClusters/secrets-store.csi.x-k8s.io/secretproviderclasses/write
+== Azure Kubernetes Service RBAC Admin
+  apps/v1                                    Deployment             read/write/delete
+  batch/v1                                   Job                    read/write/delete
+  secrets-store.csi.x-k8s.io/v1              SecretProviderClass    read/write/delete
+  v1                                         Service                read/write/delete
+  v1                                         ServiceAccount         read/write/delete
+  v1                                         Secret                 read/write/delete
+  v1                                         Pod                    read/write/delete
+  apps/v1                                    ReplicaSet             read/write/delete
+  v1                                         Event                  read/write/delete
+  -> covers every kind
+object kinds of the v2 render: Deployment (apps/v1), Job (batch/v1), SecretProviderClass (secrets-store.csi.x-k8s.io/v1), Service (v1), ServiceAccount (v1)

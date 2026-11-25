@@ -1,0 +1,34 @@
+# 2026-11-08T15:17:11Z git 2e44a69 (ws/baseline after merging modernize 8dc5a0f); 10.0.403
+# TD_SQL_TEST_CONN=<td-sql master> TD_SEED_USER_PASSWORD=<td-seed.env> TD_MODERN_SEEDED_DB=TicketDesk
+# TicketDesk in td-sql = ticketdesk-clean.bak restored + td-seed S seed 42 (baseline-s.sh build-db) + td-db migrate
+$ dotnet test --solution src/modern/TicketDesk.Modern.sln -c Release --no-build
+Running tests from ~/Desktop/ticketdesk-modernization/wt-baseline/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-baseline/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64)
+~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (250ms)
+~/Desktop/ticketdesk-modernization/wt-baseline/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (585ms)
+~/Desktop/ticketdesk-modernization/wt-baseline/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (3s 116ms)
+~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (3s 187ms)
+~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (3s 200ms)
+~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (4s 355ms)
+~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (5s 334ms)
+
+Test run summary: Passed!
+  ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (250ms)
+  ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (5s 334ms)
+  ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (3s 200ms)
+  ~/Desktop/ticketdesk-modernization/wt-baseline/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (3s 116ms)
+  ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (4s 355ms)
+  ~/Desktop/ticketdesk-modernization/wt-baseline/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (3s 187ms)
+  ~/Desktop/ticketdesk-modernization/wt-baseline/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (585ms)
+
+  total: 395
+  failed: 0
+  succeeded: 395
+  skipped: 0
+  duration: 5s 463ms
+exit=0

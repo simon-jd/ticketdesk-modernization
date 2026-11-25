@@ -1,0 +1,1 @@
+smtp sink on 127.0.0.1:2525 -> docs/evidence/search-worker-20261110/notification-coexistence-run2/mail

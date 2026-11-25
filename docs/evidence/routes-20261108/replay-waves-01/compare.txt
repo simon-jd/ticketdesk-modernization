@@ -1,0 +1,2 @@
+$ td-replay compare --baseline tests/characterization/golden/legacy-golden.jsonl.xz --candidate docs/evidence/routes-20261108/replay-waves-01/gateway.jsonl --out-dir docs/evidence/routes-20261108/replay-waves-01/compare-golden-gateway
+compared 262, matched 259, mismatched 3 (missing 0, extra 0) -> docs/evidence/routes-20261108/replay-waves-01/compare-golden-gateway/report.md

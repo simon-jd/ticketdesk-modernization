@@ -1,0 +1,110 @@
+@* Port of the legacy Views/TicketActivity/_ActivityForm.cshtml and its per-activity partials (TicketDesk 2.5, Ms-PL;
+   attribution: Stephen Redd). Ajax.BeginForm's unobtrusive-AJAX attributes written out; the token is the new app's. *@
+@model TicketDesk.Web.Controllers.ActivityFormModel
+@using TicketDesk.Data.Entities
+@using TicketDesk.Web.Views
+@using S = TicketDesk.Localization.Views.TicketActivity.Strings
+@{
+    var t = Model.Ticket;
+    Context.Items[TicketDesk.Web.Migration.MigrationRegistration.LegacyFormTokenItem] = true;
+}
+<form action="/ticket-activity/@ActivityText.Route(Model.Activity)?ticketId=@t.TicketId" class="form-horizontal" data-ajax="true" data-ajax-begin="editTicket.beginActivity" data-ajax-failure="editTicket.failActivity" data-ajax-mode="replace" data-ajax-success="editTicket.completeActivity" data-ajax-update="#activityPanel" id="form0" method="post" asp-antiforgery="false">@Html.AntiForgeryToken()    <input type="hidden" id="tempId" value="@Model.TempId" />
+    <div id="activityBody">
+        @switch (Model.Activity)
+        {
+            case TicketActivity.Assign:
+            case TicketActivity.Pass:
+            case TicketActivity.ReAssign:
+                <partial name="_ChangeAssignment" model="Model" />
+                break;
+            case TicketActivity.EditTicketInfo:
+                <partial name="_EditTicketInfo" model="Model" />
+                break;
+            case TicketActivity.ModifyAttachments:
+                <div class="form-group">
+                    <input type="hidden" name="deleteFiles"/>
+                    <input type="hidden" name="tempId" value="@Model.TempId"/>
+                    <label class="col-md-2 col-sm-1 control-label">@S.Attachments_Label</label>
+                    <div class="col-md-8 col-sm-11">
+                        <div class="dropzone" style="min-height: 40px;" id="attachmentsDropZone">
+                            <div class="dz-message dz-size" data-dz-message><i class="fa fa-download "></i> @S.Attachment_Instructions</div>
+                            <div class="dropzone-previews" id="dz-preview"></div>
+                        </div>
+                    </div>
+                </div>
+                break;
+            case TicketActivity.ReOpen:
+                @* L3: the checkbox keeps its legacy name (reactivate); the reopen action now reads it as "assign to me" *@
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-2 control-label">@S.ReOpen_Label</label>
+                    <div class="col-sm-8">
+                        <label class="checkbox-inline" for="reactivate">
+                            <input class="" name="reactivate" type="checkbox" id="assignToMe" tabindex="1" value="true" />
+                            @S.ReOpen_AssignToMe
+                        </label>
+                        <div class="small" style="text-indent: 2em;">
+                            <em>
+                                @S.ReOpen_Instructions
+                            </em>
+                        </div>
+                    </div>
+                </div>
+                break;
+            case TicketActivity.SupplyMoreInfo:
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-2 control-label">@S.SupplyMoreInfo_Label</label>
+                    <div class="col-sm-8">
+                        <label class="checkbox-inline" for="reactivate">
+                            <input class="" name="reactivate" type="checkbox" checked id="reactivate" tabindex="1" value="true" />
+                            @S.SupplyMoreInfo_ReactivateTicket
+                        </label>
+                        <div class="small " style="text-indent: 2em;">
+                            <em>
+                                @S.SupplyMoreInfo_Instructions
+                            </em>
+                        </div>
+                    </div>
+                </div>
+                break;
+        }
+        <div class="form-group form-group-sm">
+            <label class="col-sm-2 control-label " for="wmd-input-activity">@S.Comment_Label</label>
+            @if (Model.IsEditorDefaultHtml)
+            {
+                <div class="col-sm-8">
+                    @Html.Raw($"<textarea id=\"wmd-input-activity\" name=\"Comment\" data-is-required={(Model.CommentRequired ? "true" : "false")}>")@Model.Comment@Html.Raw("</textarea>")
+                    @FormHtml.ValidationMessage("Comment")
+                </div>
+            }
+            else
+            {
+                <div class=" col-sm-8 wmd-panel">
+                    <div class="tabbable tabs-below">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="tab1">
+                                <div id="wmd-button-bar-activity" class="" style="display: inline-block"></div>
+                                <textarea class="wmd-input form-control" cols="20" data-is-required="@(Model.CommentRequired ? "true" : "false")" id="wmd-input-activity" name="Comment" rows="2" style="height:150px" tabindex="15">
+@Model.Comment</textarea>
+                            </div>
+                            <div class="tab-pane fade" id="tab2">
+                                <div class="row" style="min-height: 35px;"></div>
+                                <div id="wmd-preview-activity" class="wmd-panel wmd-preview form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs navbar-right">
+                            <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-edit"></i>&nbsp;@S.Comment_EditOption</a></li>
+                            <li><a href="#tab2" data-toggle="tab"><i class="fa fa-eye"></i>&nbsp;@S.Comment_PreviewOption</a></li>
+                        </ul>
+                    </div>
+                    @FormHtml.ValidationMessage("Comment")
+                </div>
+            }
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div>
+            <button type="submit" class="btn btn-success" tabindex="25">@ActivityText.Name(Model.Activity)</button>&nbsp;&nbsp;<a href="#" onclick="return editTicket.cancelActivity(event);">@S.Form_CancelOption</a>
+        </div>
+    </div>
+</form>

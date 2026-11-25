@@ -1,0 +1,39 @@
+# AKS round session 2026-11-12 (ops/azure/aks.sh session from ws/aks = modernize ca0443f, tmux td-aks-session, images
+# aks-v1 / aks-v2b, cap 15.00, rows K2, ttl 3.25 h, deadline start + 165 min)
+06:25:36Z start (the coordinator's go after the user's "Start now" of ~01:53Z reached the agent at 06:25Z): CD preflight
+          ok (agent free, nothing queued, Azure Repos modernize ca0443fa); rows K2.1-K2.17 (1.98) -> 14.96 / 15.00 OK;
+          deadline 09:10:36Z, planned end 09:25:36Z, ttl 09:40:36Z
+06:25:37Z apply-vm (-target=module.vm[0], 21 resources): VM Standard_B2as_v2 on the first try (no AllocationFailed), 7m12s
+06:32:49Z apply (rest of stage cutover, 54 resources; AKS 4m56s), 7m25s; kube, push v1 + v2 (1m13s)
+06:41:27Z vm-data: BACPAC import, users, migrate, legacy deploy, legacy smoke 9/9 (6m19s)
+06:47:46Z deploy-v1 (53 s)
+06:48:39Z smoke-v1 waited on https://<aks fqdn>: the LB health probe failed (DipAvailability 0) because nsg-tdlab-aks's
+          DenyInternetInbound (source Internet) matches the probe source 168.63.129.16; fixed by hand at 07:01:18Z with
+          rule AllowAzureLoadBalancerInbound 3900 (= the Terraform fix, uncommitted in the worktree; retire-vm's apply kept
+          it): intervention-lb-probe/. Read-only smoke 7/7 at 07:02:41Z (rebuild from zero T0 -> smoke: 37 min, ~13 of it
+          lost to the probe)
+07:02:41Z golden-v1: 262 compared, 147 matched, 117 mismatched (missing 0, extra 2)
+07:03:58Z cutover VM -> AKS: reads 90 (0 failed), writes 68 (0 failed), sign-ins 2 (0 failed)
+07:05:29Z vm-cert: Key Vault 2 s, IIS binding 67 s, smoke 77 s (9/9); 56 gateway polls, 0 failed
+07:06:59Z aks-cert: served 62.0 s after the import; probe 100 reads, 0 failed
+07:08:29Z retire-vm: stage aks, VM deleted, 103 s
+07:10:12Z deploy-v2 through CD run 34: approval requested 07:10:41Z, approved 07:34:34Z (1451 s after queueing), run
+          succeeded 07:35:36Z; path cd. Probe through the step (probe-summary.json): reads 1304 (349 failed), writes 904
+          (203 failed), sign-ins 18 (16 failed); of the 758 failed probe records (2431 in probe.jsonl), 733 before the approval:
+          v1 without the VM flapped NotReady (its /health/ready includes the legacy check, which timed out), so the
+          service refused connections in windows of 5-155 s. 25 between 07:35:11 and 07:35:19, before the v2 pod started
+          (07:35:22); 0 after it (89 ok to 07:36:03)
+07:36:05Z smoke-v2 9/9; golden-v2: 258 compared, 122 matched, 142 mismatched (missing 4, extra 2)
+07:37:25Z alert drill: fault -> Fired 83.3 s, recover -> Resolved 255.6 s (Fired -> Resolved 291.3 s); probe 362 reads, 22 failed
+07:44:33Z SLO (server side, AppRequests): v1 phase 665 requests, 100 %, p95 65 ms (met, met); from deploy-v2 to the drill
+          3194 requests, 99.843 % (5 failed), p95 33.9 ms (met, met). Requests the service refused never reached the app
+07:44:44Z restore drill: restore requested 07:46:46Z, Basic copy online 08:19:49Z (33 min 3 s). Switching the app to it
+          failed: helm --set splits the connection string at the comma of "tcp:<server>,1433", so the pod got
+          "Server=tcp:<server>" alone and "Login failed for user ''"; readiness never passed, helm timed out (600 s).
+          RTO and RPO not measured; the copy went with the group
+08:30:02Z restore-drill FAILED (the only failed step; 19 ok, none dropped, the deadline not reached) -> trap: destroy
+08:30:37Z stage none failed: TTL_HOURS=3.25 from the session's environment reached infra/azure.mk's `date -d "+3.25 hours"`
+          (ttl_utc ""); fallback az group delete 08:30:39Z -> group and node group gone 08:40:14Z (612 s)
+08:46Z    by hand (TTL_HOURS 4): refresh-only + stage none (3 local time_* resources), plan "No changes"; soft-deleted vault
+          kv-tdlab-36d2d4 purged; 0 resources tagged project=ticketdesk or owner=agent-aks (teardown.txt)
+Ledger: K2 actuals 1.74 (AKS 2.12 h, VM 0.70 h; DNS zone, ACR, Log Analytics, alert rule, Basic copy as before) -> 14.72

@@ -1,0 +1,5 @@
+sign-in: perf 100 a11y 66 bp 100 axe 7 {"serious":{"rules":6,"nodes":13},"moderate":{"rules":1,"nodes":1}}
+ticket-center: perf 100 a11y 100 bp 100 axe 0 {}
+ticket-detail: perf 100 a11y 100 bp 100 axe 0 {}
+new-ticket: perf 100 a11y 100 bp 100 axe 0 {}
+admin-users: perf 100 a11y 73 bp 100 axe 7 {"critical":{"rules":1,"nodes":1},"serious":{"rules":5,"nodes":48},"moderate":{"rules":1,"nodes":1}}

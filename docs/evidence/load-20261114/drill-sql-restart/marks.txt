@@ -1,0 +1,5 @@
+start 2026-11-14T05:21:45.928Z rate 75 for 360 s, fault sql-restart at +120 s
+fault 2026-11-14T05:23:45.937Z docker restart td-load-sql
+container-up 2026-11-14T05:24:16.616Z
+sql-accepting 2026-11-14T05:24:22.217Z
+end 2026-11-14T05:27:49.414Z

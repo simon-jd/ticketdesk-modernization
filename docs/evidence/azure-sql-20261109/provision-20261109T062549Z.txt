@@ -1,0 +1,75 @@
+2026-11-09T06:25:49Z provision 20261109T062549Z on vm-tdlab-legacy: fetch+deploy+files-check+verify SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-17> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=express
+---- ComponentStatus/StdOut/succeeded
+TdBuild\publish\Views\TicketActivity\_ChangeAssignment.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_Close.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_EditTicketInfo.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ForceClose.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_GiveUp.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ModifyAttachments.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_Pass.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ReAssign.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ReOpen.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_RequestMoreInfo.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_Resolve.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_SupplyMoreInfo.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_TakeOver.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\Index.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\_FilterBar.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\_ListMenu.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\_TicketList.cshtml
+	  			C:\TdBuild\publish\Views\User\Lockout.cshtml
+	  			C:\TdBuild\publish\Views\User\Register.cshtml
+	  			C:\TdBuild\publish\Views\User\SignIn.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\Edit.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\Index.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\New.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\_UserList.cshtml
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51        49         2         0         0         0
+   Files :       810       810         0         0         0         0
+   Bytes :   41.04 m   41.04 m         0         0         0         0
+   Times :   0:00:03   0:00:02                       0:00:00   0:00:00
+
+
+   Speed :           20,310,447 Bytes/sec.
+   Speed :            1,162.173 MegaBytes/min.
+   Ended : Monday, November 9, 2026 6:26:15 AM
+
+[2026-11-09T06:26:15Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-09T06:26:15Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-09T06:26:15Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-09T06:26:16Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-09T06:26:16Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-09T06:26:40Z] INFO   warm-up http://localhost/ -> 200 in 24.3s
+[2026-11-09T06:26:40Z] deploy: database express, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-09T06:26:40Z] step deploy done in 29.1s
+[2026-11-09T06:26:40Z] ==== step files-check
+PASS  save a pending file
+PASS  list pending files
+PASS  commit: rename pending -> ticket folder
+PASS  content survives the rename
+PASS  size after the rename
+PASS  rename onto an existing file is refused
+PASS  existing target unchanged
+PASS  rename of a missing file is refused
+PASS  rename within a folder
+PASS  rename a folder
+PASS  read after the folder rename
+PASS  delete
+0 failure(s)
+[2026-11-09T06:26:41Z] step files-check done in 1.2s
+[2026-11-09T06:26:41Z] ==== step verify
+[2026-11-09T06:26:42Z] FAILED: The 'Get-CimInstance' command was found in the module 'CimCmdlets', but the module could not be loaded. For more information, run 'Import-Module CimCmdlets'.
+[2026-11-09T06:26:42Z] at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script1.ps1: line 415
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script1.ps1: line 461
+[2026-11-09T06:26:42Z] TDTIMINGS {"fetch":0.5,"deploy":29.1,"files-check":1.2} total 31.8s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261109T062549Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261109T062549Z steps=fetch+deploy+files-check+verify elapsed_s=93 rc=1

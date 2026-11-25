@@ -1,0 +1,16 @@
+{
+  "challenge_status": 302,
+  "authorize_host": "login.microsoftonline.com",
+  "redirect_uri": [
+    "https://localhost:5443/signin-oidc"
+  ],
+  "pkce": [
+    "S256"
+  ],
+  "response_mode": [
+    "form_post"
+  ],
+  "authorize_status": 200,
+  "aadsts": [],
+  "login_form": true
+}

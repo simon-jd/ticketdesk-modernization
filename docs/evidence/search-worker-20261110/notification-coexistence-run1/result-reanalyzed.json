@@ -1,0 +1,145 @@
+{
+  "writes": [
+    {
+      "kind": "create",
+      "ticket": 10001,
+      "backend": "modern; route=ticket.new.post",
+      "status": 302,
+      "app": "worker"
+    },
+    {
+      "kind": "comment",
+      "ticket": 10001,
+      "backend": "modern; route=activity.add-comment",
+      "status": 200,
+      "app": "worker"
+    },
+    {
+      "kind": "create",
+      "ticket": 10002,
+      "backend": "legacy; route=ticket.new.post; reason=switched-back",
+      "status": 302,
+      "app": "legacy"
+    },
+    {
+      "kind": "comment",
+      "ticket": 10001,
+      "backend": "legacy; route=activity.add-comment; reason=switched-back",
+      "status": 200,
+      "app": "legacy"
+    }
+  ],
+  "mails": [
+    {
+      "file": "00001.eml",
+      "sender": "worker",
+      "ticket": 10001,
+      "new": false,
+      "to": "owner@lab.test",
+      "events": "45650"
+    },
+    {
+      "file": "00002.eml",
+      "sender": "worker",
+      "ticket": 10001,
+      "new": false,
+      "to": "assignee@lab.test",
+      "events": "45650"
+    },
+    {
+      "file": "00003.eml",
+      "sender": "worker",
+      "ticket": 10001,
+      "new": true,
+      "to": "helpdesk-broadcast@lab.test",
+      "events": "45650"
+    },
+    {
+      "file": "00004.eml",
+      "sender": "worker",
+      "ticket": 10001,
+      "new": false,
+      "to": "owner@lab.test",
+      "events": "45651"
+    },
+    {
+      "file": "00005.eml",
+      "sender": "worker",
+      "ticket": 10001,
+      "new": false,
+      "to": "assignee@lab.test",
+      "events": "45651"
+    },
+    {
+      "file": "00006.eml",
+      "sender": "legacy",
+      "ticket": 10002,
+      "new": true,
+      "to": "helpdesk-broadcast@lab.test",
+      "events": null
+    },
+    {
+      "file": "00007.eml",
+      "sender": "legacy",
+      "ticket": 10002,
+      "new": true,
+      "to": "helpdesk-broadcast@lab.test",
+      "events": null
+    },
+    {
+      "file": "00008.eml",
+      "sender": "legacy",
+      "ticket": 10002,
+      "new": false,
+      "to": "owner@lab.test",
+      "events": null
+    },
+    {
+      "file": "00009.eml",
+      "sender": "legacy",
+      "ticket": 10002,
+      "new": false,
+      "to": "assignee@lab.test",
+      "events": null
+    },
+    {
+      "file": "00010.eml",
+      "sender": "legacy",
+      "ticket": 10001,
+      "new": false,
+      "to": "owner@lab.test",
+      "events": null
+    },
+    {
+      "file": "00011.eml",
+      "sender": "legacy",
+      "ticket": 10001,
+      "new": false,
+      "to": "assignee@lab.test",
+      "events": null
+    }
+  ],
+  "counts": {
+    "total": 11,
+    "worker": 5,
+    "legacy": 6,
+    "expected": 11
+  },
+  "checks": [
+    {
+      "check": "every write mailed exactly once per expected recipient, by the app that made the write",
+      "ok": true,
+      "missing": [],
+      "unexpected": []
+    },
+    {
+      "check": "no recipient got the same write twice (no double send)",
+      "ok": true,
+      "doubles": []
+    },
+    {
+      "check": "both apps wrote and both sent",
+      "ok": true
+    }
+  ]
+}

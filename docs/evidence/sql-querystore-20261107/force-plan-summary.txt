@@ -1,0 +1,5 @@
+forced plan | tag | n | procedure CPU ms (median, runs) | procedure elapsed ms (median, runs)
+226 | common tag (printer, 188,919 tickets) | 5 | 115 [110, 113, 115, 130, 169] | 44 [23, 31, 44, 45, 60]
+226 | rare tag (mobile-108, 1,967 tickets) | 5 | 49 [47, 47, 49, 52, 53] | 24 [22, 24, 24, 24, 26]
+136 | common tag (printer, 188,919 tickets) | 5 | 73 [67, 70, 73, 76, 91] | 72 [67, 69, 72, 76, 90]
+136 | rare tag (mobile-108, 1,967 tickets) | 5 | 49 [48, 48, 49, 49, 49] | 48 [48, 48, 48, 48, 48]

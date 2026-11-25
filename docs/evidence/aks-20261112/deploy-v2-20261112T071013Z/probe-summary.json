@@ -1,0 +1,1818 @@
+{
+  "file": "probe.jsonl",
+  "start": "2026-11-12T07:10:15.108Z",
+  "end": "2026-11-12T07:36:03.393Z",
+  "ticks": 652,
+  "read_requests": 1304,
+  "failed_reads": 349,
+  "signins": 18,
+  "failed_signins": 16,
+  "switches": [
+    {
+      "t": "2026-11-12T07:10:15.108Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com"
+    }
+  ],
+  "per_target_path": [
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 652,
+      "failed": 169,
+      "median_ms": 568,
+      "p95_ms": 747
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 652,
+      "failed": 180,
+      "median_ms": 1097,
+      "p95_ms": 1138
+    }
+  ],
+  "failure_windows": [
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:10:15.297Z",
+      "end": "2026-11-12T07:12:07.701Z",
+      "ticks": 17
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:12:34.532Z",
+      "end": "2026-11-12T07:13:09.323Z",
+      "ticks": 16
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:14:59.762Z",
+      "end": "2026-11-12T07:17:34.540Z",
+      "ticks": 22
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:17:59.940Z",
+      "end": "2026-11-12T07:18:04.588Z",
+      "ticks": 6
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:18:35.219Z",
+      "end": "2026-11-12T07:18:39.078Z",
+      "ticks": 5
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:22:29.987Z",
+      "end": "2026-11-12T07:22:55.327Z",
+      "ticks": 16
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:23:14.742Z",
+      "end": "2026-11-12T07:23:19.399Z",
+      "ticks": 6
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:24:40.193Z",
+      "end": "2026-11-12T07:25:02.221Z",
+      "ticks": 13
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:25:45.062Z",
+      "end": "2026-11-12T07:27:18.559Z",
+      "ticks": 18
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:27:39.951Z",
+      "end": "2026-11-12T07:27:44.781Z",
+      "ticks": 6
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:29:15.163Z",
+      "end": "2026-11-12T07:29:29.352Z",
+      "ticks": 15
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:30:19.393Z",
+      "end": "2026-11-12T07:31:51.377Z",
+      "ticks": 16
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:32:21.204Z",
+      "end": "2026-11-12T07:34:12.815Z",
+      "ticks": 17
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:35:10.489Z",
+      "end": "2026-11-12T07:35:18.978Z",
+      "ticks": 8
+    }
+  ],
+  "write_requests": 904,
+  "failed_writes": 203,
+  "write_median_ms": 1126,
+  "write_failure_windows": [
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:10:15.297Z",
+      "end": "2026-11-12T07:11:57.386Z",
+      "ticks": 21
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:12:35.233Z",
+      "end": "2026-11-12T07:13:08.105Z",
+      "ticks": 15
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:15:00.046Z",
+      "end": "2026-11-12T07:17:35.658Z",
+      "ticks": 30
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:18:00.219Z",
+      "end": "2026-11-12T07:18:04.661Z",
+      "ticks": 6
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:18:35.232Z",
+      "end": "2026-11-12T07:18:39.684Z",
+      "ticks": 6
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:22:30.062Z",
+      "end": "2026-11-12T07:22:56.086Z",
+      "ticks": 17
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:23:15.383Z",
+      "end": "2026-11-12T07:23:19.399Z",
+      "ticks": 5
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:24:40.008Z",
+      "end": "2026-11-12T07:25:03.853Z",
+      "ticks": 15
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:25:45.379Z",
+      "end": "2026-11-12T07:27:17.459Z",
+      "ticks": 20
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:27:40.383Z",
+      "end": "2026-11-12T07:27:44.781Z",
+      "ticks": 6
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:29:15.230Z",
+      "end": "2026-11-12T07:29:37.535Z",
+      "ticks": 14
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:30:20.043Z",
+      "end": "2026-11-12T07:31:52.135Z",
+      "ticks": 20
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:32:20.879Z",
+      "end": "2026-11-12T07:34:12.975Z",
+      "ticks": 22
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:35:11.422Z",
+      "end": "2026-11-12T07:35:15.881Z",
+      "ticks": 6
+    }
+  ],
+  "write_downtime": {
+    "last_ok_before": null,
+    "first_failed": "2026-11-12T07:10:15.297Z",
+    "last_failed": "2026-11-12T07:35:15.881Z",
+    "first_ok_after": "2026-11-12T07:35:21.946Z",
+    "seconds": null
+  },
+  "failed": [
+    {
+      "t": "2026-11-12T07:10:15.297Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:15.297Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:15.297Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:15.479Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 182,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:15.479Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:16.291Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 184,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:16.291Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:16.291Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 184,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:16.515Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 224,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:16.516Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:17.300Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:17.303Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 196,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:17.304Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:17.489Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:17.489Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:18.297Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:18.299Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:18.300Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:18.488Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:18.489Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:19.302Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:19.302Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:19.302Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:19.485Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 183,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:19.485Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:20.296Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:20.296Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:20.303Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:20.484Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 181,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:20.484Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:21.300Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:21.302Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:21.302Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:21.487Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 186,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:21.487Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:22.301Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 193,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:22.301Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:22.301Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:22.485Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 184,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:22.485Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:23.299Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 190,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:23.299Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:23.300Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:23.479Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 179,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:23.479Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:24.292Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 183,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:24.297Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:24.297Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:24.486Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:24.486Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:25.302Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 193,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:25.302Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:25.307Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 197,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:25.498Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:25.499Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:26.299Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 190,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:26.304Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 196,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:26.304Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:26.493Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:10:26.493Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:37.141Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10031,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:10:37.141Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10032,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:10:37.141Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:47.158Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 10017,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:10:47.158Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:47.168Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10027,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:10:47.168Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:57.191Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10022,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:10:57.191Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:10:57.191Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10032,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:07.218Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 10027,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:07.218Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:07.218Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10027,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:07.218Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:17.253Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10034,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:17.256Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10037,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:17.256Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:27.286Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 10033,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:27.286Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:27.290Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10034,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:27.290Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:37.324Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10037,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:37.324Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10033,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:37.324Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:47.351Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin",
+      "status": 0,
+      "ms": 10027,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:47.351Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:47.357Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10033,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:47.357Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:11:57.385Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10033,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:57.385Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10028,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:11:57.386Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:35.233Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:35.257Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 725,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:35.447Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:35.632Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 185,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:36.227Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:36.227Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:36.448Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:36.646Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 197,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:37.221Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 182,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:37.221Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:37.451Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 193,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:37.640Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:38.227Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:38.227Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:38.450Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:38.641Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:39.228Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:39.228Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:39.450Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:39.637Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 187,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:40.241Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 202,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:40.241Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:40.445Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 186,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:40.640Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 195,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:41.230Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:41.231Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:41.450Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:41.647Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 196,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:42.222Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 182,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:42.222Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:42.450Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:42.639Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:43.234Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:43.234Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:43.444Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 185,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:43.632Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:44.231Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:44.231Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:44.454Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 195,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:44.651Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 197,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:45.234Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:45.234Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:45.453Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:45.640Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 187,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:46.229Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:46.229Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:46.451Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:46.639Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:47.238Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 198,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:47.238Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:47.448Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:47.641Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:48.451Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:48.646Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 195,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:12:58.069Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10029,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:12:58.069Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:12:59.288Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10028,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:13:08.105Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 10036,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:13:08.105Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:13:09.323Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 10035,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:14:59.999Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 236,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:00.046Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 758,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:00.251Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 201,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:00.436Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 185,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:00.481Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 193,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:00.481Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:01.250Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 200,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:01.441Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 190,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:01.472Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 184,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:01.472Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:02.236Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 185,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:02.422Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 186,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:02.479Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:02.479Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:03.242Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:03.463Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 220,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:03.480Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:03.480Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:04.241Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 190,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:04.427Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 186,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:04.477Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:04.477Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:05.244Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 193,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:05.435Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:05.480Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:05.480Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:06.238Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 186,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:06.426Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 188,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:06.485Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 196,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:06.485Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:07.240Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:07.424Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 183,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:07.482Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 193,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:07.482Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:08.235Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 184,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:08.422Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 187,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:08.499Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 210,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:08.499Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:09.242Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:09.431Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 189,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:09.476Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 187,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:09.477Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:10.242Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:10.436Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:10.481Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 191,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:10.481Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 0,
+      "ms": 0,
+      "error": "not signed in"
+    },
+    {
+      "t": "2026-11-12T07:15:11.242Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 190,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:11.441Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 199,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:15:11.482Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "signin-writer",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    }
+  ]
+}

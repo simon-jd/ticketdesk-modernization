@@ -1,0 +1,15 @@
+run 16 cd-20261111.1 cd refs/heads/modernize 5c70418e status=completed result=failed reason=manual queued=2026-11-11T09:04:21.7856352Z start=2026-11-11T18:40:31.0561397Z finish=2026-11-11T18:40:47.3100285Z
+Checkpoint completed  succeeded    34565 s  Checkpoint.Approval
+Checkpoint completed  succeeded    34565 s  Checkpoint
+Job        completed  failed       5 s      Deploy to kind (td-cd)
+Stage      completed  failed       12 s     kind-local
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@modernize to s
+Task       completed  succeeded    0 s      kind cluster, relay, Service Bus emulator
+Task       completed  succeeded    3 s      td-db migrate (database TicketDesk_cd)
+Task       completed  failed       0 s      Deploy ci-15  ! Bash exited with code '1'.
+Task       completed  skipped      0 s      Smoke
+Task       completed  failed       0 s      PublishPipelineArtifact  ! Path does not exist: ~/Desktop/ticketdesk-modernization/.tools/ado-agent/_work/3/a/cd-kind
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@modernize to s
+Task       completed  succeeded    0 s      Finalize Job
+Stage      completed  skipped      -        aks-lab

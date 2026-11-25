@@ -1,0 +1,29 @@
+ledger running estimate $11.83 / cap $13.50: OK
+2026-11-10T17:24:30Z SESSION start rebuild
+rebuild start 2026-11-10T17:24:31Z
+apply stage replatform end 2026-11-10T17:31:16Z elapsed_s=403 rc=1
+make: *** [infra/azure.mk:66: azure-up-replatform] Error 1
+lift.sh: apply failed (see ~/Desktop/ticketdesk-modernization/wt-azure-sql/docs/evidence/azure-sql-20261110/rebuild-20261110T172431Z/apply.txt)
+2026-11-10T17:31:18Z SESSION FAILED rebuild
+2026-11-10T17:31:18Z SESSION destroy
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m40s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m50s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 02m00s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 02m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Destruction complete after 2m15s[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Still destroying... [id=/subscriptions/<subscription-id>...Zones/privatelink.database.windows.net, 00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Still destroying... [id=/subscriptions/<subscription-id>...Zones/privatelink.database.windows.net, 00m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Still destroying... [id=/subscriptions/<subscription-id>...Zones/privatelink.database.windows.net, 00m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Destruction complete after 32s[0m
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mdeleting Network Interface (Subscription: "<subscription-id>"
+[31m│[0m [0mResource Group Name: "rg-ticketdesk-lab"
+[31m│[0m [0mNetwork Interface Name: "nic-tdlab-legacy"): performing Delete: unexpected status 400 (400 Bad Request) with error: NicInUse: Network Interface /subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-tdlab-legacy is used by existing resource /subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/virtualMachines/vm-tdlab-legacy. In order to delete the network interface, it must be dissociated from the resource. To learn more, see aka.ms/deletenic.[0m
+[31m│[0m [0m
+[31m│[0m [0m[0m
+[31m╵[0m[0m
+stage foundation down end 2026-11-10T17:34:34Z elapsed_s=195 rc=1
+make: *** [infra/azure.mk:72: azure-down-foundation] Error 1
+lift.sh: down failed

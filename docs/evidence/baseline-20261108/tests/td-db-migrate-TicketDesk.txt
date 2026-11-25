@@ -1,0 +1,21 @@
+$ TD_DB_CONN=<td-sql TicketDesk> td-db migrate   (2026-11-08T15:17:01Z)
+applied expand/V0001__tickets_assigned_date.sql in 0.02 s
+    AssignedDate backfill done: 8912 rows
+applied expand/V0002__tickets_assigned_date_backfill.sql in 0.20 s
+    created IX_Tickets_Open_Status
+    created IX_Tickets_Open_Unassigned
+    created IX_Tickets_Open_Assignee
+    created IX_Tickets_Open_Owner
+    created IX_Tickets_LastUpdateDate
+    created IX_Tickets_Project_LastUpdateDate
+    created IX_Tickets_Closed_StatusDate
+    created IX_TicketTags_TagName
+applied expand/V0003__ticket_list_and_report_indexes.sql in 0.17 s
+    rebuilt PK_dbo.Tickets online
+applied expand/V0004__tickets_rebuild_after_backfill.sql in 0.13 s
+applied expand/V0005__assigned_date_trigger_null_changes.sql in 0.01 s
+applied programmable/R__usp_report_assignee_workload.sql in 0.00 s
+applied programmable/R__usp_report_open_tickets_aging.sql in 0.00 s
+applied programmable/R__usp_report_time_to_close.sql in 0.01 s
+applied programmable/R__usp_ticket_list.sql in 0.01 s
+9 script(s) applied

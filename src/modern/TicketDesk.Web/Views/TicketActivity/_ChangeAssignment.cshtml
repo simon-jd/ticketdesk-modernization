@@ -1,0 +1,22 @@
+@* Port of the legacy Views/TicketActivity/_ChangeAssignment.cshtml (Assign, Pass, ReAssign). *@
+@model TicketDesk.Web.Controllers.ActivityFormModel
+@using TicketDesk.Web.Views
+@{
+    var t = Model.Ticket;
+    // GetAssignedToList(false, true, false): help-desk users without the current assignee, no empty item
+    var users = Model.HelpDeskUsers.Where(u => u.Id != t.AssignedTo).Select(u => new FormHtml.Option(u.Id, u.DisplayName ?? ""));
+}
+ <div class="form-group form-group-sm">
+    @FormHtml.Label("AssignedTo", "TicketAssignedTo", "col-sm-2 control-label")
+    <div class="col-sm-8">
+        @FormHtml.Select("AssignedTo", users, t.AssignedTo, new FormHtml.Rules("TicketAssignedTo", MaxLength: 256), "form-control input-sm", 1)
+        @FormHtml.ValidationMessage("AssignedTo")
+    </div>
+</div>
+<div class="form-group form-group-sm">
+    @FormHtml.Label("Priority", "TicketPriority", "col-sm-2  control-label")
+    <div class="col-sm-8">
+        @FormHtml.Select("Priority", FormHtml.WithDefault(FormHtml.Strings(Model.Settings.PriorityList)), t.Priority, new FormHtml.Rules("TicketPriority", MaxLength: 25), "form-control input-sm", 2)
+        @FormHtml.ValidationMessage("Priority")
+    </div>
+</div>

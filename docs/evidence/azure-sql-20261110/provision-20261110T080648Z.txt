@@ -1,0 +1,39 @@
+2026-11-10T08:06:48Z provision 20261110T080648Z on vm-tdlab-legacy: fetch+restore+deploy+verify SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-12> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-2106795.zip SqlToolsSha256=97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4 DotnetVersion=10.0.14 RestorePrefix=seed RestoreName=baseline-s-shared Database=express
+---- ComponentStatus/StdOut/succeeded
+ketDesk
+[2026-11-10T08:07:13Z] INFO   restore complete in 8.3s
+ROWCOUNTS {"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":9,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}
+[2026-11-10T08:07:13Z] step restore done in 9.7s
+[2026-11-10T08:07:13Z] ==== step deploy
+[2026-11-10T08:07:14Z] INFO   database has 20 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51         0        51         0         0         0
+   Files :       810         1       809         0         0         0
+   Bytes :   41.04 m    15.0 k   41.02 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, November 10, 2026 8:07:14 AM
+
+[2026-11-10T08:07:14Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-10T08:07:14Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-10T08:07:14Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-10T08:07:14Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-10T08:07:14Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-10T08:07:21Z] INFO   warm-up http://localhost/ -> 200 in 6.3s
+[2026-11-10T08:07:21Z] deploy: database express, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-10T08:07:21Z] step deploy done in 7.3s
+[2026-11-10T08:07:21Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-10T07:37:37.0893200Z","database":"express","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","app_db":".\\SQLEXPRESS","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.222.0","signature_updated_utc":"2026-11-10T02:04:22.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10","private_key_usable":true},"https_home":{"status":200,"ms":21,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":{},"rows":{"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":9,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-10T08:07:24Z] step verify done in 3.6s
+[2026-11-10T08:07:24Z] TDTIMINGS {"fetch":0.3,"restore":9.7,"deploy":7.3,"verify":3.6} total 21.1s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261110T080648Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261110T080648Z steps=fetch+restore+deploy+verify elapsed_s=64 rc=0

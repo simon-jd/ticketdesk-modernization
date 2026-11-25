@@ -1,0 +1,5 @@
+# date: 2026-11-08T15:33:29Z  git: 4106d16  k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64)
+# mix: tests/perf/ticketdesk-mix.js  rate 10 ops/s  warm-up 30 s  measure 60 s  runs 3
+# legacy VM: 4 vCPU, 8G (vmctl.sh), KVM, qemu user-mode networking, 127.0.0.1 forwards; k6 on the same host
+# gateway: TicketDesk.Web Release, Kestrel https://localhost:5443, YARP -> https://localhost:8443 (ops/dev/replay-gateway.sh --serve)
+# tests/perf/ticketdesk-mix.js and ops/dev/perf-baseline.sh were uncommitted at run time; the versions used are the ones committed with this evidence

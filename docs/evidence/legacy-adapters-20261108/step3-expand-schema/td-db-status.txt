@@ -1,0 +1,10 @@
+applied  expand/V0001__tickets_assigned_date.sql                      2026-11-08 20:52:12Z 9 ms by sa
+applied  expand/V0002__tickets_assigned_date_backfill.sql             2026-11-08 20:52:12Z 231 ms by sa
+applied  expand/V0003__ticket_list_and_report_indexes.sql             2026-11-08 20:52:13Z 203 ms by sa
+applied  expand/V0004__tickets_rebuild_after_backfill.sql             2026-11-08 20:52:13Z 2 ms by sa
+applied  expand/V0005__assigned_date_trigger_null_changes.sql         2026-11-08 20:52:13Z 1 ms by sa
+applied  programmable/R__usp_report_assignee_workload.sql             2026-11-08 20:52:13Z 1 ms by sa
+applied  programmable/R__usp_report_open_tickets_aging.sql            2026-11-08 20:52:13Z 0 ms by sa
+applied  programmable/R__usp_report_time_to_close.sql                 2026-11-08 20:52:13Z 1 ms by sa
+applied  programmable/R__usp_ticket_list.sql                          2026-11-08 20:52:13Z 2 ms by sa
+contract contract/C0001__assigned_date_contract.sql (after legacy retirement)

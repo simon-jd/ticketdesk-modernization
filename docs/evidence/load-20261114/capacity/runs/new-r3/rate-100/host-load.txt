@@ -1,0 +1,30 @@
+## 2026-11-14T02:09:10Z before
+ 18:09:10 up 5 days, 18:47,  8 users,  load average: 3.53, 3.95, 6.05
+               total        used        free      shared  buff/cache   available
+Mem:             123          38          23           1          62          84
+# per-CPU busy % over 3 s (0-31)
+0:9 1:0 2:6 3:0 4:4 5:1 6:5 7:1 8:5 9:1 10:5 11:0 12:7 13:1 14:5 15:11 16:11 17:8 18:6 19:5 20:8 21:10 22:9 23:13 24:5 25:21 26:7 27:5 28:15 29:14 30:15 31:14
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 100  25 1589513 cc1plus
+44.8  26 1049942 sqlservr
+37.6  26 1584339 dotnet
+30.1  21 1253588 td-legacy-vm
+12.9  17 2646229 auto-app
+11.1   6    8349 grok-bot
+ 4.0  23 1589496 cmake
+## 2026-11-14T02:11:51Z after
+ 18:11:51 up 5 days, 18:49,  8 users,  load average: 3.83, 4.49, 5.96
+               total        used        free      shared  buff/cache   available
+Mem:             123          38          23           1          63          84
+# per-CPU busy % over 3 s (0-31)
+0:5 1:0 2:3 3:1 4:6 5:3 6:4 7:1 8:9 9:1 10:6 11:1 12:5 13:1 14:4 15:0 16:6 17:6 18:7 19:5 20:9 21:11 22:9 23:9 24:7 25:5 26:5 27:7 28:19 29:17 30:18 31:18
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 200  24 1599828 ps
+58.6  26 1584339 dotnet
+45.7  26 1049942 sqlservr
+30.1  21 1253588 td-legacy-vm
+12.9  22 2646229 auto-app
+11.1  12    8349 grok-bot
+ 4.1  27 1599714 chrome

@@ -1,0 +1,187 @@
+{
+  "target": "https://localhost:8443",
+  "rate_per_s": 10,
+  "warmup_s": 30,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "med": 25.761969,
+      "avg": 29.444618811369498,
+      "p(90)": 65.400391,
+      "p(95)": 78.692731,
+      "p(99)": 109.51066720000026,
+      "max": 141.448535,
+      "count": 1161,
+      "min": 3.614416
+    },
+    "failed": {
+      "rate": 0,
+      "passes": 0,
+      "fails": 1161
+    }
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 679,
+    "fails": 0
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "p(95)": 90.2124096,
+        "p(99)": 108.53392304000008,
+        "max": 125.525807,
+        "count": 199,
+        "min": 36.338844,
+        "med": 51.767634,
+        "avg": 56.72779929648239,
+        "p(90)": 80.63782280000001
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 199
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "count": 681,
+        "min": 3.614416,
+        "med": 5.314995,
+        "avg": 16.83574387224668,
+        "p(90)": 47.953063,
+        "p(95)": 57.866151,
+        "p(99)": 72.08825920000004,
+        "max": 87.410951
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 681
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "avg": 58.16238358762885,
+        "p(90)": 92.2090386,
+        "p(95)": 102.86808579999996,
+        "p(99)": 121.7167312,
+        "max": 122.014552,
+        "count": 97,
+        "min": 29.406334,
+        "med": 52.191715
+      },
+      "failed": {
+        "fails": 97,
+        "rate": 0,
+        "passes": 0
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "p(99)": 48.24696333000001,
+        "max": 49.436778,
+        "count": 100,
+        "min": 8.602976,
+        "med": 23.248036499999998,
+        "avg": 23.73699134000001,
+        "p(90)": 40.926984100000006,
+        "p(95)": 43.18836165
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 100,
+        "rate": 0
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "p(90)": 97.74329090000002,
+        "p(95)": 118.48009034999995,
+        "p(99)": 131.86560981000002,
+        "max": 141.448535,
+        "count": 84,
+        "min": 12.775074,
+        "med": 26.3658445,
+        "avg": 40.664029297619045
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 84,
+        "rate": 0
+      }
+    }
+  },
+  "iterations": {
+    "count": 819,
+    "rate": 9.096268140371738
+  },
+  "dropped_iterations": {
+    "rate": 0.9107374694877686,
+    "count": 82
+  },
+  "vus_max": {
+    "value": 37,
+    "min": 20,
+    "max": 37
+  },
+  "root_group_checks": [
+    {
+      "name": "signed in (302 to /)",
+      "path": "::signed in (302 to /)",
+      "id": "fdcd4b15f72aec2317ac2c1533ca239e",
+      "passes": 37,
+      "fails": 0
+    },
+    {
+      "fails": 0,
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 296
+    },
+    {
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 126,
+      "fails": 0,
+      "name": "filter 200"
+    },
+    {
+      "passes": 299,
+      "fails": 0,
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6"
+    },
+    {
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 66,
+      "fails": 0
+    },
+    {
+      "fails": 0,
+      "name": "comment saved",
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 66
+    },
+    {
+      "passes": 38,
+      "fails": 0,
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd"
+    },
+    {
+      "passes": 38,
+      "fails": 0,
+      "name": "created ticket 200",
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b"
+    }
+  ]
+}

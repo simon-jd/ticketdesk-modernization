@@ -1,0 +1,12 @@
+$ ops/dev/legacy-query-stats.sh 8
+execs|avg_cpu_ms|avg_elapsed_ms|max_elapsed_ms|avg_reads|plan_hash|plan_gen|stmt
+-----|----------|--------------|--------------|---------|---------|--------|----
+256|8.45|8.56|25.02|1058|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+213|3.64|3.68|14.42|1059|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+213|2.25|2.25|5.48|1059|0x89E2697CBBE2FC19|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+256|1.77|1.78|4.08|1058|0x89E2697CBBE2FC19|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+351|0.15|0.62|132.14|6|0x87270C0CF0A6D7C3|1|SELECT       [Project2].[TicketId] AS [TicketId],       [Project2].[ProjectId] AS [Project
+644|0.03|0.03|0.14|3|0xC8C48D418C0CF7F8|1|SELECT TOP (2)       [Extent1].[TicketId] AS [TicketId],       [Extent1].[ProjectId] AS [P
+1|6.49|10.51|10.51|1058|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+164|0.03|0.03|0.14|3|0xA2A0B628DBEDFCFE|1|SELECT       [Extent1].[TicketId] AS [TicketId],       [Extent1].[ProjectId] AS [ProjectId
+

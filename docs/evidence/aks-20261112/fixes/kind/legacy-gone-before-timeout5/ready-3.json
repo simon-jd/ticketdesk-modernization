@@ -1,0 +1,1 @@
+{"status":"Degraded","checks":[{"name":"database","status":"Healthy","description":"database reachable"},{"name":"legacy","status":"Degraded","description":"legacy unreachable"}]}

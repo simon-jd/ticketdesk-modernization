@@ -1,0 +1,106 @@
+X-Sink-Peer: 127.0.0.1
+X-Sink-Mail-From: <ticketdesk@lab.test> SIZE=4770
+X-Sink-Rcpt-To: <owner@lab.test>
+X-Sink-Received: 2026-11-10T23:09:59.485274+00:00
+From: TicketDesk <ticketdesk@lab.test>
+Date: Tue, 10 Nov 2026 23:09:59 +0000
+Subject: Ticket #10001 : Coexistence check (new app): dock does not charge
+Message-Id: <S4IWI97RSUU4.4CX4LFQ2DK1O3@lab-host>
+To: Owner <owner@lab.test>
+X-TicketDesk-Sender: worker
+X-TicketDesk-Ticket: 10001
+X-TicketDesk-Events: 45650
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-Labmfu7JIw96rXXwpSI6Lw=="
+
+--=-Labmfu7JIw96rXXwpSI6Lw==
+Content-Type: text/plain; charset=utf-8
+
+----------------------------------------------------------------
+Ticket #10001 - High Priority Software Problem
+    Coexistence check (new app): dock does not charge
+----------------------------------------------------------------
+Status: Active
+Assigned To: Amara King
+Owner: Clara Jackson
+Updated by: TicketDesk Admin at 11/10/2026 11:09 PM
+Details
+
+Written through the gateway while the new app answers ticket writes.
+
+----------------------------------------------------------------
+Activity
+----------------------------------------------------------------
+
+    TicketDesk Admin added comment
+        Tuesday, November 10, 2026 12:00 AM
+
+    Comment written while the new app answers ticket writes.
+
+----------------------------------------------------------------
+
+    TicketDesk Admin created the ticket on behalf of Clara Jackson
+        Tuesday, November 10, 2026 12:00 AM
+
+    
+----------------------------------------------------------------
+
+
+--=-Labmfu7JIw96rXXwpSI6Lw==
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ticket #10001</title>
+    <style type="text/css">
+        * { font-family: Calibri, Tahoma, Verdana, Helvetica, Sans-Serif; font-size: 10pt; }
+        p { margin: 0.8ex 0 0.8ex 0; }
+        td { padding-left: 3px; padding-right: 3px; }
+        .tag { border: 1px solid #dcdcdc; background-color: #fcf8e3; font-size: 9pt; padding: 2px; }
+        dl { margin-left: 15px; }
+        dd { text-indent: 1em; font-family: monospace; font-size: smaller; }
+    </style>
+</head>
+<body>
+    <div style="border: 1px solid #dcdcdc;">
+        <table style="background-color: #B3CBDF;width: 100%;">
+            <tr>
+                <td style="width: 55px; font-weight: bold; border-right: 1px solid #dcdcdc; text-align: center;"><a href="/ticket/10001">Active</a></td>
+                <td style="width: 40px; font-weight: bold; border-right: 1px solid #dcdcdc; text-align: center;"><a href="/ticket/10001">#10001</a></td>
+                <td style="font-weight: bold; text-align: left;"><a href="/ticket/10001">Coexistence check (new app): dock does not charge</a></td>
+            </tr>
+        </table>
+        <table style="border-bottom: 1px solid #e7e7e7; width: 100%; background-color: #F7F7F7;">
+            <tr><td style="text-align: right;"><span class="tag">coexistence</span></td></tr>
+            <tr><td>High Priority Software Problem</td></tr>
+            <tr><td>Project: Default</td></tr>
+            <tr><td>Assigned To: Amara King</td></tr>
+            <tr><td>Owner: Clara Jackson</td></tr>
+            <tr><td>Updated by: TicketDesk Admin at 11/10/2026 11:09 PM</td></tr>
+        </table>
+        <table style="width: 100%;"><tr><td><div style="overflow-y:scroll; max-height: 250px; min-height: 100px;"><p>Written through the gateway while the new app answers ticket writes.</p>
+</div></td></tr></table>
+        <table style="background-color: #B3CBDF; width: 100%;"><tr><td style="font-weight: bold;">Activity</td></tr></table>
+        <div style="padding: 10px;">
+            <div style="border: 1px solid #dfdfdf; margin-bottom: 10px;">
+                <table style="background-color: #F7F7F7;width: 100%;">
+                    <tr><td><strong>TicketDesk Admin</strong> added comment</td></tr>
+                    <tr><td style="text-indent: 1em; font-size: smaller">Tuesday, November 10, 2026 12:00 AM</td></tr>
+                </table>
+                <table style="width: 100%;"><tr><td style="font-family: monospace; font-size: 9pt;"><p>Comment written while the new app answers ticket writes.</p>
+</td></tr></table>
+            </div>
+            <div style="border: 1px solid #dfdfdf; margin-bottom: 10px;">
+                <table style="background-color: #F7F7F7;width: 100%;">
+                    <tr><td><strong>TicketDesk Admin</strong> created the ticket on behalf of Clara Jackson</td></tr>
+                    <tr><td style="text-indent: 1em; font-size: smaller">Tuesday, November 10, 2026 12:00 AM</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+--=-Labmfu7JIw96rXXwpSI6Lw==--

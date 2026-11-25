@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-08T16:20:45Z] provision run 20261108T162028Z on tdlab-legacy, steps: db-readonly\n[2026-11-08T16:20:45Z] ==== step db-readonly\n[2026-11-08T16:20:49Z] TicketDesk READ_ONLY\n[2026-11-08T16:20:49Z] step db-readonly done in 3.3s\n[2026-11-08T16:20:49Z] TDTIMINGS {\"db-readonly\":3.3} total 3.4s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T162028Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

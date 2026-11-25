@@ -1,0 +1,80 @@
+$ TD_SEED_DB=TicketDeskSynth ops/dev/seed.sh run --scale M --seed 42 --json docs/evidence/seed-20261107/implied-M-scale.json
+seeding scale M (100,000 tickets, 2,500 users, 10 projects), seed 42
+reset done in 0.6s
+projects/users loaded (2500 users) in 0.2s
+  100,000 tickets loaded (15.3s)
+constraints re-validated (16.0s)
+{
+  "scale": "M",
+  "seed": 42,
+  "tickets": 100000,
+  "users": 2500,
+  "projects": 10,
+  "resetSeconds": 0.62,
+  "loadSeconds": 15.97,
+  "totalSeconds": 17.02,
+  "rowsWritten": {
+    "[dbo].[Projects]": 9,
+    "[dbo].[IdentityUsers]": 2500,
+    "[dbo].[IdentityUserRoles]": 2500,
+    "[dbo].[Tickets]": 100000,
+    "[dbo].[TicketTags]": 146057,
+    "[dbo].[TicketSubscribers]": 202708,
+    "[dbo].[TicketEvents]": 454352,
+    "[dbo].[TicketEventNotifications]": 961518
+  },
+  "tables": [
+    {
+      "table": "[dbo].[Projects]",
+      "rows": 10,
+      "checksum": -1626881924
+    },
+    {
+      "table": "[dbo].[IdentityUsers]",
+      "rows": 2500,
+      "checksum": -1604513906
+    },
+    {
+      "table": "[dbo].[IdentityUserRoles]",
+      "rows": 2500,
+      "checksum": 1843357387
+    },
+    {
+      "table": "[dbo].[Tickets]",
+      "rows": 100000,
+      "checksum": 701107315
+    },
+    {
+      "table": "[dbo].[TicketTags]",
+      "rows": 146057,
+      "checksum": 2022822997
+    },
+    {
+      "table": "[dbo].[TicketSubscribers]",
+      "rows": 202708,
+      "checksum": -344571142
+    },
+    {
+      "table": "[dbo].[TicketEvents]",
+      "rows": 454352,
+      "checksum": 1019543419
+    },
+    {
+      "table": "[dbo].[TicketEventNotifications]",
+      "rows": 961518,
+      "checksum": 641469981
+    }
+  ],
+  "untrustedOrDisabledForeignKeys": 0
+}
+
+real	0m17.255s
+user	0m4.918s
+sys	0m0.345s
+Changed database context to 'TicketDeskSynth'.
+database_name                                                                                                                    database_size      unallocated space 
+-------------------------------------------------------------------------------------------------------------------------------- ------------------ ------------------
+TicketDeskSynth                                                                                                                  1104.00 MB         13.88 MB          
+reserved           data               index_size         unused            
+------------------ ------------------ ------------------ ------------------
+714880 KB          300184 KB          399888 KB          14808 KB          

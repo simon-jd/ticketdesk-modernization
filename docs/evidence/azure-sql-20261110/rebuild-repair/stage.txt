@@ -1,0 +1,15 @@
+2026-11-10T07:52:13Z staged td-ops-windows-80690ee.zip (38658 B) and td-legacy-publish-80690ee.zip (21066190 B) in 5 s
+BUNDLE_BLOB=td-ops-windows-80690ee.zip
+BUNDLE_SHA=897e87202cfc55d44228e88b67016f8627acf50c94676fcf9a489ceaedb661dd
+PUBLISH_BLOB=td-legacy-publish-80690ee.zip
+PUBLISH_SHA=28f447e9dbff57bf69452697e7b315b25eae1448eea662693682d1035fcddbc5
+2026-11-10T07:52:42Z staged BACPAC ticketdesk-baseline-s-shared.bacpac (3637947 B)
+2026-11-10T07:52:42Z stage done in 35 s
+BUNDLE_BLOB=td-ops-windows-80690ee.zip
+BUNDLE_SHA=897e87202cfc55d44228e88b67016f8627acf50c94676fcf9a489ceaedb661dd
+PUBLISH_BLOB=td-legacy-publish-80690ee.zip
+PUBLISH_SHA=28f447e9dbff57bf69452697e7b315b25eae1448eea662693682d1035fcddbc5
+SQLTOOLS_BLOB=td-sqltools-2106795.zip
+SQLTOOLS_SHA=97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4
+BACPAC_BLOB=bacpac/ticketdesk-baseline-s-shared.bacpac
+BACPAC_SHA=20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9

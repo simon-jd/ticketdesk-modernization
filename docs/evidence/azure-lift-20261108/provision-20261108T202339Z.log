@@ -1,0 +1,40 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261108202401
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script9.ps1 -Steps restore -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-fbaaf99-dirty.zip -BundleSha256 f82986b1cbb27882374373ddc70efc298e14f58bca48b8ae9c4c7f99ac40a0b0 -PublishBlob td-legacy-publish-f510384.zip -PublishSha256 5f08149d6280aad948c1d46289b81503110f2fc57e9dd84bda4add0510aca45a -AdminEmail <admin-email> -RunId 20261108T202339Z -RestorePrefix cutover -RestoreName cutover-20261108T162218Z
+Process ID: 4636
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-08T20:24:01Z] provision run 20261108T202339Z on tdlab-legacy, steps: restore
+[2026-11-08T20:24:01Z] ==== step restore
+[2026-11-08T20:24:03Z] CHANGE downloaded 6 files (98,006,521 bytes) from https://sttdlab36d2d4.blob.core.windows.net/backups/cutover/cutover-20261108T162218Z/ in 1.6s
+[2026-11-08T20:24:03Z] INFO   manifest OK: 5 files, created 20261108T162252Z on TDLEGACY01, SQL 16.0.1000.6
+[2026-11-08T20:24:06Z] CHANGE stopped app pool TicketDesk
+[2026-11-08T20:24:10Z] CHANGE restored TicketDesk from C:\TdBackups\from-blob\cutover-20261108T162218Z\TicketDesk.bak
+PS>TerminatingError(Invoke-TdSql): "Exception calling "ExecuteNonQuery" with "0" argument(s): "Failed to update database "TicketDesk" because the database is read-only.""
+[2026-11-08T20:24:10Z] INFO   started app pool TicketDesk
+PS>TerminatingError(Invoke-TdSql): "Exception calling "ExecuteNonQuery" with "0" argument(s): "Failed to update database "TicketDesk" because the database is read-only.""
+>> TerminatingError(Invoke-TdSql): "Exception calling "ExecuteNonQuery" with "0" argument(s): "Failed to update database "TicketDesk" because the database is read-only.""
+>> TerminatingError(Invoke-TdSql): "Exception calling "ExecuteNonQuery" with "0" argument(s): "Failed to update database "TicketDesk" because the database is read-only.""
+[2026-11-08T20:24:10Z] FAILED: Exception calling "ExecuteNonQuery" with "0" argument(s): "Failed to update database "TicketDesk" because the database is read-only."
+[2026-11-08T20:24:10Z] at Invoke-TdSql, C:\TdOps\windows\TdOps.psm1: line 83
+at <ScriptBlock>, C:\TdOps\windows\Restore-TdSite.ps1: line 57
+at Invoke-Ops, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script9.ps1: line 89
+at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script9.ps1: line 153
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script9.ps1: line 209
+[2026-11-08T20:24:10Z] TDTIMINGS {} total 8.7s
+**********************
+Windows PowerShell transcript end
+End time: 20261108202410
+**********************

@@ -1,0 +1,9 @@
+2026-11-08T20:40:03Z == direct
+2026-11-08T20:40:21Z 2026-11-08T20:40:21Z reset to baseline-s done in 18 s
+2026-11-08T20:40:34Z 2026-11-08T20:40:34Z deployed td-legacy-publish-887e4e8.zip (sha256 f60bad8527afd87509fd049c3c94f5ed14601d6244dd26beb9a2cc88f7f954d2) in 13 s
+2026-11-08T20:40:50Z replay: replayed 262 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/legacy-adapters-20261108/step1-net48/direct/candidate.jsonl (0 journey errors)
+2026-11-08T20:40:52Z compare: compared 262, matched 262, mismatched 0 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/step1-net48/direct/compare/report.md
+2026-11-08T20:40:52Z == gateway
+2026-11-08T20:41:10Z 2026-11-08T20:41:10Z reset to baseline-s done in 18 s
+2026-11-08T20:41:23Z 2026-11-08T20:41:23Z deployed td-legacy-publish-887e4e8.zip (sha256 f60bad8527afd87509fd049c3c94f5ed14601d6244dd26beb9a2cc88f7f954d2) in 13 s
+2026-11-08T20:41:44Z gateway: replayed 262 exchanges in 15 journeys against https://localhost:5443/ -> docs/evidence/legacy-adapters-20261108/step1-net48/gateway/gateway.jsonl (0 journey errors) compared 262, matched 262, mismatched 0 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/step1-net48/gateway/compare-golden-gateway/report.md 

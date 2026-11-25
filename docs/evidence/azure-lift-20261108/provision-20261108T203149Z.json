@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-08T20:32:02Z] provision run 20261108T203149Z on tdlab-legacy, steps: fetch+restore\n[2026-11-08T20:32:02Z] ==== step fetch\n[2026-11-08T20:32:02Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-fbaaf99-dirty.zip (30,822 bytes, sha256 F82986B1CBB27882374373DDC70EFC298E14F58BCA48B8AE9C4C7F99AC40A0B0)\n[2026-11-08T20:32:02Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Update-TdSqlServer.ps1\n[2026-11-08T20:32:02Z] publish package already extracted (same SHA-256)\n[2026-11-08T20:32:03Z] step fetch done in 0.3s\n[2026-11-08T20:32:03Z] ==== step restore\n[2026-11-08T20:32:03Z] CHANGE downloaded 6 files (98,006,521 bytes) from https://sttdlab36d2d4.blob.core.windows.net/backups/cutover/cutover-20261108T162218Z/ in 0.9s\n[2026-11-08T20:32:04Z] INFO   manifest OK: 5 files, created 20261108T162252Z on TDLEGACY01, SQL 16.0.1000.6\n[2026-11-08T20:32:04Z] CHANGE stopped app pool TicketDesk\n[2026-11-08T20:32:08Z] CHANGE restored TicketDesk from C:\\TdBackups\\from-blob\\cutover-20261108T162218Z\\TicketDesk.bak\n[2026-11-08T20:32:08Z] CHANGE TicketDesk was READ_ONLY in the backup (write freeze): set READ_WRITE\n[2026-11-08T20:32:08Z] INFO   mapped IIS AppPool\\TicketDesk as db_owner in TicketDesk\n[2026-11-08T20:32:13Z] CHANGE restored site files to C:\\inetpub\\ticketdesk\n[2026-11-08T20:32:13Z] INFO   started app pool TicketDesk\n[2026-11-08T20:32:13Z] INFO   restore complete in 9.3s\nROWCOUNTS {\"dbo.__MigrationHistory\":25,\"dbo.ApplicationSettings\":1,\"dbo.IdentityRoles\":4,\"dbo.IdentityUserClaims\":0,\"dbo.IdentityUserLogins\":0,\"dbo.IdentityUserRoles\":251,\"dbo.IdentityUsers\":251,\"dbo.Projects\":5,\"dbo.TicketEventNotifications\":95999,\"dbo.TicketEvents\":45649,\"dbo.Tickets\":10000,\"dbo.TicketSubscribers\":20125,\"dbo.TicketTags\":14698,\"dbo.UserSettings\":1,\"notifications.ApplicationPushNotificationSettings\":1,\"notifications.PushNotificationDestinations\":1,\"notifications.PushNotificationItems\":0,\"notifications.SubscriberPushNotificationSettings\":1,\"notifications.TicketPushNotificationItems\":0}\n[2026-11-08T20:32:14Z] step restore done in 11s\n[2026-11-08T20:32:14Z] TDTIMINGS {\"fetch\":0.3,\"restore\":11} total 11.5s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T203149Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

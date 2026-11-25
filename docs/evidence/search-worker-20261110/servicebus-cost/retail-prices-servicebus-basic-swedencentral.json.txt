@@ -1,0 +1,32 @@
+# 2026-11-10T17:54:03Z GET https://prices.azure.com/api/retail/prices?currencyCode=USD&$filter=serviceName%20eq%20'Service%20Bus'%20and%20armRegionName%20eq%20'swedencentral'%20and%20skuName%20eq%20'Basic'
+{
+    "BillingCurrency": "USD",
+    "CustomerEntityId": "Default",
+    "CustomerEntityType": "Retail",
+    "Items": [
+        {
+            "currencyCode": "USD",
+            "tierMinimumUnits": 0.0,
+            "retailPrice": 0.05,
+            "unitPrice": 0.05,
+            "armRegionName": "swedencentral",
+            "location": "SE Central",
+            "effectiveStartDate": "2021-06-08T00:00:00Z",
+            "meterId": "3179ff02-4b97-5d6e-b10e-9b7ed4b3b610",
+            "meterName": "Basic Messaging Operations",
+            "productId": "DZH318Z0BQN0",
+            "skuId": "DZH318Z0BQN0/00C9",
+            "productName": "Service Bus",
+            "skuName": "Basic",
+            "serviceName": "Service Bus",
+            "serviceId": "DZH3179N6FXW",
+            "serviceFamily": "Integration",
+            "unitOfMeasure": "1M",
+            "type": "Consumption",
+            "isPrimaryMeterRegion": true,
+            "armSkuName": ""
+        }
+    ],
+    "NextPageLink": null,
+    "Count": 1
+}

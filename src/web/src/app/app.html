@@ -1,0 +1,63 @@
+<a class="skip-link" href="#main" (click)="skipToMain($event)">Skip to main content</a>
+<header class="site-header">
+  <div class="site-bar">
+    <a class="brand" href="/">TicketDesk</a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a routerLink="/tickets" routerLinkActive="active" ariaCurrentWhenActive="page">Ticket center</a></li>
+        <li><a routerLink="/ticket/new" routerLinkActive="active" ariaCurrentWhenActive="page">New ticket</a></li>
+      </ul>
+    </nav>
+    <form class="quick-search" action="/search" method="get" role="search">
+      <label class="visually-hidden" for="quick-search-term">Search tickets</label>
+      <input id="quick-search-term" name="term" type="search" placeholder="Search tickets" autocomplete="off" />
+      <button type="submit" class="button">Search</button>
+    </form>
+    @if (session.info(); as s) {
+      <nav class="user-nav" aria-label="Account">
+        <ul>
+          <li class="user-name">{{ s.displayName }}</li>
+          @if (s.isAdministrator) {
+            <li>
+              <details class="menu">
+                <summary>Administration</summary>
+                <ul>
+                  <li><a href="/admin/users">Manage users</a></li>
+                  <li><a href="/admin/projects">Manage projects</a></li>
+                  <li><a href="/admin/application-settings">Application settings</a></li>
+                  <li><a href="/admin/push-notification-settings">Push notification settings</a></li>
+                  <li><a href="/admin/data-management/demo">Demo data</a></li>
+                  <li><a href="/admin/search-manager">Search management</a></li>
+                </ul>
+              </details>
+            </li>
+          }
+          <li><a href="/account/manage">My account</a></li>
+          <li>
+            <!-- sign-out posts with the antiforgery token (the shell's XSRF-TOKEN value), like the server pages' user menu -->
+            <form class="sign-out" method="post" action="/user/sign-out">
+              <input type="hidden" name="__RequestVerificationToken" [value]="xsrfToken()" />
+              <button type="submit" class="link-button">Log off</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    }
+  </div>
+</header>
+<main id="main" #main tabindex="-1">
+  @if (session.error(); as error) {
+    <div class="alert alert-error" role="alert">
+      <p>TicketDesk could not load your session: {{ error }}</p>
+      <p><a href="/tickets">Reload</a></p>
+    </div>
+  } @else {
+    <router-outlet />
+  }
+</main>
+<footer class="site-footer">
+  <p>
+    <a href="https://github.com/NullDesk/TicketDesk">TicketDesk</a> v2.5 &middot; &copy; 2008&ndash;{{ year }} NullDesk Solutions (Stephen M. Redd)
+    &middot; <a href="/about">About</a>
+  </p>
+</footer>

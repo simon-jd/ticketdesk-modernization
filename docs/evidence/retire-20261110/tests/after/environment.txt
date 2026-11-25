@@ -1,0 +1,4 @@
+# date: 2026-11-11T05:26:12Z  git: 99dbd79  dotnet 10.0.403  node v24.22.2
+# TD_MODERN_SEEDED_DB=TicketDesk_retire  TD_SQL_TEST_CONN=td-sql master  Azurite + Service Bus emulator running: 2/2
+# host load: 5.84 5.23 4.35
+$ dotnet build src/modern/TicketDesk.Modern.sln -c Release

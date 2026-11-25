@@ -1,0 +1,4 @@
+      System.InvalidOperationException: Hosting environment is already set
+         at System.Web.Hosting.HostingEnvironmentAccessor.set_Current(HostingEnvironmentAccessor value)
+         at System.Web.Hosting.HostingEnvironmentAccessor..ctor(IServiceProvider services, IOptions`1 options)
+         at InvokeStub_HostingEnvironmentAccessor..ctor(Object, Span`1)

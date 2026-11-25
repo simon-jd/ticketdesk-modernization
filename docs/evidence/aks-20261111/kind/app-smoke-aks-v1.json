@@ -1,0 +1,120 @@
+{
+  "command": "app-smoke",
+  "base": "https://localhost:18443",
+  "ok": true,
+  "checks_passed": 9,
+  "checks_total": 9,
+  "requests": 10,
+  "seconds": 0.1,
+  "checks": [
+    {
+      "check": "home page over HTTPS",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "ticket options (API)",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "new-ticket page",
+      "ok": true,
+      "detail": "HTTP 200, XSRF-TOKEN cookie set"
+    },
+    {
+      "check": "create ticket (API)",
+      "ok": true,
+      "detail": "HTTP 201"
+    },
+    {
+      "check": "ticket page",
+      "ok": true,
+      "detail": "HTTP 200 /ticket/10005"
+    },
+    {
+      "check": "add comment (API)",
+      "ok": true,
+      "detail": "HTTP 204"
+    },
+    {
+      "check": "comment visible (API)",
+      "ok": true,
+      "detail": "HTTP 200"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 5
+    },
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 7
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 6,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 5
+    },
+    {
+      "method": "GET",
+      "url": "/api/tickets/options",
+      "status": 200,
+      "ms": 7
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/new",
+      "status": 200,
+      "ms": 3
+    },
+    {
+      "method": "POST",
+      "url": "/api/tickets",
+      "status": 201,
+      "ms": 24
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/10005",
+      "status": 200,
+      "ms": 6
+    },
+    {
+      "method": "POST",
+      "url": "/api/tickets/10005/activities",
+      "status": 204,
+      "ms": 17
+    },
+    {
+      "method": "GET",
+      "url": "/api/tickets/10005",
+      "status": 200,
+      "ms": 7
+    }
+  ],
+  "ticket_id": 10005
+}

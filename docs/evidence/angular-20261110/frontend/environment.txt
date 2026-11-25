@@ -1,0 +1,3 @@
+# date: 2026-11-10T18:48:21Z  git: 60460df  gateway: https://localhost:5463 -> https://localhost:8443/
+# snapshot: baseline-s-identity  new-app db: VM (td_modern_app)  shared cookie: on
+# node v24.22.2; host load: 2.57 1.94 1.94

@@ -1,0 +1,36 @@
+diff --git a/infra/terraform/modules/network/main.tf b/infra/terraform/modules/network/main.tf
+index c2fdd46..426a016 100644
+--- a/infra/terraform/modules/network/main.tf
++++ b/infra/terraform/modules/network/main.tf
+@@ -94,8 +94,7 @@ resource "azurerm_network_security_group" "aks" {
+ 
+   # Empty until an AKS stage opens HTTPS to the app's load balancer service for chosen sources (the home IP). The LB rules
+   # use floating IP, so the destination port seen here is the service port (443), not a node port.
+-  # Load balancer health probes come from the AzureLoadBalancer tag (default rule 65001), which the
+-  # DenyInternetInbound rule below does not match.
++  # Load balancer health probes: see AllowAzureLoadBalancerInbound below.
+   dynamic "security_rule" {
+     for_each = length(var.aks_ingress_source_cidrs) > 0 ? [1] : []
+     content {
+@@ -111,6 +110,21 @@ resource "azurerm_network_security_group" "aks" {
+     }
+   }
+ 
++  # The load balancer's health probes come from 168.63.129.16, which DenyInternetInbound (source Internet) matches: the
++  # default AllowAzureLoadBalancerInBound (65001) is never reached and the probe of the app's service fails (session of
++  # 2026-11-12: DipAvailability 0, the service unreachable while the pod answered). Allowed explicitly, before the deny.
++  security_rule {
++    name                       = "AllowAzureLoadBalancerInbound"
++    priority                   = 3900
++    direction                  = "Inbound"
++    access                     = "Allow"
++    protocol                   = "*"
++    source_address_prefix      = "AzureLoadBalancer"
++    source_port_range          = "*"
++    destination_address_prefix = "*"
++    destination_port_range     = "*"
++  }
++
+   security_rule {
+     name                       = local.deny_internet.name
+     priority                   = local.deny_internet.priority

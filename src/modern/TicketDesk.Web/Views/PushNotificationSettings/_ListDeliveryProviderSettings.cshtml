@@ -1,0 +1,23 @@
+@* Port of the legacy Views/PushNotificationSettings/ListDeliveryProviderSettings.cshtml (TicketDesk 2.5, Ms-PL). *@
+@model TicketDesk.Settings.PushNotificationSettingsDocument
+@using ListStrings = TicketDesk.Localization.Views.PushNotificationSettings.ListDeliveryProviderSettings
+@using PushStrings = TicketDesk.Localization.PushNotifications.Strings
+@using TicketDesk.Settings
+@using TicketDesk.Web.Controllers
+@foreach (var p in DeliveryProvider.All)
+{
+    var id = p.ShortName + "_IsEnabled";
+    <div class="form-group">
+        <label class="col-md-4 col-sm-4 control-label">@PushNotificationSettingsController.ProviderTitle(p)</label>
+        <div class="col-md-8 col-sm-8">
+            <label class="checkbox-inline" style="vertical-align: top;">
+                @Html.Raw($"<input {(Model.ProviderEnabled(p) ? "checked=\"checked\" " : "")}disabled=\"disabled\" id=\"{id}\" name=\"{id}\" type=\"checkbox\" value=\"true\" /><input name=\"{id}\" type=\"hidden\" value=\"false\" />")
+                @PushStrings.Provider_Prompt
+            </label>
+
+            <a class="btn btn-link" href="/admin/push-notification-settings/configure-provider?providerAssemblyQualifiedName=@Uri.EscapeDataString(p.AssemblyQualifiedName)">
+                <i class="fa fa-gear"></i> @ListStrings.Configure
+            </a>
+        </div>
+    </div>
+}

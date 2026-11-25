@@ -1,0 +1,12 @@
+2026-11-08T20:48:21Z == direct
+2026-11-08T20:48:39Z 2026-11-08T20:48:39Z reset to baseline-s done in 18 s
+2026-11-08T20:48:56Z 2026-11-08T20:48:56Z deployed td-legacy-publish-35d7b5e.zip (sha256 488696957d298c069f5683e94d6abb4333b11d695f6eef21bc3bbe20ef215369) in 17 s
+2026-11-08T20:48:56Z td-db migrate: 9 script(s) applied
+2026-11-08T20:48:57Z prepare: prepared
+2026-11-08T20:49:21Z replay: replayed 262 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/legacy-adapters-20261108/step3-expand-schema/direct/candidate.jsonl (0 journey errors)
+2026-11-08T20:49:22Z compare: compared 262, matched 261, mismatched 1 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/step3-expand-schema/direct/compare/report.md
+2026-11-08T20:49:24Z == gateway
+2026-11-08T20:49:43Z 2026-11-08T20:49:43Z reset to baseline-s done in 19 s
+2026-11-08T20:49:59Z 2026-11-08T20:49:59Z deployed td-legacy-publish-35d7b5e.zip (sha256 488696957d298c069f5683e94d6abb4333b11d695f6eef21bc3bbe20ef215369) in 16 s
+2026-11-08T20:49:59Z td-db migrate: 9 script(s) applied
+2026-11-08T20:50:26Z gateway: replayed 262 exchanges in 15 journeys against https://localhost:5443/ -> docs/evidence/legacy-adapters-20261108/step3-expand-schema/gateway/gateway.jsonl (0 journey errors) compared 262, matched 258, mismatched 4 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/step3-expand-schema/gateway/compare-golden-gateway/report.md 

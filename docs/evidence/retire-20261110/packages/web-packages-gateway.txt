@@ -1,0 +1,2 @@
+$ dotnet list src/modern/TicketDesk.Web package --include-transitive | grep -iE 'yarp|systemweb'
+(none)

@@ -1,0 +1,61 @@
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       os-base               0 B 2026-11-07 16:19:16  0000:00:00.000          0
+2       app-deployed          0 B 2026-11-07 16:38:45  0000:00:00.000          0
+3       installed-clean       0 B 2026-11-07 17:14:24  0000:00:00.000          0
+9       baseline-s-legacy      0 B 2026-11-08 12:54:38  0000:00:00.000          0
+10      baseline-s            0 B 2026-11-08 12:55:23  0000:00:00.000          0
+$ TD_LOCK_OWNER=legacy-adapters ops/onprem/baseline/baseline-s.sh install
+2026-11-09T01:48:07Z reset VM to installed-clean
+guest shutdown requested over ssh
+stopped after 10s
+disk reverted to installed-clean
+started: tmux td-legacy-vm, pid 3539162
+ssh up after ~0s
+2026-11-09T01:48:32Z app ready (4 s)
+2026-11-09T01:48:32Z deploy td-legacy-publish-b4edcc3.zip (file store: blob)
+2026-11-09T01:48:33Z td-azurite up: http://127.0.0.1:10000/devstoreaccount1 (VM: http://10.0.2.2:10000/devstoreaccount1), image mcr.microsoft.com/azure-storage/azurite:3.37.0
+2026-11-09T01:48:33Z reset: empty store (baseline-s state)
+	  			C:\TdBuild\publish\ApplicationInsights.config
+	  			C:\TdBuild\publish\bin\ApplicationInsights.config
+[2026-11-09T01:48:40Z] INFO   file store: Azure Blob (http://10.0.2.2:10000/devstoreaccount1)
+[2026-11-09T01:48:40Z] CHANGE ApplicationInsights.config: no correlation headers to 10.0.2.2
+[2026-11-09T01:48:40Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+2026-11-09T01:48:50Z deployed td-legacy-publish-b4edcc3.zip (sha256 f1408b12957a6a2bda46123865d471a2f97247f2e19a5fd5e2939c9411574cf6) in 17 s
+2026-11-09T01:48:50Z copy and restore ticketdesk-baseline-s.bak with Restore-TdSite.ps1 -SkipFiles
+[2026-11-09T01:48:56Z] CHANGE stopped app pool TicketDesk
+[2026-11-09T01:48:57Z] CHANGE restored TicketDesk from C:\TdBackups\baseline-s\TicketDesk.bak
+[2026-11-09T01:48:57Z] INFO   mapped IIS AppPool\TicketDesk as db_owner in TicketDesk
+[2026-11-09T01:48:57Z] INFO   started app pool TicketDesk
+[2026-11-09T01:48:57Z] INFO   restore complete in 4.5s
+2026-11-09T01:49:03Z app ready (5 s)
+2026-11-09T01:49:03Z td-db migrate on the VM database
+9 script(s) applied
+app pool restarted
+2026-11-09T01:49:10Z app ready (4 s)
+2026-11-09T01:49:10Z rebuild the Lucene index (admin/search-manager)
+[PASS] search finds tickets (HTTP 200, 20 ticket links for 'printer')
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 2.7}
+tickets=10000 users=251 schema_scripts=9 version=16.0.1000.6
+
+2026-11-09T01:49:13Z export ticketdesk-baseline-s-shared.bak
+BACKUP DATABASE successfully processed 10177 pages in 0.166 seconds (478.924 MB/sec).
+2026-11-09T01:49:18Z reset: empty store (baseline-s state)
+2026-11-09T01:49:18Z stop and save snapshot baseline-s
+guest shutdown requested over ssh
+stopped after 10s
+10      baseline-s            0 B 2026-11-08 17:49:29  0000:00:00.000          0
+started: tmux td-legacy-vm, pid 3543224
+ssh up after ~0s
+2026-11-09T01:49:43Z app ready (4 s)
+2026-11-09T01:49:43Z install done in 96 s
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       os-base               0 B 2026-11-07 16:19:16  0000:00:00.000          0
+2       app-deployed          0 B 2026-11-07 16:38:45  0000:00:00.000          0
+3       installed-clean       0 B 2026-11-07 17:14:24  0000:00:00.000          0
+9       baseline-s-legacy      0 B 2026-11-08 12:54:38  0000:00:00.000          0
+10      baseline-s            0 B 2026-11-08 17:49:29  0000:00:00.000          0
+PACKAGE=td-legacy-publish-b4edcc3.zip
+FILESTORE=blob
+SAVED=2026-11-09T01:49:16Z

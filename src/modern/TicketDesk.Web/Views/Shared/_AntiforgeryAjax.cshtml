@@ -1,0 +1,9 @@
+@* S3: the new app validates antiforgery on every POST. The page's own AJAX posts (activity forms, subscription toggle,
+   file upload/delete) send its token as a header; the legacy scripts (served unchanged) know nothing about it. *@
+<script type="text/javascript">
+    (function () { // S3 RequestVerificationToken
+        var token = $('input[name="__RequestVerificationToken"]').first().val();
+        $.ajaxSetup({ headers: { 'RequestVerificationToken': token } });
+        if (window.Dropzone) { Dropzone.prototype.defaultOptions.headers = { 'RequestVerificationToken': token }; }
+    })();
+</script>

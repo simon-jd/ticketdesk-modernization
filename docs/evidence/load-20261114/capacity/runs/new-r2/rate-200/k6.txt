@@ -1,0 +1,40 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:5493 -e TD_RATE=200 -e TD_WARMUP_S=30 -e TD_MEASURE_S=120 -e TD_PRE_VUS=620 -e TD_MAX_VUS=620 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: ~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js
+        output: csv (~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/capacity/runs/new-r2/rate-200/k6.csv.gz)
+     scenarios: (100.00%) 1 scenario, 620 max VUs, 3m0s max duration (incl. graceful stop):
+              * mix: 200.00 iterations/s for 2m30s (maxVUs: 620, gracefulStop: 30s)
+Run    [ 100% ] setup()
+Run    [ 100% ] setup()
+time="2026-11-13T17:46:45-08:00" level=warning msg="The test has generated metrics with 100093 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+time="2026-11-13T17:47:49-08:00" level=warning msg="Insufficient VUs, reached 620 active VUs and cannot initialize more" executor=constant-arrival-rate scenario=mix
+time="2026-11-13T17:48:20-08:00" level=warning msg="The test has generated metrics with 200012 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+{
+ "all": {
+  "duration_ms": {
+   "count": 36798,
+   "min": 0.333685,
+   "med": 21.814762,
+   "avg": 680.458102446464,
+   "p(90)": 996.3213480000036,
+   "p(95)": 4765.2266910000035,
+   "p(99)": 16599.817494059986,
+   "max": 23597.776047
+  },
+  "failed": {
+   "passes": 432,
+   "fails": 36366,
+   "rate": 0.011739768465677482
+  }
+ },
+ "dropped": {
+  "count": 5072,
+  "rate": 32.183156048505225
+ }
+}

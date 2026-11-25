@@ -1,0 +1,4 @@
+failed [Test Assembly Cleanup Failure (TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up)]
+  from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+  Xunit.MicrosoftTestingPlatform.XunitException: Assembly fixture type 'TicketDesk.Testing.ScratchDatabase' threw in DisposeAsync
+  ---- Microsoft.Data.SqlClient.SqlException : Transaction (Process ID 54) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.

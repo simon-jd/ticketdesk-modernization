@@ -1,0 +1,8 @@
+Release "td" does not exist. Installing it now.
+NAME: td
+LAST DEPLOYED: Thu Nov 12 01:13:58 2026
+NAMESPACE: ticketdesk
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None

@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Attachments</RootNamespace>
+    <Description>Attachments module: attachment store (Azure Blob shared with the legacy app, or local disk in the legacy folder layout) with safe file-name resolution.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Azure.Storage.Blobs" />
+  </ItemGroup>
+</Project>

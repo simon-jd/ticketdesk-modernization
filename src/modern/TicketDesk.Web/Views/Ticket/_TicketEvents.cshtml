@@ -1,0 +1,21 @@
+@* Port of the legacy Views/Ticket/_TicketEvents.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd). *@
+@model IReadOnlyList<TicketDesk.Tickets.Pages.TicketEventView>
+@using TicketDesk.Web.Views
+
+@foreach (var e in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading"  style="padding: 5px;">
+            <div><strong>@e.EventByName</strong> @e.Event.EventDescription</div>
+
+            <div class="text-muted small" style="text-indent: 1em;">
+                @TicketText.LongDate(e.Event.EventDate)
+                @TicketText.ShortTime(e.Event.EventDate)
+            </div>
+        </div>
+        @if (!string.IsNullOrEmpty(e.CommentHtml))
+        {
+            <div class="panel-body" style="padding: 5px;">@Html.Raw(e.CommentHtml)</div>
+        }
+    </div>
+}

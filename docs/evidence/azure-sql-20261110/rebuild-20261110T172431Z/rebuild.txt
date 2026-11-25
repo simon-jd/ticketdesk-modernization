@@ -1,0 +1,3 @@
+rebuild start 2026-11-10T17:24:31Z
+apply stage replatform end 2026-11-10T17:31:16Z elapsed_s=403 rc=1
+make: *** [infra/azure.mk:66: azure-up-replatform] Error 1

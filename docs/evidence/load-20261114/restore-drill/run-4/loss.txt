@@ -1,0 +1,7 @@
+Nonqualified transactions are being rolled back. Estimated rollback completion: 0%.
+Nonqualified transactions are being rolled back. Estimated rollback completion: 100%.
+Changed database context to 'TicketDesk_load_rd4'.
+last committed event|46608|2026-11-14T06:12:37.3566144Z
+last committed ticket|10325|2026-11-14T06:12:36.9104609Z
+events|46608
+Changed database context to 'master'.

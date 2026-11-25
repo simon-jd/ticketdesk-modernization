@@ -1,0 +1,184 @@
+{
+  "target": "https://localhost:5443",
+  "rate_per_s": 10,
+  "warmup_s": 30,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "min": 1.65901,
+      "med": 14.41937,
+      "avg": 19.162871615789474,
+      "p(90)": 35.731911600000004,
+      "p(95)": 41.19886294999998,
+      "p(99)": 54.70358007999995,
+      "max": 192.261036,
+      "count": 1140
+    },
+    "failed": {
+      "rate": 0,
+      "passes": 0,
+      "fails": 1140
+    }
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 681,
+    "fails": 0
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "med": 32.328272,
+        "avg": 30.725698834862392,
+        "p(90)": 39.907930199999996,
+        "p(95)": 44.47847224999999,
+        "p(99)": 48.70300780999998,
+        "max": 54.888451,
+        "count": 218,
+        "min": 10.259438
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 218,
+        "rate": 0
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "min": 1.65901,
+        "med": 9.7406,
+        "avg": 12.85728103619909,
+        "p(90)": 27.125680600000003,
+        "p(95)": 28.6629234,
+        "p(99)": 33.183427300000005,
+        "max": 42.857865,
+        "count": 663
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 663
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "count": 82,
+        "min": 10.526091,
+        "med": 38.0568365,
+        "avg": 41.895284890243886,
+        "p(90)": 56.1199005,
+        "p(95)": 60.2466537,
+        "p(99)": 95.80638503999972,
+        "max": 192.261036
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 82
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "count": 126,
+        "min": 3.185633,
+        "med": 13.283785,
+        "avg": 15.700842325396835,
+        "p(90)": 25.604008999999998,
+        "p(95)": 28.15246725,
+        "p(99)": 34.771820749999996,
+        "max": 50.866827
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 126
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "count": 51,
+        "min": 5.20441,
+        "med": 23.429677,
+        "avg": 23.713224999999998,
+        "p(90)": 32.066202,
+        "p(95)": 33.8945995,
+        "p(99)": 38.870824,
+        "max": 43.021805
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 51,
+        "rate": 0
+      }
+    }
+  },
+  "iterations": {
+    "count": 901,
+    "rate": 10.006200927117561
+  },
+  "dropped_iterations": null,
+  "vus_max": {
+    "value": 20,
+    "min": 20,
+    "max": 20
+  },
+  "root_group_checks": [
+    {
+      "path": "::signed in (302 to /)",
+      "id": "fdcd4b15f72aec2317ac2c1533ca239e",
+      "passes": 20,
+      "fails": 0,
+      "name": "signed in (302 to /)"
+    },
+    {
+      "passes": 327,
+      "fails": 0,
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6"
+    },
+    {
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 336,
+      "fails": 0
+    },
+    {
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 83,
+      "fails": 0
+    },
+    {
+      "name": "comment saved",
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 83,
+      "fails": 0
+    },
+    {
+      "fails": 0,
+      "name": "filter 200",
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 134
+    },
+    {
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 27,
+      "fails": 0
+    },
+    {
+      "passes": 27,
+      "fails": 0,
+      "name": "created ticket 200",
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b"
+    }
+  ]
+}

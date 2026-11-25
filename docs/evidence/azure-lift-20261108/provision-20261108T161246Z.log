@@ -1,0 +1,66 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261108161253
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script2.ps1 -Steps fetch+restore+deploy+verify -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-fbaaf99.zip -BundleSha256 06cea84f9f54af0fb2daaef02640f21fbe5c067b659842467a6cf2b77682e217 -PublishBlob td-legacy-publish-f510384.zip -PublishSha256 5f08149d6280aad948c1d46289b81503110f2fc57e9dd84bda4add0510aca45a -AdminEmail <admin-email> -RunId 20261108T161246Z -RestorePrefix seed -RestoreName baseline-s
+Process ID: 3736
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-08T16:12:53Z] provision run 20261108T161246Z on tdlab-legacy, steps: fetch+restore+deploy+verify
+[2026-11-08T16:12:53Z] ==== step fetch
+[2026-11-08T16:12:54Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-fbaaf99.zip (30,630 bytes, sha256 06CEA84F9F54AF0FB2DAAEF02640F21FBE5C067B659842467A6CF2B77682E217)
+[2026-11-08T16:12:54Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Update-TdSqlServer.ps1
+[2026-11-08T16:12:54Z] publish package already extracted (same SHA-256)
+[2026-11-08T16:12:54Z] step fetch done in 0.3s
+[2026-11-08T16:12:54Z] ==== step restore
+[2026-11-08T16:12:55Z] CHANGE downloaded 1 files (77,717,504 bytes) from https://sttdlab36d2d4.blob.core.windows.net/backups/seed/baseline-s/ in 0.9s
+[2026-11-08T16:12:55Z] WARN   no manifest.json in seed/baseline-s (staged export): files not checked against a manifest
+[2026-11-08T16:12:55Z] no site.zip: database only
+[2026-11-08T16:12:59Z] CHANGE stopped app pool TicketDesk
+[2026-11-08T16:13:02Z] CHANGE restored TicketDesk from C:\TdBackups\from-blob\baseline-s\TicketDesk.bak
+[2026-11-08T16:13:02Z] INFO   mapped IIS AppPool\TicketDesk as db_owner in TicketDesk
+[2026-11-08T16:13:02Z] INFO   started app pool TicketDesk
+[2026-11-08T16:13:02Z] INFO   restore complete in 6.8s
+ROWCOUNTS {"dbo.__MigrationHistory":25,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":0,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}
+[2026-11-08T16:13:02Z] step restore done in 8.1s
+[2026-11-08T16:13:02Z] ==== step deploy
+[2026-11-08T16:13:02Z] INFO   database has 19 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51         0        51         0         0         0
+   Files :       759         1       758         0         0         0
+   Bytes :   38.09 m    11.4 k   38.08 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           11,765,000 Bytes/sec.
+   Speed :              673.199 MegaBytes/min.
+   Ended : Sunday, November 8, 2026 4:13:02 PM
+
+[2026-11-08T16:13:02Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-08T16:13:02Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T16:13:02Z] CHANGE Web.config: connectionStrings/TicketDesk, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-08T16:13:07Z] INFO   warm-up http://localhost/ -> 200 in 5.2s
+[2026-11-08T16:13:07Z] step deploy done in 5.5s
+[2026-11-08T16:13:07Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-08T15:51:11.0034930Z","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.191.0","signature_updated_utc":"2026-11-08T06:38:16.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10"},"https_home":{"status":200,"ms":16,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":"Ready","rows":{"dbo.__MigrationHistory":25,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-08T16:13:11Z] step verify done in 4.1s
+[2026-11-08T16:13:11Z] TDTIMINGS {"fetch":0.3,"restore":8.1,"deploy":5.5,"verify":4.1} total 18.0s
+**********************
+Windows PowerShell transcript end
+End time: 20261108161311
+**********************

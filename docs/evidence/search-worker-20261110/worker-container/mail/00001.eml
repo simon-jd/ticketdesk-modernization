@@ -1,0 +1,147 @@
+X-Sink-Peer: 127.0.0.1
+X-Sink-Mail-From: <ticketdesk@lab.test> SIZE=6564
+X-Sink-Rcpt-To: <12f3a216@lab.test>
+X-Sink-Received: 2026-11-10T18:24:58.596239+00:00
+From: TicketDesk <ticketdesk@lab.test>
+Date: Tue, 10 Nov 2026 18:24:58 +0000
+Subject: Ticket #10000 : Shared drive stopped syncing for remote staff
+Message-Id: <MYGMCP0PSUU4.O5LH28K6H7VK2@lab-host>
+To: Subscriber <12f3a216@lab.test>
+X-TicketDesk-Sender: worker
+X-TicketDesk-Ticket: 10000
+X-TicketDesk-Events: 45646
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-9l5dpn12i+CPYbRtH7vTqA=="
+
+--=-9l5dpn12i+CPYbRtH7vTqA==
+Content-Type: text/plain; charset=utf-8
+
+----------------------------------------------------------------
+Ticket #10000 - Medium Priority Hardware Problem
+    Shared drive stopped syncing for remote staff
+----------------------------------------------------------------
+Status: Closed
+Assigned To: Zoe Murphy
+Owner: Ava Smith
+Updated by: Ava Smith at 10/31/2026 10:09 AM
+Details
+
+No urgency, whenever you have time.
+
+----------------------------------------------------------------
+Activity
+----------------------------------------------------------------
+
+    Ava Smith closed the ticket by force
+        Saturday, October 31, 2026 12:00 AM
+
+    No longer needed.
+
+----------------------------------------------------------------
+
+    Ava Smith added comment
+        Saturday, October 31, 2026 12:00 AM
+
+    No urgency, whenever you have time.
+
+----------------------------------------------------------------
+
+    Tomas Wilson passed the ticket to Zoe Murphy
+        Friday, October 30, 2026 12:00 AM
+
+    Replaced the unit.
+
+----------------------------------------------------------------
+
+    Tomas Wilson has taken over the ticket at a priority of Medium
+        Friday, October 30, 2026 12:00 AM
+
+    
+----------------------------------------------------------------
+
+    Ava Smith created the ticket
+        Wednesday, October 28, 2026 12:00 AM
+
+    
+----------------------------------------------------------------
+
+
+--=-9l5dpn12i+CPYbRtH7vTqA==
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ticket #10000</title>
+    <style type="text/css">
+        * { font-family: Calibri, Tahoma, Verdana, Helvetica, Sans-Serif; font-size: 10pt; }
+        p { margin: 0.8ex 0 0.8ex 0; }
+        td { padding-left: 3px; padding-right: 3px; }
+        .tag { border: 1px solid #dcdcdc; background-color: #fcf8e3; font-size: 9pt; padding: 2px; }
+        dl { margin-left: 15px; }
+        dd { text-indent: 1em; font-family: monospace; font-size: smaller; }
+    </style>
+</head>
+<body>
+    <div style="border: 1px solid #dcdcdc;">
+        <table style="background-color: #B3CBDF;width: 100%;">
+            <tr>
+                <td style="width: 55px; font-weight: bold; border-right: 1px solid #dcdcdc; text-align: center;"><a href="/ticket/10000">Closed</a></td>
+                <td style="width: 40px; font-weight: bold; border-right: 1px solid #dcdcdc; text-align: center;"><a href="/ticket/10000">#10000</a></td>
+                <td style="font-weight: bold; text-align: left;"><a href="/ticket/10000">Shared drive stopped syncing for remote staff</a></td>
+            </tr>
+        </table>
+        <table style="border-bottom: 1px solid #e7e7e7; width: 100%; background-color: #F7F7F7;">
+            <tr><td>Medium Priority Hardware Problem</td></tr>
+            <tr><td>Project: Default</td></tr>
+            <tr><td>Assigned To: Zoe Murphy</td></tr>
+            <tr><td>Owner: Ava Smith</td></tr>
+            <tr><td>Updated by: Ava Smith at 10/31/2026 10:09 AM</td></tr>
+        </table>
+        <table style="width: 100%;"><tr><td><div style="overflow-y:scroll; max-height: 250px; min-height: 100px;"><p>No urgency, whenever you have time.</p>
+</div></td></tr></table>
+        <table style="background-color: #B3CBDF; width: 100%;"><tr><td style="font-weight: bold;">Activity</td></tr></table>
+        <div style="padding: 10px;">
+            <div style="border: 1px solid #dfdfdf; margin-bottom: 10px;">
+                <table style="background-color: #F7F7F7;width: 100%;">
+                    <tr><td><strong>Ava Smith</strong> closed the ticket by force</td></tr>
+                    <tr><td style="text-indent: 1em; font-size: smaller">Saturday, October 31, 2026 12:00 AM</td></tr>
+                </table>
+                <table style="width: 100%;"><tr><td style="font-family: monospace; font-size: 9pt;"><p>No longer needed.</p>
+</td></tr></table>
+            </div>
+            <div style="border: 1px solid #dfdfdf; margin-bottom: 10px;">
+                <table style="background-color: #F7F7F7;width: 100%;">
+                    <tr><td><strong>Ava Smith</strong> added comment</td></tr>
+                    <tr><td style="text-indent: 1em; font-size: smaller">Saturday, October 31, 2026 12:00 AM</td></tr>
+                </table>
+                <table style="width: 100%;"><tr><td style="font-family: monospace; font-size: 9pt;"><p>No urgency, whenever you have time.</p>
+</td></tr></table>
+            </div>
+            <div style="border: 1px solid #dfdfdf; margin-bottom: 10px;">
+                <table style="background-color: #F7F7F7;width: 100%;">
+                    <tr><td><strong>Tomas Wilson</strong> passed the ticket to Zoe Murphy</td></tr>
+                    <tr><td style="text-indent: 1em; font-size: smaller">Friday, October 30, 2026 12:00 AM</td></tr>
+                </table>
+                <table style="width: 100%;"><tr><td style="font-family: monospace; font-size: 9pt;"><p>Replaced the unit.</p>
+</td></tr></table>
+            </div>
+            <div style="border: 1px solid #dfdfdf; margin-bottom: 10px;">
+                <table style="background-color: #F7F7F7;width: 100%;">
+                    <tr><td><strong>Tomas Wilson</strong> has taken over the ticket at a priority of Medium</td></tr>
+                    <tr><td style="text-indent: 1em; font-size: smaller">Friday, October 30, 2026 12:00 AM</td></tr>
+                </table>
+            </div>
+            <div style="border: 1px solid #dfdfdf; margin-bottom: 10px;">
+                <table style="background-color: #F7F7F7;width: 100%;">
+                    <tr><td><strong>Ava Smith</strong> created the ticket</td></tr>
+                    <tr><td style="text-indent: 1em; font-size: smaller">Wednesday, October 28, 2026 12:00 AM</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+--=-9l5dpn12i+CPYbRtH7vTqA==--

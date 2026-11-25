@@ -1,0 +1,5 @@
+fail: Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectHandler[12]
+      Message contains error: 'access_denied', error_description: 'AADSTS65004: User declined to consent to access the app.', error_uri: 'error_uri is null'.
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      Microsoft.AspNetCore.Authentication.AuthenticationFailureException: An error was encountered while handling the remote login.
+       ---> Microsoft.IdentityModel.Protocols.OpenIdConnect.OpenIdConnectProtocolException: Message contains error: 'access_denied', error_description: 'AADSTS65004: User declined to consent to access the app.', error_uri: 'error_uri is null'.

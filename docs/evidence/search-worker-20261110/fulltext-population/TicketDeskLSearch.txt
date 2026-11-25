@@ -1,0 +1,12 @@
+# td-db migrate on td-sql TicketDeskLSearch (copy of TicketDeskL), 2026-11-10T17:31:54Z, load 2.68 3.42 3.56
+applied expand/V0010__data_protection_keys.sql in 0.02 s
+    created UX_TicketEvents_EventId
+    created full-text catalog ftc_TicketDesk
+    created full-text index on dbo.Tickets (Title, Details, TagList)
+    created full-text index on dbo.TicketEvents (Comment)
+applied expand/V0011__ticket_full_text_search.sql in 0.78 s
+2 script(s) applied
+dbo.TicketEvents   ready      items   4538818  pending       0  failed 0  crawl 3.0 s (2026-11-10 17:34:38Z .. 2026-11-10 17:34:41Z)
+dbo.Tickets        ready      items   1000000  pending       0  failed 0  crawl 0.3 s (2026-11-10 17:32:49Z .. 2026-11-10 17:32:49Z)
+migrate wall .997236710 s; migrate start to population done 167.382561898 s
+MIGRATE-DONE

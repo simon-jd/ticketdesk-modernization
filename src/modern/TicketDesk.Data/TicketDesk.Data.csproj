@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Data</RootNamespace>
+    <Description>EF Core 10 data layer mapped to the unchanged TicketDesk 2.5 schema (domain and Identity tables).</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <!-- "Authentication=Active Directory Workload Identity" / "Active Directory Managed Identity" in the connection string (Azure SQL) -->
+    <PackageReference Include="Microsoft.Data.SqlClient.Extensions.Azure" />
+  </ItemGroup>
+</Project>

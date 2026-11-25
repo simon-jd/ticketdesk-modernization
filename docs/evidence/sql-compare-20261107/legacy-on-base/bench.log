@@ -1,0 +1,52 @@
+$ TD_PERF_DB=TicketDeskLBase ops/dev/sql-perf.sh bench --cases docs/evidence/sql-legacy-capture-20261107/cases-legacy.json --out docs/evidence/sql-compare-20261107/legacy-on-base --warm 10 --cold 5
+[01:28:02] legacy/legacy-ticket-center-default-list-help-desk-unassigned: 53 command(s)
+    cold: median 204 ms server / 233.0 ms client, cpu 709 ms, reads 215014
+    warm: median 89 ms server / 100.3 ms client, cpu 651.5 ms, reads 215014
+[01:28:05] legacy/legacy-list-unassigned: 30 command(s)
+    cold: median 192 ms server / 205.8 ms client, cpu 700 ms, reads 214461
+    warm: median 79.5 ms server / 89.0 ms client, cpu 590 ms, reads 214461
+[01:28:08] legacy/legacy-list-assignedtome: 28 command(s)
+    cold: median 139 ms server / 148.0 ms client, cpu 302 ms, reads 107261
+    warm: median 28.5 ms server / 36.6 ms client, cpu 220.5 ms, reads 107261
+[01:28:09] legacy/legacy-list-mytickets: 30 command(s)
+    cold: median 177 ms server / 188.8 ms client, cpu 584 ms, reads 214461
+    warm: median 66.5 ms server / 77.4 ms client, cpu 495 ms, reads 214461
+[01:28:12] legacy/legacy-list-opentickets: 30 command(s)
+    cold: median 246 ms server / 260.6 ms client, cpu 1089 ms, reads 214461
+    warm: median 128.5 ms server / 139.3 ms client, cpu 955.5 ms, reads 214461
+[01:28:15] legacy/legacy-list-historytickets: 30 command(s)
+    cold: median 241 ms server / 258.2 ms client, cpu 1039 ms, reads 214461
+    warm: median 132 ms server / 139.5 ms client, cpu 1001 ms, reads 214461
+[01:28:19] legacy/legacy-opentickets-page-2-partial: 24 command(s)
+    cold: median 264 ms server / 275.5 ms client, cpu 1253 ms, reads 214445
+    warm: median 134.5 ms server / 142.1 ms client, cpu 1014 ms, reads 214445
+[01:28:22] legacy/legacy-opentickets-sort-by-title-partial: 28 command(s)
+    cold: median 239 ms server / 251.2 ms client, cpu 1022 ms, reads 214455
+    warm: median 135.5 ms server / 142.3 ms client, cpu 1032 ms, reads 214455
+[01:28:25] legacy/legacy-opentickets-sort-by-title-again-descending: 28 command(s)
+    cold: median 243 ms server / 256.7 ms client, cpu 1022 ms, reads 214455
+    warm: median 121.5 ms server / 129.0 ms client, cpu 927 ms, reads 214455
+[01:28:28] legacy/legacy-opentickets-add-priority-to-the-sort: 28 command(s)
+    cold: median 250 ms server / 263.1 ms client, cpu 1054 ms, reads 214455
+    warm: median 123 ms server / 130.7 ms client, cpu 923.5 ms, reads 214455
+[01:28:32] legacy/legacy-mytickets-filter-status-active-assignedto-anyone: 28 command(s)
+    cold: median 178 ms server / 190.6 ms client, cpu 573 ms, reads 214455
+    warm: median 67 ms server / 78.7 ms client, cpu 507.5 ms, reads 214455
+[01:28:34] legacy/legacy-unassigned-filter-status-any: 28 command(s)
+    cold: median 195 ms server / 210.1 ms client, cpu 758 ms, reads 214455
+    warm: median 79.5 ms server / 87.8 ms client, cpu 591.5 ms, reads 214455
+[01:28:36] legacy/legacy-opentickets-to-pick-a-ticket: 30 command(s)
+    cold: median 269 ms server / 282.1 ms client, cpu 1172 ms, reads 214461
+    warm: median 129.5 ms server / 138.5 ms client, cpu 982.5 ms, reads 214461
+[01:28:40] legacy/legacy-ticket-page: 23 command(s)
+    cold: median 1 ms server / 11.5 ms client, cpu 3 ms, reads 57
+    warm: median 0 ms server / 2.7 ms client, cpu 0 ms, reads 57
+[01:28:40] legacy/legacy-ticket-details-panel: 5 command(s)
+    cold: median 0 ms server / 3.9 ms client, cpu 1 ms, reads 13
+    warm: median 0 ms server / 0.7 ms client, cpu 0 ms, reads 13
+[01:28:40] legacy/legacy-ticket-events-panel: 3 command(s)
+    cold: median 1 ms server / 3.8 ms client, cpu 1 ms, reads 10
+    warm: median 0 ms server / 0.4 ms client, cpu 0 ms, reads 10
+[01:28:41] legacy/legacy-ticket-files-panel: 1 command(s)
+    cold: median 0 ms server / 1.4 ms client, cpu 0 ms, reads 2
+    warm: median 0 ms server / 0.2 ms client, cpu 0 ms, reads 2

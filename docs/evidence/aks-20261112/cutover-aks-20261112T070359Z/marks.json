@@ -1,0 +1,1 @@
+{"probe_start":"2026-11-12T07:03:59.198Z","switched":"2026-11-12T07:04:29.215Z","probe_end":"2026-11-12T07:05:29.630Z","source":"https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com (legacy, Azure VM)","target":"https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com (new app, AKS, YARP fallback to the VM)"}

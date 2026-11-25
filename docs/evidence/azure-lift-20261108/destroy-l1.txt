@@ -1,0 +1,1613 @@
+START 2026-11-08T20:37:45Z make azure-lift-down
+make --no-print-directory azure-down-foundation AZ_OWNER=agent-azure-lift
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && umask 077 && cd infra/terraform/envs/lab && export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv) && export TF_VAR_subscription_id=$ARM_SUBSCRIPTION_ID TF_VAR_tenant_id=$(az account show --query tenantId -o tsv) && export TF_VAR_ttl_utc=$(date -u -d "+4 hours" +%Y-%m-%dT%H:%M:%SZ) && source ~/Desktop/ticketdesk-modernization/wt-azure-lift/scripts/tf_lift_env.sh ~/Desktop/ticketdesk-modernization ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/azure-lift.pfx && terraform init -input=false -backend-config=path=~/Desktop/ticketdesk-modernization/.tfstate/lab/terraform.tfstate
+Initializing the backend...
+
+Initializing modules...
+
+Initializing provider plugins...
+- Reusing version 2.13.0 of azure/azapi from the dependency lock file
+- Reusing version 3.9.1 of hashicorp/random from the dependency lock file
+- Reusing version 0.14.2 of hashicorp/time from the dependency lock file
+- Reusing version 5.13.0 of hashicorp/azurerm from the dependency lock file
+- Reusing version 3.10.0 of hashicorp/azuread from the dependency lock file
+- Using previously-installed hashicorp/azuread v3.10.0
+- Using previously-installed azure/azapi v2.13.0
+- Using previously-installed hashicorp/random v3.9.1
+- Using previously-installed hashicorp/time v0.14.2
+- Using previously-installed hashicorp/azurerm v5.13.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+stage foundation down (to none) start 2026-11-08T20:37:46Z
+random_password.sql_sa[0]: Refreshing state... [id=none]
+module.vm[0].random_password.admin: Refreshing state... [id=none]
+data.azuread_client_config.current: Reading...
+data.azuread_client_config.current: Read complete after 0s [id=<tenant-id>-04b07795-8ddb-461a-bbee-02f9e1bf7b46-<principal-id-8>]
+data.azuread_user.me: Reading...
+module.entra[0].azuread_application.web: Refreshing state... [id=/applications/<principal-id-13>]
+data.azuread_user.me: Read complete after 0s [id=/users/<principal-id-8>]
+module.entra[0].azuread_service_principal.web: Refreshing state... [id=/servicePrincipals/<principal-id-3>]
+module.entra[0].azuread_app_role_assignment.admin: Refreshing state... [id=/servicePrincipals/<principal-id-3>/appRoleAssignedTo/3xZGhjjnlEiJClDyDCBVODYduw25U0lGkIFJr1ojvg0]
+data.azurerm_subscription.current: Reading...
+data.azurerm_client_config.current: Reading...
+azurerm_resource_group.lab[0]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab]
+data.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD0wNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDY7b2JqZWN0SWQ9PHByaW5jaXBhbC1pZC04PjtzdWJzY3JpcHRpb25JZD08c3Vic2NyaXB0aW9uLWlkPjt0ZW5hbnRJZD08dGVuYW50LWlkPg==]
+data.azurerm_subscription.current: Read complete after 0s [id=/subscriptions/<subscription-id>]
+module.vm[0].azurerm_public_ip.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/publicIPAddresses/pip-tdlab-legacy]
+module.monitoring[0].azurerm_log_analytics_workspace.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.OperationalInsights/workspaces/log-tdlab-swedencentral]
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/actionGroups/ag-tdlab-email]
+module.sql[0].azurerm_private_dns_zone.sql: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net]
+module.sql[0].azurerm_mssql_server.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4]
+module.network[0].azurerm_network_security_group.vm: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm]
+module.network[0].azurerm_network_security_group.aks: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks]
+module.network[0].azurerm_virtual_network.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral]
+module.network[0].azurerm_network_security_group.pe: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe]
+module.network[0].azurerm_subnet.pe: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe]
+module.network[0].azurerm_subnet.vm: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm]
+module.network[0].azurerm_subnet.aks: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks]
+module.network[0].azurerm_subnet_network_security_group_association.pe: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe]
+module.network[0].azurerm_subnet_network_security_group_association.vm: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm]
+module.monitoring[0].azurerm_application_insights.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/components/appi-tdlab-swedencentral]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/pdnslink-sql-tdlab]
+module.network[0].azurerm_subnet_network_security_group_association.aks: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks]
+module.keyvault[0].azurerm_key_vault.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4]
+module.vm[0].azurerm_network_interface.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-tdlab-legacy]
+module.storage[0].azurerm_storage_account.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4]
+module.sql[0].azurerm_private_endpoint.sql: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateEndpoints/pe-sql-tdlab]
+module.sql[0].azapi_resource.database: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4/databases/sqldb-ticketdesk]
+module.vm[0].azurerm_windows_virtual_machine.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/virtualMachines/vm-tdlab-legacy]
+module.keyvault[0].azurerm_role_assignment.admin: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-11>]
+module.storage[0].azurerm_role_assignment.operator: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-46>]
+module.storage[0].azurerm_storage_container.this["artifacts"]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts]
+module.storage[0].azurerm_storage_container.this["backups"]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups]
+module.storage[0].azurerm_storage_container.this["logs"]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs]
+module.keyvault[0].time_sleep.rbac_propagation: Refreshing state... [id=2026-11-08T15:55:53Z]
+azurerm_key_vault_secret.sql_connection_string[0]: Refreshing state... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/sql-connection-string/9f179d2de58d4b9a9fa97f02b661ff2c]
+module.vm[0].azurerm_key_vault_secret.admin_password: Refreshing state... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/vm-tdlab-legacy-admin-password/e722fb2b4d5f488db3c47774e62fa667]
+module.vm[0].azurerm_role_assignment.kv_secrets_user: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-35>]
+azurerm_key_vault_secret.sql_sa[0]: Refreshing state... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-sql-sa-password/2c9085328a72419399dc15b91832ca42]
+azurerm_key_vault_secret.app_admin[0]: Refreshing state... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-app-admin-password/658f4355d9d84071b94796d5853cf182]
+azurerm_key_vault_secret.appinsights[0]: Refreshing state... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/appinsights-connection-string/a202a848d92043aeabfde4dcd7efbde7]
+azurerm_key_vault_certificate.iis[0]: Refreshing state... [id=https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy/e5921f1240494902825b0a68504a4602]
+module.storage[0].time_sleep.rbac_propagation: Refreshing state... [id=2026-11-08T15:52:44Z]
+azurerm_role_assignment.vm_artifacts_reader[0]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts/providers/Microsoft.Authorization/roleAssignments/<role-assignment-24>]
+azurerm_role_assignment.vm_blob_writer["logs"]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs/providers/Microsoft.Authorization/roleAssignments/<role-assignment-58>]
+azurerm_role_assignment.vm_blob_writer["backups"]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups/providers/Microsoft.Authorization/roleAssignments/<role-assignment-13>]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # azurerm_key_vault_certificate.iis[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "azurerm_key_vault_certificate" "iis" {
+      - certificate_attribute           = [
+          - {
+              - created        = "2026-11-08T15:55:55Z"
+              - enabled        = true
+              - expires        = "2029-02-10T15:43:51Z"
+              - not_before     = "2026-11-08T15:43:51Z"
+              - recovery_level = "CustomizedRecoverable+Purgeable"
+              - updated        = "2026-11-08T20:22:12Z"
+            },
+        ] -> null
+      - certificate_data                = "30820474308202DCA003020102021412337EC53147DEE98219906A9EBB4B041875B963300D06092A864886F70D01010B0500303A31173015060355040A0C0E5469636B65744465736B204C6162311F301D06035504030C165469636B65744465736B204C616220526F6F74204341301E170D3236313130383135343335315A170D3239303231303135343335315A305831173015060355040A0C0E5469636B65744465736B204C6162313D303B06035504030C3474646C61622D6C65676163792D3336643264342E73776564656E63656E7472616C2E636C6F75646170702E617A7572652E636F6D30820122300D06092A864886F70D01010105000382010F003082010A0282010100B13E46A11C3F195591529AA90674CB856A96F0AE7237AFF309B0ABBB237ECAAD92E3C2F39B1086F0BFC8D58E7DD3EDDF9542E9B6EC21C22D74A525E71078BD8B17B5E6CD7B91AFA0D4A0867827B8A29DD21B3CE9314B5763CF8B57AA8EEA3C3A63DD37064A318333213520603A089EE6ADBAC50A1C3320F8F3910F71EF3E0574A5E2329548723E5359D11916607B161EC6467C1774D0758EFB6F9403A36089186547010314C054451B419F154690F4D80B73AA5FBC20C59744D705E3D4BBF3DE8A1D08A3F46F72B4DC98F85CD8379543A6280DC8A1CF47649257E6DC84F46FF0A2038C8DE3A6BB54FBE40DE2A0085EFF5E7BD98EEC90EDB588E3383AFC2B5F4F0203010001A381D33081D0305E0603551D1104573055823474646C61622D6C65676163792D3336643264342E73776564656E63656E7472616C2E636C6F75646170702E617A7572652E636F6D82096C6F63616C686F7374820C74646C61622D6C656761637987047F00000130090603551D1304023000300E0603551D0F0101FF0404030205A030130603551D25040C300A06082B06010505070301301D0603551D0E04160414CFB9E7E2AC3AB5F90175244E6FAF3CE4A1BFCBF6301F0603551D23041830168014235FF396644ACA520CCC9919F7AD73E940A4EF29300D06092A864886F70D01010B050003820181009B6E5FDDAE951BA2FB92F9D3169BCAF93CF87C21C8695AF4ABDDD9F990AD09994C1361B3024EC58D09A6A9BB3D3358826288F801C08F930AD8607169FC8AE702F710FFE23B06CCD19FF8447FD1EE376794399BFF9E0B0621980871D6ADC9A35E68D709BE156AFDAF220D92A97171851A7701D27255F1B11A36305351D2A45FA461DCDB374EF45E4E7EF256168433BE14F289071FEB6C8A823F130F56F0E8B9165319106A334410F30C65AD50D54EC9A37CFDB57ED7A0EB74C661AED1CA7BB789211D9F22CBBA9D5AF0B0C9CC8C06E5C32EAE6E7A6EC88DB11BAD252A621235960E397955C7B25AFD28B87DC6A93EC5E8A2724E6C38EAFA5C5CD7857EDEBBCA0C158758AF81EE89762F6BACF14EAEB82EFF11EE14E15F29C624F3AC8F4EB448A7CA35D472BFC3530C8B2EC83A2C218A174E7D5DD53B7111B31503B786AD09824269317079545E7E66A08103A5F753CC18C4BDB34E0FF828011A4CD9C2BC82F6D39B3265E7D23BE92B7C7F63E417AF3852A14A5122E84AC7EC1D29888FE835596E" -> null
+      - certificate_data_base64         = "MIIEdDCCAtygAwIBAgIUEjN+xTFH3umCGZBqnrtLBBh1uWMwDQYJKoZIhvcNAQELBQAwOjEXMBUGA1UECgwOVGlja2V0RGVzayBMYWIxHzAdBgNVBAMMFlRpY2tldERlc2sgTGFiIFJvb3QgQ0EwHhcNMjYxMTA4MTU0MzUxWhcNMjkwMjEwMTU0MzUxWjBYMRcwFQYDVQQKDA5UaWNrZXREZXNrIExhYjE9MDsGA1UEAww0dGRsYWItbGVnYWN5LTM2ZDJkNC5zd2VkZW5jZW50cmFsLmNsb3VkYXBwLmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALE+RqEcPxlVkVKaqQZ0y4VqlvCucjev8wmwq7sjfsqtkuPC85sQhvC/yNWOfdPt35VC6bbsIcItdKUl5xB4vYsXtebNe5GvoNSghngnuKKd0hs86TFLV2PPi1eqjuo8OmPdNwZKMYMzITUgYDoInuatusUKHDMg+PORD3HvPgV0peIylUhyPlNZ0RkWYHsWHsZGfBd00HWO+2+UA6NgiRhlRwEDFMBURRtBnxVGkPTYC3OqX7wgxZdE1wXj1Lvz3oodCKP0b3K03Jj4XNg3lUOmKA3Ioc9HZJJX5tyE9G/wogOMjeOmu1T75A3ioAhe/1572Y7skO21iOM4OvwrX08CAwEAAaOB0zCB0DBeBgNVHREEVzBVgjR0ZGxhYi1sZWdhY3ktMzZkMmQ0LnN3ZWRlbmNlbnRyYWwuY2xvdWRhcHAuYXp1cmUuY29tgglsb2NhbGhvc3SCDHRkbGFiLWxlZ2FjeYcEfwAAATAJBgNVHRMEAjAAMA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAdBgNVHQ4EFgQUz7nn4qw6tfkBdSROb6885KG/y/YwHwYDVR0jBBgwFoAUI1/zlmRKylIMzJkZ961z6UCk7ykwDQYJKoZIhvcNAQELBQADggGBAJtuX92ulRui+5L50xabyvk8+HwhyGla9Kvd2fmQrQmZTBNhswJOxY0Jpqm7PTNYgmKI+AHAj5MK2GBxafyK5wL3EP/iOwbM0Z/4RH/R7jdnlDmb/54LBiGYCHHWrcmjXmjXCb4Vav2vIg2SqXFxhRp3AdJyVfGxGjYwU1HSpF+kYdzbN070Xk5+8lYWhDO+FPKJBx/rbIqCPxMPVvDouRZTGRBqM0QQ8wxlrVDVTsmjfP21fteg63TGYa7Rynu3iSEdnyLLup1a8LDJzIwG5cMurm56bsiNsRutJSpiEjWWDjl5VceyWv0ouH3GqT7F6KJyTmw46vpcXNeFft67ygwVh1ivge6Jdi9rrPFOrrgu/xHuFOFfKcYk86yPTrRIp8o11HK/w1MMiy7IOiwhihdOfV3VO3ERsxUDt4atCYJCaTFweVRefmaggQOl91PMGMS9s04P+CgBGkzZwryC9tObMmXn0jvpK3x/Y+QXrzhSoUpRIuhKx+wdKYiP6DVZbg==" -> null
+      - id                              = "https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy/e5921f1240494902825b0a68504a4602" -> null
+      - key_vault_id                    = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+      - name                            = "td-iis-legacy" -> null
+      - resource_manager_id             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/certificates/td-iis-legacy/versions/e5921f1240494902825b0a68504a4602" -> null
+      - resource_manager_versionless_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/certificates/td-iis-legacy" -> null
+      - secret_id                       = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-iis-legacy/e5921f1240494902825b0a68504a4602" -> null
+      - tags                            = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - thumbprint                      = "96449D36383AF1798F029D1E77ED04BD8D0EA812" -> null
+      - version                         = "e5921f1240494902825b0a68504a4602" -> null
+      - versionless_id                  = "https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy" -> null
+      - versionless_secret_id           = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-iis-legacy" -> null
+
+      - certificate {
+          - contents = (sensitive value) -> null
+          - password = (sensitive value) -> null
+        }
+
+      - certificate_policy {
+          - issuer_parameters {
+              - name = "Unknown" -> null
+            }
+          - key_properties {
+              - exportable = true -> null
+              - key_size   = 2048 -> null
+              - key_type   = "RSA" -> null
+              - reuse_key  = false -> null
+                # (1 unchanged attribute hidden)
+            }
+          - lifetime_action {
+              - action {
+                  - action_type = "EmailContacts" -> null
+                }
+              - trigger {
+                  - days_before_expiry  = 0 -> null
+                  - lifetime_percentage = 80 -> null
+                }
+            }
+          - secret_properties {
+              - content_type = "application/x-pkcs12" -> null
+            }
+          - x509_certificate_properties {
+              - extended_key_usage = [
+                  - "1.3.6.1.5.5.7.3.1",
+                ] -> null
+              - key_usage          = [
+                  - "digitalSignature",
+                  - "keyEncipherment",
+                ] -> null
+              - subject            = "CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab" -> null
+              - validity_in_months = 28 -> null
+
+              - subject_alternative_names {
+                  - dns_names = [
+                      - "localhost",
+                      - "tdlab-legacy",
+                      - "tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+                    ] -> null
+                  - emails    = [] -> null
+                  - upns      = [] -> null
+                }
+            }
+        }
+    }
+
+  # azurerm_key_vault_secret.app_admin[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "azurerm_key_vault_secret" "app_admin" {
+      - content_type            = "password" -> null
+      - id                      = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-app-admin-password/658f4355d9d84071b94796d5853cf182" -> null
+      - key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+      - name                    = "td-app-admin-password" -> null
+      - resource_id             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/td-app-admin-password/versions/658f4355d9d84071b94796d5853cf182" -> null
+      - resource_versionless_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/td-app-admin-password" -> null
+      - tags                    = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - value                   = (sensitive value) -> null
+      - value_wo                = (write-only attribute) -> null
+      - value_wo_version        = 0 -> null
+      - version                 = "658f4355d9d84071b94796d5853cf182" -> null
+      - versionless_id          = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-app-admin-password" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # azurerm_key_vault_secret.appinsights[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "azurerm_key_vault_secret" "appinsights" {
+      - content_type            = "text/plain" -> null
+      - id                      = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/appinsights-connection-string/a202a848d92043aeabfde4dcd7efbde7" -> null
+      - key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+      - name                    = "appinsights-connection-string" -> null
+      - resource_id             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/appinsights-connection-string/versions/a202a848d92043aeabfde4dcd7efbde7" -> null
+      - resource_versionless_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/appinsights-connection-string" -> null
+      - tags                    = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - value                   = (sensitive value) -> null
+      - value_wo                = (write-only attribute) -> null
+      - value_wo_version        = 0 -> null
+      - version                 = "a202a848d92043aeabfde4dcd7efbde7" -> null
+      - versionless_id          = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/appinsights-connection-string" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # azurerm_key_vault_secret.sql_connection_string[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "azurerm_key_vault_secret" "sql_connection_string" {
+      - content_type            = "text/plain" -> null
+      - id                      = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/sql-connection-string/9f179d2de58d4b9a9fa97f02b661ff2c" -> null
+      - key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+      - name                    = "sql-connection-string" -> null
+      - resource_id             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/sql-connection-string/versions/9f179d2de58d4b9a9fa97f02b661ff2c" -> null
+      - resource_versionless_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/sql-connection-string" -> null
+      - tags                    = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - value                   = (sensitive value) -> null
+      - value_wo                = (write-only attribute) -> null
+      - value_wo_version        = 0 -> null
+      - version                 = "9f179d2de58d4b9a9fa97f02b661ff2c" -> null
+      - versionless_id          = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/sql-connection-string" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # azurerm_key_vault_secret.sql_sa[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "azurerm_key_vault_secret" "sql_sa" {
+      - content_type            = "password" -> null
+      - id                      = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-sql-sa-password/2c9085328a72419399dc15b91832ca42" -> null
+      - key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+      - name                    = "td-sql-sa-password" -> null
+      - resource_id             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/td-sql-sa-password/versions/2c9085328a72419399dc15b91832ca42" -> null
+      - resource_versionless_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/td-sql-sa-password" -> null
+      - tags                    = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - value                   = (sensitive value) -> null
+      - value_wo                = (write-only attribute) -> null
+      - value_wo_version        = 0 -> null
+      - version                 = "2c9085328a72419399dc15b91832ca42" -> null
+      - versionless_id          = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-sql-sa-password" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # azurerm_resource_group.lab[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "azurerm_resource_group" "lab" {
+      - id         = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab" -> null
+      - location   = "swedencentral" -> null
+      - name       = "rg-ticketdesk-lab" -> null
+      - tags       = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # azurerm_role_assignment.vm_artifacts_reader[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "azurerm_role_assignment" "vm_artifacts_reader" {
+      - id                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts/providers/Microsoft.Authorization/roleAssignments/<role-assignment-24>" -> null
+      - name                                   = "<role-assignment-24>" -> null
+      - principal_id                           = "<principal-id-2>" -> null
+      - principal_type                         = "ServicePrincipal" -> null
+      - role_definition_id                     = "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1" -> null
+      - role_definition_name                   = "Storage Blob Data Reader" -> null
+      - scope                                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # azurerm_role_assignment.vm_blob_writer["backups"] will be destroyed
+  # (because key ["backups"] is not in for_each map)
+  - resource "azurerm_role_assignment" "vm_blob_writer" {
+      - id                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups/providers/Microsoft.Authorization/roleAssignments/<role-assignment-13>" -> null
+      - name                                   = "<role-assignment-13>" -> null
+      - principal_id                           = "<principal-id-2>" -> null
+      - principal_type                         = "ServicePrincipal" -> null
+      - role_definition_id                     = "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe" -> null
+      - role_definition_name                   = "Storage Blob Data Contributor" -> null
+      - scope                                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # azurerm_role_assignment.vm_blob_writer["logs"] will be destroyed
+  # (because key ["logs"] is not in for_each map)
+  - resource "azurerm_role_assignment" "vm_blob_writer" {
+      - id                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs/providers/Microsoft.Authorization/roleAssignments/<role-assignment-58>" -> null
+      - name                                   = "<role-assignment-58>" -> null
+      - principal_id                           = "<principal-id-2>" -> null
+      - principal_type                         = "ServicePrincipal" -> null
+      - role_definition_id                     = "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe" -> null
+      - role_definition_name                   = "Storage Blob Data Contributor" -> null
+      - scope                                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # random_password.sql_sa[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "random_password" "sql_sa" {
+      - bcrypt_hash      = (sensitive value) -> null
+      - id               = "none" -> null
+      - length           = 24 -> null
+      - lower            = true -> null
+      - min_lower        = 2 -> null
+      - min_numeric      = 2 -> null
+      - min_special      = 2 -> null
+      - min_upper        = 2 -> null
+      - number           = true -> null
+      - numeric          = true -> null
+      - override_special = "!#%*-_=+" -> null
+      - result           = (sensitive value) -> null
+      - special          = true -> null
+      - upper            = true -> null
+    }
+
+  # module.keyvault[0].azurerm_key_vault.this will be destroyed
+  # (because module.keyvault[0] is not in configuration)
+  - resource "azurerm_key_vault" "this" {
+      - access_policy                   = [] -> null
+      - enabled_for_deployment          = false -> null
+      - enabled_for_disk_encryption     = false -> null
+      - enabled_for_template_deployment = false -> null
+      - id                              = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+      - location                        = "swedencentral" -> null
+      - name                            = "kv-tdlab-36d2d4" -> null
+      - public_network_access_enabled   = true -> null
+      - purge_protection_enabled        = false -> null
+      - rbac_authorization_enabled      = true -> null
+      - resource_group_name             = "rg-ticketdesk-lab" -> null
+      - sku_name                        = "standard" -> null
+      - soft_delete_retention_days      = 7 -> null
+      - tags                            = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - tenant_id                       = "<tenant-id>" -> null
+      - vault_uri                       = "https://kv-tdlab-36d2d4.vault.azure.net/" -> null
+
+      - network_acls {
+          - bypass                     = "AzureServices" -> null
+          - default_action             = "Deny" -> null
+          - ip_rules                   = [
+              - "<home-ip>/32",
+            ] -> null
+          - virtual_network_subnet_ids = [
+              - "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm",
+            ] -> null
+        }
+    }
+
+  # module.keyvault[0].azurerm_role_assignment.admin will be destroyed
+  # (because module.keyvault[0] is not in configuration)
+  - resource "azurerm_role_assignment" "admin" {
+      - id                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-11>" -> null
+      - name                                   = "<role-assignment-11>" -> null
+      - principal_id                           = "<principal-id-8>" -> null
+      - principal_type                         = "User" -> null
+      - role_definition_id                     = "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483" -> null
+      - role_definition_name                   = "Key Vault Administrator" -> null
+      - scope                                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.keyvault[0].time_sleep.rbac_propagation will be destroyed
+  # (because module.keyvault[0] is not in configuration)
+  - resource "time_sleep" "rbac_propagation" {
+      - create_duration = "120s" -> null
+      - id              = "2026-11-08T15:55:53Z" -> null
+    }
+
+  # module.monitoring[0].azurerm_application_insights.this will be destroyed
+  # (because module.monitoring[0] is not in configuration)
+  - resource "azurerm_application_insights" "this" {
+      - app_id                               = "<client-id-5>" -> null
+      - application_type                     = "web" -> null
+      - connection_string                    = (sensitive value) -> null
+      - daily_data_cap_in_gb                 = 100 -> null
+      - daily_data_cap_notifications_enabled = true -> null
+      - force_customer_storage_for_profiler  = false -> null
+      - id                                   = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/components/appi-tdlab-swedencentral" -> null
+      - instrumentation_key                  = (sensitive value) -> null
+      - internet_ingestion_enabled           = true -> null
+      - internet_query_enabled               = true -> null
+      - ip_masking_enabled                   = true -> null
+      - local_authentication_enabled         = true -> null
+      - location                             = "swedencentral" -> null
+      - name                                 = "appi-tdlab-swedencentral" -> null
+      - resource_group_name                  = "rg-ticketdesk-lab" -> null
+      - retention_in_days                    = 90 -> null
+      - sampling_percentage                  = 100 -> null
+      - tags                                 = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - workspace_id                         = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.OperationalInsights/workspaces/log-tdlab-swedencentral" -> null
+    }
+
+  # module.monitoring[0].azurerm_log_analytics_workspace.this will be destroyed
+  # (because module.monitoring[0] is not in configuration)
+  - resource "azurerm_log_analytics_workspace" "this" {
+      - allow_resource_only_permissions         = true -> null
+      - cmk_for_query_forced                    = false -> null
+      - daily_quota_gb                          = 0.1 -> null
+      - id                                      = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.OperationalInsights/workspaces/log-tdlab-swedencentral" -> null
+      - immediate_data_purge_on_30_days_enabled = false -> null
+      - internet_ingestion_access_type          = "Enabled" -> null
+      - internet_query_access_type              = "Enabled" -> null
+      - local_authentication_enabled            = true -> null
+      - location                                = "swedencentral" -> null
+      - name                                    = "log-tdlab-swedencentral" -> null
+      - primary_shared_key                      = (sensitive value) -> null
+      - resource_group_name                     = "rg-ticketdesk-lab" -> null
+      - retention_in_days                       = 30 -> null
+      - secondary_shared_key                    = (sensitive value) -> null
+      - sku                                     = "PerGB2018" -> null
+      - tags                                    = {
+          - "est_usd_per_hour" = "0.0125"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - workspace_id                            = "<workspace-id-1>" -> null
+        # (1 unchanged attribute hidden)
+    }
+
+  # module.monitoring[0].azurerm_monitor_action_group.email[0] will be destroyed
+  # (because module.monitoring[0] is not in configuration)
+  - resource "azurerm_monitor_action_group" "email" {
+      - enabled             = true -> null
+      - id                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/actionGroups/ag-tdlab-email" -> null
+      - location            = "global" -> null
+      - name                = "ag-tdlab-email" -> null
+      - resource_group_name = "rg-ticketdesk-lab" -> null
+      - short_name          = "tdlab" -> null
+      - tags                = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+
+      - email_receiver {
+          - email_address           = "<school-upn>" -> null
+          - name                    = "owner" -> null
+          - use_common_alert_schema = true -> null
+        }
+    }
+
+  # module.network[0].azurerm_network_security_group.aks will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_network_security_group" "aks" {
+      - id                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks" -> null
+      - location            = "swedencentral" -> null
+      - name                = "nsg-tdlab-aks" -> null
+      - resource_group_name = "rg-ticketdesk-lab" -> null
+      - security_rule       = [
+          - {
+              - access                                     = "Deny"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_ranges                    = [
+                  - "0-65535",
+                ]
+              - direction                                  = "Inbound"
+              - name                                       = "DenyInternetInbound"
+              - priority                                   = 4000
+              - protocol                                   = "*"
+              - source_address_prefix                      = "Internet"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+        ] -> null
+      - tags                = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+    }
+
+  # module.network[0].azurerm_network_security_group.pe will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_network_security_group" "pe" {
+      - id                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe" -> null
+      - location            = "swedencentral" -> null
+      - name                = "nsg-tdlab-pe" -> null
+      - resource_group_name = "rg-ticketdesk-lab" -> null
+      - security_rule       = [
+          - {
+              - access                                     = "Allow"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "1433"
+              - destination_port_ranges                    = []
+              - direction                                  = "Inbound"
+              - name                                       = "AllowSqlFromVnet"
+              - priority                                   = 100
+              - protocol                                   = "Tcp"
+              - source_address_prefix                      = "VirtualNetwork"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - access                                     = "Deny"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_ranges                    = [
+                  - "0-65535",
+                ]
+              - direction                                  = "Inbound"
+              - name                                       = "DenyInternetInbound"
+              - priority                                   = 4000
+              - protocol                                   = "*"
+              - source_address_prefix                      = "Internet"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+          - {
+              - access                                     = "Deny"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "*"
+              - destination_port_ranges                    = []
+              - direction                                  = "Inbound"
+              - name                                       = "DenyOtherVnetInbound"
+              - priority                                   = 3900
+              - protocol                                   = "*"
+              - source_address_prefix                      = "VirtualNetwork"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - tags                = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+    }
+
+  # module.network[0].azurerm_network_security_group.vm will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_network_security_group" "vm" {
+      - id                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm" -> null
+      - location            = "swedencentral" -> null
+      - name                = "nsg-tdlab-vm" -> null
+      - resource_group_name = "rg-ticketdesk-lab" -> null
+      - security_rule       = [
+          - {
+              - access                                     = "Allow"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "443"
+              - destination_port_ranges                    = []
+              - direction                                  = "Inbound"
+              - name                                       = "AllowHttpsFromHome"
+              - priority                                   = 100
+              - protocol                                   = "Tcp"
+              - source_address_prefixes                    = [
+                  - "<home-ip>/32",
+                ]
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+          - {
+              - access                                     = "Deny"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_ranges                    = [
+                  - "0-65535",
+                ]
+              - direction                                  = "Inbound"
+              - name                                       = "DenyInternetInbound"
+              - priority                                   = 4000
+              - protocol                                   = "*"
+              - source_address_prefix                      = "Internet"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+        ] -> null
+      - tags                = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+    }
+
+  # module.network[0].azurerm_subnet.aks will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_subnet" "aks" {
+      - address_prefixes                              = [
+          - "10.42.16.0/22",
+        ] -> null
+      - default_outbound_access_enabled               = false -> null
+      - id                                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks" -> null
+      - name                                          = "snet-aks" -> null
+      - network_security_group_id                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks" -> null
+      - network_security_group_id_wo                  = (write-only attribute) -> null
+      - network_security_group_id_wo_version          = 0 -> null
+      - private_endpoint_network_policies             = "Disabled" -> null
+      - private_link_service_network_policies_enabled = true -> null
+      - resource_group_name                           = "rg-ticketdesk-lab" -> null
+      - route_table_id_wo                             = (write-only attribute) -> null
+      - route_table_id_wo_version                     = 0 -> null
+      - service_endpoint_policy_ids                   = [] -> null
+      - virtual_network_name                          = "vnet-tdlab-swedencentral" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.network[0].azurerm_subnet.pe will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_subnet" "pe" {
+      - address_prefixes                              = [
+          - "10.42.2.0/24",
+        ] -> null
+      - default_outbound_access_enabled               = false -> null
+      - id                                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe" -> null
+      - name                                          = "snet-pe" -> null
+      - network_security_group_id                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe" -> null
+      - network_security_group_id_wo                  = (write-only attribute) -> null
+      - network_security_group_id_wo_version          = 0 -> null
+      - private_endpoint_network_policies             = "Enabled" -> null
+      - private_link_service_network_policies_enabled = true -> null
+      - resource_group_name                           = "rg-ticketdesk-lab" -> null
+      - route_table_id_wo                             = (write-only attribute) -> null
+      - route_table_id_wo_version                     = 0 -> null
+      - service_endpoint_policy_ids                   = [] -> null
+      - virtual_network_name                          = "vnet-tdlab-swedencentral" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.network[0].azurerm_subnet.vm will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_subnet" "vm" {
+      - address_prefixes                              = [
+          - "10.42.1.0/24",
+        ] -> null
+      - default_outbound_access_enabled               = false -> null
+      - id                                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm" -> null
+      - name                                          = "snet-vm" -> null
+      - network_security_group_id                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm" -> null
+      - network_security_group_id_wo                  = (write-only attribute) -> null
+      - network_security_group_id_wo_version          = 0 -> null
+      - private_endpoint_network_policies             = "Disabled" -> null
+      - private_link_service_network_policies_enabled = true -> null
+      - resource_group_name                           = "rg-ticketdesk-lab" -> null
+      - route_table_id_wo                             = (write-only attribute) -> null
+      - route_table_id_wo_version                     = 0 -> null
+      - service_endpoint_policy_ids                   = [] -> null
+      - virtual_network_name                          = "vnet-tdlab-swedencentral" -> null
+        # (2 unchanged attributes hidden)
+
+      - service_endpoint {
+          - service            = "Microsoft.KeyVault" -> null
+            # (1 unchanged attribute hidden)
+        }
+      - service_endpoint {
+          - service            = "Microsoft.Storage" -> null
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+  # module.network[0].azurerm_subnet_network_security_group_association.aks will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_subnet_network_security_group_association" "aks" {
+      - id                        = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks" -> null
+      - network_security_group_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks" -> null
+      - subnet_id                 = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks" -> null
+    }
+
+  # module.network[0].azurerm_subnet_network_security_group_association.pe will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_subnet_network_security_group_association" "pe" {
+      - id                        = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe" -> null
+      - network_security_group_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe" -> null
+      - subnet_id                 = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe" -> null
+    }
+
+  # module.network[0].azurerm_subnet_network_security_group_association.vm will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_subnet_network_security_group_association" "vm" {
+      - id                        = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm" -> null
+      - network_security_group_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm" -> null
+      - subnet_id                 = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm" -> null
+    }
+
+  # module.network[0].azurerm_virtual_network.this will be destroyed
+  # (because module.network[0] is not in configuration)
+  - resource "azurerm_virtual_network" "this" {
+      - address_space                  = [
+          - "10.42.0.0/16",
+        ] -> null
+      - dns_servers                    = [] -> null
+      - flow_timeout_in_minutes        = 0 -> null
+      - guid                           = "<resource-guid-x-4>" -> null
+      - id                             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral" -> null
+      - location                       = "swedencentral" -> null
+      - name                           = "vnet-tdlab-swedencentral" -> null
+      - private_endpoint_vnet_policies = "Disabled" -> null
+      - resource_group_name            = "rg-ticketdesk-lab" -> null
+      - subnet                         = [
+          - {
+              - address_prefixes                              = [
+                  - "10.42.1.0/24",
+                ]
+              - default_outbound_access_enabled               = false
+              - delegation                                    = []
+              - id                                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm"
+              - name                                          = "snet-vm"
+              - private_endpoint_network_policies             = "Disabled"
+              - private_link_service_network_policies_enabled = true
+              - security_group                                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm"
+              - service_endpoint                              = [
+                  - {
+                      - service            = "Microsoft.KeyVault"
+                        # (1 unchanged attribute hidden)
+                    },
+                  - {
+                      - service            = "Microsoft.Storage"
+                        # (1 unchanged attribute hidden)
+                    },
+                ]
+              - service_endpoint_policy_ids                   = []
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - address_prefixes                              = [
+                  - "10.42.16.0/22",
+                ]
+              - default_outbound_access_enabled               = false
+              - delegation                                    = []
+              - id                                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks"
+              - name                                          = "snet-aks"
+              - private_endpoint_network_policies             = "Disabled"
+              - private_link_service_network_policies_enabled = true
+              - security_group                                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks"
+              - service_endpoint                              = []
+              - service_endpoint_policy_ids                   = []
+                # (1 unchanged attribute hidden)
+            },
+          - {
+              - address_prefixes                              = [
+                  - "10.42.2.0/24",
+                ]
+              - default_outbound_access_enabled               = false
+              - delegation                                    = []
+              - id                                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe"
+              - name                                          = "snet-pe"
+              - private_endpoint_network_policies             = "Enabled"
+              - private_link_service_network_policies_enabled = true
+              - security_group                                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe"
+              - service_endpoint                              = []
+              - service_endpoint_policy_ids                   = []
+                # (1 unchanged attribute hidden)
+            },
+        ] -> null
+      - tags                           = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.sql[0].azapi_resource.database will be destroyed
+  # (because module.sql[0] is not in configuration)
+  - resource "azapi_resource" "database" {
+      - body                      = {
+          - properties = {
+              - autoPauseDelay                   = 60
+              - collation                        = "SQL_Latin1_General_CP1_CI_AS"
+              - freeLimitExhaustionBehavior      = "AutoPause"
+              - maxSizeBytes                     = 34359738368
+              - minCapacity                      = 0.5
+              - requestedBackupStorageRedundancy = "Local"
+              - useFreeLimit                     = true
+              - zoneRedundant                    = false
+            }
+          - sku        = {
+              - capacity = 2
+              - family   = "Gen5"
+              - name     = "GP_S_Gen5"
+              - tier     = "GeneralPurpose"
+            }
+        } -> null
+      - id                        = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4/databases/sqldb-ticketdesk" -> null
+      - ignore_body_changes       = (write-only attribute) -> null
+      - ignore_casing             = false -> null
+      - ignore_missing_property   = true -> null
+      - ignore_null_property      = false -> null
+      - location                  = "swedencentral" -> null
+      - name                      = "sqldb-ticketdesk" -> null
+      - output                    = {
+          - current_service_objective   = "GP_S_Gen5_2"
+          - free_limit_exhaustion       = "AutoPause"
+          - requested_backup_redundancy = "Local"
+          - status                      = "Online"
+          - use_free_limit              = true
+        } -> null
+      - parent_id                 = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4" -> null
+      - response_export_values    = {
+          - current_service_objective   = "properties.currentServiceObjectiveName"
+          - free_limit_exhaustion       = "properties.freeLimitExhaustionBehavior"
+          - requested_backup_redundancy = "properties.requestedBackupStorageRedundancy"
+          - status                      = "properties.status"
+          - use_free_limit              = "properties.useFreeLimit"
+        } -> null
+      - schema_validation_enabled = true -> null
+      - sensitive_body            = (write-only attribute) -> null
+      - tags                      = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - type                      = "Microsoft.Sql/servers/databases@2025-01-01" -> null
+    }
+
+  # module.sql[0].azurerm_mssql_server.this will be destroyed
+  # (because module.sql[0] is not in configuration)
+  - resource "azurerm_mssql_server" "this" {
+      - administrator_login                          = "CloudSAd90e4b60" -> null
+      - administrator_login_password_wo              = (write-only attribute) -> null
+      - administrator_login_password_wo_version      = 0 -> null
+      - connection_policy                            = "Default" -> null
+      - express_vulnerability_assessment_enabled     = false -> null
+      - fully_qualified_domain_name                  = "sql-tdlab-36d2d4.database.windows.net" -> null
+      - id                                           = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4" -> null
+      - location                                     = "swedencentral" -> null
+      - minimum_tls_version                          = "1.2" -> null
+      - name                                         = "sql-tdlab-36d2d4" -> null
+      - outbound_network_restriction_enabled         = false -> null
+      - public_network_access_enabled                = false -> null
+      - resource_group_name                          = "rg-ticketdesk-lab" -> null
+      - restorable_dropped_database_ids              = [] -> null
+      - tags                                         = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - version                                      = "12.0" -> null
+        # (2 unchanged attributes hidden)
+
+      - azuread_administrator {
+          - azuread_authentication_only = true -> null
+          - login_username              = "<school-upn>" -> null
+          - object_id                   = "<principal-id-8>" -> null
+          - tenant_id                   = "<tenant-id>" -> null
+        }
+    }
+
+  # module.sql[0].azurerm_private_dns_zone.sql will be destroyed
+  # (because module.sql[0] is not in configuration)
+  - resource "azurerm_private_dns_zone" "sql" {
+      - id                                                    = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net" -> null
+      - max_number_of_record_sets                             = 25000 -> null
+      - max_number_of_virtual_network_links                   = 1000 -> null
+      - max_number_of_virtual_network_links_with_registration = 100 -> null
+      - name                                                  = "privatelink.database.windows.net" -> null
+      - number_of_record_sets                                 = 2 -> null
+      - resource_group_name                                   = "rg-ticketdesk-lab" -> null
+      - tags                                                  = {
+          - "est_usd_per_hour" = "0.0007"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+
+      - soa_record {
+          - email         = "azureprivatedns-host.microsoft.com" -> null
+          - expire_time   = 2419200 -> null
+          - fqdn          = "privatelink.database.windows.net." -> null
+          - host_name     = "azureprivatedns.net" -> null
+          - minimum_ttl   = 10 -> null
+          - refresh_time  = 3600 -> null
+          - retry_time    = 300 -> null
+          - serial_number = 1 -> null
+          - tags          = {} -> null
+          - ttl           = 3600 -> null
+        }
+    }
+
+  # module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql will be destroyed
+  # (because module.sql[0] is not in configuration)
+  - resource "azurerm_private_dns_zone_virtual_network_link" "sql" {
+      - id                   = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/pdnslink-sql-tdlab" -> null
+      - name                 = "pdnslink-sql-tdlab" -> null
+      - private_dns_zone_id  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net" -> null
+      - registration_enabled = false -> null
+      - resolution_policy    = "Default" -> null
+      - tags                 = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - virtual_network_id   = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral" -> null
+    }
+
+  # module.sql[0].azurerm_private_endpoint.sql will be destroyed
+  # (because module.sql[0] is not in configuration)
+  - resource "azurerm_private_endpoint" "sql" {
+      - custom_dns_configs            = [] -> null
+      - custom_network_interface_name = "nic-pe-sql-tdlab" -> null
+      - id                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateEndpoints/pe-sql-tdlab" -> null
+      - location                      = "swedencentral" -> null
+      - name                          = "pe-sql-tdlab" -> null
+      - network_interface             = [
+          - {
+              - id   = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-pe-sql-tdlab"
+              - name = "nic-pe-sql-tdlab"
+            },
+        ] -> null
+      - private_dns_zone_configs      = [
+          - {
+              - id                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateEndpoints/pe-sql-tdlab/privateDnsZoneGroups/default/privateDnsZoneConfigs/privatelink.database.windows.net"
+              - name                = "privatelink.database.windows.net"
+              - private_dns_zone_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net"
+              - record_sets         = [
+                  - {
+                      - fqdn         = "sql-tdlab-36d2d4.privatelink.database.windows.net"
+                      - ip_addresses = [
+                          - "10.42.2.4",
+                        ]
+                      - name         = "sql-tdlab-36d2d4"
+                      - ttl          = 10
+                      - type         = "A"
+                    },
+                ]
+            },
+        ] -> null
+      - resource_group_name           = "rg-ticketdesk-lab" -> null
+      - subnet_id                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe" -> null
+      - tags                          = {
+          - "est_usd_per_hour" = "0.01"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+        # (1 unchanged attribute hidden)
+
+      - private_dns_zone_group {
+          - id                   = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateEndpoints/pe-sql-tdlab/privateDnsZoneGroups/default" -> null
+          - name                 = "default" -> null
+          - private_dns_zone_ids = [
+              - "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net",
+            ] -> null
+        }
+
+      - private_service_connection {
+          - is_manual_connection              = false -> null
+          - name                              = "psc-sql" -> null
+          - private_connection_resource_id    = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4" -> null
+          - private_ip_address                = "10.42.2.4" -> null
+          - subresource_names                 = [
+              - "sqlServer",
+            ] -> null
+            # (2 unchanged attributes hidden)
+        }
+    }
+
+  # module.storage[0].azurerm_role_assignment.operator will be destroyed
+  # (because module.storage[0] is not in configuration)
+  - resource "azurerm_role_assignment" "operator" {
+      - id                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-46>" -> null
+      - name                                   = "<role-assignment-46>" -> null
+      - principal_id                           = "<principal-id-8>" -> null
+      - principal_type                         = "User" -> null
+      - role_definition_id                     = "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe" -> null
+      - role_definition_name                   = "Storage Blob Data Contributor" -> null
+      - scope                                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.storage[0].azurerm_storage_account.this will be destroyed
+  # (because module.storage[0] is not in configuration)
+  - resource "azurerm_storage_account" "this" {
+      - access_tier                                    = "Hot" -> null
+      - account_kind                                   = "StorageV2" -> null
+      - account_replication_type                       = "LRS" -> null
+      - account_replication_type_migration_in_progress = false -> null
+      - account_tier                                   = "Standard" -> null
+      - allow_nested_items_to_be_public                = false -> null
+      - cross_tenant_replication_enabled               = false -> null
+      - default_to_oauth_authentication                = true -> null
+      - dns_endpoint_type                              = "Standard" -> null
+      - https_traffic_only_enabled                     = true -> null
+      - id                                             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4" -> null
+      - infrastructure_encryption_enabled              = false -> null
+      - is_hns_enabled                                 = false -> null
+      - large_file_share_enabled                       = false -> null
+      - local_user_enabled                             = false -> null
+      - location                                       = "swedencentral" -> null
+      - min_tls_version                                = "TLS1_2" -> null
+      - name                                           = "sttdlab36d2d4" -> null
+      - nfsv3_enabled                                  = false -> null
+      - primary_access_key                             = (sensitive value) -> null
+      - primary_blob_connection_string                 = (sensitive value) -> null
+      - primary_blob_endpoint                          = "https://sttdlab36d2d4.blob.core.windows.net/" -> null
+      - primary_blob_host                              = "sttdlab36d2d4.blob.core.windows.net" -> null
+      - primary_connection_string                      = (sensitive value) -> null
+      - primary_dfs_endpoint                           = "https://sttdlab36d2d4.dfs.core.windows.net/" -> null
+      - primary_dfs_host                               = "sttdlab36d2d4.dfs.core.windows.net" -> null
+      - primary_file_endpoint                          = "https://sttdlab36d2d4.file.core.windows.net/" -> null
+      - primary_file_host                              = "sttdlab36d2d4.file.core.windows.net" -> null
+      - primary_location                               = "swedencentral" -> null
+      - primary_queue_endpoint                         = "https://sttdlab36d2d4.queue.core.windows.net/" -> null
+      - primary_queue_host                             = "sttdlab36d2d4.queue.core.windows.net" -> null
+      - primary_table_endpoint                         = "https://sttdlab36d2d4.table.core.windows.net/" -> null
+      - primary_table_host                             = "sttdlab36d2d4.table.core.windows.net" -> null
+      - primary_web_endpoint                           = "https://sttdlab36d2d4.z1.web.core.windows.net/" -> null
+      - primary_web_host                               = "sttdlab36d2d4.z1.web.core.windows.net" -> null
+      - public_network_access                          = "Enabled" -> null
+      - public_network_access_enabled                  = true -> null
+      - queue_encryption_key_type                      = "Service" -> null
+      - resource_group_name                            = "rg-ticketdesk-lab" -> null
+      - secondary_access_key                           = (sensitive value) -> null
+      - secondary_connection_string                    = (sensitive value) -> null
+      - sftp_enabled                                   = false -> null
+      - shared_access_key_enabled                      = false -> null
+      - smb_oauth_enabled                              = false -> null
+      - table_encryption_key_type                      = "Service" -> null
+      - tags                                           = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+        # (58 unchanged attributes hidden)
+
+      - blob_properties {
+          - change_feed_enabled           = false -> null
+          - change_feed_retention_in_days = 0 -> null
+          - last_access_time_enabled      = false -> null
+          - versioning_enabled            = false -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - network_rules {
+          - bypass                     = [
+              - "AzureServices",
+            ] -> null
+          - default_action             = "Deny" -> null
+          - ip_rules                   = [
+              - "<home-ip>",
+            ] -> null
+          - virtual_network_subnet_ids = [
+              - "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm",
+            ] -> null
+        }
+
+      - share_properties {
+          - retention_policy {
+              - days = 7 -> null
+            }
+        }
+    }
+
+  # module.storage[0].azurerm_storage_container.this["artifacts"] will be destroyed
+  # (because module.storage[0] is not in configuration)
+  - resource "azurerm_storage_container" "this" {
+      - container_access_type             = "private" -> null
+      - default_encryption_scope          = "$account-encryption-key" -> null
+      - encryption_scope_override_enabled = true -> null
+      - has_immutability_policy           = false -> null
+      - has_legal_hold                    = false -> null
+      - id                                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts" -> null
+      - metadata                          = {} -> null
+      - name                              = "artifacts" -> null
+      - storage_account_id                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4" -> null
+      - url                               = "https://sttdlab36d2d4.blob.core.windows.net/artifacts" -> null
+    }
+
+  # module.storage[0].azurerm_storage_container.this["backups"] will be destroyed
+  # (because module.storage[0] is not in configuration)
+  - resource "azurerm_storage_container" "this" {
+      - container_access_type             = "private" -> null
+      - default_encryption_scope          = "$account-encryption-key" -> null
+      - encryption_scope_override_enabled = true -> null
+      - has_immutability_policy           = false -> null
+      - has_legal_hold                    = false -> null
+      - id                                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups" -> null
+      - metadata                          = {} -> null
+      - name                              = "backups" -> null
+      - storage_account_id                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4" -> null
+      - url                               = "https://sttdlab36d2d4.blob.core.windows.net/backups" -> null
+    }
+
+  # module.storage[0].azurerm_storage_container.this["logs"] will be destroyed
+  # (because module.storage[0] is not in configuration)
+  - resource "azurerm_storage_container" "this" {
+      - container_access_type             = "private" -> null
+      - default_encryption_scope          = "$account-encryption-key" -> null
+      - encryption_scope_override_enabled = true -> null
+      - has_immutability_policy           = false -> null
+      - has_legal_hold                    = false -> null
+      - id                                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs" -> null
+      - metadata                          = {} -> null
+      - name                              = "logs" -> null
+      - storage_account_id                = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4" -> null
+      - url                               = "https://sttdlab36d2d4.blob.core.windows.net/logs" -> null
+    }
+
+  # module.storage[0].time_sleep.rbac_propagation will be destroyed
+  # (because module.storage[0] is not in configuration)
+  - resource "time_sleep" "rbac_propagation" {
+      - create_duration = "60s" -> null
+      - id              = "2026-11-08T15:52:44Z" -> null
+    }
+
+  # module.vm[0].azurerm_key_vault_secret.admin_password will be destroyed
+  # (because module.vm[0] is not in configuration)
+  - resource "azurerm_key_vault_secret" "admin_password" {
+      - content_type            = "password" -> null
+      - id                      = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/vm-tdlab-legacy-admin-password/e722fb2b4d5f488db3c47774e62fa667" -> null
+      - key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+      - name                    = "vm-tdlab-legacy-admin-password" -> null
+      - resource_id             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/vm-tdlab-legacy-admin-password/versions/e722fb2b4d5f488db3c47774e62fa667" -> null
+      - resource_versionless_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/secrets/vm-tdlab-legacy-admin-password" -> null
+      - tags                    = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - value                   = (sensitive value) -> null
+      - value_wo                = (write-only attribute) -> null
+      - value_wo_version        = 0 -> null
+      - version                 = "e722fb2b4d5f488db3c47774e62fa667" -> null
+      - versionless_id          = "https://kv-tdlab-36d2d4.vault.azure.net/secrets/vm-tdlab-legacy-admin-password" -> null
+        # (2 unchanged attributes hidden)
+    }
+
+  # module.vm[0].azurerm_network_interface.this will be destroyed
+  # (because module.vm[0] is not in configuration)
+  - resource "azurerm_network_interface" "this" {
+      - accelerated_networking_enabled = false -> null
+      - applied_dns_servers            = [] -> null
+      - dns_servers                    = [] -> null
+      - id                             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-tdlab-legacy" -> null
+      - internal_domain_name_suffix    = "wfwcnobsnx4ejmkl0ljechbkie.gvxx.internal.cloudapp.net" -> null
+      - ip_forwarding_enabled          = false -> null
+      - location                       = "swedencentral" -> null
+      - mac_address                    = "7C-ED-8D-26-12-AB" -> null
+      - name                           = "nic-tdlab-legacy" -> null
+      - private_ip_address             = "10.42.1.4" -> null
+      - private_ip_addresses           = [
+          - "10.42.1.4",
+        ] -> null
+      - resource_group_name            = "rg-ticketdesk-lab" -> null
+      - tags                           = {
+          - "est_usd_per_hour" = "0"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - virtual_machine_id             = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/virtualMachines/vm-tdlab-legacy" -> null
+        # (4 unchanged attributes hidden)
+
+      - ip_configuration {
+          - name                                               = "ipconfig1" -> null
+          - primary                                            = true -> null
+          - private_ip_address                                 = "10.42.1.4" -> null
+          - private_ip_address_allocation                      = "Dynamic" -> null
+          - private_ip_address_version                         = "IPv4" -> null
+          - public_ip_address_id                               = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/publicIPAddresses/pip-tdlab-legacy" -> null
+          - subnet_id                                          = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm" -> null
+            # (1 unchanged attribute hidden)
+        }
+    }
+
+  # module.vm[0].azurerm_public_ip.this will be destroyed
+  # (because module.vm[0] is not in configuration)
+  - resource "azurerm_public_ip" "this" {
+      - allocation_method       = "Static" -> null
+      - ddos_protection_mode    = "VirtualNetworkInherited" -> null
+      - domain_name_label       = "tdlab-legacy-36d2d4" -> null
+      - fqdn                    = "tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com" -> null
+      - id                      = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/publicIPAddresses/pip-tdlab-legacy" -> null
+      - idle_timeout_in_minutes = 4 -> null
+      - ip_address              = "4.223.114.154" -> null
+      - ip_tags                 = {} -> null
+      - ip_version              = "IPv4" -> null
+      - location                = "swedencentral" -> null
+      - name                    = "pip-tdlab-legacy" -> null
+      - resource_group_name     = "rg-ticketdesk-lab" -> null
+      - sku                     = "Standard" -> null
+      - sku_tier                = "Regional" -> null
+      - tags                    = {
+          - "est_usd_per_hour" = "0.005"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - zones                   = [] -> null
+        # (3 unchanged attributes hidden)
+    }
+
+  # module.vm[0].azurerm_role_assignment.kv_secrets_user will be destroyed
+  # (because module.vm[0] is not in configuration)
+  - resource "azurerm_role_assignment" "kv_secrets_user" {
+      - id                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-35>" -> null
+      - name                                   = "<role-assignment-35>" -> null
+      - principal_id                           = "<principal-id-2>" -> null
+      - principal_type                         = "ServicePrincipal" -> null
+      - role_definition_id                     = "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6" -> null
+      - role_definition_name                   = "Key Vault Secrets User" -> null
+      - scope                                  = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4" -> null
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.vm[0].azurerm_windows_virtual_machine.this will be destroyed
+  # (because module.vm[0] is not in configuration)
+  - resource "azurerm_windows_virtual_machine" "this" {
+      - admin_password                                         = (sensitive value) -> null
+      - admin_username                                         = "tdadmin" -> null
+      - allow_extension_operations                             = true -> null
+      - automatic_updates_enabled                              = false -> null
+      - bypass_platform_safety_checks_on_user_schedule_enabled = false -> null
+      - computer_name                                          = "tdlab-legacy" -> null
+      - disk_controller_type                                   = "SCSI" -> null
+      - encryption_at_host_enabled                             = false -> null
+      - extensions_time_budget                                 = "PT1H30M" -> null
+      - hotpatching_enabled                                    = false -> null
+      - id                                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/virtualMachines/vm-tdlab-legacy" -> null
+      - location                                               = "swedencentral" -> null
+      - max_bid_price                                          = -1 -> null
+      - name                                                   = "vm-tdlab-legacy" -> null
+      - network_interface_ids                                  = [
+          - "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-tdlab-legacy",
+        ] -> null
+      - os_managed_disk_id                                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/disks/osdisk-tdlab-legacy" -> null
+      - patch_assessment_mode                                  = "ImageDefault" -> null
+      - patch_mode                                             = "Manual" -> null
+      - platform_fault_domain                                  = -1 -> null
+      - priority                                               = "Regular" -> null
+      - private_ip_address                                     = "10.42.1.4" -> null
+      - private_ip_addresses                                   = [
+          - "10.42.1.4",
+        ] -> null
+      - provision_vm_agent                                     = true -> null
+      - public_ip_address                                      = "4.223.114.154" -> null
+      - public_ip_addresses                                    = [
+          - "4.223.114.154",
+        ] -> null
+      - resource_group_name                                    = "rg-ticketdesk-lab" -> null
+      - secure_boot_enabled                                    = true -> null
+      - size                                                   = "Standard_B2as_v2" -> null
+      - tags                                                   = {
+          - "est_usd_per_hour" = "0.0891"
+          - "owner"            = "agent-azure-lift"
+          - "project"          = "ticketdesk"
+          - "ttl"              = "2026-11-08T22:21:16Z"
+        } -> null
+      - virtual_machine_id                                     = "<resource-guid-x-5>" -> null
+      - vm_agent_platform_updates_enabled                      = true -> null
+      - vtpm_enabled                                           = true -> null
+        # (14 unchanged attributes hidden)
+
+      - boot_diagnostics {
+            # (1 unchanged attribute hidden)
+        }
+
+      - identity {
+          - identity_ids = [] -> null
+          - principal_id = "<principal-id-2>" -> null
+          - tenant_id    = "<tenant-id>" -> null
+          - type         = "SystemAssigned" -> null
+        }
+
+      - os_disk {
+          - caching                          = "ReadWrite" -> null
+          - disk_size_gb                     = 32 -> null
+          - id                               = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/disks/osdisk-tdlab-legacy" -> null
+          - name                             = "osdisk-tdlab-legacy" -> null
+          - storage_account_type             = "Standard_LRS" -> null
+          - write_accelerator_enabled        = false -> null
+            # (3 unchanged attributes hidden)
+        }
+
+      - source_image_reference {
+          - offer     = "WindowsServer" -> null
+          - publisher = "MicrosoftWindowsServer" -> null
+          - sku       = "2025-datacenter-core-smalldisk-g2" -> null
+          - version   = "latest" -> null
+        }
+    }
+
+  # module.vm[0].random_password.admin will be destroyed
+  # (because module.vm[0] is not in configuration)
+  - resource "random_password" "admin" {
+      - bcrypt_hash      = (sensitive value) -> null
+      - id               = "none" -> null
+      - length           = 24 -> null
+      - lower            = true -> null
+      - min_lower        = 2 -> null
+      - min_numeric      = 2 -> null
+      - min_special      = 2 -> null
+      - min_upper        = 2 -> null
+      - number           = true -> null
+      - numeric          = true -> null
+      - override_special = "!#%*-_=+" -> null
+      - result           = (sensitive value) -> null
+      - special          = true -> null
+      - upper            = true -> null
+    }
+
+Plan: 0 to add, 0 to change, 43 to destroy.
+
+Changes to Outputs:
+  ~ est_usd_per_hour        = "0.1173" -> "0.0000"
+  - key_vault_name          = "kv-tdlab-36d2d4" -> null
+  - key_vault_uri           = "https://kv-tdlab-36d2d4.vault.azure.net/" -> null
+  - log_analytics_workspace = "log-tdlab-swedencentral" -> null
+  - resource_group          = "rg-ticketdesk-lab" -> null
+  - sql_database            = "sqldb-ticketdesk" -> null
+  - sql_database_properties = {
+      - current_service_objective   = "GP_S_Gen5_2"
+      - free_limit_exhaustion       = "AutoPause"
+      - requested_backup_redundancy = "Local"
+      - status                      = "Online"
+      - use_free_limit              = true
+    } -> null
+  - sql_private_endpoint_ip = "10.42.2.4" -> null
+  - sql_server_fqdn         = "sql-tdlab-36d2d4.database.windows.net" -> null
+  - storage_account         = "sttdlab36d2d4" -> null
+  - storage_blob_endpoint   = "https://sttdlab36d2d4.blob.core.windows.net/" -> null
+  - vm_fqdn                 = "tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com" -> null
+  - vm_name                 = "vm-tdlab-legacy" -> null
+  - vm_public_ip            = "4.223.114.154" -> null
+  - vnet_id                 = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral" -> null
+module.storage[0].time_sleep.rbac_propagation: Destroying... [id=2026-11-08T15:52:44Z]
+module.storage[0].time_sleep.rbac_propagation: Destruction complete after 0s
+module.storage[0].azurerm_role_assignment.operator: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-46>]
+azurerm_role_assignment.vm_blob_writer["logs"]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs/providers/Microsoft.Authorization/roleAssignments/<role-assignment-58>]
+azurerm_key_vault_secret.sql_sa[0]: Destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-sql-sa-password/2c9085328a72419399dc15b91832ca42]
+azurerm_key_vault_secret.app_admin[0]: Destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-app-admin-password/658f4355d9d84071b94796d5853cf182]
+azurerm_key_vault_secret.sql_connection_string[0]: Destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/sql-connection-string/9f179d2de58d4b9a9fa97f02b661ff2c]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/pdnslink-sql-tdlab]
+azurerm_role_assignment.vm_blob_writer["backups"]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups/providers/Microsoft.Authorization/roleAssignments/<role-assignment-13>]
+azurerm_key_vault_secret.appinsights[0]: Destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/appinsights-connection-string/a202a848d92043aeabfde4dcd7efbde7]
+module.vm[0].azurerm_key_vault_secret.admin_password: Destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/vm-tdlab-legacy-admin-password/e722fb2b4d5f488db3c47774e62fa667]
+azurerm_key_vault_certificate.iis[0]: Destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy/e5921f1240494902825b0a68504a4602]
+azurerm_role_assignment.vm_blob_writer["logs"]: Destruction complete after 1s
+module.vm[0].azurerm_role_assignment.kv_secrets_user: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-35>]
+azurerm_role_assignment.vm_blob_writer["backups"]: Destruction complete after 1s
+module.sql[0].azurerm_private_endpoint.sql: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateEndpoints/pe-sql-tdlab]
+module.storage[0].azurerm_role_assignment.operator: Destruction complete after 2s
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/actionGroups/ag-tdlab-email]
+module.vm[0].azurerm_role_assignment.kv_secrets_user: Destruction complete after 2s
+azurerm_role_assignment.vm_artifacts_reader[0]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts/providers/Microsoft.Authorization/roleAssignments/<role-assignment-24>]
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Destruction complete after 2s
+azurerm_role_assignment.vm_artifacts_reader[0]: Destruction complete after 1s
+module.storage[0].azurerm_storage_container.this["backups"]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups]
+module.storage[0].azurerm_storage_container.this["artifacts"]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts]
+module.storage[0].azurerm_storage_container.this["backups"]: Destruction complete after 1s
+module.vm[0].azurerm_windows_virtual_machine.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/virtualMachines/vm-tdlab-legacy]
+module.storage[0].azurerm_storage_container.this["artifacts"]: Destruction complete after 1s
+module.storage[0].azurerm_storage_container.this["logs"]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs]
+module.storage[0].azurerm_storage_container.this["logs"]: Destruction complete after 1s
+module.storage[0].azurerm_storage_account.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4]
+module.storage[0].azurerm_storage_account.this: Destruction complete after 3s
+azurerm_key_vault_secret.sql_sa[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...sword/2c9085328a72419399dc15b91832ca42, 00m10s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 00m10s elapsed]
+azurerm_key_vault_secret.app_admin[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...sword/658f4355d9d84071b94796d5853cf182, 00m10s elapsed]
+module.vm[0].azurerm_key_vault_secret.admin_password: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...sword/e722fb2b4d5f488db3c47774e62fa667, 00m10s elapsed]
+azurerm_key_vault_secret.appinsights[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...tring/a202a848d92043aeabfde4dcd7efbde7, 00m10s elapsed]
+azurerm_key_vault_secret.sql_connection_string[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...tring/9f179d2de58d4b9a9fa97f02b661ff2c, 00m10s elapsed]
+azurerm_key_vault_certificate.iis[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...egacy/e5921f1240494902825b0a68504a4602, 00m10s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still destroying... [id=/subscriptions/<subscription-id>....Network/privateEndpoints/pe-sql-tdlab, 00m10s elapsed]
+module.vm[0].azurerm_windows_virtual_machine.this: Still destroying... [id=/subscriptions/<subscription-id>...ompute/virtualMachines/vm-tdlab-legacy, 00m10s elapsed]
+module.vm[0].azurerm_windows_virtual_machine.this: Destruction complete after 12s
+module.vm[0].azurerm_network_interface.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-tdlab-legacy]
+azurerm_key_vault_certificate.iis[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...egacy/e5921f1240494902825b0a68504a4602, 00m20s elapsed]
+azurerm_key_vault_secret.appinsights[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...tring/a202a848d92043aeabfde4dcd7efbde7, 00m20s elapsed]
+azurerm_key_vault_secret.sql_sa[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...sword/2c9085328a72419399dc15b91832ca42, 00m20s elapsed]
+azurerm_key_vault_secret.app_admin[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...sword/658f4355d9d84071b94796d5853cf182, 00m20s elapsed]
+module.vm[0].azurerm_key_vault_secret.admin_password: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...sword/e722fb2b4d5f488db3c47774e62fa667, 00m20s elapsed]
+azurerm_key_vault_secret.sql_connection_string[0]: Still destroying... [id=https://kv-tdlab-36d2d4.vault.azure.net...tring/9f179d2de58d4b9a9fa97f02b661ff2c, 00m20s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 00m20s elapsed]
+module.vm[0].azurerm_network_interface.this: Destruction complete after 3s
+module.vm[0].azurerm_public_ip.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/publicIPAddresses/pip-tdlab-legacy]
+module.sql[0].azurerm_private_endpoint.sql: Still destroying... [id=/subscriptions/<subscription-id>....Network/privateEndpoints/pe-sql-tdlab, 00m20s elapsed]
+azurerm_key_vault_secret.appinsights[0]: Destruction complete after 27s
+module.monitoring[0].azurerm_application_insights.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/components/appi-tdlab-swedencentral]
+azurerm_key_vault_secret.sql_connection_string[0]: Destruction complete after 27s
+module.sql[0].azapi_resource.database: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4/databases/sqldb-ticketdesk]
+azurerm_key_vault_secret.sql_sa[0]: Destruction complete after 28s
+random_password.sql_sa[0]: Destroying... [id=none]
+random_password.sql_sa[0]: Destruction complete after 0s
+module.vm[0].azurerm_key_vault_secret.admin_password: Destruction complete after 28s
+module.vm[0].random_password.admin: Destroying... [id=none]
+module.vm[0].random_password.admin: Destruction complete after 0s
+azurerm_key_vault_secret.app_admin[0]: Destruction complete after 28s
+azurerm_key_vault_certificate.iis[0]: Destruction complete after 28s
+module.keyvault[0].time_sleep.rbac_propagation: Destroying... [id=2026-11-08T15:55:53Z]
+module.keyvault[0].time_sleep.rbac_propagation: Destruction complete after 0s
+module.keyvault[0].azurerm_role_assignment.admin: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-11>]
+module.monitoring[0].azurerm_application_insights.this: Destruction complete after 1s
+module.monitoring[0].azurerm_log_analytics_workspace.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.OperationalInsights/workspaces/log-tdlab-swedencentral]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 00m30s elapsed]
+module.keyvault[0].azurerm_role_assignment.admin: Destruction complete after 2s
+module.keyvault[0].azurerm_key_vault.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4]
+module.vm[0].azurerm_public_ip.this: Still destroying... [id=/subscriptions/<subscription-id>...ork/publicIPAddresses/pip-tdlab-legacy, 00m10s elapsed]
+module.vm[0].azurerm_public_ip.this: Destruction complete after 11s
+module.sql[0].azurerm_private_endpoint.sql: Still destroying... [id=/subscriptions/<subscription-id>....Network/privateEndpoints/pe-sql-tdlab, 00m30s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Destruction complete after 34s
+module.sql[0].azapi_resource.database: Still destroying... [id=/subscriptions/<subscription-id>...dlab-36d2d4/databases/sqldb-ticketdesk, 00m10s elapsed]
+module.monitoring[0].azurerm_log_analytics_workspace.this: Still destroying... [id=/subscriptions/<subscription-id>...hts/workspaces/log-tdlab-swedencentral, 00m10s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 00m40s elapsed]
+module.keyvault[0].azurerm_key_vault.this: Still destroying... [id=/subscriptions/<subscription-id>...rosoft.KeyVault/vaults/kv-tdlab-36d2d4, 00m10s elapsed]
+module.sql[0].azapi_resource.database: Destruction complete after 16s
+module.sql[0].azurerm_mssql_server.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4]
+module.monitoring[0].azurerm_log_analytics_workspace.this: Still destroying... [id=/subscriptions/<subscription-id>...hts/workspaces/log-tdlab-swedencentral, 00m20s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 00m50s elapsed]
+module.keyvault[0].azurerm_key_vault.this: Still destroying... [id=/subscriptions/<subscription-id>...rosoft.KeyVault/vaults/kv-tdlab-36d2d4, 00m20s elapsed]
+module.monitoring[0].azurerm_log_analytics_workspace.this: Destruction complete after 22s
+module.keyvault[0].azurerm_key_vault.this: Destruction complete after 22s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm]
+module.network[0].azurerm_subnet_network_security_group_association.pe: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe]
+module.network[0].azurerm_subnet_network_security_group_association.aks: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks]
+module.sql[0].azurerm_mssql_server.this: Still destroying... [id=/subscriptions/<subscription-id>...Microsoft.Sql/servers/sql-tdlab-36d2d4, 00m10s elapsed]
+module.network[0].azurerm_subnet_network_security_group_association.aks: Destruction complete after 5s
+module.network[0].azurerm_subnet.aks: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks]
+module.network[0].azurerm_network_security_group.aks: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks]
+module.network[0].azurerm_network_security_group.aks: Destruction complete after 2s
+module.sql[0].azurerm_mssql_server.this: Destruction complete after 16s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m00s elapsed]
+module.network[0].azurerm_subnet_network_security_group_association.pe: Destruction complete after 10s
+module.network[0].azurerm_subnet.pe: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe]
+module.network[0].azurerm_network_security_group.pe: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe]
+module.network[0].azurerm_subnet_network_security_group_association.vm: Still destroying... [id=/subscriptions/<subscription-id>...et-tdlab-swedencentral/subnets/snet-vm, 00m10s elapsed]
+module.network[0].azurerm_network_security_group.pe: Destruction complete after 1s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Destruction complete after 14s
+module.network[0].azurerm_subnet.vm: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm]
+module.network[0].azurerm_network_security_group.vm: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm]
+module.network[0].azurerm_subnet.aks: Still destroying... [id=/subscriptions/<subscription-id>...t-tdlab-swedencentral/subnets/snet-aks, 00m10s elapsed]
+module.network[0].azurerm_network_security_group.vm: Destruction complete after 2s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m10s elapsed]
+module.network[0].azurerm_subnet.pe: Still destroying... [id=/subscriptions/<subscription-id>...et-tdlab-swedencentral/subnets/snet-pe, 00m10s elapsed]
+module.network[0].azurerm_subnet.vm: Still destroying... [id=/subscriptions/<subscription-id>...et-tdlab-swedencentral/subnets/snet-vm, 00m10s elapsed]
+module.network[0].azurerm_subnet.aks: Destruction complete after 19s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m20s elapsed]
+module.network[0].azurerm_subnet.pe: Still destroying... [id=/subscriptions/<subscription-id>...et-tdlab-swedencentral/subnets/snet-pe, 00m20s elapsed]
+module.network[0].azurerm_subnet.vm: Still destroying... [id=/subscriptions/<subscription-id>...et-tdlab-swedencentral/subnets/snet-vm, 00m20s elapsed]
+module.network[0].azurerm_subnet.pe: Destruction complete after 26s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m30s elapsed]
+module.network[0].azurerm_subnet.vm: Still destroying... [id=/subscriptions/<subscription-id>...et-tdlab-swedencentral/subnets/snet-vm, 00m30s elapsed]
+module.network[0].azurerm_subnet.vm: Destruction complete after 33s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m40s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 01m50s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 02m00s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 02m10s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still destroying... [id=/subscriptions/<subscription-id>...virtualNetworkLinks/pdnslink-sql-tdlab, 02m20s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Destruction complete after 2m26s
+module.sql[0].azurerm_private_dns_zone.sql: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net]
+module.network[0].azurerm_virtual_network.this: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral]
+module.sql[0].azurerm_private_dns_zone.sql: Still destroying... [id=/subscriptions/<subscription-id>...Zones/privatelink.database.windows.net, 00m10s elapsed]
+module.network[0].azurerm_virtual_network.this: Still destroying... [id=/subscriptions/<subscription-id>...rtualNetworks/vnet-tdlab-swedencentral, 00m10s elapsed]
+module.network[0].azurerm_virtual_network.this: Destruction complete after 12s
+module.sql[0].azurerm_private_dns_zone.sql: Still destroying... [id=/subscriptions/<subscription-id>...Zones/privatelink.database.windows.net, 00m20s elapsed]
+module.sql[0].azurerm_private_dns_zone.sql: Still destroying... [id=/subscriptions/<subscription-id>...Zones/privatelink.database.windows.net, 00m30s elapsed]
+module.sql[0].azurerm_private_dns_zone.sql: Destruction complete after 32s
+azurerm_resource_group.lab[0]: Destroying... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 00m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 00m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 00m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 00m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 00m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 01m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 01m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 01m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 01m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 01m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 01m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 02m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 02m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 02m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 02m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 02m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 02m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 03m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 03m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 03m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 03m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 03m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 03m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 04m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 04m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 04m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 04m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 04m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 04m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 05m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 05m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 05m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 05m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 05m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 05m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 06m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 06m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 06m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 06m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 06m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 06m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 07m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 07m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 07m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 07m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 07m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 07m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 08m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 08m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 08m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 08m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 08m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 08m50s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 09m00s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 09m10s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 09m20s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 09m30s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 09m40s elapsed]
+azurerm_resource_group.lab[0]: Still destroying... [id=/subscriptions/<subscription-id>.../resourceGroups/rg-ticketdesk-lab, 09m50s elapsed]
+╷
+│ Error: deleting Resource Group "rg-ticketdesk-lab": the Resource Group still contains Resources.
+│ 
+│ Terraform is configured to check for Resources within the Resource Group when deleting the Resource Group - and
+│ raise an error if nested Resources still exist to avoid unintentionally deleting these Resources.
+│ 
+│ Terraform has detected that the following Resources still exist within the Resource Group:
+│ 
+│ * `/subscriptions/<subscription-id>/resourceGroups/RG-TICKETDESK-LAB/providers/Microsoft.Compute/disks/osdisk-tdlab-legacy`
+│ 
+│ This feature is intended to avoid the unintentional destruction of nested Resources provisioned through some
+│ other means (for example, an ARM Template Deployment) - as such you must either remove these Resources, or
+│ disable this behaviour using the feature flag `prevent_deletion_if_contains_resources` within the `features`
+│ block when configuring the Provider, for example:
+│ 
+│ provider "azurerm" {
+│   features {
+│     resource_group {
+│       prevent_deletion_if_contains_resources = false
+│     }
+│   }
+│ }
+│ 
+│ When that feature flag is set, Terraform will skip checking for any Resources within the Resource Group and
+│ delete this using the Azure API directly (which will clear up any nested resources).
+│ 
+│ More information on the `features` block can be found in the documentation:
+│ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block
+│ 
+│ 
+│ 
+╵
+stage foundation down end 2026-11-08T20:51:09Z elapsed_s=803 rc=1
+make[1]: *** [infra/azure.mk:71: azure-down-foundation] Error 1
+make: *** [ops/azure/lift.mk:49: azure-lift-down] Error 2
+EXIT=2 2026-11-08T20:51:09Z

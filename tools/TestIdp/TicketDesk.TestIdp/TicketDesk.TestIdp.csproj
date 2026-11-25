@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <AssemblyName>td-test-idp</AssemblyName>
+    <RootNamespace>TicketDesk.TestIdp</RootNamespace>
+    <Description>Local OpenID Connect provider for tests and lab runs (authorization code + PKCE, RS256 id tokens, Entra-style claims). Never for production.</Description>
+  </PropertyGroup>
+</Project>

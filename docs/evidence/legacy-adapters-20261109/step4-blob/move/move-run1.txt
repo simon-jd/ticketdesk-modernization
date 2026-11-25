@@ -1,0 +1,3 @@
+$ ops/onprem/filestore/move-filestore.sh run1.csv   (app still on disk)
+[2026-11-09T01:46:44Z] INFO   filestore move -> http://10.0.2.2:10000/devstoreaccount1/ticketdesk-attachments: disk 2 files 42 bytes; uploaded 2, skipped 0; after: 2 of 2 match (size + MD5), 0 blob(s) without a disk file; 0.4 s
+manifest: docs/evidence/legacy-adapters-20261109/step4-blob/move/manifest-run1.csv (2 files)

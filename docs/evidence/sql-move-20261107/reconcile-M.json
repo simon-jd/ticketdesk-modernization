@@ -1,0 +1,378 @@
+{
+  "SourceDatabase": "td_move_M_src",
+  "TargetDatabase": "td_move_M_dst",
+  "Started": "2026-11-08T07:29:54.5171073+00:00",
+  "Seconds": 11.28,
+  "Tables": [
+    {
+      "Table": "dbo.ApplicationSettings",
+      "Source": {
+        "Rows": 1,
+        "Hash": "0e49fedd5716c2afd54a826437dc5b408df59c82b33ac7157251bbe2e65a1fb2",
+        "Seconds": 0.02
+      },
+      "Target": {
+        "Rows": 1,
+        "Hash": "0e49fedd5716c2afd54a826437dc5b408df59c82b33ac7157251bbe2e65a1fb2",
+        "Seconds": 0.02
+      },
+      "HashedColumns": [
+        "ApplicationName",
+        "PermissionsSettingsJson",
+        "SelectListSettingsJson",
+        "SecuritySettingsJson",
+        "ClientSettingsJson"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.IdentityRoles",
+      "Source": {
+        "Rows": 4,
+        "Hash": "d5625b1293ab7368ddc341afe8e81b5da911022d7afd276997097a343067716c",
+        "Seconds": 0.04
+      },
+      "Target": {
+        "Rows": 4,
+        "Hash": "d5625b1293ab7368ddc341afe8e81b5da911022d7afd276997097a343067716c",
+        "Seconds": 0.02
+      },
+      "HashedColumns": [
+        "Id",
+        "Name",
+        "DisplayName",
+        "Description",
+        "Discriminator"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.IdentityUserClaims",
+      "Source": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0.03
+      },
+      "Target": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0.03
+      },
+      "HashedColumns": [
+        "Id",
+        "UserId",
+        "ClaimType",
+        "ClaimValue"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.IdentityUserLogins",
+      "Source": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0.03
+      },
+      "Target": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0.03
+      },
+      "HashedColumns": [
+        "LoginProvider",
+        "ProviderKey",
+        "UserId"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.IdentityUserRoles",
+      "Source": {
+        "Rows": 2500,
+        "Hash": "a86ce894d032096f441c007d4bbcec9f58162a1fc75c273e72275d668f8cc0b2",
+        "Seconds": 0.03
+      },
+      "Target": {
+        "Rows": 2500,
+        "Hash": "a86ce894d032096f441c007d4bbcec9f58162a1fc75c273e72275d668f8cc0b2",
+        "Seconds": 0.05
+      },
+      "HashedColumns": [
+        "UserId",
+        "RoleId"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.IdentityUsers",
+      "Source": {
+        "Rows": 2500,
+        "Hash": "356ab2c83794b00588f2bdf1fe66af00da5278720d920af676bc5865c90dc70b",
+        "Seconds": 0.05
+      },
+      "Target": {
+        "Rows": 2500,
+        "Hash": "356ab2c83794b00588f2bdf1fe66af00da5278720d920af676bc5865c90dc70b",
+        "Seconds": 0.07
+      },
+      "HashedColumns": [
+        "Id",
+        "DisplayName",
+        "Email",
+        "EmailConfirmed",
+        "PasswordHash",
+        "SecurityStamp",
+        "PhoneNumber",
+        "PhoneNumberConfirmed",
+        "TwoFactorEnabled",
+        "LockoutEndDateUtc",
+        "LockoutEnabled",
+        "AccessFailedCount",
+        "UserName"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.Projects",
+      "Source": {
+        "Rows": 10,
+        "Hash": "13fb3829fa8e58b18b68ed835e2210bcd5c85cdaaf0d0edb3270cd0b50bddae4",
+        "Seconds": 0.02
+      },
+      "Target": {
+        "Rows": 10,
+        "Hash": "13fb3829fa8e58b18b68ed835e2210bcd5c85cdaaf0d0edb3270cd0b50bddae4",
+        "Seconds": 0.01
+      },
+      "HashedColumns": [
+        "ProjectId",
+        "ProjectName",
+        "ProjectDescription"
+      ],
+      "ExcludedColumns": [
+        "Version"
+      ],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.TicketEventNotifications",
+      "Source": {
+        "Rows": 961518,
+        "Hash": "b1234e6d86d8c890523e3bc6f2315eaabfe98bd0a3ac9ca5fb19dcb55f48486f",
+        "Seconds": 11.01
+      },
+      "Target": {
+        "Rows": 961518,
+        "Hash": "b1234e6d86d8c890523e3bc6f2315eaabfe98bd0a3ac9ca5fb19dcb55f48486f",
+        "Seconds": 8.93
+      },
+      "HashedColumns": [
+        "TicketId",
+        "EventId",
+        "SubscriberId",
+        "IsNew",
+        "IsRead"
+      ],
+      "ExcludedColumns": [
+        "Version"
+      ],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.TicketEvents",
+      "Source": {
+        "Rows": 454352,
+        "Hash": "56ede1382fa8e07d7cf4f5a87701e3ab0d59a0a85b5bc9422ef8057f47cb8309",
+        "Seconds": 5.05
+      },
+      "Target": {
+        "Rows": 454352,
+        "Hash": "56ede1382fa8e07d7cf4f5a87701e3ab0d59a0a85b5bc9422ef8057f47cb8309",
+        "Seconds": 5.3
+      },
+      "HashedColumns": [
+        "TicketId",
+        "EventId",
+        "EventDescription",
+        "Comment",
+        "IsHtml",
+        "EventBy",
+        "EventDate",
+        "ForActivity"
+      ],
+      "ExcludedColumns": [
+        "Version"
+      ],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.Tickets",
+      "Source": {
+        "Rows": 100000,
+        "Hash": "08a57b14e1a28f5915717a8a91c65020790d98a6a89e5bd46fbb2eefbd80f85e",
+        "Seconds": 2.6
+      },
+      "Target": {
+        "Rows": 100000,
+        "Hash": "08a57b14e1a28f5915717a8a91c65020790d98a6a89e5bd46fbb2eefbd80f85e",
+        "Seconds": 2.98
+      },
+      "HashedColumns": [
+        "TicketId",
+        "TicketType",
+        "Category",
+        "Title",
+        "Details",
+        "IsHtml",
+        "TagList",
+        "CreatedBy",
+        "CreatedDate",
+        "Owner",
+        "AssignedTo",
+        "TicketStatus",
+        "CurrentStatusDate",
+        "CurrentStatusSetBy",
+        "LastUpdateBy",
+        "LastUpdateDate",
+        "Priority",
+        "AffectsCustomer",
+        "ProjectId",
+        "DueDate",
+        "EstimatedDuration",
+        "ActualDuration",
+        "TargetDate",
+        "ResolutionDate",
+        "AssignedDate"
+      ],
+      "ExcludedColumns": [
+        "Version"
+      ],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.TicketSubscribers",
+      "Source": {
+        "Rows": 202708,
+        "Hash": "b7e22fc377c15d7a968940ab8dfef000e691a6b64d5b6ca2f525533357c57da5",
+        "Seconds": 1.48
+      },
+      "Target": {
+        "Rows": 202708,
+        "Hash": "b7e22fc377c15d7a968940ab8dfef000e691a6b64d5b6ca2f525533357c57da5",
+        "Seconds": 2.01
+      },
+      "HashedColumns": [
+        "TicketId",
+        "SubscriberId"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.TicketTags",
+      "Source": {
+        "Rows": 146057,
+        "Hash": "9a95177c12793e74b7c19c6af8c9c813d09bd32c1de4799db4839cf856e6918c",
+        "Seconds": 1.36
+      },
+      "Target": {
+        "Rows": 146057,
+        "Hash": "9a95177c12793e74b7c19c6af8c9c813d09bd32c1de4799db4839cf856e6918c",
+        "Seconds": 1.18
+      },
+      "HashedColumns": [
+        "TicketTagId",
+        "TagName",
+        "TicketId"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.UserSettings",
+      "Source": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0
+      },
+      "Target": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0
+      },
+      "HashedColumns": [
+        "UserId",
+        "ListSettingsJson",
+        "SelectedProjectId"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.__MigrationHistory",
+      "Source": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0
+      },
+      "Target": {
+        "Rows": 0,
+        "Hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "Seconds": 0
+      },
+      "HashedColumns": [
+        "MigrationId",
+        "ContextKey",
+        "Model",
+        "ProductVersion"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    },
+    {
+      "Table": "dbo.__ModernSchemaHistory",
+      "Source": {
+        "Rows": 9,
+        "Hash": "8912bbfe8c622dcd087ca79f0eeb45165dceebb1d2f9dabcf60b9644952c456f",
+        "Seconds": 0.02
+      },
+      "Target": {
+        "Rows": 9,
+        "Hash": "8912bbfe8c622dcd087ca79f0eeb45165dceebb1d2f9dabcf60b9644952c456f",
+        "Seconds": 0.02
+      },
+      "HashedColumns": [
+        "ScriptName",
+        "Kind",
+        "Checksum",
+        "AppliedAt",
+        "AppliedBy",
+        "DurationMs"
+      ],
+      "ExcludedColumns": [],
+      "Problems": [],
+      "Match": true
+    }
+  ],
+  "Match": true
+}

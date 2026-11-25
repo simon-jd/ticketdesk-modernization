@@ -1,0 +1,5 @@
+legacy rate 10: p50 44.0 p95 107.6 p99 123.6 ms, 2343 req, failed 0.00%, dropped 0
+legacy rate 20: p50 37.2 p95 100.1 p99 112.8 ms, 4703 req, failed 0.00%, dropped 0
+legacy rate 25: p50 47.1 p95 121.1 p99 30000.5 ms, 4896 req, failed 1.59%, dropped 485
+legacy rate 30: p50 46.3 p95 119.8 p99 144.5 ms, 7047 req, failed 0.00%, dropped 0
+legacy rate 40: p50 465.3 p95 3230.0 p99 23909.0 ms, 6707 req, failed 0.25%, dropped 1995

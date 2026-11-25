@@ -1,0 +1,39 @@
+# move rehearsal, scale S, 2026-11-08T07:28:58Z, host load 5.79 5.46 2.84, git 0f6d1bb
+# sqlpackage 170.5.96.0; source and target in td-sql (16.0.4262.2)
+## prepare source td_move_S_src (not part of the window)
+EF6-implied schema created
+seeding scale S (10,000 tickets, 250 users, 5 projects), seed 42
+9 script(s) applied
+## window
+freeze (READ_ONLY): 0.13 s
+Processing Table '[dbo].[IdentityUserRoles]'.
+Successfully exported database and saved it to file '/tmp/tmp.RiMn2WzFh5/td_move_S_src.bacpac'.
+Time elapsed 0:00:04.98
+export: 5.14 s, bacpac 3550482 bytes
+Enabling index 'IX_TicketTags_TagName'.
+Successfully imported database.
+Time elapsed 0:00:08.26
+import: 8.41 s
+reconcile td_move_S_src -> td_move_S_dst: MATCH (15 tables, 1.15 s)
+table                                     source rows    target rows  sha256 (first 16) result
+dbo.ApplicationSettings                             1              1  0e49fedd5716c2af  ok
+dbo.IdentityRoles                                   4              4  a43eee86d8b0ff21  ok
+dbo.IdentityUserClaims                              0              0  e3b0c44298fc1c14  ok
+dbo.IdentityUserLogins                              0              0  e3b0c44298fc1c14  ok
+dbo.IdentityUserRoles                             250            250  da5c3c1e31ea6977  ok
+dbo.IdentityUsers                                 250            250  2f761d0e641f1dac  ok
+dbo.Projects                                        5              5  c77fe9183fea7e7f  ok
+                                         excluded (rowversion): Version
+dbo.TicketEventNotifications                   95,999         95,999  cec6e404d8c002ce  ok
+                                         excluded (rowversion): Version
+dbo.TicketEvents                               45,649         45,649  9a67b27f94fac708  ok
+                                         excluded (rowversion): Version
+dbo.Tickets                                    10,000         10,000  93351dfb405b2b4c  ok
+                                         excluded (rowversion): Version
+dbo.TicketSubscribers                          20,125         20,125  7565e6e2f79da9df  ok
+dbo.TicketTags                                 14,698         14,698  77bb41591876abf4  ok
+dbo.UserSettings                                    0              0  e3b0c44298fc1c14  ok
+dbo.__MigrationHistory                              0              0  e3b0c44298fc1c14  ok
+dbo.__ModernSchemaHistory                           9              9  0a134f7a4093613a  ok
+reconcile: 1.22 s, exit code 0
+window total (freeze -> reconciled): 14.9 s

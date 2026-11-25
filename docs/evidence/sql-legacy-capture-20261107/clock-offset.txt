@@ -1,0 +1,1 @@
+clock offset VM-host ms: 9.0 (query round trip 22.5 ms)

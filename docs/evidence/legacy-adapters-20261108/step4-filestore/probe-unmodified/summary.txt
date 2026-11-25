@@ -1,0 +1,6 @@
+2026-11-08T20:58:32Z == direct
+2026-11-08T20:58:52Z 2026-11-08T20:58:52Z reset to baseline-s done in 20 s
+2026-11-08T20:59:10Z 2026-11-08T20:59:10Z deployed td-legacy-publish-35d7b5e.zip (sha256 488696957d298c069f5683e94d6abb4333b11d695f6eef21bc3bbe20ef215369) in 18 s
+2026-11-08T20:59:12Z prepare: 2026-11-08T20:59:12Z reset: empty store (baseline-s state)
+2026-11-08T20:59:33Z replay: replayed 175 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/legacy-adapters-20261108/step4-filestore/probe-unmodified/direct/candidate.jsonl (8 journey errors)
+2026-11-08T20:59:34Z compare: compared 175, matched 162, mismatched 100 (missing 87, extra 0) -> docs/evidence/legacy-adapters-20261108/step4-filestore/probe-unmodified/direct/compare/report.md

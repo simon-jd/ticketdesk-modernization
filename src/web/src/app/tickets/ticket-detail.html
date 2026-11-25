@@ -1,0 +1,100 @@
+@if (ticket.isLoading() && !ticket.hasValue()) {
+  <p class="loading" role="status">Loading the ticket…</p>
+}
+@if (notFound()) {
+  <h1 tabindex="-1">Ticket not found</h1>
+  <p>There is no ticket {{ id() }}. <a routerLink="/tickets">Back to the ticket center</a></p>
+} @else if (loadError(); as error) {
+  <h1 tabindex="-1">Ticket {{ id() }}</h1>
+  <div class="alert alert-error" role="alert"><p>The ticket could not be loaded: {{ error }}</p></div>
+}
+
+@if (ticket.hasValue()) {
+  @let t = ticket.value();
+  <p class="back"><a routerLink="/tickets">Ticket center</a></p>
+  <div class="ticket-head">
+    <h1 tabindex="-1"><span class="ticket-no">#{{ t.ticketId }}</span> {{ t.title }}</h1>
+    <p class="head-meta">
+      <span class="badge status-{{ t.status }}">{{ statusLabel(t.status) }}</span>
+      @if (t.projectName) { <span>Project: {{ t.projectName }}</span> }
+      <span>Opened by {{ t.createdBy.displayName }} on <time [attr.datetime]="t.createdDate">{{ datePart(t.createdDate) }}</time></span>
+    </p>
+  </div>
+
+  <div class="ticket-layout">
+    <div class="ticket-main">
+      <section aria-labelledby="details-heading">
+        <h2 id="details-heading">Details</h2>
+        <div class="ticket-text" [innerHTML]="t.detailsHtml"></div>
+      </section>
+
+      @if (t.attachmentsVisible) {
+        <section aria-labelledby="files-heading">
+          <h2 id="files-heading">Attachments</h2>
+          @if (t.attachments && t.attachments.length > 0) {
+            <ul class="files">
+              @for (a of t.attachments; track a.name) {
+                <li><a [href]="attachmentUrl(t.ticketId, a.name)">{{ a.name }}</a> <span class="muted">({{ fileSize(a.size) }})</span></li>
+              }
+            </ul>
+          } @else {
+            <p class="muted">No attachments.</p>
+          }
+        </section>
+      }
+
+      <p class="saved" role="status">@if (saved()) { <span class="alert alert-ok">{{ saved() }}</span> }</p>
+      <td-ticket-actions [ticket]="t" (changed)="changed($event)" />
+
+      <section aria-labelledby="log-heading">
+        <h2 id="log-heading">Activity log</h2>
+        <ol class="events" reversed>
+          @for (e of t.events; track e.eventId) {
+            <li class="event">
+              <p class="event-head">
+                <strong>{{ e.eventBy.displayName }}</strong> {{ e.eventDescription }}
+                <time class="muted" [attr.datetime]="e.eventDate">{{ e.eventDate.slice(0, 16).replace('T', ' ') }}</time>
+              </p>
+              @if (e.commentHtml) {
+                <div class="ticket-text" [innerHTML]="e.commentHtml"></div>
+              }
+            </li>
+          }
+        </ol>
+      </section>
+    </div>
+
+    <aside class="ticket-fields" aria-labelledby="fields-heading">
+      <h2 id="fields-heading">Ticket fields</h2>
+      <dl>
+        <dt>Status</dt><dd>{{ statusLabel(t.status) }} <span class="muted">({{ t.currentStatusSetBy.displayName }}, {{ datePart(t.currentStatusDate) }})</span></dd>
+        <dt>Type</dt><dd>{{ t.ticketType }}</dd>
+        <dt>Category</dt><dd>{{ t.category }}</dd>
+        <dt>Priority</dt><dd>{{ t.priority || '–' }}</dd>
+        <dt>Owner</dt><dd>{{ t.owner.displayName }}</dd>
+        <dt>Assigned to</dt><dd>{{ t.assignedTo?.displayName || 'Unassigned' }}</dd>
+        <dt>Affects customer</dt><dd>{{ t.affectsCustomer ? 'Yes' : 'No' }}</dd>
+        <dt>Tags</dt>
+        <dd>
+          @for (tag of t.tags; track $index) { <span class="tag">{{ tag }}</span> } @empty { – }
+        </dd>
+        <dt>Due</dt>
+        <dd>
+          @if (t.dueDate) {
+            <time [attr.datetime]="datePart(t.dueDate)">{{ datePart(t.dueDate) }}</time>
+            @switch (due(t.dueDate)) {
+              @case ('overdue') { <span class="badge due-overdue">Overdue</span> }
+              @case ('today') { <span class="badge due-today">Due today</span> }
+            }
+          } @else { – }
+        </dd>
+        <dt>Target</dt><dd>{{ datePart(t.targetDate) || '–' }}</dd>
+        <dt>Resolution</dt><dd>{{ datePart(t.resolutionDate) || '–' }}</dd>
+        <dt>Estimated</dt><dd>{{ t.estimatedDuration ?? '–' }}</dd>
+        <dt>Actual</dt><dd>{{ t.actualDuration ?? '–' }}</dd>
+        <dt>Updated</dt><dd>{{ t.lastUpdateBy.displayName }}, {{ datePart(t.lastUpdateDate) }}</dd>
+        <dt>Notifications</dt><dd>{{ t.isSubscribed ? 'You are subscribed' : 'Not subscribed' }}</dd>
+      </dl>
+    </aside>
+  </div>
+}

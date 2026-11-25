@@ -1,0 +1,11 @@
+@using TicketDesk.Localization.Views.Shared
+@* MVC 5 Html.TextBox("term", null) showed ViewData/ModelState "term": the search page's own term, empty elsewhere *@
+<form action="/search" class="" method="get" role="search">    <div class="input-group input-group-sm">
+
+        <label class="sr-only " for="find"> @_Layout.Search:</label>
+        <input class="form-control" id="term" name="term" placeholder="@_Layout.Search" type="text" value="@(ViewData["term"] as string ?? "")" />
+        <span class="input-group-btn">
+            <button type="submit" value="go" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+        </span>
+    </div>
+</form>

@@ -1,0 +1,64 @@
+{
+  "command": "demo",
+  "base": "https://localhost:8443",
+  "ok": true,
+  "checks_passed": 4,
+  "checks_total": 4,
+  "requests": 5,
+  "seconds": 12.6,
+  "checks": [
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "create demo data",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "ticket center after demo data",
+      "ok": true,
+      "detail": "HTTP 200"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 24
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 47,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 82
+    },
+    {
+      "method": "GET",
+      "url": "/admin/data-management/create-demo-data",
+      "status": 200,
+      "ms": 1862
+    },
+    {
+      "method": "GET",
+      "url": "/tickets",
+      "status": 200,
+      "ms": 5582
+    }
+  ]
+}

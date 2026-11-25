@@ -1,0 +1,15 @@
+@* Port of the legacy Views/DataManagement/Demo.cshtml (TicketDesk 2.5, Ms-PL). *@
+@using TicketDesk.Localization.Views.DataManagement
+
+@section title
+{
+    @Demo.Title
+}
+<div class="contentContainer">
+    <h2>@Demo.Header</h2>
+
+    <div><a href="/admin/data-management/remove-demo-data">@Demo.RemoveDemoData</a></div>
+    <p>
+        <div><a href="/admin/data-management/create-demo-data">@Demo.CreateDemoData</a></div>
+    </p>
+</div>

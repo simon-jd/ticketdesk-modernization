@@ -1,0 +1,19 @@
+$ ops/dev/legacy-query-stats.sh 15
+execs|avg_cpu_ms|avg_elapsed_ms|max_elapsed_ms|avg_reads|plan_hash|plan_gen|stmt
+-----|----------|--------------|--------------|---------|---------|--------|----
+246|8.77|9.84|44.54|1339|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+179|4.28|4.39|23.77|1339|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+179|2.85|2.85|10.12|1339|0x89E2697CBBE2FC19|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+246|0.77|0.77|2.45|32|0x47AE2C509C101607|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+333|0.14|1.13|240.28|6|0x87270C0CF0A6D7C3|1|SELECT       [Project2].[TicketId] AS [TicketId],       [Project2].[ProjectId] AS [Project
+590|0.03|0.03|0.37|3|0xC8C48D418C0CF7F8|1|SELECT TOP (2)       [Extent1].[TicketId] AS [TicketId],       [Extent1].[ProjectId] AS [P
+63|0.18|2.25|121.84|37|0xE4F3407EC0FC2CE4|1|SELECT [CreatedDate], [Version]  FROM [dbo].[Tickets]  WHERE @@ROWCOUNT > 0 AND [TicketId]
+37|0.22|0.42|8.01|30|0xEBC46C054EB2B32D|1|SELECT [TicketId], [CreatedDate], [Version]  FROM [dbo].[Tickets]  WHERE @@ROWCOUNT > 0 AN
+1|6.83|11.52|11.52|178|0xE4F3407EC0FC2CE4|1|SELECT [CreatedDate], [Version]  FROM [dbo].[Tickets]  WHERE @@ROWCOUNT > 0 AND [TicketId]
+130|0.03|0.03|0.07|3|0xA2A0B628DBEDFCFE|1|SELECT       [Extent1].[TicketId] AS [TicketId],       [Extent1].[ProjectId] AS [ProjectId
+103|0.01|0.01|0.08|1|0x51ECBB0B66A0B63F|1|SELECT i EXCEPT SELECT d) is the NULL-safe "is different" test (EXCEPT -- treats NULLs as 
+38|0.02|0.02|0.10|2|0x0C4F453A06BAA3C9|1|SELECT i EXCEPT SELECT d) is the NULL-safe "is different" test (EXCEPT -- treats NULLs as 
+63|0.01|0.01|0.04|3|0x1ACC7C3C29E6434A|1|SELECT [CreatedDate], [Version]  FROM [dbo].[Tickets]  WHERE @@ROWCOUNT > 0 AND [TicketId]
+37|0.01|0.01|0.05|3|0x1ACC7C3C29E6434A|1|SELECT [TicketId], [CreatedDate], [Version]  FROM [dbo].[Tickets]  WHERE @@ROWCOUNT > 0 AN
+103|0.00|0.00|0.01|0|0x51ECBB0B66A0B63F|1|SELECT i EXCEPT SELECT d) is the NULL-safe "is different" test (EXCEPT -- treats NULLs as 
+

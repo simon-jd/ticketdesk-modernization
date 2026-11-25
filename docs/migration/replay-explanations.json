@@ -1,0 +1,577 @@
+[
+  {
+    "id": "S3",
+    "reason": "forms that post to the new app carry its antiforgery field",
+    "routes": [
+      "tickets.index",
+      "tickets.page",
+      "tickets.filter",
+      "tickets.sort"
+    ],
+    "diff": {
+      "kind": "added",
+      "actual_prefix": "<input name=\"__RequestVerificationToken\" type=\"hidden\""
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "ASP.NET Core sends no-cache headers on a response that issues an antiforgery token",
+    "routes": [
+      "tickets.index",
+      "tickets.page",
+      "tickets.filter",
+      "tickets.sort"
+    ],
+    "diff": {
+      "kind": "header",
+      "path": "Cache-Control",
+      "actual_in": [
+        "no-store, no-cache",
+        "no-cache, no-store"
+      ]
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "the antiforgery cookie of the new app (.TicketDesk.Antiforgery)",
+    "routes": [
+      "tickets.index",
+      "tickets.page",
+      "tickets.filter",
+      "tickets.sort"
+    ],
+    "diff": {
+      "kind": "set-cookie",
+      "actual_contains": ".TicketDesk.Antiforgery;"
+    }
+  },
+  {
+    "id": "S5",
+    "reason": "rows with equal sort keys (sort by title): the legacy order within ties depended on the plan; the new app ends every sort with TicketId",
+    "routes": [
+      "tickets.sort"
+    ],
+    "diff": {
+      "path_regex": "/tbody\\[1\\]/tr\\[\\d+\\]"
+    }
+  },
+  {
+    "id": "D1",
+    "reason": "tag suggestions in TagName order (shared schema, and the new app sorts by name) where the round-1 golden has plan order",
+    "routes": [
+      "autocomplete.tag-list"
+    ],
+    "diff": {
+      "kind_prefix": "json-value"
+    },
+    "answered_by": "any"
+  },
+  {
+    "id": "L2",
+    "reason": "list the user does not have (unassigned for an internal user): legacy 500; new app 302 to /access-denied, followed to the access-denied page (an extra hop)",
+    "keys": [
+      "internal-user#004.0",
+      "internal-user#004.1"
+    ],
+    "answered_by": "new",
+    "diff": {}
+  },
+  {
+    "id": "G6",
+    "reason": "legacy app behind the gateway with the adapters' proxy support (legacy-adapters): X-Forwarded-Host is honoured, so the absolute site URL it renders is the gateway's (https://localhost:<gateway port>, 5443 by default)",
+    "routes": [
+      "admin.push-settings.get",
+      "admin.push-settings.post"
+    ],
+    "answered_by": "legacy",
+    "diff": {
+      "actual_regex": "https://localhost:\\d+"
+    }
+  },
+  {
+    "id": "L1",
+    "reason": "attachment list with pending uploads: legacy 500 (missing GetPendingFile route); new app 200 with the pending files and their file/{tempId}/{name} URLs",
+    "keys": [
+      "attachments#006.0"
+    ],
+    "answered_by": "new",
+    "diff": {}
+  },
+  {
+    "id": "S3",
+    "reason": "the ticket page's AJAX posts (subscription, uploads) need the new app's token: the page carries it in a hidden field",
+    "routes": [
+      "ticket.view"
+    ],
+    "diff": {
+      "kind": "added",
+      "actual_prefix": "<input name=\"__RequestVerificationToken\" type=\"hidden\""
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "the script that sends the page's token as the RequestVerificationToken header ($.ajaxSetup, Dropzone defaults)",
+    "routes": [
+      "ticket.view",
+      "ticket.new.get",
+      "tickets.index"
+    ],
+    "diff": {
+      "kind": "added",
+      "actual_prefix": "<script type=\"text/javascript\">",
+      "actual_contains": "S3 RequestVerificationToken"
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "ASP.NET Core sends no-cache headers on a response that issues an antiforgery token (ticket and activity pages)",
+    "routes": [
+      "ticket.view",
+      "ticket.details",
+      "ticket.events",
+      "activity.buttons",
+      "ticket.subscription",
+      "ticket.new.get",
+      "ticket.new.post",
+      "activity.load",
+      "activity.add-comment",
+      "activity.assign",
+      "activity.cancel-more-info",
+      "activity.close",
+      "activity.edit-ticket-info",
+      "activity.force-close",
+      "activity.give-up",
+      "activity.modify-attachments",
+      "activity.pass",
+      "activity.reassign",
+      "activity.request-more-info",
+      "activity.reopen",
+      "activity.resolve",
+      "activity.supply-more-info",
+      "activity.take-over",
+      "file.upload",
+      "file.delete"
+    ],
+    "diff": {
+      "kind": "header",
+      "path": "Cache-Control",
+      "actual_in": [
+        "no-store, no-cache",
+        "no-cache, no-store"
+      ]
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "the antiforgery cookie of the new app (.TicketDesk.Antiforgery)",
+    "routes": [
+      "ticket.view",
+      "ticket.details",
+      "ticket.events",
+      "activity.buttons",
+      "ticket.subscription",
+      "ticket.new.get",
+      "ticket.new.post",
+      "activity.load",
+      "activity.add-comment",
+      "activity.assign",
+      "activity.cancel-more-info",
+      "activity.close",
+      "activity.edit-ticket-info",
+      "activity.force-close",
+      "activity.give-up",
+      "activity.modify-attachments",
+      "activity.pass",
+      "activity.reassign",
+      "activity.request-more-info",
+      "activity.reopen",
+      "activity.resolve",
+      "activity.supply-more-info",
+      "activity.take-over",
+      "file.upload",
+      "file.delete"
+    ],
+    "diff": {
+      "kind": "set-cookie",
+      "actual_contains": ".TicketDesk.Antiforgery;"
+    }
+  },
+  {
+    "id": "R1",
+    "reason": "ticket text sanitizer (current HtmlSanitizer): a URL attribute written as given where HtmlSanitizer 3.2 wrote the System.Uri form; same URL",
+    "routes": [
+      "ticket.view",
+      "ticket.details",
+      "ticket.events"
+    ],
+    "diff": {
+      "kind": "attribute",
+      "path_regex": "/@(href|src|action|background|dynsrc|lowsrc)$",
+      "equivalent": "url"
+    }
+  },
+  {
+    "id": "R1",
+    "reason": "ticket text sanitizer (current HtmlSanitizer): style values serialized by AngleSharp.Css (rgba(), unitless zero); same declarations",
+    "routes": [
+      "ticket.view",
+      "ticket.details",
+      "ticket.events"
+    ],
+    "diff": {
+      "kind": "attribute",
+      "path_regex": "/@style$",
+      "equivalent": "style"
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "wave 5 (identity and admin forms on the new app): ASP.NET Core sends no-cache headers on a response that issues an antiforgery token",
+    "routes": [
+      "user.sign-in.get",
+      "user.sign-in.post",
+      "user.register.get",
+      "user.register.post",
+      "user.sign-out",
+      "account.change-password.get",
+      "account.change-password.post",
+      "account.edit-profile.get",
+      "account.edit-profile.post",
+      "admin.user-new.get",
+      "admin.user-new.post",
+      "admin.user-edit.get",
+      "admin.user-edit.post",
+      "admin.user-delete",
+      "admin.project-new.get",
+      "admin.project-new.post",
+      "admin.project-edit.get",
+      "admin.project-edit.post",
+      "admin.project-delete",
+      "admin.application-settings.get",
+      "admin.application-settings.post",
+      "admin.push-settings.get",
+      "admin.push-settings.post",
+      "admin.push-providers",
+      "admin.push-provider.get",
+      "admin.push-provider.post"
+    ],
+    "diff": {
+      "kind": "header",
+      "path": "Cache-Control",
+      "actual_in": [
+        "no-store, no-cache",
+        "no-cache, no-store"
+      ]
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "wave 5: the antiforgery cookie of the new app (.TicketDesk.Antiforgery) instead of MVC 5's __RequestVerificationToken on the first form page",
+    "routes": [
+      "user.sign-in.get",
+      "user.sign-in.post",
+      "user.register.get",
+      "user.register.post",
+      "user.sign-out",
+      "account.change-password.get",
+      "account.change-password.post",
+      "account.edit-profile.get",
+      "account.edit-profile.post",
+      "admin.user-new.get",
+      "admin.user-new.post",
+      "admin.user-edit.get",
+      "admin.user-edit.post",
+      "admin.user-delete",
+      "admin.project-new.get",
+      "admin.project-new.post",
+      "admin.project-edit.get",
+      "admin.project-edit.post",
+      "admin.project-delete",
+      "admin.application-settings.get",
+      "admin.application-settings.post",
+      "admin.push-settings.get",
+      "admin.push-settings.post",
+      "admin.push-providers",
+      "admin.push-provider.get",
+      "admin.push-provider.post"
+    ],
+    "diff": {
+      "kind": "set-cookie",
+      "actual_contains": ".TicketDesk.Antiforgery;"
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "wave 5: forms that had no token (delete dialogs, provider configuration) now carry the new app's antiforgery field",
+    "routes": [
+      "user.sign-in.get",
+      "user.sign-in.post",
+      "user.register.get",
+      "user.register.post",
+      "user.sign-out",
+      "account.change-password.get",
+      "account.change-password.post",
+      "account.edit-profile.get",
+      "account.edit-profile.post",
+      "admin.user-new.get",
+      "admin.user-new.post",
+      "admin.user-edit.get",
+      "admin.user-edit.post",
+      "admin.user-delete",
+      "admin.project-new.get",
+      "admin.project-new.post",
+      "admin.project-edit.get",
+      "admin.project-edit.post",
+      "admin.project-delete",
+      "admin.application-settings.get",
+      "admin.application-settings.post",
+      "admin.push-settings.get",
+      "admin.push-settings.post",
+      "admin.push-providers",
+      "admin.push-provider.get",
+      "admin.push-provider.post"
+    ],
+    "diff": {
+      "kind": "added",
+      "actual_prefix": "<input name=\"__RequestVerificationToken\" type=\"hidden\""
+    }
+  },
+  {
+    "id": "G8",
+    "reason": "the sign-in page is answered by the new app, so MVC 5's antiforgery cookie (__RequestVerificationToken) is set by the first legacy page with a form instead",
+    "routes": [
+      "ticket.new.get",
+      "activity.load",
+      "account.change-password.get",
+      "account.edit-profile.get",
+      "admin.user-new.get",
+      "admin.user-edit.get",
+      "admin.project-new.get",
+      "admin.project-edit.get",
+      "admin.application-settings.get",
+      "admin.push-settings.get",
+      "ticket.view",
+      "user.sign-in.get",
+      "user.register.get"
+    ],
+    "answered_by": "legacy",
+    "diff": {
+      "kind": "set-cookie",
+      "actual_contains": "__RequestVerificationToken;"
+    }
+  },
+  {
+    "id": "S4",
+    "reason": "register POST while RegisterEnabled=false: refused (302 / without a user or a sign-in cookie); the journey then continues anonymous: home shows the anonymous menu, the ticket center challenges to the sign-in page",
+    "keys": [
+      "register-disabled#002.0",
+      "register-disabled#002.1",
+      "register-disabled#003.0",
+      "register-disabled#004.0",
+      "register-disabled#004.1"
+    ],
+    "answered_by": "new",
+    "diff": {}
+  },
+  {
+    "id": "L5",
+    "reason": "edit profile: the legacy model required the user name, which the form does not post, so no save ever succeeded (200 with 'The Username field is required.'); the new app saves and redirects to the account page with the success message",
+    "keys": [
+      "sign-in#007.0",
+      "sign-in#007.1"
+    ],
+    "answered_by": "new",
+    "diff": {}
+  },
+  {
+    "id": "G6",
+    "reason": "wave 5: the new app's push-notification settings page prints the request host too (https://localhost:<gateway port> through the gateway, like the legacy app behind it)",
+    "routes": [
+      "admin.push-settings.get",
+      "admin.push-settings.post"
+    ],
+    "answered_by": "new",
+    "diff": {
+      "actual_regex": "https://localhost:\\d+"
+    }
+  },
+  {
+    "id": "S6",
+    "reason": "provider secrets (SMTP password, SendGrid API key) are not stored in or shown from the database: the field says where the secret lives",
+    "routes": [
+      "admin.push-provider.get",
+      "admin.push-provider.post"
+    ],
+    "answered_by": "new",
+    "diff": {
+      "actual_contains": "secret store"
+    }
+  },
+  {
+    "id": "A1",
+    "reason": "the ticket center is answered by the Angular front end (page shell instead of the server-rendered list)",
+    "routes": [
+      "tickets.index"
+    ],
+    "answered_by": "angular",
+    "diff": {}
+  },
+  {
+    "id": "A2",
+    "reason": "the ticket page is answered by the Angular front end (page shell instead of the server-rendered page)",
+    "routes": [
+      "ticket.view"
+    ],
+    "answered_by": "angular",
+    "diff": {}
+  },
+  {
+    "id": "A3",
+    "reason": "the new-ticket page is answered by the Angular front end (page shell instead of the server-rendered form)",
+    "routes": [
+      "ticket.new.get"
+    ],
+    "answered_by": "angular",
+    "diff": {}
+  },
+  {
+    "id": "F1",
+    "reason": "search on SQL Server full-text instead of Lucene: a different ranking picks and orders the 20 result panels differently (the panel markup itself matches the golden when fed the legacy ids: SearchTests); only diffs inside the result panels after the project notice; td-replay numbers aligned positions, not panels, so with partly different result sets the 20 legacy and 20 new panels take positions 2-41 (Round 5b, uncapped compare)",
+    "routes": [
+      "search.query",
+      "search.path"
+    ],
+    "answered_by": "new",
+    "diff": {
+      "path_regex": "^html/body\\[1\\]/div\\[1\\]/main\\[1\\]/div\\[1\\]/fieldset\\[1\\]/div\\[1\\]/div\\[([2-9]|[1-3][0-9]|4[01])\\](/|$)"
+    }
+  },
+  {
+    "id": "L4",
+    "reason": "Lucene retired: the search-management page shows the full-text indexes' state instead of the remove/populate links; only diffs inside the page's content container below its heading",
+    "routes": [
+      "admin.search-manager"
+    ],
+    "answered_by": "new",
+    "diff": {
+      "path_regex": "^html/body\\[1\\]/div\\[1\\]/div\\[1\\]/(p|div|table)\\[\\d+\\]"
+    }
+  },
+  {
+    "id": "X1",
+    "reason": "first-run setup retired with the legacy app: the new app answers 410 Gone with a pointer (legacy, setup disabled: 302 to /)",
+    "routes": [
+      "setup.index",
+      "setup.legacy-migration",
+      "setup.upgrade-database",
+      "setup.check-upgrade-progress",
+      "setup.create-database"
+    ],
+    "answered_by": "new",
+    "diff": {}
+  },
+  {
+    "id": "X2",
+    "reason": "demo data actions retired with the legacy app: 410 Gone with a pointer to td-seed",
+    "routes": [
+      "admin.demo.create",
+      "admin.demo.remove"
+    ],
+    "answered_by": "new",
+    "diff": {}
+  },
+  {
+    "id": "S2",
+    "reason": "the anonymous e-mail test page is removed: 404 (legacy: 200 with the ticket's e-mail)",
+    "routes": [
+      "emailtest.index"
+    ],
+    "answered_by": "new",
+    "diff": {}
+  },
+  {
+    "id": "I1",
+    "reason": "the app's own sign-in cookie (.AspNetCore.Identity.Application, SameSite=Lax) instead of the legacy OWIN cookie of the shared-cookie mode; every other cookie of the exchange must match",
+    "routes": [
+      "user.sign-in.post",
+      "user.sign-out",
+      "user.register.post",
+      "account.change-password.post",
+      "account.edit-profile.post"
+    ],
+    "answered_by": "new",
+    "diff": {
+      "kind": "set-cookie",
+      "equivalent": "identity-cookie"
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "Round 5: links that changed state (sign-out, the language and project menus, the reset dialog) are forms that post to the same URL with the same text and the antiforgery token",
+    "any_route": true,
+    "answered_by": "new",
+    "diff": {
+      "kind": "element",
+      "equivalent": "link-to-post"
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "Round 5: the layout's style element styles the menu items that post like the dropdown links they replace",
+    "any_route": true,
+    "answered_by": "new",
+    "when_body_contains": "class=\"td-menu-post\"",
+    "diff": {
+      "kind": "added",
+      "path": "html/head[1]/style[1]/text()[1]",
+      "actual_prefix": "\"/* S3 (Round 5): menu items that post"
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "Round 5: every page with the layout's post forms issues an antiforgery token, so ASP.NET Core sends no-cache headers",
+    "any_route": true,
+    "answered_by": "new",
+    "when_body_contains": "class=\"td-menu-post\"",
+    "diff": {
+      "kind": "header",
+      "path": "Cache-Control",
+      "actual_in": [
+        "no-store, no-cache",
+        "no-cache, no-store"
+      ]
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "Round 5: every page with the layout's post forms issues a token: the new app's antiforgery cookie comes with the first such page of a session (the legacy app set its MVC 5 cookie on the first page with a form); every other cookie of the exchange must match",
+    "any_route": true,
+    "answered_by": "new",
+    "when_body_contains": "class=\"td-menu-post\"",
+    "diff": {
+      "kind": "set-cookie",
+      "equivalent": "antiforgery-cookie"
+    }
+  },
+  {
+    "id": "S3",
+    "reason": "Round 5: the ticket list's sort headers post (jquery.unobtrusive-ajax data-ajax-method)",
+    "routes": [
+      "tickets.index",
+      "tickets.page",
+      "tickets.filter",
+      "tickets.sort"
+    ],
+    "answered_by": "new",
+    "diff": {
+      "kind": "attribute",
+      "path_regex": "/thead\\[1\\]/tr\\[1\\]/th\\[\\d+\\]/span\\[1\\]/a\\[1\\]/@data-ajax-method$",
+      "expected_in": [
+        null
+      ],
+      "actual_in": [
+        "POST"
+      ]
+    }
+  }
+]

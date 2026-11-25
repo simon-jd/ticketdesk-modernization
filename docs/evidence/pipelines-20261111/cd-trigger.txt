@@ -1,0 +1,48 @@
+# Why the cd pipeline-resource trigger never fired, and the fix (2026-11-11, project-level APIs only)
+# Symptom: CI runs 15 (09:02Z), 20 (15:29Z), 22 (16:23Z) on modernize succeeded, no cd run with reason resourceTrigger;
+# re-saving definition 3 through the REST API (rev 6, 15:30Z) did not help.
+# History of definition 3: created 05:21Z by the pipelines API while modernize (its default branch) had no cd.yml; disabled
+# 05:22Z; cd.yml reached modernize 05:28Z (PR 2) while disabled; enabled 08:54Z and re-saved 15:30Z by plain REST PUTs.
+# Reproduced with throw-away probe pipelines (src -> dst via resources.pipelines, deleted afterwards):
+2026-11-11T18:47:02Z step a: definition 3 default branch -> ws/pipelines
+def 3 rev 7 defaultBranch refs/heads/ws/pipelines queueStatus enabled
+2026-11-11T18:47:03Z step b: push ws/pipelines 73ed96c (changes azure-pipelines/cd.yml)
+2026-11-11T18:47:24Z step c: CI queued by hand on modernize: run 24
+2026-11-11T18:50:26Z CI run 24 (manual, modernize) failed: host service td-sb-emulator is not running (td-sb-emulator / td-sb-sql Exited (137) since ~18:08Z, not started by this agent) -> no CD trigger test possible with ci
+2026-11-11T18:50:26Z step d: definition 3 default branch back to modernize
+def 3 rev 8 defaultBranch refs/heads/modernize queueStatus enabled
+2026-11-11T18:51:09Z probe: src (4) and dst (5) created by the pipelines API while the repo default branch (modernize) lacks their YAML (as cd was)
+def 4 trigger-probe-src path \ rev 2 defaultBranch refs/heads/modernize queueStatus enabled
+2026-11-11T18:51:09Z test A: dst default branch -> demo/trigger-probe by a REST PUT (the YAML is already there; no push afterwards)
+def 5 trigger-probe-dst path \probe rev 2 defaultBranch refs/heads/demo/trigger-probe queueStatus enabled
+def 4 trigger-probe-src path \ rev 3 defaultBranch refs/heads/demo/trigger-probe queueStatus enabled
+2026-11-11T18:51:17Z test A: src run 25 queued
+run 25 20261111.1 succeeded
+2026-11-11T18:52:22Z test A: dst runs after src 25: [{"id":26,"reason":"resourceTrigger","result":"succeeded"}]
+2026-11-11T18:52:57Z test B (cd's history): dst2 (6) created, default branch -> demo/trigger-probe2 which does not have dst2.yml yet
+def 6 trigger-probe-dst2 rev 2 defaultBranch refs/heads/demo/trigger-probe2 queueStatus enabled
+2026-11-11T18:52:58Z test B: dst2 disabled
+def 6 trigger-probe-dst2 rev 3 defaultBranch refs/heads/demo/trigger-probe2 queueStatus disabled
+2026-11-11T18:52:59Z test B: dst2.yml pushed to its default branch while dst2 is disabled
+2026-11-11T18:53:09Z test B: dst2 enabled by a REST PUT
+def 6 trigger-probe-dst2 rev 4 defaultBranch refs/heads/demo/trigger-probe2 queueStatus enabled
+2026-11-11T18:53:20Z test B: src run 27 on demo/trigger-probe2
+run 27 20261111.2 succeeded
+2026-11-11T18:54:30Z test B: dst2 runs after src 27: []
+2026-11-11T18:54:42Z test C1 (the coordinator's re-save): REST PUT of dst2 unchanged
+def 6 trigger-probe-dst2 rev 5 defaultBranch refs/heads/demo/trigger-probe2 queueStatus enabled
+2026-11-11T18:54:44Z test C1: src run 28
+run 28 20261111.3 succeeded
+2026-11-11T18:55:55Z test C1: dst2 runs so far: []
+2026-11-11T18:55:55Z test C2 (the fix applied to cd at 18:47/18:50): default branch -> demo/trigger-probe, then back to demo/trigger-probe2
+def 6 trigger-probe-dst2 rev 6 defaultBranch refs/heads/demo/trigger-probe queueStatus enabled
+def 6 trigger-probe-dst2 rev 7 defaultBranch refs/heads/demo/trigger-probe2 queueStatus enabled
+2026-11-11T18:55:57Z test C2: src run 29
+run 29 20261111.4 succeeded
+2026-11-11T18:57:07Z test C2: dst2 runs so far: [{"id":30,"reason":"resourceTrigger","result":"succeeded"}]
+2026-11-11T18:57:22Z cleanup: probe definitions 4, 5, 6 deleted (with their runs 25-30), branches demo/trigger-probe and demo/trigger-probe2 deleted
+# Result: the YAML pipeline-resource trigger is registered when the definition's default branch is set (test A, C2) - not when
+# the YAML reaches the default branch while the definition is disabled (B), and not by a REST PUT that changes nothing (C1).
+# Fix applied to definition 3 (project level, no UI): default branch -> ws/pipelines (rev 7, 18:47Z) -> modernize (rev 8,
+# 18:50Z), the C2 sequence. Not yet seen on a real ci run: CI 24 (18:47Z, manual on modernize) failed at its own gate because
+# the shared host service td-sb-emulator had exited (137) ~18:08Z; it was not restarted by this agent.

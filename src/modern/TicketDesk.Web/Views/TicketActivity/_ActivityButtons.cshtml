@@ -1,0 +1,8 @@
+@* Port of the legacy Views/TicketActivity/_ActivityButtons.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd). *@
+@model TicketDesk.Data.Entities.TicketActivity
+@using TicketDesk.Tickets.Activities
+@using TicketDesk.Web.Views
+    @foreach (var activity in TicketActivityRules.Flags(Model))
+    {
+        <button type="button" data-ticket-activity="@activity" class="btn btn-default btn-sm" onclick="window.editTicket.loadActivity('@activity');">@ActivityText.Name(activity)</button>
+    }

@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-08T16:17:56Z] provision run 20261108T161736Z on tdlab-legacy, steps: drill-loss\n[2026-11-08T16:17:56Z] ==== step drill-loss\n[2026-11-08T16:17:59Z] drill: TicketDesk database dropped, local backup folders deleted\n[2026-11-08T16:17:59Z] step drill-loss done in 3.2s\n[2026-11-08T16:17:59Z] TDTIMINGS {\"drill-loss\":3.2} total 3.4s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T161736Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

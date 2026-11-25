@@ -1,0 +1,11 @@
+# 2026-11-14T01:13:44Z helm template of the chart's web Deployment: the restored database's connection string (dummy password)
+## --set database.connectionString=... (the AKS session's path)
+            - name: ConnectionStrings__TicketDesk
+              value: "Server=172.18.0.1"
+--
+            - name: ConnectionStrings__TicketDesk
+## -f values file (the fixed path, drills.sh db_values)
+            - name: ConnectionStrings__TicketDesk
+              value: "Server=172.18.0.1,14336;Database=TicketDesk_load_rd1_pitr;User ID=td_load_app;Password=dummy-not-a-secret;TrustServerCertificate=True;Encrypt=True;Connect Timeout=15"
+--
+            - name: ConnectionStrings__TicketDesk

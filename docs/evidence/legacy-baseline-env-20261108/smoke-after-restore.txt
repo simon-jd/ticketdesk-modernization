@@ -1,0 +1,22 @@
+legacy_smoke smoke against https://localhost:8443 at 2026-11-08T01:03:29Z
+  GET  / -> 200 4284ms
+[PASS] home page over HTTPS (HTTP 200, title='TicketDesk')
+  GET  /user/sign-in -> 200 408ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 426ms -> /
+  GET  / -> 200 158ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+  GET  /ticket/new -> 200 551ms
+[PASS] new ticket form (HTTP 200)
+  POST /ticket/new -> 302 259ms -> /ticket/39
+  GET  /ticket/39 -> 200 493ms
+[PASS] create ticket (HTTP 200, landed on /ticket/39)
+  GET  /ticket/39 -> 200 40ms
+[PASS] view ticket (ticket #39)
+  GET  /ticket-activity/load-activity?activity=AddComment&ticketId=39 -> 200 89ms
+[PASS] comment form (HTTP 200)
+  POST /ticket-activity/add-comment -> 200 90ms
+[PASS] add comment (HTTP 200, 0 bytes)
+  GET  /ticket/ticket-events?ticketId=39 -> 200 89ms
+[PASS] comment visible in ticket events (HTTP 200)
+{"command": "smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 11, "seconds": 6.9}

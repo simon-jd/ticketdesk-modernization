@@ -1,0 +1,1937 @@
+{
+  "set": "search",
+  "database": "TicketDeskLSearch",
+  "started": "2026-11-10T18:49:50.3208072\u002B00:00",
+  "finished": "2026-11-10T18:49:55.3507116\u002B00:00",
+  "environment": "date: 2026-11-10T18:49:50Z\nhost: lab-host, 32 cores, load average 3.37 2.45 2.13\nsql: 16.0.4262.2 Developer Edition (64-bit), MAXDOP(db)=8\ndatabase: TicketDeskLSearch; git: 06d7bc6 (uncommitted changes)",
+  "options": {
+    "warmRuns": 20,
+    "coldRuns": 5,
+    "coldMeans": "CHECKPOINT \u002B DBCC DROPCLEANBUFFERS before every run (buffer pool empty; plan cache kept)",
+    "warmMeans": "one discarded warm-up run, then the measured runs back to back",
+    "percentile": "median and nearest-rank p95 over the measured runs (p95 = maximum when n \u003C 20)"
+  },
+  "scenarios": [
+    {
+      "name": "search-internal-user",
+      "description": "GET /search?term=printer as an internal user (S12 filter; owner with the most tickets)",
+      "commands": 1,
+      "plans": [
+        "plans/search.search-internal-user.cmd1.stmt1.sqlplan"
+      ],
+      "modes": [
+        {
+          "mode": "cold",
+          "summary": {
+            "n": 5,
+            "clientMedianMs": 302.052,
+            "clientP95Ms": 314.06,
+            "serverElapsedMedianMs": 300,
+            "serverElapsedP95Ms": 313,
+            "cpuMedianMs": 1074,
+            "cpuP95Ms": 1228,
+            "logicalReadsMedian": 1033583,
+            "physicalReadsMedian": 3096,
+            "readAheadMedian": 111247,
+            "compileCpuMedianMs": 0
+          },
+          "runs": [
+            {
+              "run": 1,
+              "clientMs": 301.948,
+              "serverElapsedMs": 298,
+              "serverCpuMs": 1122,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 3095,
+              "readAheadReads": 111218,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 1122,
+                  "execElapsedMs": 298,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 1,
+                      "readAheadReads": 108572,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 1,
+                      "readAheadReads": 2646,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 3093,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3095,
+                  "readAheadReads": 111218
+                }
+              ]
+            },
+            {
+              "run": 2,
+              "clientMs": 308.704,
+              "serverElapsedMs": 307,
+              "serverCpuMs": 1228,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 3096,
+              "readAheadReads": 111249,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 1228,
+                  "execElapsedMs": 307,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 1,
+                      "readAheadReads": 108603,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 1,
+                      "readAheadReads": 2646,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 3094,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3096,
+                  "readAheadReads": 111249
+                }
+              ]
+            },
+            {
+              "run": 3,
+              "clientMs": 302.052,
+              "serverElapsedMs": 300,
+              "serverCpuMs": 1048,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 3096,
+              "readAheadReads": 111247,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 1048,
+                  "execElapsedMs": 300,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 1,
+                      "readAheadReads": 108601,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 1,
+                      "readAheadReads": 2646,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 3094,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3096,
+                  "readAheadReads": 111247
+                }
+              ]
+            },
+            {
+              "run": 4,
+              "clientMs": 314.06,
+              "serverElapsedMs": 313,
+              "serverCpuMs": 1074,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 3096,
+              "readAheadReads": 111248,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 1074,
+                  "execElapsedMs": 313,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 1,
+                      "readAheadReads": 108602,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 1,
+                      "readAheadReads": 2646,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 3094,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3096,
+                  "readAheadReads": 111248
+                }
+              ]
+            },
+            {
+              "run": 5,
+              "clientMs": 295.297,
+              "serverElapsedMs": 294,
+              "serverCpuMs": 1052,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 3096,
+              "readAheadReads": 111247,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 1052,
+                  "execElapsedMs": 294,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 1,
+                      "readAheadReads": 108601,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 1,
+                      "readAheadReads": 2646,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 3094,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3096,
+                  "readAheadReads": 111247
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mode": "warm",
+          "summary": {
+            "n": 20,
+            "clientMedianMs": 137.51,
+            "clientP95Ms": 150.434,
+            "serverElapsedMedianMs": 136,
+            "serverElapsedP95Ms": 149,
+            "cpuMedianMs": 888.5,
+            "cpuP95Ms": 977,
+            "logicalReadsMedian": 1033583,
+            "physicalReadsMedian": 0,
+            "readAheadMedian": 0,
+            "compileCpuMedianMs": 0
+          },
+          "runs": [
+            {
+              "run": 1,
+              "clientMs": 127.391,
+              "serverElapsedMs": 126,
+              "serverCpuMs": 827,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 827,
+                  "execElapsedMs": 126,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 2,
+              "clientMs": 127.589,
+              "serverElapsedMs": 126,
+              "serverCpuMs": 817,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 817,
+                  "execElapsedMs": 126,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 3,
+              "clientMs": 141.485,
+              "serverElapsedMs": 140,
+              "serverCpuMs": 900,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 900,
+                  "execElapsedMs": 140,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 4,
+              "clientMs": 150.434,
+              "serverElapsedMs": 149,
+              "serverCpuMs": 985,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 985,
+                  "execElapsedMs": 149,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 5,
+              "clientMs": 133.216,
+              "serverElapsedMs": 132,
+              "serverCpuMs": 866,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 866,
+                  "execElapsedMs": 132,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 6,
+              "clientMs": 129.683,
+              "serverElapsedMs": 129,
+              "serverCpuMs": 827,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 827,
+                  "execElapsedMs": 129,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 7,
+              "clientMs": 148.307,
+              "serverElapsedMs": 147,
+              "serverCpuMs": 929,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 929,
+                  "execElapsedMs": 147,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 8,
+              "clientMs": 156.59,
+              "serverElapsedMs": 155,
+              "serverCpuMs": 977,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 977,
+                  "execElapsedMs": 155,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 9,
+              "clientMs": 126.375,
+              "serverElapsedMs": 125,
+              "serverCpuMs": 802,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 802,
+                  "execElapsedMs": 125,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 10,
+              "clientMs": 129.067,
+              "serverElapsedMs": 128,
+              "serverCpuMs": 827,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 827,
+                  "execElapsedMs": 128,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 11,
+              "clientMs": 149.003,
+              "serverElapsedMs": 148,
+              "serverCpuMs": 918,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 918,
+                  "execElapsedMs": 148,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 12,
+              "clientMs": 142.359,
+              "serverElapsedMs": 141,
+              "serverCpuMs": 903,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 903,
+                  "execElapsedMs": 141,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 13,
+              "clientMs": 147.678,
+              "serverElapsedMs": 146,
+              "serverCpuMs": 939,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 939,
+                  "execElapsedMs": 146,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 14,
+              "clientMs": 141.647,
+              "serverElapsedMs": 140,
+              "serverCpuMs": 900,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 900,
+                  "execElapsedMs": 140,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 15,
+              "clientMs": 141.011,
+              "serverElapsedMs": 140,
+              "serverCpuMs": 901,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 901,
+                  "execElapsedMs": 140,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 16,
+              "clientMs": 138.578,
+              "serverElapsedMs": 137,
+              "serverCpuMs": 881,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 881,
+                  "execElapsedMs": 137,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 17,
+              "clientMs": 128.981,
+              "serverElapsedMs": 128,
+              "serverCpuMs": 823,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 823,
+                  "execElapsedMs": 128,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 18,
+              "clientMs": 127.187,
+              "serverElapsedMs": 126,
+              "serverCpuMs": 823,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 823,
+                  "execElapsedMs": 126,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 19,
+              "clientMs": 128.908,
+              "serverElapsedMs": 128,
+              "serverCpuMs": 813,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 813,
+                  "execElapsedMs": 128,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 20,
+              "clientMs": 136.441,
+              "serverElapsedMs": 135,
+              "serverCpuMs": 896,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 1033583,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 20,
+              "commands": [
+                {
+                  "execCpuMs": 896,
+                  "execElapsedMs": 135,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 9,
+                      "logicalReads": 107970,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketEvents",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketTags",
+                      "scanCount": 9,
+                      "logicalReads": 2585,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "TicketSubscribers",
+                      "scanCount": 0,
+                      "logicalReads": 923028,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Worktable",
+                      "scanCount": 0,
+                      "logicalReads": 0,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 1033583,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

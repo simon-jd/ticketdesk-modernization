@@ -1,0 +1,30 @@
+## 2026-11-14T01:15:53Z before
+ 17:15:53 up 5 days, 17:53, 12 users,  load average: 9.22, 11.36, 10.45
+               total        used        free      shared  buff/cache   available
+Mem:             123          42          19           0          63          80
+# per-CPU busy % over 3 s (0-31)
+0:8 1:1 2:2 3:0 4:4 5:0 6:3 7:0 8:4 9:0 10:4 11:0 12:5 13:1 14:2 15:0 16:90 17:67 18:4 19:51 20:30 21:73 22:6 23:100 24:77 25:12 26:39 27:85 28:37 29:27 30:68 31:67
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 101  20 1282920 cc1plus
+ 100  23 1282702 cc1plus
+ 100  24 1282813 cc1plus
+ 100  27 1282817 cc1plus
+ 100  19 1282908 cc1plus
+99.2  28 1282904 cc1plus
+96.8  17 1282777 cc1plus
+## 2026-11-14T01:18:33Z after
+ 17:18:33 up 5 days, 17:56, 12 users,  load average: 5.02, 9.40, 9.91
+               total        used        free      shared  buff/cache   available
+Mem:             123          38          23           0          63          85
+# per-CPU busy % over 3 s (0-31)
+0:2 1:1 2:2 3:1 4:7 5:2 6:6 7:0 8:10 9:1 10:12 11:1 12:7 13:0 14:3 15:1 16:5 17:6 18:5 19:5 20:8 21:6 22:9 23:7 24:4 25:2 26:5 27:5 28:15 29:14 30:13 31:13
+# top processes by CPU
+%CPU PSR     PID COMMAND
+48.4  26 1049942 sqlservr
+28.9  21 1253588 td-legacy-vm
+12.9  20 2646229 auto-app
+11.1  10    8349 grok-bot
+ 9.3   2 1293605 sshd-session
+ 2.8   0 4019112 sqlservr
+ 2.8   1 4021009 kube-apiserver

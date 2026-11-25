@@ -1,0 +1,5 @@
+# 2026-11-11T08:51:05Z complete PR 3 after the fix (build 10 failed on a CI script bug in images.sh, fixed by bb09bcc; build 11 approved)
+PR 3 -> active merge=queued
+PR 3 completed merge=succeeded demo/gate-vulnerable-package -> modernize source=bb09bcc6 merged=bb09bcc6 closed=2026-11-11T08:51:06.8378615Z "Gate demo 2: vulnerable package"
+  policy Build blocking=true status=approved build=11 buildOutputPreview=
+refs/heads/modernize bb09bcc60637964a714c9326fda92e3686e5dd55

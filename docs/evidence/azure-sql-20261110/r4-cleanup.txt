@@ -1,0 +1,9 @@
+# 2026-11-10T17:35:36Z R4: VM AllocationFailed (capacity), stage-none destroy blocked (NicInUse by the failed VM) -> make azure-down
+{"power":null,"state":"Failed"}
+deleting rg-ticketdesk-lab 2026-11-10T17:35:37Z
+terraform state refreshed (deleted resources dropped)
+elapsed_s=289
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+stage foundation down end 2026-11-10T17:40:46Z elapsed_s=20 rc=0
+No changes. Your infrastructure matches the configuration.
+RG exists: false; tagged: 0; soft-deleted vaults: 0; Entra app: ticketdesk-lab-web

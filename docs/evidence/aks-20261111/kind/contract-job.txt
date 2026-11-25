@@ -1,0 +1,13 @@
+# 2026-11-11T05:06:48Z ops/k8s/kind.sh deploy aks-dev --set 'migrate.args={migrate,--contract,--legacy-retired}' (the v2 rollout's contract step as the pre-upgrade job, on the kind copy TicketDeskAks)
+Release "td" has been upgraded. Happy Helming!
+STATUS: deployed
+REVISION: 2
+DESCRIPTION: Upgrade complete
+2026-11-11T05:06:52Z helm upgrade --install done in 4 s
+td-db-migrate-8slbx          0/1     Completed   0          4s      10.244.0.11   td-aks-control-plane   <none>           <none>
+td-web-b94b4cd77-d4k94       1/1     Running     0          105s    10.244.0.10   td-aks-control-plane   <none>           <none>
+td-worker-75d97f668d-9rbgm   1/1     Running     0          9m50s   10.244.0.6    td-aks-control-plane   <none>           <none>
+applied contract/C0001__assigned_date_contract.sql in 0.06 s
+1 script(s) applied
+## app smoke after the contract
+{"command": "app-smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 10, "seconds": 1.1}

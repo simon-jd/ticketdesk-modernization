@@ -1,0 +1,24 @@
+# 2026-11-10T19:07:32Z git a9b2d61 (modernize 967b8ca merged, V0012, search legacy rule by default): dotnet test --solution src/modern/TicketDesk.Modern.sln -c Release (td-sql full-text image, TD_MODERN_SEEDED_DB=TicketDesk, Azurite, Service Bus emulator)
+# earlier run after the merge: 719/720, MigrationTests.Only_the_tag_count_asks_for_the_parallel_plan (azure-sql's Query Store test) failed once (Expected 2, Actual 1), then passed 5/5 alone, 3/3 with its project and in every later full run
+~/Desktop/ticketdesk-modernization/wt-search-worker/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (923ms)
+~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (1s 049ms)
+~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (4s 042ms)
+~/Desktop/ticketdesk-modernization/wt-search-worker/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (4s 104ms)
+~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (4s 782ms)
+~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (18s 329ms)
+~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64) passed (22s 389ms)
+~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (22s 995ms)
+Test run summary: Passed!
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (4s 042ms)
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (22s 995ms)
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (4s 782ms)
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (18s 329ms)
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (923ms)
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (1s 049ms)
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64) passed (22s 389ms)
+  ~/Desktop/ticketdesk-modernization/wt-search-worker/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (4s 104ms)
+  total: 722
+  failed: 0
+  succeeded: 722
+  skipped: 0
+  duration: 23s 139ms

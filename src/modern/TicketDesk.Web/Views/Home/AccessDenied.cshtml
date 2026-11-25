@@ -1,0 +1,26 @@
+@* Port of the legacy Views/Home/AccessDenied.cshtml (TicketDesk 2.5, Ms-PL). *@
+@using TicketDesk.Localization.Views.Home
+@section scripts{}
+@section title{ TicketDesk }
+@section customHeader{}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-sm-12">@AccessDenied.Legend</legend>
+            <div class="col-lg-7 col-lg-offset-2 col-md-8 col-md-offset-1 col-sm-12">
+
+                <div class="panel panel-danger">
+                    <div class="panel-body">
+                        @Html.Raw(User.Identity?.IsAuthenticated == true && User.IsInRole("TdPendingUsers") ?
+                            AccessDenied.PendingUser :
+                            AccessDenied.PermissionDenied)
+                    </div><div class="panel-footer">
+
+                        <a class="btn btn-default" href="/">@AccessDenied.HomeLink</a>
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+    </div>
+</main>

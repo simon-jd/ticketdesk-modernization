@@ -1,0 +1,7 @@
+# 2026-11-11T16:14:50Z v2 render: aks.sh ak_template (helm template ticketdesk ops/k8s/ticketdesk -n ticketdesk -f values-v2.yaml, the arguments of
+# ak_deploy v2) vs cd-aks.sh --template-out (its upgrade arguments: --set image.registry/--set image.tag + -f the same host values file)
+session render: 370 lines, sha256 3d07079128e7043f
+CD render:      370 lines, sha256 3d07079128e7043f
+identical
+kinds: 8 objects (Deploymentx2 Jobx1 SecretProviderClassx1 Servicex1 ServiceAccountx3 )
+contract job args: - --contract ; Legacy__/SharedCookie settings: 0

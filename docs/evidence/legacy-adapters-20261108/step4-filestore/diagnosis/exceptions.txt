@@ -1,0 +1,40 @@
+# customErrors temporarily Off on the VM (diagnosis only, reverted by the snapshot reset); td-replay --journeys ticket-create-view[,attachments]
+
+## 1) AzureStorage -> Azurite (10.0.2.2), deployed config unchanged
+ticket-create-view   sign-in page                             GET   200
+ticket-create-view   sign-in submit                           POST  302
+ticket-create-view   sign-in submit                           GET   200
+ticket-create-view   new ticket page                          GET   200
+ticket-create-view   create ticket                            POST  500
+     Exception Details: System.Net.WebException: The remote server returned an error: (403) Forbidden. Source Error: [No relevant source lines] Source File: C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.IO\FileStorage\TicketDeskFileStorage.cs    Line: 0 Stack Trace: [WebException: The remote server returned an error: (403) Forbidden.] System.Net.HttpWebRequest.GetResponse() +1694 Microsoft.WindowsAzure.Storage.Core.Executor.E
+     Stack Trace: [WebException: The remote server returned an error: (403) Forbidden.] System.Net.HttpWebRequest.GetResponse() +1694 Microsoft.WindowsAzure.Storage.Core.Executor.Executor.ExecuteSync(RESTCommand`1 cmd, IRetryPolicy policy, OperationContext operationContext) in c:\Program Files (x86)\Jenkins\workspace\release_dotnet_master\Lib\ClassLibraryCommon\Core\Executor\Executor.cs:677 [StorageException: The remote server returned an error: (403) Forbidden.] Microsoft.WindowsAzure.Storage.Core.Executor.Executor.ExecuteSync(RESTCommand`1 cmd, IRetryPolicy policy, OperationContext operationContext) in c:\Program Files (x86)\Jenkins\workspace\release_dotnet_master\Lib\ClassLibraryCommon\Core\Ex
+
+## 2) same + 10.0.2.2 added to ApplicationInsights ExcludeComponentCorrelationHttpHeadersOnDomains
+ticket-create-view   sign-in page                             GET   200
+ticket-create-view   sign-in submit                           POST  302
+ticket-create-view   sign-in submit                           GET   200
+ticket-create-view   new ticket page                          GET   200
+ticket-create-view   create ticket                            POST  302
+ticket-create-view   create ticket                            GET   200
+ticket-create-view   view ticket                              GET   200
+ticket-create-view   ticket details panel                     GET   200
+ticket-create-view   ticket events panel                      GET   200
+ticket-create-view   ticket files panel                       GET   200
+ticket-create-view   activity buttons                         GET   200
+ticket-create-view   unsubscribe                              POST  200
+ticket-create-view   subscribe again                          POST  200
+ticket-create-view   unknown ticket redirects to list         GET   302
+ticket-create-view   unknown ticket redirects to list         GET   200
+attachments          sign-in page                             GET   200
+attachments          sign-in submit                           POST  302
+attachments          sign-in submit                           GET   200
+attachments          new ticket page                          GET   200
+attachments          upload pending file                      POST  200
+attachments          upload a second pending file             POST  200
+attachments          delete the second pending file           POST  200
+attachments          pending attachments info                 GET   500
+     Exception Details: System.ArgumentException: A route named 'GetPendingFile' could not be found in the route collection. Parameter name: name Source Error: Line 71: var attached = id.HasValue ? TicketDeskFileStore.ListAttachmentInfo(id.Value.ToString(CultureInfo.InvariantCulture), false) : new TicketDeskFileInfo[0]; Line 72: Line 73: var files = pending.Select(f => tempId != null ? new Line 74: { Line 75: f.Name, Sour
+     Stack Trace: [ArgumentException: A route named 'GetPendingFile' could not be found in the route collection. Parameter name: name] System.Web.Routing.RouteCollection.GetVirtualPath(RequestContext requestContext, String name, RouteValueDictionary values) +458 System.Web.Mvc.RouteCollectionExtensions.GetVirtualPathForArea(RouteCollection routes, RequestContext requestContext, String name, RouteValueDictionary values, Boolean& usingAreas) +76 System.Web.Mvc.UrlHelper.GenerateUrl(String routeName, String actionName, String controllerName, RouteValueDictionary routeValues, RouteCollection routeCollection, RequestContext requestContext, Boolean includeImplicitMvcValues) +148 System.Web.Mvc.UrlHelpe
+attachments          create ticket with attachment            POST  500
+     Exception Details: System.MissingMethodException: Method not found: 'System.String Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.StartCopyFromBlob(Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob, Microsoft.WindowsAzure.Storage.AccessCondition, Microsoft.WindowsAzure.Storage.AccessCondition, Microsoft.WindowsAzure.Storage.Blob.BlobRequestOptions, Microsoft.WindowsAzure.Storage.OperationContext)'. Source Error:
+     Stack Trace: [MissingMethodException: Method not found: 'System.String Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.StartCopyFromBlob(Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob, Microsoft.WindowsAzure.Storage.AccessCondition, Microsoft.WindowsAzure.Storage.AccessCondition, Microsoft.WindowsAzure.Storage.Blob.BlobRequestOptions, Microsoft.WindowsAzure.Storage.OperationContext)'.] AzureBlobFileSystem.AzureBlobStorageProvider.RenameFile(String path, String newPath) +0 TicketDesk.IO.TicketDeskFileStore.MoveFile(String fileName, String oldContainerId, String newContainerId, Boolean wasPending, Boolean isPending) in C:\TdSrc\ticketdesk\TicketDesk\TicketDesk.IO\FileStorage\TicketDeskF

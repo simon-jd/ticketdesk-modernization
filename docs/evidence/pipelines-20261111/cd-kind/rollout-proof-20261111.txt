@@ -1,0 +1,49 @@
+# Proof of the kind rollout fix (preStop sleep 10 s + terminationGracePeriodSeconds 30 on td-web, smoke with 5 s request limit
+# and up to 60 s of retries per check), run from the host on td-cd: cd-kind.sh deploy ci-22 twice in a row, smoke right after
+# each (every deploy rolls the pods through the deployed-at annotation). git 73ed96c + working tree
+## round 1: deploy 2026-11-11T18:48:15Z
+namespace/ticketdesk configured
+deployment.apps/td-web configured
+service/td-web unchanged
+deployment.apps/td-worker configured
+Waiting for deployment "td-web" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "td-web" rollout to finish: 1 old replicas are pending termination...
+deployment "td-web" successfully rolled out
+deployment "td-worker" successfully rolled out
+td-web-5864f8cfcf-ln8bw      1/1   Running       0     4s     10.244.0.9    td-cd-control-plane   <none>   <none>
+td-web-7776c677b6-hlr7b      1/1   Terminating   0     5m3s   10.244.0.7    td-cd-control-plane   <none>   <none>
+td-worker-6747b85f8b-zjwsv   1/1   Running       0     3s     10.244.0.10   td-cd-control-plane   <none>   <none>
+deploy exit 0 after 10 s
+# 2026-11-11T18:48:25Z kind cluster td-cd, http://127.0.0.1:18480
+td-web      1     ticketdesk-web:ci-22
+td-worker   1     ticketdesk-worker:ci-22
+GET /health/ready -> 200 0.058781s  (expected 200, attempt 2)
+GET /user/sign-in -> 200 0.065582s  (expected 200, attempt 1)
+GET /tickets -> 302 0.004447s http://127.0.0.1:18480/user/sign-in?ReturnUrl=%2Ftickets (expected 302, attempt 1)
+backend header on /user/sign-in: X-TicketDesk-Backend: modern; route=user.sign-in.get
+worker: Running restarts=0
+smoke: passed
+smoke exit 0 after 10 s
+## round 2: deploy 2026-11-11T18:48:35Z
+namespace/ticketdesk configured
+deployment.apps/td-web configured
+service/td-web unchanged
+deployment.apps/td-worker configured
+Waiting for deployment "td-web" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "td-web" rollout to finish: 1 old replicas are pending termination...
+deployment "td-web" successfully rolled out
+deployment "td-worker" successfully rolled out
+td-web-5864f8cfcf-ln8bw      1/1   Terminating   0     22s   10.244.0.9    td-cd-control-plane   <none>   <none>
+td-web-6b4f4f74-hjzvj        1/1   Running       0     3s    10.244.0.11   td-cd-control-plane   <none>   <none>
+td-worker-75d795f97f-4q5qh   1/1   Running       0     3s    10.244.0.12   td-cd-control-plane   <none>   <none>
+deploy exit 0 after 8 s
+# 2026-11-11T18:48:43Z kind cluster td-cd, http://127.0.0.1:18480
+td-web      1     ticketdesk-web:ci-22
+td-worker   1     ticketdesk-worker:ci-22
+GET /health/ready -> 200 0.002317s  (expected 200, attempt 1)
+GET /user/sign-in -> 200 0.009444s  (expected 200, attempt 1)
+GET /tickets -> 302 0.007970s http://127.0.0.1:18480/user/sign-in?ReturnUrl=%2Ftickets (expected 302, attempt 1)
+backend header on /user/sign-in: X-TicketDesk-Backend: modern; route=user.sign-in.get
+worker: Running restarts=0
+smoke: passed
+smoke exit 0 after 0 s

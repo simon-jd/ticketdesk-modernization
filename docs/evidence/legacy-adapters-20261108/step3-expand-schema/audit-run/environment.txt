@@ -1,0 +1,3 @@
+# date: 2026-11-08T20:51:37Z  git: 949e3a3  golden: 8db24b364a233de0
+# package: ~/Desktop/ticketdesk-modernization/vm/artifacts/legacy-adapters/td-legacy-publish-35d7b5e.zip sha256 488696957d298c069f5683e94d6abb4333b11d695f6eef21bc3bbe20ef215369  migrate: 1  prepare: SQLCMDPASSWORD=$(sed -n 's/^TD_SQL_SA_PASSWORD=//p' ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab.env) ~/Desktop/ticketdesk-modernization/.tools/bin/sqlcmd -S 127.0.0.1,11433 -U sa -C -d TicketDesk -W -s '|' -v Action=install -i ops/dev/assigned-date-audit.sql
+# host load: 4.24 4.33 4.57

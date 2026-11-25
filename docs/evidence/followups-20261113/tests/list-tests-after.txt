@@ -1,0 +1,799 @@
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64)
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64)
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64)
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64)
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64)
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64)
+Discovering tests from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64)
+
+Discovered 32 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64)
+  TicketDesk.Data.Tests.AzureSqlAuthenticationTests.Entra_authentication_providers_are_available(method: ActiveDirectoryWorkloadIdentity)
+  TicketDesk.Data.Tests.AzureSqlAuthenticationTests.Entra_authentication_providers_are_available(method: ActiveDirectoryManagedIdentity)
+  TicketDesk.Data.Tests.AzureSqlAuthenticationTests.Entra_authentication_providers_are_available(method: ActiveDirectoryDefault)
+  TicketDesk.Data.Tests.AzureSqlAuthenticationTests.The_AKS_connection_string_carries_no_secret
+  TicketDesk.Data.Tests.EfBehaviourTests.Lazy_loading_is_off_navigations_stay_empty_without_Include
+  TicketDesk.Data.Tests.EfBehaviourTests.Untranslatable_predicate_throws_instead_of_client_evaluating
+  TicketDesk.Data.Tests.EfBehaviourTests.String_equality_follows_the_database_collation
+  TicketDesk.Data.Tests.EfBehaviourTests.Null_comparison_uses_csharp_semantics_where_entity_sql_used_sql_semantics
+  TicketDesk.Data.Tests.EfBehaviourTests.Several_collection_includes_must_choose_split_or_single_query
+  TicketDesk.Data.Tests.EfBehaviourTests.Rowversion_conflict_throws_DbUpdateConcurrencyException
+  TicketDesk.Data.Tests.EfBehaviourTests.Database_generated_dates_are_never_written_and_EventId_comes_from_identity
+  TicketDesk.Data.Tests.EfBehaviourTests.DateTimeOffset_keeps_its_offset_and_compares_by_instant
+  TicketDesk.Data.Tests.EfBehaviourTests.LockoutEndDateUtc_reads_as_utc_and_DateTime_MaxValue_is_clamped
+  TicketDesk.Data.Tests.EfBehaviourTests.Database_cascades_ticket_deletes_and_restricts_project_deletes
+  TicketDesk.Data.Tests.EfBehaviourTests.Nothing_writes_migration_history
+  TicketDesk.Data.Tests.ModelTests.Ef6_computed_dates_are_never_written_and_read_back(entity: typeof(TicketDesk.Data.Entities.Ticket), property: "CreatedDate")
+  TicketDesk.Data.Tests.ModelTests.Ef6_computed_dates_are_never_written_and_read_back(entity: typeof(TicketDesk.Data.Entities.TicketEvent), property: "EventDate")
+  TicketDesk.Data.Tests.ModelTests.Version_columns_are_rowversion_concurrency_tokens(entity: typeof(TicketDesk.Data.Entities.Project))
+  TicketDesk.Data.Tests.ModelTests.Version_columns_are_rowversion_concurrency_tokens(entity: typeof(TicketDesk.Data.Entities.Ticket))
+  TicketDesk.Data.Tests.ModelTests.Version_columns_are_rowversion_concurrency_tokens(entity: typeof(TicketDesk.Data.Entities.TicketEvent))
+  TicketDesk.Data.Tests.ModelTests.Version_columns_are_rowversion_concurrency_tokens(entity: typeof(TicketDesk.Data.Entities.TicketEventNotification))
+  TicketDesk.Data.Tests.ModelTests.Concurrency_tokens_exist_only_where_the_legacy_schema_has_rowversion
+  TicketDesk.Data.Tests.ModelTests.Delete_behaviours_follow_the_database_not_ef_conventions
+  TicketDesk.Data.Tests.ModelTests.Columns_with_legacy_defaults_that_ef6_always_wrote_have_no_ef_default
+  TicketDesk.Data.Tests.ModelTests.EventId_is_an_identity_column_inside_the_composite_key
+  TicketDesk.Data.Tests.ModelTests.No_migrations_and_no_migration_history_tables_in_the_model
+  TicketDesk.Data.Tests.SchemaMappingTests.Model_matches_scratch_database_schema
+  TicketDesk.Data.Tests.SchemaMappingTests.Model_matches_seeded_database_schema
+  TicketDesk.Data.Tests.SeededReadTests.Row_counts_through_EF_match_SQL_for_every_mapped_table
+  TicketDesk.Data.Tests.SeededReadTests.Every_row_materializes_with_known_enum_values
+  TicketDesk.Data.Tests.SeededReadTests.The_busiest_ticket_loads_as_a_graph
+  TicketDesk.Data.Tests.SeededReadTests.Users_per_role_through_EF_match_SQL
+
+Discovered 103 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64)
+  TicketDesk.Database.Tests.ContractTests.Contract_drops_the_trigger_and_IX_ProjectId_and_enforces_the_invariant
+  TicketDesk.Database.Tests.ExpandTests.Backfill_matches_the_assignment_event_rule_for_every_ticket
+  TicketDesk.Database.Tests.ExpandTests.Legacy_reassignment_batch_still_gets_its_version_row_and_the_trigger_sets_AssignedDate
+  TicketDesk.Database.Tests.ExpandTests.Unassigning_clears_AssignedDate_and_other_updates_leave_it_alone
+  TicketDesk.Database.Tests.ExpandTests.A_writer_that_sets_AssignedDate_itself_keeps_its_value
+  TicketDesk.Database.Tests.ExpandTests.Set_based_reassignment_sets_each_row_from_its_own_LastUpdateDate
+  TicketDesk.Database.Tests.ExpandTests.Legacy_insert_batch_still_reads_back_its_row_and_an_assigned_new_ticket_gets_CreatedDate
+  TicketDesk.Database.Tests.ExpandTests.Legacy_session_settings_still_write_but_QUOTED_IDENTIFIER_OFF_is_refused_by_the_filtered_indexes
+  TicketDesk.Database.Tests.ExpandTests.EF_Core_without_HasTrigger_cannot_update_tickets_while_the_expand_trigger_exists
+  TicketDesk.Database.Tests.FirstAdministratorTests.Creates_the_first_administrator_of_an_empty_install_once
+  TicketDesk.Database.Tests.FirstAdministratorTests.Refuses_on_a_database_that_has_administrators
+  TicketDesk.Database.Tests.FirstAdministratorTests.Never_resets_an_existing_account_with_that_email
+  TicketDesk.Database.Tests.FirstAdministratorTests.Reads_the_password_from_a_file
+  TicketDesk.Database.Tests.FirstAdministratorTests.Takes_no_password_argument_checks_its_input_and_never_echoes_the_password
+  TicketDesk.Database.Tests.FirstAdministratorTests.Help_prints_the_usage_and_exits_0
+  TicketDesk.Database.Tests.FirstAdministratorTests.Two_runs_at_once_create_one_administrator
+  TicketDesk.Database.Tests.FullTextMigrationTests.V0011_indexes_title_details_tags_and_comments_and_reruns_as_a_no_op
+  TicketDesk.Database.Tests.FullTextMigrationTests.Rows_written_after_the_migration_become_searchable_without_any_hook
+  TicketDesk.Database.Tests.MigrationTests.Scripts_are_ordered_expand_then_programmable_then_contract
+  TicketDesk.Database.Tests.MigrationTests.Migrate_applies_expand_and_programmable_once_and_leaves_contract_pending
+  TicketDesk.Database.Tests.MigrationTests.An_edited_applied_script_is_drift_and_blocks_migrate
+  TicketDesk.Database.Tests.MigrationTests.A_changed_repeatable_script_is_applied_again
+  TicketDesk.Database.Tests.MigrationTests.V0006_includes_AssignedTo_in_the_open_unassigned_index_and_keeps_its_filter
+  TicketDesk.Database.Tests.MigrationTests.Only_the_tag_count_asks_for_the_parallel_plan
+  TicketDesk.Database.Tests.MigrationTests.Cli_refuses_the_contract_stage_without_the_retirement_flag
+  TicketDesk.Database.Tests.ReconcilerTests.Identical_databases_match_even_when_rowversions_differ
+  TicketDesk.Database.Tests.ReconcilerTests.Each_kind_of_difference_is_a_mismatch_on_that_table_only
+  TicketDesk.Database.Tests.ReconcilerTests.Row_hash_encoding_is_length_prefixed_and_marks_NULL
+  TicketDesk.Database.Tests.ReportProcedureTests.Open_ticket_aging_equals_LINQ_including_bucket_edges_with_mixed_offsets
+  TicketDesk.Database.Tests.ReportProcedureTests.Assignee_workload_equals_LINQ
+  TicketDesk.Database.Tests.ReportProcedureTests.Time_to_close_equals_LINQ_and_an_empty_window_has_no_overall_row
+  TicketDesk.Database.Tests.ReportProcedureTests.Report_procedures_validate_their_parameters(sql: "EXEC dbo.usp_Report_AssigneeWorkload @AsOf = '2026"···, error: 50020)
+  TicketDesk.Database.Tests.ReportProcedureTests.Report_procedures_validate_their_parameters(sql: "EXEC dbo.usp_Report_TimeToClose @From = '2026-10-3"···, error: 50030)
+  TicketDesk.Database.Tests.StatisticsParserTests.Nested_execution_times_take_the_outermost_and_io_lines_are_summed
+  TicketDesk.Database.Tests.StatisticsParserTests.Percentiles_are_median_and_nearest_rank
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "pageSize=100")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "page=2&pageSize=7")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "page=999")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "pageSize=1")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=unassigned")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=assignedToMe")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=mytickets")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=opentickets")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=historytickets")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=OpenTickets&page=3")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "status=Active")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "status=Active&status=MoreInfo")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "status=Resolved,Closed")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "status=Active,MoreInfo,Resolved,Closed")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=historytickets&status=Active")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "list=unassigned&status=MoreInfo")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-priority,createdDate&pageSize=50")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=title&page=2")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-dueDate,-targetDate")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=ticketStatus,-LastUpdateDate")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-ticketId")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=owner,assignedTo,createdBy")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=category,ticketType,-resolutionDate,currentSt"···)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=ticketId&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-ticketId&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=projectId&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-projectId&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=title&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-title&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=status&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-status&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=priority&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-priority&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=ticketType&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-ticketType&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=category&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-category&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=owner&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-owner&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=assignedTo&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-assignedTo&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=createdBy&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-createdBy&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=createdDate&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-createdDate&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=lastUpdateDate&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-lastUpdateDate&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=currentStatusDate&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-currentStatusDate&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=dueDate&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-dueDate&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=targetDate&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-targetDate&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=resolutionDate&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_page_equals_the_LINQ_page(query: "sort=-resolutionDate&page=2&pageSize=30")
+  TicketDesk.Database.Tests.TicketListProcedureTests.The_list_reads_the_committed_version_while_a_ticket_write_is_open
+  TicketDesk.Database.Tests.TicketListProcedureTests.Filters_and_per_user_lists_equal_the_LINQ_results
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_refuses_sorts_outside_its_whitelist(sort: "Title; DROP TABLE dbo.Tickets--", error: 50013)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_refuses_sorts_outside_its_whitelist(sort: "(SELECT 1)", error: 50013)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_refuses_sorts_outside_its_whitelist(sort: "Details", error: 50013)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_refuses_sorts_outside_its_whitelist(sort: "title,-Title", error: 50014)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_refuses_sorts_outside_its_whitelist(sort: "a,b,c,d,e,f", error: 50013)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_refuses_sorts_outside_its_whitelist(sort: "title,priority,owner,category,dueDate,createdDate", error: 50014)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_validates_its_other_parameters(sql: "EXEC dbo.usp_TicketList @List = 'favourites'", error: 50012)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_validates_its_other_parameters(sql: "EXEC dbo.usp_TicketList @PageSize = 101", error: 50010)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_validates_its_other_parameters(sql: "EXEC dbo.usp_TicketList @Page = 0", error: 50010)
+  TicketDesk.Database.Tests.TicketListProcedureTests.Procedure_validates_its_other_parameters(sql: "EXEC dbo.usp_TicketList @StatusMask = 16", error: 50011)
+
+Discovered 46 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64)
+  TicketDesk.Identity.Tests.ConfigurationTests.Identity_options_mirror_the_legacy_user_manager
+  TicketDesk.Identity.Tests.ConfigurationTests.Password_rules_match_the_legacy_minimum(password: "abcde", valid: True)
+  TicketDesk.Identity.Tests.ConfigurationTests.Password_rules_match_the_legacy_minimum(password: "abcd", valid: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.InternalUser", roles: ["TdAdministrators"], allowed: True)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.InternalUser", roles: ["TdHelpDeskUsers"], allowed: True)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.InternalUser", roles: ["TdInternalUsers"], allowed: True)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.InternalUser", roles: ["TdPendingUsers"], allowed: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.InternalUser", roles: [], allowed: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.HelpDesk", roles: ["TdAdministrators"], allowed: True)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.HelpDesk", roles: ["TdHelpDeskUsers"], allowed: True)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.HelpDesk", roles: ["TdInternalUsers"], allowed: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.HelpDesk", roles: ["TdPendingUsers"], allowed: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.Administrator", roles: ["TdAdministrators"], allowed: True)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.Administrator", roles: ["TdHelpDeskUsers"], allowed: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.Administrator", roles: ["TdInternalUsers"], allowed: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Policies_map_the_legacy_role_lists(policy: "TicketDesk.Administrator", roles: ["TdPendingUsers"], allowed: False)
+  TicketDesk.Identity.Tests.ConfigurationTests.Anonymous_users_pass_no_policy
+  TicketDesk.Identity.Tests.ConfigurationTests.Entra_ID_seam_is_off_by_default
+  TicketDesk.Identity.Tests.ConfigurationTests.Entra_ID_seam_registers_OpenID_Connect_when_enabled
+  TicketDesk.Identity.Tests.ConfigurationTests.Entra_ID_seam_refuses_to_start_half_configured
+  TicketDesk.Identity.Tests.FirstAdministratorSignInTests.Td_db_hashes_with_the_options_the_host_configures
+  TicketDesk.Identity.Tests.FirstAdministratorSignInTests.The_first_administrator_signs_in_with_the_apps_identity_and_needs_no_rehash
+  TicketDesk.Identity.Tests.KeyVaultKeyRingTests.Off_by_default_keys_are_stored_unwrapped
+  TicketDesk.Identity.Tests.KeyVaultKeyRingTests.A_key_id_that_is_not_a_Key_Vault_key_URI_is_refused(keyId: "not a uri")
+  TicketDesk.Identity.Tests.KeyVaultKeyRingTests.A_key_id_that_is_not_a_Key_Vault_key_URI_is_refused(keyId: "http://kv.vault.azure.net/keys/td-dataprotection")
+  TicketDesk.Identity.Tests.KeyVaultKeyRingTests.A_key_id_that_is_not_a_Key_Vault_key_URI_is_refused(keyId: "https://kv.vault.azure.net/secrets/td-dataprotecti"···)
+  TicketDesk.Identity.Tests.KeyVaultKeyRingTests.A_Key_Vault_key_URI_turns_on_the_Azure_Key_Vault_encryptor
+  TicketDesk.Identity.Tests.KeyVaultKeyRingTests.Keys_are_stored_wrapped_and_another_instance_with_the_key_reads_them
+  TicketDesk.Identity.Tests.PasswordCompatibilityTests.Host_configures_IdentityV3_with_the_framework_iteration_count
+  TicketDesk.Identity.Tests.PasswordCompatibilityTests.Legacy_v2_hash_verifies_and_asks_for_a_rehash
+  TicketDesk.Identity.Tests.PasswordCompatibilityTests.New_hashes_are_v3_with_sha512_and_the_legacy_algorithm_cannot_verify_them
+  TicketDesk.Identity.Tests.PasswordCompatibilityTests.A_v2_compatibility_hasher_still_verifies_v3_hashes
+  TicketDesk.Identity.Tests.RoleHierarchyTests.Direct_roles_get_the_roles_they_imply(direct: "TdAdministrators", expected: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers")
+  TicketDesk.Identity.Tests.RoleHierarchyTests.Direct_roles_get_the_roles_they_imply(direct: "TdHelpDeskUsers", expected: "TdHelpDeskUsers,TdInternalUsers")
+  TicketDesk.Identity.Tests.RoleHierarchyTests.Direct_roles_get_the_roles_they_imply(direct: "TdInternalUsers", expected: "TdInternalUsers")
+  TicketDesk.Identity.Tests.RoleHierarchyTests.Direct_roles_get_the_roles_they_imply(direct: "TdPendingUsers", expected: "TdPendingUsers")
+  TicketDesk.Identity.Tests.RoleHierarchyTests.Is_idempotent_and_leaves_the_original_alone
+  TicketDesk.Identity.Tests.RoleHierarchyTests.Anonymous_principals_are_untouched
+  TicketDesk.Identity.Tests.UserStoreTests.Seeded_v2_hash_signs_in_and_is_rehashed_to_v3
+  TicketDesk.Identity.Tests.UserStoreTests.Lookups_by_name_and_email_ignore_case_without_normalized_columns
+  TicketDesk.Identity.Tests.UserStoreTests.New_and_changed_passwords_are_stored_as_v3_hashes
+  TicketDesk.Identity.Tests.UserStoreTests.Five_failures_lock_the_account_for_five_minutes
+  TicketDesk.Identity.Tests.UserStoreTests.Disabling_with_DateTimeOffset_MaxValue_locks_out_permanently
+  TicketDesk.Identity.Tests.UserStoreTests.Duplicate_email_is_rejected_case_insensitively
+  TicketDesk.Identity.Tests.UserStoreTests.Claims_principal_carries_legacy_roles_and_display_name
+  TicketDesk.Identity.Tests.UserStoreTests.Hashes_in_the_seeded_database_verify
+
+Discovered 275 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64)
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Lists_regular_files_of_the_ticket_folder_only
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "../8/secret.txt")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "..")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "sub/report.pdf")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "..\\report.pdf")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "/etc/passwd")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "link.txt")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "missing.pdf")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "CON")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "con.txt")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "report.pdf.")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: " report.pdf")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "a:b")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "tab\there")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Refuses_names_that_leave_the_folder_or_are_unsafe(name: "")
+  TicketDesk.Modules.Tests.AttachmentStoreTests.Resolves_a_file_inside_the_ticket_folder
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "someone", role: "TdHelpDeskUsers", expected: True)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "someone", role: "TdAdministrators", expected: True)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "owner-id", role: "TdInternalUsers", expected: True)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "OWNER-ID", role: "TdInternalUsers", expected: True)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "assignee-id", role: "TdInternalUsers", expected: True)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "creator-id", role: "TdInternalUsers", expected: True)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "subscriber-id", role: "TdInternalUsers", expected: True)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "someone", role: "TdInternalUsers", expected: False)
+  TicketDesk.Modules.Tests.AttachmentAccessTests.Only_staff_and_people_on_the_ticket_see_its_files(userId: "owner-id", role: "TdPendingUsers", expected: False)
+  TicketDesk.Modules.Tests.AttachmentWriteTests.Pending_uploads_are_listed_deleted_and_committed_with_the_legacy_clash_rule(kind: "local")
+  TicketDesk.Modules.Tests.AttachmentWriteTests.Pending_uploads_are_listed_deleted_and_committed_with_the_legacy_clash_rule(kind: "blob")
+  TicketDesk.Modules.Tests.AttachmentWriteTests.Unsafe_names_are_not_stored(kind: "local")
+  TicketDesk.Modules.Tests.AttachmentWriteTests.Unsafe_names_are_not_stored(kind: "blob")
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Lists_a_tickets_files_in_blob_order_without_folders_or_other_tickets
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Lists_the_pending_uploads_of_one_upload_session
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Opens_only_safe_names_of_the_ticket(name: "b.txt", content: "bee")
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Opens_only_safe_names_of_the_ticket(name: "A notes (1).txt", content: "alpha")
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Opens_only_safe_names_of_the_ticket(name: "../70/other.txt", content: null)
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Opens_only_safe_names_of_the_ticket(name: "sub/deeper.txt", content: null)
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Opens_only_safe_names_of_the_ticket(name: "missing.txt", content: null)
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.Opens_a_pending_upload_by_its_session
+  TicketDesk.Modules.Tests.BlobAttachmentStoreTests.A_missing_container_means_no_files
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x000-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x000-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x001-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x001-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x002-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x002-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x003-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x003-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x004-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x004-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x005-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x005-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x006-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x006-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x007-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x007-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x008-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x008-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x009-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x009-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x010-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x010-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x011-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x011-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x012-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x012-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x013-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x013-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x014-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x014-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x015-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x015-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x016-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x016-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x017-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x017-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x018-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x018-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x019-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x019-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x020-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x020-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x021-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x021-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x022-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x022-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x023-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x023-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x024-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x024-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x025-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x025-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x026-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x026-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x027-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x027-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x028-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x028-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x029-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x029-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x030-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x030-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x031-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x031-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x032-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x032-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x033-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x033-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x034-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x034-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x035-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x035-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x036-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x036-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x037-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x037-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x038-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x038-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x039-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x039-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x040-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x040-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x041-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x041-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x042-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x042-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x043-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x043-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x044-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x044-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x045-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x045-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x046-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x046-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x047-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x047-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x048-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x048-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x049-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x049-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x050-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x050-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x051-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x051-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x052-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x052-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x053-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x053-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x054-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x054-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x055-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x055-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x056-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x056-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x057-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x057-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x058-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x058-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x059-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x059-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x060-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x060-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x061-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x061-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x062-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x062-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x063-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x063-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x064-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x064-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x065-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x065-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x066-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x066-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x067-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "x067-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g001-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g001-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g002-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g002-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g003-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g003-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g004-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g004-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g005-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g005-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g006-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g006-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g007-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g007-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g008-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g008-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g009-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g009-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g010-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g010-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g011-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g011-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g012-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g012-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g013-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g013-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g014-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g014-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g015-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g015-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g016-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g016-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g017-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g017-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g018-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g018-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g019-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g019-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g020-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g020-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g021-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g021-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g022-md")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Renders_like_the_legacy_app_or_the_pinned_R1_output(id: "g022-html")
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Only_the_recorded_cases_differ_from_the_legacy_output_and_only_in_url_and_style_attributes
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.Script_event_handlers_and_script_urls_never_survive
+  TicketDesk.Modules.Tests.LegacyTextRendererTests.The_sanitizer_is_configured_with_the_legacy_allow_lists
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Tickets", allowed: ["TicketDesk.Data", "TicketDesk.Identity", "TicketDesk.Users", "TicketDesk.Attachments", "TicketDesk.Notifications", ···])
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Projects", allowed: ["TicketDesk.Data", "TicketDesk.Identity"])
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Reports", allowed: ["TicketDesk.Data", "TicketDesk.Identity", "TicketDesk.Users"])
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Users", allowed: ["TicketDesk.Data"])
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Attachments", allowed: [])
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Search", allowed: ["TicketDesk.Data", "TicketDesk.Identity"])
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Notifications", allowed: [])
+  TicketDesk.Modules.Tests.ModuleBoundaryTests.Module_references_only_what_it_may(module: "TicketDesk.Settings", allowed: ["TicketDesk.Data"])
+  TicketDesk.Modules.Tests.SearchQueryTests.Words_are_alternatives_like_the_default_OR_operator
+  TicketDesk.Modules.Tests.SearchQueryTests.Required_and_excluded_terms
+  TicketDesk.Modules.Tests.SearchQueryTests.A_query_of_exclusions_only_matches_nothing
+  TicketDesk.Modules.Tests.SearchQueryTests.Phrases_prefixes_and_the_legacy_field_names
+  TicketDesk.Modules.Tests.SearchQueryTests.Words_keep_inner_joiners_and_split_elsewhere
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "\" OR 1=1 --")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "printer\") OR (\"x")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "NEAR((a, b), 5)")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "FORMSOF(INFLECTIONAL, print)")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "*")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "\"")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "+")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "a*b* *c ??? [x TO y] {z}")
+  TicketDesk.Modules.Tests.SearchQueryTests.No_input_reaches_CONTAINS_unquoted(text: "ISABOUT(printer WEIGHT(.8))")
+  TicketDesk.Modules.Tests.SearchQueryTests.Long_input_is_bounded
+  TicketDesk.Modules.Tests.SearchQueryTests.User_text_goes_into_parameters_only
+  TicketDesk.Modules.Tests.TicketActivityRulesTests.New_unassigned_ticket_of_the_admin_offers_what_the_golden_ticket_page_showed
+  TicketDesk.Modules.Tests.TicketActivityRulesTests.Internal_user_on_own_ticket_gets_no_help_desk_activities
+  TicketDesk.Modules.Tests.TicketActivityRulesTests.Closed_ticket_can_only_be_reopened
+  TicketDesk.Modules.Tests.TicketActivityRulesTests.More_info_assigned_to_me_offers_supply_and_cancel
+  TicketDesk.Modules.Tests.TicketActivityRulesTests.Admins_also_get_what_the_owner_could_do
+  TicketDesk.Modules.Tests.TicketActivityRulesTests.Users_without_a_ticketdesk_role_get_nothing
+  TicketDesk.Modules.Tests.TicketActivityRulesTests.Settings_fall_back_to_the_legacy_defaults_and_read_the_json
+  TicketDesk.Modules.Tests.TicketSortTests.Parses_fields_directions_and_the_legacy_column_name
+  TicketDesk.Modules.Tests.TicketSortTests.Rejects_anything_outside_the_whitelist(sort: "Details")
+  TicketDesk.Modules.Tests.TicketSortTests.Rejects_anything_outside_the_whitelist(sort: "it.Title DESC")
+  TicketDesk.Modules.Tests.TicketSortTests.Rejects_anything_outside_the_whitelist(sort: "title desc")
+  TicketDesk.Modules.Tests.TicketSortTests.Rejects_anything_outside_the_whitelist(sort: "TicketId; DROP TABLE Tickets--")
+  TicketDesk.Modules.Tests.TicketSortTests.Rejects_anything_outside_the_whitelist(sort: "Title,")
+  TicketDesk.Modules.Tests.TicketSortTests.Rejects_anything_outside_the_whitelist(sort: "title,-title")
+  TicketDesk.Modules.Tests.TicketSortTests.Rejects_anything_outside_the_whitelist(sort: "ticketId,title,status,priority,owner,assignedTo")
+  TicketDesk.Modules.Tests.TicketSortTests.Empty_sort_is_allowed_and_means_the_default
+  TicketDesk.Modules.Tests.TicketSortTests.Apply_orders_and_appends_ticketId_as_tie_breaker
+  TicketDesk.Modules.Tests.TicketListRequestTests.Defaults_follow_the_legacy_lists
+  TicketDesk.Modules.Tests.TicketListRequestTests.Invalid_parameters_are_reported_by_name(page: 0, size: 20, list: null, status: null, field: "page")
+  TicketDesk.Modules.Tests.TicketListRequestTests.Invalid_parameters_are_reported_by_name(page: 1, size: 0, list: null, status: null, field: "pageSize")
+  TicketDesk.Modules.Tests.TicketListRequestTests.Invalid_parameters_are_reported_by_name(page: 1, size: 101, list: null, status: null, field: "pageSize")
+  TicketDesk.Modules.Tests.TicketListRequestTests.Invalid_parameters_are_reported_by_name(page: 1, size: 20, list: "favourites", status: null, field: "list")
+  TicketDesk.Modules.Tests.TicketListRequestTests.Invalid_parameters_are_reported_by_name(page: 1, size: 20, list: null, status: "Open", field: "status")
+  TicketDesk.Modules.Tests.TicketListRequestTests.Invalid_parameters_are_reported_by_name(page: 1, size: 20, list: null, status: "1", field: "status")
+  TicketDesk.Modules.Tests.TicketListRequestTests.Statuses_parse_case_insensitively_and_comma_separated
+  TicketDesk.Modules.Tests.TicketListsTests.Lists_apply_the_legacy_filters(list: "unassigned", expected: [1, 4])
+  TicketDesk.Modules.Tests.TicketListsTests.Lists_apply_the_legacy_filters(list: "assignedToMe", expected: [2])
+  TicketDesk.Modules.Tests.TicketListsTests.Lists_apply_the_legacy_filters(list: "mytickets", expected: [1])
+  TicketDesk.Modules.Tests.TicketListsTests.Lists_apply_the_legacy_filters(list: "opentickets", expected: [1, 2, 4])
+  TicketDesk.Modules.Tests.TicketListsTests.Lists_apply_the_legacy_filters(list: "historytickets", expected: [3, 5])
+
+Discovered 185 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+  TicketDesk.Web.Tests.AngularPagesTests.Pages_on_Angular_answer_with_the_shell_and_the_server_page_only_when_asked_for
+  TicketDesk.Web.Tests.AngularPagesTests.Switching_back_gives_the_server_page_without_a_restart
+  TicketDesk.Web.Tests.AngularPagesTests.The_shell_keeps_the_server_pages_redirects_and_refusals
+  TicketDesk.Web.Tests.AngularPagesTests.Pending_and_anonymous_users_get_no_shell
+  TicketDesk.Web.Tests.AngularPagesTests.Without_a_built_front_end_the_server_pages_answer
+  TicketDesk.Web.Tests.AngularPagesTests.Assets_are_served_by_the_new_app_with_long_caching_and_compression
+  TicketDesk.Web.Tests.AngularPagesTests.Session_lists_the_users_lists_and_the_pages_on_Angular
+  TicketDesk.Web.Tests.AngularPagesTests.Creating_a_ticket_needs_the_antiforgery_header
+  TicketDesk.Web.Tests.AngularPagesTests.A_ticket_created_through_the_api_is_in_the_database_and_in_my_list
+  TicketDesk.Web.Tests.AngularPagesTests.Validation_errors_name_the_fields
+  TicketDesk.Web.Tests.AngularPagesTests.Internal_users_may_not_set_owner_assignee_or_priority_but_help_desk_may
+  TicketDesk.Web.Tests.AngularPagesTests.Workflow_activities_through_the_api_follow_the_legacy_rules
+  TicketDesk.Web.Tests.AngularPagesTests.Ticket_text_is_rendered_and_sanitized_for_the_page
+  TicketDesk.Web.Tests.ApiTests.Unauthenticated_calls_get_401_not_a_login_redirect(url: "/api/tickets")
+  TicketDesk.Web.Tests.ApiTests.Unauthenticated_calls_get_401_not_a_login_redirect(url: "/api/tickets/1")
+  TicketDesk.Web.Tests.ApiTests.Unauthenticated_calls_get_401_not_a_login_redirect(url: "/api/projects")
+  TicketDesk.Web.Tests.ApiTests.Identity_cookie_from_a_v2_password_sign_in_authenticates_the_api
+  TicketDesk.Web.Tests.ApiTests.Pending_users_are_forbidden(url: "/api/tickets")
+  TicketDesk.Web.Tests.ApiTests.Pending_users_are_forbidden(url: "/api/tickets/1")
+  TicketDesk.Web.Tests.ApiTests.Pending_users_are_forbidden(url: "/api/projects")
+  TicketDesk.Web.Tests.ApiTests.Projects_are_listed_by_name
+  TicketDesk.Web.Tests.ApiTests.Default_page_matches_SQL
+  TicketDesk.Web.Tests.ApiTests.Filters_match_SQL
+  TicketDesk.Web.Tests.ApiTests.Legacy_lists_match_SQL
+  TicketDesk.Web.Tests.ApiTests.Whitelisted_sorts_match_SQL_order(sort: "priority,-createdDate", orderBy: "Priority, CreatedDate DESC, TicketId")
+  TicketDesk.Web.Tests.ApiTests.Whitelisted_sorts_match_SQL_order(sort: "-status,title", orderBy: "TicketStatus DESC, Title, TicketId")
+  TicketDesk.Web.Tests.ApiTests.Whitelisted_sorts_match_SQL_order(sort: "dueDate", orderBy: "DueDate, TicketId")
+  TicketDesk.Web.Tests.ApiTests.Whitelisted_sorts_match_SQL_order(sort: "-ticketId", orderBy: "TicketId DESC")
+  TicketDesk.Web.Tests.ApiTests.Whitelisted_sorts_match_SQL_order(sort: "TicketStatus,-LastUpdateDate", orderBy: "TicketStatus, LastUpdateDate DESC, TicketId")
+  TicketDesk.Web.Tests.ApiTests.Sort_fields_outside_the_whitelist_are_rejected(sort: "Details")
+  TicketDesk.Web.Tests.ApiTests.Sort_fields_outside_the_whitelist_are_rejected(sort: "it.Title DESC")
+  TicketDesk.Web.Tests.ApiTests.Sort_fields_outside_the_whitelist_are_rejected(sort: "Title; DROP TABLE dbo.Tickets--")
+  TicketDesk.Web.Tests.ApiTests.Sort_fields_outside_the_whitelist_are_rejected(sort: "TicketId DESC")
+  TicketDesk.Web.Tests.ApiTests.Sort_fields_outside_the_whitelist_are_rejected(sort: "(SELECT 1)")
+  TicketDesk.Web.Tests.ApiTests.Invalid_parameters_are_400_with_the_parameter_named(query: "page=0", field: "page")
+  TicketDesk.Web.Tests.ApiTests.Invalid_parameters_are_400_with_the_parameter_named(query: "pageSize=101", field: "pageSize")
+  TicketDesk.Web.Tests.ApiTests.Invalid_parameters_are_400_with_the_parameter_named(query: "status=Open", field: "status")
+  TicketDesk.Web.Tests.ApiTests.Invalid_parameters_are_400_with_the_parameter_named(query: "list=favourites", field: "list")
+  TicketDesk.Web.Tests.ApiTests.Paging_visits_every_ticket_exactly_once_even_with_ties
+  TicketDesk.Web.Tests.ApiTests.Ticket_detail_matches_the_database
+  TicketDesk.Web.Tests.ApiTests.Unknown_ticket_is_404(url: "/api/tickets/999999")
+  TicketDesk.Web.Tests.ApiTests.Unknown_ticket_is_404(url: "/api/tickets/abc")
+  TicketDesk.Web.Tests.ApiTests.Attachment_metadata_is_shown_only_to_staff_and_people_on_the_ticket
+  TicketDesk.Web.Tests.EntraSignInTests.First_sign_in_provisions_a_user_with_the_app_role_and_the_shared_cookie
+  TicketDesk.Web.Tests.EntraSignInTests.Without_app_roles_a_new_account_gets_the_default_roles
+  TicketDesk.Web.Tests.EntraSignInTests.First_sign_in_links_an_existing_legacy_account_by_email_and_keeps_its_roles
+  TicketDesk.Web.Tests.EntraSignInTests.A_token_for_another_tenant_is_refused
+  TicketDesk.Web.Tests.EntraSignInTests.A_declined_consent_at_the_callback_returns_to_the_sign_in_page_not_the_error_page(returnUrl: "/tickets", expected: "/user/sign-in?ReturnUrl=%2Ftickets")
+  TicketDesk.Web.Tests.EntraSignInTests.A_declined_consent_at_the_callback_returns_to_the_sign_in_page_not_the_error_page(returnUrl: null, expected: "/user/sign-in")
+  TicketDesk.Web.Tests.EntraSignInTests.A_declined_consent_at_the_callback_returns_to_the_sign_in_page_not_the_error_page(returnUrl: "https://elsewhere.example/tickets", expected: "/user/sign-in")
+  TicketDesk.Web.Tests.EntraSignInTests.The_sign_in_page_then_says_entra_sign_in_did_not_complete(error: "access_denied", description: "AADSTS65004: User declined to consent to access th"···, adminApproval: True)
+  TicketDesk.Web.Tests.EntraSignInTests.The_sign_in_page_then_says_entra_sign_in_did_not_complete(error: "server_error", description: "<b id=\"td-raw\">AADSTS50000: There was an error iss"···, adminApproval: False)
+  TicketDesk.Web.Tests.EntraSignInTests.The_option_is_hidden_when_entra_is_off_so_the_page_stays_the_legacy_one
+  TicketDesk.Web.Tests.FileRoutesTests.Staff_get_the_files_and_pending_uploads_with_the_legacy_urls
+  TicketDesk.Web.Tests.FileRoutesTests.Internal_users_see_files_only_on_their_own_tickets
+  TicketDesk.Web.Tests.FirstAdministratorWebTests.The_administrator_from_td_db_signs_in_on_the_sign_in_page_and_administers
+  TicketDesk.Web.Tests.HealthTests.Ready_is_healthy_when_the_database_answers_and_checks_nothing_else
+  TicketDesk.Web.Tests.HealthTests.Unreachable_database_fails_readiness_but_not_liveness
+  TicketDesk.Web.Tests.HealthTests.Missing_connection_string_still_starts_the_host
+  TicketDesk.Web.Tests.OpenApiTests.Checked_in_document_is_current
+  TicketDesk.Web.Tests.OpenApiTests.Document_describes_the_endpoints
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "anonymous#006.0", admin: False)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "anonymous#007.0", admin: False)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "sign-in#004.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "sign-in#006.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-settings#002.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-settings#005.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-settings#006.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-settings#008.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-settings#009.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-settings#010.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-settings#011.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_pages_match_the_golden_recording(key: "admin-changes#006.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_posts_that_re_render_match_the_golden_recording(key: "sign-in#001.0", formKey: "sign-in#000.0", admin: False)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_posts_that_re_render_match_the_golden_recording(key: "sign-in#005.0", formKey: "sign-in#004.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_posts_that_re_render_match_the_golden_recording(key: "admin-changes#003.0", formKey: "admin-changes#002.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Form_posts_that_re_render_match_the_golden_recording(key: "admin-changes#007.0", formKey: "admin-changes#006.0", admin: True)
+  TicketDesk.Web.Tests.IdentityWaveTests.Posts_without_the_antiforgery_token_are_refused
+  TicketDesk.Web.Tests.IdentityWaveTests.Admin_pages_refuse_non_admins_like_the_legacy_app
+  TicketDesk.Web.Tests.RouteInventoryTests.Inventory_has_every_routes_csv_row_with_a_unique_id
+  TicketDesk.Web.Tests.RouteInventoryTests.Shipped_registry_file_puts_the_three_Angular_pages_on_Angular_and_nothing_else
+  TicketDesk.Web.Tests.RouteInventoryTests.Ported_child_rows_name_inventory_rows
+  TicketDesk.Web.Tests.RouteInventoryTests.Migrated_endpoints_match_their_inventory_rows
+  TicketDesk.Web.Tests.RouteInventoryTests.Bundle_snapshot_is_the_unmodified_legacy_output
+  TicketDesk.Web.Tests.RouteInventoryTests.Static_files_the_bundles_and_pages_reference_are_served_as_the_legacy_files
+  TicketDesk.Web.Tests.MigrationRoutingTests.Without_the_registry_file_every_migrated_route_is_answered_by_the_new_app
+  TicketDesk.Web.Tests.MigrationRoutingTests.Legacy_or_unknown_modes_in_the_registry_are_ignored_and_the_server_page_answers
+  TicketDesk.Web.Tests.MigrationRoutingTests.Paths_the_new_app_does_not_have_are_404_and_nothing_is_proxied
+  TicketDesk.Web.Tests.MigrationRoutingTests.Status_counts_migrated_and_retired_routes_per_wave
+  TicketDesk.Web.Tests.MigrationRoutingTests.Migrated_responses_carry_the_legacy_security_headers
+  TicketDesk.Web.Tests.ReportsApiTests.Reports_are_for_help_desk_only(url: "/api/reports/open-tickets")
+  TicketDesk.Web.Tests.ReportsApiTests.Reports_are_for_help_desk_only(url: "/api/reports/assignee-workload")
+  TicketDesk.Web.Tests.ReportsApiTests.Reports_are_for_help_desk_only(url: "/api/reports/time-to-close")
+  TicketDesk.Web.Tests.ReportsApiTests.Open_tickets_report_counts_every_open_ticket_once
+  TicketDesk.Web.Tests.ReportsApiTests.Workload_report_matches_open_assigned_tickets_and_honours_top
+  TicketDesk.Web.Tests.ReportsApiTests.Time_to_close_report_covers_the_closed_tickets_of_the_window
+  TicketDesk.Web.Tests.ReportsApiTests.Invalid_report_parameters_are_400_with_the_parameter_named(url: "/api/reports/assignee-workload?top=0", field: "top")
+  TicketDesk.Web.Tests.ReportsApiTests.Invalid_report_parameters_are_400_with_the_parameter_named(url: "/api/reports/assignee-workload?top=501", field: "top")
+  TicketDesk.Web.Tests.ReportsApiTests.Invalid_report_parameters_are_400_with_the_parameter_named(url: "/api/reports/time-to-close?from=2026-10-01T00:00:0"···, field: "from")
+  TicketDesk.Web.Tests.ReportsApiTests.Invalid_report_parameters_are_400_with_the_parameter_named(url: "/api/reports/time-to-close?from=2000-01-01T00:00:0"···, field: "from")
+  TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup", route: "setup.index")
+  TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/index", route: "setup.index")
+  TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "POST", path: "/first-run-setup", route: "setup.index")
+  TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/legacy-migration", route: "setup.legacy-migration")
+  TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/upgrade-database", route: "setup.upgrade-database")
+  TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/check-upgrade-progress", route: "setup.check-upgrade-progress")
+  TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "POST", path: "/first-run-setup/create-database", route: "setup.create-database")
+  TicketDesk.Web.Tests.RetiredRoutesTests.Demo_data_actions_answer_410_to_administrators_and_keep_the_legacy_refusals_X2
+  TicketDesk.Web.Tests.RetiredRoutesTests.The_email_test_page_is_gone_S2
+  TicketDesk.Web.Tests.RetiredRoutesTests.Golden_exchanges_of_retired_routes_get_the_expected_difference(key: "anonymous#009.0", legacy: 302, now: 410)
+  TicketDesk.Web.Tests.RetiredRoutesTests.Golden_exchanges_of_retired_routes_get_the_expected_difference(key: "anonymous#010.0", legacy: 302, now: 410)
+  TicketDesk.Web.Tests.RetiredRoutesTests.Golden_exchanges_of_retired_routes_get_the_expected_difference(key: "anonymous#011.0", legacy: 302, now: 410)
+  TicketDesk.Web.Tests.RetiredRoutesTests.Golden_exchanges_of_retired_routes_get_the_expected_difference(key: "anonymous#012.0", legacy: 302, now: 410)
+  TicketDesk.Web.Tests.RetiredRoutesTests.Golden_exchanges_of_retired_routes_get_the_expected_difference(key: "anonymous#013.0", legacy: 200, now: 404)
+  TicketDesk.Web.Tests.RetiredRoutesTests.Status_reports_the_nine_retired_rows_each_with_its_replacement
+  TicketDesk.Web.Tests.SearchTests.With_the_legacy_ranking_the_page_matches_the_golden_recording(key: "search#002.0", path: "/search")
+  TicketDesk.Web.Tests.SearchTests.With_the_legacy_ranking_the_page_matches_the_golden_recording(key: "search#003.0", path: "/search?term=printer")
+  TicketDesk.Web.Tests.SearchTests.With_the_legacy_ranking_the_page_matches_the_golden_recording(key: "search#004.0", path: "/search/network")
+  TicketDesk.Web.Tests.SearchTests.With_the_legacy_ranking_the_page_matches_the_golden_recording(key: "search#005.0", path: "/search?term=zzqqxxnohits")
+  TicketDesk.Web.Tests.SearchTests.Golden_queries_find_twenty_tickets_that_contain_the_word(path: "/search?term=printer", word: "printer")
+  TicketDesk.Web.Tests.SearchTests.Golden_queries_find_twenty_tickets_that_contain_the_word(path: "/search/network", word: "network")
+  TicketDesk.Web.Tests.SearchTests.Terms_phrases_prefixes_fields_and_ids_follow_the_legacy_syntax
+  TicketDesk.Web.Tests.SearchTests.Internal_users_find_only_their_own_tickets_like_the_attachment_rule
+  TicketDesk.Web.Tests.SearchTests.The_search_page_keeps_the_legacy_rule_unless_the_restriction_is_on(restrict: null, expected: 4)
+  TicketDesk.Web.Tests.SearchTests.The_search_page_keeps_the_legacy_rule_unless_the_restriction_is_on(restrict: "true", expected: 2)
+  TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up
+  TicketDesk.Web.Tests.SearchTests.Search_management_shows_the_full_text_indexes_and_the_lucene_actions_are_gone
+  TicketDesk.Web.Tests.SignInTests.Sign_in_issues_the_apps_own_cookie_that_a_second_instance_reads_from_the_key_ring_in_the_database
+  TicketDesk.Web.Tests.SignInTests.A_sign_in_cookie_from_before_the_switch_is_not_read_so_the_user_signs_in_once_more
+  TicketDesk.Web.Tests.SignInTests.Sign_out_deletes_the_cookie_and_ends_the_session
+  TicketDesk.Web.Tests.SignInTests.A_v2_hash_still_signs_in_and_is_rehashed_to_v3_which_then_signs_in
+  TicketDesk.Web.Tests.SignInTests.Sign_in_by_email_and_by_user_name_and_lockout_after_five_failures
+  TicketDesk.Web.Tests.SignInTests.Register_is_refused_while_disabled_S4
+  TicketDesk.Web.Tests.SignInTests.Register_when_enabled_creates_a_pending_user_with_an_email_destination_and_a_v3_hash
+  TicketDesk.Web.Tests.SignInTests.Change_password_writes_a_v3_hash_and_edit_profile_saves_L5
+  TicketDesk.Web.Tests.StateChangingPostTests.A_get_or_head_of_the_old_url_answers_405_and_changes_nothing(path: "/language?name=pt-BR", route: "home.language")
+  TicketDesk.Web.Tests.StateChangingPostTests.A_get_or_head_of_the_old_url_answers_405_and_changes_nothing(path: "/tickets/sortList/opentickets/1?ColumnName=Title", route: "tickets.sort")
+  TicketDesk.Web.Tests.StateChangingPostTests.A_get_or_head_of_the_old_url_answers_405_and_changes_nothing(path: "/tickets/reset-user-lists", route: "tickets.reset-lists")
+  TicketDesk.Web.Tests.StateChangingPostTests.A_get_or_head_of_the_old_url_answers_405_and_changes_nothing(path: "/navigation/change-project/2", route: "navigation.change-project")
+  TicketDesk.Web.Tests.StateChangingPostTests.A_post_without_the_token_is_refused_and_changes_nothing(path: "/language?name=pt-BR", route: "home.language")
+  TicketDesk.Web.Tests.StateChangingPostTests.A_post_without_the_token_is_refused_and_changes_nothing(path: "/tickets/sortList/opentickets/1?ColumnName=Title", route: "tickets.sort")
+  TicketDesk.Web.Tests.StateChangingPostTests.A_post_without_the_token_is_refused_and_changes_nothing(path: "/tickets/reset-user-lists", route: "tickets.reset-lists")
+  TicketDesk.Web.Tests.StateChangingPostTests.A_post_without_the_token_is_refused_and_changes_nothing(path: "/navigation/change-project/2", route: "navigation.change-project")
+  TicketDesk.Web.Tests.StateChangingPostTests.The_language_menu_posts_the_culture_with_the_pages_token
+  TicketDesk.Web.Tests.StateChangingPostTests.The_sort_headers_post_and_the_reset_dialog_posts_with_the_pages_token
+  TicketDesk.Web.Tests.StateChangingPostTests.The_project_menu_posts_the_selection_with_the_pages_token
+  TicketDesk.Web.Tests.StateChangingPostTests.Server_pages_offer_the_state_changes_as_forms_not_links
+  TicketDesk.Web.Tests.StateChangingPostTests.Against_the_legacy_pages_no_recorded_get_becomes_a_post
+  TicketDesk.Web.Tests.StateChangingPostTests.Sign_out_by_get_shows_the_button_and_signs_nobody_out_the_post_needs_the_token
+  TicketDesk.Web.Tests.TicketCenterParityTests.Ticket_list_journey_matches_the_golden_recording
+  TicketDesk.Web.Tests.TicketCenterParityTests.Internal_user_lists_match_the_golden_recording
+  TicketDesk.Web.Tests.TicketParityTests.Golden_ticket_journeys_match_on_the_new_app
+  TicketDesk.Web.Tests.TicketWriterTests.Create_and_activities_reproduce_the_legacy_side_effects
+  TicketDesk.Web.Tests.TicketWriterTests.Edit_records_the_changes_in_the_comment_and_follows_tags
+  TicketDesk.Web.Tests.TlsCertificateTests.A_rotated_certificate_is_served_after_the_reload_interval
+  TicketDesk.Web.Tests.TlsCertificateTests.A_half_written_file_keeps_the_certificate_loaded_before
+  TicketDesk.Web.Tests.TlsCertificateTests.Separate_certificate_and_key_files_as_in_a_kubernetes_tls_secret
+  TicketDesk.Web.Tests.TlsCertificateTests.Start_up_fails_without_a_usable_certificate
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#000.0", path: "/", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#001.0", path: "/index", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#002.0", path: "/about", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#008.0", path: "/access-denied", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#017.0", path: "/", culture: "pt-BR")
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#014.0", path: "/content/styles", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#015.0", path: "/bundles/common", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#003.0", path: "/tickets", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "anonymous#005.0", path: "/admin/users", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Anonymous_pages_match_the_golden_recording(key: "sign-in#009.0", path: "/tickets", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "sign-in#002.1", path: "/", displayName: "{secret:TD_ADMIN_NAME}", roles: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "internal-user#001.1", path: "/", displayName: "Ali Chen", roles: "TdInternalUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "internal-user#005.1", path: "/access-denied", displayName: "Ali Chen", roles: "TdInternalUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "register-disabled#003.0", path: "/", displayName: "Replay Register", roles: "TdPendingUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "register-disabled#004.1", path: "/access-denied", displayName: "Replay Register", roles: "TdPendingUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "sign-in#003.0", path: "/account/manage", displayName: "{secret:TD_ADMIN_NAME}", roles: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "admin-settings#003.0", path: "/admin/users", displayName: "{secret:TD_ADMIN_NAME}", roles: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "admin-settings#004.0", path: "/admin/users/page/1", displayName: "{secret:TD_ADMIN_NAME}", roles: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "admin-settings#013.0", path: "/admin/data-management/demo", displayName: "{secret:TD_ADMIN_NAME}", roles: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers")
+  TicketDesk.Web.Tests.WaveParityTests.Admin_project_list_matches_the_golden_recording_except_the_ticket_counts
+  TicketDesk.Web.Tests.WaveParityTests.The_culture_switch_posted_from_the_menu_matches_the_golden_recording(key: "anonymous#016.0", path: "/language?name=pt-BR", culture: null)
+  TicketDesk.Web.Tests.WaveParityTests.The_culture_switch_posted_from_the_menu_matches_the_golden_recording(key: "anonymous#018.0", path: "/language?name=en-US", culture: "pt-BR")
+  TicketDesk.Web.Tests.WaveParityTests.Language_switch_returns_to_the_referring_page
+  TicketDesk.Web.Tests.WaveParityTests.Culture_cookie_follows_the_legacy_rules(cookie: "de-DE", expected: "Deutsch", localeBundle: "/bundles/common_locale_de-DE\"")
+  TicketDesk.Web.Tests.WaveParityTests.Culture_cookie_follows_the_legacy_rules(cookie: "pt-PT", expected: "pt-BR", localeBundle: "/bundles/common_locale_pt-BR?v=")
+  TicketDesk.Web.Tests.WaveParityTests.Culture_cookie_follows_the_legacy_rules(cookie: "xx-YY", expected: "en-US", localeBundle: "/bundles/common_locale_en-US?v=")
+  TicketDesk.Web.Tests.WaveParityTests.Home_redirects_permanently_to_the_ticket_center_when_disabled
+
+Discovered 8 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64)
+  TicketDesk.Worker.Tests.NotificationComposerTests.A_new_ticket_mails_the_subscribers_with_destinations_and_the_broadcast_list_but_not_the_author
+  TicketDesk.Worker.Tests.NotificationComposerTests.Nothing_is_sent_while_push_notifications_are_off_and_unknown_tickets_are_reported
+  TicketDesk.Worker.Tests.NotificationComposerTests.Messages_round_trip_and_garbage_is_recognised
+  TicketDesk.Worker.Tests.WorkerHealthTests.Not_ready_until_the_queue_processor_runs
+  TicketDesk.Worker.Tests.WorkerHealthTests.Service_Bus_by_namespace_needs_no_key
+  TicketDesk.Worker.Tests.WorkerServiceBusTests.A_ticket_written_by_the_app_is_mailed_once_to_each_recipient_through_the_queue
+  TicketDesk.Worker.Tests.WorkerServiceBusTests.Poison_messages_and_unknown_tickets_are_dead_lettered_at_once
+  TicketDesk.Worker.Tests.WorkerServiceBusTests.Failed_destinations_alone_are_retried_with_backoff_and_then_dead_lettered
+
+Discovered 103 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64)
+  TicketDesk.Replay.Tests.AngularShellTests.Forms_and_extractors_after_an_Angular_page_come_from_its_server_page
+  TicketDesk.Replay.Tests.AntiforgeryHeaderTests.Plain_ajax_posts_carry_the_token_of_the_latest_page_that_had_one
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "id 3f2504e0-4f89-11d3-9a0c-0305e82c3301 end", expected: "id {guid} end")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "/tickets?_=1762546140000&x=1", expected: "/tickets?_={v}&x=1")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "<script src=\"/bundles/common?v=AbC_123-xyz\">", expected: "<script src=\"/bundles/common?v={v}\">")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "updated just now", expected: "updated {relative}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "updated an hour ago", expected: "updated {relative}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "updated 3 minutes ago", expected: "updated {relative}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "\"/Date(1762546140000)/\"", expected: "\"{datetime}\"")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "Date: Sat, 07 Nov 2026 20:09:00 GMT", expected: "Date: {httpdate}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "on 2026-11-07", expected: "on {date}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "on Saturday, November 7, 2026 at 3:04 PM", expected: "on {datetime}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "on Nov 7, 2026", expected: "on {date}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "on 07.11.2026", expected: "on {date}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "on 11/7/2026", expected: "on {date}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "on 11/7/2026 3:04:05 PM", expected: "on {datetime}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "at 2026-11-07T20:09:00Z", expected: "at {datetime}")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "at 2026-11-07T20:09:00.1234567+00:00 ok", expected: "at {datetime} ok")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "at 15:04:05 sharp", expected: "at {time} sharp")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_run_specific_values_with_placeholders(input: "Bootstrap 3.3.6 and jQuery 2.2.2", expected: "Bootstrap 3.3.6 and jQuery 2.2.2")
+  TicketDesk.Replay.Tests.NormalizerTests.Replaces_captured_variables_on_word_boundaries_only
+  TicketDesk.Replay.Tests.NormalizerTests.Skips_variables_shorter_than_the_minimum_length
+  TicketDesk.Replay.Tests.NormalizerTests.Set_cookie_keeps_name_and_attributes_but_not_value_or_expiry
+  TicketDesk.Replay.Tests.NormalizerTests.Location_on_the_target_host_becomes_relative
+  TicketDesk.Replay.Tests.NormalizerTests.Normalizers_can_be_switched_off
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Ignores_attribute_order_whitespace_comments_and_class_token_order
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Antiforgery_token_values_are_ignored
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Reports_every_diff_of_a_page_not_only_the_first_25
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Reports_text_change_with_a_dom_path
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Reports_attribute_change
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Aligns_children_so_one_inserted_row_is_one_diff
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Reports_removed_element
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Ignore_selectors_drop_volatile_regions
+  TicketDesk.Replay.Tests.HtmlDomComparerTests.Run_variables_are_normalized_per_side
+  TicketDesk.Replay.Tests.JsonSemanticComparerTests.Property_order_and_number_format_do_not_matter
+  TicketDesk.Replay.Tests.JsonSemanticComparerTests.Reports_value_changes_with_json_paths
+  TicketDesk.Replay.Tests.JsonSemanticComparerTests.Reports_added_and_removed_members
+  TicketDesk.Replay.Tests.JsonSemanticComparerTests.Normalizes_strings_inside_json
+  TicketDesk.Replay.Tests.JsonSemanticComparerTests.Invalid_json_is_a_diff_not_an_exception
+  TicketDesk.Replay.Tests.PostedLinkTests.Gets_of_urls_the_page_posts_are_sent_as_that_post_others_stay_gets
+  TicketDesk.Replay.Tests.JourneyRunnerTests.Records_a_cookie_session_with_antiforgery_and_generated_ids
+  TicketDesk.Replay.Tests.JourneyRunnerTests.Never_writes_passwords_or_secret_values_to_the_recording
+  TicketDesk.Replay.Tests.JourneyRunnerTests.Secret_values_echoed_in_responses_are_redacted
+  TicketDesk.Replay.Tests.JourneyRunnerTests.Stops_a_journey_when_an_expected_status_is_not_met
+  TicketDesk.Replay.Tests.JourneyRunnerTests.Missing_form_is_recorded_as_a_journey_error
+  TicketDesk.Replay.Tests.JourneyRunnerTests.A_failed_extractor_keeps_the_response_that_caused_it
+  TicketDesk.Replay.Tests.JourneyRunnerTests.Groups_exchanges_by_route_template_when_a_route_table_is_given
+  TicketDesk.Replay.Tests.ReplayCompareTests.Two_runs_of_the_same_app_match_despite_tokens_ids_and_timestamps
+  TicketDesk.Replay.Tests.ReplayCompareTests.Finds_behaviour_changes_and_groups_them_by_route
+  TicketDesk.Replay.Tests.ReplayCompareTests.Writes_json_and_markdown_reports
+  TicketDesk.Replay.Tests.ReplayCompareTests.A_recording_can_be_replayed_against_another_target_without_journey_code
+  TicketDesk.Replay.Tests.ReplayCompareTests.A_json_content_type_with_a_non_json_body_is_compared_as_text
+  TicketDesk.Replay.Tests.ReplayCompareTests.Missing_and_extra_exchanges_are_reported
+  TicketDesk.Replay.Tests.FormReaderTests.Reads_successful_controls_like_a_browser
+  TicketDesk.Replay.Tests.FormReaderTests.Overrides_replace_existing_values_and_first_option_skips_placeholders
+  TicketDesk.Replay.Tests.FormReaderTests.Option_tokens_pick_first_last_or_nth_non_empty_option
+  TicketDesk.Replay.Tests.FormReaderTests.Missing_form_throws_with_the_selector
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/ticket/42", expected: "GET /ticket/{id:int}")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/ticket/new", expected: "GET /ticket/new")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/tickets", expected: "GET /tickets/{listName?}/{page:int?}")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/tickets/opentickets/3", expected: "GET /tickets/{listName?}/{page:int?}")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/tickets/reset-user-lists", expected: "GET /tickets/reset-user-lists")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/file/12/report%20q3.pdf", expected: "GET /file/{id}/{fileName}")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "POST", path: "/tickets/filterList/opentickets", expected: "POST /tickets/filterList/{listName=opentickets}/{p"···)
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/admin/users?x=1", expected: "GET /admin/users/{page:int?}")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "GET", path: "/ticket/3f2504e0-4f89-11d3-9a0c-0305e82c3301/x", expected: "GET /ticket/{guid}/x")
+  TicketDesk.Replay.Tests.RouteTableTests.Resolves_most_specific_template_or_falls_back_to_heuristics(method: "POST", path: "/ticket/42", expected: "POST /ticket/{id}")
+  TicketDesk.Replay.Tests.RouteTableTests.Loads_routes_csv_with_quoted_fields_and_multiple_verbs
+  TicketDesk.Replay.Tests.RouteTableTests.Csv_split_handles_quotes
+  TicketDesk.Replay.Tests.TemplateTests.Expands_variables_and_secrets
+  TicketDesk.Replay.Tests.TemplateTests.Unknown_variable_or_secret_fails_loudly
+  TicketDesk.Replay.Tests.TemplateTests.Secrets_file_parsing_handles_export_quotes_and_comments
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Covers_the_journeys_named_in_the_brief
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "anonymous")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "sign-in")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "search")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "ticket-list")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "ticket-create-view")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "ticket-edit")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "ticket-comment")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "ticket-assign")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "ticket-close")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "ticket-workflow")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "attachments")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "admin-settings")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "admin-changes")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "internal-user")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_placeholder_is_produced_by_an_earlier_step(name: "register-disabled")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "anonymous")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "sign-in")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "search")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "ticket-list")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "ticket-create-view")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "ticket-edit")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "ticket-comment")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "ticket-assign")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "ticket-close")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "ticket-workflow")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "attachments")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "admin-settings")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "admin-changes")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "internal-user")
+  TicketDesk.Replay.Tests.TicketDeskJourneyTests.Every_request_path_maps_to_an_inventoried_route(name: "register-disabled")
+
+Discovered 20 tests in assembly - ~/Desktop/ticketdesk-modernization/wt-followups/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64)
+  TicketDesk.Seed.Tests.GeneratorTests.Same_seed_gives_identical_rows_and_another_seed_does_not
+  TicketDesk.Seed.Tests.GeneratorTests.Chunk_size_does_not_change_the_data
+  TicketDesk.Seed.Tests.GeneratorTests.Prng_is_splitmix64
+  TicketDesk.Seed.Tests.GeneratorTests.Scale_presets(name: "XS", tickets: 200, users: 24, projects: 3)
+  TicketDesk.Seed.Tests.GeneratorTests.Scale_presets(name: "s", tickets: 10000, users: 250, projects: 5)
+  TicketDesk.Seed.Tests.GeneratorTests.Scale_presets(name: "M", tickets: 100000, users: 2500, projects: 10)
+  TicketDesk.Seed.Tests.GeneratorTests.Scale_presets(name: "L", tickets: 1000000, users: 25000, projects: 25)
+  TicketDesk.Seed.Tests.GeneratorTests.Unknown_scale_is_rejected
+  TicketDesk.Seed.Tests.GeneratorTests.Scale_S_produces_proportional_row_counts
+  TicketDesk.Seed.Tests.GeneratorTests.Status_mix_matches_the_target_distribution
+  TicketDesk.Seed.Tests.GeneratorTests.Tickets_follow_the_domain_rules
+  TicketDesk.Seed.Tests.GeneratorTests.Notifications_reference_existing_events_and_subscribers
+  TicketDesk.Seed.Tests.GeneratorTests.Keys_are_unique_and_values_fit_the_columns
+  TicketDesk.Seed.Tests.GeneratorTests.Every_role_gets_users_and_the_default_project_is_used
+  TicketDesk.Seed.Tests.PasswordHashTests.Identity_v2_hash_is_accepted_by_aspnetcore_identity_and_flagged_for_rehash
+  TicketDesk.Seed.Tests.PasswordHashTests.Aspnetcore_v2_mode_hashes_verify_with_the_legacy_algorithm
+  TicketDesk.Seed.Tests.SqlSeederTests.Implied_schema_passes_verification
+  TicketDesk.Seed.Tests.SqlSeederTests.Seeding_twice_with_reset_gives_identical_content_and_trusted_keys
+  TicketDesk.Seed.Tests.SqlSeederTests.Reset_leaves_only_the_default_project_and_real_users
+  TicketDesk.Seed.Tests.SqlSeederTests.Verification_reports_columns_the_seeder_cannot_fill
+
+Discovered 772 tests in 8 assemblies.
+

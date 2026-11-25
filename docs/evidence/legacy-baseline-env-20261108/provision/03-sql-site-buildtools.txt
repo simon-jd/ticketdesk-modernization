@@ -1,0 +1,56 @@
+==== 2026-11-08T00:23:40Z step copy-ops
+
+Name                        Length
+----                        ------
+Backup-TdSite.ps1             5535
+Build-TdLegacy.ps1            4258
+Deploy-TdApp.ps1              4978
+Install-TdBuildTools.ps1      3405
+Install-TdPrerequisites.ps1   2435
+Install-TdSqlExpress.ps1      6409
+Register-TdBackupTask.ps1     2786
+Restore-TdSite.ps1            4894
+Set-TdIisSite.ps1            10786
+TdOps.psm1                    6118
+
+
+
+==== 2026-11-08T00:23:45Z step sql
+[2026-11-08T00:23:48Z] SKIP   have C:\TdMedia\sql2022-express\SQL2022-SSEI-Expr.exe
+[2026-11-08T00:23:48Z] CHANGE running SQL Server setup for instance SQLEXPRESS (as SYSTEM)
+[2026-11-08T00:26:39Z] CHANGE setup exit 0
+[2026-11-08T00:26:39Z] CHANGE static TCP port 1433
+[2026-11-08T00:26:41Z] CHANGE restarted MSSQL$SQLEXPRESS
+[2026-11-08T00:26:42Z] INFO   sa login enabled, password set
+[2026-11-08T00:26:44Z] CHANGE firewall rule TicketDesk-SQL-SQLEXPRESS-TCP
+[2026-11-08T00:26:44Z] INFO   SQL Server 16.0.1000.6 Express Edition (64-bit) on .\SQLEXPRESS, TCP 1433
+==== 2026-11-08T00:26:45Z step site
+[2026-11-08T00:26:53Z] CHANGE imported certificate BF2C568FC97479170492064C3D1A224E0E3DFF5A (CN=localhost, O=TicketDesk Lab)
+[2026-11-08T00:26:53Z] CHANGE trusted lab CA CN=TicketDesk Lab Root CA, O=TicketDesk Lab
+[2026-11-08T00:26:54Z] CHANGE created app pool TicketDesk
+[2026-11-08T00:26:54Z] CHANGE app pool TicketDesk startMode = AlwaysRunning
+[2026-11-08T00:26:54Z] CHANGE app pool TicketDesk processModel.loadUserProfile = True
+[2026-11-08T00:26:54Z] CHANGE app pool TicketDesk processModel.idleTimeout = 00:00:00
+[2026-11-08T00:26:54Z] CHANGE created C:\inetpub\ticketdesk
+[2026-11-08T00:26:54Z] CHANGE created C:\inetpub\ticketdesk\App_Data
+[2026-11-08T00:26:54Z] CHANGE granted IIS AppPool\TicketDesk ReadAndExecute on C:\inetpub\ticketdesk
+[2026-11-08T00:26:54Z] CHANGE granted IIS AppPool\TicketDesk Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T00:26:54Z] CHANGE stopped Default Web Site (port conflict)
+[2026-11-08T00:26:57Z] CHANGE created site TicketDesk
+[2026-11-08T00:26:57Z] CHANGE binding https *:443:
+[2026-11-08T00:26:58Z] CHANGE TLS binding 0.0.0.0:443 -> BF2C568FC97479170492064C3D1A224E0E3DFF5A
+[2026-11-08T00:27:01Z] CHANGE SQL: created database (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T00:27:01Z] CHANGE SQL: created login (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T00:27:01Z] CHANGE SQL: created user (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T00:27:01Z] CHANGE SQL: granted db_owner (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T00:27:01Z] INFO   site TicketDesk -> C:\inetpub\ticketdesk, http 80, https 443, cert BF2C568FC97479170492064C3D1A224E0E3DFF5A (expires 2029-02-09)
+==== 2026-11-08T00:27:01Z step buildtools
+[2026-11-08T00:27:09Z] CHANGE downloaded C:\TdMedia\buildtools\vs_BuildTools.exe (4,473,832 bytes, sha256 972D771C33C2887B13900C2052E5D2E88208531F6D5EE3C4405D7648E853009B)
+[2026-11-08T00:27:09Z] CHANGE installing VS Build Tools: Microsoft.VisualStudio.Workload.MSBuildTools, Microsoft.VisualStudio.Workload.WebBuildTools, Microsoft.Net.Component.4.6.2.TargetingPack, Microsoft.Net.Component.4.8.SDK
+[2026-11-08T00:31:44Z] CHANGE vs_BuildTools exit 0 after 275s
+[2026-11-08T00:31:45Z] CHANGE downloaded C:\BuildTools\nuget\nuget.exe (8,695,632 bytes, sha256 992D70CAC5B06C38EFEC91806CABA64CDCC07E6D963A0959DBBBAF264D33B800)
+[2026-11-08T00:31:46Z] INFO   MSBuild 17.14.60.43110 at C:\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe
+[2026-11-08T00:31:46Z] INFO   nuget.exe 7.9.0.83
+[2026-11-08T00:31:46Z] INFO   targeting pack: C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2
+==== 2026-11-08T00:31:46Z done: copy-ops sql site buildtools
+EXIT=0

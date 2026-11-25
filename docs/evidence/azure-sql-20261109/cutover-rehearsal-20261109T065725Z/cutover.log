@@ -1,0 +1,2 @@
+2026-11-09T06:57:25Z cutover (rehearsal) 20261109T065725Z on https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com: SQL Express on the VM -> sql-tdlab-36d2d4.database.windows.net/sqldb-ticketdesk
+2026-11-09T07:00:03Z window FAILED (see window.txt): rolling back (REVOKE on the source)

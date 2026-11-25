@@ -1,0 +1,19 @@
+# 2026-11-14T00:50:01Z td-load-sql
+Express Edition (64-bit) 16.0.4262.2, cpu_count 4, schedulers 4, max memory MB 2147483647
+Processed 1 pages for database 'TicketDesk', file 'TicketDesk_log' on file 1.
+RESTORE DATABASE successfully processed 11113 pages in 0.063 seconds (1377.999 MB/sec).
+applied expand/V0013__snapshot_isolation_for_reads.sql in 0.05 s
+applied programmable/R__usp_ticket_list.sql in 0.02 s
+applied contract/C0001__assigned_date_contract.sql in 0.04 s
+3 script(s) applied
+grants: 56 on 21 objects; fixed roles of td_modern_app: 0
+
+tickets 10001
+snapshot=ON rcsi=0 recovery=SIMPLE
+new app pid 1057213: cpus 24-27, ready
+# one sign-in per seeded help-desk user (V2 hash -> V3 at the first sign-in, as after the switch)
+signed in 37 of 37 users in 3.4 s
+Processed 11120 pages for database 'TicketDesk', file 'TicketDesk' on file 1.
+Processed 2 pages for database 'TicketDesk', file 'TicketDesk_log' on file 1.
+BACKUP DATABASE successfully processed 11122 pages in 0.093 seconds (934.307 MB/sec).
+The backup set on file 1 is valid.

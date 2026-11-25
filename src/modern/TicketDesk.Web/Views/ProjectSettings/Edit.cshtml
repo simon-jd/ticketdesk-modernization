@@ -1,0 +1,96 @@
+@* Port of the legacy Views/ProjectSettings/Edit.cshtml (TicketDesk 2.5, Ms-PL). The delete form now carries a token (S3). *@
+@model TicketDesk.Web.Controllers.ProjectSettingsController.EditModel
+@using EditStrings = TicketDesk.Localization.Views.ProjectSettings.Edit
+@using ModelStrings = TicketDesk.Localization.Models.Strings
+@using TicketDesk.Web.Controllers
+@section title
+{
+    @EditStrings.Title
+}
+@section Scripts {
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-sm-12">@EditStrings.Legend</legend>
+            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+<form action="/admin/project/@Model.ProjectId" class="form-horizontal" method="post" role="form">@Html.AntiForgeryToken()@LegacyForm.Hidden(ProjectSettingsController.ProjectIdField, Model.ProjectId.ToString(System.Globalization.CultureInfo.InvariantCulture))                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">@EditStrings.Header</h2>
+                        </div>
+                        <div class="panel-body">
+                            @LegacyForm.ValidationSummary(ViewData.ModelState)
+                            <div class="form-group">
+                                @LegacyForm.Label(ProjectSettingsController.NameField, "col-sm-3 control-label")
+                                <div class="col-sm-9">
+                                    @LegacyForm.TextBox(ProjectSettingsController.NameField, Model.ProjectName, state: ViewData.ModelState)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @LegacyForm.Label(ProjectSettingsController.DescriptionField, "col-sm-3 control-label")
+                                <div class="col-sm-9">
+                                    @LegacyForm.TextBox(ProjectSettingsController.DescriptionField, Model.ProjectDescription, state: ViewData.ModelState)
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="panel-footer">
+                            <div class="pull-right">
+                                @if (Model.EnableDelete)
+                                {
+                                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-confirm">
+                                        <i class="fa fa-remove"></i>&nbsp;&nbsp;@EditStrings.DeleteOption
+                                    </a>
+                                }
+
+
+                            </div>
+                            <div class="">
+                                <button type="submit" class="btn btn-success" tabindex="10">
+                                    <i class="fa fa-save"></i>&nbsp;&nbsp;@EditStrings.SaveOption
+                                </button>&nbsp;&nbsp;
+                                <a href="/admin/projects">@EditStrings.BackOption</a>
+
+                            </div>
+                        </div>
+                    </div>
+</form>            </div>
+        </fieldset>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog" aria-labelledby="delete-confirm-label" aria-hidden="true">
+        <div class="modal-dialog">
+<form action="/admin/project/delete/@Model.ProjectId" class="form" method="post" role="form">@Html.AntiForgeryToken()                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="@EditStrings.CloseOption"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="delete-confirm-label">@EditStrings.DeleteConfirmation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="alert alert-danger">
+                                @EditStrings.DeleteAlert
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">@EditStrings.ReassignTickets</label>
+                            <div class="">
+                                <select class="form-control" data-val="true" data-val-required="@EditStrings.ProjectRequired" id="ReassignTo" name="ReassignTo"><option value="">@ModelStrings.SelectList_DefaultItem</option>@Html.Raw("\r\n")@foreach (var p in Model.ReassignTo)
+{<option value="@p.ProjectId">@p.ProjectName</option>@Html.Raw("\r\n")}</select>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="ReassignTo" data-valmsg-replace="true"></span>
+                                <span class="help-block">@EditStrings.ReassignTickets_Help</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@EditStrings.CancelOption</button>
+                        <button type="submit" class="btn btn-primary">@EditStrings.DeleteOption</button>
+
+                    </div>
+                </div>
+</form>        </div>
+    </div>
+</main>

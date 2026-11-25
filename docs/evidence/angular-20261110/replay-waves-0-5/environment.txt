@@ -1,0 +1,3 @@
+# date: 2026-11-10T18:47:22Z  git: 60460df  gateway: https://localhost:5463/ -> https://localhost:8443/
+# baseline recording: tests/characterization/golden/legacy-golden.jsonl.xz (3fd4c00c73e248ad696481675fa443eeaf7ba1e04c14579e1b104b6cc6e3180b)  reset: 1 (snapshot baseline-s)
+# registry: /tmp/tmp.qgJy5W50WO.json (waves 0,1,2,3,4,5)  remote auth: 0  shared cookie: 1  new-app db: vm (login app)  snapshot: baseline-s

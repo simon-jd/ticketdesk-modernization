@@ -1,0 +1,151 @@
+# Replay summary
+
+Compared 262, matched 188, mismatched 76 (missing 0, extra 2); unexplained mismatches: 0.
+
+Answered by the new app: 160 exchanges on 50 routes; by the legacy app: 104.
+
+| Wave | Exchanges | New app | Legacy | Mismatches | Explained | Unexplained |
+|---|---:|---:|---:|---:|---:|---:|
+| 0 | 2 | 2 | 0 | 0 | 0 | 0 |
+| 1 | 34 | 34 | 0 | 3 | 3 | 0 |
+| 2 | 99 | 64 | 35 | 33 | 33 | 0 |
+| 3 | 11 | 9 | 2 | 4 | 4 | 0 |
+| 4 | 62 | 0 | 62 | 8 | 8 | 0 |
+| 5 | 51 | 51 | 0 | 28 | 28 | 0 |
+| retire | 5 | 0 | 5 | 0 | 0 | 0 |
+
+## Routes answered by the new app
+
+| Route id | Wave | Exchanges |
+|---|---|---:|
+| account.change-password.get | 2 | 1 |
+| account.change-password.post | 5 | 1 |
+| account.edit-profile.get | 2 | 1 |
+| account.edit-profile.post | 5 | 1 |
+| account.manage | 2 | 2 |
+| admin.application-settings.get | 2 | 2 |
+| admin.application-settings.post | 5 | 1 |
+| admin.demo | 2 | 1 |
+| admin.project-delete | 5 | 1 |
+| admin.project-edit.get | 2 | 4 |
+| admin.project-edit.post | 5 | 1 |
+| admin.project-new.get | 2 | 2 |
+| admin.project-new.post | 5 | 1 |
+| admin.projects | 2 | 5 |
+| admin.push-provider.get | 5 | 1 |
+| admin.push-provider.post | 5 | 1 |
+| admin.push-providers | 2 | 1 |
+| admin.push-settings.get | 2 | 2 |
+| admin.push-settings.post | 5 | 1 |
+| admin.search-manager | 2 | 1 |
+| admin.user-delete | 5 | 1 |
+| admin.user-edit.get | 2 | 3 |
+| admin.user-edit.post | 5 | 1 |
+| admin.user-new.get | 2 | 2 |
+| admin.user-new.post | 5 | 1 |
+| admin.users | 2 | 7 |
+| admin.users-page | 2 | 1 |
+| autocomplete.tag-list | 2 | 1 |
+| bundles.scripts | 0 | 1 |
+| bundles.styles | 0 | 1 |
+| file.attachments-info | 2 | 2 |
+| file.get | 2 | 1 |
+| home.about | 1 | 1 |
+| home.access-denied | 1 | 3 |
+| home.index | 1 | 1 |
+| home.language | 3 | 2 |
+| home.root | 1 | 29 |
+| navigation.change-project | 3 | 2 |
+| ticket.files | 2 | 7 |
+| ticket.list-redirect | 2 | 1 |
+| tickets.filter | 3 | 1 |
+| tickets.index | 2 | 16 |
+| tickets.page | 2 | 1 |
+| tickets.reset-lists | 3 | 1 |
+| tickets.sort | 3 | 3 |
+| user.register.get | 5 | 2 |
+| user.register.post | 5 | 1 |
+| user.sign-in.get | 5 | 20 |
+| user.sign-in.post | 5 | 14 |
+| user.sign-out | 5 | 2 |
+
+## Mismatches
+
+| Key | Request | Route | Answered by | Kinds | Expected difference |
+|---|---|---|---|---|---|
+| `anonymous#003.1` | GET /user/sign-in?ReturnUrl=%2Ftickets | user.sign-in.get | new | header, set-cookie | S3 |
+| `anonymous#004.1` | GET /user/sign-in?ReturnUrl=%2Fticket%2F1 | user.sign-in.get | new | header | S3 |
+| `anonymous#005.1` | GET /user/sign-in?ReturnUrl=%2Fadmin%2Fusers | user.sign-in.get | new | header | S3 |
+| `anonymous#006.0` | GET /user/sign-in | user.sign-in.get | new | header | S3 |
+| `sign-in#000.0` | GET /user/sign-in?ReturnUrl=%2Faccount%2Fmanage | user.sign-in.get | new | header, set-cookie | S3 |
+| `sign-in#001.0` | POST /user/sign-in?ReturnUrl=%2Faccount%2Fmanage | user.sign-in.post | new | header | S3 |
+| `sign-in#004.0` | GET /account/change-password | account.change-password.get | new | header | S3 |
+| `sign-in#005.0` | POST /account/change-password | account.change-password.post | new | header | S3 |
+| `sign-in#006.0` | GET /account/edit-profile | account.edit-profile.get | new | header | S3 |
+| `sign-in#007.0` | POST /account/edit-profile | account.edit-profile.post | new | status, location, header, set-cookie, body-html | L5, S3 |
+| `sign-in#007.1` | GET /account/manage?Message=ProfileSaveSuccess | account.manage | new | extra | L5 |
+| `sign-in#009.1` | GET /user/sign-in?ReturnUrl=%2Ftickets | user.sign-in.get | new | header | S3 |
+| `search#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-list#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-list#002.0` | GET /tickets | tickets.index | new | header, body-html | S3 |
+| `ticket-list#003.1` | GET /tickets | tickets.index | new | header, body-html | S3 |
+| `ticket-list#004.0` | GET /tickets/mytickets | tickets.index | new | header, body-html | S3 |
+| `ticket-list#005.0` | GET /tickets/unassigned | tickets.index | new | header, body-html | S3 |
+| `ticket-list#006.0` | GET /tickets/assignedToMe | tickets.index | new | header, body-html | S3 |
+| `ticket-list#007.0` | GET /tickets/historytickets | tickets.index | new | header, body-html | S3 |
+| `ticket-list#008.0` | GET /tickets/opentickets | tickets.index | new | header, body-html | S3 |
+| `ticket-list#009.0` | GET /tickets/pageList/opentickets/2 | tickets.page | new | header, body-html | S3 |
+| `ticket-list#010.0` | POST /tickets/filterList | tickets.filter | new | header, body-html | S3 |
+| `ticket-list#011.0` | GET /tickets/sortList/opentickets?columnName=Title | tickets.sort | new | header, body-html | S3, S5 |
+| `ticket-list#012.0` | GET /tickets/sortList/opentickets?columnName=Title | tickets.sort | new | header, body-html | S3, S5 |
+| `ticket-list#013.0` | GET /tickets/sortList/opentickets?columnName=Priority&isMultiSort=true | tickets.sort | new | header, body-html | S3, S5 |
+| `ticket-list#014.1` | GET /tickets | tickets.index | new | header, body-html | S3 |
+| `ticket-list#017.0` | GET /tickets/opentickets | tickets.index | new | header, body-html | S3 |
+| `ticket-create-view#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-create-view#002.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `ticket-create-view#011.1` | GET /tickets | tickets.index | new | header, body-html | S3 |
+| `ticket-edit#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-edit#002.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `ticket-comment#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-comment#002.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `ticket-assign#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-assign#002.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `ticket-close#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-close#002.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `ticket-workflow#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `ticket-workflow#002.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `attachments#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `attachments#002.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `attachments#006.0` | GET /file/get-attachments-info?tempId=da6a5d4c-8f66-4aac-a60f-361c41d9abe9 | file.attachments-info | new | status, body-text | L1 |
+| `admin-settings#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `admin-settings#002.0` | GET /admin/application-settings | admin.application-settings.get | new | header | S3 |
+| `admin-settings#005.0` | GET /admin/user/91efcdb5-506c-4b1b-af6f-08b63dee1475 | admin.user-edit.get | new | header, body-html | S3 |
+| `admin-settings#006.0` | GET /admin/new | admin.user-new.get | new | header | S3 |
+| `admin-settings#008.0` | GET /admin/project/new | admin.project-new.get | new | header | S3 |
+| `admin-settings#009.0` | GET /admin/project/1 | admin.project-edit.get | new | header, body-html | S3 |
+| `admin-settings#010.0` | GET /admin/push-notification-settings | admin.push-settings.get | new | header, body-html | G6, S3 |
+| `admin-changes#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `admin-changes#002.0` | GET /admin/application-settings | admin.application-settings.get | new | header | S3 |
+| `admin-changes#003.0` | POST /admin/application-settings | admin.application-settings.post | new | header | S3 |
+| `admin-changes#004.0` | GET /admin/push-notification-settings | admin.push-settings.get | new | header, body-html | G6, S3 |
+| `admin-changes#005.0` | POST /admin/push-notification-settings | admin.push-settings.post | new | header, body-html | G6, S3 |
+| `admin-changes#006.0` | GET /admin/push-notification-settings/configure-provider?providerAssemblyQualifiedName=TicketDesk.PushNotifications.Delivery.SmtpDeliveryProvider%2C%20TicketDesk.PushNotifications%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull | admin.push-provider.get | new | header, body-html | S3, S6 |
+| `admin-changes#007.0` | POST /admin/push-notification-settings/configure-provider | admin.push-provider.post | new | header, body-html | S3, S6 |
+| `admin-changes#008.0` | GET /admin/project/new | admin.project-new.get | new | header | S3 |
+| `admin-changes#011.0` | GET /admin/project/6 | admin.project-edit.get | new | header, body-html | S3 |
+| `admin-changes#013.0` | GET /admin/project/6 | admin.project-edit.get | new | header, body-html | S3 |
+| `admin-changes#015.0` | GET /admin/new | admin.user-new.get | new | header | S3 |
+| `admin-changes#018.0` | GET /admin/user/aa1ae412-2e19-43e4-9b39-fc2ada47c119 | admin.user-edit.get | new | header, body-html | S3 |
+| `admin-changes#020.0` | GET /admin/user/aa1ae412-2e19-43e4-9b39-fc2ada47c119 | admin.user-edit.get | new | header, body-html | S3 |
+| `internal-user#000.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `internal-user#002.0` | GET /tickets | tickets.index | new | header, body-html | S3 |
+| `internal-user#003.0` | GET /tickets/mytickets | tickets.index | new | header, body-html | S3 |
+| `internal-user#004.0` | GET /tickets/unassigned | tickets.index | new | status, location, body-html | L2 |
+| `internal-user#004.1` | GET /access-denied | home.access-denied | new | extra | L2 |
+| `internal-user#006.0` | GET /ticket/new | ticket.new.get | legacy | set-cookie | G8 |
+| `register-disabled#001.0` | GET /user/sign-in | user.sign-in.get | new | header, set-cookie | S3 |
+| `register-disabled#002.0` | POST /user/register | user.register.post | new | header, set-cookie | S4 |
+| `register-disabled#002.1` | GET / | home.root | new | body-html | S4 |
+| `register-disabled#003.0` | GET / | home.root | new | body-html | S4 |
+| `register-disabled#004.0` | GET /tickets | tickets.index | new | header, location, body-text | S4 |
+| `register-disabled#004.1` | GET /access-denied | user.sign-in.get | new | header, body-html | S3, S4 |

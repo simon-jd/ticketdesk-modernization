@@ -1,0 +1,16 @@
+$ make azure-status
+Name                                                         Ttl                   Usd_h
+-----------------------------------------------------------  --------------------  -------
+vnet-tdlab-westus                                            2026-11-08T05:03:38Z  0
+nsg-tdlab-aks                                                2026-11-08T05:03:38Z  0
+nsg-tdlab-pe                                                 2026-11-08T05:03:38Z  0
+nsg-tdlab-vm                                                 2026-11-08T05:03:38Z  0
+ag-tdlab-email                                               2026-11-08T05:03:38Z  0
+kv-tdlab-36d2d4                                              2026-11-08T05:03:38Z  0
+log-tdlab-westus                                             2026-11-08T05:03:38Z  0.0125
+appi-tdlab-westus                                            2026-11-08T05:03:38Z  0
+privatelink.vaultcore.azure.net                              2026-11-08T05:03:38Z  0.0007
+privatelink.vaultcore.azure.net/pdnslink-kv-kv-tdlab-36d2d4  2026-11-08T05:03:38Z  0
+pe-kv-kv-tdlab-36d2d4                                        2026-11-08T05:03:38Z  0.01
+nic-pe-kv-kv-tdlab-36d2d4                                    2026-11-08T05:03:38Z  0.01
+ledger running estimate USD: 2.53

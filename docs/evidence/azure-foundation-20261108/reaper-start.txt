@@ -1,0 +1,7 @@
+$ scripts/azure_reaper.sh   # start of session 2026-11-08T07:33:50Z
+2026-11-08T07:33:51Z reaper: rg-ticketdesk-lab does not exist: nothing to reap
+rc=0
+$ az network watcher list --query '[].[name, location]'   # read-only, before the first swedencentral VNet
+NetworkWatcher_westus	westus
+NetworkWatcher_francecentral	francecentral
+NetworkWatcher_swedencentral	swedencentral

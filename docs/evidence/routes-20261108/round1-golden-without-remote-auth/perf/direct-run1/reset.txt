@@ -1,0 +1,7 @@
+guest shutdown requested over ssh
+stopped after 5s
+disk reverted to baseline-s
+started: tmux td-legacy-vm, pid 2666556
+ssh up after ~0s
+2026-11-08T21:07:16Z app ready (4 s)
+2026-11-08T21:07:16Z reset to baseline-s done in 19 s

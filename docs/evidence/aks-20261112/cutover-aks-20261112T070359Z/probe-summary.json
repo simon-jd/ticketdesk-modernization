@@ -1,0 +1,81 @@
+{
+  "file": "probe.jsonl",
+  "start": "2026-11-12T07:03:59.245Z",
+  "end": "2026-11-12T07:05:29.605Z",
+  "ticks": 45,
+  "read_requests": 90,
+  "failed_reads": 0,
+  "signins": 2,
+  "failed_signins": 0,
+  "switches": [
+    {
+      "t": "2026-11-12T07:03:59.245Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+    },
+    {
+      "t": "2026-11-12T07:04:29.755Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com"
+    }
+  ],
+  "per_target_path": [
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 33,
+      "failed": 0,
+      "median_ms": 575,
+      "p95_ms": 767
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 33,
+      "failed": 0,
+      "median_ms": 1121,
+      "p95_ms": 1173
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 12,
+      "failed": 0,
+      "median_ms": 775,
+      "p95_ms": 830
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 12,
+      "failed": 0,
+      "median_ms": 1408,
+      "p95_ms": 1441
+    }
+  ],
+  "failure_windows": [],
+  "write_requests": 68,
+  "failed_writes": 0,
+  "write_median_ms": 1157,
+  "write_failure_windows": [],
+  "write_downtime": null,
+  "failed": [],
+  "phases": [
+    {
+      "from": "probe_start",
+      "to": "switched",
+      "seconds": 30.0,
+      "read_requests": 23,
+      "failed_reads": 0,
+      "write_requests": 17,
+      "failed_writes": 0
+    },
+    {
+      "from": "switched",
+      "to": "probe_end",
+      "seconds": 60.4,
+      "read_requests": 67,
+      "failed_reads": 0,
+      "write_requests": 51,
+      "failed_writes": 0
+    }
+  ]
+}

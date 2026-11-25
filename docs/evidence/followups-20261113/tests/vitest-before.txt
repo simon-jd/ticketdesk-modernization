@@ -1,0 +1,31 @@
+
+> ticketdesk-web@0.0.0 pretest
+> npm run generate:api
+
+
+> ticketdesk-web@0.0.0 generate:api
+> ng-openapi-gen --config ng-openapi-gen.json
+
+
+> ticketdesk-web@0.0.0 test
+> ng test --watch=false --reporters=default --reporters=junit --output-file=~/Desktop/ticketdesk-modernization/scratch-followups/vitest-before.xml
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.633 seconds] - 2026-11-13T17:57:41.395Z
+
+
+ RUN  v5.1.0 ~/Desktop/ticketdesk-modernization/wt-followups/src/web
+
+ ✓  ticketdesk-web  src/app/tickets/activity-form.spec.ts (3 tests) 4ms
+ ✓  ticketdesk-web  src/app/tickets/new-ticket-form.spec.ts (5 tests) 4ms
+ ✓  ticketdesk-web  src/app/tickets/format.spec.ts (5 tests) 3ms
+ ✓  ticketdesk-web  src/app/tickets/list-query.spec.ts (10 tests) 8ms
+ ✓  ticketdesk-web  src/app/pages.spec.ts (5 tests) 503ms
+
+ Test Files  5 passed (5)
+      Tests  28 passed (28)
+   Start at  09:57:41
+   Duration  1.08s (environment 54%, setup 21%, tests 19%, transform 4%, import 2%, worker 1%)
+
+JUNIT report written to ~/Desktop/ticketdesk-modernization/scratch-followups/vitest-before.xml

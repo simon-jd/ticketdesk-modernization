@@ -1,0 +1,36 @@
+# 2026-11-10T18:53:45Z baseline-s.sh fulltext (from baseline-s-identity), git c8eb986
+guest shutdown requested over ssh
+stopped after 10s
+disk reverted to baseline-s-identity
+2026-11-10T18:53:58Z reset: empty store (baseline-s state)
+started: tmux td-legacy-vm, pid 3363530
+ssh up after ~0s
+2026-11-10T18:54:12Z app ready (4 s)
+2026-11-10T18:54:12Z reset to baseline-s-identity done in 27 s
+2026-11-10T18:54:12Z add the Full-Text Search feature to SQL Express
+==== 2026-11-10T18:54:12Z step copy-ops
+==== 2026-11-10T18:54:15Z step sql-fulltext
+[2026-11-10T18:54:17Z] CHANGE downloading Express media (Advanced: includes Full-Text Search)
+[2026-11-10T18:54:44Z] CHANGE adding feature FullText to instance SQLEXPRESS (as SYSTEM)
+[2026-11-10T18:55:10Z] CHANGE Full-Text Search installed (setup exit 0)
+[2026-11-10T18:55:10Z] INFO   SQL Server 16.0.1000.6 Express Edition (64-bit), full-text 1 on .\SQLEXPRESS, TCP 1433
+==== 2026-11-10T18:55:12Z done: copy-ops sql-fulltext
+2026-11-10T18:55:12Z td-db migrate on the VM database
+4 script(s) applied
+app pool restarted
+2026-11-10T19:01:28Z app ready (373 s)
+dbo.TicketEvents   ready      items     45649  pending       0  failed 0  crawl 0.8 s (2026-11-10 19:01:36Z .. 2026-11-10 19:01:36Z)
+dbo.Tickets        ready      items     10000  pending       0  failed 0  crawl 0.2 s (2026-11-10 19:01:34Z .. 2026-11-10 19:01:35Z)
+2026-11-10T19:01:37Z stop and save snapshot baseline-s-search
+guest shutdown requested over ssh
+stopped after 5s
+13      baseline-s-search      0 B 2026-11-10 11:01:42  0000:00:00.000          0
+started: tmux td-legacy-vm, pid 3398691
+ssh up after ~0s
+2026-11-10T19:01:56Z app ready (4 s)
+2026-11-10T19:01:56Z save-as baseline-s-search done in 19 s
+2026-11-10T19:01:56Z fulltext (baseline-s-search) done in 491 s
+
+real	8m10.555s
+user	0m2.367s
+sys	0m0.726s

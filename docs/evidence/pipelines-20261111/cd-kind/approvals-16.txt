@@ -1,0 +1,3 @@
+timeline Checkpoint.Approval 'Checkpoint.Approval' state=completed result=succeeded start=2026-11-11T09:04:23 finish=2026-11-11T18:40:28 wait_s=34565
+timeline Checkpoint 'Checkpoint' state=completed result=succeeded start=2026-11-11T09:04:23 finish=2026-11-11T18:40:28 wait_s=34565
+approval <ado-approval-id-4> status=approved created=2026-11-11T09:04:23 approver=identity:<ado-user> actualApprover=identity:<ado-user> status=approved initiated=2026-11-11T09:04:23 decided=2026-11-11T18:40:28 comment=None wait_s=34565

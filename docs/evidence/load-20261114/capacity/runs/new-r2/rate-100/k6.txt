@@ -1,0 +1,35 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:5493 -e TD_RATE=100 -e TD_WARMUP_S=30 -e TD_MEASURE_S=120 -e TD_PRE_VUS=320 -e TD_MAX_VUS=320 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: ~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js
+        output: csv (~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/capacity/runs/new-r2/rate-100/k6.csv.gz)
+     scenarios: (100.00%) 1 scenario, 320 max VUs, 3m0s max duration (incl. graceful stop):
+              * mix: 100.00 iterations/s for 2m30s (maxVUs: 320, gracefulStop: 30s)
+Run    [ 100% ] setup()
+Run    [ 100% ] setup()
+time="2026-11-13T17:42:15-08:00" level=warning msg="The test has generated metrics with 100120 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+{
+ "all": {
+  "duration_ms": {
+   "p(95)": 30.542766899999993,
+   "p(99)": 51.75046159999996,
+   "max": 226.274519,
+   "count": 23250,
+   "min": 1.077947,
+   "med": 5.8218445,
+   "avg": 10.383709923483895,
+   "p(90)": 23.675356500000003
+  },
+  "failed": {
+   "rate": 0,
+   "passes": 0,
+   "fails": 23250
+  }
+ },
+ "dropped": null
+}

@@ -1,0 +1,66 @@
+{
+  "command": "reindex",
+  "base": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+  "ok": true,
+  "checks_passed": 4,
+  "checks_total": 4,
+  "requests": 5,
+  "seconds": 12.1,
+  "checks": [
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "populate search index",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "search finds tickets",
+      "ok": true,
+      "detail": "HTTP 200, 20 ticket links for 'printer'"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 842
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 842,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 1794
+    },
+    {
+      "method": "GET",
+      "url": "/admin/search-manager/populate-index",
+      "status": 200,
+      "ms": 5757
+    },
+    {
+      "method": "GET",
+      "url": "/search?term=printer",
+      "status": 200,
+      "ms": 2867
+    }
+  ],
+  "populate_seconds": 5.8,
+  "printer_hits": 20
+}

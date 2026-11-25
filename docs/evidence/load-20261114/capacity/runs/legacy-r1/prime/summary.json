@@ -1,0 +1,185 @@
+{
+  "target": "https://localhost:8443",
+  "rate_per_s": 10,
+  "warmup_s": 0,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "p(90)": 212.07727440000036,
+      "p(95)": 17073.3672122,
+      "p(99)": 20198.99744988,
+      "max": 21298.91913,
+      "count": 849,
+      "min": 6.934607,
+      "med": 57.883078,
+      "avg": 1185.1095758362778
+    },
+    "failed": {
+      "rate": 0.001177856301531213,
+      "passes": 1,
+      "fails": 848
+    }
+  },
+  "checks": {
+    "rate": 0.9960552268244576,
+    "passes": 505,
+    "fails": 2
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "p(90)": 17940.546463,
+        "p(95)": 18958.9740635,
+        "p(99)": 20220.746770050002,
+        "max": 20591.040764,
+        "count": 186,
+        "min": 84.224311,
+        "med": 104.042118,
+        "avg": 2982.76769447312
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 186
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "min": 6.934607,
+        "med": 12.537,
+        "avg": 652.5652452132498,
+        "p(90)": 118.45915040000003,
+        "p(95)": 204.69486179999996,
+        "p(99)": 19583.425158340004,
+        "max": 21298.91913,
+        "count": 483
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 483
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "p(90)": 593.1981875,
+        "p(95)": 956.68775125,
+        "p(99)": 17287.77395724999,
+        "max": 18294.886723,
+        "count": 66,
+        "min": 70.146115,
+        "med": 86.4850325,
+        "avg": 697.261431848485
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 66
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "med": 30.155596,
+        "avg": 483.81021018518527,
+        "p(90)": 456.21354550000024,
+        "p(95)": 638.415133299999,
+        "p(99)": 10240.63536555998,
+        "max": 20339.959019,
+        "count": 54,
+        "min": 18.854737
+      },
+      "failed": {
+        "rate": 0.018518518518518517,
+        "passes": 1,
+        "fails": 53
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "max": 20479.90859,
+        "count": 60,
+        "min": 24.678079,
+        "med": 58.5057835,
+        "avg": 1067.15365705,
+        "p(90)": 195.21253380000002,
+        "p(95)": 1221.9249579499483,
+        "p(99)": 20352.183423529998
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 60
+      }
+    }
+  },
+  "iterations": {
+    "count": 444,
+    "rate": 7.221999361397667
+  },
+  "dropped_iterations": {
+    "count": 157,
+    "rate": 2.553724999413139
+  },
+  "vus_max": {
+    "value": 50,
+    "min": 50,
+    "max": 50
+  },
+  "vus": {
+    "value": 1,
+    "min": 0,
+    "max": 50
+  },
+  "root_group_checks": [
+    {
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 186,
+      "fails": 0
+    },
+    {
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 161,
+      "fails": 0,
+      "name": "view 200"
+    },
+    {
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 66,
+      "fails": 0,
+      "name": "filter 200"
+    },
+    {
+      "fails": 1,
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 26
+    },
+    {
+      "name": "comment saved",
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 26,
+      "fails": 1
+    },
+    {
+      "passes": 20,
+      "fails": 0,
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd"
+    },
+    {
+      "passes": 20,
+      "fails": 0,
+      "name": "created ticket 200",
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b"
+    }
+  ]
+}

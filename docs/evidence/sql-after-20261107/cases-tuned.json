@@ -1,0 +1,1730 @@
+{
+  "set": "tuned",
+  "database": "TicketDeskL",
+  "capturedAt": "2026-11-08T01:16:59.9881032\u002B00:00",
+  "source": "app code at e509ff9 \u002B uncommitted Round 2 sql-data changes (usp_TicketList, usp_Report_*)",
+  "values": {
+    "staff (help desk user with the most open assigned tickets)": "639e9f0b-9d04-496b-ac9d-05fd59324a0d",
+    "heavyOwner (owner with the most tickets)": "56f30d74-d7a7-45c0-a637-a561bacf0c2e",
+    "lightOwner (first owner, by id, with 3-10 open tickets)": "0000c0eb-b831-4f66-8401-e0b58f54b70b",
+    "bigProject (most tickets)": "1",
+    "smallProject (fewest tickets)": "25",
+    "tag (most used)": "printer",
+    "detailTicket (most events)": "202856",
+    "asOf": "2026-10-31T17:00:00.0000000\u002B00:00"
+  },
+  "scenarios": [
+    {
+      "name": "list-default",
+      "description": "GET /api/tickets?(no list; default sort -lastUpdateDate)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-open-p1",
+      "description": "GET /api/tickets?list=opentickets (sort status,targetDate,dueDate,-lastUpdateDate)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "opentickets"
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "status,targetDate,dueDate,-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-open-p500",
+      "description": "GET /api/tickets?list=opentickets\u0026page=500 (deep page)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "opentickets"
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "status,targetDate,dueDate,-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "500"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-unassigned",
+      "description": "GET /api/tickets?list=unassigned (help desk)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "unassigned"
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "targetDate,dueDate,-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-assignedToMe",
+      "description": "GET /api/tickets?list=assignedToMe (busiest help desk user)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "assignedToMe"
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "status,targetDate,dueDate,-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-mytickets-heavy",
+      "description": "GET /api/tickets?list=mytickets (owner with the most tickets)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "mytickets"
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "56f30d74-d7a7-45c0-a637-a561bacf0c2e"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "targetDate,dueDate,-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-mytickets-light",
+      "description": "GET /api/tickets?list=mytickets (owner with 3-10 open tickets)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "mytickets"
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "0000c0eb-b831-4f66-8401-e0b58f54b70b"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "targetDate,dueDate,-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-history",
+      "description": "GET /api/tickets?list=historytickets (closed, sort status,-lastUpdateDate)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "historytickets"
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "status,-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-project-big",
+      "description": "GET /api/tickets?projectId=\u003Cbiggest project\u003E (default sort)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-project-small",
+      "description": "GET /api/tickets?projectId=\u003Csmallest project\u003E (default sort)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "25"
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-status-sort-title",
+      "description": "GET /api/tickets?status=Active\u0026status=MoreInfo\u0026sort=title",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 1,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Byte",
+              "value": "3"
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "title"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "list-tag",
+      "description": "GET /api/tickets?tag=\u003Cmost used tag\u003E (default sort)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@List",
+              "sqlDbType": "VarChar",
+              "size": 20,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@UserId",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "639e9f0b-9d04-496b-ac9d-05fd59324a0d"
+            },
+            {
+              "name": "@StatusMask",
+              "sqlDbType": "TinyInt",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Owner",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@AssignedTo",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Tag",
+              "sqlDbType": "NVarChar",
+              "size": 100,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "printer"
+            },
+            {
+              "name": "@Sort",
+              "sqlDbType": "VarChar",
+              "size": 200,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "-lastUpdateDate"
+            },
+            {
+              "name": "@Page",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@PageSize",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            },
+            {
+              "name": "@TotalCount",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "detail",
+      "description": "GET /api/tickets/{id} (ticket with the most events)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]\nFROM [dbo].[Tickets] AS [t]\nINNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]\nWHERE [t].[TicketId] = @ticketId\nORDER BY [t].[TicketId], [p].[ProjectId]",
+          "parameters": [
+            {
+              "name": "@ticketId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "202856"
+            }
+          ]
+        },
+        {
+          "commandType": "Text",
+          "text": "SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]\nFROM (\n    SELECT TOP(1) [t].[TicketId], [p].[ProjectId]\n    FROM [dbo].[Tickets] AS [t]\n    INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]\n    WHERE [t].[TicketId] = @ticketId\n    ORDER BY [t].[TicketId], [p].[ProjectId]\n) AS [s]\nINNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]\nORDER BY [s].[TicketId], [s].[ProjectId]",
+          "parameters": [
+            {
+              "name": "@ticketId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "202856"
+            }
+          ]
+        },
+        {
+          "commandType": "Text",
+          "text": "SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]\nFROM (\n    SELECT TOP(1) [t].[TicketId], [p].[ProjectId]\n    FROM [dbo].[Tickets] AS [t]\n    INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]\n    WHERE [t].[TicketId] = @ticketId\n    ORDER BY [t].[TicketId], [p].[ProjectId]\n) AS [s0]\nINNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]\nORDER BY [s0].[TicketId], [s0].[ProjectId]",
+          "parameters": [
+            {
+              "name": "@ticketId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "202856"
+            }
+          ]
+        },
+        {
+          "commandType": "Text",
+          "text": "SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]\nFROM (\n    SELECT TOP(1) [t].[TicketId], [p].[ProjectId]\n    FROM [dbo].[Tickets] AS [t]\n    INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]\n    WHERE [t].[TicketId] = @ticketId\n    ORDER BY [t].[TicketId], [p].[ProjectId]\n) AS [s1]\nINNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]\nORDER BY [s1].[TicketId], [s1].[ProjectId]",
+          "parameters": [
+            {
+              "name": "@ticketId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "202856"
+            }
+          ]
+        },
+        {
+          "commandType": "Text",
+          "text": "SELECT [i].[Id], [i].[DisplayName]\nFROM [dbo].[IdentityUsers] AS [i]\nWHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5)",
+          "parameters": [
+            {
+              "name": "@ids1",
+              "sqlDbType": "NVarChar",
+              "size": 128,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": true,
+              "clrType": "System.String",
+              "value": "979537b0-946f-4cbc-8a18-bf85b2decc03"
+            },
+            {
+              "name": "@ids2",
+              "sqlDbType": "NVarChar",
+              "size": 128,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": true,
+              "clrType": "System.String",
+              "value": "066ae748-ee4d-430d-8f0d-7da243d6dc60"
+            },
+            {
+              "name": "@ids3",
+              "sqlDbType": "NVarChar",
+              "size": 128,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": true,
+              "clrType": "System.String",
+              "value": "6bcc53e8-d2d6-437a-9ecf-3c4ad08f19b6"
+            },
+            {
+              "name": "@ids4",
+              "sqlDbType": "NVarChar",
+              "size": 128,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": true,
+              "clrType": "System.String",
+              "value": "3c6536bb-64a2-4e67-a370-8019677f9e6d"
+            },
+            {
+              "name": "@ids5",
+              "sqlDbType": "NVarChar",
+              "size": 128,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": true,
+              "clrType": "System.String",
+              "value": "6b58044c-496f-4748-8daf-0654b5b41317"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "report-open-aging",
+      "description": "GET /api/reports/open-tickets (usp_Report_OpenTicketsAging)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_Report_OpenTicketsAging @AsOf = @AsOf, @ProjectId = @ProjectId\n",
+          "parameters": [
+            {
+              "name": "@AsOf",
+              "sqlDbType": "DateTimeOffset",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.DateTimeOffset",
+              "value": "2026-10-31T17:00:00.0000000\u002B00:00"
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "report-workload",
+      "description": "GET /api/reports/assignee-workload?top=50 (usp_Report_AssigneeWorkload, Tickets.AssignedDate)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_Report_AssigneeWorkload @AsOf = @AsOf, @ProjectId = @ProjectId, @Top = @Top, @UnassignedOpen = @UnassignedOpen OUTPUT\n",
+          "parameters": [
+            {
+              "name": "@AsOf",
+              "sqlDbType": "DateTimeOffset",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.DateTimeOffset",
+              "value": "2026-10-31T17:00:00.0000000\u002B00:00"
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            },
+            {
+              "name": "@Top",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "50"
+            },
+            {
+              "name": "@UnassignedOpen",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Output",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "report-time-to-close",
+      "description": "GET /api/reports/time-to-close (last 90 days; usp_Report_TimeToClose)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "EXEC dbo.usp_Report_TimeToClose @From = @From, @To = @To, @ProjectId = @ProjectId\n",
+          "parameters": [
+            {
+              "name": "@From",
+              "sqlDbType": "DateTimeOffset",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.DateTimeOffset",
+              "value": "2026-08-02T17:00:00.0000000\u002B00:00"
+            },
+            {
+              "name": "@To",
+              "sqlDbType": "DateTimeOffset",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.DateTimeOffset",
+              "value": "2026-10-31T17:00:00.0000000\u002B00:00"
+            },
+            {
+              "name": "@ProjectId",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

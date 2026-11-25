@@ -1,0 +1,8 @@
+{
+ "migrate": {
+  "enabled": false
+ },
+ "database": {
+  "connectionString": "Server=192.168.192.1,14336;Database=TicketDesk_load_rd2_pitr;User ID=td_load_app;Password=<redacted>;TrustServerCertificate=True;Encrypt=True;Connect Timeout=15"
+ }
+}

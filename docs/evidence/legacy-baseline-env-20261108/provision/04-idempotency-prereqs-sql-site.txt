@@ -1,0 +1,42 @@
+==== 2026-11-08T00:27:34Z step prereqs
+[2026-11-08T00:27:42Z] SKIP   all 18 features already installed
+[2026-11-08T00:27:42Z] INFO   .NET Framework 4.x release key 533320
+[2026-11-08T00:27:42Z] INFO   ASP.NET v4.0 registered with IIS
+
+Name                    InstallState
+----                    ------------
+Web-Server                 Installed
+Web-WebServer              Installed
+Web-Default-Doc            Installed
+Web-Http-Errors            Installed
+Web-Static-Content         Installed
+Web-Http-Redirect          Installed
+Web-Http-Logging           Installed
+Web-Request-Monitor        Installed
+Web-Stat-Compression       Installed
+Web-Dyn-Compression        Installed
+Web-Filtering              Installed
+Web-Net-Ext45              Installed
+Web-Asp-Net45              Installed
+Web-ISAPI-Ext              Installed
+Web-ISAPI-Filter           Installed
+Web-Mgmt-Tools             Installed
+Web-Scripting-Tools        Installed
+NET-Framework-45-ASPNET    Installed
+
+
+
+==== 2026-11-08T00:27:43Z step sql
+[2026-11-08T00:27:50Z] SKIP   MSSQL$SQLEXPRESS already installed
+[2026-11-08T00:27:51Z] INFO   sa login enabled, password set
+[2026-11-08T00:27:53Z] SKIP   firewall rule TicketDesk-SQL-SQLEXPRESS-TCP present
+[2026-11-08T00:27:53Z] INFO   SQL Server 16.0.1000.6 Express Edition (64-bit) on .\SQLEXPRESS, TCP 1433
+==== 2026-11-08T00:27:54Z step site
+[2026-11-08T00:28:01Z] SKIP   certificate BF2C568FC97479170492064C3D1A224E0E3DFF5A already in LocalMachine\My
+[2026-11-08T00:28:01Z] SKIP   IIS AppPool\TicketDesk already has ReadAndExecute on C:\inetpub\ticketdesk
+[2026-11-08T00:28:01Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T00:28:01Z] SKIP   TLS binding 0.0.0.0:443 present
+[2026-11-08T00:28:05Z] SKIP   SQL: database TicketDesk and db_owner login IIS AppPool\TicketDesk present
+[2026-11-08T00:28:05Z] INFO   site TicketDesk -> C:\inetpub\ticketdesk, http 80, https 443, cert BF2C568FC97479170492064C3D1A224E0E3DFF5A (expires 2029-02-09)
+==== 2026-11-08T00:28:05Z done: prereqs sql site
+EXIT=0

@@ -1,0 +1,2460 @@
+{
+  "set": "writes",
+  "database": "TicketDeskL",
+  "started": "2026-11-08T01:02:14.3508475\u002B00:00",
+  "finished": "2026-11-08T01:02:15.0651542\u002B00:00",
+  "environment": "date: 2026-11-08T01:02:14Z\nhost: lab-host, 32 cores, load average 2.76 8.60 19.02\nsql: 16.0.4262.2 Developer Edition (64-bit), MAXDOP(db)=8\ndatabase: TicketDeskL; git: e509ff9",
+  "options": {
+    "warmRuns": 20,
+    "coldRuns": 5,
+    "coldMeans": "CHECKPOINT \u002B DBCC DROPCLEANBUFFERS before every run (buffer pool empty; plan cache kept)",
+    "warmMeans": "one discarded warm-up run, then the measured runs back to back",
+    "percentile": "median and nearest-rank p95 over the measured runs (p95 = maximum when n \u003C 20)"
+  },
+  "scenarios": [
+    {
+      "name": "write-reassign",
+      "description": "EF6-shaped single-ticket reassignment UPDATE, rolled back",
+      "commands": 1,
+      "plans": [
+        "plans/writes.write-reassign.cmd1.stmt1.sqlplan",
+        "plans/writes.write-reassign.cmd1.stmt2.sqlplan"
+      ],
+      "modes": [
+        {
+          "mode": "cold",
+          "summary": {
+            "n": 5,
+            "clientMedianMs": 2.635,
+            "clientP95Ms": 3.348,
+            "serverElapsedMedianMs": 1,
+            "serverElapsedP95Ms": 1,
+            "cpuMedianMs": 1,
+            "cpuP95Ms": 1,
+            "logicalReadsMedian": 6,
+            "physicalReadsMedian": 3,
+            "readAheadMedian": 0,
+            "compileCpuMedianMs": 0
+          },
+          "runs": [
+            {
+              "run": 1,
+              "clientMs": 3.348,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 1,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 3,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 1,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 3,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 2,
+              "clientMs": 2.635,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 1,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 3,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 1,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 3,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 3,
+              "clientMs": 2.538,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 1,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 3,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 1,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 3,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 4,
+              "clientMs": 2.915,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 3,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 3,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 5,
+              "clientMs": 2.352,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 3,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 3,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 3,
+                  "readAheadReads": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mode": "warm",
+          "summary": {
+            "n": 20,
+            "clientMedianMs": 0.34,
+            "clientP95Ms": 0.406,
+            "serverElapsedMedianMs": 0,
+            "serverElapsedP95Ms": 0,
+            "cpuMedianMs": 0,
+            "cpuP95Ms": 0,
+            "logicalReadsMedian": 6,
+            "physicalReadsMedian": 0,
+            "readAheadMedian": 0,
+            "compileCpuMedianMs": 0
+          },
+          "runs": [
+            {
+              "run": 1,
+              "clientMs": 0.379,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 2,
+              "clientMs": 0.406,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 3,
+              "clientMs": 0.371,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 4,
+              "clientMs": 0.358,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 5,
+              "clientMs": 0.356,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 6,
+              "clientMs": 0.363,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 7,
+              "clientMs": 0.352,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 8,
+              "clientMs": 0.329,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 9,
+              "clientMs": 0.222,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 10,
+              "clientMs": 0.21,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 11,
+              "clientMs": 0.271,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 12,
+              "clientMs": 0.335,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 13,
+              "clientMs": 0.292,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 14,
+              "clientMs": 0.236,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 15,
+              "clientMs": 0.201,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 16,
+              "clientMs": 0.242,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 17,
+              "clientMs": 0.462,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 18,
+              "clientMs": 0.347,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 19,
+              "clientMs": 0.345,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 20,
+              "clientMs": 0.326,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 6,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 6,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "write-insert",
+      "description": "EF6-shaped ticket INSERT, rolled back",
+      "commands": 1,
+      "plans": [
+        "plans/writes.write-insert.cmd1.stmt1.sqlplan",
+        "plans/writes.write-insert.cmd1.stmt2.sqlplan"
+      ],
+      "modes": [
+        {
+          "mode": "cold",
+          "summary": {
+            "n": 5,
+            "clientMedianMs": 2.642,
+            "clientP95Ms": 3.359,
+            "serverElapsedMedianMs": 1,
+            "serverElapsedP95Ms": 2,
+            "cpuMedianMs": 0,
+            "cpuP95Ms": 1,
+            "logicalReadsMedian": 12,
+            "physicalReadsMedian": 8,
+            "readAheadMedian": 0,
+            "compileCpuMedianMs": 0
+          },
+          "runs": [
+            {
+              "run": 1,
+              "clientMs": 3.359,
+              "serverElapsedMs": 2,
+              "serverCpuMs": 1,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 8,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 1,
+                  "execElapsedMs": 2,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 1,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 7,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 8,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 2,
+              "clientMs": 2.642,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 8,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 1,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 7,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 8,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 3,
+              "clientMs": 2.791,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 1,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 8,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 1,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 1,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 7,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 8,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 4,
+              "clientMs": 2.491,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 8,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 1,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 7,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 8,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 5,
+              "clientMs": 2.366,
+              "serverElapsedMs": 1,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 8,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 1,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 1,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 7,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 8,
+                  "readAheadReads": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mode": "warm",
+          "summary": {
+            "n": 20,
+            "clientMedianMs": 0.256,
+            "clientP95Ms": 0.332,
+            "serverElapsedMedianMs": 0,
+            "serverElapsedP95Ms": 0,
+            "cpuMedianMs": 0,
+            "cpuP95Ms": 0,
+            "logicalReadsMedian": 12,
+            "physicalReadsMedian": 0,
+            "readAheadMedian": 0,
+            "compileCpuMedianMs": 0
+          },
+          "runs": [
+            {
+              "run": 1,
+              "clientMs": 0.332,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 2,
+              "clientMs": 0.274,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 3,
+              "clientMs": 0.259,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 4,
+              "clientMs": 0.336,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 5,
+              "clientMs": 0.32,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 6,
+              "clientMs": 0.263,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 7,
+              "clientMs": 0.241,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 8,
+              "clientMs": 0.24,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 9,
+              "clientMs": 0.243,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 10,
+              "clientMs": 0.243,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 11,
+              "clientMs": 0.241,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 12,
+              "clientMs": 0.258,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 13,
+              "clientMs": 0.239,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 14,
+              "clientMs": 0.25,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 15,
+              "clientMs": 0.252,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 16,
+              "clientMs": 0.255,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 17,
+              "clientMs": 0.321,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 1,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 1,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 18,
+              "clientMs": 0.257,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 19,
+              "clientMs": 0.252,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            },
+            {
+              "run": 20,
+              "clientMs": 0.332,
+              "serverElapsedMs": 0,
+              "serverCpuMs": 0,
+              "compileCpuMs": 0,
+              "compileElapsedMs": 0,
+              "logicalReads": 12,
+              "lobLogicalReads": 0,
+              "physicalReads": 0,
+              "readAheadReads": 0,
+              "rows": 1,
+              "commands": [
+                {
+                  "execCpuMs": 0,
+                  "execElapsedMs": 0,
+                  "compileCpuMs": 0,
+                  "compileElapsedMs": 0,
+                  "tables": [
+                    {
+                      "table": "Projects",
+                      "scanCount": 0,
+                      "logicalReads": 2,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 7,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    },
+                    {
+                      "table": "Tickets",
+                      "scanCount": 0,
+                      "logicalReads": 3,
+                      "physicalReads": 0,
+                      "readAheadReads": 0,
+                      "lobLogicalReads": 0
+                    }
+                  ],
+                  "logicalReads": 12,
+                  "lobLogicalReads": 0,
+                  "physicalReads": 0,
+                  "readAheadReads": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

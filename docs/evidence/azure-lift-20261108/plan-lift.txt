@@ -1,0 +1,1145 @@
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && umask 077 && cd infra/terraform/envs/lab && export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv) && export TF_VAR_subscription_id=$ARM_SUBSCRIPTION_ID TF_VAR_tenant_id=$(az account show --query tenantId -o tsv) && export TF_VAR_ttl_utc=$(date -u -d "+4 hours" +%Y-%m-%dT%H:%M:%SZ) && source ~/Desktop/ticketdesk-modernization/wt-azure-lift/scripts/tf_lift_env.sh ~/Desktop/ticketdesk-modernization ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/azure-lift.pfx && terraform init -input=false -backend-config=path=~/Desktop/ticketdesk-modernization/.tfstate/lab/terraform.tfstate
+Initializing the backend...
+
+Initializing modules...
+
+Initializing provider plugins...
+- Reusing version 5.13.0 of hashicorp/azurerm from the dependency lock file
+- Reusing version 3.10.0 of hashicorp/azuread from the dependency lock file
+- Reusing version 2.13.0 of azure/azapi from the dependency lock file
+- Reusing version 3.9.1 of hashicorp/random from the dependency lock file
+- Reusing version 0.14.2 of hashicorp/time from the dependency lock file
+- Using previously-installed azure/azapi v2.13.0
+- Using previously-installed hashicorp/random v3.9.1
+- Using previously-installed hashicorp/time v0.14.2
+- Using previously-installed hashicorp/azurerm v5.13.0
+- Using previously-installed hashicorp/azuread v3.10.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && umask 077 && cd infra/terraform/envs/lab && export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv) && export TF_VAR_subscription_id=$ARM_SUBSCRIPTION_ID TF_VAR_tenant_id=$(az account show --query tenantId -o tsv) && export TF_VAR_ttl_utc=$(date -u -d "+4 hours" +%Y-%m-%dT%H:%M:%SZ) && source ~/Desktop/ticketdesk-modernization/wt-azure-lift/scripts/tf_lift_env.sh ~/Desktop/ticketdesk-modernization ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/azure-lift.pfx && terraform plan -input=false -var-file=~/Desktop/ticketdesk-modernization/.secrets/azure-lab.tfvars -var-file=stages/lift.tfvars -var owner=agent-azure-lift 
+data.azuread_client_config.current: Reading...
+data.azuread_client_config.current: Read complete after 0s [id=<tenant-id>-04b07795-8ddb-461a-bbee-02f9e1bf7b46-<principal-id-8>]
+data.azuread_user.me: Reading...
+module.entra[0].azuread_application.web: Refreshing state... [id=/applications/<principal-id-13>]
+data.azuread_user.me: Read complete after 1s [id=/users/<principal-id-8>]
+module.entra[0].azuread_service_principal.web: Refreshing state... [id=/servicePrincipals/<principal-id-3>]
+module.entra[0].azuread_app_role_assignment.admin: Refreshing state... [id=/servicePrincipals/<principal-id-3>/appRoleAssignedTo/3xZGhjjnlEiJClDyDCBVODYduw25U0lGkIFJr1ojvg0]
+data.azurerm_subscription.current: Reading...
+data.azurerm_client_config.current: Reading...
+data.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD0wNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDY7b2JqZWN0SWQ9PHByaW5jaXBhbC1pZC04PjtzdWJzY3JpcHRpb25JZD08c3Vic2NyaXB0aW9uLWlkPjt0ZW5hbnRJZD08dGVuYW50LWlkPg==]
+data.azurerm_subscription.current: Read complete after 1s [id=/subscriptions/<subscription-id>]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # azurerm_key_vault_certificate.iis[0] will be created
+  + resource "azurerm_key_vault_certificate" "iis" {
+      + certificate_attribute           = (known after apply)
+      + certificate_data                = (known after apply)
+      + certificate_data_base64         = (known after apply)
+      + id                              = (known after apply)
+      + key_vault_id                    = (known after apply)
+      + name                            = "td-iis-legacy"
+      + resource_manager_id             = (known after apply)
+      + resource_manager_versionless_id = (known after apply)
+      + secret_id                       = (known after apply)
+      + tags                            = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + thumbprint                      = (known after apply)
+      + version                         = (known after apply)
+      + versionless_id                  = (known after apply)
+      + versionless_secret_id           = (known after apply)
+
+      + certificate {
+          + contents = (sensitive value)
+          + password = (sensitive value)
+        }
+
+      + certificate_policy (known after apply)
+    }
+
+  # azurerm_key_vault_secret.app_admin[0] will be created
+  + resource "azurerm_key_vault_secret" "app_admin" {
+      + content_type            = "password"
+      + id                      = (known after apply)
+      + key_vault_id            = (known after apply)
+      + name                    = "td-app-admin-password"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.appinsights[0] will be created
+  + resource "azurerm_key_vault_secret" "appinsights" {
+      + content_type            = "text/plain"
+      + id                      = (known after apply)
+      + key_vault_id            = (known after apply)
+      + name                    = "appinsights-connection-string"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.sql_connection_string[0] will be created
+  + resource "azurerm_key_vault_secret" "sql_connection_string" {
+      + content_type            = "text/plain"
+      + id                      = (known after apply)
+      + key_vault_id            = (known after apply)
+      + name                    = "sql-connection-string"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.sql_sa[0] will be created
+  + resource "azurerm_key_vault_secret" "sql_sa" {
+      + content_type            = "password"
+      + id                      = (known after apply)
+      + key_vault_id            = (known after apply)
+      + name                    = "td-sql-sa-password"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_resource_group.lab[0] will be created
+  + resource "azurerm_resource_group" "lab" {
+      + id       = (known after apply)
+      + location = "swedencentral"
+      + name     = "rg-ticketdesk-lab"
+      + tags     = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+    }
+
+  # azurerm_role_assignment.vm_artifacts_reader[0] will be created
+  + resource "azurerm_role_assignment" "vm_artifacts_reader" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.vm_blob_writer["backups"] will be created
+  + resource "azurerm_role_assignment" "vm_blob_writer" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.vm_blob_writer["logs"] will be created
+  + resource "azurerm_role_assignment" "vm_blob_writer" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # random_password.sql_sa[0] will be created
+  + resource "random_password" "sql_sa" {
+      + bcrypt_hash      = (sensitive value)
+      + id               = (known after apply)
+      + length           = 24
+      + lower            = true
+      + min_lower        = 2
+      + min_numeric      = 2
+      + min_special      = 2
+      + min_upper        = 2
+      + number           = true
+      + numeric          = true
+      + override_special = "!#%*-_=+"
+      + result           = (sensitive value)
+      + special          = true
+      + upper            = true
+    }
+
+  # module.keyvault[0].azurerm_key_vault.this will be created
+  + resource "azurerm_key_vault" "this" {
+      + access_policy                 = (known after apply)
+      + id                            = (known after apply)
+      + location                      = "swedencentral"
+      + name                          = "kv-tdlab-36d2d4"
+      + public_network_access_enabled = true
+      + purge_protection_enabled      = false
+      + rbac_authorization_enabled    = true
+      + resource_group_name           = "rg-ticketdesk-lab"
+      + sku_name                      = "standard"
+      + soft_delete_retention_days    = 7
+      + tags                          = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + tenant_id                     = "<tenant-id>"
+      + vault_uri                     = (known after apply)
+
+      + network_acls {
+          + bypass                     = "AzureServices"
+          + default_action             = "Deny"
+          + ip_rules                   = [
+              + "<home-ip>",
+            ]
+          + virtual_network_subnet_ids = (known after apply)
+        }
+    }
+
+  # module.keyvault[0].azurerm_role_assignment.admin will be created
+  + resource "azurerm_role_assignment" "admin" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-8>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Key Vault Administrator"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.keyvault[0].time_sleep.rbac_propagation will be created
+  + resource "time_sleep" "rbac_propagation" {
+      + create_duration = "120s"
+      + id              = (known after apply)
+    }
+
+  # module.monitoring[0].azurerm_application_insights.this will be created
+  + resource "azurerm_application_insights" "this" {
+      + app_id                               = (known after apply)
+      + application_type                     = "web"
+      + connection_string                    = (sensitive value)
+      + daily_data_cap_in_gb                 = 100
+      + daily_data_cap_notifications_enabled = true
+      + force_customer_storage_for_profiler  = false
+      + id                                   = (known after apply)
+      + instrumentation_key                  = (sensitive value)
+      + internet_ingestion_enabled           = true
+      + internet_query_enabled               = true
+      + ip_masking_enabled                   = true
+      + local_authentication_enabled         = true
+      + location                             = "swedencentral"
+      + name                                 = "appi-tdlab-swedencentral"
+      + resource_group_name                  = "rg-ticketdesk-lab"
+      + retention_in_days                    = 90
+      + sampling_percentage                  = 100
+      + tags                                 = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + workspace_id                         = (known after apply)
+    }
+
+  # module.monitoring[0].azurerm_log_analytics_workspace.this will be created
+  + resource "azurerm_log_analytics_workspace" "this" {
+      + allow_resource_only_permissions = true
+      + daily_quota_gb                  = 0.1
+      + id                              = (known after apply)
+      + internet_ingestion_access_type  = "Enabled"
+      + internet_query_access_type      = "Enabled"
+      + local_authentication_enabled    = true
+      + location                        = "swedencentral"
+      + name                            = "log-tdlab-swedencentral"
+      + primary_shared_key              = (sensitive value)
+      + resource_group_name             = "rg-ticketdesk-lab"
+      + retention_in_days               = 30
+      + secondary_shared_key            = (sensitive value)
+      + sku                             = "PerGB2018"
+      + tags                            = {
+          + "est_usd_per_hour" = "0.0125"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + workspace_id                    = (known after apply)
+    }
+
+  # module.monitoring[0].azurerm_monitor_action_group.email[0] will be created
+  + resource "azurerm_monitor_action_group" "email" {
+      + enabled             = true
+      + id                  = (known after apply)
+      + location            = "global"
+      + name                = "ag-tdlab-email"
+      + resource_group_name = "rg-ticketdesk-lab"
+      + short_name          = "tdlab"
+      + tags                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+
+      + email_receiver {
+          + email_address           = "<school-upn>"
+          + name                    = "owner"
+          + use_common_alert_schema = true
+        }
+    }
+
+  # module.network[0].azurerm_network_security_group.aks will be created
+  + resource "azurerm_network_security_group" "aks" {
+      + id                  = (known after apply)
+      + location            = "swedencentral"
+      + name                = "nsg-tdlab-aks"
+      + resource_group_name = "rg-ticketdesk-lab"
+      + security_rule       = [
+          + {
+              + access                                     = "Deny"
+              + destination_address_prefix                 = "*"
+              + destination_address_prefixes               = []
+              + destination_application_security_group_ids = []
+              + destination_port_ranges                    = [
+                  + "0-65535",
+                ]
+              + direction                                  = "Inbound"
+              + name                                       = "DenyInternetInbound"
+              + priority                                   = 4000
+              + protocol                                   = "*"
+              + source_address_prefix                      = "Internet"
+              + source_address_prefixes                    = []
+              + source_application_security_group_ids      = []
+              + source_port_range                          = "*"
+              + source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+        ]
+      + tags                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+    }
+
+  # module.network[0].azurerm_network_security_group.pe will be created
+  + resource "azurerm_network_security_group" "pe" {
+      + id                  = (known after apply)
+      + location            = "swedencentral"
+      + name                = "nsg-tdlab-pe"
+      + resource_group_name = "rg-ticketdesk-lab"
+      + security_rule       = [
+          + {
+              + access                                     = "Allow"
+              + destination_address_prefix                 = "*"
+              + destination_address_prefixes               = []
+              + destination_application_security_group_ids = []
+              + destination_port_range                     = "1433"
+              + destination_port_ranges                    = []
+              + direction                                  = "Inbound"
+              + name                                       = "AllowSqlFromVnet"
+              + priority                                   = 100
+              + protocol                                   = "Tcp"
+              + source_address_prefix                      = "VirtualNetwork"
+              + source_address_prefixes                    = []
+              + source_application_security_group_ids      = []
+              + source_port_range                          = "*"
+              + source_port_ranges                         = []
+                # (1 unchanged attribute hidden)
+            },
+          + {
+              + access                                     = "Deny"
+              + destination_address_prefix                 = "*"
+              + destination_address_prefixes               = []
+              + destination_application_security_group_ids = []
+              + destination_port_ranges                    = [
+                  + "0-65535",
+                ]
+              + direction                                  = "Inbound"
+              + name                                       = "DenyInternetInbound"
+              + priority                                   = 4000
+              + protocol                                   = "*"
+              + source_address_prefix                      = "Internet"
+              + source_address_prefixes                    = []
+              + source_application_security_group_ids      = []
+              + source_port_range                          = "*"
+              + source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+          + {
+              + access                                     = "Deny"
+              + destination_address_prefix                 = "*"
+              + destination_address_prefixes               = []
+              + destination_application_security_group_ids = []
+              + destination_port_range                     = "*"
+              + destination_port_ranges                    = []
+              + direction                                  = "Inbound"
+              + name                                       = "DenyOtherVnetInbound"
+              + priority                                   = 3900
+              + protocol                                   = "*"
+              + source_address_prefix                      = "VirtualNetwork"
+              + source_address_prefixes                    = []
+              + source_application_security_group_ids      = []
+              + source_port_range                          = "*"
+              + source_port_ranges                         = []
+                # (1 unchanged attribute hidden)
+            },
+        ]
+      + tags                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+    }
+
+  # module.network[0].azurerm_network_security_group.vm will be created
+  + resource "azurerm_network_security_group" "vm" {
+      + id                  = (known after apply)
+      + location            = "swedencentral"
+      + name                = "nsg-tdlab-vm"
+      + resource_group_name = "rg-ticketdesk-lab"
+      + security_rule       = [
+          + {
+              + access                                     = "Allow"
+              + destination_address_prefix                 = "*"
+              + destination_address_prefixes               = []
+              + destination_application_security_group_ids = []
+              + destination_port_range                     = "443"
+              + destination_port_ranges                    = []
+              + direction                                  = "Inbound"
+              + name                                       = "AllowHttpsFromHome"
+              + priority                                   = 100
+              + protocol                                   = "Tcp"
+              + source_address_prefixes                    = [
+                  + "<home-ip>/32",
+                ]
+              + source_application_security_group_ids      = []
+              + source_port_range                          = "*"
+              + source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+          + {
+              + access                                     = "Deny"
+              + destination_address_prefix                 = "*"
+              + destination_address_prefixes               = []
+              + destination_application_security_group_ids = []
+              + destination_port_ranges                    = [
+                  + "0-65535",
+                ]
+              + direction                                  = "Inbound"
+              + name                                       = "DenyInternetInbound"
+              + priority                                   = 4000
+              + protocol                                   = "*"
+              + source_address_prefix                      = "Internet"
+              + source_address_prefixes                    = []
+              + source_application_security_group_ids      = []
+              + source_port_range                          = "*"
+              + source_port_ranges                         = []
+                # (2 unchanged attributes hidden)
+            },
+        ]
+      + tags                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+    }
+
+  # module.network[0].azurerm_subnet.aks will be created
+  + resource "azurerm_subnet" "aks" {
+      + address_prefixes                              = [
+          + "10.42.16.0/22",
+        ]
+      + default_outbound_access_enabled               = false
+      + id                                            = (known after apply)
+      + name                                          = "snet-aks"
+      + network_security_group_id                     = (known after apply)
+      + network_security_group_id_wo                  = (write-only attribute)
+      + private_endpoint_network_policies             = "Disabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "rg-ticketdesk-lab"
+      + route_table_id                                = (known after apply)
+      + route_table_id_wo                             = (write-only attribute)
+      + virtual_network_name                          = "vnet-tdlab-swedencentral"
+    }
+
+  # module.network[0].azurerm_subnet.pe will be created
+  + resource "azurerm_subnet" "pe" {
+      + address_prefixes                              = [
+          + "10.42.2.0/24",
+        ]
+      + default_outbound_access_enabled               = false
+      + id                                            = (known after apply)
+      + name                                          = "snet-pe"
+      + network_security_group_id                     = (known after apply)
+      + network_security_group_id_wo                  = (write-only attribute)
+      + private_endpoint_network_policies             = "Enabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "rg-ticketdesk-lab"
+      + route_table_id                                = (known after apply)
+      + route_table_id_wo                             = (write-only attribute)
+      + virtual_network_name                          = "vnet-tdlab-swedencentral"
+    }
+
+  # module.network[0].azurerm_subnet.vm will be created
+  + resource "azurerm_subnet" "vm" {
+      + address_prefixes                              = [
+          + "10.42.1.0/24",
+        ]
+      + default_outbound_access_enabled               = false
+      + id                                            = (known after apply)
+      + name                                          = "snet-vm"
+      + network_security_group_id                     = (known after apply)
+      + network_security_group_id_wo                  = (write-only attribute)
+      + private_endpoint_network_policies             = "Disabled"
+      + private_link_service_network_policies_enabled = true
+      + resource_group_name                           = "rg-ticketdesk-lab"
+      + route_table_id                                = (known after apply)
+      + route_table_id_wo                             = (write-only attribute)
+      + virtual_network_name                          = "vnet-tdlab-swedencentral"
+
+      + service_endpoint {
+          + service = "Microsoft.KeyVault"
+        }
+      + service_endpoint {
+          + service = "Microsoft.Storage"
+        }
+    }
+
+  # module.network[0].azurerm_subnet_network_security_group_association.aks will be created
+  + resource "azurerm_subnet_network_security_group_association" "aks" {
+      + id                        = (known after apply)
+      + network_security_group_id = (known after apply)
+      + subnet_id                 = (known after apply)
+    }
+
+  # module.network[0].azurerm_subnet_network_security_group_association.pe will be created
+  + resource "azurerm_subnet_network_security_group_association" "pe" {
+      + id                        = (known after apply)
+      + network_security_group_id = (known after apply)
+      + subnet_id                 = (known after apply)
+    }
+
+  # module.network[0].azurerm_subnet_network_security_group_association.vm will be created
+  + resource "azurerm_subnet_network_security_group_association" "vm" {
+      + id                        = (known after apply)
+      + network_security_group_id = (known after apply)
+      + subnet_id                 = (known after apply)
+    }
+
+  # module.network[0].azurerm_virtual_network.this will be created
+  + resource "azurerm_virtual_network" "this" {
+      + address_space                  = [
+          + "10.42.0.0/16",
+        ]
+      + dns_servers                    = (known after apply)
+      + guid                           = (known after apply)
+      + id                             = (known after apply)
+      + location                       = "swedencentral"
+      + name                           = "vnet-tdlab-swedencentral"
+      + private_endpoint_vnet_policies = "Disabled"
+      + resource_group_name            = "rg-ticketdesk-lab"
+      + subnet                         = (known after apply)
+      + tags                           = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+    }
+
+  # module.sql[0].azapi_resource.database will be created
+  + resource "azapi_resource" "database" {
+      + body                      = {
+          + properties = {
+              + autoPauseDelay                   = 60
+              + collation                        = "SQL_Latin1_General_CP1_CI_AS"
+              + freeLimitExhaustionBehavior      = "AutoPause"
+              + maxSizeBytes                     = 34359738368
+              + minCapacity                      = 0.5
+              + requestedBackupStorageRedundancy = "Local"
+              + useFreeLimit                     = true
+              + zoneRedundant                    = false
+            }
+          + sku        = {
+              + capacity = 2
+              + family   = "Gen5"
+              + name     = "GP_S_Gen5"
+              + tier     = "GeneralPurpose"
+            }
+        }
+      + id                        = (known after apply)
+      + ignore_body_changes       = (write-only attribute)
+      + ignore_casing             = false
+      + ignore_missing_property   = true
+      + ignore_null_property      = false
+      + location                  = "swedencentral"
+      + name                      = "sqldb-ticketdesk"
+      + output                    = (known after apply)
+      + parent_id                 = (known after apply)
+      + response_export_values    = {
+          + current_service_objective   = "properties.currentServiceObjectiveName"
+          + free_limit_exhaustion       = "properties.freeLimitExhaustionBehavior"
+          + requested_backup_redundancy = "properties.requestedBackupStorageRedundancy"
+          + status                      = "properties.status"
+          + use_free_limit              = "properties.useFreeLimit"
+        }
+      + schema_validation_enabled = true
+      + sensitive_body            = (write-only attribute)
+      + tags                      = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + type                      = "Microsoft.Sql/servers/databases@2025-01-01"
+    }
+
+  # module.sql[0].azurerm_mssql_server.this will be created
+  + resource "azurerm_mssql_server" "this" {
+      + administrator_login                      = (known after apply)
+      + administrator_login_password_wo          = (write-only attribute)
+      + connection_policy                        = "Default"
+      + express_vulnerability_assessment_enabled = false
+      + fully_qualified_domain_name              = (known after apply)
+      + id                                       = (known after apply)
+      + location                                 = "swedencentral"
+      + minimum_tls_version                      = "1.2"
+      + name                                     = "sql-tdlab-36d2d4"
+      + outbound_network_restriction_enabled     = false
+      + primary_user_assigned_identity_id        = (known after apply)
+      + public_network_access_enabled            = false
+      + resource_group_name                      = "rg-ticketdesk-lab"
+      + restorable_dropped_database_ids          = (known after apply)
+      + tags                                     = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + version                                  = "12.0"
+
+      + azuread_administrator {
+          + azuread_authentication_only = true
+          + login_username              = "<school-upn>"
+          + object_id                   = "<principal-id-8>"
+          + tenant_id                   = (known after apply)
+        }
+    }
+
+  # module.sql[0].azurerm_private_dns_zone.sql will be created
+  + resource "azurerm_private_dns_zone" "sql" {
+      + id                                                    = (known after apply)
+      + max_number_of_record_sets                             = (known after apply)
+      + max_number_of_virtual_network_links                   = (known after apply)
+      + max_number_of_virtual_network_links_with_registration = (known after apply)
+      + name                                                  = "privatelink.database.windows.net"
+      + number_of_record_sets                                 = (known after apply)
+      + resource_group_name                                   = "rg-ticketdesk-lab"
+      + tags                                                  = {
+          + "est_usd_per_hour" = "0.0007"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+
+      + soa_record (known after apply)
+    }
+
+  # module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql will be created
+  + resource "azurerm_private_dns_zone_virtual_network_link" "sql" {
+      + id                   = (known after apply)
+      + name                 = "pdnslink-sql-tdlab"
+      + private_dns_zone_id  = (known after apply)
+      + registration_enabled = false
+      + resolution_policy    = (known after apply)
+      + tags                 = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + virtual_network_id   = (known after apply)
+    }
+
+  # module.sql[0].azurerm_private_endpoint.sql will be created
+  + resource "azurerm_private_endpoint" "sql" {
+      + custom_dns_configs            = (known after apply)
+      + custom_network_interface_name = "nic-pe-sql-tdlab"
+      + id                            = (known after apply)
+      + location                      = "swedencentral"
+      + name                          = "pe-sql-tdlab"
+      + network_interface             = (known after apply)
+      + private_dns_zone_configs      = (known after apply)
+      + resource_group_name           = "rg-ticketdesk-lab"
+      + subnet_id                     = (known after apply)
+      + tags                          = {
+          + "est_usd_per_hour" = "0.01"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+
+      + private_dns_zone_group {
+          + id                   = (known after apply)
+          + name                 = "default"
+          + private_dns_zone_ids = (known after apply)
+        }
+
+      + private_service_connection {
+          + is_manual_connection           = false
+          + name                           = "psc-sql"
+          + private_connection_resource_id = (known after apply)
+          + private_ip_address             = (known after apply)
+          + subresource_names              = [
+              + "sqlServer",
+            ]
+        }
+    }
+
+  # module.storage[0].azurerm_role_assignment.operator will be created
+  + resource "azurerm_role_assignment" "operator" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-8>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_account.this will be created
+  + resource "azurerm_storage_account" "this" {
+      + access_tier                                    = "Hot"
+      + account_kind                                   = "StorageV2"
+      + account_replication_type                       = "LRS"
+      + account_replication_type_migrating_to          = (known after apply)
+      + account_replication_type_migration_in_progress = (known after apply)
+      + account_tier                                   = "Standard"
+      + allow_nested_items_to_be_public                = false
+      + cross_tenant_replication_enabled               = false
+      + default_to_oauth_authentication                = true
+      + dns_endpoint_type                              = "Standard"
+      + https_traffic_only_enabled                     = true
+      + id                                             = (known after apply)
+      + infrastructure_encryption_enabled              = false
+      + is_hns_enabled                                 = false
+      + large_file_share_enabled                       = (known after apply)
+      + local_user_enabled                             = false
+      + location                                       = "swedencentral"
+      + min_tls_version                                = "TLS1_2"
+      + name                                           = "sttdlab36d2d4"
+      + nfsv3_enabled                                  = false
+      + primary_access_key                             = (sensitive value)
+      + primary_blob_connection_string                 = (sensitive value)
+      + primary_blob_endpoint                          = (known after apply)
+      + primary_blob_host                              = (known after apply)
+      + primary_blob_internet_endpoint                 = (known after apply)
+      + primary_blob_internet_host                     = (known after apply)
+      + primary_blob_microsoft_endpoint                = (known after apply)
+      + primary_blob_microsoft_host                    = (known after apply)
+      + primary_connection_string                      = (sensitive value)
+      + primary_dfs_endpoint                           = (known after apply)
+      + primary_dfs_host                               = (known after apply)
+      + primary_dfs_internet_endpoint                  = (known after apply)
+      + primary_dfs_internet_host                      = (known after apply)
+      + primary_dfs_microsoft_endpoint                 = (known after apply)
+      + primary_dfs_microsoft_host                     = (known after apply)
+      + primary_file_endpoint                          = (known after apply)
+      + primary_file_host                              = (known after apply)
+      + primary_file_internet_endpoint                 = (known after apply)
+      + primary_file_internet_host                     = (known after apply)
+      + primary_file_microsoft_endpoint                = (known after apply)
+      + primary_file_microsoft_host                    = (known after apply)
+      + primary_location                               = (known after apply)
+      + primary_queue_endpoint                         = (known after apply)
+      + primary_queue_host                             = (known after apply)
+      + primary_queue_microsoft_endpoint               = (known after apply)
+      + primary_queue_microsoft_host                   = (known after apply)
+      + primary_table_endpoint                         = (known after apply)
+      + primary_table_host                             = (known after apply)
+      + primary_table_microsoft_endpoint               = (known after apply)
+      + primary_table_microsoft_host                   = (known after apply)
+      + primary_web_endpoint                           = (known after apply)
+      + primary_web_host                               = (known after apply)
+      + primary_web_internet_endpoint                  = (known after apply)
+      + primary_web_internet_host                      = (known after apply)
+      + primary_web_microsoft_endpoint                 = (known after apply)
+      + primary_web_microsoft_host                     = (known after apply)
+      + public_network_access                          = "Enabled"
+      + public_network_access_enabled                  = (known after apply)
+      + queue_encryption_key_type                      = "Service"
+      + resource_group_name                            = "rg-ticketdesk-lab"
+      + secondary_access_key                           = (sensitive value)
+      + secondary_blob_connection_string               = (sensitive value)
+      + secondary_blob_endpoint                        = (known after apply)
+      + secondary_blob_host                            = (known after apply)
+      + secondary_blob_internet_endpoint               = (known after apply)
+      + secondary_blob_internet_host                   = (known after apply)
+      + secondary_blob_microsoft_endpoint              = (known after apply)
+      + secondary_blob_microsoft_host                  = (known after apply)
+      + secondary_connection_string                    = (sensitive value)
+      + secondary_dfs_endpoint                         = (known after apply)
+      + secondary_dfs_host                             = (known after apply)
+      + secondary_dfs_internet_endpoint                = (known after apply)
+      + secondary_dfs_internet_host                    = (known after apply)
+      + secondary_dfs_microsoft_endpoint               = (known after apply)
+      + secondary_dfs_microsoft_host                   = (known after apply)
+      + secondary_file_endpoint                        = (known after apply)
+      + secondary_file_host                            = (known after apply)
+      + secondary_file_internet_endpoint               = (known after apply)
+      + secondary_file_internet_host                   = (known after apply)
+      + secondary_file_microsoft_endpoint              = (known after apply)
+      + secondary_file_microsoft_host                  = (known after apply)
+      + secondary_location                             = (known after apply)
+      + secondary_queue_endpoint                       = (known after apply)
+      + secondary_queue_host                           = (known after apply)
+      + secondary_queue_microsoft_endpoint             = (known after apply)
+      + secondary_queue_microsoft_host                 = (known after apply)
+      + secondary_table_endpoint                       = (known after apply)
+      + secondary_table_host                           = (known after apply)
+      + secondary_table_microsoft_endpoint             = (known after apply)
+      + secondary_table_microsoft_host                 = (known after apply)
+      + secondary_web_endpoint                         = (known after apply)
+      + secondary_web_host                             = (known after apply)
+      + secondary_web_internet_endpoint                = (known after apply)
+      + secondary_web_internet_host                    = (known after apply)
+      + secondary_web_microsoft_endpoint               = (known after apply)
+      + secondary_web_microsoft_host                   = (known after apply)
+      + sftp_enabled                                   = false
+      + shared_access_key_enabled                      = false
+      + smb_oauth_enabled                              = false
+      + table_encryption_key_type                      = "Service"
+      + tags                                           = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+
+      + blob_properties (known after apply)
+
+      + network_rules {
+          + bypass                     = [
+              + "AzureServices",
+            ]
+          + default_action             = "Deny"
+          + ip_rules                   = [
+              + "<home-ip>",
+            ]
+          + virtual_network_subnet_ids = (known after apply)
+        }
+
+      + routing (known after apply)
+
+      + share_properties (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_container.this["artifacts"] will be created
+  + resource "azurerm_storage_container" "this" {
+      + container_access_type             = "private"
+      + default_encryption_scope          = (known after apply)
+      + encryption_scope_override_enabled = true
+      + has_immutability_policy           = (known after apply)
+      + has_legal_hold                    = (known after apply)
+      + id                                = (known after apply)
+      + metadata                          = (known after apply)
+      + name                              = "artifacts"
+      + storage_account_id                = (known after apply)
+      + url                               = (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_container.this["backups"] will be created
+  + resource "azurerm_storage_container" "this" {
+      + container_access_type             = "private"
+      + default_encryption_scope          = (known after apply)
+      + encryption_scope_override_enabled = true
+      + has_immutability_policy           = (known after apply)
+      + has_legal_hold                    = (known after apply)
+      + id                                = (known after apply)
+      + metadata                          = (known after apply)
+      + name                              = "backups"
+      + storage_account_id                = (known after apply)
+      + url                               = (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_container.this["logs"] will be created
+  + resource "azurerm_storage_container" "this" {
+      + container_access_type             = "private"
+      + default_encryption_scope          = (known after apply)
+      + encryption_scope_override_enabled = true
+      + has_immutability_policy           = (known after apply)
+      + has_legal_hold                    = (known after apply)
+      + id                                = (known after apply)
+      + metadata                          = (known after apply)
+      + name                              = "logs"
+      + storage_account_id                = (known after apply)
+      + url                               = (known after apply)
+    }
+
+  # module.storage[0].time_sleep.rbac_propagation will be created
+  + resource "time_sleep" "rbac_propagation" {
+      + create_duration = "60s"
+      + id              = (known after apply)
+    }
+
+  # module.vm[0].azurerm_key_vault_secret.admin_password will be created
+  + resource "azurerm_key_vault_secret" "admin_password" {
+      + content_type            = "password"
+      + id                      = (known after apply)
+      + key_vault_id            = (known after apply)
+      + name                    = "vm-tdlab-legacy-admin-password"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # module.vm[0].azurerm_network_interface.this will be created
+  + resource "azurerm_network_interface" "this" {
+      + accelerated_networking_enabled = false
+      + applied_dns_servers            = (known after apply)
+      + id                             = (known after apply)
+      + internal_domain_name_suffix    = (known after apply)
+      + ip_forwarding_enabled          = false
+      + location                       = "swedencentral"
+      + mac_address                    = (known after apply)
+      + name                           = "nic-tdlab-legacy"
+      + private_ip_address             = (known after apply)
+      + private_ip_addresses           = (known after apply)
+      + resource_group_name            = "rg-ticketdesk-lab"
+      + tags                           = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + virtual_machine_id             = (known after apply)
+
+      + ip_configuration {
+          + gateway_load_balancer_frontend_ip_configuration_id = (known after apply)
+          + name                                               = "ipconfig1"
+          + primary                                            = (known after apply)
+          + private_ip_address                                 = (known after apply)
+          + private_ip_address_allocation                      = "Dynamic"
+          + private_ip_address_version                         = "IPv4"
+          + public_ip_address_id                               = (known after apply)
+          + subnet_id                                          = (known after apply)
+        }
+    }
+
+  # module.vm[0].azurerm_public_ip.this will be created
+  + resource "azurerm_public_ip" "this" {
+      + allocation_method       = "Static"
+      + ddos_protection_mode    = "VirtualNetworkInherited"
+      + domain_name_label       = "tdlab-legacy-36d2d4"
+      + fqdn                    = (known after apply)
+      + id                      = (known after apply)
+      + idle_timeout_in_minutes = 4
+      + ip_address              = (known after apply)
+      + ip_version              = "IPv4"
+      + location                = "swedencentral"
+      + name                    = "pip-tdlab-legacy"
+      + resource_group_name     = "rg-ticketdesk-lab"
+      + sku                     = "Standard"
+      + sku_tier                = "Regional"
+      + tags                    = {
+          + "est_usd_per_hour" = "0.005"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+    }
+
+  # module.vm[0].azurerm_role_assignment.kv_secrets_user will be created
+  + resource "azurerm_role_assignment" "kv_secrets_user" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Key Vault Secrets User"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.vm[0].azurerm_windows_virtual_machine.this will be created
+  + resource "azurerm_windows_virtual_machine" "this" {
+      + admin_password                                         = (sensitive value)
+      + admin_username                                         = "tdadmin"
+      + allow_extension_operations                             = (known after apply)
+      + automatic_updates_enabled                              = false
+      + bypass_platform_safety_checks_on_user_schedule_enabled = false
+      + computer_name                                          = "tdlab-legacy"
+      + disk_controller_type                                   = (known after apply)
+      + extensions_time_budget                                 = "PT1H30M"
+      + hotpatching_enabled                                    = (known after apply)
+      + id                                                     = (known after apply)
+      + location                                               = "swedencentral"
+      + max_bid_price                                          = -1
+      + name                                                   = "vm-tdlab-legacy"
+      + network_interface_ids                                  = (known after apply)
+      + os_managed_disk_id                                     = (known after apply)
+      + patch_assessment_mode                                  = (known after apply)
+      + patch_mode                                             = "Manual"
+      + platform_fault_domain                                  = -1
+      + priority                                               = "Regular"
+      + private_ip_address                                     = (known after apply)
+      + private_ip_addresses                                   = (known after apply)
+      + provision_vm_agent                                     = true
+      + public_ip_address                                      = (known after apply)
+      + public_ip_addresses                                    = (known after apply)
+      + resource_group_name                                    = "rg-ticketdesk-lab"
+      + secure_boot_enabled                                    = true
+      + size                                                   = "Standard_B2as_v2"
+      + tags                                                   = {
+          + "est_usd_per_hour" = "0.0891"
+          + "owner"            = "agent-azure-lift"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-08T19:45:32Z"
+        }
+      + virtual_machine_id                                     = (known after apply)
+      + vm_agent_platform_updates_enabled                      = (known after apply)
+      + vtpm_enabled                                           = true
+
+      + boot_diagnostics {}
+
+      + identity {
+          + principal_id = (known after apply)
+          + tenant_id    = (known after apply)
+          + type         = "SystemAssigned"
+        }
+
+      + os_disk {
+          + caching                   = "ReadWrite"
+          + disk_size_gb              = 32
+          + id                        = (known after apply)
+          + name                      = "osdisk-tdlab-legacy"
+          + storage_account_type      = "Standard_LRS"
+          + write_accelerator_enabled = false
+        }
+
+      + source_image_reference {
+          + offer     = "WindowsServer"
+          + publisher = "MicrosoftWindowsServer"
+          + sku       = "2025-datacenter-core-smalldisk-g2"
+          + version   = "latest"
+        }
+
+      + termination_notification (known after apply)
+    }
+
+  # module.vm[0].random_password.admin will be created
+  + resource "random_password" "admin" {
+      + bcrypt_hash      = (sensitive value)
+      + id               = (known after apply)
+      + length           = 24
+      + lower            = true
+      + min_lower        = 2
+      + min_numeric      = 2
+      + min_special      = 2
+      + min_upper        = 2
+      + number           = true
+      + numeric          = true
+      + override_special = "!#%*-_=+"
+      + result           = (sensitive value)
+      + special          = true
+      + upper            = true
+    }
+
+Plan: 43 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  ~ est_usd_per_hour        = "0.0000" -> "0.1173"
+  + key_vault_name          = "kv-tdlab-36d2d4"
+  + key_vault_uri           = (known after apply)
+  + log_analytics_workspace = "log-tdlab-swedencentral"
+  + resource_group          = "rg-ticketdesk-lab"
+  + sql_database            = "sqldb-ticketdesk"
+  + sql_database_properties = (known after apply)
+  + sql_private_endpoint_ip = (known after apply)
+  + sql_server_fqdn         = (known after apply)
+  + storage_account         = "sttdlab36d2d4"
+  + storage_blob_endpoint   = (known after apply)
+  + vm_fqdn                 = (known after apply)
+  + vm_name                 = "vm-tdlab-legacy"
+  + vm_public_ip            = (known after apply)
+  + vnet_id                 = (known after apply)
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

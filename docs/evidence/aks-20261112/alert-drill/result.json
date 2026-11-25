@@ -1,0 +1,19 @@
+{
+ "fault": "2026-11-12T07:37:57.881Z",
+ "recover": "2026-11-12T07:39:56.963Z",
+ "alert_fired_utc": "2026-11-12T07:39:21.2120413Z",
+ "alert_resolved_utc": "2026-11-12T07:44:12.5600755Z",
+ "fault_to_fired_s": 83.3,
+ "recover_to_resolved_s": 255.6,
+ "fired_to_resolved_s": 291.3,
+ "probe_reads": 362,
+ "probe_failed_reads": 22,
+ "failure_windows": [
+  {
+   "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+   "start": "2026-11-12T07:38:11.465Z",
+   "end": "2026-11-12T07:40:01.343Z",
+   "ticks": 11
+  }
+ ]
+}

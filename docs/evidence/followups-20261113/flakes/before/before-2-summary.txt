@@ -1,0 +1,6 @@
+  total: 746
+  failed: 0
+  succeeded: 746
+  skipped: 0
+  duration: 22s 153ms
+rc=0

@@ -1,0 +1,69 @@
+{
+    "tag": "printer",
+    "total": 1817,
+    "query_store": "READ_WRITE",
+    "forced_plans": 0,
+    "query_store_hints": 0,
+    "plans": [
+        {
+            "run": 1,
+            "plan": 1,
+            "statement": "WITH k AS (\n        SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-',",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Compute Scalar,Nested Loops,Stream Aggregate,Sort,Table Spool,Table-valued function,Filter,Constant Scan"
+        },
+        {
+            "run": 1,
+            "plan": 2,
+            "statement": "SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM ",
+            "dop": "0",
+            "non_parallel_reason": null,
+            "elapsed_ms": "3",
+            "cpu_ms": "3",
+            "operators": "Compute Scalar,Stream Aggregate,Parallelism,Hash Match,Bitmap,Index Seek,Index Scan"
+        },
+        {
+            "run": 1,
+            "plan": 3,
+            "statement": "SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketSta",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Sort,Merge Join,Clustered Index Scan,Nested Loops,Top,Index Scan,Index Seek,Clustered Index Seek"
+        },
+        {
+            "run": 2,
+            "plan": 1,
+            "statement": "WITH k AS (\n        SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-',",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Compute Scalar,Nested Loops,Stream Aggregate,Sort,Table Spool,Table-valued function,Filter,Constant Scan"
+        },
+        {
+            "run": 2,
+            "plan": 2,
+            "statement": "SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM ",
+            "dop": "0",
+            "non_parallel_reason": null,
+            "elapsed_ms": "3",
+            "cpu_ms": "3",
+            "operators": "Compute Scalar,Stream Aggregate,Parallelism,Hash Match,Bitmap,Index Seek,Index Scan"
+        },
+        {
+            "run": 2,
+            "plan": 3,
+            "statement": "SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketSta",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Sort,Merge Join,Clustered Index Scan,Nested Loops,Top,Index Scan,Index Seek,Clustered Index Seek"
+        }
+    ]
+}

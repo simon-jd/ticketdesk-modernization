@@ -1,0 +1,160 @@
+@* Port of the legacy Views/TicketActivity/_EditTicketInfo.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd). *@
+@model TicketDesk.Web.Controllers.ActivityFormModel
+@using TicketDesk.Web.Views
+@using TicketDesk.Tickets.Writes
+@using S = TicketDesk.Localization.Views.TicketActivity.Strings
+@{
+    var t = Model.Ticket;
+    var a = Model.Actor;
+    var s = Model.Settings;
+    var allowPriority = a.IsAdministrator || a.IsHelpDesk || (a.IsInternal && s.AllowInternalUsersToEditPriority);
+    var allowTags = a.IsHelpDesk || s.AllowInternalUsersToEditTags;
+    var allowOwner = (a.IsInternal && s.AllowInternalUsersToSetOwner) || a.IsHelpDesk || a.IsAdministrator;
+}
+
+@if (Model.IsMultiProject)
+{
+<div class="form-group">
+    @FormHtml.Label("ProjectId", "TicketProject", "col-sm-2 control-label")
+    <div class="col-sm-8">
+        @FormHtml.Select("ProjectId", FormHtml.WithDefault(Model.Projects.Select(p => new FormHtml.Option(p.ProjectId.ToString(CultureInfo.InvariantCulture), p.ProjectName))),
+            t.ProjectId.ToString(CultureInfo.InvariantCulture), new FormHtml.Rules("TicketProject", Number: true, Required: true), "form-control input-sm", 0)
+        @FormHtml.ValidationMessage("ProjectId")
+    </div>
+</div>
+}
+else
+{
+    @Html.Raw($"<input data-val=\"true\" data-val-number=\"{System.Net.WebUtility.HtmlEncode(FormHtml.Number("TicketProject"))}\" data-val-required=\"{System.Net.WebUtility.HtmlEncode(FormHtml.Required("TicketProject"))}\" id=\"ProjectId\" name=\"ProjectId\" type=\"hidden\" value=\"{t.ProjectId}\" />")
+}
+
+<div class="form-group">
+    @FormHtml.Label("Title", "TicketTitle", "col-sm-2 control-label")
+    <div class="col-sm-8">
+        @FormHtml.TextBox("Title", t.Title, new FormHtml.Rules("TicketTitle", MaxLength: 500, Required: true), "form-control input-sm", 1, extra: $" placeholder=\"{System.Net.WebUtility.HtmlEncode(S.Form_TicketTitle_Placeholder)}\"")
+        @FormHtml.ValidationMessage("Title")
+    </div>
+</div>
+
+<div class="form-group">
+    @FormHtml.Label("TicketType", "TicketTicketType", "col-sm-2 control-label")
+    <div class="col-sm-2">
+        @FormHtml.Select("TicketType", FormHtml.WithDefault(FormHtml.Strings(s.TicketTypesList)), t.TicketType, new FormHtml.Rules("TicketTicketType", MaxLength: 50, Required: true), "form-control input-sm", 2)
+        @FormHtml.ValidationMessage("TicketType")
+    </div>
+
+    @FormHtml.Label("Category", "TicketCategory", "col-sm-1 control-label")
+    <div class="col-sm-2">
+        @FormHtml.Select("Category", FormHtml.WithDefault(FormHtml.Strings(s.CategoryList)), t.Category, new FormHtml.Rules("TicketCategory", MaxLength: 50, Required: true), "form-control input-sm", 3)
+        @FormHtml.ValidationMessage("Category")
+    </div>
+    @if (allowPriority)
+    {
+        @FormHtml.Label("Priority", "TicketPriority", "col-sm-1 control-label")
+        <div class="col-sm-2">
+            @FormHtml.Select("Priority", FormHtml.WithDefault(FormHtml.Strings(s.PriorityList)), t.Priority, new FormHtml.Rules("TicketPriority", MaxLength: 25), "form-control input-sm", 4)
+            @FormHtml.ValidationMessage("Priority")
+        </div>
+    }
+</div>
+
+<div class="form-group">
+    <div class="col-sm-2 col-sm-offset-2">
+        <label class="checkbox-inline" for="affectsCustomer">
+            <input class="" type="checkbox" name="affectsCustomer" id="affectsCustomer" value="true" tabindex="5" />
+            @S.AffectsCustomer_Label
+        </label>
+    </div>
+    @if (allowTags)
+    {
+        @FormHtml.Label("TagList", "TicketTagList", "col-sm-1 control-label")
+        <div class="col-sm-5">
+            @FormHtml.TextBox("TagList", t.TagList, new FormHtml.Rules("TicketTagList", MaxLength: 100), "form-control input-sm", 6, id: "ticketTags")
+        </div>
+    }
+</div>
+
+<div class="form-group">
+    @FormHtml.Label("DueDate", "TicketDueDate", "col-sm-2 control-label")
+    <div class="col-sm-2">
+        @FormHtml.TextBox("DueDateAsString", LegacyDates.ToShortDate(t.DueDate), null, "form-control input-sm", 7)
+    </div>
+    @FormHtml.Label("TargetDate", "TicketTargetDate", "col-sm-1 control-label")
+    <div class="col-sm-2">
+        @FormHtml.TextBox("TargetDateAsString", LegacyDates.ToShortDate(t.TargetDate), null, "form-control input-sm", 8)
+    </div>
+    @FormHtml.Label("ResolutionDate", "TicketResolutionDate", "col-sm-2 col-sm-pull-1 control-label")
+    <div class="col-sm-2 col-sm-pull-1">
+        @FormHtml.TextBox("ResolutionDateAsString", LegacyDates.ToShortDate(t.ResolutionDate), null, "form-control input-sm", 9)
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-4">&nbsp;</div>
+    <div class="col-sm-6">
+        <div class="col-sm-6">
+            @FormHtml.Label("EstimatedDuration", "TicketEstimatedDuration", "col-sm-6 control-label")
+            <div class="col-sm-6" style="padding-right:0">
+                @FormHtml.TextBox("EstimatedDuration", t.EstimatedDuration?.ToString(CultureInfo.CurrentCulture), new FormHtml.Rules("TicketEstimatedDuration", Number: true), "form-control input-sm", 10, extra: " style=\"padding-right:0\"")
+            </div>
+            @FormHtml.ValidationMessage("EstimatedDuration", style: "float:right")
+        </div>
+        <div class="col-sm-6" style="padding-right:0">
+            @FormHtml.Label("ActualDuration", "TicketActualDuration", "col-sm-6 control-label")
+            <div class="col-sm-6" style="padding-right:0">
+                @FormHtml.TextBox("ActualDuration", t.ActualDuration?.ToString(CultureInfo.CurrentCulture), new FormHtml.Rules("TicketActualDuration", Number: true), "form-control input-sm", 11, extra: " style=\"padding-right:0\"")
+            </div>
+            @FormHtml.ValidationMessage("ActualDuration", style: "float:right")
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label text-right" for="wmd-input-ticketDetails">@S.Details_Label</label>
+
+    @if (t.IsHtml)
+    {
+        <div class="col-sm-8">
+            <textarea id="wmd-input-ticketDetails" name="Details" data-val-required="" data-val="true">@t.Details</textarea>
+            @FormHtml.ValidationMessage("Details")
+        </div>
+    }
+    else
+    {
+        <div class="col-sm-8 wmd-panel">
+            <div class="tabbable tabs-below">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="tab1">
+                        <div id="wmd-button-bar-ticketDetails" class="" style="display: inline-block"></div>
+                        <textarea class="wmd-input form-control" cols="92" data-val="true" data-val-required="" id="wmd-input-ticketDetails" name="Details" rows="15" style="height:200px" tabindex="12">
+@t.Details</textarea>
+
+                    </div>
+                    <div class="tab-pane fade" id="tab2">
+                        <div class="row" style="min-height: 35px;"></div>
+
+                        <div id="wmd-preview-ticketDetails" class="wmd-panel wmd-preview form-control">
+
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs navbar-right">
+                    <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-edit"></i>&nbsp;@S.Details_EditOption</a></li>
+                    <li><a href="#tab2" data-toggle="tab"><i class="fa fa-eye"></i>&nbsp;@S.Details_PreviewOption</a></li>
+                </ul>
+            </div>
+
+            @FormHtml.ValidationMessage("Details")
+        </div>
+    }
+</div>
+@if (allowOwner)
+{
+    <div class="form-group">
+        @FormHtml.Label("Owner", "TicketOwner", "col-sm-2 control-label")
+        <div class="col-sm-3">
+            @FormHtml.Select("Owner", Model.InternalUsers.Select(u => new FormHtml.Option(u.Id, u.DisplayName ?? "")), t.Owner, new FormHtml.Rules("TicketOwner", MaxLength: 256, Required: true), "form-control input-sm", 13)
+            @FormHtml.ValidationMessage("Owner")
+        </div>
+    </div>
+}

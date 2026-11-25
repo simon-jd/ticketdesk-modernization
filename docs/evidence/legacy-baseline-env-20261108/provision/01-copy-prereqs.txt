@@ -1,0 +1,47 @@
+==== 2026-11-08T00:20:21Z step copy-ops
+
+Name                        Length
+----                        ------
+Backup-TdSite.ps1             5535
+Build-TdLegacy.ps1            4258
+Deploy-TdApp.ps1              4978
+Install-TdBuildTools.ps1      3405
+Install-TdPrerequisites.ps1   2435
+Install-TdSqlExpress.ps1      6285
+Register-TdBackupTask.ps1     2786
+Restore-TdSite.ps1            4894
+Set-TdIisSite.ps1            10786
+TdOps.psm1                    4411
+
+
+
+==== 2026-11-08T00:20:26Z step prereqs
+[2026-11-08T00:20:29Z] CHANGE installing: Web-Server, Web-WebServer, Web-Default-Doc, Web-Http-Errors, Web-Static-Content, Web-Http-Redirect, Web-Http-Logging, Web-Request-Monitor, Web-Stat-Compression, Web-Dyn-Compression, Web-Filtering, Web-Net-Ext45, Web-Asp-Net45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Mgmt-Tools, Web-Scripting-Tools, NET-Framework-45-ASPNET
+[2026-11-08T00:21:06Z] INFO   .NET Framework 4.x release key 533320
+[2026-11-08T00:21:07Z] INFO   ASP.NET v4.0 registered with IIS
+
+Name                    InstallState
+----                    ------------
+Web-Server                 Installed
+Web-WebServer              Installed
+Web-Default-Doc            Installed
+Web-Http-Errors            Installed
+Web-Static-Content         Installed
+Web-Http-Redirect          Installed
+Web-Http-Logging           Installed
+Web-Request-Monitor        Installed
+Web-Stat-Compression       Installed
+Web-Dyn-Compression        Installed
+Web-Filtering              Installed
+Web-Net-Ext45              Installed
+Web-Asp-Net45              Installed
+Web-ISAPI-Ext              Installed
+Web-ISAPI-Filter           Installed
+Web-Mgmt-Tools             Installed
+Web-Scripting-Tools        Installed
+NET-Framework-45-ASPNET    Installed
+
+
+
+==== 2026-11-08T00:21:07Z done: copy-ops prereqs
+EXIT=0

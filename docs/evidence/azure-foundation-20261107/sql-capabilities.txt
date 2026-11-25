@@ -1,0 +1,12 @@
+# Azure SQL provisioning status per region for this subscription (2026-11-08T00:56:24Z)
+# GET /subscriptions/<sub>/providers/Microsoft.Sql/locations/<region>/capabilities?api-version=2023-08-01 -> status, reason
+westus: Visible Provisioning is restricted in this region. Please choose a different region. For e
+westus2: Visible Provisioning is restricted in this region. Please choose a different region. For e
+westus3: Available None 
+centralus: Available None 
+northcentralus: Visible Provisioning is restricted in this region. Please choose a different region. For e
+southcentralus: Visible Subscriptions are restricted from provisioning in this region. Please choose a dif
+westcentralus: Visible Subscriptions are restricted from provisioning in this region. Please choose a dif
+eastus: Visible Provisioning is restricted in this region. Please choose a different region. For e
+eastus2: Visible Provisioning is restricted in this region. Please choose a different region. For e
+canadacentral: Available None 

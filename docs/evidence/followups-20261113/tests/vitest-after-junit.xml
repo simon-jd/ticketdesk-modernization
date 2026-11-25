@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="30" failures="0" errors="0" time="0.617000101">
+    <testsuite name="src/app/app.spec.ts" timestamp="2026-11-13T19:21:53.023Z" hostname="lab-host" tests="2" failures="0" errors="0" skipped="0" time="0.066294253">
+        <testcase classname="src/app/app.spec.ts" name="page frame &gt; signs out with a form that posts the antiforgery token, not with a link (S3)" time="0.058700495">
+        </testcase>
+        <testcase classname="src/app/app.spec.ts" name="page frame &gt; shows no sign-out form before the session is loaded" time="0.006430893">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/pages.spec.ts" timestamp="2026-11-13T19:21:53.024Z" hostname="lab-host" tests="5" failures="0" errors="0" skipped="0" time="0.520542625">
+        <testcase classname="src/app/pages.spec.ts" name="pages &gt; ticket center asks the API for the list in the URL and renders the rows with sort state" time="0.130862369">
+        </testcase>
+        <testcase classname="src/app/pages.spec.ts" name="pages &gt; a click on a column header sorts through the URL" time="0.070789927">
+        </testcase>
+        <testcase classname="src/app/pages.spec.ts" name="pages &gt; a page switched back in the registry is loaded from the server" time="0.085543538">
+        </testcase>
+        <testcase classname="src/app/pages.spec.ts" name="pages &gt; new ticket: fields follow the permissions, client checks run first, server errors land on the fields" time="0.150819271">
+        </testcase>
+        <testcase classname="src/app/pages.spec.ts" name="pages &gt; new ticket: a created ticket opens its page" time="0.081366959">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/tickets/activity-form.spec.ts" timestamp="2026-11-13T19:21:53.025Z" hostname="lab-host" tests="3" failures="0" errors="0" skipped="0" time="0.011000561">
+        <testcase classname="src/app/tickets/activity-form.spec.ts" name="activity forms &gt; ask for the fields of each activity, like the legacy partials" time="0.003601837">
+        </testcase>
+        <testcase classname="src/app/tickets/activity-form.spec.ts" name="activity forms &gt; require a comment where the legacy form did and an assignee for assignments" time="0.00232096">
+        </testcase>
+        <testcase classname="src/app/tickets/activity-form.spec.ts" name="activity forms &gt; send only the fields of the activity" time="0.002856396">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/tickets/format.spec.ts" timestamp="2026-11-13T19:21:53.025Z" hostname="lab-host" tests="5" failures="0" errors="0" skipped="0" time="0.002968799">
+        <testcase classname="src/app/tickets/format.spec.ts" name="format &gt; labels statuses like the legacy app" time="0.001337593">
+        </testcase>
+        <testcase classname="src/app/tickets/format.spec.ts" name="format &gt; marks overdue and due-today tickets that are still open" time="0.000306528">
+        </testcase>
+        <testcase classname="src/app/tickets/format.spec.ts" name="format &gt; shows dates as the server stored them" time="0.00015619">
+        </testcase>
+        <testcase classname="src/app/tickets/format.spec.ts" name="format &gt; formats file sizes" time="0.000148937">
+        </testcase>
+        <testcase classname="src/app/tickets/format.spec.ts" name="format &gt; escapes attachment names in download links" time="0.00014839">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/tickets/list-query.spec.ts" timestamp="2026-11-13T19:21:53.025Z" hostname="lab-host" tests="10" failures="0" errors="0" skipped="0" time="0.008522635">
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; reads the URL and falls back to defaults for anything unknown" time="0.003293704">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; uses the project chosen in the project menu unless the URL says otherwise" time="0.000636899">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; writes only what differs from the defaults into the URL" time="0.000612268">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; round-trips through the URL" time="0.000336618">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; maps to the API parameters" time="0.000390072">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; toggles the sort direction of the first column and starts new columns ascending (dates newest first)" time="0.000436884">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; tells screen readers how a column is sorted" time="0.000265507">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; shows a window of page numbers around the current page" time="0.000416714">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; describes the range shown" time="0.000338297">
+        </testcase>
+        <testcase classname="src/app/tickets/list-query.spec.ts" name="list query &gt; hides the filters a list already fixes, like the legacy filter bar" time="0.000366383">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/app/tickets/new-ticket-form.spec.ts" timestamp="2026-11-13T19:21:53.026Z" hostname="lab-host" tests="5" failures="0" errors="0" skipped="0" time="0.007671228">
+        <testcase classname="src/app/tickets/new-ticket-form.spec.ts" name="new ticket form &gt; requires title, type, category, details, and a project when there are several" time="0.003422683">
+        </testcase>
+        <testcase classname="src/app/tickets/new-ticket-form.spec.ts" name="new ticket form &gt; checks lengths, tags and numbers like the server" time="0.00084342">
+        </testcase>
+        <testcase classname="src/app/tickets/new-ticket-form.spec.ts" name="new ticket form &gt; sends Markdown and only the fields the user may set" time="0.001129924">
+        </testcase>
+        <testcase classname="src/app/tickets/new-ticket-form.spec.ts" name="new ticket form &gt; puts server errors on the fields and keeps the rest as general messages" time="0.000417382">
+        </testcase>
+        <testcase classname="src/app/tickets/new-ticket-form.spec.ts" name="new ticket form &gt; lists errors in form order for the summary" time="0.000456235">
+        </testcase>
+    </testsuite>
+</testsuites>

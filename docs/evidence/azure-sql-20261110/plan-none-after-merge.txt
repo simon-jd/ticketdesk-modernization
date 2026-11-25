@@ -1,0 +1,6 @@
+No changes. Your infrastructure matches the configuration.
+module.entra[0].azuread_application.web: Refreshing state... [id=/applications/<principal-id-13>]
+module.entra[0].azuread_application_password.web[0]: Refreshing state... [id=<principal-id-13>/password/<credential-id-1>]
+module.entra[0].azuread_service_principal.web: Refreshing state... [id=/servicePrincipals/<principal-id-3>]
+module.entra[0].azuread_app_role_assignment.admin: Refreshing state... [id=/servicePrincipals/<principal-id-3>/appRoleAssignedTo/3xZGhjjnlEiJClDyDCBVODYduw25U0lGkIFJr1ojvg0]
+Plan: 52 to add, 0 to change, 0 to destroy.

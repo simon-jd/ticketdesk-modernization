@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Replay</RootNamespace>
+    <Description>Record/replay harness: scripted journeys, normalizers, DOM/JSON-level comparison.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AngleSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="TicketDesk.Replay.Tests" />
+  </ItemGroup>
+</Project>

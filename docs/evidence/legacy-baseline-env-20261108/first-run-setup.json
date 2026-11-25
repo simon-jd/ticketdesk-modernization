@@ -1,0 +1,60 @@
+{
+  "command": "setup",
+  "base": "https://localhost:8443",
+  "ok": true,
+  "checks_passed": 3,
+  "checks_total": 3,
+  "requests": 5,
+  "seconds": 14.3,
+  "checks": [
+    {
+      "check": "first-run setup page",
+      "ok": true,
+      "detail": "redirected to /first-run-setup"
+    },
+    {
+      "check": "create database + admin",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "home page after setup",
+      "ok": true,
+      "detail": "HTTP 200 /"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 302,
+      "ms": 39,
+      "location": "/first-run-setup"
+    },
+    {
+      "method": "GET",
+      "url": "/first-run-setup",
+      "status": 200,
+      "ms": 3762
+    },
+    {
+      "method": "POST",
+      "url": "/first-run-setup/create-database",
+      "status": 302,
+      "ms": 6870,
+      "location": "/first-run-setup"
+    },
+    {
+      "method": "GET",
+      "url": "/first-run-setup",
+      "status": 200,
+      "ms": 491
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 3159
+    }
+  ]
+}

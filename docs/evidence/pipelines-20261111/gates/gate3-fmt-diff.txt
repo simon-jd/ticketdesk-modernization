@@ -1,0 +1,17 @@
+========================== Starting Command Output ===========================
+[command]/usr/bin/bash --noprofile --norc ~/Desktop/ticketdesk-modernization/.tools/ado-agent/_work/_temp/c845f1e7-78e6-44cd-8ae4-5dbbcd648524.sh
+Terraform v1.17.1
+##[section]terraform fmt -check
+infra/terraform/envs/lab/outputs.tf
+--- old/infra/terraform/envs/lab/outputs.tf
++++ new/infra/terraform/envs/lab/outputs.tf
+@@ -1,5 +1,5 @@
+ output "resource_group" {
+-  value      =   try(azurerm_resource_group.lab[0].name, null)   # gate demo 3: fmt drift
++  value = try(azurerm_resource_group.lab[0].name, null) # gate demo 3: fmt drift
+ }
+ 
+ output "est_usd_per_hour" {
+
+##[error]Bash exited with code '3'.
+##[section]Finishing: terraform fmt -check + validate

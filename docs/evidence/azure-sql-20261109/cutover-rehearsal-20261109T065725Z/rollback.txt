@@ -1,0 +1,16 @@
+2026-11-09T07:00:04Z provision 20261109T070004Z on vm-tdlab-legacy: unfreeze SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-17> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=express
+provision 20261109T070004Z steps=unfreeze elapsed_s=33 rc=0
+2026-11-09T07:00:04Z provision 20261109T070004Z on vm-tdlab-legacy: unfreeze SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-17> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=express
+---- ComponentStatus/StdOut/succeeded
+[2026-11-09T07:00:13Z] provision run 20261109T070004Z on tdlab-legacy, steps: unfreeze
+[2026-11-09T07:00:13Z] ==== step unfreeze
+[2026-11-09T07:00:13Z] TDMARK unfrozen 2026-11-09T07:00:13.688Z
+[2026-11-09T07:00:13Z] step unfreeze done in 0.1s
+[2026-11-09T07:00:13Z] TDTIMINGS {"unfreeze":0.1} total 0.3s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261109T070004Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261109T070004Z steps=unfreeze elapsed_s=33 rc=0

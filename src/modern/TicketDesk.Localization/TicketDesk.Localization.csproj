@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The legacy resource strings (en-US neutral, pt-BR, de-DE) compiled for .NET 10 from the legacy project's own .resx files
+       (linked, not copied), so both apps show the same text while they coexist. Manifest names stay
+       TicketDesk.Localization.<folder>.<name>, which the legacy strongly typed classes (also linked) look up. -->
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Localization</RootNamespace>
+    <Description>Legacy TicketDesk resource strings shared with the legacy app during coexistence.</Description>
+    <LegacyLocalization>$(MSBuildThisFileDirectory)..\..\..\TicketDesk\TicketDesk.Localization\</LegacyLocalization>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(LegacyLocalization)**\*.resx" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- neutral strongly typed classes only; the culture-specific *.Designer.cs files of the legacy project are empty -->
+    <Compile Include="$(LegacyLocalization)**\*.Designer.cs" Exclude="$(LegacyLocalization)**\*.*-*.Designer.cs" Link="Legacy\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

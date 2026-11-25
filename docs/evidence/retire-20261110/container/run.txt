@@ -1,0 +1,12 @@
+$ curl http://127.0.0.1:18093/health/ready
+{"status":"Healthy","checks":[{"name":"database","status":"Healthy","description":"database reachable"}]}
+/ -> 200 text/html; charset=utf-8 10600 B
+/about -> 200 text/html; charset=utf-8 7901 B
+/fonts/glyphicons-halflings-regular.woff2 -> 200 font/woff2 18028 B
+/content/Images/TicketDesk-2.5-mobile.png -> 200 image/png 7790 B
+/first-run-setup -> 410 text/html; charset=utf-8 7103 B
+/emailtest/index/1 -> 404  0 B
+/app/index.html -> 200 text/html 495 B
+/api/migration/routes -> 200 application/json; charset=utf-8 16150 B
+done
+(container: --network host, ASPNETCORE_HTTP_PORTS=18093, ConnectionStrings__TicketDesk = td-sql TicketDesk_retire via a temporary 0600 env file; image user 1654)

@@ -1,0 +1,10 @@
+# first-run wizard disabled after setup (Deploy-TdApp.ps1 -SetupMode Auto), 2026-11-08T01:12:40Z
+$ curl -s -o /dev/null -w '%{http_code} %{redirect_url}' https://localhost:8443/first-run-setup
+302 https://localhost:8443/
+$ curl -s -o /dev/null -w '%{http_code} %{redirect_url}' https://localhost:8443/first-run-setup/create-database
+404 
+$ curl -X POST -d 'Email=x@y.z&Password=12345&DisplayName=x' https://localhost:8443/first-run-setup/create-database
+302 https://localhost:8443/
+$ sqlcmd ... SELECT COUNT(*) FROM TicketDesk.dbo.IdentityUsers WHERE Email='x@y.z'
+0
+

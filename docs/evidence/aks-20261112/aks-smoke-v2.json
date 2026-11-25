@@ -1,0 +1,120 @@
+{
+  "command": "app-smoke",
+  "base": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+  "ok": true,
+  "checks_passed": 9,
+  "checks_total": 9,
+  "requests": 10,
+  "seconds": 6.8,
+  "checks": [
+    {
+      "check": "home page over HTTPS",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "ticket options (API)",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "new-ticket page",
+      "ok": true,
+      "detail": "HTTP 200, XSRF-TOKEN cookie set"
+    },
+    {
+      "check": "create ticket (API)",
+      "ok": true,
+      "detail": "HTTP 201"
+    },
+    {
+      "check": "ticket page",
+      "ok": true,
+      "detail": "HTTP 200 /ticket/10011"
+    },
+    {
+      "check": "add comment (API)",
+      "ok": true,
+      "detail": "HTTP 204"
+    },
+    {
+      "check": "comment visible (API)",
+      "ok": true,
+      "detail": "HTTP 200"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 564
+    },
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 551
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 641,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 729
+    },
+    {
+      "method": "GET",
+      "url": "/api/tickets/options",
+      "status": 200,
+      "ms": 845
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/new",
+      "status": 200,
+      "ms": 548
+    },
+    {
+      "method": "POST",
+      "url": "/api/tickets",
+      "status": 201,
+      "ms": 640
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/10011",
+      "status": 200,
+      "ms": 591
+    },
+    {
+      "method": "POST",
+      "url": "/api/tickets/10011/activities",
+      "status": 204,
+      "ms": 578
+    },
+    {
+      "method": "GET",
+      "url": "/api/tickets/10011",
+      "status": 200,
+      "ms": 1161
+    }
+  ],
+  "ticket_id": 10011
+}

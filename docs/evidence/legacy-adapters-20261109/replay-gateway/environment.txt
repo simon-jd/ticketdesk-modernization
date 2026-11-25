@@ -1,0 +1,2 @@
+# date: 2026-11-09T01:52:20Z  git: fe3bd4e  gateway: https://localhost:5443/ -> https://localhost:8443/
+# baseline recording: tests/characterization/golden/legacy-golden.jsonl.xz (3fd4c00c73e248ad696481675fa443eeaf7ba1e04c14579e1b104b6cc6e3180b)  reset: 1 (snapshot baseline-s)

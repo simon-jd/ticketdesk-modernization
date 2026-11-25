@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Identity</RootNamespace>
+    <Description>ASP.NET Core Identity over the legacy Identity tables (V2 hashes), cookie auth, legacy-role policies, Entra ID seam.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" />
+    <!-- the key ring wrapped with a Key Vault key (DataProtection:KeyVaultKeyId), credential from the pod's workload identity -->
+    <PackageReference Include="Azure.Extensions.AspNetCore.DataProtection.Keys" />
+    <PackageReference Include="Azure.Identity" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicketDesk.Data\TicketDesk.Data.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="TicketDesk.Identity.Tests" />
+  </ItemGroup>
+</Project>

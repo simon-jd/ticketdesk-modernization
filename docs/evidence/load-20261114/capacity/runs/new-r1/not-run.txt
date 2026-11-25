@@ -1,0 +1,2 @@
+rate 250 not run: step 225 was far past breaking (p95 > 5 s, or > 20 % failed or dropped)
+rate 300 not run: step 225 was far past breaking (p95 > 5 s, or > 20 % failed or dropped)

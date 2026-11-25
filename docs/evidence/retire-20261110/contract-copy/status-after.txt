@@ -1,0 +1,15 @@
+$ td-db status
+applied  expand/V0001__tickets_assigned_date.sql                      2026-11-08 15:17:01Z 9 ms by sa
+applied  expand/V0002__tickets_assigned_date_backfill.sql             2026-11-08 15:17:02Z 196 ms by sa
+applied  expand/V0003__ticket_list_and_report_indexes.sql             2026-11-08 15:17:02Z 164 ms by sa
+applied  expand/V0004__tickets_rebuild_after_backfill.sql             2026-11-08 15:17:02Z 123 ms by sa
+applied  expand/V0005__assigned_date_trigger_null_changes.sql         2026-11-08 15:17:02Z 2 ms by sa
+applied  programmable/R__usp_report_assignee_workload.sql             2026-11-08 15:17:02Z 1 ms by sa
+applied  programmable/R__usp_report_open_tickets_aging.sql            2026-11-08 15:17:02Z 1 ms by sa
+applied  programmable/R__usp_report_time_to_close.sql                 2026-11-08 15:17:02Z 1 ms by sa
+applied  expand/V0010__data_protection_keys.sql                       2026-11-10 00:52:36Z 6 ms by sa
+applied  expand/V0006__open_unassigned_include_assignee.sql           2026-11-10 23:24:10Z 38 ms by sa
+applied  expand/V0011__ticket_full_text_search.sql                    2026-11-10 23:24:10Z 72 ms by sa
+applied  expand/V0012__ticket_subscribers_by_subscriber.sql           2026-11-10 23:24:10Z 81 ms by sa
+applied  programmable/R__usp_ticket_list.sql                          2026-11-10 23:24:10Z 4 ms by sa
+applied  contract/C0001__assigned_date_contract.sql                   2026-11-11 04:49:56Z 23 ms by sa

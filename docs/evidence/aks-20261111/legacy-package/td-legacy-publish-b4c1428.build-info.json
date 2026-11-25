@@ -1,0 +1,36 @@
+﻿{
+    "revision":  "b4c1428",
+    "configuration":  "Release",
+    "started_utc":  "2026-11-11T04:40:36.5018842Z",
+    "steps":  [
+                  {
+                      "name":  "restore",
+                      "exit":  0,
+                      "seconds":  5.7,
+                      "warnings":  null,
+                      "errors":  null,
+                      "log":  "C:\\TdBuild\\logs\\restore.log"
+                  },
+                  {
+                      "name":  "build",
+                      "exit":  0,
+                      "seconds":  11.7,
+                      "warnings":  4,
+                      "errors":  0,
+                      "log":  "C:\\TdBuild\\logs\\build.log"
+                  },
+                  {
+                      "name":  "publish",
+                      "exit":  0,
+                      "seconds":  1.5,
+                      "warnings":  0,
+                      "errors":  0,
+                      "log":  "C:\\TdBuild\\logs\\publish.log"
+                  }
+              ],
+    "msbuild":  "17.14.60.43110",
+    "nuget":  "7.9.0.83",
+    "publish_files":  897,
+    "publish_bytes":  77474268,
+    "seconds":  19
+}

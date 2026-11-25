@@ -1,0 +1,34 @@
+# load average 7.88 5.15 2.16
+$ TD_PERF_DB=TicketDeskL ops/dev/sql-perf.sh bench --cases docs/evidence/sql-before-20261107/cases-naive.json --out docs/evidence/sql-querystore-20261107/naive-on-expanded --warm 5 --cold 0
+[07:25:52] naive/list-default: 3 command(s)
+    warm: median 37 ms server / 39.3 ms client, cpu 36 ms, reads 1996
+[07:25:53] naive/list-open-p1: 3 command(s)
+    warm: median 36 ms server / 39.1 ms client, cpu 37 ms, reads 3350
+[07:25:53] naive/list-open-p500: 3 command(s)
+    warm: median 82 ms server / 85.3 ms client, cpu 81 ms, reads 33994
+[07:25:54] naive/list-unassigned: 3 command(s)
+    warm: median 4 ms server / 5.4 ms client, cpu 4 ms, reads 1070
+[07:25:54] naive/list-assignedToMe: 3 command(s)
+    warm: median 0 ms server / 1.2 ms client, cpu 0 ms, reads 158
+[07:25:54] naive/list-mytickets-heavy: 3 command(s)
+    warm: median 1 ms server / 2.5 ms client, cpu 1 ms, reads 672
+[07:25:54] naive/list-mytickets-light: 3 command(s)
+    warm: median 0 ms server / 0.7 ms client, cpu 0 ms, reads 32
+[07:25:54] naive/list-history: 3 command(s)
+    warm: median 32 ms server / 35.1 ms client, cpu 33 ms, reads 3359
+[07:25:55] naive/list-project-big: 3 command(s)
+    warm: median 7 ms server / 8.5 ms client, cpu 7 ms, reads 587
+[07:25:55] naive/list-project-small: 3 command(s)
+    warm: median 0 ms server / 2.3 ms client, cpu 1 ms, reads 251
+[07:25:55] naive/list-status-sort-title: 3 command(s)
+    warm: median 141 ms server / 143.5 ms client, cpu 754 ms, reads 111243
+[07:25:56] naive/list-tag: 3 command(s)
+    warm: median 67 ms server / 69.0 ms client, cpu 67 ms, reads 3287
+[07:25:57] naive/detail: 5 command(s)
+    warm: median 0 ms server / 0.7 ms client, cpu 0 ms, reads 59
+[07:25:57] naive/report-open-aging: 2 command(s)
+    warm: median 128 ms server / 129.5 ms client, cpu 128 ms, reads 3705
+[07:25:58] naive/report-workload: 5 command(s)
+    warm: median 5849 ms server / 5853.3 ms client, cpu 13825 ms, reads 21884610
+[07:26:40] naive/report-time-to-close: 2 command(s)
+    warm: median 18 ms server / 19.6 ms client, cpu 18 ms, reads 1924

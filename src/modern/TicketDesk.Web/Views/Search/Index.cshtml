@@ -1,0 +1,102 @@
+@* Port of the legacy Views/Search/Index.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd, https://github.com/stephenredd).
+   Differences: user display names are HTML-encoded (S11: the legacy view pasted them into Html.Raw); results come from SQL
+   Server full-text instead of Lucene (F1) and only list tickets the user may see (S12). *@
+@model TicketDesk.Web.Controllers.SearchPageModel
+@using SearchIndex = TicketDesk.Localization.Views.Search.Index
+@using TicketDesk.Web.Views
+@{
+    static string E(string? s) => System.Net.WebUtility.HtmlEncode(s ?? "");
+}
+@section title{
+    @SearchIndex.Title
+}
+@section scripts
+{
+    @Bundles.Scripts("~/bundles/search");
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.search.activate(null);
+        });
+    </script>
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-sm-12">
+                @SearchIndex.Legend
+            </legend>
+            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+                @if (Model.IsMultiProject)
+                {
+                    <div class="alert alert-info ">@Model.ProjectNotice</div>
+                }
+                @foreach (var r in Model.Results)
+                {
+                    var item = r.Ticket;
+                    <div id="ticketDetailPanel" class="panel panel-info clickable">
+                        <div class="panel-heading" style="padding: 3px 5px;">
+                            <div class="row ">
+                                <div class="row-same-height row-full-height">
+                                    <div class="col-xs-2 col-sm-2 col-xs-height col-full-height text-center panel-title" style="border-right: 1px solid #dcdcdc;">
+                                        @TicketText.Status(item.TicketStatus)
+                                    </div>
+                                    <div class="col-xs-2 col-sm-1 col-xs-height col-full-height text-center panel-title" style="border-right: 1px solid #dcdcdc;">
+                                        #@item.TicketId
+                                    </div>
+                                    <div class="col-xs-8 col-sm-9 col-xs-height col-full-height panel-title">
+                                        <a href="/ticket/@item.TicketId">
+                                            @item.Title
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top: 0; padding-bottom: 0;">
+                            <div class="row row-no-padding row-same-height row-full-height">
+                                <div class="col-sm-12 col-xs-height col-full-height ">
+                                    <div class="" style="border-bottom: 1px solid #B3CBDF; padding: 3px; background-color: #F7F7F7;">
+                                        <div class="pull-right">
+                                            @if (Model.IsMultiProject)
+                                            {
+                                                <div class="text-primary">
+                                                    <i class="fa fa-book"></i>
+                                                    @item.Project?.ProjectName
+                                                </div>
+                                            }
+                                            @if (!string.IsNullOrEmpty(item.TagList))
+                                            {
+                                                <div class="text-muted text-default">
+                                                    @foreach (var tag in item.TagList.Split(','))
+                                                    {
+                                                        <div><i class="fa fa-tag"></i> @tag</div>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                        <div>
+                                            <div>@(string.IsNullOrEmpty(item.Priority) ? string.Empty : string.Format(SearchIndex.Priority, item.Priority)) @item.Category @item.TicketType</div>
+                                            <div>
+                                                @Html.Raw(string.Format(SearchIndex.AssignedTo, string.IsNullOrEmpty(item.AssignedTo) ? "<span class='label label-warning'>" + E(SearchIndex.Unassigned) + "</span>" : E(r.AssignedToName)))
+                                            </div>
+                                            <div>
+                                                @Html.Raw(string.Format(SearchIndex.OwnedBy, E(r.OwnerName)))
+                                            </div>
+                                            <div class="hidden-sm">
+                                                @Html.Raw(string.Format(SearchIndex.UpdatedBy, E(r.LastUpdateByName), TicketText.ShortDate(item.LastUpdateDate), TicketText.ShortTime(item.LastUpdateDate)))
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="" style="margin: 0; padding: 0;">
+                                        <div class="" id="detailsText" style="padding: 5px;">
+                                            @r.DetailsExcerpt
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </fieldset>
+    </div>
+</main>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Projects</RootNamespace>
+    <Description>Projects module: /api/projects.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TicketDesk.Data\TicketDesk.Data.csproj" />
+    <ProjectReference Include="..\..\TicketDesk.Identity\TicketDesk.Identity.csproj" />
+  </ItemGroup>
+</Project>

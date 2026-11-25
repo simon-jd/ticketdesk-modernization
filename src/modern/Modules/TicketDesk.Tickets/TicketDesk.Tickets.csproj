@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Tickets</RootNamespace>
+    <Description>Tickets module: ticket list and detail queries, sort whitelist, per-ticket attachment authorization, /api/tickets.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <!-- legacy ticket text rendering (Rendering/LegacyTextRenderer.cs; MarkdownSharp 1.13 is ported in Rendering/MarkdownSharp.cs) -->
+    <!-- current HtmlSanitizer, configured with the legacy allow-lists (plan/DECISIONS.md 2026-11-10) -->
+    <PackageReference Include="HtmlSanitizer" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TicketDesk.Data\TicketDesk.Data.csproj" />
+    <ProjectReference Include="..\..\TicketDesk.Identity\TicketDesk.Identity.csproj" />
+    <ProjectReference Include="..\TicketDesk.Users\TicketDesk.Users.csproj" />
+    <ProjectReference Include="..\TicketDesk.Attachments\TicketDesk.Attachments.csproj" />
+    <ProjectReference Include="..\TicketDesk.Notifications\TicketDesk.Notifications.csproj" />
+    <ProjectReference Include="..\..\TicketDesk.Localization\TicketDesk.Localization.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="TicketDesk.Database.Tests" />
+    <InternalsVisibleTo Include="td-sqlperf" />
+  </ItemGroup>
+</Project>

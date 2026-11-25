@@ -1,0 +1,61 @@
+Changed database context to 'TicketDeskL'.
+query_id|plan_id|forced|execs|avg_ms|avg_cpu_ms|avg_reads|first_run|last_run|query_text
+--------|-------|------|-----|------|----------|---------|---------|--------|----------
+17|17|0|1|89.0|406.2|114241|2026-11-08T00:53:09|2026-11-08T00:53:09|SELECT TOP 1 t.AssignedTo FROM dbo.Tickets t JOIN dbo.IdentityUserRoles ur ON ur.UserId = t.AssignedTo JOIN db
+17|95|0|4|187.2|184.0|8374|2026-11-08T01:10:02|2026-11-08T01:16:59|SELECT TOP 1 t.AssignedTo FROM dbo.Tickets t JOIN dbo.IdentityUserRoles ur ON ur.UserId = t.AssignedTo JOIN db
+19|19|0|1|204.5|509.2|107198|2026-11-08T00:53:09|2026-11-08T00:53:09|SELECT TOP 1 Owner FROM dbo.Tickets WHERE TicketStatus <> 3 GROUP BY Owner HAVING COUNT(*) BETWEEN 3 AND 10 OR
+19|96|0|4|2.8|2.1|12|2026-11-08T01:10:02|2026-11-08T01:16:59|SELECT TOP 1 Owner FROM dbo.Tickets WHERE TicketStatus <> 3 GROUP BY Owner HAVING COUNT(*) BETWEEN 3 AND 10 OR
+25|25|0|28|176.0|1257.2|107198|2026-11-08T00:53:11|2026-11-08T00:53:56|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+25|98|0|9|1.8|1.8|360|2026-11-08T01:10:03|2026-11-08T07:25:53|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+27|27|0|56|49.1|223.6|107198|2026-11-08T00:53:11|2026-11-08T00:54:06|SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3
+27|108|0|18|47.3|46.9|3133|2026-11-08T01:10:03|2026-11-08T07:25:54|SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3
+28|28|0|56|123.7|894.8|107198|2026-11-08T00:53:11|2026-11-08T00:54:06|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+28|109|0|18|47.0|45.8|19845|2026-11-08T01:10:03|2026-11-08T07:25:54|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+30|30|0|56|53.2|251.9|107198|2026-11-08T00:53:12|2026-11-08T00:57:14|SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[AssignedTo] IS NULL
+30|112|0|18|5.4|5.3|922|2026-11-08T01:10:04|2026-11-08T07:26:34|SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[AssignedTo] IS NULL
+31|31|0|28|45.4|325.8|107198|2026-11-08T00:53:12|2026-11-08T00:54:09|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+31|113|0|9|.3|.2|76|2026-11-08T01:10:04|2026-11-08T07:25:54|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+33|33|0|28|51.7|258.2|107198|2026-11-08T00:53:12|2026-11-08T00:54:12|(@me nvarchar(256))SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[Assigned
+33|116|0|9|.2|.1|7|2026-11-08T01:10:04|2026-11-08T07:25:54|(@me nvarchar(256))SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[Assigned
+34|34|0|28|29.7|221.4|107198|2026-11-08T00:53:12|2026-11-08T00:54:12|(@me nvarchar(256),@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[
+34|117|0|9|9.4|1.0|218|2026-11-08T01:10:04|2026-11-08T07:25:54|(@me nvarchar(256),@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[
+35|35|0|56|52.9|277.2|107198|2026-11-08T00:53:12|2026-11-08T00:54:17|(@me nvarchar(256))SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[Owner] =
+35|120|0|18|1.7|1.6|258|2026-11-08T01:10:04|2026-11-08T07:25:54|(@me nvarchar(256))SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[Owner] =
+36|36|0|56|37.1|260.8|107204|2026-11-08T00:53:12|2026-11-08T00:54:17|(@me nvarchar(256),@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[
+36|121|0|18|.4|.3|113|2026-11-08T01:10:04|2026-11-08T07:25:54|(@me nvarchar(256),@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[
+38|38|0|28|46.7|213.9|107198|2026-11-08T00:53:13|2026-11-08T00:54:21|SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] = 3
+38|124|0|9|36.4|36.4|3133|2026-11-08T01:10:04|2026-11-08T07:25:55|SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] = 3
+39|39|0|28|95.0|687.6|107198|2026-11-08T00:53:13|2026-11-08T00:54:21|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+39|125|0|9|.3|.3|76|2026-11-08T01:10:04|2026-11-08T07:25:55|(@p1 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Pr
+41|41|0|56|62.6|346.3|107198|2026-11-08T00:53:13|2026-11-08T00:54:26|(@projectId int,@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Cat
+41|128|0|18|5.1|1.1|264|2026-11-08T01:10:04|2026-11-08T07:25:55|(@projectId int,@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Cat
+42|42|0|28|49.2|223.3|107198|2026-11-08T00:53:13|2026-11-08T00:54:30|(@statuses2 int,@statuses1 int)SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] IN (@statu
+42|131|0|9|51.8|51.8|3133|2026-11-08T01:10:04|2026-11-08T07:25:56|(@statuses2 int,@statuses1 int)SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] IN (@statu
+44|44|0|28|35.8|161.4|8496|2026-11-08T00:53:13|2026-11-08T00:54:34|(@tag nvarchar(100))SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE EXISTS (     SELECT 1     FROM [dbo].[Ti
+44|134|0|11|76.1|76.0|2551|2026-11-08T01:10:04|2026-11-08T07:25:57|(@tag nvarchar(100))SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE EXISTS (     SELECT 1     FROM [dbo].[Ti
+45|45|0|28|116.1|640.7|113901|2026-11-08T00:53:14|2026-11-08T00:54:35|(@tag nvarchar(100),@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].
+45|135|0|9|.8|.8|637|2026-11-08T01:10:04|2026-11-08T07:25:57|(@tag nvarchar(100),@p2 int,@p int)SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].
+51|51|0|28|64.6|361.0|107198|2026-11-08T00:53:14|2026-11-08T00:54:37|(@asOf datetimeoffset(7))SELECT [t0].[ProjectId], [t0].[TicketStatus], [t0].[Bucket], COUNT(*) AS [Count] FROM
+51|149|0|9|141.7|141.7|3701|2026-11-08T01:10:05|2026-11-08T07:25:58|(@asOf datetimeoffset(7))SELECT [t0].[ProjectId], [t0].[TicketStatus], [t0].[Bucket], COUNT(*) AS [Count] FROM
+53|53|0|28|6093.7|13367.9|22116895|2026-11-08T00:53:26|2026-11-08T00:57:20|(@asOf datetimeoffset(7),@p int)SELECT TOP(@p) [t].[AssignedTo], COUNT(CASE     WHEN [t].[TicketStatus] = 0 TH
+53|155|0|9|6741.6|15197.3|22017782|2026-11-08T01:10:12|2026-11-08T07:26:40|(@asOf datetimeoffset(7),@p int)SELECT TOP(@p) [t].[AssignedTo], COUNT(CASE     WHEN [t].[TicketStatus] = 0 TH
+54|54|0|28|41.6|274.7|107198|2026-11-08T00:53:26|2026-11-08T00:57:20|SELECT COUNT(*) FROM (     SELECT DISTINCT [t].[AssignedTo]     FROM [dbo].[Tickets] AS [t]     WHERE [t].[Tic
+54|156|0|9|41.9|41.9|7376|2026-11-08T01:10:12|2026-11-08T07:26:40|SELECT COUNT(*) FROM (     SELECT DISTINCT [t].[AssignedTo]     FROM [dbo].[Tickets] AS [t]     WHERE [t].[Tic
+55|55|0|28|40.5|271.2|107198|2026-11-08T00:53:26|2026-11-08T00:57:20|(@windowStart datetimeoffset(7),@asOf datetimeoffset(7),@ids50 nvarchar(256),@ids49 nvarchar(256),@ids48 nvarc
+55|157|0|9|64.3|64.2|996|2026-11-08T01:10:12|2026-11-08T07:26:40|(@windowStart datetimeoffset(7),@asOf datetimeoffset(7),@ids50 nvarchar(256),@ids49 nvarchar(256),@ids48 nvarc
+57|57|0|17|67.2|285.2|107198|2026-11-08T00:53:26|2026-11-08T00:57:22|(@r_From datetimeoffset(7),@r_To datetimeoffset(7))SELECT [t].[ProjectId], DATEDIFF(second, [t].[CreatedDate],
+57|166|0|9|21.9|21.4|1921|2026-11-08T01:10:13|2026-11-08T07:26:40|(@r_From datetimeoffset(7),@r_To datetimeoffset(7))SELECT [t].[ProjectId], DATEDIFF(second, [t].[CreatedDate],
+63|63|0|27|.3|.1|4|2026-11-08T01:02:14|2026-11-08T01:02:14|(@3 int,@4 binary(8),@0 nvarchar(256),@1 nvarchar(256),@2 datetimeoffset(7))UPDATE [dbo].[Tickets] SET [Assign
+63|170|0|81|1.0|.7|33|2026-11-08T01:11:17|2026-11-08T01:32:53|(@3 int,@4 binary(8),@0 nvarchar(256),@1 nvarchar(256),@2 datetimeoffset(7))UPDATE [dbo].[Tickets] SET [Assign
+65|65|0|27|.4|.1|14|2026-11-08T01:02:14|2026-11-08T01:02:15|(@0 int,@1 nvarchar(50),@2 nvarchar(50),@3 nvarchar(500),@4 nvarchar(max),@5 bit,@6 nvarchar(256),@7 nvarchar(
+65|173|0|81|1.9|1.2|51|2026-11-08T01:11:17|2026-11-08T01:32:54|(@0 int,@1 nvarchar(50),@2 nvarchar(50),@3 nvarchar(500),@4 nvarchar(max),@5 bit,@6 nvarchar(256),@7 nvarchar(
+118|136|0|90|111.2|110.4|2542|2026-11-08T01:10:05|2026-11-08T01:33:41|(@Tag nvarchar(100),@TotalCount int)SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS
+118|226|0|3|25.6|74.7|2163|2026-11-08T01:33:40|2026-11-08T01:33:41|(@Tag nvarchar(100),@TotalCount int)SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS
+131|150|0|29|183.1|182.8|3704|2026-11-08T01:10:06|2026-11-08T01:10:56|(@AsOf datetimeoffset(7),@ProjectId int)SELECT x.ProjectId, p.ProjectName, x.TicketStatus, x.AgeBucket, x.Tick
+131|152|0|1|17.6|17.6|3703|2026-11-08T01:10:06|2026-11-08T01:10:06|(@AsOf datetimeoffset(7),@ProjectId int)SELECT x.ProjectId, p.ProjectName, x.TicketStatus, x.AgeBucket, x.Tick
+134|154|0|85|122.8|389.0|18493|2026-11-08T01:10:06|2026-11-08T01:27:58|(@ProjectId int,@AsOf datetimeoffset(7),@windowStart datetimeoffset(7),@Top int)WITH workload AS (         SEL
+134|163|0|2|47.4|130.7|20015|2026-11-08T01:10:13|2026-11-08T01:16:57|(@ProjectId int,@AsOf datetimeoffset(7),@windowStart datetimeoffset(7),@Top int)WITH workload AS (         SEL
+152|182|0|56|62.6|62.2|3705|2026-11-08T01:16:43|2026-11-08T01:27:56|(@e0 datetimeoffset(7),@e1 datetimeoffset(7),@e2 datetimeoffset(7),@e3 datetimeoffset(7),@ProjectId int)SELECT
+152|183|0|1|47.0|47.0|3704|2026-11-08T01:16:43|2026-11-08T01:16:43|(@e0 datetimeoffset(7),@e1 datetimeoffset(7),@e2 datetimeoffset(7),@e3 datetimeoffset(7),@ProjectId int)SELECT
+153|184|0|56|139.8|533.4|4046|2026-11-08T01:16:58|2026-11-08T01:28:00|(@From datetimeoffset(7),@To datetimeoffset(7),@ProjectId int)WITH closed AS (         SELECT t.ProjectId, CAS
+153|185|0|1|92.2|162.9|25825|2026-11-08T01:16:58|2026-11-08T01:16:58|(@From datetimeoffset(7),@To datetimeoffset(7),@ProjectId int)WITH closed AS (         SELECT t.ProjectId, CAS

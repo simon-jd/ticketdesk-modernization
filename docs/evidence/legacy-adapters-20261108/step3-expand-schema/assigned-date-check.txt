@@ -1,0 +1,16 @@
+$ sqlcmd -v Since=2026-11-08T20:48:39Z -i ops/dev/check-assigned-date.sql
+scope|tickets|assigned|invariant_violations
+-----|-------|--------|--------------------
+all tickets|10008|8914|0
+
+TicketId|written|assignee|AssignedDate|LastUpdateDate|RuleDate|verdict
+--------|-------|--------|------------|--------------|--------|-------
+10001|created|(none)|NULL|2026-11-08T20:49:09.7966891Z|NULL|ok
+10002|created|(none)|NULL|2026-11-08T20:49:10.7298409Z|NULL|ok
+10003|created|(none)|NULL|2026-11-08T20:49:10.9614175Z|NULL|ok
+10004|created|assigned|2026-11-08T20:49:11.1573362Z|2026-11-08T20:49:11.1573362Z|2026-11-08T20:49:11.1621779Z|differs from rule
+10005|created|assigned|2026-11-08T20:49:11.3594289Z|2026-11-08T20:49:11.4097922Z|2026-11-08T20:49:11.3604855Z|differs from rule
+10006|created|(none)|NULL|2026-11-08T20:49:11.9286398Z|NULL|ok
+10007|created|(none)|NULL|2026-11-08T20:49:12.2238804Z|NULL|ok
+10008|created|(none)|NULL|2026-11-08T20:49:20.7753524Z|NULL|ok
+

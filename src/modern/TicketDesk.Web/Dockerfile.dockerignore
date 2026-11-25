@@ -1,0 +1,12 @@
+# Build context = repository root (see Dockerfile): only what the image needs.
+*
+!src/modern/
+!docs/migration/routes.csv
+!TicketDesk/TicketDesk.Localization/
+**/bin/
+**/obj/
+**/TestResults/
+src/modern/tests/
+src/modern/perf/
+src/modern/TicketDesk.Database/
+src/modern/*.sln

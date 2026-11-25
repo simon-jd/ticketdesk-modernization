@@ -1,0 +1,4 @@
+login td_modern_app ready
+user td_modern_app ready
+grants: 56 on 21 objects; fixed roles of td_modern_app: 0
+

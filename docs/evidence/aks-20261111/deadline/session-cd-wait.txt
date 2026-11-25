@@ -1,0 +1,99 @@
+## ak_session exit 0; destroy stub ran: 2026-11-11T18:57:48.411Z stub ak_destroy ran
+## deadline.txt
+start            2026-11-11T18:56:47Z
+deadline         2026-11-11T18:57:32Z  start + 0 min 45 s (TD_SESSION_DEADLINE_OVERRIDE=+45); the rows' 180 min - destroy budget 15 min
+before retire-vm 2026-11-11T18:57:27Z  (the VM delete's 5 s kept free)
+watchdog         a step still running 90 s after the deadline is stopped
+planned end      2026-11-11T21:56:47Z  (rows K2.*: destroy finished)
+ttl              2026-11-11T22:11:47Z  (TTL_HOURS 3.25: the reaper's time if the trap never runs)
+## steps.txt
+cert           ok
+apply-vm       ok
+apply          ok
+kube           ok
+push-v1        ok
+push-v2        ok
+vm-data        ok
+deploy-v1      ok
+smoke-v1       ok
+golden-v1      ok
+cutover        ok
+vm-cert        ok
+aks-cert       ok
+retire-vm      ok
+deploy-v2      not measured: session deadline (approval requested, run 4242 cancelled, no script fallback)
+smoke-v2       not measured: session deadline (not reached)
+golden-v2      not measured: session deadline (not started)
+alert-drill    not measured: session deadline (not started)
+slo            not measured: session deadline (not started)
+restore-drill  not measured: session deadline (not started)
+## not-measured.txt
+2026-11-11T18:57:47Z deploy-v2: not measured: session deadline (approval requested, run 4242 cancelled, no script fallback)
+2026-11-11T18:57:48Z golden-v2: not measured: session deadline (not started)
+2026-11-11T18:57:48Z alert-drill: not measured: session deadline (not started)
+2026-11-11T18:57:48Z slo: not measured: session deadline (not started)
+2026-11-11T18:57:48Z restore-drill: not measured: session deadline (not started)
+2026-11-11T18:57:48Z smoke-v2: not measured: session deadline (not reached)
+## session.log (SESSION lines)
+2026-11-11T18:56:47.792Z SESSION deadline 2026-11-11T18:57:32Z (start + 0 min, override +45), planned end 2026-11-11T21:56:47Z, ttl 2026-11-11T22:11:47Z (deadline.txt)
+2026-11-11T18:56:47.814Z SESSION start cert
+2026-11-11T18:56:48.850Z SESSION ok cert
+2026-11-11T18:56:48.856Z SESSION rebuild from zero: start (empty resource group)
+2026-11-11T18:56:48.863Z SESSION start apply-vm
+2026-11-11T18:56:49.881Z SESSION ok apply-vm
+2026-11-11T18:56:49.900Z SESSION start apply
+2026-11-11T18:56:50.937Z SESSION ok apply
+2026-11-11T18:56:50.959Z SESSION start kube
+2026-11-11T18:56:51.996Z SESSION ok kube
+2026-11-11T18:56:52.103Z SESSION start push-v1
+2026-11-11T18:56:53.381Z SESSION ok push-v1
+2026-11-11T18:56:53.576Z SESSION start push-v2
+2026-11-11T18:56:54.955Z SESSION ok push-v2
+2026-11-11T18:56:54.108Z SESSION start vm-data
+2026-11-11T18:56:55.149Z SESSION ok vm-data
+2026-11-11T18:56:55.182Z SESSION start deploy-v1
+2026-11-11T18:56:56.220Z SESSION ok deploy-v1
+2026-11-11T18:56:56.243Z SESSION start smoke-v1
+2026-11-11T18:56:57.279Z SESSION ok smoke-v1
+2026-11-11T18:56:57.295Z SESSION rebuild from zero: app smoke passed on AKS
+2026-11-11T18:56:57.315Z SESSION start golden-v1
+2026-11-11T18:56:58.356Z SESSION ok golden-v1
+2026-11-11T18:56:58.380Z SESSION start cutover
+2026-11-11T18:56:59.410Z SESSION ok cutover
+2026-11-11T18:56:59.435Z SESSION start vm-cert
+2026-11-11T18:57:00.455Z SESSION ok vm-cert
+2026-11-11T18:57:00.461Z SESSION start aks-cert
+2026-11-11T18:57:01.483Z SESSION ok aks-cert
+2026-11-11T18:57:01.496Z SESSION start retire-vm (take-down: runs whatever the deadline)
+2026-11-11T18:57:02.529Z SESSION ok retire-vm
+2026-11-11T18:57:02.554Z SESSION start deploy-v2
+2026-11-11T18:57:48.206Z SESSION FAILED deploy-v2 (rc 1)
+2026-11-11T18:57:48.431Z SESSION skip golden-v2: session deadline
+2026-11-11T18:57:48.864Z SESSION skip alert-drill: session deadline
+2026-11-11T18:57:48.116Z SESSION skip slo: session deadline
+2026-11-11T18:57:48.146Z SESSION skip restore-drill: session deadline
+2026-11-11T18:57:48.164Z SESSION session complete (session deadline reached: not-measured.txt)
+2026-11-11T18:57:48.392Z SESSION steps: 14 ok, 6 not measured, 0 failed, 0 not run (steps.txt)
+2026-11-11T18:57:48.407Z SESSION destroy
+2026-11-11T18:57:48.426Z SESSION destroyed: RG exists=false
+## ledger calls (intercepted)
+stub ledger, nothing written: -I aks_ledger_rows.py add K2 2026-11-11 18:56 21:56
+stub ledger, nothing written: -I <repo>/scripts/azure_ledger.py check
+stub ledger, nothing written: -I aks_ledger_rows.py close K2 2026-11-11 18:57 (session end) session session-20261111T185647Z
+## deploy-v2 step.txt
+v2 step start 2026-11-11T18:57:02.597Z: release ticketdesk deployed, image 
+2026-11-11T18:57:02.626Z queue-cd --timeout 30 (TD_CD_TIMEOUT 1800, deadline in 30 s)
+2026-11-11T18:57:07.685Z approval requested, <scratch>/aks-cd-approval.txt written
+2026-11-11T18:57:32.792Z session deadline: queue-cd stopped
+2026-11-11T18:57:32.852Z queue-cd exit 143 (run 4242)
+2026-11-11T18:57:47Z deploy-v2: not measured: session deadline (approval requested, run 4242 cancelled, no script fallback)
+2026-11-11T18:57:47.894Z v2 deployed by: none: session deadline (queue-cd exit 143)
+probe through the v2 step: reads 1 (0 failed), writes 0 (0 failed); failure windows []
+## approval file
+2026-11-11T18:57:07Z approval requested for the v2 deploy (aks-lab): https://dev.azure.com/org/project/_build/results?buildId=4242
+2026-11-11T18:57:47Z run 4242 cancelled at the session deadline: no approval needed any more
+## ADO calls
+ado GET _apis/build/builds/4242
+ado PATCH _apis/build/builds/4242
+ado GET _apis/build/builds/4242
+## queue-cd or its sleep still running: 0

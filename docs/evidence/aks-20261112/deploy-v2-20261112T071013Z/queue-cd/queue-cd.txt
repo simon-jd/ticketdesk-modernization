@@ -1,0 +1,17 @@
+2026-11-12T07:10:23Z queued cd run 34 (https://dev.azure.com/<ado-org>/TicketDesk/_build/results?buildId=34) branch modernize tag aks-v2b acr acrtdlab36d2d4 aks aks-tdlab-swedencentral
+2026-11-12T07:10:23Z waiting for the user's approval of environment aks-lab (timeout 1800s)
+2026-11-12T07:10:39Z approval requested: waiting for the user
+2026-11-12T07:34:34Z approval succeeded after 1451 s from queueing
+run 34 cd-20261112.1 cd refs/heads/modernize ca0443fa status=completed result=succeeded reason=manual queued=2026-11-12T07:10:22.5120899Z start=2026-11-12T07:34:24.800598Z finish=2026-11-12T07:35:33.8166352Z
+Checkpoint completed  succeeded    1437 s   Checkpoint.Approval
+Checkpoint completed  succeeded    1438 s   Checkpoint
+Job        completed  succeeded    54 s     Deploy to AKS (lab)
+Stage      completed  succeeded    65 s     aks-lab
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    1 s      Checkout TicketDesk@modernize to s
+Task       completed  succeeded    50 s     Images to ACR, Helm upgrade on AKS, rollout, smoke
+Task       completed  succeeded    3 s      PublishPipelineArtifact
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@modernize to s
+Task       completed  succeeded    0 s      Finalize Job
+Stage      completed  skipped      -        kind-local
+2026-11-12T07:35:36Z run 34 completed: succeeded

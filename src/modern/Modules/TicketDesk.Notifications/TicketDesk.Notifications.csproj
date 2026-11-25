@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Notifications</RootNamespace>
+    <Description>Notifications module: the write path's change seam and its Service Bus publisher (one message per ticket write); TicketDesk.Worker delivers.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Azure.Messaging.ServiceBus" />
+    <PackageReference Include="Azure.Identity" />
+  </ItemGroup>
+</Project>

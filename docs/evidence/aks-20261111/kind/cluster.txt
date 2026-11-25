@@ -1,0 +1,30 @@
+# 2026-11-11T05:06:32Z kind v0.33.0 cluster td-aks (network td-aks-kind), server v1.37.0, helm v4.3.1+gc0d08d0
+## helm list
+NAME	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART           	APP VERSION
+td  	ticketdesk	1       	2026-11-10 20:56:58.733378273 -0800 PST	deployed	ticketdesk-0.1.0	round4     
+## pods
+NAME                         READY   STATUS      RESTARTS   AGE     IP            NODE                   NOMINATED NODE   READINESS GATES
+td-db-migrate-74r9s          0/1     Completed   0          9m33s   10.244.0.5    td-aks-control-plane   <none>           <none>
+td-web-b94b4cd77-d4k94       1/1     Running     0          85s     10.244.0.10   td-aks-control-plane   <none>           <none>
+td-worker-75d97f668d-9rbgm   1/1     Running     0          9m30s   10.244.0.6    td-aks-control-plane   <none>           <none>
+## jobs
+NAME            STATUS     COMPLETIONS   DURATION   AGE
+td-db-migrate   Complete   1/1           3s         9m33s
+## services
+NAME     TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)         AGE
+td-web   NodePort   10.96.176.53   <none>        443:30443/TCP   9m30s
+## pod security (web, worker, migrate job pod)
+td-db-migrate-74r9s | runAsNonRoot True runAsUser 1654 | readOnlyRootFilesystem True drop ['ALL'] | requests {'cpu': '50m', 'memory': '96Mi'} limits {'memory': '256Mi'} | probes []
+td-web-b94b4cd77-d4k94 | runAsNonRoot True runAsUser 1654 | readOnlyRootFilesystem True drop ['ALL'] | requests {'cpu': '250m', 'memory': '384Mi'} limits {'memory': '1Gi'} | probes ['startupProbe', 'livenessProbe', 'readinessProbe']
+td-worker-75d97f668d-9rbgm | runAsNonRoot True runAsUser 1654 | readOnlyRootFilesystem True drop ['ALL'] | requests {'cpu': '50m', 'memory': '160Mi'} limits {'memory': '512Mi'} | probes ['startupProbe', 'livenessProbe', 'readinessProbe']
+## migrate job log
+nothing to apply
+0 script(s) applied
+## container usage (crictl stats on the node, after the smoke, rotation and drill)
+CONTAINER           NAME                      CPU %               MEM                 DISK                INODES              SWAP
+1987226791061       web                 0.03                94.29MB             45.06kB             14                  0B
+320d05ec77360       worker              0.02                83.19MB             28.67kB             10                  0B
+## images
+ticketdesk-db:aks-dev b2940b87465a 301MB
+ticketdesk-worker:aks-dev de59f63375e4 367MB
+ticketdesk-web:aks-dev b7d1d999c100 364MB

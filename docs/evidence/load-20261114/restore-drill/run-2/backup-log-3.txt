@@ -1,0 +1,2 @@
+Processed 872 pages for database 'TicketDesk_load_rd2', file 'TicketDesk_log' on file 1.
+BACKUP LOG successfully processed 872 pages in 0.010 seconds (681.250 MB/sec).

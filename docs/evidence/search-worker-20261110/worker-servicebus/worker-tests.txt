@@ -1,0 +1,11 @@
+# 2026-11-10T18:14:35Z git 9c9d2d3; Service Bus emulator sha256:5a96d893b245 (ops/dev/servicebus-emulator.sh), queue ticket-notifications-test; td-sql copy of TicketDesk
+$ src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests -diagnostics
+xUnit.net v3 In-Process Runner v4.0.2+0c7aa4991f (64-bit .NET 10.0.14)
+  Discovering: TicketDesk.Worker.Tests (method display = ClassAndMethod, method display options = None)
+  Discovered:  TicketDesk.Worker.Tests (6 test cases to be run)
+  Starting:    TicketDesk.Worker.Tests (parallel mode = collections [32 threads], stop on fail = off, explicit = off, seed = 86971162)
+    [TicketDesk.Worker.Tests] ticket 10001, events 45650: 3 mails in 1.3 s
+    [TicketDesk.Worker.Tests] retry gaps for the broken destination: 1.1 s, 2.1 s, 4.0 s
+  Finished:    TicketDesk.Worker.Tests (ID = '658deec08bc7c79553a7fa69c9930d3a8af899ce5d4cd29b97db1faf07e90022')
+=== TEST EXECUTION SUMMARY ===
+   TicketDesk.Worker.Tests  Total: 6, Errors: 0, Failed: 0, Skipped: 0, Not Run: 0, Time: 19.879s

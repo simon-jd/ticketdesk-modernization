@@ -1,0 +1,11 @@
+legacy_smoke reindex against https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com at 2026-11-09T06:41:30Z
+  GET  /user/sign-in -> 200 811ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 736ms -> /
+  GET  / -> 200 758ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+  GET  /admin/search-manager/populate-index -> 200 4666ms
+[PASS] populate search index (HTTP 200)
+  GET  /search?term=printer -> 200 1928ms
+[PASS] search finds tickets (HTTP 200, 19 ticket links for 'printer')
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 8.9}

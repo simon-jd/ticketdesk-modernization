@@ -1,0 +1,271 @@
+ledger running estimate $11.06 / cap $13.50: OK
+2026-11-10T07:54:27Z SESSION continuing after the rebuild
+2026-11-10T07:54:27Z SESSION start stage-seed
+2026-11-10T07:54:34Z staged td-ops-windows-80690ee.zip (38658 B) and td-legacy-publish-80690ee.zip (21066190 B) in 6 s
+BUNDLE_BLOB=td-ops-windows-80690ee.zip
+BUNDLE_SHA=897e87202cfc55d44228e88b67016f8627acf50c94676fcf9a489ceaedb661dd
+PUBLISH_BLOB=td-legacy-publish-80690ee.zip
+PUBLISH_SHA=28f447e9dbff57bf69452697e7b315b25eae1448eea662693682d1035fcddbc5
+2026-11-10T07:54:53Z staged seed baseline-s-shared (83456512 B)
+2026-11-10T07:54:56Z staged BACPAC ticketdesk-baseline-s-shared.bacpac (3637947 B)
+2026-11-10T07:54:56Z stage done in 29 s
+BUNDLE_BLOB=td-ops-windows-80690ee.zip
+BUNDLE_SHA=897e87202cfc55d44228e88b67016f8627acf50c94676fcf9a489ceaedb661dd
+PUBLISH_BLOB=td-legacy-publish-80690ee.zip
+PUBLISH_SHA=28f447e9dbff57bf69452697e7b315b25eae1448eea662693682d1035fcddbc5
+SQLTOOLS_BLOB=td-sqltools-2106795.zip
+SQLTOOLS_SHA=97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4
+BACPAC_BLOB=bacpac/ticketdesk-baseline-s-shared.bacpac
+BACPAC_SHA=20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9
+2026-11-10T07:54:56Z SESSION ok stage-seed
+2026-11-10T07:54:56Z SESSION start sql-express
+2026-11-10T07:54:57Z provision 20261110T075457Z on vm-tdlab-legacy: fetch+sql+sqlupdate+restore+deploy+verify SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-12> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-2106795.zip SqlToolsSha256=97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4 DotnetVersion=10.0.14 RestorePrefix=seed RestoreName=baseline-s-shared Database=express
+provision 20261110T075457Z steps=fetch+sql+sqlupdate+restore+deploy+verify elapsed_s=491 rc=0
+   Bytes :   41.04 m    15.0 k   41.02 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           7,683,500 Bytes/sec.
+   Speed :             439.653 MegaBytes/min.
+   Ended : Tuesday, November 10, 2026 8:02:29 AM
+
+[2026-11-10T08:02:29Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-10T08:02:29Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-10T08:02:29Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-10T08:02:29Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-10T08:02:29Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-10T08:02:37Z] INFO   warm-up http://localhost/ -> 200 in 7.2s
+[2026-11-10T08:02:37Z] deploy: database express, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-10T08:02:37Z] step deploy done in 8.2s
+[2026-11-10T08:02:37Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-10T07:37:37.0893200Z","database":"express","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","app_db":".\\SQLEXPRESS","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.222.0","signature_updated_utc":"2026-11-10T02:04:22.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10","private_key_usable":true},"https_home":{"status":200,"ms":20,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":{},"rows":{"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":9,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-10T08:02:40Z] step verify done in 2.9s
+[2026-11-10T08:02:40Z] TDTIMINGS {"fetch":0.3,"sql":266.7,"sqlupdate":160,"restore":7.6,"deploy":8.2,"verify":2.9} total 445.9s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261110T075457Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261110T075457Z steps=fetch+sql+sqlupdate+restore+deploy+verify elapsed_s=491 rc=0
+2026-11-10T08:03:09Z SESSION ok sql-express
+2026-11-10T08:03:09Z SESSION start files-reset
+2026-11-10T08:03:13Z attachments container ticketdesk-attachments on sttdlabfiles36d2d4: 0 blobs
+2026-11-10T08:03:13Z SESSION ok files-reset
+2026-11-10T08:03:13Z SESSION start reindex
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 10.7}
+2026-11-10T08:03:24Z SESSION ok reindex
+2026-11-10T08:03:24Z SESSION start latency-express
+p50 221.5 p95 311.8 p99 431.6 ms, 557 requests, errors 0.00%
+2026-11-10T08:04:49Z SESSION ok latency-express
+2026-11-10T08:04:49Z SESSION start rehearsal-db-reset
+2026-11-10T08:06:39Z free-offer database replaced in 110 s (Apply complete! Resources: 1 added, 27 changed, 1 destroyed)
+2026-11-10T08:06:47Z SESSION ok rehearsal-db-reset
+2026-11-10T08:06:47Z SESSION start rehearsal-fresh
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 8.7}
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-10T07:37:37.0893200Z","database":"express","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","app_db":".\\SQLEXPRESS","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.222.0","signature_updated_utc":"2
+2026-11-10T08:08:06Z fresh express (rehearsal-source) ready
+2026-11-10T08:08:06Z SESSION ok rehearsal-fresh
+2026-11-10T08:08:06Z SESSION start rehearsal
+2026-11-10T08:08:07Z cutover (rehearsal) 20261110T080807Z on https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com: SQL Express on the VM -> sql-tdlab-36d2d4.database.windows.net/sqldb-ticketdesk
+2026-11-10T08:08:07Z MARK probe_start 2026-11-10T08:08:07Z
+2026-11-10T08:08:37Z MARK runcommand_start 2026-11-10T08:08:37Z
+2026-11-10T08:10:45Z MARK runcommand_end 2026-11-10T08:10:45Z
+2026-11-10T08:10:57Z MARK smoke_passed 2026-11-10T08:10:57Z
+2026-11-10T08:11:58Z MARK probe_end 2026-11-10T08:11:58Z
+result: switched (rehearsal)
+target before the window: {
+  "serviceObjective": "GP_S_Gen5_2",
+  "status": "Online",
+  "useFreeLimit": true
+}
+write freeze on the VM (DENY -> switched, warm): 75.4 s
+  freeze_start -> frozen: 0.0 s
+  export_start -> copy_restored: 8.0 s
+  copy_restored -> exported: 20.4 s
+  import_start -> imported: 37.2 s
+  imported -> reconcile_start: 0.2 s
+  reconcile_start -> reconciled: 4.0 s
+  switch_start -> switched: 5.4 s
+probe: reads 190 (0 failed), writes 135 (42 failed), sign-ins 1 (0 failed)
+probe write downtime (last ok -> first ok): 76.6 s (2026-11-10T08:08:48.656Z -> 2026-11-10T08:10:05.244Z)
+read failure windows: []
+2026-11-10T08:11:59Z SESSION ok rehearsal
+2026-11-10T08:11:59Z SESSION start measured-db-reset
+2026-11-10T08:13:44Z free-offer database replaced in 105 s (Apply complete! Resources: 1 added, 27 changed, 1 destroyed)
+2026-11-10T08:13:54Z SESSION ok measured-db-reset
+2026-11-10T08:13:54Z SESSION start measured-fresh
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 9.7}
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-10T07:37:37.0893200Z","database":"express","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","app_db":".\\SQLEXPRESS","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.222.0","signature_updated_utc":"2
+2026-11-10T08:15:14Z fresh express (measured-source) ready
+2026-11-10T08:15:14Z SESSION ok measured-fresh
+2026-11-10T08:15:14Z SESSION start measured-cutover
+2026-11-10T08:15:15Z cutover (measured) 20261110T081515Z on https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com: SQL Express on the VM -> sql-tdlab-36d2d4.database.windows.net/sqldb-ticketdesk
+2026-11-10T08:15:15Z MARK probe_start 2026-11-10T08:15:15Z
+2026-11-10T08:15:45Z MARK runcommand_start 2026-11-10T08:15:45Z
+2026-11-10T08:17:21Z MARK runcommand_end 2026-11-10T08:17:21Z
+2026-11-10T08:17:33Z MARK smoke_passed 2026-11-10T08:17:33Z
+2026-11-10T08:18:35Z MARK probe_end 2026-11-10T08:18:35Z
+result: switched (measured)
+target before the window: {
+  "serviceObjective": "GP_S_Gen5_2",
+  "status": "Online",
+  "useFreeLimit": true
+}
+write freeze on the VM (DENY -> switched, warm): 76.2 s
+  freeze_start -> frozen: 0.0 s
+  export_start -> copy_restored: 7.8 s
+  copy_restored -> exported: 21.1 s
+  import_start -> imported: 37.2 s
+  imported -> reconcile_start: 0.2 s
+  reconcile_start -> reconciled: 4.0 s
+  switch_start -> switched: 5.6 s
+probe: reads 172 (0 failed), writes 120 (47 failed), sign-ins 1 (0 failed)
+probe write downtime (last ok -> first ok): 77.5 s (2026-11-10T08:15:53.593Z -> 2026-11-10T08:17:11.066Z)
+read failure windows: []
+2026-11-10T08:18:36Z SESSION ok measured-cutover
+2026-11-10T08:18:36Z SESSION start migrate
+2026-11-10T08:18:37Z provision 20261110T081837Z on vm-tdlab-legacy: fetch+migrate SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-12> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-2106795.zip SqlToolsSha256=97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4 DotnetVersion=10.0.14 Database=azure
+provision 20261110T081837Z steps=fetch+migrate elapsed_s=33 rc=0
+[2026-11-10T08:18:54Z] publish package already extracted (same SHA-256)
+[2026-11-10T08:18:54Z] step fetch done in 0.3s
+[2026-11-10T08:18:54Z] ==== step migrate
+    IX_Tickets_Open_Unassigned: AssignedTo included
+applied expand/V0006__open_unassigned_include_assignee.sql in 0.10 s
+applied programmable/R__usp_ticket_list.sql in 0.03 s
+2 script(s) applied
+applied  expand/V0001__tickets_assigned_date.sql                      2026-11-09 01:49:05Z 13 ms by sa
+applied  expand/V0002__tickets_assigned_date_backfill.sql             2026-11-09 01:49:05Z 219 ms by sa
+applied  expand/V0003__ticket_list_and_report_indexes.sql             2026-11-09 01:49:05Z 330 ms by sa
+applied  expand/V0004__tickets_rebuild_after_backfill.sql             2026-11-09 01:49:05Z 2 ms by sa
+applied  expand/V0005__assigned_date_trigger_null_changes.sql         2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_assignee_workload.sql             2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_open_tickets_aging.sql            2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_time_to_close.sql                 2026-11-09 01:49:05Z 2 ms by sa
+applied  expand/V0006__open_unassigned_include_assignee.sql           2026-11-10 08:18:55Z 66 ms by <client-id-12>@<tenant-id>
+applied  programmable/R__usp_ticket_list.sql                          2026-11-10 08:18:55Z 13 ms by <client-id-12>@<tenant-id>
+contract contract/C0001__assigned_date_contract.sql (after legacy retirement)
+[2026-11-10T08:18:56Z] step migrate done in 1.5s
+[2026-11-10T08:18:56Z] TDTIMINGS {"fetch":0.3,"migrate":1.5} total 1.9s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261110T081837Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261110T081837Z steps=fetch+migrate elapsed_s=33 rc=0
+2026-11-10T08:19:12Z SESSION ok migrate
+2026-11-10T08:19:12Z SESSION start plan-tag
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+{
+    "tag": "printer",
+    "total": 1817,
+    "query_store": "READ_WRITE",
+    "forced_plans": 0,
+    "query_store_hints": 0,
+    "plans": [
+        {
+            "run": 1,
+            "plan": 1,
+            "statement": "WITH k AS (\n        SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-',",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Compute Scalar,Nested Loops,Stream Aggregate,Sort,Table Spool,Table-valued function,Filter,Constant Scan"
+        },
+        {
+            "run": 1,
+            "plan": 2,
+            "statement": "SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM ",
+            "dop": "0",
+            "non_parallel_reason": null,
+            "elapsed_ms": "3",
+            "cpu_ms": "3",
+            "operators": "Compute Scalar,Stream Aggregate,Parallelism,Hash Match,Bitmap,Index Seek,Index Scan"
+        },
+        {
+            "run": 1,
+            "plan": 3,
+            "statement": "SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketSta",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Sort,Merge Join,Clustered Index Scan,Nested Loops,Top,Index Scan,Index Seek,Clustered Index Seek"
+        },
+        {
+            "run": 2,
+            "plan": 1,
+            "statement": "WITH k AS (\n        SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-',",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Compute Scalar,Nested Loops,Stream Aggregate,Sort,Table Spool,Table-valued function,Filter,Constant Scan"
+        },
+        {
+            "run": 2,
+            "plan": 2,
+            "statement": "SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM ",
+            "dop": "0",
+            "non_parallel_reason": null,
+            "elapsed_ms": "3",
+            "cpu_ms": "3",
+            "operators": "Compute Scalar,Stream Aggregate,Parallelism,Hash Match,Bitmap,Index Seek,Index Scan"
+        },
+        {
+            "run": 2,
+            "plan": 3,
+            "statement": "SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketSta",
+            "dop": "1",
+            "non_parallel_reason": null,
+            "elapsed_ms": "0",
+            "cpu_ms": "0",
+            "operators": "Sort,Merge Join,Clustered Index Scan,Nested Loops,Top,Index Scan,Index Seek,Clustered Index Seek"
+        }
+    ]
+}
+2026-11-10T08:19:57Z SESSION ok plan-tag
+2026-11-10T08:19:57Z SESSION start fresh-azure-golden
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 8.7}
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-10T07:37:37.0893200Z","database":"azure","sql":"12.0.2000.8 SQL Azure GP_S_Gen5_2","app_db":"tcp:sql-tdlab-36d2d4.database.windows.net,1433","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.222.0","si
+2026-11-10T08:24:01Z fresh azure (azure-golden) ready
+2026-11-10T08:24:01Z SESSION ok fresh-azure-golden
+2026-11-10T08:24:01Z SESSION start golden-azure
+compared 262, matched 259, mismatched 3 (missing 0, extra 0) -> ~/Desktop/ticketdesk-modernization/wt-azure-sql/docs/evidence/azure-sql-20261110/golden-azure/compare/report.md
+2026-11-10T08:25:36Z SESSION ok golden-azure
+2026-11-10T08:25:36Z SESSION start fresh-azure-latency
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 9.8}
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-10T07:37:37.0893200Z","database":"azure","sql":"12.0.2000.8 SQL Azure GP_S_Gen5_2","app_db":"tcp:sql-tdlab-36d2d4.database.windows.net,1433","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.222.0","si
+2026-11-10T08:29:27Z fresh azure (azure-latency) ready
+2026-11-10T08:29:27Z SESSION ok fresh-azure-latency
+2026-11-10T08:29:27Z SESSION start latency-azure
+p50 244.4 p95 323.5 p99 349.5 ms, 565 requests, errors 0.00%
+2026-11-10T08:30:53Z SESSION ok latency-azure
+2026-11-10T08:30:53Z SESSION start cert-rotation
+Could not find certificates from -in file from <stdin>
+lift.sh: certificate import failed (see ~/Desktop/ticketdesk-modernization/wt-azure-sql/docs/evidence/azure-sql-20261110/cert-rotation/rotation.txt)
+2026-11-10T08:30:56Z SESSION FAILED cert-rotation
+2026-11-10T08:30:56Z SESSION session complete
+2026-11-10T08:30:56Z SESSION destroy
+tenant_id = "<tenant-id>"
+stage foundation down end 2026-11-10T08:34:37Z elapsed_s=220 rc=0
+2026-11-10T08:34:37Z SESSION destroyed: RG exists=false

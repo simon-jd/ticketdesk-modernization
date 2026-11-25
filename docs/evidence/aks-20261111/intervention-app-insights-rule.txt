@@ -1,0 +1,11 @@
+# 2026-11-11, during the session's first apply (stage cutover), operator intervention (agent-aks)
+17:44:00Z apply start. azurerm_application_insights stayed "Still creating" past 8 min although the component was
+provisioned (az monitor app-insights component show: Succeeded): with disable_generated_rule = true the provider waits
+for Azure's generated "Failure Anomalies - appi-tdlab-swedencentral" smart detector rule so it can delete it, and Azure
+did not generate one (Microsoft.AlertsManagement is registered now); the wait would have run into the 30 min create
+timeout and failed the session.
+17:54:44Z created that rule by hand (az rest PUT microsoft.alertsManagement/smartDetectorAlertRules, state Disabled,
+scope the component, the drill action group; no meter), 17:54:50Z the provider reported "Creation complete after 9m28s".
+The provider did not delete it; 17:57Z deleted by hand (az rest DELETE), 0 smart detector rules left in the group.
+Follow-up for infra: disable_generated_rule = false now that Azure no longer generates the rule (or keep true and
+document the wait).

@@ -1,0 +1,26 @@
+run 8 ci-20261111.5 ci refs/heads/modernize ac82e30a status=completed result=succeeded reason=batchedCI queued=2026-11-11T05:28:24.8890464Z start=2026-11-11T05:28:27.3408257Z finish=2026-11-11T05:30:48.2462261Z
+Checkpoint completed  succeeded    0 s      Checkpoint
+Stage      completed  succeeded    127 s    CI
+Job        completed  succeeded    17 s     Static gates
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@modernize to s
+Task       completed  succeeded    0 s      No inherited Azure login
+Task       completed  succeeded    3 s      terraform fmt -check + validate
+Task       completed  succeeded    10 s     Vulnerable packages (NuGet, npm)
+Task       completed  succeeded    2 s      Publish audit output
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@modernize to s
+Task       completed  succeeded    0 s      Finalize Job
+Job        completed  succeeded    99 s     Build, test, images
+Task       completed  succeeded    1 s      Initialize job
+Task       completed  succeeded    1 s      Checkout TicketDesk@modernize to s
+Task       completed  succeeded    6 s      Angular - npm ci, Vitest, build
+Task       completed  succeeded    47 s     .NET - restore, build, tests + coverage
+Task       completed  succeeded    10 s     Playwright E2E (new app alone)
+Task       completed  succeeded    9 s      Golden replay (new app alone)
+Task       completed  succeeded    3 s      Container images (web, worker) + smoke
+Task       completed  succeeded    4 s      Publish .NET test results
+Task       completed  succeeded    3 s      Publish Vitest + Playwright results
+Task       completed  succeeded    13 s     Publish .NET coverage
+Task       completed  succeeded    2 s      Publish CI output (summaries, replay report, images)
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@modernize to s
+Task       completed  succeeded    0 s      Finalize Job

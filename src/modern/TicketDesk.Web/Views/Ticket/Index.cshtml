@@ -1,0 +1,91 @@
+@* Port of the legacy Views/Ticket/Index.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd, Ashley Medway). *@
+@model TicketDesk.Web.Controllers.TicketPageModel
+@using TicketIndex = TicketDesk.Localization.Views.Ticket.Index
+@{
+    var id = Model.Details.Ticket.TicketId;
+    var culture = CultureInfo.CurrentCulture.Name;
+}
+@section title
+{
+    @string.Format(TicketIndex.Title, id)
+}
+
+@section scripts
+{
+    @Bundles.Styles("~/content/editor")
+    @Bundles.Styles("~/content/select2")
+    @Bundles.Styles("~/content/summernote")
+    @Bundles.Styles("~/content/datepicker")
+    @Bundles.Scripts("~/bundles/editor")
+    @Bundles.Scripts("~/bundles/select2")
+    @Bundles.Scripts("~/bundles/select2_locale_" + culture)
+    @Bundles.Scripts("~/bundles/markdown")
+    @Bundles.Scripts("~/bundles/editticket")
+    @Bundles.Scripts("~/bundles/summernote")
+    @Bundles.Scripts("~/bundles/summernote_locale_" + culture)
+    @Bundles.Scripts("~/bundles/datepicker")
+    <partial name="_AntiforgeryAjax" />
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $.ajaxSetup({ cache: false });
+            var tdConfig = {
+                loadActivityUrl: '/ticket-activity/load-activity?ticketId=@id',
+                activityButtonsUrl: '/ticket-activity/activity-buttons?ticketId=@id',
+                eventPanelUrl: '/ticket/ticket-events?ticketId=@id',
+                loadDetailsUrl: '/ticket/ticket-details?ticketId=@id',
+                attachmentsPanelUrl: '/ticket/ticket-files?ticketId=@id',
+                changeTicketSubscription: '/ticket/change-ticket-subscription?ticketId=@id',
+                isSubscribed: @(Model.IsSubscribed ? "true" : "false"),
+                uploaderConfig: {
+                    dropzoneUploadUrl: '/file/upload',
+                    getAttachmentsUrl: '/file/get-attachments-info',
+                    defaultThumbnailUrl: '/content/images/general-file.png',
+                    deleteFileUrl: '/file/delete',
+                    ticketId: @id
+                    },
+                tagsConfig: {
+                    tagAutoCompleteUrl: '/auto-complete/tag-list',
+                },
+                detailsConfig: {
+                    isHtml: @(Model.Details.Ticket.IsHtml ? "true" : "false")
+                    },
+                isEditorDefaultHtml: @(Model.IsEditorDefaultHtml ? "true" : "false")
+                };
+            window.editTicket.activate(tdConfig);
+        });
+    </script>
+}
+
+<main role="main">
+    <div id="ticketDetailPanel" class="panel panel-info">
+        <partial name="_TicketDetails" model="Model.Details" />
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading" style="">
+            <div class="btn-toolbar" role="toolbar">
+                <div id="activityButtonsPanel">
+                    <partial name="~/Views/TicketActivity/_ActivityButtons.cshtml" model="Model.Activities" />
+                </div>
+            </div>
+        </div>
+        <section id="activityPanel"></section>
+    </div>
+    <div id="attachmentsPanel">
+        <partial name="_TicketFiles" model="Model.Files" view-data="@(new ViewDataDictionary(ViewData) { ["TicketId"] = id })" />
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading panel-title" style="padding: 3px 5px;">
+            @TicketIndex.Activity
+        </div>
+        <div id="eventPanel" class="panel-body">
+            <partial name="_TicketEvents" model="Model.Events" />
+        </div>
+    </div>
+    <p>
+        <a href="/tickets">@TicketIndex.BackOption</a>
+    </p>
+    @Html.AntiForgeryToken()
+</main>

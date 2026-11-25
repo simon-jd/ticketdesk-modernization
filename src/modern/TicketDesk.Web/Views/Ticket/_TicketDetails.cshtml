@@ -1,0 +1,192 @@
+@* Port of the legacy Views/Ticket/_TicketDetails.cshtml (TicketDesk 2.5, Ms-PL; attribution: Stephen Redd).
+   Difference: user display names are HTML-encoded (the legacy view pasted them into Html.Raw). *@
+@model TicketDesk.Tickets.Pages.TicketDetailsView
+@using TicketDesk.Web.Views
+@using TicketIndex = TicketDesk.Localization.Views.Ticket.Index
+@using D = TicketDesk.Localization.Domain.Strings
+@{
+    var t = Model.Ticket;
+    string E(string? s) => System.Net.WebUtility.HtmlEncode(s ?? "");
+    var status = TicketText.Status(t.TicketStatus);
+}
+
+<div class="panel-heading" style="padding: 3px 5px;">
+    <div class="row">
+        <div class="row-same-height row-full-height">
+            <div class="col-xs-2 col-sm-2 col-xs-height col-full-height text-center panel-title" style="border-right: 1px solid #dcdcdc;">
+                @status
+            </div>
+            <div class="col-xs-2 col-sm-1 col-xs-height col-full-height text-center panel-title" style="border-right: 1px solid #dcdcdc;">
+                #@t.TicketId
+            </div>
+            <div class="col-xs-7 col-sm-9 col-xs-height col-full-height panel-title">
+                @t.Title
+            </div>
+            <div class="col-xs-1 col-xs-height col-full-height">
+                <div class="pull-right">
+                    <button id="watch" type="button" class="btn btn-default"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            title="">
+                        <i class="fa fa-eye"></i> <span class="hidden-sm hidden-xs"></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="panel-body" style="padding: 0">
+    <div class="row row-no-padding row-same-height row-full-height" style="width: 100%;margin:0">
+        <div class="col-md-8 col-sm-8 col-xs-12 col-xs-height col-full-height">
+            <div class="container-fluid" style="padding: 0;">
+                <div class="col-xs-12" style="border-bottom: 1px solid #B3CBDF; padding: 5px; background-color: #F7F7F7;">
+                    <div class="pull-right">
+                        @if (Model.DisplayProjects)
+                        {
+                            <div class="text-primary">
+                                <i class="fa fa-book"></i>
+                                @t.Project?.ProjectName
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(t.TagList))
+                        {
+                            <div class="text-muted text-default">
+
+                                @foreach (var tag in t.TagList.Split(','))
+                                {
+                                    <div><i class="fa fa-tag"></i> @tag</div>
+                                }
+                            </div>
+                        }
+
+
+                    </div>
+                    <div>
+                        <div>@(string.IsNullOrEmpty(t.Priority) ? string.Empty : string.Format(TicketIndex.Priority, t.Priority)) @t.Category @t.TicketType</div>
+
+                        <div>
+                            @Html.Raw(string.Format(TicketIndex.AssignedTo, string.IsNullOrEmpty(t.AssignedTo) ? "<span class='label label-warning'>" + E(TicketIndex.Unassigned) + "</span>" : E(Model.Name(t.AssignedTo))))
+                        </div>
+                        <div>
+                            @Html.Raw(string.Format(TicketIndex.OwnedBy, E(Model.Name(t.Owner))))
+                        </div>
+                        <div class="hidden-sm hidden-md hidden-lg">
+                            @Html.Raw(string.Format(TicketIndex.UpdatedBy, E(Model.Name(t.LastUpdateBy)), TicketText.ShortDate(t.LastUpdateDate), TicketText.ShortTime(t.LastUpdateDate)))
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="" style="margin: 0; padding: 0;">
+                <div class="" id="detailsText" style="height: 200px; overflow: auto; margin: 0; padding: 5px;">
+                    @Html.Raw(Model.DetailsHtml)
+                </div>
+                <div id="detailTextExpander" class="expanderButton" style="height: 20px; display: none;">
+                    <i id="expandersymbol" class="fa fa-chevron-down text-center"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 hidden-xs col-sm-height col-full-height col-top" style="border-left: 1px solid #B3CBDF;background-color: #F7F7F7;">
+            <div class="container-fluid" style="padding: 0;">
+                <aside class="small">
+                    <div style="padding: 5px;">
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="TicketStatus">@D.TicketTicketStatus</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @status
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="DueDate">@D.TicketDueDate</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @if (t.DueDate.HasValue)
+                                {
+                                    @TicketDesk.Tickets.Writes.LegacyDates.ToShortDate(t.DueDate)
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="TargetDate">@D.TicketTargetDate</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @if (t.TargetDate.HasValue)
+                                {
+                                    @TicketDesk.Tickets.Writes.LegacyDates.ToShortDate(t.TargetDate)
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="ResolutionDate">@D.TicketResolutionDate</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @if (t.ResolutionDate.HasValue)
+                                {
+                                    @TicketDesk.Tickets.Writes.LegacyDates.ToShortDate(t.ResolutionDate)
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="LastUpdateBy">@D.TicketLastUpdateBy</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @Model.Name(t.LastUpdateBy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="LastUpdateDate">@D.TicketLastUpdateDate</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @TicketText.ShortDate(t.LastUpdateDate) @TicketText.ShortTime(t.LastUpdateDate)
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="CurrentStatusSetBy">@D.TicketCurrentStatusSetBy</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @Model.Name(t.CurrentStatusSetBy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="CurrentStatusDate">@D.TicketCurrentStatusDate</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @TicketText.ShortDate(t.CurrentStatusDate) @TicketText.ShortTime(t.CurrentStatusDate)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="CreatedBy">@D.TicketCreatedBy</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @Model.Name(t.CreatedBy)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="CreatedDate">@D.TicketCreatedDate</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @TicketText.ShortDate(t.CreatedDate) @TicketText.ShortTime(t.CreatedDate)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="EstimatedDuration">@D.TicketEstimatedDuration</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @t.EstimatedDuration
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right" for="ActualDuration">@D.TicketActualDuration</label>
+                            <div class="col-sm-7 col-lg-8">
+                                @t.ActualDuration
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-5 col-lg-4 text-right">@TicketIndex.Subscribers</label>
+                            <div class="col-sm-7 col-lg-8">
+
+                                @foreach (var sub in t.TicketSubscribers)
+                                {
+                                <div>@Model.Name(sub.SubscriberId)</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+run 3: failed TicketDesk.Database.Tests.MigrationTests.Only_the_tag_count_asks_for_the_parallel_plan (4s 481ms)
+run 14: failed TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up (1m 00s 276ms)
+run 16: failed TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up (1m 00s 268ms)
+run 19: failed TicketDesk.Database.Tests.MigrationTests.Only_the_tag_count_asks_for_the_parallel_plan (4s 496ms)
+run 19: failed [Test Assembly Cleanup Failure (...)] x 185 (every TicketDesk.Web.Tests test: the assembly ScratchDatabase's DROP DATABASE was a deadlock victim, see run19-cleanup-error.txt)

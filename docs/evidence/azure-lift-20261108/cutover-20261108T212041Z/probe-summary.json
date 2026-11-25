@@ -1,0 +1,224 @@
+{
+  "file": "probe.jsonl",
+  "start": "2026-11-08T21:20:41.135Z",
+  "end": "2026-11-08T21:24:23.288Z",
+  "ticks": 186,
+  "read_requests": 372,
+  "failed_reads": 11,
+  "signins": 2,
+  "failed_signins": 0,
+  "switches": [
+    {
+      "t": "2026-11-08T21:20:41.135Z",
+      "target": "https://localhost:8443"
+    },
+    {
+      "t": "2026-11-08T21:23:23.390Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+    }
+  ],
+  "per_target_path": [
+    {
+      "target": "https://localhost:8443",
+      "path": "/",
+      "requests": 162,
+      "failed": 6,
+      "median_ms": 28,
+      "p95_ms": 63
+    },
+    {
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "requests": 162,
+      "failed": 5,
+      "median_ms": 65,
+      "p95_ms": 113
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 24,
+      "failed": 0,
+      "median_ms": 787,
+      "p95_ms": 834
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 24,
+      "failed": 0,
+      "median_ms": 1412,
+      "p95_ms": 2016
+    }
+  ],
+  "failure_windows": [
+    {
+      "target": "https://localhost:8443",
+      "start": "2026-11-08T21:21:11.411Z",
+      "end": "2026-11-08T21:21:16.517Z",
+      "ticks": 6
+    }
+  ],
+  "failed": [
+    {
+      "t": "2026-11-08T21:21:11.411Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 37,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:11.450Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 39,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:12.392Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 18,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:12.407Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 15,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:13.392Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 18,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:13.407Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 15,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:14.394Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 20,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:14.411Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 17,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:15.391Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 17,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:15.420Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 29,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T21:21:16.391Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 17,
+      "error": "HTTP 500"
+    }
+  ],
+  "phases": [
+    {
+      "from": "probe_start",
+      "to": "freeze_start",
+      "seconds": 30.0,
+      "read_requests": 60,
+      "failed_reads": 0
+    },
+    {
+      "from": "freeze_start",
+      "to": "frozen",
+      "seconds": 3.0,
+      "read_requests": 6,
+      "failed_reads": 6
+    },
+    {
+      "from": "frozen",
+      "to": "backup_done",
+      "seconds": 6.0,
+      "read_requests": 12,
+      "failed_reads": 5
+    },
+    {
+      "from": "backup_done",
+      "to": "copied_local",
+      "seconds": 2.0,
+      "read_requests": 4,
+      "failed_reads": 0
+    },
+    {
+      "from": "copied_local",
+      "to": "uploaded",
+      "seconds": 16.0,
+      "read_requests": 32,
+      "failed_reads": 0
+    },
+    {
+      "from": "uploaded",
+      "to": "restored",
+      "seconds": 64.0,
+      "read_requests": 128,
+      "failed_reads": 0
+    },
+    {
+      "from": "restored",
+      "to": "smoke_passed",
+      "seconds": 40.0,
+      "read_requests": 80,
+      "failed_reads": 0
+    },
+    {
+      "from": "smoke_passed",
+      "to": "switched",
+      "seconds": 0.0,
+      "read_requests": 0,
+      "failed_reads": 0
+    },
+    {
+      "from": "switched",
+      "to": "probe_end",
+      "seconds": 61.0,
+      "read_requests": 49,
+      "failed_reads": 0
+    },
+    {
+      "from": "probe_end",
+      "to": "source_unfrozen",
+      "seconds": 3.0,
+      "read_requests": 1,
+      "failed_reads": 0
+    }
+  ]
+}

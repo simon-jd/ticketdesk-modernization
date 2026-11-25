@@ -1,0 +1,5 @@
+remote authentication key set: True
+shared sign-in cookie key ring: database
+AzureStorage: http://10.0.2.2:10000/devstoreaccount1
+httpRuntime targetFramework: 4.8
+deployed package sha256: EDE8022ADED513BD7D93291650C6AE5C1FDE6194F6DB723DBB3018CE0C06A7D6

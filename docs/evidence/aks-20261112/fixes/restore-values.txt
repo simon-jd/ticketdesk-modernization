@@ -1,0 +1,18 @@
+# 2026-11-12T08:55:25Z helm v4.3.1+gc0d08d0; connection string wanted (fake server):
+#   Server=tcp:sql-tdlab-36d2d4.database.windows.net,1433;Database=sqldb-ticketdesk-pitr;Authentication=Active Directory Workload Identity;Encrypt=True;TrustServerCertificate=False;Connect Timeout=30;Application Name=TicketDesk.Web
+## fix: -f values-v2.yaml -f values-pitr.yaml (aks.sh pitr_values):
+{
+ "migrate": {
+  "enabled": false
+ },
+ "database": {
+  "connectionString": "Server=tcp:sql-tdlab-36d2d4.database.windows.net,1433;Database=sqldb-ticketdesk-pitr;Authentication=Active Directory Workload Identity;Encrypt=True;TrustServerCertificate=False;Connect Timeout=30;Application Name=TicketDesk.Web"
+ }
+}
+rendered ConnectionStrings__TicketDesk values:
+      2               value: "Server=tcp:sql-tdlab-36d2d4.database.windows.net,1433;Database=sqldb-ticketdesk-pitr;Authentication=Active Directory Workload Identity;Encrypt=True;TrustServerCertificate=False;Connect Timeout=30;Application Name=TicketDesk.Web"
+full string rendered: 2 time(s); Job objects: 0
+## before: --set migrate.enabled=false --set database.connectionString="<the same string>" (session of 2026-11-12):
+rendered ConnectionStrings__TicketDesk values:
+      2               value: "Server=tcp:sql-tdlab-36d2d4.database.windows.net"
+full string rendered: 0 time(s)

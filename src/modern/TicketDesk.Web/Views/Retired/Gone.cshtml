@@ -1,0 +1,12 @@
+@* A legacy route retired with the legacy app (expected differences X1, X2): 410 Gone with a pointer, in the legacy layout. *@
+@model TicketDesk.Web.Controllers.RetiredPage
+
+@section title
+{
+     @Model.Title
+}
+<div class="contentContainer">
+    <h2>@Model.Title</h2>
+    <p>@Model.Text</p>
+    <p><a href="@Model.LinkUrl">@Model.LinkText</a></p>
+</div>

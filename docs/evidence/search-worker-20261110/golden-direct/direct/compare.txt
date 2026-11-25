@@ -1,0 +1,2 @@
+$ td-replay compare --baseline golden --candidate docs/evidence/search-worker-20261110/golden-direct/direct/candidate.jsonl --out-dir docs/evidence/search-worker-20261110/golden-direct/direct/compare
+compared 262, matched 262, mismatched 0 (missing 0, extra 0) -> docs/evidence/search-worker-20261110/golden-direct/direct/compare/report.md

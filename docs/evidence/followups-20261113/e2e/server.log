@@ -1,0 +1,34 @@
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:5487
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/TicketDesk.Web
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 2 route(s) on the Angular front end
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 3 route(s) on the Angular front end
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 3 route(s) on the Angular front end
+warn: Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery[4]
+      The required antiforgery request token was not provided in either form field '__RequestVerificationToken' or header 'RequestVerificationToken'.
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 2 route(s) on the Angular front end
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 3 route(s) on the Angular front end
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 3 route(s) on the Angular front end
+warn: Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery[4]
+      The required antiforgery request token was not provided in either form field '__RequestVerificationToken' or header 'RequestVerificationToken'.
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 2 route(s) on the Angular front end
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 3 route(s) on the Angular front end
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 3 route(s) on the Angular front end
+warn: Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery[4]
+      The required antiforgery request token was not provided in either form field '__RequestVerificationToken' or header 'RequestVerificationToken'.
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

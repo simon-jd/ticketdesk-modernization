@@ -1,0 +1,39 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:18453 -e TD_RATE=75 -e TD_WARMUP_S=0 -e TD_MEASURE_S=360 -e TD_PRE_VUS=245 -e TD_MAX_VUS=245 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: ~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js
+        output: csv (~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/drill-sql-restart/k6.csv.gz)
+     scenarios: (100.00%) 1 scenario, 245 max VUs, 6m30s max duration (incl. graceful stop):
+              * mix: 75.00 iterations/s for 6m0s (maxVUs: 245, gracefulStop: 30s)
+Run    [ 100% ] setup()
+Run    [ 100% ] setup()
+time="2026-11-13T21:24:20-08:00" level=warning msg="The test has generated metrics with 100059 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+time="2026-11-13T21:24:24-08:00" level=warning msg="Insufficient VUs, reached 245 active VUs and cannot initialize more" executor=constant-arrival-rate scenario=mix
+{
+ "all": {
+  "duration_ms": {
+   "p(99)": 48.61121379999986,
+   "max": 11079.558925,
+   "count": 50281,
+   "min": 0.400338,
+   "med": 4.924745,
+   "avg": 53.16081427139484,
+   "p(90)": 18.960498,
+   "p(95)": 24.078538
+  },
+  "failed": {
+   "rate": 0.015930470754360493,
+   "passes": 801,
+   "fails": 49480
+  }
+ },
+ "dropped": {
+  "count": 515,
+  "rate": 1.4204341616954235
+ }
+}

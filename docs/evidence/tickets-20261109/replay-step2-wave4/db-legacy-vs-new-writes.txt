@@ -1,0 +1,13 @@
+Tickets: 8 vs 8 rows: DIFFERENT
+  only in A: {"ActualDuration": null, "AffectsCustomer": false, "AssignedDate": "null", "AssignedTo": null, "Category": "Software", "CreatedBy": "4dee26a1-e271-42b0-a939-3ea1710a7edd", "CurrentStatusDate": "other", "CurrentStatusSetBy": "4dee26a1-e271-42b0-a939-3ea1710a7edd", "Details": "The shared printer on the third floor shows *offline* since this morning.\n\nSteps tried: power cycle.", "DueDate": null, "E
+  only in B: {"ActualDuration": null, "AffectsCustomer": false, "AssignedDate": "null", "AssignedTo": null, "Category": "Software", "CreatedBy": "4dee26a1-e271-42b0-a939-3ea1710a7edd", "CurrentStatusDate": "LastUpdateDate", "CurrentStatusSetBy": "4dee26a1-e271-42b0-a939-3ea1710a7edd", "Details": "The shared printer on the third floor shows *offline* since this morning.\n\nSteps tried: power cycle.", "DueDate":
+TicketEvents: 29 vs 29 rows: EQUAL
+TicketSubscribers: 11 vs 11 rows: EQUAL
+TicketEventNotifications: 44 vs 44 rows: EQUAL
+TicketTags: 16 vs 17 rows: DIFFERENT
+  only in A: {"Rows": 2, "TagName": "laptop", "TicketId": 10002}
+  only in A: {"Rows": 2, "TagName": "replay", "TicketId": 10002}
+  only in B: {"Rows": 1, "TagName": "dock", "TicketId": 10002}
+  only in B: {"Rows": 1, "TagName": "laptop", "TicketId": 10002}
+  only in B: {"Rows": 1, "TagName": "replay", "TicketId": 10002}
+PushNotificationItems: 1 vs 1 rows: EQUAL

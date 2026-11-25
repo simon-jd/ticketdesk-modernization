@@ -1,0 +1,8 @@
+cd: 2 runs {'failed': 2}
+  reason manual: 2 (16=failed, 23=failed)
+ci: 19 runs {'failed': 6, 'succeeded': 13}; succeeded durations s: min 141, median 173, max 202
+  reason batchedCI: 5 (8=succeeded, 12=succeeded, 15=succeeded, 20=succeeded, 22=succeeded)
+  reason manual: 5 (1=failed, 2=succeeded, 17=succeeded, 18=succeeded, 24=failed)
+  reason pullRequest: 9 (6=failed, 7=succeeded, 9=failed, 10=failed, 11=succeeded, 13=failed, 14=succeeded, 19=succeeded, 21=succeeded)
+sc-check: 3 runs {'failed': 2, 'succeeded': 1}; succeeded durations s: min 16, median 16, max 16
+  reason manual: 3 (3=failed, 4=failed, 5=succeeded)

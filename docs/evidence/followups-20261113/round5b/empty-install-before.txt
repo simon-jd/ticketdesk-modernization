@@ -1,0 +1,18 @@
+# BEFORE the fix (td-seed schema without notifications.*). The 'notifications.* tables' line below queried SCHEMA_ID() in the
+# wrong database and always printed 0 (fixed in the script afterwards); the last line's OBJECT_ID check ('no table') is the correct one.
+# 2026-11-13T22:31:07Z  git 39f8016f (+ uncommitted)  td-sql TicketDesk_r5b_empty (scratch)
+$ td-seed schema --create-database
+EF6-implied schema created
+$ td-db migrate --contract --legacy-retired
+15 script(s) applied
+$ (notifications.* tables: 0)
+$ td-db create-admin --email first.admin@lab.ticketdesk.test --display-name 'Lab First Admin' --password-file $WORK/pw
+created administrator first.admin@lab.ticketdesk.test (id e9a8a334-db39-4111-acc8-17998ab735e6); no notifications tables: e-mail destination not added
+sign in at /user/sign-in; further accounts: Admin, Users
+$ POST /user/sign-in (the administrator) -> 302
+$ POST /admin/new (a user through the app's own new-user path) -> 500 
+$ (users: 2; new user: 1; e-mail destinations: no table)
+# app log, error lines (first 3, trimmed):
+fail: Microsoft.EntityFrameworkCore.Database.Command[20102]
+      Failed executing DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]

@@ -1,0 +1,2 @@
+<customErrors mode="RemoteOnly" />
+<compilation targetFramework="4.6.2" />

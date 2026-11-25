@@ -1,0 +1,4 @@
+## scenario other-error: ak_apply exit 1
+make attempt 1: vm_size=Standard_B2as_v2 aks_node_vm_size=Standard_B2as_v2 ttl_utc=2026-11-11T22:30:32Z -target=module.vm[0]
+lift.sh: apply cutover failed (see <scratch>/ev-other-error/apply-cutover-targeted-20261111T183032Z.txt)
+ttl values across attempts: 1 distinct

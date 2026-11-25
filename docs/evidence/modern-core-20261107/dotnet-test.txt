@@ -1,0 +1,58 @@
+# date: 2026-11-08T00:28:40Z  git: 2d01eac  dotnet: 10.0.403  host: lab-host (32 cores)
+# TD_SQL_TEST_CONN -> td-sql (SQL Server 2022 CU25 container, master); TD_SEED_USER_PASSWORD from $TD_W/.secrets/td-seed.env; values not recorded
+# seeded database: TicketDeskSynth (scale S); scratch databases: XS seed 7, created and dropped by the tests
+$ rm -rf src/modern/**/bin src/modern/**/obj && dotnet build src/modern/TicketDesk.Modern.sln -c Release
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+$ dotnet test --solution src/modern/TicketDesk.Modern.sln -c Release --no-build
+Running tests from ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-modern-core/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-modern-core/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (543ms)
+~/Desktop/ticketdesk-modernization/wt-modern-core/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (1s 434ms)
+~/Desktop/ticketdesk-modernization/wt-modern-core/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (5s 568ms)
+~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (5s 680ms)
+~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (6s 040ms)
+~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (8s 444ms)
+Test run summary: Passed!
+  ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (543ms)
+  ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (6s 040ms)
+  ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (8s 444ms)
+  ~/Desktop/ticketdesk-modernization/wt-modern-core/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (5s 680ms)
+  ~/Desktop/ticketdesk-modernization/wt-modern-core/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (1s 434ms)
+  ~/Desktop/ticketdesk-modernization/wt-modern-core/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (5s 568ms)
+  total: 283
+  failed: 0
+  succeeded: 283
+  skipped: 0
+  duration: 8s 824ms
+
+# per test project (same build):
+$ (cd src/modern/tests/TicketDesk.Data.Tests && dotnet test -c Release --no-build)
+  total: 28
+  failed: 0
+  succeeded: 28
+  skipped: 0
+  duration: 5s 467ms
+$ (cd src/modern/tests/TicketDesk.Identity.Tests && dotnet test -c Release --no-build)
+  total: 32
+  failed: 0
+  succeeded: 32
+  skipped: 0
+  duration: 5s 267ms
+$ (cd src/modern/tests/TicketDesk.Modules.Tests && dotnet test -c Release --no-build)
+  total: 54
+  failed: 0
+  succeeded: 54
+  skipped: 0
+  duration: 870ms
+$ (cd src/modern/tests/TicketDesk.Web.Tests && dotnet test -c Release --no-build)
+  total: 61
+  failed: 0
+  succeeded: 61
+  skipped: 0
+  duration: 7s 806ms

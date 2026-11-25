@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-08T20:24:01Z] provision run 20261108T202339Z on tdlab-legacy, steps: restore\n[2026-11-08T20:24:01Z] ==== step restore\n[2026-11-08T20:24:03Z] CHANGE downloaded 6 files (98,006,521 bytes) from https://sttdlab36d2d4.blob.core.windows.net/backups/cutover/cutover-20261108T162218Z/ in 1.6s\n[2026-11-08T20:24:03Z] INFO   manifest OK: 5 files, created 20261108T162252Z on TDLEGACY01, SQL 16.0.1000.6\n[2026-11-08T20:24:06Z] CHANGE stopped app pool TicketDesk\n[2026-11-08T20:24:10Z] CHANGE restored TicketDesk from C:\\TdBackups\\from-blob\\cutover-20261108T162218Z\\TicketDesk.bak\n[2026-11-08T20:24:10Z] INFO   started app pool TicketDesk\n[2026-11-08T20:24:10Z] FAILED: Exception calling \"ExecuteNonQuery\" with \"0\" argument(s): \"Failed to update database \"TicketDesk\" because the database is read-only.\"\n[2026-11-08T20:24:10Z] at Invoke-TdSql, C:\\TdOps\\windows\\TdOps.psm1: line 83\nat <ScriptBlock>, C:\\TdOps\\windows\\Restore-TdSite.ps1: line 57\nat Invoke-Ops, C:\\Packages\\Plugins\\Microsoft.CPlat.Core.RunCommandWindows\\1.1.23\\Downloads\\script9.ps1: line 89\nat Invoke-Step, C:\\Packages\\Plugins\\Microsoft.CPlat.Core.RunCommandWindows\\1.1.23\\Downloads\\script9.ps1: line 153\nat <ScriptBlock>, C:\\Packages\\Plugins\\Microsoft.CPlat.Core.RunCommandWindows\\1.1.23\\Downloads\\script9.ps1: line 209\n[2026-11-08T20:24:10Z] TDTIMINGS {} total 8.7s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T202339Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

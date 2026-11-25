@@ -1,0 +1,33 @@
+$ scripts/azure_verify.sh   # after cycle S2 apply (stage foundation, swedencentral, SQL included)
+# azure_verify 2026-11-08T07:49:31Z
+OK    resource group exists                          true
+OK    RG location / tags                             swedencentral ticketdesk agent-azure-foundation
+OK    every resource has the 4 tags (SQL master exempt) none
+OK    all resources in swedencentral (DNS zones global) none
+OK    VNet                                           vnet-tdlab-swedencentral 10.42.0.0/16
+OK    subnet snet-vm: prefix, NSG, no default outbound 10.42.1.0/24 nsg-tdlab-vm false
+OK    subnet snet-pe: prefix, NSG, no default outbound 10.42.2.0/24 nsg-tdlab-pe false
+OK    subnet snet-aks: prefix, NSG, no default outbound 10.42.16.0/22 nsg-tdlab-aks false
+OK    nsg-tdlab-vm DenyInternetInbound               Deny 4000 Internet
+OK    nsg-tdlab-pe DenyInternetInbound               Deny 4000 Internet
+OK    nsg-tdlab-aks DenyInternetInbound              Deny 4000 Internet
+OK    nsg-tdlab-vm admin rule source is one /32      <home-ip>/32
+OK    no inbound Allow from Internet/* anywhere      none
+OK    Key Vault rbac / soft delete / purge prot.     true true 7 None
+OK    Key Vault firewall default action              Deny
+FAIL  Key Vault secrets present (names only)         got [], want /appinsights-connection-string/
+OK    Log Analytics daily cap / retention            0.1 30 PerGB2018
+OK    App Insights is workspace-based                log-tdlab-swedencentral
+OK    action group has an e-mail receiver            1
+OK    SQL public access / Entra-only                 Disabled true
+OK    SQL DB free offer                              true AutoPause GP_S_Gen5_2
+OK    SQL private endpoint connection                Approved
+OK    SQL DNS zone linked to the VNet                Completed
+OK    SQL server minimal TLS                         1.2
+OK    privatelink.database.windows.net A record      10.42.2.4
+OK    Entra app ticketdesk-lab-web                   exists
+OK    Entra app roles                                TdAdministrators TdHelpDeskUsers TdInternalUsers TdPendingUsers
+OK    service principal assignment required          true
+OK    signed-in user has TdAdministrators            5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a01
+# 1 failed
+rc=1

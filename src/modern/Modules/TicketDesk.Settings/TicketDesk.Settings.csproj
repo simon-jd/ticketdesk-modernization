@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Settings</RootNamespace>
+    <Description>Settings module: application settings and push-notification settings in the legacy JSON formats; provider secrets from configuration (S6).</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TicketDesk.Data\TicketDesk.Data.csproj" />
+  </ItemGroup>
+</Project>

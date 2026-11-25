@@ -1,0 +1,26 @@
+run 10 ci-20261111.7 ci refs/pull/3/merge 426ca5f4 status=completed result=failed reason=pullRequest queued=2026-11-11T08:42:27.3935137Z start=2026-11-11T08:42:30.6791536Z finish=2026-11-11T08:47:04.9192115Z
+Checkpoint completed  succeeded    0 s      Checkpoint
+Job        completed  failed       187 s    Build, test, images
+Stage      completed  failed       259 s    CI
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    7 s      Angular - npm ci, Vitest, build
+Task       completed  succeeded    131 s    .NET - restore, build, tests + coverage  ! 
+Task       completed  succeeded    11 s     Playwright E2E (new app alone)
+Task       completed  succeeded    10 s     Golden replay (new app alone)
+Task       completed  failed       3 s      Container images (web, worker) + smoke  ! Bash exited with code '1'.
+Task       completed  succeeded    5 s      Publish .NET test results
+Task       completed  succeeded    2 s      Publish Vitest + Playwright results
+Task       completed  succeeded    12 s     Publish .NET coverage
+Task       completed  succeeded    4 s      Publish CI output (summaries, replay report, images)
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    0 s      Finalize Job
+Job        completed  succeeded    38 s     Static gates
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    1 s      Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    1 s      No inherited Azure login
+Task       completed  succeeded    2 s      terraform fmt -check + validate
+Task       completed  succeeded    31 s     Vulnerable packages (NuGet, npm)
+Task       completed  succeeded    2 s      Publish audit output
+Task       completed  succeeded    1 s      Post-job: Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    0 s      Finalize Job

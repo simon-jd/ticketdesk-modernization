@@ -1,0 +1,7 @@
+before: 200
+networkpolicy.networking.k8s.io/td-drill-deny-db created
+pod "td-web-b94b4cd77-kp8bz" deleted from ticketdesk namespace
+fault visible after 0 s: /health/ready 000
+after the hold: /health/ready 000; web pods: 0/1 
+networkpolicy.networking.k8s.io "td-drill-deny-db" deleted from ticketdesk namespace
+recovered after 2 s: /health/ready 200

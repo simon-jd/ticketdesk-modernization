@@ -1,0 +1,129 @@
+$ docker build -f src/modern/TicketDesk.Web/Dockerfile -t ticketdesk-web:r4-retire .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.99kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+#2 DONE 0.2s
+
+#3 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra
+#3 DONE 0.2s
+
+#4 [runtime 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra@sha256:cae5b962bfb786606def03d250c6a645cc98839095c89e806e4bd8978a68115b
+#4 resolve mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra@sha256:cae5b962bfb786606def03d250c6a645cc98839095c89e806e4bd8978a68115b 0.0s done
+#4 DONE 0.0s
+
+#5 [build  1/21] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb
+#5 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 4.07MB 0.1s done
+#6 DONE 0.1s
+
+#7 [build  2/21] WORKDIR /src
+#7 CACHED
+
+#8 [build  3/21] COPY src/modern/Directory.Build.props src/modern/Directory.Packages.props src/modern/
+#8 DONE 0.0s
+
+#9 [build  4/21] COPY src/modern/TicketDesk.Data/TicketDesk.Data.csproj src/modern/TicketDesk.Data/
+#9 DONE 0.0s
+
+#10 [build  5/21] COPY src/modern/TicketDesk.Identity/TicketDesk.Identity.csproj src/modern/TicketDesk.Identity/
+#10 DONE 0.0s
+
+#11 [build  6/21] COPY src/modern/TicketDesk.Localization/TicketDesk.Localization.csproj src/modern/TicketDesk.Localization/
+#11 DONE 0.0s
+
+#12 [build  7/21] COPY src/modern/Modules/TicketDesk.Tickets/TicketDesk.Tickets.csproj src/modern/Modules/TicketDesk.Tickets/
+#12 DONE 0.0s
+
+#13 [build  8/21] COPY src/modern/Modules/TicketDesk.Projects/TicketDesk.Projects.csproj src/modern/Modules/TicketDesk.Projects/
+#13 DONE 0.0s
+
+#14 [build  9/21] COPY src/modern/Modules/TicketDesk.Reports/TicketDesk.Reports.csproj src/modern/Modules/TicketDesk.Reports/
+#14 DONE 0.0s
+
+#15 [build 10/21] COPY src/modern/Modules/TicketDesk.Users/TicketDesk.Users.csproj src/modern/Modules/TicketDesk.Users/
+#15 DONE 0.1s
+
+#16 [build 11/21] COPY src/modern/Modules/TicketDesk.Attachments/TicketDesk.Attachments.csproj src/modern/Modules/TicketDesk.Attachments/
+#16 DONE 0.0s
+
+#17 [build 12/21] COPY src/modern/Modules/TicketDesk.Search/TicketDesk.Search.csproj src/modern/Modules/TicketDesk.Search/
+#17 DONE 0.0s
+
+#18 [build 13/21] COPY src/modern/Modules/TicketDesk.Notifications/TicketDesk.Notifications.csproj src/modern/Modules/TicketDesk.Notifications/
+#18 DONE 0.0s
+
+#19 [build 14/21] COPY src/modern/Modules/TicketDesk.Settings/TicketDesk.Settings.csproj src/modern/Modules/TicketDesk.Settings/
+#19 DONE 0.0s
+
+#20 [build 15/21] COPY src/modern/TicketDesk.Web/TicketDesk.Web.csproj src/modern/TicketDesk.Web/
+#20 DONE 0.0s
+
+#21 [build 16/21] RUN dotnet restore src/modern/TicketDesk.Web/TicketDesk.Web.csproj
+#21 0.534   Determining projects to restore...
+#21 1.230   Restored /src/src/modern/TicketDesk.Localization/TicketDesk.Localization.csproj (in 44 ms).
+#21 4.759   Restored /src/src/modern/Modules/TicketDesk.Attachments/TicketDesk.Attachments.csproj (in 3.58 sec).
+#21 4.760   Restored /src/src/modern/Modules/TicketDesk.Notifications/TicketDesk.Notifications.csproj (in 3.58 sec).
+#21 4.761   Restored /src/src/modern/TicketDesk.Data/TicketDesk.Data.csproj (in 3.59 sec).
+#21 4.763   Restored /src/src/modern/Modules/TicketDesk.Users/TicketDesk.Users.csproj (in 3.59 sec).
+#21 4.763   Restored /src/src/modern/Modules/TicketDesk.Reports/TicketDesk.Reports.csproj (in 3.59 sec).
+#21 4.764   Restored /src/src/modern/Modules/TicketDesk.Settings/TicketDesk.Settings.csproj (in 3.59 sec).
+#21 4.764   Restored /src/src/modern/TicketDesk.Identity/TicketDesk.Identity.csproj (in 3.59 sec).
+#21 4.766   Restored /src/src/modern/Modules/TicketDesk.Search/TicketDesk.Search.csproj (in 3.59 sec).
+#21 4.766   Restored /src/src/modern/Modules/TicketDesk.Projects/TicketDesk.Projects.csproj (in 3.59 sec).
+#21 4.767   Restored /src/src/modern/Modules/TicketDesk.Tickets/TicketDesk.Tickets.csproj (in 3.59 sec).
+#21 4.771   Restored /src/src/modern/TicketDesk.Web/TicketDesk.Web.csproj (in 3.59 sec).
+#21 DONE 4.9s
+
+#22 [build 17/21] COPY docs/migration/routes.csv docs/migration/
+#22 DONE 0.0s
+
+#23 [build 18/21] COPY TicketDesk/TicketDesk.Localization/ TicketDesk/TicketDesk.Localization/
+#23 DONE 0.0s
+
+#24 [build 19/21] COPY src/modern/ src/modern/
+#24 DONE 0.0s
+
+#25 [build 20/21] RUN test -f src/modern/TicketDesk.Web/wwwroot/app/index.html || { echo "wwwroot/app missing: build src/web first (npm --prefix src/web run build)" >&2; exit 1; }
+#25 DONE 0.2s
+
+#26 [build 21/21] RUN dotnet publish src/modern/TicketDesk.Web/TicketDesk.Web.csproj -c Release -o /app --no-restore -p:UseAppHost=false -p:TdBuildWeb=false
+#26 1.939   TicketDesk.Attachments -> /src/src/modern/Modules/TicketDesk.Attachments/bin/Release/net10.0/TicketDesk.Attachments.dll
+#26 1.943   TicketDesk.Data -> /src/src/modern/TicketDesk.Data/bin/Release/net10.0/TicketDesk.Data.dll
+#26 1.955   TicketDesk.Notifications -> /src/src/modern/Modules/TicketDesk.Notifications/bin/Release/net10.0/TicketDesk.Notifications.dll
+#26 1.986   TicketDesk.Localization -> /src/src/modern/TicketDesk.Localization/bin/Release/net10.0/TicketDesk.Localization.dll
+#26 2.172   TicketDesk.Users -> /src/src/modern/Modules/TicketDesk.Users/bin/Release/net10.0/TicketDesk.Users.dll
+#26 2.172   TicketDesk.Settings -> /src/src/modern/Modules/TicketDesk.Settings/bin/Release/net10.0/TicketDesk.Settings.dll
+#26 2.282   TicketDesk.Identity -> /src/src/modern/TicketDesk.Identity/bin/Release/net10.0/TicketDesk.Identity.dll
+#26 2.514   TicketDesk.Projects -> /src/src/modern/Modules/TicketDesk.Projects/bin/Release/net10.0/TicketDesk.Projects.dll
+#26 2.539   TicketDesk.Search -> /src/src/modern/Modules/TicketDesk.Search/bin/Release/net10.0/TicketDesk.Search.dll
+#26 2.642   TicketDesk.Reports -> /src/src/modern/Modules/TicketDesk.Reports/bin/Release/net10.0/TicketDesk.Reports.dll
+#26 2.890   TicketDesk.Tickets -> /src/src/modern/Modules/TicketDesk.Tickets/bin/Release/net10.0/TicketDesk.Tickets.dll
+#26 4.822   TicketDesk.Web -> /src/src/modern/TicketDesk.Web/bin/Release/net10.0/TicketDesk.Web.dll
+#26 5.232   TicketDesk.Web -> /app/
+#26 DONE 5.3s
+
+#27 [runtime 2/3] WORKDIR /app
+#27 CACHED
+
+#28 [runtime 3/3] COPY --from=build /app ./
+#28 DONE 0.0s
+
+#29 exporting to image
+#29 exporting layers
+#29 exporting layers 0.7s done
+#29 exporting manifest sha256:e03bacc004bb27c67551637ae24170bcf422cfb8df100e3431373500467abe42 0.0s done
+#29 exporting config sha256:0bea062357af7d56d23e6152b7d146effe4bf2829c2de0661d700b29bdd4962f 0.0s done
+#29 exporting attestation manifest sha256:ef20a1b1a4f80f13aca324c9dcff747c653fbd3b19cf9478efc8673ae421320c 0.0s done
+#29 exporting manifest list sha256:2be1f719c2a036c46484bf5d12275f51098b2dbab3945b2bf3ec11e9670167d0 0.0s done
+#29 naming to docker.io/library/ticketdesk-web:r4-retire done
+#29 unpacking to docker.io/library/ticketdesk-web:r4-retire 0.1s done
+#29 DONE 0.9s
+build exit 0 after 13 s
+size 276774398 bytes, user 1654

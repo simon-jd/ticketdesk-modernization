@@ -1,0 +1,21 @@
+app_smoke against https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com at 2026-11-12T07:36:07Z
+  GET  / -> 200 564ms
+[PASS] home page over HTTPS (HTTP 200)
+  GET  /user/sign-in -> 200 551ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 641ms -> /
+  GET  / -> 200 729ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+  GET  /api/tickets/options -> 200 845ms
+[PASS] ticket options (API) (HTTP 200)
+  GET  /ticket/new -> 200 548ms
+[PASS] new-ticket page (HTTP 200, XSRF-TOKEN cookie set)
+  POST /api/tickets -> 201 640ms
+[PASS] create ticket (API) (HTTP 201)
+  GET  /ticket/10011 -> 200 591ms
+[PASS] ticket page (HTTP 200 /ticket/10011)
+  POST /api/tickets/10011/activities -> 204 578ms
+[PASS] add comment (API) (HTTP 204)
+  GET  /api/tickets/10011 -> 200 1161ms
+[PASS] comment visible (API) (HTTP 200)
+{"command": "app-smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 10, "seconds": 6.8}

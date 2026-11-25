@@ -1,0 +1,2 @@
+$ TD_SEED_DB=TicketDeskL ops/dev/seed.sh schema --create-database
+EF6-implied schema created

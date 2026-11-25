@@ -1,0 +1,2 @@
+$ ops/dev/legacy-sql-capture.sh export capture.xml
+wrote docs/evidence/sql-legacy-capture-20261107/capture.xml (2086792 bytes)

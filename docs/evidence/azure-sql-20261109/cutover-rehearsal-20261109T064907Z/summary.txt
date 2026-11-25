@@ -1,0 +1,18 @@
+result: rolled-back (rehearsal)
+target before the window: {
+  "serviceObjective": "GP_S_Gen5_2",
+  "status": "Online",
+  "useFreeLimit": true
+}
+Azure SQL first answer (wake, before the freeze): see window-transcript.log
+write freeze on the VM (DENY -> switched, warm): None s
+  freeze_start -> frozen: 0.0 s
+  export_start -> copy_restored: 7.8 s
+  copy_restored -> exported: 21.9 s
+  import_start -> imported: 36.4 s
+  imported -> reconcile_start: 0.7 s
+  reconcile_start -> reconciled: 4.0 s
+  switch_start -> switched: None s
+probe: reads 220 (0 failed), writes 155 (82 failed), sign-ins 1 (0 failed)
+probe write downtime (last ok -> first ok): 137.9 s (2026-11-09T06:49:50.902Z -> 2026-11-09T06:52:08.805Z)
+read failure windows: []

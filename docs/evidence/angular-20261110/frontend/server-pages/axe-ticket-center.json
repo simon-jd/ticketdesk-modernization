@@ -1,0 +1,649 @@
+{
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.0"
+ },
+ "url": "https://localhost:5463/tickets",
+ "violations": [
+  {
+   "id": "aria-required-children",
+   "impact": "critical",
+   "help": "Certain ARIA roles must contain particular children",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-required-children?application=axeAPI",
+   "tags": [
+    "cat.aria",
+    "wcag2a",
+    "wcag131",
+    "EN-301-549",
+    "EN-9.1.3.1",
+    "RGAAv4",
+    "RGAA-9.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".nav-tabs"
+     ],
+     "html": "<ul class=\"nav nav-tabs pull-right\" role=\"tablist\">"
+    }
+   ]
+  },
+  {
+   "id": "button-name",
+   "impact": "critical",
+   "help": "Buttons must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-11.9.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".form-group:nth-child(2) > form[action=\"/search\"][method=\"get\"][role=\"search\"] > .input-group.input-group-sm > .input-group-btn > button[value=\"go\"][type=\"submit\"]"
+     ],
+     "html": "<button type=\"submit\" value=\"go\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-search\"></i></button>"
+    }
+   ]
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "li:nth-child(1) > a[href=\"/\"]"
+     ],
+     "html": "<a href=\"/\"><i class=\"fa fa-home\"></i> Home</a>"
+    },
+    {
+     "target": [
+      "li:nth-child(3) > a[href$=\"new\"]"
+     ],
+     "html": "<a href=\"/ticket/new\"><i class=\"fa fa-plus\"></i> New Ticket</a>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(2) > .dropdown-toggle[href=\"#\"][data-toggle=\"dropdown\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">\n            {secret:TD_ADMIN_NAME}\n        </span>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(4) > .dropdown-toggle[href=\"#\"][data-toggle=\"dropdown\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">Language</span>"
+    },
+    {
+     "target": [
+      "a[href$=\"about\"] > span"
+     ],
+     "html": "<span class=\"hidden-sm\">About</span>"
+    },
+    {
+     "target": [
+      "th:nth-child(1) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(2) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(3) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(4) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(5) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(6) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(7) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(8) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(9) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(10) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(11) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      "th:nth-child(12) > span > a[data-ajax=\"true\"][data-ajax-mode=\"replace\"][data-ajax-update=\"#ticketList\"]"
+     ],
+     "html": "<a onmousedown=\"ticketCenter.sorts.s...\" title=\"[shift+click] to add...\" data-ajax=\"true\" data-ajax-begin=\"ticketCenter.sorts.b...\" data-ajax-failure=\"ticketCenter.complet...\" data-ajax-mode=\"replace\" data-ajax-success=\"ticketCenter.complet...\" data-ajax-update=\"#ticketList\" ...>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(1) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            HR Services\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(2) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Facilities\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(3) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Default\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(4) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            IT Help Desk\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(5) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Finance Systems\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(6) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            IT Help Desk\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(7) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Default\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(8) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Default\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(9) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Default\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(10) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Default\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(11) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Default\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(12) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            HR Services\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(13) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Facilities\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(14) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            IT Help Desk\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(15) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Default\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(16) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            IT Help Desk\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(17) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            IT Help Desk\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(18) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Finance Systems\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(19) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Facilities\n                                        </span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(20) > td[colspan=\"2\"] > div > .text-muted.small"
+     ],
+     "html": "<span class=\"small text-muted\">\n                                            <i class=\"fa fa-book\"></i>\n                                            Facilities\n                                        </span>"
+    },
+    {
+     "target": [
+      "footer > p"
+     ],
+     "html": "<p class=\"text-muted\">\n                <a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a> v2.5 | © 2008 - 2026 | NullDesk Solutions (Stephen M. Redd)\n            </p>"
+    }
+   ]
+  },
+  {
+   "id": "html-has-lang",
+   "impact": "serious",
+   "help": "<html> element must have a lang attribute",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/html-has-lang?application=axeAPI",
+   "tags": [
+    "cat.language",
+    "wcag2a",
+    "wcag311",
+    "TTv5",
+    "TT11.a",
+    "EN-301-549",
+    "EN-9.3.1.1",
+    "ACT",
+    "RGAAv4",
+    "RGAA-8.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "a[href=\"/ticket/5413\"]"
+     ],
+     "html": "<a href=\"/ticket/5413\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #5413\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/6018\"]"
+     ],
+     "html": "<a href=\"/ticket/6018\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #6018\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/7098\"]"
+     ],
+     "html": "<a href=\"/ticket/7098\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #7098\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/119\"]"
+     ],
+     "html": "<a href=\"/ticket/119\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #119\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/1469\"]"
+     ],
+     "html": "<a href=\"/ticket/1469\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #1469\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/9878\"]"
+     ],
+     "html": "<a href=\"/ticket/9878\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #9878\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/8650\"]"
+     ],
+     "html": "<a href=\"/ticket/8650\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #8650\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/4966\"]"
+     ],
+     "html": "<a href=\"/ticket/4966\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #4966\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/7702\"]"
+     ],
+     "html": "<a href=\"/ticket/7702\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #7702\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/5497\"]"
+     ],
+     "html": "<a href=\"/ticket/5497\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #5497\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/4730\"]"
+     ],
+     "html": "<a href=\"/ticket/4730\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #4730\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/4355\"]"
+     ],
+     "html": "<a href=\"/ticket/4355\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #4355\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/6169\"]"
+     ],
+     "html": "<a href=\"/ticket/6169\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #6169\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/408\"]"
+     ],
+     "html": "<a href=\"/ticket/408\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #408\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/3802\"]"
+     ],
+     "html": "<a href=\"/ticket/3802\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #3802\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/1915\"]"
+     ],
+     "html": "<a href=\"/ticket/1915\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #1915\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/5241\"]"
+     ],
+     "html": "<a href=\"/ticket/5241\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #5241\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/3821\"]"
+     ],
+     "html": "<a href=\"/ticket/3821\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #3821\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/7218\"]"
+     ],
+     "html": "<a href=\"/ticket/7218\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #7218\n</a>"
+    },
+    {
+     "target": [
+      "a[href=\"/ticket/4583\"]"
+     ],
+     "html": "<a href=\"/ticket/4583\" ,=\"\" style=\"margin-right: 1ex;\" class=\"jsGuide\">\n    #4583\n</a>"
+    },
+    {
+     "target": [
+      "p > a"
+     ],
+     "html": "<a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a>"
+    }
+   ]
+  },
+  {
+   "id": "link-name",
+   "impact": "serious",
+   "help": "Links must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag244",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.2.4.4",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-6.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".navbar-brand"
+     ],
+     "html": "<a class=\"navbar-brand\" href=\"/\"> </a>"
+    }
+   ]
+  },
+  {
+   "id": "list",
+   "impact": "serious",
+   "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/list?application=axeAPI",
+   "tags": [
+    "cat.structure",
+    "wcag2a",
+    "wcag131",
+    "EN-301-549",
+    "EN-9.1.3.1",
+    "RGAAv4",
+    "RGAA-9.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".navbar-nav.nav:nth-child(1)"
+     ],
+     "html": "<ul class=\"nav navbar-nav\">"
+    }
+   ]
+  },
+  {
+   "id": "listitem",
+   "impact": "serious",
+   "help": "<li> elements must be contained in a <ul> or <ol>",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/listitem?application=axeAPI",
+   "tags": [
+    "cat.structure",
+    "wcag2a",
+    "wcag131",
+    "EN-301-549",
+    "EN-9.1.3.1",
+    "RGAAv4",
+    "RGAA-9.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".active.small"
+     ],
+     "html": "<li class=\"active small\">\n                <a href=\"/tickets/unassigned\">Unassigned</a>\n            </li>"
+    },
+    {
+     "target": [
+      ".small:nth-child(2)"
+     ],
+     "html": "<li class=\" small\">\n                <a href=\"/tickets/assignedToMe\">My Assigned</a>\n            </li>"
+    },
+    {
+     "target": [
+      ".small:nth-child(3)"
+     ],
+     "html": "<li class=\" small\">\n                <a href=\"/tickets/mytickets\">My Tickets</a>\n            </li>"
+    },
+    {
+     "target": [
+      ".small:nth-child(4)"
+     ],
+     "html": "<li class=\" small\">\n                <a href=\"/tickets/opentickets\">Open Tickets</a>\n            </li>"
+    },
+    {
+     "target": [
+      ".small:nth-child(5)"
+     ],
+     "html": "<li class=\" small\">\n                <a href=\"/tickets/historytickets\">Ticket History</a>\n            </li>"
+    },
+    {
+     "target": [
+      "li[data-toggle=\"tooltip\"][data-placement=\"bottom\"][title=\"\"]"
+     ],
+     "html": "<li data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"\" data-original-title=\"Reset all settings for all lists\">"
+    }
+   ]
+  },
+  {
+   "id": "page-has-heading-one",
+   "impact": "moderate",
+   "help": "Page should contain a level-one heading",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axeAPI",
+   "tags": [
+    "cat.semantics",
+    "best-practice"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  },
+  {
+   "id": "select-name",
+   "impact": "critical",
+   "help": "Select element must have an accessible name",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/select-name?application=axeAPI",
+   "tags": [
+    "cat.forms",
+    "wcag2a",
+    "wcag412",
+    "section508",
+    "section508.22.n",
+    "TTv5",
+    "TT5.c",
+    "EN-301-549",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-11.1.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "#TicketStatus"
+     ],
+     "html": "<select class=\"postback form-control\" id=\"TicketStatus\" name=\"TicketStatus\">"
+    },
+    {
+     "target": [
+      "#Owner"
+     ],
+     "html": "<select class=\"postback form-control\" id=\"Owner\" name=\"Owner\">"
+    },
+    {
+     "target": [
+      "#AssignedTo"
+     ],
+     "html": "<select class=\"postback disabled form-control\" disabled=\"True\" id=\"AssignedTo\" name=\"AssignedTo\">"
+    },
+    {
+     "target": [
+      "#PageSize"
+     ],
+     "html": "<select class=\"postback form-control number-select\" id=\"PageSize\" name=\"PageSize\"><option value=\"10\">10</option>\n<option selected=\"selected\" value=\"20\">20</option>\n<option value=\"30\">30</option>\n<option value=\"50\">50</option>\n<option value=\"100\">100</option>\n</select>"
+    }
+   ]
+  }
+ ]
+}

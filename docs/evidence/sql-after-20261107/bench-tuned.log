@@ -1,0 +1,49 @@
+$ ops/dev/sql-perf.sh bench --cases docs/evidence/sql-after-20261107/cases-tuned.json --out docs/evidence/sql-after-20261107 --warm 20 --cold 5
+[01:17:03] tuned/list-default: 1 command(s)
+    cold: median 138 ms server / 142.8 ms client, cpu 87 ms, reads 1960
+    warm: median 67.5 ms server / 70.9 ms client, cpu 68 ms, reads 1960
+[01:17:06] tuned/list-open-p1: 1 command(s)
+    cold: median 104 ms server / 107.5 ms client, cpu 73 ms, reads 3326
+    warm: median 64 ms server / 66.7 ms client, cpu 63.5 ms, reads 3326
+[01:17:09] tuned/list-open-p500: 1 command(s)
+    cold: median 116 ms server / 118.6 ms client, cpu 94 ms, reads 3414
+    warm: median 70 ms server / 71.9 ms client, cpu 69.5 ms, reads 3414
+[01:17:11] tuned/list-unassigned: 1 command(s)
+    cold: median 56 ms server / 58.3 ms client, cpu 35 ms, reads 2062
+    warm: median 14 ms server / 16.6 ms client, cpu 14 ms, reads 1117
+[01:17:13] tuned/list-assignedToMe: 1 command(s)
+    cold: median 25 ms server / 27.3 ms client, cpu 7 ms, reads 203
+    warm: median 1 ms server / 2.0 ms client, cpu 1 ms, reads 203
+[01:17:13] tuned/list-mytickets-heavy: 1 command(s)
+    cold: median 19 ms server / 22.4 ms client, cpu 11 ms, reads 705
+    warm: median 4 ms server / 6.2 ms client, cpu 4 ms, reads 705
+[01:17:14] tuned/list-mytickets-light: 1 command(s)
+    cold: median 6 ms server / 7.4 ms client, cpu 2 ms, reads 43
+    warm: median 1 ms server / 2.9 ms client, cpu 1 ms, reads 43
+[01:17:15] tuned/list-history: 1 command(s)
+    cold: median 91 ms server / 94.0 ms client, cpu 77 ms, reads 3325
+    warm: median 65 ms server / 66.6 ms client, cpu 64 ms, reads 3325
+[01:17:17] tuned/list-project-big: 1 command(s)
+    cold: median 33 ms server / 33.6 ms client, cpu 22 ms, reads 564
+    warm: median 16 ms server / 18.2 ms client, cpu 16 ms, reads 564
+[01:17:19] tuned/list-project-small: 1 command(s)
+    cold: median 20 ms server / 22.6 ms client, cpu 9 ms, reads 213
+    warm: median 2.5 ms server / 4.6 ms client, cpu 3 ms, reads 213
+[01:17:19] tuned/list-status-sort-title: 1 command(s)
+    cold: median 351 ms server / 354.0 ms client, cpu 1577 ms, reads 110740
+    warm: median 184.5 ms server / 189.3 ms client, cpu 977 ms, reads 110740
+[01:17:26] tuned/list-tag: 1 command(s)
+    cold: median 151 ms server / 153.7 ms client, cpu 125 ms, reads 3062
+    warm: median 132.5 ms server / 135.6 ms client, cpu 131 ms, reads 3062
+[01:17:30] tuned/detail: 5 command(s)
+    cold: median 7 ms server / 18.0 ms client, cpu 3 ms, reads 59
+    warm: median 0 ms server / 1.5 ms client, cpu 0 ms, reads 59
+[01:17:31] tuned/report-open-aging: 1 command(s)
+    cold: median 114 ms server / 115.8 ms client, cpu 105 ms, reads 3705
+    warm: median 62 ms server / 63.5 ms client, cpu 62 ms, reads 3705
+[01:17:34] tuned/report-workload: 1 command(s)
+    cold: median 283 ms server / 285.7 ms client, cpu 505 ms, reads 19190
+    warm: median 226.5 ms server / 228.7 ms client, cpu 398 ms, reads 19096
+[01:17:40] tuned/report-time-to-close: 1 command(s)
+    cold: median 382 ms server / 385.0 ms client, cpu 527 ms, reads 4046
+    warm: median 181.5 ms server / 184.2 ms client, cpu 476 ms, reads 4046

@@ -1,0 +1,13 @@
+========================== Starting Command Output ===========================
+[command]/usr/bin/bash --noprofile --norc ~/Desktop/ticketdesk-modernization/.tools/ado-agent/_work/_temp/adb02944-0a59-4932-b4e3-b632e129392c.sh
+# 2026-11-12T16:40:07Z kind cluster td-cd, http://127.0.0.1:18480
+td-web      1     ticketdesk-web:ci-36
+td-worker   1     ticketdesk-worker:ci-36
+GET /health/ready -> 200 0.006931s  (expected 200, attempt 1)
+GET /user/sign-in -> 200 0.009253s  (expected 200, attempt 1)
+GET /tickets -> 302 0.011458s http://127.0.0.1:18480/user/sign-in?ReturnUrl=%2Ftickets (expected 302, attempt 1)
+backend header on /user/sign-in: X-TicketDesk-Backend: modern; route=user.sign-in.get
+worker: Running restarts=0
+smoke: passed
+
+##[section]Finishing: Smoke

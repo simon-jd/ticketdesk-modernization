@@ -1,0 +1,64 @@
+==== 2026-11-08T01:02:38Z step copy-ops
+
+Name                        Length
+----                        ------
+Backup-TdSite.ps1             5535
+Build-TdLegacy.ps1            4258
+Deploy-TdApp.ps1              5248
+Install-TdBuildTools.ps1      3405
+Install-TdPrerequisites.ps1   2435
+Install-TdSqlExpress.ps1      6409
+Register-TdBackupTask.ps1     2946
+Restore-TdSite.ps1            4894
+Set-TdIisSite.ps1            11877
+TdOps.psm1                    6118
+
+
+
+==== 2026-11-08T01:02:41Z step backup-task
+[2026-11-08T01:02:43Z] CHANGE registered task 'TicketDesk nightly backup' daily at 02:00 (log C:\TdBackups\backup-task.log)
+
+
+TaskName       : TicketDesk nightly backup
+LastRunTime    : 11/30/1999 12:00:00 AM
+LastTaskResult : 267011
+NextRunTime    : 11/8/2026 2:00:00 AM
+
+
+
+
+==== 2026-11-08T01:02:43Z done: copy-ops backup-task
+EXIT=0
+==== 2026-11-08T01:02:43Z step backup-task
+[2026-11-08T01:02:45Z] SKIP   task 'TicketDesk nightly backup' already registered for 02:00
+
+
+TaskName       : TicketDesk nightly backup
+LastRunTime    : 11/30/1999 12:00:00 AM
+LastTaskResult : 267011
+NextRunTime    : 11/8/2026 2:00:00 AM
+
+
+
+
+==== 2026-11-08T01:02:45Z done: backup-task
+EXIT(second run)=0
+
+
+LastRunTime    : 11/8/2026 1:02:48 AM
+LastTaskResult : 0
+NextRunTime    : 11/8/2026 2:00:00 AM
+
+
+
+
+[2026-11-08T01:02:50Z] CHANGE database TicketDesk -> C:\TdBackups\20261108T010249Z\TicketDesk.bak (6,840,832 bytes, 0.4s, verified)
+[2026-11-08T01:02:53Z] CHANGE site files C:\inetpub\ticketdesk -> C:\TdBackups\20261108T010249Z\site.zip (19,690,334 bytes)
+[2026-11-08T01:02:53Z] INFO   backup complete: C:\TdBackups\20261108T010249Z
+C:\TdBackups\20261108T010249Z
+
+20261108T010249Z
+clean           
+
+
+

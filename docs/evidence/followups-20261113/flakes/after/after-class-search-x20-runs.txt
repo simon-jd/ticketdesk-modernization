@@ -1,0 +1,22 @@
+# 2026-11-13T19:11:25Z git d8314850 (+uncommitted) target --project src/modern/tests/TicketDesk.Web.Tests args --filter-class TicketDesk.Web.Tests.SearchTests
+run 1 rc=0 total=12 failed=0 30.3s load=4.40
+run 2 rc=0 total=12 failed=0 25.2s load=5.02
+run 3 rc=0 total=12 failed=0 16.6s load=5.22
+run 4 rc=0 total=12 failed=0 29.7s load=5.43
+run 5 rc=0 total=12 failed=0 25.9s load=5.74
+run 6 rc=0 total=12 failed=0 23.9s load=6.16
+run 7 rc=0 total=12 failed=0 26.8s load=5.87
+run 8 rc=0 total=12 failed=0 14.1s load=6.23
+run 9 rc=0 total=12 failed=0 17.0s load=6.19
+run 10 rc=0 total=12 failed=0 16.0s load=5.85
+run 11 rc=0 total=12 failed=0 23.6s load=5.97
+run 12 rc=0 total=12 failed=0 28.5s load=10.47
+run 13 rc=0 total=12 failed=0 32.8s load=9.30
+run 14 rc=0 total=12 failed=0 20.9s load=8.05
+run 15 rc=0 total=12 failed=0 25.1s load=7.45
+run 16 rc=0 total=12 failed=0 24.6s load=6.76
+run 17 rc=0 total=12 failed=0 18.2s load=5.75
+run 18 rc=0 total=12 failed=0 24.9s load=5.77
+run 19 rc=0 total=12 failed=0 24.7s load=4.96
+run 20 rc=0 total=12 failed=0 27.6s load=4.73
+# done 2026-11-13T19:19:22Z: 20/20 clean

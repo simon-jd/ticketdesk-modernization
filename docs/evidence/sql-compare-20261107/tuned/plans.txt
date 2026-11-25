@@ -1,0 +1,649 @@
+### tuned.detail.cmd1.stmt1.sqlplan
+statement: SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDa...
+  cost 0.007, DOP 1, memory grant 0 KB (used 0)
+  Top | rows 1 (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+      Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: Tickets.ProjectId as t.ProjectId
+
+### tuned.detail.cmd2.stmt1.sqlplan
+statement: SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Vers...
+  cost 0.013, DOP 1, memory grant 0 KB (used 0)
+  Nested Loops (Inner Join) | rows 17 (est 164)
+    Top | rows 1 (est 1)
+      Nested Loops (Inner Join) | rows 1 (est 1)
+        Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+        Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: Tickets.ProjectId as t.ProjectId
+    Clustered Index Seek TicketEvents.PK_dbo.TicketEvents | rows 17 (est 164), reads 6, seek: @ticketId
+
+### tuned.detail.cmd3.stmt1.sqlplan
+statement: SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId] FROM ( SELECT TOP(1) [t].[TicketId], [p].[ProjectId] FROM [dbo].[T...
+  cost 0.029, DOP 1, memory grant 0 KB (used 0)
+  Nested Loops (Inner Join) | rows 2 (est 6.797)
+    Top | rows 1 (est 1)
+      Nested Loops (Inner Join) | rows 1 (est 1)
+        Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+        Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: Tickets.ProjectId as t.ProjectId
+    Nested Loops (Inner Join) | rows 2 (est 6.797)
+      Index Seek TicketTags.IX_TicketId | rows 2 (est 6.797), reads 3, seek: @ticketId
+      Clustered Index Seek TicketTags.PK_dbo.TicketTags | rows 2 (est 1), execs 2, reads 6, seek: TicketTags.TicketTagId as t1.TicketTagId
+
+### tuned.detail.cmd4.stmt1.sqlplan
+statement: SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId] FROM ( SELECT TOP(1) [t].[TicketId], [p].[ProjectId] FROM [dbo].[Tickets] AS [t] ...
+  cost 0.01, DOP 1, memory grant 0 KB (used 0)
+  Nested Loops (Inner Join) | rows 3 (est 23.738)
+    Top | rows 1 (est 1)
+      Nested Loops (Inner Join) | rows 1 (est 1)
+        Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+        Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: Tickets.ProjectId as t.ProjectId
+    Index Seek TicketSubscribers.IX_TicketId | rows 3 (est 23.738), reads 4, seek: @ticketId
+
+### tuned.detail.cmd5.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5)
+  cost 0.003, DOP 1, memory grant 1024 KB (used 16)
+  Nested Loops (Inner Join) | rows 5 (est 5)
+    Merge Interval | rows 5 (est 5)
+      Sort (TopN Sort) | rows 5 (est 5), top 5
+        Compute Scalar | rows ? (est 5)
+          Concatenation | rows 5 (est 5)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 5 (est 5), execs 5, reads 20, seek: Expr1016
+
+### tuned.list-assignedToMe.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 16)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 4 (est 50)
+            Table Spool (Eager Spool) | rows 4 (est 50), reads 11
+              Nested Loops (Left Outer Join) | rows 4 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 4 (est 50)
+                Filter | rows 4 (est 1), execs 4, where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 68 (est 17), execs 4
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 4 (est 17)
+            Table Spool (Eager Spool) | rows 4 (est 50)
+
+### tuned.list-assignedToMe.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus <> 3 AND t.AssignedTo = @UserId
+  cost 0.004, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Index Seek Tickets.IX_Tickets_Open_Assignee (filtered) | rows 131 (est 131), reads 7, seek: @UserId
+
+### tuned.list-assignedToMe.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 2 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+      Sort | rows 20 (est 20), cpu 1 ms
+        Nested Loops (Inner Join) | rows 20 (est 20), cpu 1 ms
+          Top | rows 20 (est 20)
+            Index Seek Tickets.IX_Tickets_Open_Assignee (filtered) | rows 20 (est 20), reads 4, seek: @UserId
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, cpu 1 ms, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-default.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 0)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 1 (est 50)
+            Table Spool (Eager Spool) | rows 1 (est 50), reads 5
+              Nested Loops (Left Outer Join) | rows 1 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 1 (est 50)
+                Filter | rows 1 (est 1), where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 17 (est 17)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 1 (est 17)
+            Table Spool (Eager Spool) | rows 1 (est 50)
+
+### tuned.list-default.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1
+  cost 3.008, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 52 ms
+      Index Scan Tickets.IX_ProjectId | rows 1,000,000 (est 1,000,000), reads 1,771, cpu 45 ms
+
+### tuned.list-default.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+      Sort | rows 20 (est 20)
+        Nested Loops (Inner Join) | rows 20 (est 20)
+          Top | rows 20 (est 20)
+            Index Scan Tickets.IX_Tickets_LastUpdateDate | rows 20 (est 20), reads 3
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-history.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 16)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 2 (est 50)
+            Table Spool (Eager Spool) | rows 2 (est 50), reads 7
+              Nested Loops (Left Outer Join) | rows 2 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 2 (est 50)
+                Filter | rows 2 (est 1), execs 2, where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 34 (est 17), execs 2
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 2 (est 17)
+            Table Spool (Eager Spool) | rows 2 (est 50)
+
+### tuned.list-history.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus = 3
+  cost 3.917, DOP 1, memory grant 3104 KB (used 1072)
+  Compute Scalar [batch] | rows 1 (est 1)
+    Hash Match (Aggregate) [batch] | rows 1 (est 1)
+      Index Scan Tickets.IX_Tickets_LastUpdateDate [batch] | rows 499,831 (est 499,831), reads 3,134, cpu 41 ms, where: Tickets.TicketStatus as t.TicketStatus=(3)
+
+### tuned.list-history.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+      Sort | rows 20 (est 20)
+        Nested Loops (Inner Join) | rows 20 (est 20)
+          Top | rows 20 (est 20)
+            Index Scan Tickets.IX_Tickets_LastUpdateDate | rows 20 (est 20), reads 3, where: Tickets.TicketStatus as t.TicketStatus=(3)
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-mytickets-heavy.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 16)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 3 (est 50)
+            Table Spool (Eager Spool) | rows 3 (est 50), reads 9
+              Nested Loops (Left Outer Join) | rows 3 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 3 (est 50)
+                Filter | rows 3 (est 1), execs 3, where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 51 (est 17), execs 3
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 3 (est 17)
+            Table Spool (Eager Spool) | rows 3 (est 50)
+
+### tuned.list-mytickets-heavy.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus <> 3 AND t.Owner = @UserId
+  cost 0.282, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 5 ms
+      Index Seek Tickets.IX_Tickets_Open_Owner (filtered) | rows 34,322 (est 67,308), reads 511, cpu 4 ms, seek: @UserId
+
+### tuned.list-mytickets-heavy.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 2 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+      Sort | rows 20 (est 20), cpu 1 ms
+        Nested Loops (Inner Join) | rows 20 (est 20), cpu 1 ms
+          Top | rows 20 (est 20)
+            Index Seek Tickets.IX_Tickets_Open_Owner (filtered) | rows 20 (est 20), reads 4, seek: @UserId
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, cpu 1 ms, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-mytickets-light.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 16)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 3 (est 50)
+            Table Spool (Eager Spool) | rows 3 (est 50), reads 9
+              Nested Loops (Left Outer Join) | rows 3 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 3 (est 50)
+                Filter | rows 3 (est 1), execs 3, where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 51 (est 17), execs 3
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 3 (est 17)
+            Table Spool (Eager Spool) | rows 3 (est 50)
+
+### tuned.list-mytickets-light.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus <> 3 AND t.Owner = @UserId
+  cost 0.282, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Index Seek Tickets.IX_Tickets_Open_Owner (filtered) | rows 3 (est 67,308), reads 5, seek: @UserId
+
+### tuned.list-mytickets-light.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 3 (est 20)
+    Nested Loops (Left Outer Join) | rows 3 (est 20)
+      Sort | rows 3 (est 20)
+        Nested Loops (Inner Join) | rows 3 (est 20)
+          Top | rows 3 (est 20)
+            Index Seek Tickets.IX_Tickets_Open_Owner (filtered) | rows 3 (est 20), reads 4, seek: @UserId
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 3 (est 1), execs 3, reads 9, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 3 (est 1), execs 3, reads 9, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 2 (est 1), execs 3, reads 6, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-open-p1.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 16)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 4 (est 50)
+            Table Spool (Eager Spool) | rows 4 (est 50), reads 11
+              Nested Loops (Left Outer Join) | rows 4 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 4 (est 50)
+                Filter | rows 4 (est 1), execs 4, where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 68 (est 17), execs 4
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 4 (est 17)
+            Table Spool (Eager Spool) | rows 4 (est 50)
+
+### tuned.list-open-p1.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus <> 3
+  cost 3.917, DOP 1, memory grant 3104 KB (used 1072)
+  Compute Scalar [batch] | rows 1 (est 1)
+    Hash Match (Aggregate) [batch] | rows 1 (est 1)
+      Index Scan Tickets.IX_Tickets_LastUpdateDate [batch] | rows 500,169 (est 500,169), reads 3,134, cpu 39 ms, where: Tickets.TicketStatus as t.TicketStatus<>(3)
+
+### tuned.list-open-p1.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+      Sort | rows 20 (est 20)
+        Nested Loops (Inner Join) | rows 20 (est 20)
+          Top | rows 20 (est 20)
+            Index Scan Tickets.IX_Tickets_Open_Status (filtered) | rows 20 (est 20), reads 3
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 19 (est 1), execs 20, reads 57, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-open-p500.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 16)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 4 (est 50)
+            Table Spool (Eager Spool) | rows 4 (est 50), reads 11
+              Nested Loops (Left Outer Join) | rows 4 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 4 (est 50)
+                Filter | rows 4 (est 1), execs 4, where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 68 (est 17), execs 4
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 4 (est 17)
+            Table Spool (Eager Spool) | rows 4 (est 50)
+
+### tuned.list-open-p500.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus <> 3
+  cost 3.917, DOP 1, memory grant 3104 KB (used 1072)
+  Compute Scalar [batch] | rows 1 (est 1)
+    Hash Match (Aggregate) [batch] | rows 1 (est 1)
+      Index Scan Tickets.IX_Tickets_LastUpdateDate [batch] | rows 500,169 (est 500,169), reads 3,134, cpu 33 ms, where: Tickets.TicketStatus as t.TicketStatus<>(3)
+
+### tuned.list-open-p500.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 11 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 11 ms
+      Sort | rows 20 (est 20), cpu 11 ms
+        Nested Loops (Inner Join) | rows 20 (est 20), cpu 11 ms
+          Top | rows 20 (est 20), cpu 10 ms
+            Index Scan Tickets.IX_Tickets_Open_Status (filtered) | rows 10,000 (est 20), reads 121, cpu 10 ms
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 9 (est 1), execs 20, reads 27, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-project-big.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 0)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 1 (est 50)
+            Table Spool (Eager Spool) | rows 1 (est 50), reads 5
+              Nested Loops (Left Outer Join) | rows 1 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 1 (est 50)
+                Filter | rows 1 (est 1), where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 17 (est 17)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 1 (est 17)
+            Table Spool (Eager Spool) | rows 1 (est 50)
+
+### tuned.list-project-big.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.ProjectId = @ProjectId
+  cost 0.643, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 11 ms
+      Index Seek Tickets.IX_ProjectId | rows 213,064 (est 213,064), reads 375, cpu 9 ms, seek: @ProjectId
+
+### tuned.list-project-big.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+      Sort | rows 20 (est 20)
+        Nested Loops (Inner Join) | rows 20 (est 20)
+          Top | rows 20 (est 20)
+            Index Seek Tickets.IX_Tickets_Project_LastUpdateDate | rows 20 (est 20), reads 3, seek: @ProjectId
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-project-small.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 0)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 1 (est 50)
+            Table Spool (Eager Spool) | rows 1 (est 50), reads 5
+              Nested Loops (Left Outer Join) | rows 1 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 1 (est 50)
+                Filter | rows 1 (est 1), where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 17 (est 17)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 1 (est 17)
+            Table Spool (Eager Spool) | rows 1 (est 50)
+
+### tuned.list-project-small.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.ProjectId = @ProjectId
+  cost 0.643, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 1 ms
+      Index Seek Tickets.IX_ProjectId | rows 12,129 (est 213,064), reads 26, cpu 1 ms, seek: @ProjectId
+
+### tuned.list-project-small.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.2, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+      Sort | rows 20 (est 20)
+        Nested Loops (Inner Join) | rows 20 (est 20)
+          Top | rows 20 (est 20)
+            Index Seek Tickets.IX_Tickets_Project_LastUpdateDate | rows 20 (est 20), reads 4, seek: @ProjectId
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 19 (est 1), execs 20, reads 57, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-status-sort-title.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 0)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 1 (est 50)
+            Table Spool (Eager Spool) | rows 1 (est 50), reads 5
+              Nested Loops (Left Outer Join) | rows 1 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 1 (est 50)
+                Filter | rows 1 (est 1), where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 17 (est 17)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 1 (est 17)
+            Table Spool (Eager Spool) | rows 1 (est 50)
+
+### tuned.list-status-sort-title.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus IN (0,1)
+  cost 1.361, DOP 1, memory grant 3104 KB (used 1072)
+  Compute Scalar [batch] | rows 1 (est 1)
+    Hash Match (Aggregate) [batch] | rows 1 (est 1)
+      Index Seek Tickets.IX_Tickets_Open_Status (filtered) [batch] | rows 349,930 (est 349,930), reads 2,596, cpu 14 ms, seek: (0)
+
+### tuned.list-status-sort-title.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 116, DOP 8, memory grant 585600 KB (used 51184)
+  Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+    Nested Loops (Left Outer Join) [parallel] | rows 20 (est 20), execs 8
+      Nested Loops (Left Outer Join) [parallel] | rows 20 (est 20), execs 8
+        Sort [parallel] | rows 20 (est 20), execs 8
+          Nested Loops (Inner Join) [parallel] | rows 20 (est 20), execs 8
+            Parallelism (Distribute Streams) [parallel] | rows 20 (est 20), execs 8
+              Top | rows 20 (est 20)
+                Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+                  Sort [parallel] | rows 4,846 (est 20), execs 8, cpu 778 ms
+                    Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 349,930 (est 349,930), execs 8, reads 107,970, cpu 467 ms, where: Tickets.TicketStatus as t.TicketStatus=(0) OR Tickets.TicketStatus as t.TicketStatus=(1)
+            Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+        Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers [parallel] | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers [parallel] | rows 16 (est 1), execs 20, reads 48, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-tag.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 0)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 1 (est 50)
+            Table Spool (Eager Spool) | rows 1 (est 50), reads 5
+              Nested Loops (Left Outer Join) | rows 1 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 1 (est 50)
+                Filter | rows 1 (est 1), where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 17 (est 17)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 1 (est 17)
+            Table Spool (Eager Spool) | rows 1 (est 50)
+
+### tuned.list-tag.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM dbo.TicketTags AS g WHERE g.TicketId = t.TicketId AND g.TagName = @Tag...
+  cost 4.342, DOP 1, memory grant 9216 KB (used 6912)
+  Compute Scalar [batch] | rows 1 (est 1)
+    Hash Match (Aggregate) [batch] | rows 1 (est 1)
+      Adaptive Join (Inner Join) [batch] | rows 188,919 (est 130,547)
+        Stream Aggregate (Aggregate) | rows 188,919 (est 130,547), cpu 20 ms
+          Index Seek TicketTags.IX_TicketTags_TagName | rows 188,919 (est 188,919), reads 780, cpu 11 ms, seek: @Tag
+        Index Scan Tickets.IX_ProjectId [batch] | rows 188,919 (est 100,000), reads 1,771, cpu 46 ms, where: PROBE(Opt_Bitmap1008,Tickets.TicketId as t.TicketId)
+        Clustered Index Seek Tickets.PK_dbo.Tickets | rows 0 (est 1), seek: TicketTags.TicketId as g.TicketId
+
+### tuned.list-tag.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.653, DOP 1, memory grant 2880 KB (used 1712)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 1 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20)
+      Sort [batch] | rows 20 (est 20)
+        Nested Loops (Inner Join) | rows 20 (est 20)
+          Top | rows 20 (est 20)
+            Nested Loops (Left Semi Join) | rows 20 (est 20)
+              Index Scan Tickets.IX_Tickets_LastUpdateDate | rows 93 (est 153), reads 3
+              Index Seek TicketTags.IX_TicketTags_TagName | rows 20 (est 1), execs 93, reads 280, seek: @Tag
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.list-unassigned.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 16)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 3 (est 50)
+            Table Spool (Eager Spool) | rows 3 (est 50), reads 9
+              Nested Loops (Left Outer Join) | rows 3 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 3 (est 50)
+                Filter | rows 3 (est 1), execs 3, where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 51 (est 17), execs 3
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 3 (est 17)
+            Table Spool (Eager Spool) | rows 3 (est 50)
+
+### tuned.list-unassigned.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND t.TicketStatus <> 3 AND t.AssignedTo IS NULL
+  cost 0.81, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 11 ms
+      Index Seek Tickets.IX_Tickets_Open_Assignee (filtered) | rows 104,837 (est 104,837), reads 923, cpu 10 ms, seek: NULL
+
+### tuned.list-unassigned.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.266, DOP 1, memory grant 1120 KB (used 16)
+  Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 7 ms
+    Nested Loops (Left Outer Join) | rows 20 (est 20), cpu 7 ms
+      Sort | rows 20 (est 20), cpu 6 ms
+        Nested Loops (Inner Join) | rows 20 (est 20), cpu 6 ms
+          Top | rows 20 (est 20), cpu 6 ms
+            Nested Loops (Inner Join) | rows 20 (est 20), cpu 6 ms
+              Index Scan Tickets.IX_Tickets_Open_Unassigned (filtered) | rows 226 (est 20), reads 4
+              Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 0.952), execs 20, reads 20, seek: Tickets.TicketId as t.TicketId, where: Tickets.AssignedTo as t.AssignedTo IS NULL
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 0 (est 1), execs 20, seek: Tickets.AssignedTo as t.AssignedTo
+
+### tuned.report-open-aging.cmd1.stmt1.sqlplan
+statement: SELECT x.ProjectId, p.ProjectName, x.TicketStatus, x.AgeBucket, x.Tickets FROM ( SELECT t.ProjectId, t.TicketStatus, b.AgeBucket, COUNT(*) AS Tickets FROM dbo.T...
+  cost 3.637, DOP 1, memory grant 5272 KB (used 2264)
+  Sort [batch] | rows 300 (est 375)
+    Hash Match (Inner Join) [batch] | rows 300 (est 375)
+      Clustered Index Scan Projects.PK_dbo.Projects [batch] | rows 25 (est 25), reads 3
+      Compute Scalar [batch] | rows 300 (est 375)
+        Hash Match (Aggregate) [batch] | rows 300 (est 375), cpu 2 ms
+          Compute Scalar [batch] | rows 500,169 (est 500,169), cpu 3 ms
+            Index Scan Tickets.IX_Tickets_Open_Status (filtered) [batch] | rows 500,169 (est 500,169), reads 3,702, cpu 42 ms
+
+### tuned.report-time-to-close.cmd1.stmt1.sqlplan
+statement: WITH closed AS ( SELECT t.ProjectId, CAST(DATEDIFF(second, t.CreatedDate, t.CurrentStatusDate) AS float) / 3600.0 AS Hours FROM dbo.Tickets AS t WHERE t.TicketS...
+  cost 3.393, DOP 8, memory grant 37704 KB (used 25360)
+  Parallelism (Gather Streams) [parallel] | rows 26 (est 676)
+    Sort [parallel] [batch] | rows 26 (est 676), execs 8
+      Compute Scalar [parallel] [batch] | rows 26 (est 676), execs 8
+        Hash Match (Right Outer Join) [parallel] [batch] | rows 26 (est 676), execs 8
+          Clustered Index Scan Projects.PK_dbo.Projects [parallel] [batch] | rows 25 (est 25), execs 8, reads 2
+          Compute Scalar [parallel] [batch] | rows 26 (est 676), execs 8
+            Hash Match (Aggregate) [parallel] [batch] | rows 26 (est 676), execs 8, cpu 12 ms
+              Compute Scalar [parallel] [batch] | rows 274,406 (est 274,125), execs 8, cpu 87 ms
+                Concatenation [parallel] [batch] | rows 274,406 (est 274,125), execs 8
+                  Compute Scalar [parallel] [batch] | rows 137,203 (est 137,062), execs 8
+                    Compute Scalar [parallel] [batch] | rows 137,203 (est 137,062), execs 8
+                      Window Aggregate [parallel] [batch] | rows 137,203 (est 137,062), execs 8
+                        Sort [parallel] [batch] | rows 137,203 (est 137,062), execs 8, cpu 9 ms
+                          Window Aggregate [parallel] [batch] | rows 137,203 (est 137,062), execs 8
+                            Sort [parallel] [batch] | rows 137,203 (est 137,062), execs 8, cpu 34 ms
+                              Compute Scalar [parallel] | rows 137,203 (est 137,062), execs 8, cpu 21 ms
+                                Index Seek Tickets.IX_Tickets_Closed_StatusDate (filtered) [parallel] | rows 137,203 (est 273,164), execs 8, reads 2,021, cpu 10 ms, seek: '2026-08-02 17:00:00.0000000 +00:00'
+                  Compute Scalar [parallel] [batch] | rows 137,203 (est 137,062), execs 8
+                    Compute Scalar [parallel] [batch] | rows 137,203 (est 137,062), execs 8
+                      Window Aggregate [parallel] [batch] | rows 137,203 (est 137,062), execs 8, cpu 57 ms
+                        Window Aggregate [parallel] [batch] | rows 137,203 (est 137,062), execs 8
+                          Sort [parallel] [batch] | rows 137,203 (est 137,062), execs 8, cpu 20 ms
+                            Compute Scalar [parallel] | rows 137,203 (est 137,062), execs 8, cpu 16 ms
+                              Index Seek Tickets.IX_Tickets_Closed_StatusDate (filtered) [parallel] | rows 137,203 (est 273,164), execs 8, reads 2,021, cpu 8 ms, seek: '2026-08-02 17:00:00.0000000 +00:00'
+
+### tuned.report-workload.cmd1.stmt1.sqlplan
+statement: SELECT @UnassignedOpen = COUNT(*) FROM dbo.Tickets AS t WHERE t.TicketStatus <> 3 AND t.AssignedTo IS NULL AND (@ProjectId IS NULL OR t.ProjectId = @ProjectId) ...
+  cost 0.882, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 8 ms
+      Index Seek Tickets.IX_Tickets_Open_Assignee (filtered) | rows 104,837 (est 104,837), reads 923, cpu 7 ms, seek: NULL, where: @ProjectId IS NULL OR Tickets.ProjectId as t.ProjectId=@ProjectId
+
+### tuned.report-workload.cmd1.stmt2.sqlplan
+statement: WITH workload AS ( SELECT t.AssignedTo, SUM(CASE WHEN t.TicketStatus = 0 THEN 1 ELSE 0 END) AS Active, SUM(CASE WHEN t.TicketStatus = 1 THEN 1 ELSE 0 END) AS Mo...
+  cost 7.267, DOP 8, memory grant 35080 KB (used 6872)
+  Sort | rows 50 (est 37.741)
+    Compute Scalar | rows ? (est 37.741)
+      Parallelism (Gather Streams) [parallel] | rows 50 (est 37.741)
+        Merge Join (Left Outer Join) [parallel] | rows 50 (est 37.741), execs 8, cpu 20 ms
+          Sort [parallel] | rows 50 (est 30), execs 8
+            Parallelism (Repartition Streams) [parallel] | rows 50 (est 30), execs 8
+              Nested Loops (Left Outer Join) [parallel] | rows 50 (est 30), execs 8
+                Filter [parallel] | rows 50 (est 30), execs 8, where: Expr1008<=(50)
+                  Parallelism (Distribute Streams) [parallel] | rows 50 (est 100), execs 8
+                    Top | rows 50 (est 100), cpu 5 ms
+                      Nested Loops (Inner Join) | rows 50 (est 100), cpu 5 ms
+                        Table Spool (Lazy Spool) | rows 2 (est 1), reads 8,865, cpu 5 ms
+                          Segment | rows 4,250 (est 100)
+                            Sequence Project (Compute Scalar) | rows 4,250 (est 100)
+                              Segment | rows 4,250 (est 100)
+                                Parallelism (Gather Streams) [parallel] | rows 4,250 (est 100)
+                                  Sort [parallel] | rows 4,250 (est 100), execs 8, cpu 1 ms
+                                    Compute Scalar [parallel] | rows ? (est 4,250)
+                                      Stream Aggregate (Aggregate) [parallel] | rows 4,250 (est 4,250), execs 8
+                                        Parallelism (Repartition Streams) [parallel] | rows 4,362 (est 34,000), execs 8
+                                          Stream Aggregate (Aggregate) [parallel] | rows 4,362 (est 34,000), execs 8, cpu 190 ms
+                                            Compute Scalar [parallel] | rows ? (est 395,332)
+                                              Index Seek Tickets.IX_Tickets_Open_Assignee (filtered) [parallel] | rows 395,332 (est 895,728), execs 8, reads 8,002, cpu 57 ms, seek: AssignedTo
+                        Nested Loops (Inner Join) | rows 50 (est 4,250), execs 2, where: (1)
+                          Compute Scalar | rows ? (est 1)
+                            Stream Aggregate (Aggregate) | rows 1 (est 1), execs 2
+                              Table Spool (Lazy Spool) | rows 4,250 (est 4,250), execs 2
+                          Table Spool (Lazy Spool) | rows 50 (est 4,250)
+                Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers [parallel] | rows 50 (est 1), execs 50, reads 50, seek: Tickets.AssignedTo as t.AssignedTo
+          Sort [parallel] | rows 3,712 (est 4,226), execs 8, cpu 20 ms
+            Compute Scalar [parallel] | rows ? (est 4,226)
+              Compute Scalar [parallel] | rows ? (est 4,226)
+                Hash Match (Aggregate) [parallel] | rows 4,250 (est 4,226), execs 8, cpu 19 ms
+                  Parallelism (Repartition Streams) [parallel] | rows 70,993 (est 63,362), execs 8
+                    Index Seek Tickets.IX_Tickets_Closed_StatusDate (filtered) [parallel] | rows 70,993 (est 63,362), execs 8, reads 1,047, cpu 7 ms, seek: '2026-10-01 17:00:00.0000000 +00:00', where: Tickets.AssignedTo as c.AssignedTo IS NOT NULL
+

@@ -1,0 +1,2 @@
+$ td-replay compare --baseline ~/Desktop/ticketdesk-modernization/wt-legacy-adapters/tests/characterization/golden/legacy-golden.jsonl.xz --candidate docs/evidence/legacy-adapters-20261108/step1-net48/gateway/gateway.jsonl --out-dir docs/evidence/legacy-adapters-20261108/step1-net48/gateway/compare-golden-gateway
+compared 262, matched 262, mismatched 0 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/step1-net48/gateway/compare-golden-gateway/report.md

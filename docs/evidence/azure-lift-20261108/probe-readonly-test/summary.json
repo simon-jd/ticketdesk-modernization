@@ -1,0 +1,40 @@
+{
+  "file": "probe.jsonl",
+  "start": "2026-11-08T16:20:12.593Z",
+  "end": "2026-11-08T16:21:23.579Z",
+  "ticks": 9,
+  "read_requests": 30,
+  "failed_reads": 0,
+  "signins": 2,
+  "failed_signins": 0,
+  "switches": [
+    {
+      "t": "2026-11-08T16:20:12.593Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+    },
+    {
+      "t": "2026-11-08T16:21:02.942Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+    }
+  ],
+  "per_target_path": [
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 15,
+      "failed": 0,
+      "median_ms": 734,
+      "p95_ms": 747
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 15,
+      "failed": 0,
+      "median_ms": 1311,
+      "p95_ms": 1369
+    }
+  ],
+  "failure_windows": [],
+  "failed": []
+}

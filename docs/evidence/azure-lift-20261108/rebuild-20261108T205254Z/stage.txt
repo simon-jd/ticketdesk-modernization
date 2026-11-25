@@ -1,0 +1,6 @@
+2026-11-08T21:00:13Z staged td-ops-windows-ecf7ed5.zip (31162 B) and td-legacy-publish-f510384.zip (19686422 B) in 8 s
+2026-11-08T21:00:24Z staged seed baseline-s (77717504 B) in 11 s
+BUNDLE_BLOB=td-ops-windows-ecf7ed5.zip
+BUNDLE_SHA=5db845f6b4b402a15f3a02b0be4b5b4b4bc37391df64b18fd6a76b164bb0a6cf
+PUBLISH_BLOB=td-legacy-publish-f510384.zip
+PUBLISH_SHA=5f08149d6280aad948c1d46289b81503110f2fc57e9dd84bda4add0510aca45a

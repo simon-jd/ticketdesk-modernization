@@ -1,0 +1,1 @@
+56 polls of /health/ready through AKS, 0 not 200, 0 with the legacy check not Healthy

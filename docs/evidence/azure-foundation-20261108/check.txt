@@ -1,0 +1,6 @@
+$ make azure-check   # 2026-11-08T15:18:58Z, after merging modernize 8dc5a0f
+Terraform has been successfully initialized!
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && terraform fmt -check -recursive infra/terraform
+Success! The configuration is valid.
+rc=0
+# tflint: not run (not on the allowed-downloads list in AGENT-RULES.md)

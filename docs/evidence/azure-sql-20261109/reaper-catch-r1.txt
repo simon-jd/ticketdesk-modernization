@@ -1,0 +1,51 @@
+# 2026-11-10T00:53:00Z state reconcile after the reaper deleted rg-ticketdesk-lab (ttl 2026-11-09T10:54:18Z, delete 11:00:03-11:03:15Z)
+2026-11-09T10:45:03Z reaper: rg-ticketdesk-lab ttl 2026-11-09T10:54:18Z (not expired)
+2026-11-09T10:45:05Z reaper: expired (2026-11-09T08:20:32Z): Microsoft.Compute/disks osdisk-tdlab-legacy
+2026-11-09T10:45:05Z reaper: WARN no ttl tag: Microsoft.Sql/servers/databases master
+2026-11-09T10:45:05Z reaper: expired (2026-11-09T08:20:32Z): Microsoft.Network/networkInterfaces nic-pe-sql-tdlab
+2026-11-09T10:45:09Z reaper: pass 1: 2 left, retrying
+2026-11-09T10:45:13Z reaper: pass 2: 2 left, retrying
+2026-11-09T10:45:16Z reaper: pass 3: 2 left, retrying
+2026-11-09T10:45:20Z reaper: pass 4: 2 left, retrying
+2026-11-09T10:45:20Z reaper: ERROR could not delete: osdisk-tdlab-legacy nic-pe-sql-tdlab
+2026-11-09T11:00:03Z reaper: rg-ticketdesk-lab ttl 2026-11-09T10:54:18Z has passed: deleting the resource group
+2026-11-09T11:03:15Z reaper: rg-ticketdesk-lab deleted
+2026-11-09T11:15:03Z reaper: rg-ticketdesk-lab does not exist: nothing to reap
+## make azure-down (RG already gone -> refresh-only with stage none)
+rg-ticketdesk-lab does not exist
+terraform state refreshed (deleted resources dropped)
+## purge the soft-deleted vault (a recovered vault would bring back old secrets)
+purged kv-tdlab-36d2d4
+soft-deleted vaults left: 0
+## plan stage none
+Plan: 0 to add, 0 to change, 7 to destroy.
+## Entra app
+ticketdesk-lab-web	<client-id-10>
+## resources tagged project=ticketdesk: 0
+data.azuread_client_config.current
+data.azuread_user.me
+data.azurerm_client_config.current
+data.azurerm_subscription.current
+random_password.sql_sa[0]
+random_uuid.remoteapp_key[0]
+time_rotating.attachments_sas[0]
+module.entra[0].azuread_app_role_assignment.admin
+module.entra[0].azuread_application.web
+module.entra[0].azuread_service_principal.web
+module.files[0].time_sleep.rbac_propagation
+module.keyvault[0].time_sleep.rbac_propagation
+module.storage[0].time_sleep.rbac_propagation
+module.vm[0].random_password.admin
+## apply stage none (drops the 7 local-only leftovers: random/time resources)
+Apply complete! Resources: 0 added, 0 changed, 7 destroyed.
+stage foundation down end 2026-11-10T00:55:01Z elapsed_s=29 rc=0
+## plan stage none
+No changes. Your infrastructure matches the configuration.
+data.azuread_client_config.current
+data.azuread_user.me
+data.azurerm_client_config.current
+data.azurerm_subscription.current
+module.entra[0].azuread_app_role_assignment.admin
+module.entra[0].azuread_application.web
+module.entra[0].azuread_service_principal.web
+soft-deleted workspace: log-tdlab-swedencentral	rg-ticketdesk-lab

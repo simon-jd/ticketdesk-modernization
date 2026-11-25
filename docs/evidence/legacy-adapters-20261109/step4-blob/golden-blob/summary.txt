@@ -1,0 +1,11 @@
+2026-11-09T01:42:49Z == direct
+2026-11-09T01:43:08Z 2026-11-09T01:43:08Z reset to baseline-s done in 19 s
+2026-11-09T01:43:22Z 2026-11-09T01:43:22Z deployed td-legacy-publish-b4edcc3.zip (sha256 f1408b12957a6a2bda46123865d471a2f97247f2e19a5fd5e2939c9411574cf6) in 14 s
+2026-11-09T01:43:24Z prepare: 2026-11-09T01:43:24Z reset: empty store (baseline-s state)
+2026-11-09T01:43:43Z replay: replayed 262 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/direct/candidate.jsonl (0 journey errors)
+2026-11-09T01:43:44Z compare: compared 262, matched 261, mismatched 1 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/direct/compare/report.md
+2026-11-09T01:43:45Z == gateway
+2026-11-09T01:44:05Z 2026-11-09T01:44:05Z reset to baseline-s done in 20 s
+2026-11-09T01:44:19Z 2026-11-09T01:44:19Z deployed td-legacy-publish-b4edcc3.zip (sha256 f1408b12957a6a2bda46123865d471a2f97247f2e19a5fd5e2939c9411574cf6) in 14 s
+2026-11-09T01:44:20Z prepare: 2026-11-09T01:44:20Z reset: empty store (baseline-s state)
+2026-11-09T01:44:43Z gateway: replayed 262 exchanges in 15 journeys against https://localhost:5443/ -> docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/gateway/gateway.jsonl (0 journey errors) compared 262, matched 258, mismatched 4 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/gateway/compare-golden-gateway/report.md 

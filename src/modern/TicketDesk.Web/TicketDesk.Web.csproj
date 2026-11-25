@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Web</RootNamespace>
+    <Description>ASP.NET Core host of TicketDesk: the migrated pages, the API and the Angular front end (the legacy app is retired).</Description>
+    <UserSecretsId>ticketdesk-modern-web</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <!-- request telemetry to Application Insights when APPLICATIONINSIGHTS_CONNECTION_STRING is set (AKS: alerts, SLOs) -->
+    <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicketDesk.Data\TicketDesk.Data.csproj" />
+    <ProjectReference Include="..\TicketDesk.Identity\TicketDesk.Identity.csproj" />
+    <ProjectReference Include="..\TicketDesk.Localization\TicketDesk.Localization.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Tickets\TicketDesk.Tickets.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Projects\TicketDesk.Projects.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Reports\TicketDesk.Reports.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Users\TicketDesk.Users.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Attachments\TicketDesk.Attachments.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Search\TicketDesk.Search.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Notifications\TicketDesk.Notifications.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Settings\TicketDesk.Settings.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- the legacy route inventory: denominator of "routes migrated" and the ids the migration registry accepts -->
+    <EmbeddedResource Include="..\..\..\docs\migration\routes.csv" Link="Migration\routes.csv" LogicalName="TicketDesk.Web.Migration.routes.csv" />
+    <!-- wave 0: snapshot of the legacy bundles (ops/dev/export-legacy-bundles.py) -->
+    <EmbeddedResource Include="LegacyBundles\*" LogicalName="TicketDesk.Web.LegacyBundles.%(Filename)%(Extension)" />
+    <!-- the legacy site's plain static files the pages and the bundled CSS reference (fonts, images, favicon): served at their URLs -->
+    <EmbeddedResource Include="LegacyStatic\**\*" Exclude="LegacyStatic\README.md" LogicalName="TicketDesk.Web.LegacyStatic/%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Remove="LegacyStatic\**" />
+    <!-- which app answers each migrated route; watched at run time (switch-back without a redeploy) -->
+    <Content Update="migration-registry.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="TicketDesk.Web.Tests" />
+  </ItemGroup>
+
+  <!--
+    The Angular front end (src/web) is part of this deployable: `npm run build` there writes wwwroot/app (git-ignored), which this
+    app serves under /app (Spa/AngularShell.cs). The build runs it when the front-end sources, the lock file or docs/api/openapi.json
+    (the typed client is generated from it) are newer than wwwroot/app/index.html. Needs Node.js on PATH (. $TD_W/.tools/env.sh);
+    -p:TdBuildWeb=false skips it (the container build copies a wwwroot/app built beforehand). Without wwwroot/app the routes in
+    mode Angular are answered by their server pages.
+  -->
+  <PropertyGroup>
+    <TdBuildWeb Condition="'$(TdBuildWeb)' == ''">true</TdBuildWeb>
+    <TdWebDir>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/../../web/'))</TdWebDir>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TdBuildWeb)' == 'true'">
+    <TdWebInput Include="$(TdWebDir)src/**/*;$(TdWebDir)public/**/*;$(TdWebDir)angular.json;$(TdWebDir)package.json;$(TdWebDir)package-lock.json;$(TdWebDir)tsconfig.json;$(TdWebDir)tsconfig.app.json;$(TdWebDir)ng-openapi-gen.json;$(MSBuildProjectDirectory)/../../../docs/api/openapi.json"
+                Exclude="$(TdWebDir)src/app/api/**;$(TdWebDir)**/*.spec.ts" />
+  </ItemGroup>
+  <Target Name="TdBuildAngular" BeforeTargets="BeforeBuild" Condition="'$(TdBuildWeb)' == 'true'" Inputs="@(TdWebInput)" Outputs="$(MSBuildProjectDirectory)/wwwroot/app/index.html">
+    <Exec Command="node --version" StandardOutputImportance="low" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="TdNodeExitCode" />
+    </Exec>
+    <Error Condition="'$(TdNodeExitCode)' != '0'" Text="Node.js is needed to build the Angular front end (src/web): put it on PATH (. $TD_W/.tools/env.sh) or build with -p:TdBuildWeb=false." />
+    <Exec Command="npm ci --no-audit --no-fund" WorkingDirectory="$(TdWebDir)" Condition="!Exists('$(TdWebDir)node_modules/.package-lock.json')" />
+    <Exec Command="npm run build" WorkingDirectory="$(TdWebDir)" />
+    <ItemGroup>
+      <Content Include="wwwroot/app/**" Exclude="@(Content)" CopyToPublishDirectory="PreserveNewest" />
+    </ItemGroup>
+  </Target>
+</Project>

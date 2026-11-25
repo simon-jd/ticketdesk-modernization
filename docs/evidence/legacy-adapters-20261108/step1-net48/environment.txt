@@ -1,0 +1,3 @@
+# date: 2026-11-08T20:40:03Z  git: 949e3a3  golden: 8db24b364a233de0
+# package: ~/Desktop/ticketdesk-modernization/vm/artifacts/legacy-adapters/td-legacy-publish-887e4e8.zip sha256 f60bad8527afd87509fd049c3c94f5ed14601d6244dd26beb9a2cc88f7f954d2  migrate: 0  prepare: none
+# host load: 4.33 6.12 5.26

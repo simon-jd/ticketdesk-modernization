@@ -1,0 +1,26 @@
+run 17 ci-20261111.13 ci refs/heads/ws/pipelines 76ae3f86 status=completed result=succeeded reason=manual queued=2026-11-11T09:08:18.5369598Z start=2026-11-11T09:08:21.0363234Z finish=2026-11-11T09:11:14.4499591Z
+Checkpoint completed  succeeded    0 s      Checkpoint
+Job        completed  succeeded    114 s    Build, test, images
+Stage      completed  succeeded    169 s    CI
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    7 s      Angular - npm ci, Vitest, build
+Task       completed  succeeded    49 s     .NET - restore, build, tests + coverage  ! 
+Task       completed  succeeded    11 s     Playwright E2E (new app alone)
+Task       completed  succeeded    10 s     Golden replay (new app alone)  ! 
+Task       completed  succeeded    12 s     Container images (web, worker) + smoke
+Task       completed  succeeded    5 s      Publish .NET test results
+Task       completed  succeeded    2 s      Publish Vitest + Playwright results
+Task       completed  succeeded    13 s     Publish .NET coverage
+Task       completed  succeeded    3 s      Publish CI output (summaries, replay report, images)
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    0 s      Finalize Job
+Job        completed  succeeded    33 s     Static gates
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    0 s      No inherited Azure login
+Task       completed  succeeded    3 s      terraform fmt -check + validate
+Task       completed  succeeded    26 s     Vulnerable packages (NuGet, npm)
+Task       completed  succeeded    2 s      Publish audit output
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    0 s      Finalize Job

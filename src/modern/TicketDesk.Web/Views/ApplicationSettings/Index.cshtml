@@ -1,0 +1,166 @@
+@* Port of the legacy Views/ApplicationSettings/Index.cshtml (TicketDesk 2.5, Ms-PL), including its stray htmlAttributes attribute. *@
+@model TicketDesk.Web.Controllers.ApplicationSettingsController.Page
+@using IndexStrings = TicketDesk.Localization.Views.ApplicationSettings.Index
+@using DomainStrings = TicketDesk.Localization.Domain.Strings
+@{
+    var s = Model.Settings;
+    var culture = System.Globalization.CultureInfo.CurrentCulture.Name;
+    IHtmlContent Permission(string name, string label, bool value) =>
+        new HtmlString($"<input {(value ? "checked=\"checked\" " : "")}data-val=\"true\" data-val-required=\"{LegacyRedirectResult.HtmlAttributeEncode(string.Format(TicketDesk.Localization.Validation.FieldRequired, label))}\" htmlAttributes=\"{{ class = form-control }}\" id=\"Permissions_{name}\" name=\"Permissions.{name}\" type=\"checkbox\" value=\"true\" /><input name=\"Permissions.{name}\" type=\"hidden\" value=\"false\" />");
+    var editor = s.ClientSettings.DefaultTextEditorType;
+}
+@section title
+{
+    @IndexStrings.Title
+}
+@section scripts
+{
+    @Bundles.Styles("~/content/select2")
+    @Bundles.Scripts("~/bundles/select2")
+    <script src="/bundles/select2_locale_@(culture)?v="></script>
+    @Bundles.Scripts("~/bundles/application-settings")
+
+    <script type="text/javascript">
+
+        (function () {
+            window.applicationSettings.activate(null);
+        })();
+    </script>
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <!-- Form Name -->
+            <legend class="col-lg-9 col-lg-offset-1 col-sm-12">
+                @IndexStrings.Legend
+            </legend>
+
+<form action="/admin/application-settings" class="form-horizontal" method="post">                <div class="col-lg-9 col-lg-offset-1  col-sm-12">
+                    @Html.AntiForgeryToken()
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">@IndexStrings.Global_Header</h2>
+                        </div>
+                        <div class="panel-body ">
+                            @LegacyForm.ValidationSummary(ViewData.ModelState, excludePropertyErrors: true)
+
+                            <input id="ApplicationName" name="ApplicationName" type="hidden" value="TicketDesk" />
+
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label">@IndexStrings.Global_Priority</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <label class="checkbox-inline">
+                                        @Permission("AllowInternalUsersToEditPriority", DomainStrings.AllowInternalUsersToEditPriority, s.Permissions.AllowInternalUsersToEditPriority)
+                                        @DomainStrings.AllowInternalUsersToEditPriority
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label">@IndexStrings.Global_Tags</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <label class="checkbox-inline">
+                                        @Permission("AllowInternalUsersToEditTags", DomainStrings.AllowInternalUsersToEditTags, s.Permissions.AllowInternalUsersToEditTags)
+                                        @DomainStrings.AllowInternalUsersToEditTags
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label">Owner</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <label class="checkbox-inline">
+                                        @Permission("AllowInternalUsersToSetOwner", DomainStrings.AllowInternalUsersToSetOwner, s.Permissions.AllowInternalUsersToSetOwner)
+                                        @DomainStrings.AllowInternalUsersToSetOwner
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label">Assigned To</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <label class="checkbox-inline">
+                                        @Permission("AllowInternalUsersToSetAssigned", DomainStrings.AllowInternalUsersToSetAssigned, s.Permissions.AllowInternalUsersToSetAssigned)
+                                        @DomainStrings.AllowInternalUsersToSetAssigned
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-heading">
+                            <h2 class="panel-title">@IndexStrings.Settings_Header</h2>
+                        </div>
+                        <div class="panel-body ">
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label">@IndexStrings.Settings_Editor</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="radio">
+                                        <label class="checkbox-inline">
+                                            @Html.Raw($"<input {(editor == "summernote" ? "checked=\"checked\" " : "")}id=\"IsSummernote\" name=\"DefaultTextEditorType\" type=\"radio\" value=\"summernote\" />")
+                                            @IndexStrings.Settings_Editor_HTML
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label class="checkbox-inline">
+                                            @Html.Raw($"<input {(editor == "pagedown" ? "checked=\"checked\" " : "")}id=\"IsPagedown\" name=\"DefaultTextEditorType\" type=\"radio\" value=\"pagedown\" />")
+                                            @IndexStrings.Settings_Editor_Markdown
+                                        </label>
+                                    </div>
+                                    <div class="help-block">
+                                        @Html.Raw(IndexStrings.Settings_Editor_Help)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-heading">
+                            <h2 class="panel-title">@IndexStrings.List_Header</h2>
+                        </div>
+                        <div class="panel-body ">
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label" for="SelectLists_TicketTypesList">@DomainStrings.SelectList_TicketTypes</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <input id="tickettypes" name="tickettypes" class="form-control input-sm" value="@string.Join(",", s.SelectLists.TicketTypesList)" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label" for="SelectLists_CategoryList">@DomainStrings.SelectList_Categories</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <input id="categories" name="categories" class="form-control input-sm" value="@string.Join(",", s.SelectLists.CategoryList)" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label" for="SelectLists_PriorityList">@DomainStrings.SelectList_Priorities</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <input id="priorities" name="priorities" class="form-control input-sm" value="@string.Join(",", s.SelectLists.PriorityList)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-heading">
+                            <h2 class="panel-title">@IndexStrings.Security_Header</h2>
+                        </div>
+                        <div class="panel-body ">
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label" for="SecuritySettings_DefaultNewUserRoles">@DomainStrings.DefaultNewUserRoles</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <select class="form-control input-sm" id="defaultroles" multiple="multiple" name="defaultroles">@foreach (var r in Model.Roles)
+{
+@if (s.SecuritySettings.DefaultNewUserRoles.Contains(r.Name)) {<option selected="selected" value="@r.Name">@r.DisplayName</option>@Html.Raw("\r\n")} else {<option value="@r.Name">@r.DisplayName</option>@Html.Raw("\r\n")}
+}</select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 col-sm-4 control-label" for="SecuritySettings_DefaultLogonDomain">@DomainStrings.DefaultLogonDomain</label>
+                                <div class="col-md-8 col-sm-8">
+                                    <input class="form-control input-sm text-box single-line" id="SecuritySettings_DefaultLogonDomain" name="SecuritySettings.DefaultLogonDomain" type="text" value="@(s.SecuritySettings.DefaultLogonDomain ?? "")" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="">
+                                <button type="submit" class="btn btn-success" tabindex="10"><i class="fa fa-save"></i>&nbsp;&nbsp;@IndexStrings.SaveOption</button>&nbsp;&nbsp;
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+</form>        </fieldset>
+    </div>
+</main>

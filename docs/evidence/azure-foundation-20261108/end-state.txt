@@ -1,0 +1,25 @@
+# end of session checks (2026-11-08T15:16:45Z)
+$ scripts/azure_reaper.sh
+2026-11-08T15:16:46Z reaper: rg-ticketdesk-lab does not exist: nothing to reap
+rc=0
+$ az group exists -n rg-ticketdesk-lab
+false
+$ az resource list --tag project=ticketdesk --query '[].id'
+(empty = nothing tagged project=ticketdesk left in the subscription)
+$ az group list --query '[].name'
+rg-mlinfra-westus
+NetworkWatcherRG
+$ az keyvault list-deleted --query '[].name'
+(empty = no soft-deleted vault)
+$ az monitor log-analytics workspace list-deleted-workspaces --query '[].name'
+(empty = no soft-deleted workspace)
+$ az ad app list --display-name ticketdesk-lab-web --query '[].displayName'   # kept by design
+ticketdesk-lab-web
+$ terraform state list   # what Terraform still manages
+data.azuread_client_config.current
+data.azuread_user.me
+data.azurerm_client_config.current
+data.azurerm_subscription.current
+module.entra[0].azuread_app_role_assignment.admin
+module.entra[0].azuread_application.web
+module.entra[0].azuread_service_principal.web

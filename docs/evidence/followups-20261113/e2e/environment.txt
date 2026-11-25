@@ -1,0 +1,4 @@
+# date: 2026-11-13T19:21:20Z  git: acf55e11  url: https://localhost:5487  runs: 3
+# mode: the new app alone (td-sql TicketDesk_r5e2e, contracted; local attachments)
+# node v24.22.2, playwright Version 1.64.1, browser: chromium headless shell (Playwright's)
+# host load: 2.79 4.94 6.57

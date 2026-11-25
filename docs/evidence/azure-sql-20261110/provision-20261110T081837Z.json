@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-10T08:18:54Z] provision run 20261110T081837Z on tdlab-legacy, steps: fetch+migrate\n[2026-11-10T08:18:54Z] ==== step fetch\n[2026-11-10T08:18:54Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-80690ee.zip (38,658 bytes, sha256 897E87202CFC55D44228E88B67016F8627ACF50C94676FCF9A489CEAEDB661DD)\n[2026-11-10T08:18:54Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Move-TdFileStore.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Test-TdBlobStore.ps1, Update-TdSqlServer.ps1\n[2026-11-10T08:18:54Z] publish package already extracted (same SHA-256)\n[2026-11-10T08:18:54Z] step fetch done in 0.3s\n[2026-11-10T08:18:54Z] ==== step migrate\n    IX_Tickets_Open_Unassigned: AssignedTo included\napplied expand/V0006__open_unassigned_include_assignee.sql in 0.10 s\napplied programmable/R__usp_ticket_list.sql in 0.03 s\n2 script(s) applied\napplied  expand/V0001__tickets_assigned_date.sql                      2026-11-09 01:49:05Z 13 ms by sa\napplied  expand/V0002__tickets_assigned_date_backfill.sql             2026-11-09 01:49:05Z 219 ms by sa\napplied  expand/V0003__ticket_list_and_report_indexes.sql             2026-11-09 01:49:05Z 330 ms by sa\napplied  expand/V0004__tickets_rebuild_after_backfill.sql             2026-11-09 01:49:05Z 2 ms by sa\napplied  expand/V0005__assigned_date_trigger_null_changes.sql         2026-11-09 01:49:05Z 1 ms by sa\napplied  programmable/R__usp_report_assignee_workload.sql             2026-11-09 01:49:05Z 1 ms by sa\napplied  programmable/R__usp_report_open_tickets_aging.sql            2026-11-09 01:49:05Z 1 ms by sa\napplied  programmable/R__usp_report_time_to_close.sql                 2026-11-09 01:49:05Z 2 ms by sa\napplied  expand/V0006__open_unassigned_include_assignee.sql           2026-11-10 08:18:55Z 66 ms by <client-id-12>@<tenant-id>\napplied  programmable/R__usp_ticket_list.sql                          2026-11-10 08:18:55Z 13 ms by <client-id-12>@<tenant-id>\ncontract contract/C0001__assigned_date_contract.sql (after legacy retirement)\n[2026-11-10T08:18:56Z] step migrate done in 1.5s\n[2026-11-10T08:18:56Z] TDTIMINGS {\"fetch\":0.3,\"migrate\":1.5} total 1.9s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261110T081837Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

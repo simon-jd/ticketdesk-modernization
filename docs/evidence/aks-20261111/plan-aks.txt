@@ -1,0 +1,85 @@
+$ make azure-plan STAGE=aks AZ_OWNER=agent-aks   # 2026-11-11T18:31:25Z, rc=0; resource addresses and summary only (full plan in $TD_W/.tfstate/scratch, 0700)
+  # data.azurerm_storage_account_sas.attachments[0] will be read during apply
+  # azurerm_federated_identity_credential.app["td-web"] will be created
+  # azurerm_federated_identity_credential.app["td-worker"] will be created
+  # azurerm_federated_identity_credential.migrator[0] will be created
+  # azurerm_key_vault_certificate.aks_web[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_key_vault_key.dataprotection[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_key_vault_secret.appinsights[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_key_vault_secret.attachments[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_key_vault_secret.sql_connection_string[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_monitor_action_group.drill[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_monitor_metric_alert.failed_requests[0] will be created
+          + "est_usd_per_hour" = "0.0001"
+  # azurerm_resource_group.lab[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_role_assignment.ado_aks_rbac_admin[0] will be created
+  # azurerm_role_assignment.ado_rg_contributor[0] will be created
+  # azurerm_role_assignment.app_dataprotection_key[0] will be created
+  # azurerm_role_assignment.app_servicebus["Azure Service Bus Data Receiver"] will be created
+  # azurerm_role_assignment.app_servicebus["Azure Service Bus Data Sender"] will be created
+  # azurerm_user_assigned_identity.app[0] will be created
+          + "est_usd_per_hour" = "0"
+  # azurerm_user_assigned_identity.sql_deploy[0] will be created
+          + "est_usd_per_hour" = "0"
+  # time_rotating.attachments_sas[0] will be created
+  # module.aks[0].azurerm_container_registry.this will be created
+          + "est_usd_per_hour" = "0.0069"
+  # module.aks[0].azurerm_kubernetes_cluster.this will be created
+          + "est_usd_per_hour" = "0.1708"
+              + "est_usd_per_hour" = "0.0858"
+  # module.aks[0].azurerm_role_assignment.admin_acr_push will be created
+  # module.aks[0].azurerm_role_assignment.cluster_admin will be created
+  # module.aks[0].azurerm_role_assignment.csi_kv_secrets_user will be created
+  # module.aks[0].azurerm_role_assignment.kubelet_acr_pull will be created
+  # module.aks[0].azurerm_role_assignment.subnet_network_contributor will be created
+  # module.files[0].azurerm_role_assignment.operator will be created
+  # module.files[0].azurerm_storage_account.this will be created
+          + "est_usd_per_hour" = "0"
+  # module.files[0].azurerm_storage_container.this["ticketdesk-attachments"] will be created
+  # module.files[0].time_sleep.rbac_propagation will be created
+  # module.keyvault[0].azurerm_key_vault.this will be created
+          + "est_usd_per_hour" = "0"
+  # module.keyvault[0].azurerm_role_assignment.admin will be created
+  # module.keyvault[0].time_sleep.rbac_propagation will be created
+  # module.monitoring[0].azurerm_application_insights.this will be created
+          + "est_usd_per_hour" = "0"
+  # module.monitoring[0].azurerm_log_analytics_workspace.this will be created
+          + "est_usd_per_hour" = "0.0125"
+  # module.monitoring[0].azurerm_monitor_action_group.email[0] will be created
+          + "est_usd_per_hour" = "0"
+  # module.network[0].azurerm_network_security_group.aks will be created
+          + "est_usd_per_hour" = "0"
+  # module.network[0].azurerm_network_security_group.pe will be created
+          + "est_usd_per_hour" = "0"
+  # module.network[0].azurerm_network_security_group.vm will be created
+          + "est_usd_per_hour" = "0"
+  # module.network[0].azurerm_subnet.aks will be created
+  # module.network[0].azurerm_subnet.pe will be created
+  # module.network[0].azurerm_subnet.vm will be created
+  # module.network[0].azurerm_subnet_network_security_group_association.aks will be created
+  # module.network[0].azurerm_subnet_network_security_group_association.pe will be created
+  # module.network[0].azurerm_subnet_network_security_group_association.vm will be created
+  # module.network[0].azurerm_virtual_network.this will be created
+          + "est_usd_per_hour" = "0"
+  # module.servicebus[0].azurerm_servicebus_namespace.this will be created
+          + "est_usd_per_hour" = "0"
+  # module.servicebus[0].azurerm_servicebus_queue.notifications will be created
+  # module.sql[0].azapi_resource.database will be created
+          + "est_usd_per_hour" = "0"
+  # module.sql[0].azurerm_mssql_server.this will be created
+          + "est_usd_per_hour" = "0"
+  # module.sql[0].azurerm_private_dns_zone.sql will be created
+          + "est_usd_per_hour" = "0.0007"
+  # module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql will be created
+          + "est_usd_per_hour" = "0"
+  # module.sql[0].azurerm_private_endpoint.sql will be created
+          + "est_usd_per_hour" = "0.01"
+Plan: 53 to add, 0 to change, 0 to destroy.
+  ~ est_usd_per_hour              = "0.0000" -> "0.2010"

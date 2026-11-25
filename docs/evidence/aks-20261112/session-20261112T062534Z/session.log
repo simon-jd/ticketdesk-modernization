@@ -1,0 +1,208 @@
+agents: lab-host-1 online enabled=true job=none
+runs waiting for an approval (left alone): none; runs queued for or running on the agent: none
+preflight ok: agent free, nothing queued, Azure Repos modernize ca0443fa has this session's chart and CD script
+added 17 rows K2.1-K2.17 (1.98 USD)
+ledger running estimate $14.96 / cap $15.00: OK
+2026-11-12T06:25:36.906Z SESSION deadline 2026-11-12T09:10:36Z (start + 165 min), planned end 2026-11-12T09:25:36Z, ttl 2026-11-12T09:40:36Z (deadline.txt)
+2026-11-12T06:25:36.912Z SESSION start cert
+2026-11-12T06:25:37Z certificate for tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com present
+subject=O=TicketDesk Lab, CN=tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com
+issuer=O=TicketDesk Lab, CN=TicketDesk Lab Root CA
+serial=12337EC53147DEE98219906A9EBB4B041875B965
+notAfter=Feb 13 04:43:56 2029 GMT
+X509v3 Subject Alternative Name: 
+    DNS:tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com, DNS:localhost, DNS:td-web.ticketdesk.svc, IP Address:127.0.0.1
+2026-11-12T06:25:37.129Z SESSION ok cert
+2026-11-12T06:25:37.135Z SESSION rebuild from zero: start (empty resource group)
+2026-11-12T06:25:37.140Z SESSION start apply-vm
+2026-11-12T06:32:49Z stage cutover ( -target=module.vm[0] ) applied in 432 s (node Standard_B2as_v2, VM Standard_B2as_v2): Apply complete! Resources: 21 added, 0 changed, 0 destroyed
+2026-11-12T06:32:49.391Z SESSION ok apply-vm
+2026-11-12T06:32:49.397Z SESSION start apply
+2026-11-12T06:40:14Z stage cutover applied in 445 s (node Standard_B2as_v2, VM Standard_B2as_v2): Apply complete! Resources: 54 added, 0 changed, 0 destroyed
+2026-11-12T06:40:14.167Z SESSION ok apply
+2026-11-12T06:40:14.173Z SESSION start kube
+NAME                             STATUS   ROLES    AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION             CONTAINER-RUNTIME
+aks-system-24446236-vmss000000   Ready    <none>   3m13s   v1.36.5   10.42.16.4    <none>        Microsoft Azure Linux 3.0   6.6.159.1-2.azl3 (amd64)   containerd://2.2.4
+Allocatable:
+  cpu:                1900m
+  ephemeral-storage:  27932040761
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             5935568Ki
+  pods:               250
+System Info:
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests      Limits
+  --------           --------      ------
+  cpu                849m (44%)    10090m (531%)
+  memory             1034Mi (17%)  13873440Ki (233%)
+  ephemeral-storage  0 (0%)        0 (0%)
+  hugepages-1Gi      0 (0%)        0 (0%)
+  hugepages-2Mi      0 (0%)        0 (0%)
+Events:
+2026-11-12T06:40:22.982Z SESSION ok kube
+2026-11-12T06:40:22.988Z SESSION start push-v1
+2026-11-12T06:40:39Z pushed ticketdesk-web:aks-v1 in 11 s
+2026-11-12T06:40:49Z pushed ticketdesk-worker:aks-v1 in 10 s
+2026-11-12T06:40:57Z pushed ticketdesk-db:aks-v1 in 8 s
+2026-11-12T06:40:57.202Z SESSION ok push-v1
+2026-11-12T06:40:57.208Z SESSION start push-v2
+2026-11-12T06:41:10Z pushed ticketdesk-web:aks-v2b in 8 s
+2026-11-12T06:41:20Z pushed ticketdesk-worker:aks-v2b in 10 s
+2026-11-12T06:41:27Z pushed ticketdesk-db:aks-v2b in 7 s
+2026-11-12T06:41:27.871Z SESSION ok push-v2
+2026-11-12T06:41:27.876Z SESSION start vm-data
+2026-11-12T06:41:35Z sql tools td-sqltools-ca0443f.zip: 46359931 bytes, td-db + SqlPackage 170.5.96, .NET runtime on the VM 10.0.14
+2026-11-12T06:41:42Z staged td-ops-windows-ca0443f.zip (41257 B) and td-legacy-publish-b4c1428.zip (21518910 B) in 5 s
+BUNDLE_BLOB=td-ops-windows-ca0443f.zip
+BUNDLE_SHA=1e13b85a55b49f9534d0c93fec97d0bc6d9897daa859af94beca35f7d1be4ea2
+PUBLISH_BLOB=td-legacy-publish-b4c1428.zip
+PUBLISH_SHA=6b187486966bfd95177019735d9208f85b250e8de0bc70ec85f1acfbefa88562
+2026-11-12T06:41:50Z staged BACPAC ticketdesk-baseline-s-shared.bacpac (3637947 B)
+2026-11-12T06:41:50Z stage done in 15 s
+BUNDLE_BLOB=td-ops-windows-ca0443f.zip
+BUNDLE_SHA=1e13b85a55b49f9534d0c93fec97d0bc6d9897daa859af94beca35f7d1be4ea2
+PUBLISH_BLOB=td-legacy-publish-b4c1428.zip
+PUBLISH_SHA=6b187486966bfd95177019735d9208f85b250e8de0bc70ec85f1acfbefa88562
+SQLTOOLS_BLOB=td-sqltools-ca0443f.zip
+SQLTOOLS_SHA=c6bbec40dfb0650961d1c1b5a411bec62317fbd3e6e8758e2d00b8cd5e484a50
+BACPAC_BLOB=bacpac/ticketdesk-baseline-s-shared.bacpac
+BACPAC_SHA=20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9
+2026-11-12T06:41:51Z provision 20261112T064151Z on vm-tdlab-legacy: fetch+prereqs+site+sqltools+import+azsql-users+migrate+aks-sql-user+deploy+verify SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-2> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-ca0443f.zip SqlToolsSha256=c6bbec40dfb0650961d1c1b5a411bec62317fbd3e6e8758e2d00b8cd5e484a50 DotnetVersion=10.0.14 Database=azure BacpacBlob=bacpac/ticketdesk-baseline-s-shared.bacpac BacpacSha256=20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9 SharedCookieKeyRing=database DataProtectionKeyId=https://kv-tdlab-36d2d4.vault.azure.net/keys/td-dataprotection AksAppIdentityName=id-tdlab-app AksAppClientId=<client-id-19>
+provision 20261112T064151Z steps=fetch+prereqs+site+sqltools+import+azsql-users+migrate+aks-sql-user+deploy+verify elapsed_s=337 rc=0
+
+   Speed :           25,220,881 Bytes/sec.
+   Speed :            1,443.150 MegaBytes/min.
+   Ended : Thursday, November 12, 2026 6:46:14 AM
+
+[2026-11-12T06:46:14Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-12T06:46:14Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-12T06:46:14Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-12T06:46:14Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-12T06:46:14Z] INFO   database: Azure SQL, ManagedIdentity (tcp:sql-tdlab-36d2d4.database.windows.net,1433)
+[2026-11-12T06:46:14Z] INFO   shared sign-in cookie: on (key ring: database)
+[2026-11-12T06:46:14Z] INFO   key ring wrapped with Key Vault key https://kv-tdlab-36d2d4.vault.azure.net/keys/td-dataprotection (managed identity)
+[2026-11-12T06:46:14Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SqlAuthentication=ManagedIdentity, appSettings/ticketdesk:SharedCookieKeyRing, appSettings/ticketdesk:DataProtectionKeyVaultKeyId, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-12T06:46:45Z] INFO   warm-up http://localhost/ -> 200 in 31.3s
+[2026-11-12T06:46:45Z] deploy: database azure, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-12T06:46:45Z] step deploy done in 35.2s
+[2026-11-12T06:46:45Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33822","display_version":"24H2","last_boot_utc":"2026-11-12T06:28:40.3722560Z","database":"azure","sql":"12.0.2000.8 SQL Azure GP_S_Gen5_2","app_db":"tcp:sql-tdlab-36d2d4.database.windows.net,1433","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.257.0","signature_updated_utc":"2026-11-11T22:12:20.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10","private_key_usable":true},"https_home":{"status":200,"ms":23,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":{},"rows":{"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":14,"dbo.ApplicationSettings":1,"dbo.DataProtectionKeys":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-12T06:46:53Z] step verify done in 7.5s
+[2026-11-12T06:46:53Z] TDTIMINGS {"fetch":7.3,"prereqs":162.1,"site":8.3,"sqltools":13.1,"import":38.2,"azsql-users":0.6,"migrate":2.1,"aks-sql-user":0.4,"deploy":35.2,"verify":7.5} total 275.8s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261112T064151Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261112T064151Z steps=fetch+prereqs+site+sqltools+import+azsql-users+migrate+aks-sql-user+deploy+verify elapsed_s=337 rc=0
+  GET  /ticket/ticket-events?ticketId=10001 -> 200 840ms
+[PASS] comment visible in ticket events (HTTP 200)
+{"command": "smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 11, "seconds": 15.6}
+2026-11-12T06:47:46.572Z SESSION ok vm-data
+2026-11-12T06:47:46.655Z SESSION start deploy-v1
+2026-11-12T06:48:39Z deploy v1: 53 s, service IP 172.130.35.152, tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com resolves to 172.130.35.152
+2026-11-12T06:48:39.401Z SESSION ok deploy-v1
+2026-11-12T06:48:39.416Z SESSION start smoke-v1
+{"command": "app-smoke", "ok": true, "checks_passed": 7, "checks_total": 7, "requests": 8, "seconds": 6.0, "read_only": true}
+2026-11-12T07:02:41.213Z SESSION ok smoke-v1
+2026-11-12T07:02:41.228Z SESSION rebuild from zero: app smoke passed on AKS
+2026-11-12T07:02:41.244Z SESSION start golden-v1
+compared 262, matched 147, mismatched 117 (missing 0, extra 2) -> ~/Desktop/ticketdesk-modernization/wt-aks/docs/evidence/aks-20261112/golden-v1/compare/report.md
+2026-11-12T07:03:58.197Z SESSION ok golden-v1
+2026-11-12T07:03:58.203Z SESSION start cutover
+2026-11-12T07:03:59Z MARK probe_start 2026-11-12T07:03:59.198Z
+2026-11-12T07:04:29Z MARK switched 2026-11-12T07:04:29.215Z
+2026-11-12T07:05:29Z MARK probe_end 2026-11-12T07:05:29.630Z
+cutover VM -> AKS: reads 90 (0 failed), writes 68 (0 failed), sign-ins 2 (0 failed); failure windows []
+2026-11-12T07:05:29.755Z SESSION ok cutover
+2026-11-12T07:05:29.777Z SESSION start vm-cert
+rotation start 2026-11-12T07:05:31Z
+{
+  "expires": "2029-02-14T07:05:31+00:00",
+  "notBefore": "2026-11-12T07:05:31+00:00",
+  "thumbprint": "1683C0C151A383D01C2E95E2E0B970CFF8F55A66",
+  "version": "https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy/855594019e7a4e7c97e0f1e910364333"
+}
+new version in Key Vault after 2 s (2026-11-12T07:05:33Z)
+IIS binding updated through the managed identity after 67 s (2026-11-12T07:06:38Z), provision rc=0
+smoke after 77 s (2026-11-12T07:06:48Z), rc=0: {"command": "smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 11, "seconds": 9.3}
+# before
+serial=12337EC53147DEE98219906A9EBB4B041875B963
+sha1 Fingerprint=96:44:9D:36:38:3A:F1:79:8F:02:9D:1E:77:ED:04:BD:8D:0E:A8:12
+notAfter=Feb 10 15:43:51 2029 GMT
+# after
+serial=12337EC53147DEE98219906A9EBB4B041875B967
+sha1 Fingerprint=16:83:C0:C1:51:A3:83:D0:1C:2E:95:E2:E0:B9:70:CF:F8:F5:5A:66
+notAfter=Feb 14 07:05:31 2029 GMT
+# new certificate
+serial=12337EC53147DEE98219906A9EBB4B041875B967
+sha1 Fingerprint=16:83:C0:C1:51:A3:83:D0:1C:2E:95:E2:E0:B9:70:CF:F8:F5:5A:66
+notAfter=Feb 14 07:05:31 2029 GMT
+56 polls of /health/ready through AKS, 0 not 200, 0 with the legacy check not Healthy
+2026-11-12T07:06:59.556Z SESSION ok vm-cert
+2026-11-12T07:06:59.564Z SESSION start aks-cert
+rotation start 2026-11-12T07:07:10.869Z, served serial before: 12337EC53147DEE98219906A9EBB4B041875B965
+{
+  "notBefore": "2026-11-12T07:07:00+00:00",
+  "thumbprint": "54A4033EAECCF5FA55335BCA971151BF8CCFE123",
+  "version": "https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-aks-web/1f3c8fa539274d0d8c213a1a2c6444d3"
+}
+new version in Key Vault after 1.6 s
+served serial after: 12337EC53147DEE98219906A9EBB4B041875B968, picked up 62.0 s after the import (CSI rotation poll 2m + Tls:ReloadInterval 10 s)
+probe during the rotation: reads 100 (0 failed)
+# new certificate
+serial=12337EC53147DEE98219906A9EBB4B041875B968
+notAfter=Feb 14 07:07:00 2029 GMT
+2026-11-12T07:08:29.438Z SESSION ok aks-cert
+2026-11-12T07:08:29.450Z SESSION start retire-vm (take-down: runs whatever the deadline)
+2026-11-12T07:10:12Z stage aks applied in 103 s (node Standard_B2as_v2, VM Standard_B2as_v2): Apply complete! Resources: 0 added, 2 changed, 22 destroyed
+retire end 2026-11-12T07:10:12.172Z elapsed_s=103; VM exists: no
+2026-11-12T07:10:12.827Z SESSION ok retire-vm
+2026-11-12T07:10:12.835Z SESSION start deploy-v2
+probe through the v2 step: reads 1304 (349 failed), writes 904 (203 failed); failure windows [{"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:10:15.297Z", "end": "2026-11-12T07:12:07.701Z", "ticks": 17}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:12:34.532Z", "end": "2026-11-12T07:13:09.323Z", "ticks": 16}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:14:59.762Z", "end": "2026-11-12T07:17:34.540Z", "ticks": 22}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:17:59.940Z", "end": "2026-11-12T07:18:04.588Z", "ticks": 6}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:18:35.219Z", "end": "2026-11-12T07:18:39.078Z", "ticks": 5}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:22:29.987Z", "end": "2026-11-12T07:22:55.327Z", "ticks": 16}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:23:14.742Z", "end": "2026-11-12T07:23:19.399Z", "ticks": 6}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:24:40.193Z", "end": "2026-11-12T07:25:02.221Z", "ticks": 13}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:25:45.062Z", "end": "2026-11-12T07:27:18.559Z", "ticks": 18}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:27:39.951Z", "end": "2026-11-12T07:27:44.781Z", "ticks": 6}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:29:15.163Z", "end": "2026-11-12T07:29:29.352Z", "ticks": 15}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:30:19.393Z", "end": "2026-11-12T07:31:51.377Z", "ticks": 16}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:32:21.204Z", "end": "2026-11-12T07:34:12.815Z", "ticks": 17}, {"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:35:10.489Z", "end": "2026-11-12T07:35:18.978Z", "ticks": 8}]
+2026-11-12T07:36:05.875Z SESSION ok deploy-v2
+2026-11-12T07:36:05.891Z SESSION start smoke-v2
+{"command": "app-smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 10, "seconds": 6.8}
+2026-11-12T07:36:13.973Z SESSION ok smoke-v2
+2026-11-12T07:36:13.979Z SESSION start golden-v2
+compared 258, matched 122, mismatched 142 (missing 4, extra 2) -> ~/Desktop/ticketdesk-modernization/wt-aks/docs/evidence/aks-20261112/golden-v2/compare/report.md
+2026-11-12T07:37:25.695Z SESSION ok golden-v2
+2026-11-12T07:37:25.703Z SESSION start alert-drill
+{"fault": "2026-11-12T07:37:57.881Z", "recover": "2026-11-12T07:39:56.963Z", "alert_fired_utc": "2026-11-12T07:39:21.2120413Z", "alert_resolved_utc": "2026-11-12T07:44:12.5600755Z", "fault_to_fired_s": 83.3, "recover_to_resolved_s": 255.6, "fired_to_resolved_s": 291.3, "probe_reads": 362, "probe_failed_reads": 22, "failure_windows": [{"target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com", "start": "2026-11-12T07:38:11.465Z", "end": "2026-11-12T07:40:01.343Z", "ticks": 11}]}
+2026-11-12T07:44:33.210Z SESSION ok alert-drill
+2026-11-12T07:44:33.219Z SESSION start slo
+# 2026-11-12T07:44:33Z KQL over the workspace (AppRequests of the new app, health probes excluded), 2026-11-12T06:47:46Z .. 2026-11-12T07:37:25Z
+# SLOs (lab): availability >= 99.5 % of requests, p95 server duration <= 500 ms
+AppRequests | where TimeGenerated between (datetime(2026-11-12T06:47:46Z) .. datetime(2026-11-12T07:37:25Z)) | where AppRoleName == 'ticketdesk-web' and Name !has '/health/'
+| extend phase = case(TimeGenerated < datetime(2026-11-12T07:10:12Z), 'v1 (gateway + VM)', 'v2 (no legacy)')
+| summarize requests = count(), failed = countif(Success == false), p50_ms = round(percentile(DurationMs, 50), 1), p95_ms = round(percentile(DurationMs, 95), 1) by phase
+| extend availability_pct = round(100.0 * (requests - failed) / requests, 3), slo_availability_99_5 = iff(100.0 * (requests - failed) / requests >= 99.5, 'met', 'missed'), slo_p95_500ms = iff(p95_ms <= 500, 'met', 'missed')
+
+TableName      Availability_pct    Failed    P50_ms    P95_ms    Phase              Requests    Slo_availability_99_5    Slo_p95_500ms
+-------------  ------------------  --------  --------  --------  -----------------  ----------  -----------------------  ---------------
+PrimaryResult  100                 0         8         65        v1 (gateway + VM)  665         met                      met
+PrimaryResult  99.843              5         8         33.9      v2 (no legacy)     3194        met                      met
+
+# the drill window (expected to miss)
+TableName      TimeGenerated         Failed    Requests
+-------------  --------------------  --------  ----------
+PrimaryResult  2026-11-12T07:37:00Z  0         83
+PrimaryResult  2026-11-12T07:38:00Z  6         11
+PrimaryResult  2026-11-12T07:39:00Z  5         9
+PrimaryResult  2026-11-12T07:40:00Z  0         130
+PrimaryResult  2026-11-12T07:41:00Z  0         151
+PrimaryResult  2026-11-12T07:42:00Z  0         151
+PrimaryResult  2026-11-12T07:43:00Z  0         152
+PrimaryResult  2026-11-12T07:44:00Z  0         83
+2026-11-12T07:44:44.846Z SESSION ok slo
+2026-11-12T07:44:44.852Z SESSION start restore-drill
+2026-11-12T08:30:02.478Z SESSION FAILED restore-drill (rc 1)
+2026-11-12T08:30:02.483Z SESSION session complete
+2026-11-12T08:30:02.626Z SESSION steps: 19 ok, 0 not measured, 1 failed, 0 not run (steps.txt)
+2026-11-12T08:30:02.633Z SESSION destroy
+destroy end 2026-11-12T08:40:14.769Z elapsed_s=612; RG exists=false; node RG exists=false
+2026-11-12T08:40:17.238Z SESSION destroyed: RG exists=false
+closed 17 rows K2.*

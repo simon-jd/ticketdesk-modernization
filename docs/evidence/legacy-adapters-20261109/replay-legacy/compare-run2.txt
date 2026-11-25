@@ -1,0 +1,2 @@
+$ td-replay compare --baseline docs/evidence/legacy-adapters-20261109/replay-legacy/legacy-run1.jsonl --candidate docs/evidence/legacy-adapters-20261109/replay-legacy/legacy-run2.jsonl --out-dir docs/evidence/legacy-adapters-20261109/replay-legacy/compare-run1-run2
+compared 262, matched 262, mismatched 0 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261109/replay-legacy/compare-run1-run2/report.md

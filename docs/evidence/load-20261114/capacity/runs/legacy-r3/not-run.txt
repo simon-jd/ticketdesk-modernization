@@ -1,0 +1,3 @@
+rate 25 not run: step 20 was far past breaking (p95 > 5 s, or > 20 % failed or dropped)
+rate 30 not run: step 20 was far past breaking (p95 > 5 s, or > 20 % failed or dropped)
+rate 40 not run: step 20 was far past breaking (p95 > 5 s, or > 20 % failed or dropped)

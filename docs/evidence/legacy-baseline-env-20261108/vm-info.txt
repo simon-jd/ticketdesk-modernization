@@ -1,0 +1,53 @@
+
+Name             InstallState
+----             ------------
+Windows-Defender    Available
+
+
+
+Software licensing service version: 10.0.26100.1742
+
+Name: Windows(R), ServerStandardEval edition
+Description: Windows(R) Operating System, TIMEBASED_EVAL channel
+Activation ID: 753c53a2-4274-4339-8c2e-f66c0b9646c5
+Application ID: 55c92734-d682-4d71-983e-d6ec3f16059f
+Extended PID: 03612-04932-000-000001-00-1033-26100.0000-3122026
+Product Key Channel: Retail:TB:Eval
+Installation ID: 273692232376845350731001216484567757870702634641646867015927365
+Use License URL: https://activation-v2.sls.microsoft.com/SLActivateProduct/SLActivateProduct.asmx?configextension=Retail
+Validation URL: https://validation-v2.sls.microsoft.com/SLWGA/slwga.asmx
+Partial Product Key: 7H9YG
+License Status: Licensed
+Timebased activation expiration: 259193 minute(s) (180 day(s))
+Remaining Windows rearm count: 1
+Remaining SKU rearm count: 1
+Trusted time: 11/8/2026 8:10:43 AM
+
+
+Windows(R), ServerStandardEval edition:
+    Timebased activation will expire 5/7/2027 12:11:59 AM
+
+
+Name                  Profile Enabled
+----                  ------- -------
+OpenSSH-Server-In-TCP     Any    True
+
+
+
+
+InterfaceAlias NetworkCategory
+-------------- ---------------
+Ethernet               Private
+
+
+
+OpenSSH_9.5p1 for Windows
+Get-ItemProperty : Cannot find drive. A drive with the name '\HKLM' does not exist.
+At line:1 char:437
++ ... uctVersion; Get-ItemProperty \"HKLM:\SOFTWARE\Microsoft\Windows NT\Cu ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\HKLM:String) [Get-ItemProperty], DriveNotFoundExc 
+   eption
+    + FullyQualifiedErrorId : DriveNotFound,Microsoft.PowerShell.Commands.GetItemPropertyCommand
+ 
+

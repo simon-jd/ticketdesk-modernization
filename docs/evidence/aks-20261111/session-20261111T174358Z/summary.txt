@@ -1,0 +1,20 @@
+# AKS round session 2026-11-11 (ops/azure/aks.sh session, tmux td-aks-session, images aks-v1 / aks-v2b, cap 13.70)
+17:43:58Z session start: CD preflight ok (agent free, kind-local run 16 waiting for its approval, Azure Repos modernize 4540ad1d);
+          ledger rows K1.1-K1.17 added (1.97 USD) -> 13.70 / cap 13.70 OK
+17:44:00Z apply stage cutover from the empty resource group (rebuild from zero: start)
+17:50     AKS created (5m58s), ACR, Service Bus, SQL free DB + private endpoint, Key Vault, identities, roles
+17:54:44Z App Insights waited 9m28s for Azure's generated Failure Anomalies rule (none came): placeholder rule made by hand,
+          deleted 17:57Z (intervention-app-insights-rule.txt)
+17:57:55Z vm-tdlab-legacy Standard_B2as_v2: AllocationFailed (no capacity in swedencentral; same as 2026-11-10 17:31Z)
+          retry 1 (VM Standard_B2als_v2) and retry 2 (Standard_B2s_v2) both stopped on "a resource ... vm-tdlab-legacy already
+          exists - to be managed via Terraform this resource needs to be imported": Azure kept the failed VM outside the state,
+          and the fallback read the cumulative log, so the retries never reached the other sizes
+18:06:23Z apply FAILED -> trap: destroy (stage none blocked by the failed VM's NIC as on 2026-11-10 -> make azure-down)
+18:17:29Z destroyed: rg-ticketdesk-lab and rg-ticketdesk-lab-aksnodes gone, 0 resources tagged project=ticketdesk, no
+          soft-deleted vault; Terraform state back to stage none (rc 0); K1 rows closed, actuals 1.25 USD -> ledger 12.98
+Not run: everything after the first apply (VM data, v1, cutover, VM retirement, contract, v2 / CD, golden, rotations,
+alert drill, SLOs, restore drill); no ADO run was queued, /logs/aks-cd-approval.txt never written.
+Fix made afterwards (untested on Azure): ak_apply deletes the failed VM (and its OS disk) before the next size, reads only
+the attempt's own output, and keeps one absolute ttl for all attempts.
+Reaper: the cron entry runs every 15 min, but a reaper started 2026-11-10T23:30Z hangs in "az group exists" and holds the
+flock, so every run since exits at once (no log line since 2026-11-10T23:15Z): no safety net during this session.

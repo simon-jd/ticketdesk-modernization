@@ -1,0 +1,4 @@
+2026-11-07T20:14:02Z qemu start install=1 accel=[-accel tcg,thread=multi,tb-size=2048 -cpu max]
+2026-11-07T20:25:42Z qemu exited
+2026-11-07T20:25:45Z qemu start install=1 accel=[-accel tcg,thread=multi,tb-size=2048 -cpu max]
+2026-11-08T00:07:30Z qemu exited

@@ -1,0 +1,6 @@
+subject=O=TicketDesk Lab, CN=localhost
+issuer=O=TicketDesk Lab, CN=TicketDesk Lab Root CA
+notAfter=Feb 13 05:00:18 2029 GMT
+X509v3 Subject Alternative Name: 
+    DNS:localhost, DNS:td-web.ticketdesk.svc, IP Address:127.0.0.1
+pfx: ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/aks-web-kind-rotated.pfx (password in ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-cert.env)

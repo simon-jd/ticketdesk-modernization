@@ -1,0 +1,3 @@
+  GET  /ticket/ticket-events?ticketId=10001 -> 200 870ms
+[PASS] comment visible in ticket events (HTTP 200)
+{"command": "smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 11, "seconds": 11.2}

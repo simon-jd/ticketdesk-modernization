@@ -1,0 +1,18 @@
+@* Port of the legacy Views/User/Lockout.cshtml (TicketDesk 2.5, Ms-PL). *@
+@using LockoutStrings = TicketDesk.Localization.Views.User.Lockout
+@section title
+{
+    @LockoutStrings.Title
+}
+@section Scripts {
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-sm-12">@LockoutStrings.Legend</legend>
+            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+                <div class="alert alert-danger">@LockoutStrings.Lockedout</div>
+            </div>
+        </fieldset>
+    </div>
+</main>

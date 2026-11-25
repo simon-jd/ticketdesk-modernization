@@ -1,0 +1,3 @@
+rebuild start 2026-11-10T07:35:41Z
+vnet_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral"
+apply stage replatform end 2026-11-10T07:42:49Z elapsed_s=427 rc=0

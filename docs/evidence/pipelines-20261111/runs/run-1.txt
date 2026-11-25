@@ -1,0 +1,26 @@
+run 1 ci-20261111.1 ci refs/heads/ws/pipelines 34e29e4e status=completed result=failed reason=manual queued=2026-11-11T05:03:44.9650961Z start=2026-11-11T05:03:50.6576577Z finish=2026-11-11T05:06:02.9885988Z
+Checkpoint completed  succeeded    0 s      Checkpoint
+Job        completed  failed       87 s     Build, test, images
+Stage      completed  failed       128 s    CI
+Task       completed  succeeded    19 s     Initialize job
+Task       completed  succeeded    3 s      Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    8 s      Angular - npm ci, Vitest, build
+Task       completed  failed       30 s     .NET - restore, build, tests + coverage  ! Bash exited with code '2'.
+Task       completed  skipped      0 s      Playwright E2E (new app alone)
+Task       completed  succeeded    7 s      Publish .NET test results
+Task       completed  skipped      0 s      Golden replay (new app alone)
+Task       completed  skipped      0 s      Container images (web, worker) + smoke
+Task       completed  succeeded    3 s      Publish Vitest + Playwright results
+Task       completed  succeeded    13 s     Publish .NET coverage
+Task       completed  succeeded    4 s      Publish CI output (summaries, replay report, images)
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    0 s      Finalize Job
+Job        completed  succeeded    19 s     Static gates
+Task       completed  succeeded    1 s      Initialize job
+Task       completed  succeeded    1 s      Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    1 s      No inherited Azure login
+Task       completed  succeeded    2 s      terraform fmt -check + validate
+Task       completed  succeeded    11 s     Vulnerable packages (NuGet, npm)
+Task       completed  succeeded    3 s      Publish audit output
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    0 s      Finalize Job

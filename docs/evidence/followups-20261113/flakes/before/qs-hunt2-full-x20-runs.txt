@@ -1,0 +1,6 @@
+# 2026-11-13T18:55:17Z git d8314850 (+uncommitted) target --solution src/modern/TicketDesk.Modern.sln args 
+run 1 rc=0 total=770 failed=0 27.0s load=4.94
+run 2 rc=0 total=770 failed=0 23.3s load=6.34
+run 3 rc=0 total=770 failed=0 23.0s load=7.84
+run 4 rc=0 total=770 failed=0 27.0s load=8.00
+run 5 rc=2 total=770 failed=1 29.9s load=8.56

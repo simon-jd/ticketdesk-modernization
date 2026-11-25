@@ -1,0 +1,34 @@
+$ dotnet test --solution src/modern/TicketDesk.Modern.sln -c Release --no-build
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-retire/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64)
+~/Desktop/ticketdesk-modernization/wt-retire/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (684ms)
+~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (762ms)
+~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (3s 733ms)
+~/Desktop/ticketdesk-modernization/wt-retire/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (3s 984ms)
+~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (4s 366ms)
+~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64) passed (23s 776ms)
+~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (24s 887ms)
+~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (31s 626ms)
+
+Test run summary: Passed!
+  ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (4s 366ms)
+  ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (31s 626ms)
+  ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (24s 887ms)
+  ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64) passed (23s 776ms)
+  ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (762ms)
+  ~/Desktop/ticketdesk-modernization/wt-retire/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (684ms)
+  ~/Desktop/ticketdesk-modernization/wt-retire/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (3s 984ms)
+  ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (3s 733ms)
+
+  total: 741
+  failed: 0
+  succeeded: 741
+  skipped: 0
+  duration: 31s 782ms
+test exit 0

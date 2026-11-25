@@ -1,0 +1,8 @@
+# ops/dev/td-sql.sh recreate, 2026-11-10T17:22:56Z
+previous container kept (stopped) as td-sql-previous
+td-sql ready after ~4s
+engine 16.0.4262.2, full-text installed: 1
+
+real	1m4.954s
+user	0m0.137s
+sys	0m0.128s

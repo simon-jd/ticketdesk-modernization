@@ -1,0 +1,43 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:18453 -e TD_RATE=75 -e TD_WARMUP_S=0 -e TD_MEASURE_S=360 -e TD_PRE_VUS=245 -e TD_MAX_VUS=245 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: ~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js
+        output: csv (~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/drill-db-egress/k6.csv.gz)
+     scenarios: (100.00%) 1 scenario, 245 max VUs, 6m30s max duration (incl. graceful stop):
+              * mix: 75.00 iterations/s for 6m0s (maxVUs: 245, gracefulStop: 30s)
+Run    [ 100% ] setup()
+Run    [ 100% ] setup()
+time="2026-11-13T21:16:55-08:00" level=warning msg="Insufficient VUs, reached 245 active VUs and cannot initialize more" executor=constant-arrival-rate scenario=mix
+time="2026-11-13T21:17:21-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:18453/tickets/filterList\": request timeout"
+time="2026-11-13T21:17:21-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/4149\": request timeout"
+time="2026-11-13T21:17:21-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/tickets/opentickets\": request timeout"
+time="2026-11-13T21:17:21-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:23(42))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:17:55-08:00" level=warning msg="The test has generated metrics with 100024 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+{
+ "all": {
+  "duration_ms": {
+   "med": 4.978051,
+   "avg": 226.49002052873468,
+   "p(90)": 19.578800899999997,
+   "p(95)": 28.101601649999942,
+   "p(99)": 13156.766928899993,
+   "max": 30000.215878,
+   "count": 46080,
+   "min": 0.350218
+  },
+  "failed": {
+   "rate": 0.13778211805555557,
+   "passes": 6349,
+   "fails": 39731
+  }
+ },
+ "dropped": {
+  "count": 2668,
+  "rate": 7.359385388288683
+ }
+}

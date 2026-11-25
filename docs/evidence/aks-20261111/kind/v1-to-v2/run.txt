@@ -1,0 +1,17 @@
+# 2026-11-11T09:06:32Z kind (fresh TicketDeskAks, expand schema): v1 (aks-v1, 344e992) -> helm upgrade to v2 (aks-v2, 0e5cbd1 + preStop sleep 10 s) with the contract as the pre-upgrade job; probe 1/s (reads + writes) through the rollout
+td_aks_app in td_modern_app_role: 1; key ring rows: 0
+2026-11-11T09:06:49Z secrets td-db, td-db-migrator, td-sb, td-tls (serial=12337EC53147DEE98219906A9EBB4B041875B965) in ticketdesk
+## v1
+2026-11-11T09:06:56Z helm upgrade --install done in 7 s
+0 script(s) applied
+{"command": "app-smoke", "ok": false, "checks_passed": 1, "checks_total": 2, "requests": 1, "seconds": 60.1}
+## v2 with the contract job 2026-11-11T09:08:11Z
+2026-11-11T09:08:18Z helm upgrade --install done in 7 s
+applied contract/C0001__assigned_date_contract.sql in 0.05 s
+1 script(s) applied
+{"command": "app-smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 10, "seconds": 0.8}
+probe through the v1 -> v2 rollout: reads 86 (0 failed), writes 43 (0 failed), sign-ins 1 (0 failed)
+v2 web env vars named Legacy__* or Authentication__SharedCookie*: 0
+v2 /health/ready: {"status":"Healthy","checks":[{"name":"database","status":"Healthy","description":"database reachable"}]}
+# 2026-11-11T09:08:40Z done
+# note: the v1 smoke above ran while the pod of the previous run's v2 release (deployed before the preStop sleep) was exiting; its 2nd request hung until the 60 s client timeout - the reason for the preStop sleep. v1 itself: app smoke 9/9 at 05:22Z (kind/app-smoke-aks-v1.json) and 09:03Z (same image).

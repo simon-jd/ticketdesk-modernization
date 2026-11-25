@@ -1,0 +1,2 @@
+$ td-replay compare --baseline golden --candidate docs/evidence/legacy-adapters-20261108/baseline-s-shared/direct/candidate.jsonl --out-dir docs/evidence/legacy-adapters-20261108/baseline-s-shared/direct/compare
+compared 262, matched 261, mismatched 1 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/baseline-s-shared/direct/compare/report.md

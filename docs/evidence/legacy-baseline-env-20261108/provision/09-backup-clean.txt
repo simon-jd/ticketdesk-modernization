@@ -1,0 +1,5 @@
+[2026-11-08T00:42:10Z] CHANGE database TicketDesk -> C:\TdBackups\clean\TicketDesk.bak (4,678,144 bytes, 1.2s, verified)
+[2026-11-08T00:42:15Z] CHANGE site files C:\inetpub\ticketdesk -> C:\TdBackups\clean\site.zip (19,686,939 bytes)
+[2026-11-08T00:42:16Z] INFO   backup complete: C:\TdBackups\clean
+C:\TdBackups\clean
+EXIT=0

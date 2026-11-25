@@ -1,0 +1,3 @@
+  POST /ticket/new -> 500 1047ms
+[FAIL] create ticket (HTTP 500, landed on /ticket/new, errors: , sent: ['ActualDuration', 'AssignedTo', 'Category', 'Details', 'DueDateAsString', 'EstimatedDuration', 'IsHtml', 'Owner', 'Priority', 'ProjectId', 'ResolutionDateAsString', 'TagList', 'TargetDateAsString', 'TicketId', 'TicketType', 'Title', '__RequestVerificationToken', 'tempId'])
+{"command": "smoke", "ok": false, "checks_passed": 4, "checks_total": 5, "requests": 6, "seconds": 12.6}

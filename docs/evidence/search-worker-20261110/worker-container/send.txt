@@ -1,0 +1,1 @@
+sent to ticket-notifications-test: {"ticketId":10000,"isNewTicket":false,"eventIds":[45646],"createdUtc":"2026-11-10T18:24:57.3491642+00:00","attempt":0}

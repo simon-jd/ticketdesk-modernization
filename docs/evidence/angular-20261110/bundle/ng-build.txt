@@ -1,0 +1,20 @@
+❯ Building...
+✔ Building...
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main-F4BRZ2RI.js    | main          | 294.23 kB |                80.40 kB
+styles-P43MTZNW.css | styles        |   2.22 kB |               724 bytes
+
+                    | Initial total | 296.45 kB |                81.13 kB
+
+Lazy chunk files    | Names         |  Raw size | Estimated transfer size
+chunk-D9309TSY.js   | -             |  52.75 kB |                10.94 kB
+chunk-B43yjd9g.js   | ticket-detail |  20.17 kB |                 5.82 kB
+chunk-Cs6tvk49.js   | ticket-center |  17.95 kB |                 5.12 kB
+chunk-C56xwkmX.js   | new-ticket    |  17.93 kB |                 5.11 kB
+chunk-CYI0CVMY.js   | -             | 545 bytes |               545 bytes
+chunk-B6wDfhgY.js   | -             | 543 bytes |               543 bytes
+
+Application bundle generation complete. [1.384 seconds] - 2026-11-10T18:10:21.123Z
+
+Output location: ~/Desktop/ticketdesk-modernization/wt-angular/src/modern/TicketDesk.Web/wwwroot/app
+

@@ -1,0 +1,12 @@
+2026-11-08T16:21:23Z provision 20261108T162123Z on vm-tdlab-legacy: db-readwrite 
+---- ComponentStatus/StdOut/succeeded
+[2026-11-08T16:21:32Z] provision run 20261108T162123Z on tdlab-legacy, steps: db-readwrite
+[2026-11-08T16:21:32Z] ==== step db-readwrite
+[2026-11-08T16:21:35Z] TicketDesk READ_WRITE
+[2026-11-08T16:21:36Z] step db-readwrite done in 3.2s
+[2026-11-08T16:21:36Z] TDTIMINGS {"db-readwrite":3.2} total 3.3s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T162123Z.log
+---- ComponentStatus/StdErr/succeeded
+
+Alive[################################################################]  100.0000%Finished[#############################################################]  100.0000%
+provision 20261108T162123Z steps=db-readwrite elapsed_s=34 rc=0

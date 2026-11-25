@@ -1,0 +1,2 @@
+# date: 2026-11-08T20:50:10Z  git: 949e3a3  gateway: https://localhost:5443/ -> https://localhost:8443/
+# baseline recording: ~/Desktop/ticketdesk-modernization/wt-legacy-adapters/tests/characterization/golden/legacy-golden.jsonl.xz (8db24b364a233de055e4c9d50e6704524a9d9e455cdf2c99be1751a2dfe5a236)  reset: 0 (snapshot baseline-s)

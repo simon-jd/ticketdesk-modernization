@@ -1,0 +1,51 @@
+# 2026-11-11T16:14:38Z after the fix: images aks-v2b (6e08728: td-db V0013 + snapshot list), same sequence as before the fix (TAGX=aks-v2b ops/k8s/repro-list-deadlock.sh): v2 on kind, contracted schema, probe 1/s (reads + writes, ticket 9993) through 4 min with nothing else and then 20 helm upgrades (pre-upgrade td-db migrate job each time)
+snapshot_isolation_state: 1
+start 2026-11-11T16:06:20
+web pod td-web-55787c9774-n4dfx
+A control from 2026-11-11T16:06:20.116Z
+A end 2026-11-11T16:10:20.131Z
+B1 upgrade 2026-11-11T16:10:20.147Z
+B1 done 2026-11-11T16:10:23.878Z job=2026-11-11T16:10:20Z
+B2 upgrade 2026-11-11T16:10:32.262Z
+B2 done 2026-11-11T16:10:35.990Z job=2026-11-11T16:10:32Z
+B3 upgrade 2026-11-11T16:10:44.111Z
+B3 done 2026-11-11T16:10:47.796Z job=2026-11-11T16:10:44Z
+B4 upgrade 2026-11-11T16:10:55.930Z
+B4 done 2026-11-11T16:10:59.699Z job=2026-11-11T16:10:56Z
+B5 upgrade 2026-11-11T16:11:07.835Z
+B5 done 2026-11-11T16:11:11.633Z job=2026-11-11T16:11:08Z
+B6 upgrade 2026-11-11T16:11:19.775Z
+B6 done 2026-11-11T16:11:23.592Z job=2026-11-11T16:11:20Z
+B7 upgrade 2026-11-11T16:11:31.798Z
+B7 done 2026-11-11T16:11:35.794Z job=2026-11-11T16:11:32Z
+B8 upgrade 2026-11-11T16:11:43.976Z
+B8 done 2026-11-11T16:11:47.666Z job=2026-11-11T16:11:44Z
+B9 upgrade 2026-11-11T16:11:55.791Z
+B9 done 2026-11-11T16:11:59.629Z job=2026-11-11T16:11:56Z
+B10 upgrade 2026-11-11T16:12:07.747Z
+B10 done 2026-11-11T16:12:11.768Z job=2026-11-11T16:12:08Z
+B11 upgrade 2026-11-11T16:12:19.898Z
+B11 done 2026-11-11T16:12:23.579Z job=2026-11-11T16:12:20Z
+B12 upgrade 2026-11-11T16:12:31.683Z
+B12 done 2026-11-11T16:12:35.576Z job=2026-11-11T16:12:32Z
+B13 upgrade 2026-11-11T16:12:43.731Z
+B13 done 2026-11-11T16:12:47.804Z job=2026-11-11T16:12:44Z
+B14 upgrade 2026-11-11T16:12:55.922Z
+B14 done 2026-11-11T16:12:59.758Z job=2026-11-11T16:12:56Z
+B15 upgrade 2026-11-11T16:13:07.895Z
+B15 done 2026-11-11T16:13:11.857Z job=2026-11-11T16:13:08Z
+B16 upgrade 2026-11-11T16:13:20.588Z
+B16 done 2026-11-11T16:13:23.873Z job=2026-11-11T16:13:20Z
+B17 upgrade 2026-11-11T16:13:32.322Z
+B17 done 2026-11-11T16:13:35.934Z job=2026-11-11T16:13:32Z
+B18 upgrade 2026-11-11T16:13:44.451Z
+B18 done 2026-11-11T16:13:47.961Z job=2026-11-11T16:13:44Z
+B19 upgrade 2026-11-11T16:13:56.993Z
+B19 done 2026-11-11T16:14:00.309Z job=2026-11-11T16:13:56Z
+B20 upgrade 2026-11-11T16:14:08.138Z
+B20 done 2026-11-11T16:14:12.167Z job=2026-11-11T16:14:08Z
+end 2026-11-11T16:14:21.256Z; web pod now td-web-55787c9774-n4dfx
+done
+probe: reads 962 (0 failed), writes 481 (0 failed)
+web pod log (same pod throughout): 0 'fail:' lines, 0 mentions of 1205
+deadlock reports of TicketDeskAks in system_health since the start: 0

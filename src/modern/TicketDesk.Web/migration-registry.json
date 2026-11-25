@@ -1,0 +1,9 @@
+{
+  "Migration": {
+    "Routes": {
+      "tickets.index": "Angular",
+      "ticket.view": "Angular",
+      "ticket.new.get": "Angular"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+$ td-replay compare --baseline tests/characterization/golden/legacy-golden.jsonl.xz --candidate ~/Desktop/ticketdesk-modernization/wt-followups/docs/evidence/followups-20261113/replay-modern/modern.jsonl --out-dir ~/Desktop/ticketdesk-modernization/wt-followups/docs/evidence/followups-20261113/replay-modern/compare-golden-modern
+compared 258, matched 87, mismatched 177 (missing 4, extra 2) -> ~/Desktop/ticketdesk-modernization/wt-followups/docs/evidence/followups-20261113/replay-modern/compare-golden-modern/report.md

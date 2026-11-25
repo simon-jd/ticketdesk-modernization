@@ -1,0 +1,14 @@
+## scenario vm-2-fail: ak_apply exit 0
+make attempt 1: vm_size=Standard_B2as_v2 aks_node_vm_size=Standard_B2as_v2 ttl_utc=2026-11-11T22:30:29Z -target=module.vm[0]
+az vm delete vm delete -g rg-ticketdesk-lab -n vm-tdlab-legacy --yes --only-show-errors
+az disk delete -g
+az network nic delete
+make attempt 2: vm_size=Standard_B2als_v2 aks_node_vm_size=Standard_B2as_v2 ttl_utc=2026-11-11T22:30:29Z -target=module.vm[0]
+az vm delete vm delete -g rg-ticketdesk-lab -n vm-tdlab-legacy --yes --only-show-errors
+az disk delete -g
+az network nic delete
+make attempt 3: vm_size=Standard_B2s_v2 aks_node_vm_size=Standard_B2as_v2 ttl_utc=2026-11-11T22:30:29Z -target=module.vm[0]
+2026-11-11T18:30:29Z VM AllocationFailed: retry with VM size Standard_B2als_v2
+2026-11-11T18:30:29Z VM AllocationFailed: retry with VM size Standard_B2s_v2
+2026-11-11T18:30:30Z stage cutover ( -target=module.vm[0] ) applied in 1 s (node Standard_B2as_v2, VM Standard_B2s_v2): Apply complete! Resources: 20 added, 0 changed, 0 destroyed
+ttl values across attempts: 1 distinct

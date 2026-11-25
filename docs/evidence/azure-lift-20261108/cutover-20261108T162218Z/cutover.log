@@ -1,0 +1,32 @@
+2026-11-08T16:22:18Z cutover 20261108T162218Z: local VM https://localhost:8443 -> https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com
+== source before
+16.0.1000.6 READ_WRITE
+
+dbo.__MigrationHistory=25
+dbo.ApplicationSettings=1
+dbo.IdentityRoles=4
+dbo.IdentityUserClaims=0
+dbo.IdentityUserLogins=0
+dbo.IdentityUserRoles=251
+dbo.IdentityUsers=251
+dbo.Projects=5
+dbo.TicketEventNotifications=95999
+dbo.TicketEvents=45649
+dbo.Tickets=10000
+dbo.TicketSubscribers=20125
+dbo.TicketTags=14698
+dbo.UserSettings=1
+notifications.ApplicationPushNotificationSettings=1
+notifications.PushNotificationDestinations=1
+notifications.PushNotificationItems=0
+notifications.SubscriberPushNotificationSettings=1
+notifications.TicketPushNotificationItems=0
+
+Nonqualified transactions are being rolled back. Estimated rollback completion: 0%.
+Nonqualified transactions are being rolled back. Estimated rollback completion: 100%.
+[2026-11-08T16:22:53Z] CHANGE database TicketDesk -> C:\TdBackups\cutover-20261108T162218Z\TicketDesk.bak (77,294,080 bytes, 0.2s, verified)
+[2026-11-08T16:22:55Z] CHANGE site files C:\inetpub\ticketdesk -> C:\TdBackups\cutover-20261108T162218Z\site.zip (20,696,010 bytes)
+[2026-11-08T16:22:55Z] INFO   backup complete: C:\TdBackups\cutover-20261108T162218Z
+C:\TdBackups\cutover-20261108T162218Z
+Nonqualified transactions are being rolled back. Estimated rollback completion: 0%.
+Nonqualified transactions are being rolled back. Estimated rollback completion: 100%.

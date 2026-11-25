@@ -1,0 +1,23 @@
+# first full run after the merge (1 failure: the full-text catch-up timed out at 60 s with the suite loading td-sql)
+# 2026-11-11T08:57:04Z git 342867b (+ working tree): dotnet test --solution src/modern/TicketDesk.Modern.sln -c Release (TD_MODERN_SEEDED_DB=TicketDesk)
+failed TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up (1m 00s 297ms)
+  total: 745
+  failed: 1
+  succeeded: 741
+  skipped: 3
+# SearchTests alone, 3 runs in a row:
+# run 1 2026-11-11T08:59:44Z
+  total: 12
+  failed: 0
+  succeeded: 12
+  skipped: 0
+# run 2 2026-11-11T09:00:09Z
+  total: 12
+  failed: 0
+  succeeded: 12
+  skipped: 0
+# run 3 2026-11-11T09:00:28Z
+  total: 12
+  failed: 0
+  succeeded: 12
+  skipped: 0

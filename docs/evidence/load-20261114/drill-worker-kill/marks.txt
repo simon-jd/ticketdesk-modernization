@@ -1,0 +1,12 @@
+start 2026-11-14T05:33:24.648Z rate 75 for 360 s, fault worker-kill at +120 s
+hold-on 2026-11-14T05:35:24.656Z (kill 1)
+fault 2026-11-14T05:35:25.113Z kill -9 worker (pid 10382 in the node; a mail of its message accepted by the sink, reply held: held 00863 2026-11-14T05:35:25.034062+00:00)
+hold-off 2026-11-14T05:35:26.166Z
+hold-on 2026-11-14T05:36:26.174Z (kill 2)
+fault 2026-11-14T05:36:26.447Z kill -9 worker (pid 10586 in the node; a mail of its message accepted by the sink, reply held: held 01309 2026-11-14T05:36:26.227037+00:00)
+hold-off 2026-11-14T05:36:27.510Z
+hold-on 2026-11-14T05:37:27.519Z (kill 3)
+fault 2026-11-14T05:37:27.783Z kill -9 worker (pid 10684 in the node; a mail of its message accepted by the sink, reply held: held 01780 2026-11-14T05:37:27.726724+00:00)
+hold-off 2026-11-14T05:37:28.848Z
+end 2026-11-14T05:39:27.571Z
+mail drained 2026-11-14T05:40:57.694Z: 2668 mails

@@ -1,0 +1,8 @@
+$ ops/dev/td-sql.sh restore ~/Desktop/ticketdesk-modernization/vm/exports/ticketdesk-clean.bak TicketDesk
+26 percent processed.
+50 percent processed.
+75 percent processed.
+100 percent processed.
+Processed 560 pages for database 'TicketDesk', file 'TicketDesk' on file 1.
+Processed 1 pages for database 'TicketDesk', file 'TicketDesk_log' on file 1.
+RESTORE DATABASE successfully processed 561 pages in 0.019 seconds (230.340 MB/sec).

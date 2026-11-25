@@ -1,0 +1,14 @@
+# Terraform working files; state lives in $TD_W/.tfstate/ (outside the repo)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# The repo-root .gitignore (Visual Studio template) ignores every `sql/` directory; keep the Terraform module.
+!/terraform/modules/sql/

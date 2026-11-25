@@ -1,0 +1,4 @@
+remote authentication key set: True
+AzureStorage: none (App_Data\filestore)
+httpRuntime targetFramework: 4.8
+deployed package sha256: F1408B12957A6A2BDA46123865D471A2F97247F2E19A5FD5E2939C9411574CF6

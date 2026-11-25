@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Users</RootNamespace>
+    <Description>Users/Admin module: user directory (display names); admin endpoints move here later.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TicketDesk.Data\TicketDesk.Data.csproj" />
+  </ItemGroup>
+</Project>

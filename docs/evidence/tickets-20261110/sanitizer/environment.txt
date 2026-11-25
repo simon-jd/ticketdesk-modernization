@@ -1,0 +1,4 @@
+# date: 2026-11-10T07:34:21Z  git: 7b0e45b + working tree (sanitizer switch)
+# corpus and legacy output: docs/evidence/tickets-20261109/rendering/{corpus,legacy-out}.tsv.xz (legacy DLLs on the lab VM, 2026-11-10 00:54Z)
+# new: ops/dev/render-parity/render-parity.cs (MarkdownSharp port + HtmlSanitizer 11.0.26 / AngleSharp 1.10.0 with the 3.2.103 allow-lists) on .NET 10.0.403, en-US
+$ dotnet run ops/dev/render-parity/render-parity.cs -- corpus.tsv legacy-out.tsv OUT

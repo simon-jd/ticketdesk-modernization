@@ -1,0 +1,182 @@
+{
+  "target": "https://localhost:5493",
+  "rate_per_s": 150,
+  "warmup_s": 30,
+  "measure_s": 120,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "min": 1.083272,
+      "med": 10.2961755,
+      "avg": 17.767209888825374,
+      "p(90)": 42.576409799999986,
+      "p(95)": 56.53237955000001,
+      "p(99)": 93.52472607000021,
+      "max": 285.753284,
+      "count": 34918
+    },
+    "failed": {
+      "fails": 34915,
+      "rate": 0.0000859155736296466,
+      "passes": 3
+    }
+  },
+  "checks": {
+    "rate": 0.9997148153429346,
+    "passes": 21033,
+    "fails": 6
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "p(95)": 82.22081075,
+        "p(99)": 123.243517,
+        "max": 264.070841,
+        "count": 6376,
+        "min": 11.927023,
+        "med": 31.173443,
+        "avg": 37.78377143883308,
+        "p(90)": 66.5067525
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 6376
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "avg": 9.878326386090293,
+        "p(90)": 22.402600900000017,
+        "p(95)": 32.17511009999993,
+        "p(99)": 57.73521670000002,
+        "max": 147.612093,
+        "count": 19454,
+        "min": 1.083272,
+        "med": 5.794340999999999
+      },
+      "failed": {
+        "fails": 19454,
+        "rate": 0,
+        "passes": 0
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "med": 32.6452325,
+        "avg": 39.91582670476197,
+        "p(90)": 67.6352771,
+        "p(95)": 87.76496399999992,
+        "p(99)": 141.1797568,
+        "max": 285.753284,
+        "count": 2730,
+        "min": 12.08124
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 2730
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "max": 188.928715,
+        "count": 3598,
+        "min": 1.234689,
+        "med": 6.1928350000000005,
+        "avg": 9.328772113396335,
+        "p(90)": 19.3667613,
+        "p(95)": 26.713709399999956,
+        "p(99)": 49.46750126999997
+      },
+      "failed": {
+        "rate": 0.0008337965536409116,
+        "passes": 3,
+        "fails": 3595
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "med": 11.5915645,
+        "avg": 16.223919464130418,
+        "p(90)": 32.408943799999996,
+        "p(95)": 44.67026565,
+        "p(99)": 74.32447389999973,
+        "max": 132.236979,
+        "count": 2760,
+        "min": 3.913406
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 2760
+      }
+    }
+  },
+  "iterations": {
+    "count": 22501,
+    "rate": 147.94846314580965
+  },
+  "dropped_iterations": null,
+  "vus_max": {
+    "value": 470,
+    "min": 470,
+    "max": 470
+  },
+  "vus": {
+    "value": 9,
+    "min": 0,
+    "max": 24
+  },
+  "root_group_checks": [
+    {
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 7922,
+      "fails": 0
+    },
+    {
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 8078,
+      "fails": 0
+    },
+    {
+      "passes": 2179,
+      "fails": 3,
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56"
+    },
+    {
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 2179,
+      "fails": 3,
+      "name": "comment saved"
+    },
+    {
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 3390,
+      "fails": 0,
+      "name": "filter 200"
+    },
+    {
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 1118,
+      "fails": 0
+    },
+    {
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 1118,
+      "fails": 0,
+      "name": "created ticket 200",
+      "path": "::created ticket 200"
+    }
+  ]
+}

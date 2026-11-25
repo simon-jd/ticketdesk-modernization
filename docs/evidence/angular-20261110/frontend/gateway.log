@@ -1,0 +1,2221 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [d].[Id], [d].[FriendlyName], [d].[Xml]
+      FROM [dbo].[DataProtectionKeys] AS [d]
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:5463
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: ~/Desktop/ticketdesk-modernization/wt-angular/src/modern/TicketDesk.Web
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 76 route(s) served by the new app
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [i].[Id], [i].[AccessFailedCount], [i].[DisplayName], [i].[Email], [i].[EmailConfirmed], [i].[LockoutEnabled], [i].[LockoutEndDateUtc], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TwoFactorEnabled], [i].[UserName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[UserName] = @normalizedUserName
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@user_Id='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[ClaimType], [i].[ClaimValue], [i].[UserId]
+      FROM [dbo].[IdentityUserClaims] AS [i]
+      WHERE [i].[UserId] = @user_Id AND [i].[ClaimType] IS NOT NULL
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@user_Id='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i0].[Name]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      WHERE [i].[UserId] = @user_Id
+      ORDER BY [i0].[Name]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[ListSettingsJson]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@s='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@s='?' (DbType = Int32), @p='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[Title], [t].[ProjectId], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TargetDate], [t].[DueDate], [t].[CreatedDate], [t].[LastUpdateDate]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+      ORDER BY [t].[TargetDate], [t].[DueDate], [t].[LastUpdateDate] DESC, [t].[TicketId]
+      OFFSET @p ROWS FETCH NEXT @p2 ROWS ONLY
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128), @ids4='?' (Size = 128), @ids5='?' (Size = 128), @ids6='?' (Size = 128), @ids7='?' (Size = 128), @ids8='?' (Size = 128), @ids9='?' (Size = 128), @ids10='?' (Size = 128), @ids11='?' (Size = 128), @ids12='?' (Size = 128), @ids13='?' (Size = 128), @ids14='?' (Size = 128), @ids15='?' (Size = 128), @ids16='?' (Size = 128), @ids17='?' (Size = 128), @ids18='?' (Size = 128), @ids19='?' (Size = 128), @ids20='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @ids11, @ids12, @ids13, @ids14, @ids15, @ids16, @ids17, @ids18, @ids19, @ids20)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[ListSettingsJson]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@s='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@s='?' (DbType = Int32), @p='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[Title], [t].[ProjectId], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TargetDate], [t].[DueDate], [t].[CreatedDate], [t].[LastUpdateDate]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+      ORDER BY [t].[TargetDate], [t].[DueDate], [t].[LastUpdateDate] DESC, [t].[TicketId]
+      OFFSET @p ROWS FETCH NEXT @p2 ROWS ONLY
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128), @ids4='?' (Size = 128), @ids5='?' (Size = 128), @ids6='?' (Size = 128), @ids7='?' (Size = 128), @ids8='?' (Size = 128), @ids9='?' (Size = 128), @ids10='?' (Size = 128), @ids11='?' (Size = 128), @ids12='?' (Size = 128), @ids13='?' (Size = 128), @ids14='?' (Size = 128), @ids15='?' (Size = 128), @ids16='?' (Size = 128), @ids17='?' (Size = 128), @ids18='?' (Size = 128), @ids19='?' (Size = 128), @ids20='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @ids11, @ids12, @ids13, @ids14, @ids15, @ids16, @ids17, @ids18, @ids19, @ids20)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[ListSettingsJson]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@s='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@s='?' (DbType = Int32), @p='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[Title], [t].[ProjectId], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TargetDate], [t].[DueDate], [t].[CreatedDate], [t].[LastUpdateDate]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+      ORDER BY [t].[TargetDate], [t].[DueDate], [t].[LastUpdateDate] DESC, [t].[TicketId]
+      OFFSET @p ROWS FETCH NEXT @p2 ROWS ONLY
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128), @ids4='?' (Size = 128), @ids5='?' (Size = 128), @ids6='?' (Size = 128), @ids7='?' (Size = 128), @ids8='?' (Size = 128), @ids9='?' (Size = 128), @ids10='?' (Size = 128), @ids11='?' (Size = 128), @ids12='?' (Size = 128), @ids13='?' (Size = 128), @ids14='?' (Size = 128), @ids15='?' (Size = 128), @ids16='?' (Size = 128), @ids17='?' (Size = 128), @ids18='?' (Size = 128), @ids19='?' (Size = 128), @ids20='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @ids11, @ids12, @ids13, @ids14, @ids15, @ids16, @ids17, @ids18, @ids19, @ids20)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[ListSettingsJson]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@s='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@s='?' (DbType = Int32), @p='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[Title], [t].[ProjectId], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TargetDate], [t].[DueDate], [t].[CreatedDate], [t].[LastUpdateDate]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketStatus] <> @s AND [t].[AssignedTo] IS NULL
+      ORDER BY [t].[TargetDate], [t].[DueDate], [t].[LastUpdateDate] DESC, [t].[TicketId]
+      OFFSET @p ROWS FETCH NEXT @p2 ROWS ONLY
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128), @ids4='?' (Size = 128), @ids5='?' (Size = 128), @ids6='?' (Size = 128), @ids7='?' (Size = 128), @ids8='?' (Size = 128), @ids9='?' (Size = 128), @ids10='?' (Size = 128), @ids11='?' (Size = 128), @ids12='?' (Size = 128), @ids13='?' (Size = 128), @ids14='?' (Size = 128), @ids15='?' (Size = 128), @ids16='?' (Size = 128), @ids17='?' (Size = 128), @ids18='?' (Size = 128), @ids19='?' (Size = 128), @ids20='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @ids11, @ids12, @ids13, @ids14, @ids15, @ids16, @ids17, @ids18, @ids19, @ids20)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roleName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE EXISTS (
+          SELECT 1
+          FROM [dbo].[IdentityUserRoles] AS [i0]
+          WHERE [i0].[UserId] = [i].[Id] AND EXISTS (
+              SELECT 1
+              FROM [dbo].[IdentityRoles] AS [i1]
+              WHERE [i1].[Id] = [i0].[RoleId] AND [i1].[Name] = @roleName))
+      ORDER BY [i].[DisplayName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (14ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128), @wanted3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2, @wanted3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Projects] AS [p]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[EventId], [t].[Comment], [t].[EventBy], [t].[EventDate], [t].[EventDescription], [t].[ForActivity], [t].[IsHtml], [t].[Version]
+      FROM [dbo].[TicketEvents] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[EventId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[Owner], [t].[AssignedTo], [t].[CreatedBy]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[SubscriberId]
+      FROM [dbo].[TicketSubscribers] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128), @wanted3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2, @wanted3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Projects] AS [p]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[EventId], [t].[Comment], [t].[EventBy], [t].[EventDate], [t].[EventDescription], [t].[ForActivity], [t].[IsHtml], [t].[Version]
+      FROM [dbo].[TicketEvents] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[EventId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[Owner], [t].[AssignedTo], [t].[CreatedBy]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[SubscriberId]
+      FROM [dbo].[TicketSubscribers] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128), @wanted3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2, @wanted3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Projects] AS [p]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[EventId], [t].[Comment], [t].[EventBy], [t].[EventDate], [t].[EventDescription], [t].[ForActivity], [t].[IsHtml], [t].[Version]
+      FROM [dbo].[TicketEvents] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[EventId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[Owner], [t].[AssignedTo], [t].[CreatedBy]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[SubscriberId]
+      FROM [dbo].[TicketSubscribers] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128), @wanted3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2, @wanted3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Projects] AS [p]) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TicketId], [t].[EventId], [t].[Comment], [t].[EventBy], [t].[EventDate], [t].[EventDescription], [t].[ForActivity], [t].[IsHtml], [t].[Version]
+      FROM [dbo].[TicketEvents] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[EventId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@wanted1='?' (Size = 128), @wanted2='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@wanted1, @wanted2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[Owner], [t].[AssignedTo], [t].[CreatedBy]
+      FROM [dbo].[Tickets] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[SubscriberId]
+      FROM [dbo].[TicketSubscribers] AS [t]
+      WHERE [t].[TicketId] = @ticketId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[SubscriberId], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: TicketDesk.Web.Migration.MigrationRegistry[0]
+      Migration registry reloaded: 73 route(s) served by the new app
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@normalizedUserName='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [i].[Id], [i].[AccessFailedCount], [i].[DisplayName], [i].[Email], [i].[EmailConfirmed], [i].[LockoutEnabled], [i].[LockoutEndDateUtc], [i].[PasswordHash], [i].[PhoneNumber], [i].[PhoneNumberConfirmed], [i].[SecurityStamp], [i].[TwoFactorEnabled], [i].[UserName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[UserName] = @normalizedUserName
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@user_Id='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[ClaimType], [i].[ClaimValue], [i].[UserId]
+      FROM [dbo].[IdentityUserClaims] AS [i]
+      WHERE [i].[UserId] = @user_Id AND [i].[ClaimType] IS NOT NULL
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@user_Id='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i0].[Name]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      WHERE [i].[UserId] = @user_Id
+      ORDER BY [i0].[Name]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (35ms) [Parameters=[@List='?' (Size = 20) (DbType = AnsiString), @UserId='?' (Size = 256), @StatusMask='?' (DbType = Byte), @ProjectId='?' (DbType = Int32), @Owner='?' (Size = 256), @AssignedTo='?' (Size = 256), @Tag='?' (Size = 100), @Sort='?' (Size = 200) (DbType = AnsiString), @Page='?' (DbType = Int32), @PageSize='?' (DbType = Int32), @TotalCount='?' (Direction = Output) (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@List='?' (Size = 20) (DbType = AnsiString), @UserId='?' (Size = 256), @StatusMask='?' (DbType = Byte), @ProjectId='?' (DbType = Int32), @Owner='?' (Size = 256), @AssignedTo='?' (Size = 256), @Tag='?' (Size = 100), @Sort='?' (Size = 200) (DbType = AnsiString), @Page='?' (DbType = Int32), @PageSize='?' (DbType = Int32), @TotalCount='?' (Direction = Output) (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@List='?' (Size = 20) (DbType = AnsiString), @UserId='?' (Size = 256), @StatusMask='?' (DbType = Byte), @ProjectId='?' (DbType = Int32), @Owner='?' (Size = 256), @AssignedTo='?' (Size = 256), @Tag='?' (Size = 100), @Sort='?' (Size = 200) (DbType = AnsiString), @Page='?' (DbType = Int32), @PageSize='?' (DbType = Int32), @TotalCount='?' (Direction = Output) (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@List='?' (Size = 20) (DbType = AnsiString), @UserId='?' (Size = 256), @StatusMask='?' (DbType = Byte), @ProjectId='?' (DbType = Int32), @Owner='?' (Size = 256), @AssignedTo='?' (Size = 256), @Tag='?' (Size = 100), @Sort='?' (Size = 200) (DbType = AnsiString), @Page='?' (DbType = Int32), @PageSize='?' (DbType = Int32), @TotalCount='?' (Direction = Output) (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@List='?' (Size = 20) (DbType = AnsiString), @UserId='?' (Size = 256), @StatusMask='?' (DbType = Byte), @ProjectId='?' (DbType = Int32), @Owner='?' (Size = 256), @AssignedTo='?' (Size = 256), @Tag='?' (Size = 100), @Sort='?' (Size = 200) (DbType = AnsiString), @Page='?' (DbType = Int32), @PageSize='?' (DbType = Int32), @TotalCount='?' (Direction = Output) (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@List='?' (Size = 20) (DbType = AnsiString), @UserId='?' (Size = 256), @StatusMask='?' (DbType = Byte), @ProjectId='?' (DbType = Int32), @Owner='?' (Size = 256), @AssignedTo='?' (Size = 256), @Tag='?' (Size = 100), @Sort='?' (Size = 200) (DbType = AnsiString), @Page='?' (DbType = Int32), @PageSize='?' (DbType = Int32), @TotalCount='?' (Direction = Output) (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      EXEC dbo.usp_TicketList @List = @List, @UserId = @UserId, @StatusMask = @StatusMask, @ProjectId = @ProjectId, @Owner = @Owner, @AssignedTo = @AssignedTo, @Tag = @Tag, @Sort = @Sort, @Page = @Page, @PageSize = @PageSize, @TotalCount = @TotalCount OUTPUT
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s0]
+      INNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]
+      ORDER BY [s0].[TicketId], [s0].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s1]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]
+      ORDER BY [s1].[TicketId], [s1].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s0]
+      INNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]
+      ORDER BY [s0].[TicketId], [s0].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s1]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]
+      ORDER BY [s1].[TicketId], [s1].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s0]
+      INNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]
+      ORDER BY [s0].[TicketId], [s0].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s1]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]
+      ORDER BY [s1].[TicketId], [s1].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s0]
+      INNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]
+      ORDER BY [s0].[TicketId], [s0].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s1]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]
+      ORDER BY [s1].[TicketId], [s1].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s0]
+      INNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]
+      ORDER BY [s0].[TicketId], [s0].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s1]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]
+      ORDER BY [s1].[TicketId], [s1].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s0]
+      INNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]
+      ORDER BY [s0].[TicketId], [s0].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s1]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]
+      ORDER BY [s1].[TicketId], [s1].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [dbo].[Tickets] AS [t]
+              WHERE [t].[TicketId] = @ticketId) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedDate], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentStatusDate], [t].[CurrentStatusSetBy], [t].[Details], [t].[DueDate], [t].[EstimatedDuration], [t].[IsHtml], [t].[LastUpdateBy], [t].[LastUpdateDate], [t].[Owner], [t].[Priority], [t].[ProjectId], [t].[ResolutionDate], [t].[TagList], [t].[TargetDate], [t].[TicketStatus], [t].[TicketType], [t].[Title], [t].[Version], [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Tickets] AS [t]
+      INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+      WHERE [t].[TicketId] = @ticketId
+      ORDER BY [t].[TicketId], [p].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Version], [s].[TicketId], [s].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s]
+      INNER JOIN [dbo].[TicketEvents] AS [t0] ON [s].[TicketId] = [t0].[TicketId]
+      ORDER BY [s].[TicketId], [s].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s0]
+      INNER JOIN [dbo].[TicketTags] AS [t1] ON [s0].[TicketId] = [t1].[TicketId]
+      ORDER BY [s0].[TicketId], [s0].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ticketId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId]
+      FROM (
+          SELECT TOP(1) [t].[TicketId], [p].[ProjectId]
+          FROM [dbo].[Tickets] AS [t]
+          INNER JOIN [dbo].[Projects] AS [p] ON [t].[ProjectId] = [p].[ProjectId]
+          WHERE [t].[TicketId] = @ticketId
+          ORDER BY [t].[TicketId], [p].[ProjectId]
+      ) AS [s1]
+      INNER JOIN [dbo].[TicketSubscribers] AS [t2] ON [s1].[TicketId] = [t2].[TicketId]
+      ORDER BY [s1].[TicketId], [s1].[ProjectId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@ids1='?' (Size = 128), @ids2='?' (Size = 128), @ids3='?' (Size = 128)], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityUsers] AS [i]
+      WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[Projects] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[ApplicationName], [a].[ClientSettingsJson], [a].[PermissionsSettingsJson], [a].[SecuritySettingsJson], [a].[SelectListSettingsJson]
+      FROM [dbo].[ApplicationSettings] AS [a]
+      WHERE [a].[ApplicationName] = N'TicketDesk'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256), @roles3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2, @roles3)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@roles1='?' (Size = 256), @roles2='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[DisplayName], [i0].[Name] AS [Role]
+      FROM [dbo].[IdentityUserRoles] AS [i]
+      INNER JOIN [dbo].[IdentityRoles] AS [i0] ON [i].[RoleId] = [i0].[Id]
+      INNER JOIN [dbo].[IdentityUsers] AS [i1] ON [i].[UserId] = [i1].[Id]
+      WHERE [i0].[Name] IN (@roles1, @roles2)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [dbo].[IdentityUsers] AS [i]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [i1].[Id], [i1].[UserName], [i1].[DisplayName], [i1].[LockoutEndDateUtc], [i0].[RoleId], [i0].[UserId]
+      FROM (
+          SELECT [i].[Id], [i].[UserName], [i].[DisplayName], [i].[LockoutEndDateUtc]
+          FROM [dbo].[IdentityUsers] AS [i]
+          ORDER BY [i].[DisplayName]
+          OFFSET @p ROWS FETCH NEXT @p1 ROWS ONLY
+      ) AS [i1]
+      LEFT JOIN [dbo].[IdentityUserRoles] AS [i0] ON [i1].[Id] = [i0].[UserId]
+      ORDER BY [i1].[DisplayName], [i1].[Id], [i0].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[DisplayName]
+      FROM [dbo].[IdentityRoles] AS [i]
+      ORDER BY [i].[Id]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProjectId], [p].[ProjectName], [p].[ProjectDescription]
+      FROM [dbo].[Projects] AS [p]
+      ORDER BY [p].[ProjectName]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[SelectedProjectId]
+      FROM [dbo].[UserSettings] AS [u]
+      WHERE [u].[UserId] = @userId
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

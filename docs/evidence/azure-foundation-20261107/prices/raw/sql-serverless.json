@@ -1,0 +1,450 @@
+{
+ "fetched_utc": "2026-11-08T00:19:28Z",
+ "url": "https://prices.azure.com/api/retail/prices?%24filter=currencyCode+eq+%27USD%27+and+priceType+eq+%27Consumption%27+and+armRegionName+eq+%27westus%27+and+serviceName+eq+%27SQL+Database%27+and+productName+eq+%27SQL+Database+General+Purpose+-+Serverless+-+Compute+Gen5%27&api-version=2023-01-01-preview",
+ "pages": 1,
+ "count": 13,
+ "items": [
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "293d3d05-88ec-5d7d-92f5-50652c1b8b6b",
+   "meterName": "32 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001Q",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "32 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "3781b613-33f5-5655-9374-eeba97152d07",
+   "meterName": "24 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001N",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "24 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "3fa3fdb8-4447-571e-a5dc-0b23d413cf36",
+   "meterName": "80 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001K",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "80 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.34436,
+   "unitPrice": 0.34436,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-01-01T00:00:00Z",
+   "meterId": "41c99376-e981-5b17-b655-c4f16c09418e",
+   "meterName": "Zone Redundancy vCore",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/00ND",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "1 vCore Zone Redundancy",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.223834,
+     "retailPrice": 0.223834,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.223834,
+     "retailPrice": 0.223834,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "48dee2c7-8468-5f99-9106-c11875342edb",
+   "meterName": "4 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001X",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "4 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "664f3da3-1e79-5375-9ea4-9a2f305970e3",
+   "meterName": "1 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001V",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "1 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "8afb91a1-ef42-517b-9d83-d7bfe4d3b9b7",
+   "meterName": "16 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001T",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "16 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.34436,
+   "unitPrice": 0.34436,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2024-02-01T00:00:00Z",
+   "meterId": "9f00ea08-aa54-58c3-a8b6-774b5acf0227",
+   "meterName": "Zone Redundancy vCore",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/01CC",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "1 vCore Zone Redundancy",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "1 vCore",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.223834,
+     "retailPrice": 0.223834,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.223834,
+     "retailPrice": 0.223834,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.573934,
+   "unitPrice": 0.573934,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2020-01-01T00:00:00Z",
+   "meterId": "a986c294-4ce8-4888-91a4-3ceefa4dbd76",
+   "meterName": "vCore",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001V",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "1 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.3730571,
+     "retailPrice": 0.3730571,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.3730571,
+     "retailPrice": 0.3730571,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "b1b5f8c9-01cf-5b33-88a8-4b8b1f417582",
+   "meterName": "48 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001S",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "48 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "cff7ad7b-fd58-5772-a2c0-42c9f41099d7",
+   "meterName": "2 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001M",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "2 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.573934,
+   "unitPrice": 0.573934,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2024-02-01T00:00:00Z",
+   "meterId": "f2220a76-ec2b-5376-a567-fc7d9fa210b7",
+   "meterName": "vCore",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/01CD",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "1 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "1 vCore",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.3730571,
+     "retailPrice": 0.3730571,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.3730571,
+     "retailPrice": 0.3730571,
+     "term": "3 Years"
+    }
+   ]
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.0,
+   "unitPrice": 0.0,
+   "armRegionName": "westus",
+   "location": "US West",
+   "effectiveStartDate": "2023-02-01T00:00:00Z",
+   "meterId": "fba7f3c7-1422-51b7-baca-0b48707fbf37",
+   "meterName": "8 vCore - Free",
+   "productId": "DZH318Z0C124",
+   "skuId": "DZH318Z0C124/001P",
+   "productName": "SQL Database General Purpose - Serverless - Compute Gen5",
+   "skuName": "8 vCore",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1 Hour",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": "",
+   "savingsPlan": [
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "1 Year"
+    },
+    {
+     "unitPrice": 0.0,
+     "retailPrice": 0.0,
+     "term": "3 Years"
+    }
+   ]
+  }
+ ]
+}

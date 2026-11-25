@@ -1,0 +1,1 @@
+new rate 10: p50 9.4 p95 42.2 p99 65.0 ms, 1150 req, failed 0.00%, dropped 0

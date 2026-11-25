@@ -1,0 +1,5 @@
+# 2026-11-11T04:47:34Z az provider show -n <ns> --query registrationState (after the first plan from ws/aks: the azurerm provider registers resource_providers_to_register when it is configured, so the plan registered the two new ones; before: ServiceBus NotRegistered, AlertsManagement NotRegistered, ContainerRegistry Registered)
+Microsoft.ServiceBus Registered
+Microsoft.AlertsManagement Registered
+Microsoft.ContainerRegistry Registered
+Microsoft.ContainerService Registered

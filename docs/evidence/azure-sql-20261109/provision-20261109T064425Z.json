@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-09T06:44:33Z] provision run 20261109T064425Z on tdlab-legacy, steps: unfreeze\n[2026-11-09T06:44:33Z] ==== step unfreeze\n[2026-11-09T06:44:33Z] TDMARK unfrozen 2026-11-09T06:44:33.969Z\n[2026-11-09T06:44:33Z] step unfreeze done in 0.1s\n[2026-11-09T06:44:34Z] TDTIMINGS {\"unfreeze\":0.1} total 0.2s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261109T064425Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

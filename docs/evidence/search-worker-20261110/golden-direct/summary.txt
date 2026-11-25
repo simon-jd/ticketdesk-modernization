@@ -1,0 +1,4 @@
+2026-11-10T19:01:57Z == direct
+2026-11-10T19:02:19Z 2026-11-10T19:02:19Z reset to baseline-s-search done in 22 s
+2026-11-10T19:02:37Z replay: replayed 262 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/search-worker-20261110/golden-direct/direct/candidate.jsonl (0 journey errors)
+2026-11-10T19:02:38Z compare: compared 262, matched 262, mismatched 0 (missing 0, extra 0) -> docs/evidence/search-worker-20261110/golden-direct/direct/compare/report.md

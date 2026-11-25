@@ -1,0 +1,236 @@
+{
+  "file": "probe.jsonl",
+  "start": "2026-11-12T07:37:27.908Z",
+  "end": "2026-11-12T07:44:32.201Z",
+  "ticks": 181,
+  "read_requests": 362,
+  "failed_reads": 22,
+  "signins": 1,
+  "failed_signins": 0,
+  "switches": [
+    {
+      "t": "2026-11-12T07:37:27.908Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com"
+    }
+  ],
+  "per_target_path": [
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 181,
+      "failed": 11,
+      "median_ms": 566,
+      "p95_ms": 739
+    },
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 181,
+      "failed": 11,
+      "median_ms": 1099,
+      "p95_ms": 1146
+    }
+  ],
+  "failure_windows": [
+    {
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-12T07:38:11.465Z",
+      "end": "2026-11-12T07:40:01.343Z",
+      "ticks": 11
+    }
+  ],
+  "write_requests": 0,
+  "failed_writes": 0,
+  "write_median_ms": null,
+  "write_failure_windows": [],
+  "write_downtime": null,
+  "failed": [
+    {
+      "t": "2026-11-12T07:38:11.465Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10368,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "t": "2026-11-12T07:38:22.371Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 10905,
+      "error": "TimeoutError: The read operation timed out"
+    },
+    {
+      "t": "2026-11-12T07:38:26.669Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 4298,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:26.850Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 181,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:27.050Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 199,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:27.237Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 187,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:28.045Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 194,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:28.244Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 198,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:29.045Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 193,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:29.237Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 192,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:30.050Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 198,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:30.245Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 195,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:31.049Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 197,
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "t": "2026-11-12T07:38:41.070Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 10021,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:38:51.103Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10033,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:39:01.137Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 10034,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:39:11.173Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10036,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:39:21.208Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 10035,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:39:31.243Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10035,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:39:41.272Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 10029,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:39:51.307Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "status": 0,
+      "ms": 10035,
+      "error": "URLError: <urlopen error timed out>"
+    },
+    {
+      "t": "2026-11-12T07:40:01.343Z",
+      "target": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "status": 0,
+      "ms": 10035,
+      "error": "URLError: <urlopen error timed out>"
+    }
+  ],
+  "phases": [
+    {
+      "from": "fault",
+      "to": "recover",
+      "seconds": 119.1,
+      "read_requests": 25,
+      "failed_reads": 21,
+      "write_requests": 0,
+      "failed_writes": 0
+    }
+  ]
+}

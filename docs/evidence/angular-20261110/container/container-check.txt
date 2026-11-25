@@ -1,0 +1,11 @@
+# 2026-11-10T17:59:16Z image ticketdesk-web:r3-angular (274645682 bytes, user 1654), built from git 0a6660c + Dockerfile change; run with Legacy:Enabled=false on td-sql TicketDesk_e2e, port 18091
+$ curl /health/live
+200
+$ curl -H 'Accept-Encoding: br' /app/main-F4BRZ2RI.js
+200 text/javascript 93574 bytes
+$ curl -I /tickets (anonymous)
+HTTP/1.1 302 Found
+Location: http://127.0.0.1:18091/user/sign-in?ReturnUrl=%2Ftickets
+X-TicketDesk-Backend: modern; route=tickets.index; ui=angular
+$ curl /api/migration/routes | angularPages, migrated
+3 76

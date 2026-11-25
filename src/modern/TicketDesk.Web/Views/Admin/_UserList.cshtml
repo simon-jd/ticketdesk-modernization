@@ -1,0 +1,49 @@
+@* Port of the legacy Views/UserAdministration/_UserList.cshtml (TicketDesk 2.5, Ms-PL); also the AJAX pager answer. *@
+@model TicketDesk.Users.UserAccountPage
+@using AdminIndex = TicketDesk.Localization.Views.UserAdministration.Index
+<div id="userListBody">
+    <div class="panel panel-default">
+        <div class="panel-body" style="padding: 0;">
+            <div class="table-responsive">
+                <table class="table table-striped table-condensed table-hover ">
+                    <tr>
+                        <th>
+                            @AdminIndex.User
+                        </th>
+                        <th>
+                            @AdminIndex.Roles
+                        </th>
+                        <th>
+                            @AdminIndex.Status
+                        </th>
+                    </tr>
+                    @foreach (var account in Model.Items)
+                    {
+                        <tr class="clickable">
+                            <td>
+                                <a href="/admin/user/@Uri.EscapeDataString(account.Id)">
+                                    @account.DisplayName (@account.UserName)
+                                </a>
+                            </td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    @foreach (var role in account.RoleNames)
+                                    {
+                                        <li class="label label-default">@role</li>
+                                    }
+                                </ul>
+                            </td>
+                            <td>
+                                <i class="fa fa-2x @(account.IsLocked ? "fa-lock text-danger" : "fa-unlock")"></i>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            @LegacyHtml.Pager(Model.PageNumber, Model.PageCount, p => $"/admin/users/page/{p}",
+                "data-ajax=\"true\" data-ajax-begin=\"adminUsers.paging.beginChangePage\" data-ajax-failure=\"adminUsers.completeChangeList\" data-ajax-method=\"GET\" data-ajax-mode=\"replace\" data-ajax-success=\"adminUsers.completeChangeList\" data-ajax-update=\"#userListBody\"")
+        </div>
+    </div>
+</div>

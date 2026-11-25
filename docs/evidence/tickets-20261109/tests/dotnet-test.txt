@@ -1,0 +1,27 @@
+# 2026-11-10T07:25:05Z git 97efb31 (+ the TicketWriter fix in the same commit); dotnet 10.0.403
+# env: TD_SQL_TEST_CONN (td-sql), TD_MODERN_SEEDED_DB=TicketDesk, TD_SEED_USER_PASSWORD, TD_AZURE_STORAGE_CONNECTION_HOST (Azurite) set
+# the 1 failure: dbo.DataProtectionKeys was added to the shared td-sql TicketDesk by the identity agent (V0010, 2026-11-10 00:52Z); mapped on ws/identity
+    0 Error(s)
+    0 Warning(s)
+~/Desktop/ticketdesk-modernization/wt-tickets/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (591ms)
+~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (654ms)
+failed TicketDesk.Data.Tests.SchemaMappingTests.Model_matches_seeded_database_schema (370ms)
+  Expected: "DataProtectionKeys"
+  Actual:   "IdentityRoles"
+~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) failed with 1 error(s) (3s 186ms)
+~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (3s 347ms)
+~/Desktop/ticketdesk-modernization/wt-tickets/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (3s 570ms)
+~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (6s 124ms)
+~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (8s 351ms)
+  ~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (3s 347ms)
+  ~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) failed with 1 error(s) (3s 186ms)
+  ~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (6s 124ms)
+  ~/Desktop/ticketdesk-modernization/wt-tickets/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (3s 570ms)
+  ~/Desktop/ticketdesk-modernization/wt-tickets/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (591ms)
+  ~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (8s 351ms)
+  ~/Desktop/ticketdesk-modernization/wt-tickets/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (654ms)
+  total: 653
+  failed: 1
+  succeeded: 652
+  skipped: 0
+  duration: 8s 478ms

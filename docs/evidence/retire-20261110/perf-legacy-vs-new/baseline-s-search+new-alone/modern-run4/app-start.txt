@@ -1,0 +1,4 @@
+$ taskset -pc <app pid>
+pid 1211737's current affinity list: 24-27
+$ curl https://localhost:5483/health/ready
+{"status":"Healthy","checks":[{"name":"database","status":"Healthy","description":"database reachable"}]}

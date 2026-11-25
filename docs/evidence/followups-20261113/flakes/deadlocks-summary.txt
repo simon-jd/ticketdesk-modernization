@@ -1,0 +1,110 @@
+# xml_deadlock_report events of td-sql's system_health session (sys.fn_xe_file_target_read_file), all 18 kept by it, parsed:
+# time (UTC), victim, per process: wait resource, lock mode, database, transaction name; the input buffers
+
+2026-11-11T05:26:35.713 victim processe9e0a1088
+  processe9e0a1088 (victim): waits KEY: 22:281474978349056 (1870374e1e94) X; db -; transaction IFTSAutoNested
+  processe80898ca8: waits METADATA: database_id = 22 FULLTEXT_INDEX(object_id = 965578478), lockPartitionId = 0 S; db td_modern_test_f5cf323e97ad4edd952c915773592885; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-11T05:29:28.301 victim processe9b8aaca8
+  processe9b8aaca8 (victim): waits DATABASE: 27:0  ; db -; transaction -
+  processe9f8ff848: waits DATABASE: 27:8  ; db -; transaction -
+    input: (none: an internal task)
+    input: (none: an internal task)
+
+2026-11-11T08:43:27.614 victim processe8088c8c8
+  processe8088c8c8 (victim): waits KEY: 28:281474978349056 (15f3c270c842) X; db -; transaction IFTSAutoNested
+  processe9f8da8c8: waits METADATA: database_id = 28 FULLTEXT_INDEX(object_id = 1317579732), lockPartitionId = 0 S; db td_routes_6d696aab18fe4b43b7dcc4191cebc351; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-11T08:45:55.158 victim processe9aea6ca8
+  processe9aea6ca8 (victim): waits KEY: 8:281474978349056 (44a58475d979) X; db -; transaction IFTSAutoNested
+  processe9aea4ca8: waits METADATA: database_id = 8 FULLTEXT_INDEX(object_id = 1269579561), lockPartitionId = 0 S; db TicketDesk_coord_replay; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-11T08:57:47.779 victim processe99a964e8
+  processe99a964e8 (victim): waits KEY: 37:281474978349056 (44a58475d979) X; db -; transaction IFTSAutoNested
+  processe99a9a8c8: waits METADATA: database_id = 37 FULLTEXT_INDEX(object_id = 1269579561), lockPartitionId = 0 S; db td_routes_e451ec66a7a44785b4bc1c8102cac513; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-11T15:38:59.217 victim processe9f8df848
+  processe9f8df848 (victim): waits KEY: 11:72057594045923328 (4fe41c8050c3) S; db TicketDeskAks; transaction SELECT
+  processe9e0a08c8: waits KEY: 11:72057594049396736 (2c939cb99758) X; db TicketDeskAks; transaction user_transaction
+    input: (@List varchar(20),@UserId nvarchar(256),@StatusMask tinyint,@ProjectId int,@Owner nvarchar(256),@AssignedTo nvarchar(256),@Tag nvarchar(100),@Sort varchar(200),@Page int,@PageSize int,@TotalCount int
+    input: (@p0 int,@p1 nvarchar(4000),@p2 nvarchar(256),@p3 nvarchar(500),@p4 int,@p5 bit,@p7 int,@p6 datetimeoffset(7),@p8 varbinary(8))SET NOCOUNT ON; INSERT INTO [dbo].[TicketEvents] ([TicketId], [Comment], 
+
+2026-11-11T15:39:41.735 victim processe8089b468
+  processe8089b468 (victim): waits KEY: 11:72057594045923328 (4fe41c8050c3) S; db TicketDeskAks; transaction SELECT
+  processe9fb6f088: waits KEY: 11:72057594049396736 (f11c0c9a1f66) X; db TicketDeskAks; transaction user_transaction
+    input: (@List varchar(20),@UserId nvarchar(256),@StatusMask tinyint,@ProjectId int,@Owner nvarchar(256),@AssignedTo nvarchar(256),@Tag nvarchar(100),@Sort varchar(200),@Page int,@PageSize int,@TotalCount int
+    input: (@p0 int,@p1 nvarchar(4000),@p2 nvarchar(256),@p3 nvarchar(500),@p4 int,@p5 bit,@p7 int,@p6 datetimeoffset(7),@p8 varbinary(8))SET NOCOUNT ON; INSERT INTO [dbo].[TicketEvents] ([TicketId], [Comment], 
+
+2026-11-11T15:42:39.277 victim processe8089b468
+  processe8089b468 (victim): waits KEY: 11:72057594045923328 (4fe41c8050c3) S; db TicketDeskAks; transaction SELECT
+  processe99a84ca8: waits KEY: 11:72057594049396736 (7a551a547a67) X; db TicketDeskAks; transaction user_transaction
+    input: (@List varchar(20),@UserId nvarchar(256),@StatusMask tinyint,@ProjectId int,@Owner nvarchar(256),@AssignedTo nvarchar(256),@Tag nvarchar(100),@Sort varchar(200),@Page int,@PageSize int,@TotalCount int
+    input: (@p0 int,@p1 nvarchar(4000),@p2 nvarchar(256),@p3 nvarchar(500),@p4 int,@p5 bit,@p7 int,@p6 datetimeoffset(7),@p8 varbinary(8))SET NOCOUNT ON; INSERT INTO [dbo].[TicketEvents] ([TicketId], [Comment], 
+
+2026-11-11T15:54:31.871 victim processe996848c8
+  processe996848c8 (victim): waits KEY: 11:72057594045923328 (4fe41c8050c3) S; db TicketDeskAks; transaction SELECT
+  processe9e0a0108: waits KEY: 11:72057594049396736 (6e3e44b86a0c) X; db TicketDeskAks; transaction user_transaction
+    input: (@List varchar(20),@UserId nvarchar(256),@StatusMask tinyint,@ProjectId int,@Owner nvarchar(256),@AssignedTo nvarchar(256),@Tag nvarchar(100),@Sort varchar(200),@Page int,@PageSize int,@TotalCount int
+    input: (@p0 int,@p1 nvarchar(4000),@p2 nvarchar(256),@p3 nvarchar(500),@p4 int,@p5 bit,@p7 int,@p6 datetimeoffset(7),@p8 varbinary(8))SET NOCOUNT ON; INSERT INTO [dbo].[TicketEvents] ([TicketId], [Comment], 
+
+2026-11-11T15:56:04.400 victim processe99a9a8c8
+  processe99a9a8c8 (victim): waits KEY: 11:72057594045923328 (4fe41c8050c3) S; db TicketDeskAks; transaction SELECT
+  processf2fb408c8: waits KEY: 11:72057594049396736 (d1532e4fdb23) X; db TicketDeskAks; transaction user_transaction
+    input: (@List varchar(20),@UserId nvarchar(256),@StatusMask tinyint,@ProjectId int,@Owner nvarchar(256),@AssignedTo nvarchar(256),@Tag nvarchar(100),@Sort varchar(200),@Page int,@PageSize int,@TotalCount int
+    input: (@p0 int,@p1 nvarchar(4000),@p2 nvarchar(256),@p3 nvarchar(500),@p4 int,@p5 bit,@p7 int,@p6 datetimeoffset(7),@p8 varbinary(8))SET NOCOUNT ON; INSERT INTO [dbo].[TicketEvents] ([TicketId], [Comment], 
+
+2026-11-13T17:58:32.641 victim processe4be2c108
+  processe4be2c108 (victim): waits KEY: 26:281474978349056 (44a58475d979) X; db -; transaction IFTSAutoNested
+  processe00889848: waits METADATA: database_id = 26 FULLTEXT_INDEX(object_id = 1269579561), lockPartitionId = 0 S; db td_routes_839732b7741f491384eeac9fbb9e3cd3; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-13T18:06:05.211 victim processe008968c8
+  processe008968c8 (victim): waits DATABASE: 25:0  ; db -; transaction -
+  processe2ec8aca8: waits DATABASE: 25:30  ; db master; transaction -
+    input: SET NOCOUNT ON; DECLARE @r TABLE (db sysname, tbl sysname, crawl bit, pop int, pend bigint, items bigint); DECLARE @n sysname, @s nvarchar(max); DECLARE c CURSOR LOCAL FAST_FORWARD FOR SELECT name FRO
+    input: IF DB_ID(N'td_routes_101b6fd71b2f401ea2d711d5ebce364d') IS NOT NULL BEGIN ALTER DATABASE [td_routes_101b6fd71b2f401ea2d711d5ebce364d] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE [td_routes_
+
+2026-11-13T18:31:47.880 victim processe20526ca8
+  processe20526ca8 (victim): waits DATABASE: 14:0  ; db -; transaction -
+  processe0006bc28: waits DATABASE: 14:26  ; db master; transaction -
+    input: SET NOCOUNT ON; DECLARE @r TABLE (db sysname, tbl sysname, crawl bit, pop int, pend bigint, items bigint); DECLARE @n sysname, @s nvarchar(max); DECLARE c CURSOR LOCAL FAST_FORWARD FOR SELECT name FRO
+    input: IF DB_ID(N'td_modern_test_cdf284c31b4a4dc0a852dd4ba92e7004') IS NOT NULL BEGIN ALTER DATABASE [td_modern_test_cdf284c31b4a4dc0a852dd4ba92e7004] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE [
+
+2026-11-13T18:38:25.485 victim processe0089b468
+  processe0089b468 (victim): waits KEY: 34:281474978349056 (15f3c270c842) X; db -; transaction IFTSAutoNested
+  processe00063c28: waits METADATA: database_id = 34 FULLTEXT_INDEX(object_id = 1317579732), lockPartitionId = 0 S; db td_routes_48d804ee6e20492fba70a82e9de14f6c; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-13T18:40:23.020 victim processe0088b848
+  processe0088b848 (victim): waits KEY: 32:281474978349056 (44a58475d979) X; db -; transaction IFTSAutoNested
+  processe32e764e8: waits METADATA: database_id = 32 FULLTEXT_INDEX(object_id = 1269579561), lockPartitionId = 0 S; db td_routes_fd9df5ea2b874dff86973b538a461c0d; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-13T18:41:20.529 victim processe00073848
+  processe00073848 (victim): waits DATABASE: 14:0  ; db -; transaction -
+  processe41ed48c8: waits DATABASE: 14:15  ; db master; transaction -
+    input: SET NOCOUNT ON; DECLARE @r TABLE (db sysname, tbl sysname, crawl bit, pop int, pend bigint, items bigint); DECLARE @n sysname, @s nvarchar(max); DECLARE c CURSOR LOCAL FAST_FORWARD FOR SELECT name FRO
+    input: IF DB_ID(N'td_modern_test_e6ddbff8b45b4512a2c42f4f3ae93fab') IS NOT NULL BEGIN ALTER DATABASE [td_modern_test_e6ddbff8b45b4512a2c42f4f3ae93fab] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE [
+
+2026-11-13T18:41:43.039 victim processe00077c28
+  processe00077c28 (victim): waits KEY: 27:281474978349056 (15f3c270c842) X; db -; transaction IFTSAutoNested
+  processe00075468: waits METADATA: database_id = 27 FULLTEXT_INDEX(object_id = 1317579732), lockPartitionId = 0 S; db td_routes_09fce85f0585403386bffd772a5669df; transaction ftn_prop
+    input: (none: an internal task)
+    input: SELECT OBJECT_SCHEMA_NAME(i.object_id) + N'.' + OBJECT_NAME(i.object_id), i.has_crawl_completed, CAST(OBJECTPROPERTYEX(i.object_id, 'TableFullTextPopulateStatus') AS int), CAST(OBJECTPROPERTYEX(i.obje
+
+2026-11-13T18:42:45.551 victim processe0088f848
+  processe0088f848 (victim): waits DATABASE: 15:5  ; db master; transaction -
+  processe1c93d468: waits DATABASE: 15:0  ; db td_modern_test_47966c8ea7f34d26ad8af4f1af40dbf6; transaction -
+    input: IF DB_ID(N'td_modern_test_47966c8ea7f34d26ad8af4f1af40dbf6') IS NOT NULL BEGIN ALTER DATABASE [td_modern_test_47966c8ea7f34d26ad8af4f1af40dbf6] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; DROP DATABASE [
+    input: SET NOCOUNT ON; DECLARE @r TABLE (db sysname, tbl sysname, crawl bit, pop int, pend bigint, items bigint); DECLARE @n sysname, @s nvarchar(max); DECLARE c CURSOR LOCAL FAST_FORWARD FOR SELECT name FRO

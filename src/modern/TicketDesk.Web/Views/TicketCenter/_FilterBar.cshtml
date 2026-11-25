@@ -1,0 +1,85 @@
+@* Port of the legacy Views/TicketCenter/_FilterBar.cshtml (TicketDesk 2.5, Ms-PL). The form posts with the new app's
+   antiforgery token (added by the form tag helper), so it moves together with filterList (registry group). *@
+@model TicketDesk.Web.Controllers.TicketCenterViewModel
+@using TicketDesk.Data.Entities
+@using TicketCenterIndex = TicketDesk.Localization.Views.TicketCenter.Index
+@using ModelStrings = TicketDesk.Localization.Models.Strings
+@{
+    var list = Model.Current;
+    bool Disabled(string column) => list.DisabledFilterColumnNames.Contains(column);
+    string ClassFor(string column) => $"postback{(Disabled(column) ? " disabled" : "")} form-control";
+
+    // legacy FilterBarViewModel.TicketStatusSelectList (the stored value is read as the enum name, as the legacy query did)
+    var statusSelected = "Any";
+    var statusFilter = list.Filter("TicketStatus");
+    if (statusFilter != null)
+    {
+        var status = statusFilter.StatusValue();
+        statusSelected = status == TicketStatus.Closed
+            ? (statusFilter.UseEqualityComparison == true ? "Closed" : "Open")
+            : status?.ToString() ?? statusFilter.StringValue() ?? "";
+    }
+    var statusOptions = new LegacyHtml.Option[]
+    {
+        new("Any", ModelStrings.TicketStatus_Any), new("Open", ModelStrings.TicketStatus_Open), new("Active", ModelStrings.TicketStatus_Active),
+        new("MoreInfo", ModelStrings.TicketStatus_MoreInfo), new("Resolved", ModelStrings.TicketStatus_Resolved), new("Closed", ModelStrings.TicketStatus_Closed),
+    };
+    var ownerSelected = list.Filter("Owner")?.StringValue() ?? "anyone";
+    var ownerOptions = new List<LegacyHtml.Option> { new("anyone", ModelStrings.AssignedTo_Anyone) };
+    ownerOptions.AddRange(Model.InternalUsers.Select(u => new LegacyHtml.Option(u.Id, u.DisplayName ?? "")));
+    var assignedFilter = list.Filter("AssignedTo");
+    var assignedSelected = assignedFilter == null ? "anyone" : assignedFilter.ColumnValue == null ? "unassigned" : assignedFilter.StringValue();
+    var assignedOptions = new List<LegacyHtml.Option> { new("anyone", ModelStrings.AssignedTo_Anyone), new("unassigned", ModelStrings.AssignedTo_Unassigned) };
+    assignedOptions.AddRange(Model.HelpDeskUsers.Select(u => new LegacyHtml.Option(u.Id, u.DisplayName ?? "")));
+    var pageSizes = new[] { "10", "20", "30", "50", "100" }.Select(v => new LegacyHtml.Option(v, v));
+    // MVC 5 Ajax.BeginForm("FilterList", new { ListName }): the page of the current URL is reused (ambient value), and the list
+    // name is left out when it is the route default (filterList/{listName=opentickets}) and nothing follows it
+    var routePage = ViewContext.RouteData.Values["page"] as string;
+    var action = "/tickets/filterList";
+    if (list.ListName != "opentickets" || !string.IsNullOrEmpty(routePage)) action += "/" + Uri.EscapeDataString(list.ListName);
+    if (!string.IsNullOrEmpty(routePage)) action += "/" + routePage;
+}
+
+<div class="navbar" style="min-height: 0; margin: 0">
+    <div class="">
+        <button type="button" class="navbar-toggle collapsed" style="margin: 0; min-height: 0; padding: 0;" data-toggle="collapse" data-target="#filterbar-collapse">
+            <div class="btn btn-default btn-sm">
+                <span class="sr-only">@TicketCenterIndex.ToggleNav</span>
+                <span class=""><i class="fa fa-filter"></i></span>
+            </div>
+        </button>
+        <div class="collapse navbar-collapse" id="filterbar-collapse">
+<form action="@action" class="form-horizontal navbar-form" data-ajax="true" data-ajax-begin="ticketCenter.filters.beginChangeFilter" data-ajax-failure="ticketCenter.completeChangeList" data-ajax-mode="replace" data-ajax-success="ticketCenter.completeChangeList" data-ajax-update="#ticketList" id="filterForm" method="post" role="form" asp-antiforgery="true">                <div class="row">
+                    <div class="form-group form-group-xs small" style="width: 100%; margin: 0;">
+                        <label class="control-label col-sm-1 text-right">
+                            @TicketCenterIndex.Status
+                        </label>
+                        <div class="col-sm-2">
+                            @LegacyHtml.DropDownList("TicketStatus", statusOptions, statusSelected, "Class", ClassFor("TicketStatus"), Disabled("TicketStatus"))
+                        </div>
+
+                        <label class="control-label col-sm-1 text-right form-control-static">
+                            @TicketCenterIndex.Owner
+                        </label>
+                        <div class="col-sm-2">
+                            @LegacyHtml.DropDownList("Owner", ownerOptions, ownerSelected, "Class", ClassFor("Owner"), Disabled("Owner"))
+                        </div>
+
+                        <label class="control-label col-sm-1 text-right form-control-static">
+                            @TicketCenterIndex.Assigned
+                        </label>
+                        <div class="col-sm-2">
+                            @LegacyHtml.DropDownList("AssignedTo", assignedOptions, assignedSelected, "Class", ClassFor("AssignedTo"), Disabled("AssignedTo"))
+                            <input type="submit" value="filter" id="filterSubmitButton" />
+                        </div>
+                        <label class="control-label col-sm-1 text-right form-control-static">
+                            @TicketCenterIndex.Show
+                        </label>
+                        <div class="col-sm-2" style="white-space: nowrap">
+                            @LegacyHtml.DropDownList("PageSize", pageSizes, list.ItemsPerPage.ToString(CultureInfo.InvariantCulture), "class", "postback form-control number-select")<label class="control-label form-control-static"> @string.Format(TicketCenterIndex.TotalItemCount, Model.Tickets.TotalItemCount)</label>
+                        </div>
+                    </div>
+                </div>
+</form>        </div>
+    </div>
+</div>

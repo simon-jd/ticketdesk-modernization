@@ -1,0 +1,3 @@
+retire start 2026-11-12T07:08:29.462Z
+2026-11-12T07:10:12Z stage aks applied in 103 s (node Standard_B2as_v2, VM Standard_B2as_v2): Apply complete! Resources: 0 added, 2 changed, 22 destroyed
+retire end 2026-11-12T07:10:12.172Z elapsed_s=103; VM exists: no

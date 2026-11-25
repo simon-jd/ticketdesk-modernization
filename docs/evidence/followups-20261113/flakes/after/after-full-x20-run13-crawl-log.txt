@@ -1,0 +1,4 @@
+# td-sql full-text crawl logs (UTF-16, decoded): every line of td_modern_test_3ee4a976ca634a34a93017ba838e2d5e (after-full-x20 run 13,
+# FullTextMigrationTests' scratch database by its time); copied with docker exec cat at 19:1xZ
+2026-11-13 19:05:14.34 spid32s     Informational: Full-text Full population initialized for table or indexed view '[td_modern_test_3ee4a976ca634a34a93017ba838e2d5e].[dbo].[Tickets]' (table or indexed view ID '965578478', database ID '30'). Population sub-tasks: 4.
+2026-11-13 19:05:14.71 spid70s     Informational: Full-text Full population initialized for table or indexed view '[td_modern_test_3ee4a976ca634a34a93017ba838e2d5e].[dbo].[TicketEvents]' (table or indexed view ID '1045578763', database ID '30'). Population sub-tasks: 4.

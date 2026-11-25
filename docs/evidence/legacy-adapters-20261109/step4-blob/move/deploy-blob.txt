@@ -1,0 +1,21 @@
+[2026-11-09T01:46:54Z] INFO   database has 20 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51         0        51         0         0         0
+   Files :       810         1       809         0         0         0
+   Bytes :   41.02 m    15.0 k   41.01 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, November 9, 2026 1:46:56 AM
+
+[2026-11-09T01:46:56Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-09T01:46:56Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-09T01:46:56Z] INFO   file store: Azure Blob (http://10.0.2.2:10000/devstoreaccount1)
+[2026-11-09T01:46:56Z] CHANGE ApplicationInsights.config: no correlation headers to 10.0.2.2
+[2026-11-09T01:46:56Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-09T01:46:56Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-09T01:47:02Z] INFO   warm-up http://localhost/ -> 200 in 6.0s
+2026-11-09T01:47:03Z deployed td-legacy-publish-b4edcc3.zip (sha256 f1408b12957a6a2bda46123865d471a2f97247f2e19a5fd5e2939c9411574cf6) in 14 s

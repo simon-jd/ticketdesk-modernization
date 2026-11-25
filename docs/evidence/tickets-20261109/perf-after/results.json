@@ -1,0 +1,154 @@
+{
+  "direct": {
+    "runs": [
+      {
+        "run": "direct-run1",
+        "requests": 1146,
+        "p50": 31.0048205,
+        "p95": 91.53249325,
+        "p99": 114.59536689999992,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 203,
+        "by_op_p95": {
+          "list": 99.31734509999998,
+          "view": 67.64417215,
+          "filter": 112.5503471,
+          "comment": 58.12333105000001,
+          "create": 111.21083379999996
+        }
+      },
+      {
+        "run": "direct-run2",
+        "requests": 1153,
+        "p50": 26.399927,
+        "p95": 51.16043779999996,
+        "p99": 80.35146924000004,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 64,
+        "by_op_p95": {
+          "list": 62.98858684999995,
+          "view": 33.6522462,
+          "filter": 61.07991059999997,
+          "comment": 30.934607699999987,
+          "create": 54.282502
+        }
+      },
+      {
+        "run": "direct-run3",
+        "requests": 1150,
+        "p50": 26.4476595,
+        "p95": 48.83444984999999,
+        "p99": 67.02784666,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 77,
+        "by_op_p95": {
+          "list": 56.98143769999994,
+          "view": 33.437704249999996,
+          "filter": 59.113797649999995,
+          "comment": 32.820988,
+          "create": 52.49808884999998
+        }
+      }
+    ],
+    "settings": {
+      "target": "https://localhost:8443",
+      "rate_per_s": 10,
+      "warmup_s": 30,
+      "measure_s": 60,
+      "users": 37
+    },
+    "median": {
+      "p50": 26.4476595,
+      "p95": 51.16043779999996,
+      "p99": 80.35146924000004,
+      "error_rate": 0,
+      "requests": 1150,
+      "by_op_p95": {
+        "list": 62.98858684999995,
+        "view": 33.6522462,
+        "filter": 61.07991059999997,
+        "comment": 32.820988,
+        "create": 54.282502
+      }
+    }
+  },
+  "gateway": {
+    "runs": [
+      {
+        "run": "gateway-run1",
+        "requests": 1137,
+        "p50": 12.454766,
+        "p95": 40.560187000000006,
+        "p99": 50.26009344000014,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 0,
+        "by_op_p95": {
+          "list": 45.498122099999996,
+          "view": 30.12343475,
+          "filter": 55.52498975,
+          "comment": 25.475196500000003,
+          "create": 33.660624
+        }
+      },
+      {
+        "run": "gateway-run2",
+        "requests": 1138,
+        "p50": 13.305847,
+        "p95": 41.591992949999984,
+        "p99": 54.97685277999993,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 0,
+        "by_op_p95": {
+          "list": 45.34302375,
+          "view": 29.838916099999995,
+          "filter": 59.02172249999998,
+          "comment": 25.52405,
+          "create": 33.997781
+        }
+      },
+      {
+        "run": "gateway-run3",
+        "requests": 1140,
+        "p50": 14.41937,
+        "p95": 41.19886294999998,
+        "p99": 54.70358007999995,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 0,
+        "by_op_p95": {
+          "list": 44.47847224999999,
+          "view": 28.6629234,
+          "filter": 60.2466537,
+          "comment": 28.15246725,
+          "create": 33.8945995
+        }
+      }
+    ],
+    "settings": {
+      "target": "https://localhost:5443",
+      "rate_per_s": 10,
+      "warmup_s": 30,
+      "measure_s": 60,
+      "users": 37
+    },
+    "median": {
+      "p50": 13.305847,
+      "p95": 41.19886294999998,
+      "p99": 54.70358007999995,
+      "error_rate": 0,
+      "requests": 1138,
+      "by_op_p95": {
+        "list": 45.34302375,
+        "view": 29.838916099999995,
+        "filter": 59.02172249999998,
+        "comment": 25.52405,
+        "create": 33.8945995
+      }
+    }
+  }
+}

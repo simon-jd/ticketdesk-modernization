@@ -1,0 +1,29 @@
+# AKS round session estimate (AKS 3.0 h, VM 1.6 h), unit prices from docs/evidence/aks-20261111/prices/prices.tsv
+  0.233  AKS node Standard_B2as_v2 (Linux)  [0.0778/h x 3.0 h]  (Virtual Machines Basv2 Series / B2as v2)
+  0.024  AKS node OS disk P4 Premium SSD 30 GB (AKS gives premium-capable sizes Premium SSD)  [5.8072/month / 730 x 3.0 h]  (Premium SSD Managed Disks / P4 LRS Disk)
+  0.150  AKS FreeTierInfrastructureCost meter (counted until shown not to apply)  [0.05/h x 3.0 h]  (Azure Kubernetes Service / FreeTierInfrastructureCost Uptime SLA)
+  0.075  Standard load balancer (AKS: outbound + the app's service rule)  [0.025/h x 3.0 h]  (Load Balancer / Standard Included LB Rules and Outbound Rules)
+  0.030  2 Standard public IPs (AKS outbound, app service)  [2 x 0.005/h x 3.0 h]  (IP Addresses / Standard IPv4 Static Public IP)
+  0.139  Windows VM Standard_B2as_v2 (until retired)  [0.087/h x 1.6 h]  (Virtual Machines Basv2 Series Windows / B2as v2)
+  0.011  VM OS disk S4 + VM public IP  [1.536/month / 730 x 1.6 h + 0.005/h x 1.6 h]  (Standard HDD Managed Disks / S4 LRS Disk)
+  0.030  SQL private endpoint  [0.01/h x 3.0 h]  (azure-spend.md Private Link Standard)
+  0.500  privatelink.database.windows.net private DNS zone (whole month per creation)  [0.50/month]  (azure-spend.md)
+  0.300  Log Analytics + App Insights (one day at the 0.1 GB cap beyond the free 5 GB)  [0.1 GB x 2.99]  (azure-spend.md)
+  0.167  Container Registry Basic (whole day)  [0.1666/day]  (Container Registry / Basic Registry Unit)
+  0.030  Key Vault operations (one 10K block)  [0.03/10K]  (azure-spend.md)
+  0.020  2 storage accounts (ops, attachments)  [under 1 GB, under 10K ops]  (azure-spend.md)
+  0.010  Service Bus Basic operations  [0.05 per million, < 100K ops]  (service-bus Basic Messaging Operations)
+  0.100  metric alert rule requests/failed (whole month; the first 10 monitored metrics are $0, counted anyway)  [0.1/month]  (Azure Monitor / Alerts Metric Monitored)
+  0.161  restore drill: Basic single database (whole day)  [0.161/day]  (SQL Database Single Basic / B DTU)
+  0.000  Azure SQL free-offer database, identities, VNet, NSGs, action group  [no meter]  ()
+  1.980  session total
+project: 12.98 + 1.98 = 14.96 vs cap 15.00: fits, margin 0.04
+alternatives (coordinator's choice; nothing changed yet):
+  A  SQL by VNet service endpoint + firewall VNet rules instead of private endpoint + DNS zone: 1.45 -> 14.43
+  B  ledger at exposure (DNS zone, alert prorated by hour; LA inside the free 5 GB; Basic DB 1 h): 0.93 -> 13.91
+  C  node Standard_B2als_v2 (2 vCPU / 4 GiB, $0.0389/h) instead of B2as_v2: 1.86 -> 14.84
+  D  A + C: 1.33 -> 14.31
+  E  raise the automatic cap (user: total budget $15): 1.98 -> 14.96 of 15.00
+worst case (trap dead: the reaper deletes the group at ttl = start + 3.25 h, VM never retired): 2.18 -> 15.16
+  + the reaper's lag (next run within 15 min, ~11 min to delete): 2.30 -> 15.28
+  (with the earlier 4 h ttl: 2.39 -> 15.37; per hour past the plan: AKS 0.1808, VM 0.0941)

@@ -1,0 +1,3 @@
+now: <processModel autoConfig="true" minWorkerThreads="50" minIoThreads="50"/>
+machine.config restored, sha256 68E0DC6FEF3FF0DF4284C47B935ACCF4315DFC8228FBA809CB181258C78CB5E1
+now: <processModel autoConfig="true"/>

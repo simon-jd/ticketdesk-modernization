@@ -1,0 +1,63 @@
+{
+  "scale": "S",
+  "seed": 42,
+  "tickets": 10000,
+  "users": 250,
+  "projects": 5,
+  "resetSeconds": 0.04,
+  "loadSeconds": 1.15,
+  "totalSeconds": 1.25,
+  "rowsWritten": {
+    "[dbo].[Projects]": 4,
+    "[dbo].[IdentityUsers]": 250,
+    "[dbo].[IdentityUserRoles]": 250,
+    "[dbo].[Tickets]": 10000,
+    "[dbo].[TicketTags]": 14698,
+    "[dbo].[TicketSubscribers]": 20125,
+    "[dbo].[TicketEvents]": 45649,
+    "[dbo].[TicketEventNotifications]": 95999
+  },
+  "tables": [
+    {
+      "table": "[dbo].[Projects]",
+      "rows": 5,
+      "checksum": -79698357
+    },
+    {
+      "table": "[dbo].[IdentityUsers]",
+      "rows": 250,
+      "checksum": -880079850
+    },
+    {
+      "table": "[dbo].[IdentityUserRoles]",
+      "rows": 250,
+      "checksum": -1693515155
+    },
+    {
+      "table": "[dbo].[Tickets]",
+      "rows": 10000,
+      "checksum": -1870039954
+    },
+    {
+      "table": "[dbo].[TicketTags]",
+      "rows": 14698,
+      "checksum": 1625653311
+    },
+    {
+      "table": "[dbo].[TicketSubscribers]",
+      "rows": 20125,
+      "checksum": -1540965507
+    },
+    {
+      "table": "[dbo].[TicketEvents]",
+      "rows": 45649,
+      "checksum": -995213503
+    },
+    {
+      "table": "[dbo].[TicketEventNotifications]",
+      "rows": 95999,
+      "checksum": 1910869743
+    }
+  ],
+  "untrustedOrDisabledForeignKeys": 0
+}

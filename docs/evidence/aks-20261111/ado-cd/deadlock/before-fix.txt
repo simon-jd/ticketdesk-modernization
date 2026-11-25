@@ -1,0 +1,22 @@
+# before the fix: images aks-v2 (0e5cbd1), TAGX=aks-v2 ops/k8s/repro-list-deadlock.sh, same sequence
+start 2026-11-11T15:51:28
+web pod td-web-854b9f6574-lr4qk
+A control from 2026-11-11T15:51:28.316Z
+A end 2026-11-11T15:55:28.326Z
+done
+probe (reads + writes 1/s, ticket 9993): reads 954 (2 failed), writes 477 (0 failed)
+{"t": "2026-11-11T15:54:31.886Z", "tick": 179, "target": "https://localhost:18443", "path": "/tickets", "status": 500, "ms": 4509, "ok": false, "error": "HTTP 500"}
+{"t": "2026-11-11T15:56:04.403Z", "tick": 271, "target": "https://localhost:18443", "path": "/tickets", "status": 500, "ms": 1488, "ok": false, "error": "HTTP 500"}
+web pod log:
+2026-11-11T15:54:31.880400064Z fail: Microsoft.EntityFrameworkCore.Query[10100]
+2026-11-11T15:54:31.880421888Z       Microsoft.Data.SqlClient.SqlException (0x80131904): Transaction (Process ID 60) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+2026-11-11T15:54:31.880443629Z       Error Number:1205,State:51,Class:13
+2026-11-11T15:54:31.880444989Z       Microsoft.Data.SqlClient.SqlException (0x80131904): Transaction (Process ID 60) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+2026-11-11T15:54:31.880468464Z       Error Number:1205,State:51,Class:13
+2026-11-11T15:54:31.887872143Z fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+2026-11-11T15:54:31.887884122Z       Microsoft.Data.SqlClient.SqlException (0x80131904): Transaction (Process ID 60) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+2026-11-11T15:54:31.887912611Z       Error Number:1205,State:51,Class:13
+2026-11-11T15:56:04.402443025Z fail: Microsoft.EntityFrameworkCore.Query[10100]
+2026-11-11T15:56:04.402489924Z       Microsoft.Data.SqlClient.SqlException (0x80131904): Transaction (Process ID 56) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+2026-11-11T15:56:04.402534928Z       Error Number:1205,State:51,Class:13
+2026-11-11T15:56:04.402538483Z       Microsoft.Data.SqlClient.SqlException (0x80131904): Transaction (Process ID 56) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.

@@ -1,0 +1,23 @@
+# 2026-11-12T07:44:33Z KQL over the workspace (AppRequests of the new app, health probes excluded), 2026-11-12T06:47:46Z .. 2026-11-12T07:37:25Z
+# SLOs (lab): availability >= 99.5 % of requests, p95 server duration <= 500 ms
+AppRequests | where TimeGenerated between (datetime(2026-11-12T06:47:46Z) .. datetime(2026-11-12T07:37:25Z)) | where AppRoleName == 'ticketdesk-web' and Name !has '/health/'
+| extend phase = case(TimeGenerated < datetime(2026-11-12T07:10:12Z), 'v1 (gateway + VM)', 'v2 (no legacy)')
+| summarize requests = count(), failed = countif(Success == false), p50_ms = round(percentile(DurationMs, 50), 1), p95_ms = round(percentile(DurationMs, 95), 1) by phase
+| extend availability_pct = round(100.0 * (requests - failed) / requests, 3), slo_availability_99_5 = iff(100.0 * (requests - failed) / requests >= 99.5, 'met', 'missed'), slo_p95_500ms = iff(p95_ms <= 500, 'met', 'missed')
+
+TableName      Availability_pct    Failed    P50_ms    P95_ms    Phase              Requests    Slo_availability_99_5    Slo_p95_500ms
+-------------  ------------------  --------  --------  --------  -----------------  ----------  -----------------------  ---------------
+PrimaryResult  100                 0         8         65        v1 (gateway + VM)  665         met                      met
+PrimaryResult  99.843              5         8         33.9      v2 (no legacy)     3194        met                      met
+
+# the drill window (expected to miss)
+TableName      TimeGenerated         Failed    Requests
+-------------  --------------------  --------  ----------
+PrimaryResult  2026-11-12T07:37:00Z  0         83
+PrimaryResult  2026-11-12T07:38:00Z  6         11
+PrimaryResult  2026-11-12T07:39:00Z  5         9
+PrimaryResult  2026-11-12T07:40:00Z  0         130
+PrimaryResult  2026-11-12T07:41:00Z  0         151
+PrimaryResult  2026-11-12T07:42:00Z  0         151
+PrimaryResult  2026-11-12T07:43:00Z  0         152
+PrimaryResult  2026-11-12T07:44:00Z  0         83

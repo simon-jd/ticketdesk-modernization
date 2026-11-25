@@ -1,0 +1,13 @@
+$ ops/dev/td-sql.sh sql -i qs-setup.sql
+-- Query Store for the tuning work: capture every query, 1-minute intervals, flush every 60 s
+ALTER DATABASE [TicketDeskL] SET QUERY_STORE = ON;
+ALTER DATABASE [TicketDeskL] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, QUERY_CAPTURE_MODE = ALL,
+  DATA_FLUSH_INTERVAL_SECONDS = 60, INTERVAL_LENGTH_MINUTES = 1, MAX_STORAGE_SIZE_MB = 2048,
+  SIZE_BASED_CLEANUP_MODE = AUTO, MAX_PLANS_PER_QUERY = 200, WAIT_STATS_CAPTURE_MODE = ON);
+ALTER DATABASE [TicketDeskL] SET QUERY_STORE CLEAR;
+GO
+USE [TicketDeskL];
+-- Azure SQL Database's default MAXDOP is 8; the container sees 32 cores, so pin the DB to the target's default
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 8;
+GO
+Changed database context to 'TicketDeskL'.

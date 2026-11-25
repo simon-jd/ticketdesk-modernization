@@ -1,0 +1,11 @@
+# restore drill 2026-11-08T01:03:21Z: backup 20261108T010249Z (scheduled task run), then one more smoke ticket, then Restore-TdSite.ps1
+tickets expected in the backup: 38 (37 demo + smoke ticket #38 from smoke-1)
+after extra smoke run, tickets: 39
+$ Restore-TdSite.ps1 -BackupPath C:\TdBackups\20261108T010249Z
+[2026-11-08T01:03:25Z] CHANGE stopped app pool TicketDesk
+[2026-11-08T01:03:26Z] CHANGE restored TicketDesk from C:\TdBackups\20261108T010249Z\TicketDesk.bak
+[2026-11-08T01:03:26Z] INFO   mapped IIS AppPool\TicketDesk as db_owner in TicketDesk
+[2026-11-08T01:03:27Z] CHANGE restored site files to C:\inetpub\ticketdesk
+[2026-11-08T01:03:27Z] INFO   started app pool TicketDesk
+[2026-11-08T01:03:27Z] INFO   restore complete in 4.4s
+after restore, tickets: 38

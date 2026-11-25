@@ -1,0 +1,1 @@
+smtp sink on 127.0.0.1:2527 -> docs/evidence/search-worker-20261110/worker-container/mail

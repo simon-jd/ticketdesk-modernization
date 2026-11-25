@@ -1,0 +1,2 @@
+replayed 262 exchanges in 15 journeys against https://localhost:5443/ -> docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/gateway/gateway.jsonl (0 journey errors)
+compared 262, matched 258, mismatched 4 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/gateway/compare-golden-gateway/report.md

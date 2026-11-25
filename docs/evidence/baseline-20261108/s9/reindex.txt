@@ -1,0 +1,12 @@
+$ python3 -I ops/onprem/smoke/legacy_smoke.py reindex
+legacy_smoke reindex against https://localhost:8443 at 2026-11-08T16:01:12Z
+  GET  /user/sign-in -> 200 22ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 25ms -> /
+  GET  / -> 200 28ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+  GET  /admin/search-manager/populate-index -> 200 1521ms
+[PASS] populate search index (HTTP 200)
+  GET  /search?term=printer -> 200 406ms
+[PASS] search finds tickets (HTTP 200, 20 ticket links for 'printer')
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 2.0}

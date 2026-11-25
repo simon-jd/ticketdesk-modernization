@@ -1,0 +1,19 @@
+$ ops/dev/legacy-query-stats.sh 15
+execs|avg_cpu_ms|avg_elapsed_ms|max_elapsed_ms|avg_reads|plan_hash|plan_gen|stmt
+-----|----------|--------------|--------------|---------|---------|--------|----
+260|9.20|10.97|96.85|1339|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+188|4.63|5.03|80.78|1339|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+189|2.90|3.40|64.18|1339|0x89E2697CBBE2FC19|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+260|0.73|1.42|112.44|32|0x47AE2C509C101607|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+361|0.15|0.83|196.47|6|0x87270C0CF0A6D7C3|1|SELECT       [Project2].[TicketId] AS [TicketId],       [Project2].[ProjectId] AS [Project
+73|0.35|1.88|63.95|39|0xE4F3407EC0FC2CE4|1|SELECT [CreatedDate], [Version]  FROM [dbo].[Tickets]  WHERE @@ROWCOUNT > 0 AND [TicketId]
+642|0.03|0.03|0.12|3|0xC8C48D418C0CF7F8|1|SELECT TOP (2)       [Extent1].[TicketId] AS [TicketId],       [Extent1].[ProjectId] AS [P
+40|0.27|6.53|232.08|30|0xEBC46C054EB2B32D|1|SELECT [TicketId], [CreatedDate], [Version]  FROM [dbo].[Tickets]  WHERE @@ROWCOUNT > 0 AN
+1|5.21|83.92|83.92|1339|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+148|0.03|0.03|0.08|3|0xA2A0B628DBEDFCFE|1|SELECT       [Extent1].[TicketId] AS [TicketId],       [Extent1].[ProjectId] AS [ProjectId
+1|3.96|78.11|78.11|1339|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+1|3.57|80.34|80.34|1339|0xD6B23CF8B2F40670|1|SELECT       [Project1].[TicketId] AS [TicketId],       [Project1].[ProjectId] AS [Project
+1|3.41|71.62|71.62|1340|0x89E2697CBBE2FC19|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+1|1.72|71.52|71.52|1340|0x89E2697CBBE2FC19|1|SELECT       [GroupBy1].[A1] AS [C1]      FROM ( SELECT           COUNT(1) AS [A1]        
+114|0.01|0.01|0.08|1|0x51ECBB0B66A0B63F|1|SELECT i EXCEPT SELECT d) is the NULL-safe "is different" test (EXCEPT -- treats NULLs as 
+

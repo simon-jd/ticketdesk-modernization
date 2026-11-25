@@ -1,0 +1,9 @@
+# 2026-11-08T20:45:20Z td-legacy-publish-35d7b5e.zip on the lab VM, customErrors RemoteOnly. Anonymous 500 probe GET /emailtest/index/999999999 (as in baseline-20261108/s9).
+# All requests come from lab-host through the qemu forward, so the app sees REMOTE_ADDR 10.0.2.2 (remote).
+default (guard on), no header:                     500 268 stack-trace-lines=0
+default (guard on), X-Forwarded-For: 127.0.0.1:    500 268 stack-trace-lines=0
+web.config: RemoteAppTrustForwardedFor=true
+RemoteAppTrustForwardedFor=true, no header:        500 268 stack-trace-lines=0
+RemoteAppTrustForwardedFor=true, X-Forwarded-For: 127.0.0.1: 500 8717 stack-trace-lines=3
+web.config: RemoteAppTrustForwardedFor=remove
+setting removed again (guard on), X-Forwarded-For: 127.0.0.1: 500 268 stack-trace-lines=0

@@ -1,0 +1,6 @@
+# Golden replay against the new app alone (azure-pipelines/scripts/replay.sh): mismatches the CI tolerates. Columns: exchange
+# key, route id, difference kinds (exactly as summary.md prints them). This is a ratchet: a mismatch not listed here fails the
+# gate, a listed one that disappears is reported as stale.
+# History: 20 rows at modernize c702afb (5 retire-wave routes with no legacy behind the app + 15 sign-in/sign-out set-cookie
+# differences of the shared-cookie mode); all 20 resolved by ws/retire (CI run 17 on the merge: 0 unexplained). Empty now:
+# any unexplained mismatch fails the CI.

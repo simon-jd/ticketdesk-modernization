@@ -1,0 +1,75 @@
+{
+  "command": "smoke",
+  "base": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+  "ok": false,
+  "checks_passed": 4,
+  "checks_total": 5,
+  "requests": 6,
+  "seconds": 12.6,
+  "checks": [
+    {
+      "check": "home page over HTTPS",
+      "ok": true,
+      "detail": "HTTP 200, title='TicketDesk'"
+    },
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "new ticket form",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "create ticket",
+      "ok": false,
+      "detail": "HTTP 500, landed on /ticket/new, errors: , sent: ['ActualDuration', 'AssignedTo', 'Category', 'Details', 'DueDateAsString', 'EstimatedDuration', 'IsHtml', 'Owner', 'Priority', 'ProjectId', 'ResolutionDateAsString', 'TagList', 'TargetDateAsString', 'TicketId', 'TicketType', 'Title', '__RequestVerificationToken', 'tempId']"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 5557
+    },
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 904
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 1563,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 1923
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/new",
+      "status": 200,
+      "ms": 1613
+    },
+    {
+      "method": "POST",
+      "url": "/ticket/new",
+      "status": 500,
+      "ms": 1047
+    }
+  ]
+}

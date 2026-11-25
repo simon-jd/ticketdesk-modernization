@@ -1,0 +1,70 @@
+{
+ "dir": "drill-pod-kill-2replicas",
+ "requests": 51263,
+ "failed": 0,
+ "availability_pct": 100.0,
+ "slow_over_500ms": 4,
+ "run_s": 360.0,
+ "marks": [
+  "start 2026-11-14T05:41:54.979Z rate 75 for 360 s, fault pod-kill at +120 s",
+  "fault 2026-11-14T05:43:55.294Z kubectl delete pod td-web-86bbf68b75-82lw6 --grace-period=0 --force",
+  "ready 2026-11-14T05:43:55.129Z td-web-86bbf68b75-gc949",
+  "end 2026-11-14T05:47:57.982Z"
+ ],
+ "before_fault": {
+  "requests": 16830,
+  "failed": 0,
+  "p95_ms": 26.0
+ },
+ "from_fault": {
+  "requests": 34433,
+  "failed": 0,
+  "p95_ms": 27.7
+ },
+ "first_failure_after_fault_s": null,
+ "last_failure_after_fault_s": null,
+ "failed_by_status": {},
+ "last_5xx_after_fault_s": null,
+ "last_conn_after_fault_s": null,
+ "last_4xx_after_fault_s": null,
+ "fault_removed_after_fault_s": -0.2,
+ "recovered_after_fault_s": 0.0,
+ "bad_seconds_after_fault": 0,
+ "error_budget": {
+  "run_budget_requests": 256.3,
+  "run_burn_pct": 0.0,
+  "share_of_30d_budget_pct": 0.0,
+  "req_per_s": 142.4,
+  "p95_run_ms": 26.9,
+  "latency_slo_met_over_run": true
+ },
+ "readiness": {
+  "samples_1s": 337,
+  "seconds_no_ready_web_pod": 0,
+  "seconds_no_ready_endpoint": 0,
+  "pods_seen": {
+   "td-web-86bbf68b75-82lw6": "0",
+   "td-web-86bbf68b75-gc949": "0",
+   "td-worker-64d9f8fc47-ntk2f": "0",
+   "td-web-86bbf68b75-xm5b6": "0"
+  },
+  "probe": {
+   "failureThreshold": 3,
+   "httpGet": {
+    "path": "/health/ready",
+    "port": "http",
+    "scheme": "HTTP"
+   },
+   "periodSeconds": 10,
+   "successThreshold": 1,
+   "timeoutSeconds": 8
+  },
+  "unhealthy_events": [
+   "2026-11-14T05:17:49Z   Unhealthy           td-web-5c4484cfbd-g4gs7      3       Readiness probe failed: Get \"http://10.244.0.10:8080/health/ready\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+   "2026-11-14T05:21:03Z   Unhealthy           td-web-5c4484cfbd-g4gs7      7       Readiness probe failed: HTTP probe failed with statuscode: 503",
+   "2026-11-14T05:27:59Z   Unhealthy           td-web-56bf5c4bff-75tsf      2       Readiness probe failed: HTTP probe failed with statuscode: 503",
+   "2026-11-14T05:32:43Z   Unhealthy           td-worker-6d8c58fcfd-kzzxl   4       Readiness probe failed: Get \"http://10.244.0.15:8081/health/ready\": dial tcp 10.244.0.15:8081: connect: connection refused",
+   "2026-11-14T05:36:26Z   Unhealthy           td-worker-c648b58ff-2nmlg    1       Readiness probe failed: Get \"http://10.244.0.17:8081/health/ready\": dial tcp 10.244.0.17:8081: connect: connection refused"
+  ]
+ }
+}

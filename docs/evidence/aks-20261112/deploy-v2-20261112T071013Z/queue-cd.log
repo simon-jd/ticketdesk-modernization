@@ -1,0 +1,5 @@
+2026-11-12T07:10:23Z queued cd run 34 (https://dev.azure.com/<ado-org>/TicketDesk/_build/results?buildId=34) branch modernize tag aks-v2b acr acrtdlab36d2d4 aks aks-tdlab-swedencentral
+2026-11-12T07:10:23Z waiting for the user's approval of environment aks-lab (timeout 1800s)
+2026-11-12T07:10:39Z approval requested: waiting for the user
+2026-11-12T07:34:34Z approval succeeded after 1451 s from queueing
+2026-11-12T07:35:36Z run 34 completed: succeeded

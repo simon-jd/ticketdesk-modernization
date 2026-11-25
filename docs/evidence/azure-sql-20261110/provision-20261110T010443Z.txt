@@ -1,0 +1,66 @@
+2026-11-10T01:04:43Z provision 20261110T010443Z on vm-tdlab-legacy: fetch+prereqs+site+sqltools+import+azsql-users+migrate+deploy+verify SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-6> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=azure BacpacBlob=bacpac/ticketdesk-baseline-s-shared.bacpac BacpacSha256=20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9
+---- ComponentStatus/StdOut/succeeded
+C:\TdBuild\publish\Views\TicketActivity\_ActivityComment.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ActivityForm.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_AddComment.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_Assign.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_CancelMoreInfo.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ChangeAssignment.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_Close.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_EditTicketInfo.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ForceClose.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_GiveUp.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ModifyAttachments.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_Pass.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ReAssign.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_ReOpen.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_RequestMoreInfo.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_Resolve.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_SupplyMoreInfo.cshtml
+	  			C:\TdBuild\publish\Views\TicketActivity\_TakeOver.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\Index.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\_FilterBar.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\_ListMenu.cshtml
+	  			C:\TdBuild\publish\Views\TicketCenter\_TicketList.cshtml
+	  			C:\TdBuild\publish\Views\User\Lockout.cshtml
+	  			C:\TdBuild\publish\Views\User\Register.cshtml
+	  			C:\TdBuild\publish\Views\User\SignIn.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\Edit.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\Index.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\New.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\_UserList.cshtml
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51        49         2         0         0         0
+   Files :       810       810         0         0         0         0
+   Bytes :   41.04 m   41.04 m         0         0         0         0
+   Times :   0:00:03   0:00:01                       0:00:00   0:00:02
+
+
+   Speed :           37,653,401 Bytes/sec.
+   Speed :            2,154.545 MegaBytes/min.
+   Ended : Tuesday, November 10, 2026 1:08:56 AM
+
+[2026-11-10T01:08:57Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-10T01:08:58Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-10T01:08:58Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-10T01:08:58Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-10T01:08:58Z] INFO   database: Azure SQL, ManagedIdentity (tcp:sql-tdlab-36d2d4.database.windows.net,1433)
+[2026-11-10T01:08:58Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SqlAuthentication=ManagedIdentity, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-10T01:09:29Z] INFO   warm-up http://localhost/ -> 500 in 31.5s
+[2026-11-10T01:09:29Z] deploy: database azure, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-10T01:09:29Z] step deploy done in 37.7s
+[2026-11-10T01:09:29Z] ==== step verify
+[2026-11-10T01:09:30Z] FAILED: The remote server returned an error: (500) Internal Server Error.
+[2026-11-10T01:09:30Z] at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 434
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 473
+[2026-11-10T01:09:31Z] TDTIMINGS {"fetch":6.9,"prereqs":145.3,"site":7.3,"sqltools":10.9,"import":40.9,"azsql-users":0.9,"migrate":1.5,"deploy":37.7} total 253.7s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261110T010443Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261110T010443Z steps=fetch+prereqs+site+sqltools+import+azsql-users+migrate+deploy+verify elapsed_s=308 rc=1

@@ -1,0 +1,5 @@
+run 1: failed TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/upgrade-database", route: "setup.upgrade-database") (207ms)
+run 2: failed TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/index", route: "setup.index") (177ms)
+run 5: failed TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/check-upgrade-progress", route: "setup.check-upgrade-progress") (191ms)
+run 7: failed TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/check-upgrade-progress", route: "setup.check-upgrade-progress") (194ms)
+run 10: failed TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/check-upgrade-progress", route: "setup.check-upgrade-progress") (216ms)

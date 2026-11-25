@@ -1,0 +1,12 @@
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:5473
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: ~/Desktop/ticketdesk-modernization/wt-retire/src/modern/TicketDesk.Web
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

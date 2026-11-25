@@ -1,0 +1,15 @@
+
+Running 10 tests using 1 worker
+
+  ✓   1 [sign-in] › e2e/auth.setup.ts:7:8 › sign in as the admin user (249ms)
+  ✓   2 [sign-in] › e2e/auth.setup.ts:7:8 › sign in as the internal user (242ms)
+  ✓   3 [chromium] › e2e/switch-back.spec.ts:36:7 › switch-back › a ticket page switched back is answered by the server page, then by Angular again (1.2s)
+  ✓   4 [chromium] › e2e/tickets.spec.ts:32:7 › as an internal user › list, open a ticket, create one, see it in the list (805ms)
+  ✓   5 [chromium] › e2e/tickets.spec.ts:76:7 › as an internal user › has only the internal lists; the help-desk lists are refused (210ms)
+  ✓   6 [chromium] › e2e/tickets.spec.ts:83:7 › as an internal user › cannot see the attachments of someone else's ticket, and the API needs the antiforgery header (484ms)
+  ✓   7 [chromium] › e2e/tickets.spec.ts:109:5 › workflow on the ticket page: take over, comment, resolve (help desk), close (owner) (991ms)
+  ✓   8 [chromium] › e2e/tickets.spec.ts:149:7 › as an administrator (help desk) › help-desk lists, filters, sorting and paging (454ms)
+  ✓   9 [chromium] › e2e/tickets.spec.ts:175:7 › as an administrator (help desk) › the new-ticket form explains what is missing (281ms)
+  ✓  10 [chromium] › e2e/tickets.spec.ts:189:5 › anonymous visitors are sent to the sign-in page (124ms)
+
+  10 passed (5.8s)

@@ -1,0 +1,62 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:18453 -e TD_RATE=75 -e TD_WARMUP_S=0 -e TD_MEASURE_S=360 -e TD_PRE_VUS=245 -e TD_MAX_VUS=245 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+Run    [ 100% ] setup()
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:18453/tickets/filterList\": read tcp 127.0.0.1:50594->127.0.0.1:18453: read: connection reset by peer"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/1942\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=1942\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-events?ticketId=1942\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/2132\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=2132\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-events?ticketId=2132\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/new\": EOF"
+time="2026-11-13T21:09:58-08:00" level=error msg="TypeError: Cannot read property 'match' of undefined or null\n\tat create (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:187:22(19))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/tickets/opentickets\": EOF"
+time="2026-11-13T21:09:58-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:23(42))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/4250\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=4250\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-events?ticketId=4250\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/tickets/opentickets\": EOF"
+time="2026-11-13T21:09:58-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:23(42))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:18453/tickets/filterList\": read tcp 127.0.0.1:50724->127.0.0.1:18453: read: connection reset by peer"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/8632\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=8632\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-events?ticketId=8632\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/6952\": EOF"
+time="2026-11-13T21:09:58-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=6952\": EOF"
+time="2026-11-13T21:09:59-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:18453/tickets/filterList\": EOF"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/tickets/opentickets\": read tcp 127.0.0.1:51334->127.0.0.1:18453: read: connection reset by peer"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/1121\": read tcp 127.0.0.1:51352->127.0.0.1:18453: read: connection reset by peer"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/tickets/opentickets\": read tcp 127.0.0.1:51330->127.0.0.1:18453: read: connection reset by peer"
+time="2026-11-13T21:10:00-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:23(42))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:10:00-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:23(42))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/9880\": read tcp 127.0.0.1:51336->127.0.0.1:18453: read: connection reset by peer"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=1121\": EOF"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=9880\": EOF"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/2824\": read tcp 127.0.0.1:51332->127.0.0.1:18453: read: connection reset by peer"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-events?ticketId=1121\": EOF"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-events?ticketId=9880\": EOF"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-details?ticketId=2824\": EOF"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/ticket/ticket-events?ticketId=2824\": EOF"
+time="2026-11-13T21:10:00-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:18453/tickets/opentickets\": EOF"
+time="2026-11-13T21:10:00-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:23(42))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:10:34-08:00" level=warning msg="The test has generated metrics with 100086 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+{
+ "all": {
+  "duration_ms": {
+   "max": 2118.323904,
+   "count": 51272,
+   "min": 0,
+   "med": 5.130355,
+   "avg": 16.04585783388611,
+   "p(90)": 19.4969227,
+   "p(95)": 25.016422099999996,
+   "p(99)": 109.86650561000124
+  },
+  "failed": {
+   "passes": 34,
+   "fails": 51238,
+   "rate": 0.000663129973474801
+  }
+ },
+ "dropped": null
+}

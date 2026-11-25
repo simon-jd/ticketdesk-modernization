@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>td-replay</AssemblyName>
+    <RootNamespace>TicketDesk.Replay.Cli</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicketDesk.Replay\TicketDesk.Replay.csproj" />
+  </ItemGroup>
+</Project>

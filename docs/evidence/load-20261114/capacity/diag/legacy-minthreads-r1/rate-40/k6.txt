@@ -1,0 +1,33 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:8443 -e TD_RATE=40 -e TD_WARMUP_S=30 -e TD_MEASURE_S=120 -e TD_PRE_VUS=140 -e TD_MAX_VUS=140 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: ~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js
+        output: csv (~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/capacity/diag/legacy-minthreads-r1/rate-40/k6.csv.gz)
+     scenarios: (100.00%) 1 scenario, 140 max VUs, 3m0s max duration (incl. graceful stop):
+              * mix: 40.00 iterations/s for 2m30s (maxVUs: 140, gracefulStop: 30s)
+Run    [ 100% ] setup()
+{
+ "all": {
+  "duration_ms": {
+   "avg": 58.50417878990703,
+   "p(90)": 119.35138180000008,
+   "p(95)": 141.5840578,
+   "p(99)": 255.25919027999927,
+   "max": 571.276983,
+   "count": 9353,
+   "min": 6.651062,
+   "med": 49.530289
+  },
+  "failed": {
+   "passes": 0,
+   "fails": 9353,
+   "rate": 0
+  }
+ },
+ "dropped": null
+}

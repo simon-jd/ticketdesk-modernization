@@ -1,0 +1,13 @@
+# switch-back proof against the running gateway (https://localhost:5444 -> legacy https://localhost:8443), 2026-11-09T02:03:45Z, git cfce29b
+# registry file: a copy of src/modern/TicketDesk.Web/migration-registry.json, edited in place (atomic rename) while the gateway runs
+## 1. home.about = New
+GET /about -> HTTP/2 200  x-ticketdesk-backend: modern; route=home.about 
+GET /api/migration/routes: migrated 22 of 89
+## 2. edited: home.about = Legacy at 02:03:45.260Z
+first answer from the legacy app at 02:03:45.607Z: GET /about -> HTTP/2 200  server: Microsoft-IIS/10.0 x-ticketdesk-backend: legacy; route=home.about; reason=switched-back 
+migrated 21 of 89 | home.about Legacy
+## 3. edited back: home.about = New at 02:03:45.654Z
+first answer from the new app at 02:03:45.803Z: GET /about -> HTTP/2 200  x-ticketdesk-backend: modern; route=home.about 
+## same gateway process throughout (pid 3602507); its log:
+Migration registry reloaded: 21 route(s) served by the new app
+Migration registry reloaded: 22 route(s) served by the new app

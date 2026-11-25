@@ -1,0 +1,19 @@
+$ npm test   (ng test --watch=false: Vitest, jsdom) at d476ac1, 2026-11-10T18:00:13Z
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.308 seconds] - 2026-11-10T18:00:14.980Z
+
+
+ RUN  v5.1.0 ~/Desktop/ticketdesk-modernization/wt-angular/src/web
+
+ ✓  ticketdesk-web  src/app/tickets/activity-form.spec.ts (3 tests) 6ms
+ ✓  ticketdesk-web  src/app/tickets/list-query.spec.ts (10 tests) 9ms
+ ✓  ticketdesk-web  src/app/tickets/format.spec.ts (5 tests) 5ms
+ ✓  ticketdesk-web  src/app/tickets/new-ticket-form.spec.ts (5 tests) 7ms
+ ✓  ticketdesk-web  src/app/pages.spec.ts (5 tests) 526ms
+
+ Test Files  5 passed (5)
+      Tests  28 passed (28)
+   Start at  10:00:15
+   Duration  1.10s (environment 52%, setup 23%, tests 19%, transform 3%, import 2%, worker 1%)
+

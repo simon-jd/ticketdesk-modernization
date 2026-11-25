@@ -1,0 +1,185 @@
+{
+  "target": "https://localhost:8443",
+  "rate_per_s": 20,
+  "warmup_s": 30,
+  "measure_s": 120,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "count": 3612,
+      "min": 6.556775,
+      "med": 45.849063,
+      "avg": 874.1719226506085,
+      "p(90)": 101.7563736,
+      "p(95)": 124.95234874999996,
+      "p(99)": 30000.57883027,
+      "max": 30001.047776
+    },
+    "failed": {
+      "rate": 0.02159468438538206,
+      "passes": 78,
+      "fails": 3534
+    }
+  },
+  "checks": {
+    "passes": 2090,
+    "fails": 64,
+    "rate": 0.9702878365831012
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "med": 93.435136,
+        "avg": 1408.11672068239,
+        "p(90)": 114.1066725,
+        "p(95)": 132.533479,
+        "p(99)": 30000.7672034,
+        "max": 30001.047776,
+        "count": 636,
+        "min": 77.260429
+      },
+      "failed": {
+        "rate": 0.03930817610062893,
+        "passes": 25,
+        "fails": 611
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "count": 2034,
+        "min": 6.556775,
+        "med": 9.718923,
+        "avg": 690.1980995845627,
+        "p(90)": 59.391699900000006,
+        "p(95)": 89.4014203,
+        "p(99)": 30000.20866988,
+        "max": 30001.043457
+      },
+      "failed": {
+        "rate": 0.01376597836774828,
+        "passes": 28,
+        "fails": 2006
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "p(95)": 120.11856480000003,
+        "p(99)": 30000.749467640002,
+        "max": 30001.006077,
+        "count": 285,
+        "min": 61.787854,
+        "med": 75.602466,
+        "avg": 1282.948103382456,
+        "p(90)": 97.095939
+      },
+      "failed": {
+        "rate": 0.03859649122807018,
+        "passes": 11,
+        "fails": 274
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "p(95)": 41.54319009999998,
+        "p(99)": 30000.8348715,
+        "max": 30001.003163,
+        "count": 379,
+        "min": 15.804003,
+        "med": 22.57972,
+        "avg": 736.3036298364116,
+        "p(90)": 33.3762182
+      },
+      "failed": {
+        "rate": 0.023746701846965697,
+        "passes": 9,
+        "fails": 370
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "p(95)": 131.88792249999997,
+        "p(99)": 30000.55113834,
+        "max": 30000.794335,
+        "count": 278,
+        "min": 23.342691,
+        "med": 53.6365335,
+        "avg": 767.5702537158273,
+        "p(90)": 118.64660610000001
+      },
+      "failed": {
+        "rate": 0.017985611510791366,
+        "passes": 5,
+        "fails": 273
+      }
+    }
+  },
+  "iterations": {
+    "count": 2469,
+    "rate": 14.955409790886854
+  },
+  "dropped_iterations": {
+    "rate": 3.2224698293850977,
+    "count": 532
+  },
+  "vus_max": {
+    "value": 80,
+    "min": 80,
+    "max": 80
+  },
+  "vus": {
+    "value": 7,
+    "min": 0,
+    "max": 80
+  },
+  "root_group_checks": [
+    {
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 864,
+      "fails": 25,
+      "name": "list 200"
+    },
+    {
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 843,
+      "fails": 28
+    },
+    {
+      "name": "filter 200",
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 360,
+      "fails": 11
+    },
+    {
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 231,
+      "fails": 0
+    },
+    {
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 231,
+      "fails": 0,
+      "name": "comment saved",
+      "path": "::comment saved"
+    },
+    {
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 121,
+      "fails": 0
+    },
+    {
+      "fails": 0,
+      "name": "created ticket 200",
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 121
+    }
+  ]
+}

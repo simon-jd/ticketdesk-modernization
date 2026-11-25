@@ -1,0 +1,46 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:5493 -e TD_RATE=5 -e TD_WARMUP_S=30 -e TD_MEASURE_S=120 -e TD_PRE_VUS=35 -e TD_MAX_VUS=35 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: ~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js
+        output: csv (~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/capacity/scale-l/rate-5/k6.csv.gz)
+     scenarios: (100.00%) 1 scenario, 35 max VUs, 3m0s max duration (incl. graceful stop):
+              * mix: 5.00 iterations/s for 2m30s (maxVUs: 35, gracefulStop: 30s)
+Run    [ 100% ] setup()
+Run    [ 100% ] setup()
+time="2026-11-13T20:51:59-08:00" level=warning msg="Insufficient VUs, reached 35 active VUs and cannot initialize more" executor=constant-arrival-rate scenario=mix
+time="2026-11-13T20:53:17-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/tickets/opentickets\": request timeout"
+time="2026-11-13T20:53:17-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:53:19-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/tickets/opentickets\": request timeout"
+time="2026-11-13T20:53:19-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:53:22-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/tickets/opentickets\": request timeout"
+time="2026-11-13T20:53:22-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:53:24-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/tickets/opentickets\": request timeout"
+time="2026-11-13T20:53:24-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+{
+ "all": {
+  "duration_ms": {
+   "max": 30000.679794,
+   "count": 1100,
+   "min": 1.774237,
+   "med": 55.602614,
+   "avg": 3355.051913878183,
+   "p(90)": 20887.209549100004,
+   "p(95)": 23220.927311199997,
+   "p(99)": 27921.627567539996
+  },
+  "failed": {
+   "rate": 0.0036363636363636364,
+   "passes": 4,
+   "fails": 1096
+  }
+ },
+ "dropped": {
+  "count": 40,
+  "rate": 0.23713936843893732
+ }
+}

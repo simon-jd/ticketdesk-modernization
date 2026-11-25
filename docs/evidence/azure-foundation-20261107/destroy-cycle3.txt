@@ -1,0 +1,28 @@
+# cycle 3 destroy (apply of stages/none.tfvars)
+# command: make azure-up/down-foundation (bash wrapper in tmux), terraform 1.17.1, azurerm 5.13.0, azuread 3.10.0, azapi 2.13.0, host lab-host
+# lines kept: stage start/end, plan summary, per-resource Creation/Destruction complete, errors; IDs redacted
+stage foundation down (to none) start 2026-11-08T01:22:13Z
+Plan: 0 to add, 0 to change, 20 to destroy.
+azurerm_key_vault_secret.appinsights[0]: Destruction complete after 25s
+module.keyvault[0].time_sleep.rbac_propagation: Destruction complete after 0s
+module.monitoring[0].azurerm_application_insights.this: Destruction complete after 2s
+module.keyvault[0].azurerm_role_assignment.admin: Destruction complete after 4s
+module.keyvault[0].azurerm_private_endpoint.kv[0]: Destruction complete after 32s
+module.network[0].azurerm_subnet_network_security_group_association.pe: Destruction complete after 4s
+module.network[0].azurerm_network_security_group.pe: Destruction complete after 2s
+module.network[0].azurerm_subnet_network_security_group_association.aks: Destruction complete after 8s
+module.network[0].azurerm_network_security_group.aks: Destruction complete after 2s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Destruction complete after 12s
+module.network[0].azurerm_network_security_group.vm: Destruction complete after 1s
+module.keyvault[0].azurerm_key_vault.this: Destruction complete after 14s
+module.monitoring[0].azurerm_log_analytics_workspace.this: Destruction complete after 21s
+module.network[0].azurerm_subnet.pe: Destruction complete after 18s
+module.network[0].azurerm_subnet.aks: Destruction complete after 25s
+module.network[0].azurerm_subnet.vm: Destruction complete after 32s
+module.keyvault[0].azurerm_private_dns_zone_virtual_network_link.kv[0]: Destruction complete after 2m13s
+module.network[0].azurerm_virtual_network.this: Destruction complete after 11s
+module.keyvault[0].azurerm_private_dns_zone.kv[0]: Destruction complete after 32s
+azurerm_resource_group.lab[0]: Destruction complete after 26s
+Apply complete! Resources: 0 added, 0 changed, 20 destroyed.
+stage foundation down end 2026-11-08T01:25:45Z elapsed_s=212 rc=0
+EXIT=0

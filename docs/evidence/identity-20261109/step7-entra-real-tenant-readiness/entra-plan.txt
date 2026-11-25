@@ -1,0 +1,30 @@
+  # module.entra[0].azuread_application.web will be updated in-place
+  ~ resource "azuread_application" "web" {
+        id                             = "/applications/<principal-id-13>"
+        tags                           = [
+            "owner=agent-azure-foundation",
+            "project=ticketdesk",
+            "ttl=project-end",
+        ]
+        # (25 unchanged attributes hidden)
+      ~ web {
+          ~ redirect_uris = [
+              + "https://localhost:5443/signin-oidc",
+                # (2 unchanged elements hidden)
+            ]
+            # (2 unchanged attributes hidden)
+            # (1 unchanged block hidden)
+        }
+        # (9 unchanged blocks hidden)
+    }
+  # module.entra[0].azuread_application_password.web[0] will be created
+  + resource "azuread_application_password" "web" {
+      + application_id = "/applications/<principal-id-13>"
+      + display_name   = "ticketdesk-lab-web local sign-in (identity round)"
+      + end_date       = "2026-12-31T00:00:00Z"
+      + id             = (known after apply)
+      + key_id         = (known after apply)
+      + start_date     = (known after apply)
+      + value          = (sensitive value)
+    }
+Plan: 1 to add, 1 to change, 0 to destroy.

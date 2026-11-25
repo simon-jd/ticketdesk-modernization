@@ -1,0 +1,29 @@
+{
+  "command": "app-smoke",
+  "base": "https://localhost:18443",
+  "ok": false,
+  "checks_passed": 1,
+  "checks_total": 2,
+  "requests": 1,
+  "seconds": 60.1,
+  "checks": [
+    {
+      "check": "home page over HTTPS",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "exception",
+      "ok": false,
+      "detail": "URLError(TimeoutError('_ssl.c:1063: The handshake operation timed out'))"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 59
+    }
+  ]
+}

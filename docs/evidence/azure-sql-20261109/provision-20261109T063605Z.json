@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-09T06:36:12Z] provision run 20261109T063605Z on tdlab-legacy, steps: freeze+export+import+azsql-users+reconcile+switch\n[2026-11-09T06:36:12Z] ==== step freeze\n[2026-11-09T06:36:12Z] TDMARK freeze_start 2026-11-09T06:36:12.176Z\n[2026-11-09T06:36:12Z] TDMARK write_denied 2026-11-09T06:36:12.275Z\n[2026-11-09T06:36:12Z] TDMARK frozen 2026-11-09T06:36:12.295Z\n[2026-11-09T06:36:12Z] writes frozen: DENY INSERT, UPDATE, DELETE to [IIS AppPool\\TicketDesk]; no app transaction open\n[2026-11-09T06:36:12Z] step freeze done in 0.1s\n[2026-11-09T06:36:12Z] ==== step export\n[2026-11-09T06:36:12Z] TDMARK export_start 2026-11-09T06:36:12.315Z\n[2026-11-09T06:36:20Z] TDMARK copy_restored 2026-11-09T06:36:20.145Z\n[2026-11-09T06:36:20Z] FAILED: Exception calling \"Fill\" with \"1\" argument(s): \"The database principal owns a schema in the database, and cannot be dropped.\"\n[2026-11-09T06:36:20Z] at Invoke-TdSql, C:\\TdOps\\windows\\TdOps.psm1: line 109\nat Invoke-Step, C:\\Packages\\Plugins\\Microsoft.CPlat.Core.RunCommandWindows\\1.1.23\\Downloads\\script5.ps1: line 312\nat <ScriptBlock>, C:\\Packages\\Plugins\\Microsoft.CPlat.Core.RunCommandWindows\\1.1.23\\Downloads\\script5.ps1: line 461\n[2026-11-09T06:36:20Z] TDTIMINGS {\"freeze\":0.1} total 8.3s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261109T063605Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

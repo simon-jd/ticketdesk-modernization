@@ -1,0 +1,2 @@
+# xml_deadlock_report events in td-sql's system_health from 2026-11-13T18:59:19Z to 22:2xZ (after-full-x20, the class loops, after-full-poller-x20): 0
+# (before the fix, 2026-11-13 17:58-18:43Z: 4 IFTSAutoNested deadlocks with FullTextStatus.ReadAsync, the full-text task the victim each time, plus 4 DATABASE-lock deadlocks between ft-poll.sh and a DROP DATABASE; see ../deadlocks-summary.txt)

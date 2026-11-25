@@ -1,0 +1,5 @@
+sign-in page Entra button: True University (Entra ID)
+challenge: 302 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
+  response_type ['code'] response_mode ['form_post'] code_challenge_method ['S256'] scope ['openid profile email']
+  redirect_uri ['https://localhost:5443/signin-oidc']
+Microsoft authorize page: 200 AADSTS errors: none | sign-in form present: True

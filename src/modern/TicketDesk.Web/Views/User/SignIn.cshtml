@@ -1,0 +1,76 @@
+@* Port of the legacy Views/User/Signin.cshtml (TicketDesk 2.5, Ms-PL). The Entra ID option appears only when it is enabled. *@
+@model TicketDesk.Web.Controllers.UserController.SignInPage
+@using SignInStrings = TicketDesk.Localization.Views.User.SignIn
+@using TicketDesk.Web.Controllers
+@{
+    var action = "/user/sign-in" + (string.IsNullOrEmpty(Model.ReturnUrl) ? "" : "?ReturnUrl=" + Uri.EscapeDataString(Model.ReturnUrl));
+}
+@section title
+{
+    @SignInStrings.Title
+}
+@section Scripts {
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-sm-12">@SignInStrings.Legend</legend>
+            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+<form action="@action" class="form-horizontal" method="post" role="form">@Html.AntiForgeryToken()                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">@SignInStrings.Header</h2>
+                        </div>
+                        <div class="panel-body">
+                            @if (Model.DemoMode)
+                            {
+                                <div class="alert alert-warning">
+                                    <p>Demo Mode defualt user credentials:</p>
+                                    <ul>
+                                        <li>Administrator account: admin@example.com (123456)</li>
+                                        <li>Helpdesk user account: staff@example.com (123456)</li>
+                                        <li>Standard user account: user@example.com (123456)</li>
+                                    </ul>
+                                </div>
+                            }
+                            @LegacyForm.ValidationSummary(ViewData.ModelState, excludePropertyErrors: true)
+                            <div class="form-group">
+                                @LegacyForm.Label(UserController.UserNameOrEmailField, "col-md-2 control-label")
+                                <div class="col-md-10">
+                                    @LegacyForm.TextBox(UserController.UserNameOrEmailField, Model.UserNameOrEmail, state: ViewData.ModelState)
+                                    @LegacyForm.ValidationMessage(UserController.UserNameOrEmailField, ViewData.ModelState)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @LegacyForm.Label(UserController.PasswordField, "col-md-2 control-label")
+                                <div class="col-md-10">
+                                    @LegacyForm.Password(UserController.PasswordField, state: ViewData.ModelState)
+                                    @LegacyForm.ValidationMessage(UserController.PasswordField, ViewData.ModelState)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-9">
+                                    <label class="checkbox-inline">
+                                        @LegacyForm.CheckBox(UserController.RememberMeField, Model.RememberMe)
+                                        @UserController.RememberMeField.Label
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <button type="submit" class="btn btn-success" tabindex="10">@SignInStrings.SaveOption</button>
+                            @if (Model.RegisterEnabled)
+                            {
+                                <span>&nbsp; &nbsp;</span>
+                                <a href="/user/register">@SignInStrings.BackOption</a>
+                            }
+                        </div>
+                    </div>
+</form>@if (Model.EntraDisplayName != null)
+{
+<form action="/user/sign-in/entra@(string.IsNullOrEmpty(Model.ReturnUrl) ? "" : "?ReturnUrl=" + Uri.EscapeDataString(Model.ReturnUrl))" class="form-horizontal" method="post" role="form" id="entraSignIn">@Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-windows"></i> @Model.EntraDisplayName</button>
+</form>
+}            </div>
+        </fieldset>
+    </div>
+</main>

@@ -1,0 +1,14 @@
+2026-11-08T16:17:36Z provision 20261108T161736Z on vm-tdlab-legacy: drill-loss 
+provision 20261108T161736Z steps=drill-loss elapsed_s=33 rc=0
+2026-11-08T16:17:36Z provision 20261108T161736Z on vm-tdlab-legacy: drill-loss 
+---- ComponentStatus/StdOut/succeeded
+[2026-11-08T16:17:56Z] provision run 20261108T161736Z on tdlab-legacy, steps: drill-loss
+[2026-11-08T16:17:56Z] ==== step drill-loss
+[2026-11-08T16:17:59Z] drill: TicketDesk database dropped, local backup folders deleted
+[2026-11-08T16:17:59Z] step drill-loss done in 3.2s
+[2026-11-08T16:17:59Z] TDTIMINGS {"drill-loss":3.2} total 3.4s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T161736Z.log
+---- ComponentStatus/StdErr/succeeded
+
+Alive[################################################################]  100.0000%Finished[#############################################################]  100.0000%
+provision 20261108T161736Z steps=drill-loss elapsed_s=33 rc=0

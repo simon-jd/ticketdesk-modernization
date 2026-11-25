@@ -1,0 +1,5 @@
+run 16 cd-20261111.1 cd refs/heads/modernize 5c70418e status=notStarted result=- reason=manual queued=2026-11-11T09:04:21.7856352Z start=- finish=-
+Checkpoint inProgress -            -        Checkpoint.Approval
+Checkpoint inProgress -            -        Checkpoint
+Stage      pending    -            -        kind-local
+Stage      completed  skipped      -        aks-lab

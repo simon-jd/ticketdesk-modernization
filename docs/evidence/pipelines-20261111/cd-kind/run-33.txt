@@ -1,0 +1,15 @@
+run 33 cd-20261111.3 cd refs/heads/modernize ca0443fa status=completed result=succeeded reason=resourceTrigger queued=2026-11-11T19:07:19.2845023Z start=2026-11-11T22:42:05.8963244Z finish=2026-11-11T22:42:39.9410045Z
+Checkpoint completed  succeeded    12883 s  Checkpoint.Approval
+Checkpoint completed  succeeded    12883 s  Checkpoint
+Job        completed  succeeded    21 s     Deploy to kind (td-cd)
+Stage      completed  succeeded    30 s     kind-local
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    3 s      Checkout TicketDesk@modernize to s
+Task       completed  succeeded    1 s      kind cluster, relay, Service Bus emulator
+Task       completed  succeeded    3 s      td-db migrate (database TicketDesk_cd)
+Task       completed  succeeded    10 s     Deploy ci-32
+Task       completed  succeeded    1 s      Smoke
+Task       completed  succeeded    3 s      PublishPipelineArtifact
+Task       completed  succeeded    0 s      Finalize Job
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@modernize to s
+Stage      completed  skipped      -        aks-lab

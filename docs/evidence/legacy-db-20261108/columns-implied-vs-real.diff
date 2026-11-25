@@ -1,0 +1,23 @@
+88a89,110
+> notifications.ApplicationPushNotificationSettings.ApplicationName	nvarchar	128	not null	
+> notifications.ApplicationPushNotificationSettings.PushNotificationSettingsJson	nvarchar	max	null	
+> notifications.PushNotificationDestinations.DestinationAddress	nvarchar	256	null	
+> notifications.PushNotificationDestinations.DestinationId	int	4	not null	identity
+> notifications.PushNotificationDestinations.DestinationType	nvarchar	50	null	
+> notifications.PushNotificationDestinations.SubscriberId	nvarchar	256	null	
+> notifications.PushNotificationDestinations.SubscriberName	nvarchar	100	null	
+> notifications.PushNotificationItems.ContentSourceId	int	4	not null	
+> notifications.PushNotificationItems.ContentSourceType	nvarchar	100	not null	
+> notifications.PushNotificationItems.CreatedDate	datetimeoffset	10	not null	
+> notifications.PushNotificationItems.DeliveryStatus	int	4	not null	
+> notifications.PushNotificationItems.DestinationId	int	4	not null	
+> notifications.PushNotificationItems.MessageContent	nvarchar	max	null	
+> notifications.PushNotificationItems.PushNotificationItemId	int	4	not null	identity
+> notifications.PushNotificationItems.RetryCount	int	4	not null	
+> notifications.PushNotificationItems.ScheduledSendDate	datetimeoffset	10	null	
+> notifications.PushNotificationItems.SubscriberId	nvarchar	256	not null	
+> notifications.SubscriberPushNotificationSettings.IsEnabled	bit	1	not null	
+> notifications.SubscriberPushNotificationSettings.SubscriberId	nvarchar	256	not null	
+> notifications.TicketPushNotificationItems.CanceledEventsList	nvarchar	max	null	
+> notifications.TicketPushNotificationItems.PushNotificationItemId	int	4	not null	
+> notifications.TicketPushNotificationItems.TicketEventsList	nvarchar	max	null	

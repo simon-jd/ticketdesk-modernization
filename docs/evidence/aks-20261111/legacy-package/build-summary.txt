@@ -1,0 +1,19 @@
+# ops/onprem/legacy-artifact.sh build REV (TD_ARTIFACTS=$TD_W/vm/artifacts/aks), lab VM, lock aks, 2026-11-11
+== 920e185
+[2026-11-11T04:35:28Z] INFO   restore exit 0 in 9.6s (warnings , errors )
+[2026-11-11T04:35:43Z] INFO   build exit 0 in 14.4s (warnings 5, errors 0)
+[2026-11-11T04:35:44Z] INFO   publish exit 0 in 1.5s (warnings 1, errors 0)
+[2026-11-11T04:35:45Z] INFO   published 897 files to C:\TdBuild\publish in 25.8s
+2026-11-11T04:35:48Z package $TD_W/vm/artifacts/aks/td-legacy-publish-920e185.zip (21519066 bytes, sha256 46f9c118b7f0f6b9a48c143c2966a47c61cac4edd467c9cd4bb33524bc141a66) in 33 s
+      4 warning 
+      4 warning CS0618
+      4 warning MSB3245
+      4 warning MSB3247
+== b4c1428
+[2026-11-11T04:40:42Z] INFO   restore exit 0 in 5.7s (warnings , errors )
+[2026-11-11T04:40:53Z] INFO   build exit 0 in 11.7s (warnings 4, errors 0)
+[2026-11-11T04:40:55Z] INFO   publish exit 0 in 1.5s (warnings 0, errors 0)
+[2026-11-11T04:40:55Z] INFO   published 897 files to C:\TdBuild\publish in 19s
+2026-11-11T04:40:59Z package $TD_W/vm/artifacts/aks/td-legacy-publish-b4c1428.zip (21518910 bytes, sha256 6b187486966bfd95177019735d9208f85b250e8de0bc70ec85f1acfbefa88562) in 26 s
+      4 warning CS0618
+      4 warning MSB3245

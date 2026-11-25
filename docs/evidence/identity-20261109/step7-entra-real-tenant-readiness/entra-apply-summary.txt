@@ -1,0 +1,7 @@
+  # module.entra[0].azuread_application.web will be updated in-place
+          ~ redirect_uris = [
+              + "https://localhost:5443/signin-oidc",
+  # module.entra[0].azuread_application_password.web[0] will be created
+module.entra[0].azuread_application.web: Modifications complete after 1s [id=…]
+module.entra[0].azuread_application_password.web[0]: Creation complete after 6s [id=…]
+Apply complete! Resources: 1 added, 1 changed, 0 destroyed.

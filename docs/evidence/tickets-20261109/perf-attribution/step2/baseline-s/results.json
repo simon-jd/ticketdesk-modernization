@@ -1,0 +1,61 @@
+{
+  "direct": {
+    "runs": [
+      {
+        "run": "direct-run1",
+        "requests": 1165,
+        "p50": 28.159226,
+        "p95": 73.37652019999999,
+        "p99": 83.28707195999995,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 24,
+        "by_op_p95": {
+          "list": 80.9461288,
+          "view": 44.4816534,
+          "filter": 79.16030239999999,
+          "comment": 30.41756175,
+          "create": 79.951719
+        }
+      },
+      {
+        "run": "direct-run2",
+        "requests": 1137,
+        "p50": 27.575428,
+        "p95": 69.9003036,
+        "p99": 80.59299300000002,
+        "error_rate": 0,
+        "checks": 1,
+        "dropped_iterations": 1,
+        "by_op_p95": {
+          "list": 80.267505,
+          "view": 42.84560519999998,
+          "filter": 71.8419488,
+          "comment": 27.7949031,
+          "create": 63.36023329999997
+        }
+      }
+    ],
+    "settings": {
+      "target": "https://localhost:8443",
+      "rate_per_s": 10,
+      "warmup_s": 30,
+      "measure_s": 60,
+      "users": 37
+    },
+    "median": {
+      "p50": 27.867327,
+      "p95": 71.6384119,
+      "p99": 81.94003247999999,
+      "error_rate": 0.0,
+      "requests": 1151.0,
+      "by_op_p95": {
+        "list": 80.6068169,
+        "view": 43.66362929999999,
+        "filter": 75.5011256,
+        "comment": 29.106232425,
+        "create": 71.65597614999999
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# td-sql full-text crawl log /var/opt/mssql/log/SQLFT0003400005.LOG (database ID 34 = the search fixture copy of run 14),
+# read with `docker exec td-sql ... tail` at 18:38:4x UTC while the test was waiting; the file was reused by a later
+# database with ID 34 before it could be copied whole, so these are the lines printed then (first line cut by tail -c).
+lation completed for table or indexed view '[td_routes_48d804ee6e20492fba70a82e9de14f6c].[dbo].[Tickets]' (table or indexed view ID '1269579561', database ID '34'). Number of documents processed: 4. Number of documents failed: 0. Number of documents that will be retried: 0.
+2026-11-13 18:38:20.00 spid6s      Informational: Full-text Auto population initialized for table or indexed view '[td_routes_48d804ee6e20492fba70a82e9de14f6c].[dbo].[Tickets]' (table or indexed view ID '1269579561', database ID '34'). Population sub-tasks: 1.
+2026-11-13 18:38:21.01 spid97s     Informational: Full-text Auto population initialized for table or indexed view '[td_routes_48d804ee6e20492fba70a82e9de14f6c].[dbo].[TicketEvents]' (table or indexed view ID '1317579732', database ID '34'). Population sub-tasks: 1.
+2026-11-13 18:38:23.02 spid97s     Informational: Full-text Auto population completed for table or indexed view '[td_routes_48d804ee6e20492fba70a82e9de14f6c].[dbo].[TicketEvents]' (table or indexed view ID '1317579732', database ID '34'). Number of documents processed: 1. Number of documents failed: 0. Number of documents that will be retried: 0.
+2026-11-13 18:38:24.00 spid11s     Informational: Full-text Auto population completed for table or indexed view '[td_routes_48d804ee6e20492fba70a82e9de14f6c].[dbo].[Tickets]' (table or indexed view ID '1269579561', database ID '34'). Number of documents processed: 1. Number of documents failed: 0. Number of documents that will be retried: 0.
+
+# the same database at 18:38:5x (sys.fulltext_indexes + OBJECTPROPERTYEX; sys.dm_fts_index_population):
+# table        crawl_type    crawl_start              crawl_end                has_crawl_completed  PopulateStatus  PendingChanges  FailCount
+Tickets        UPDATE_CRAWL  2026-11-13 18:38:20.003  2026-11-13 18:38:24.007  1                    0               0               0
+TicketEvents   UPDATE_CRAWL  2026-11-13 18:38:20.007  NULL                     0                    6               0               0
+# dm_fts_index_population: Tickets AUTO Starting 18:38:20.003; TicketEvents AUTO Starting 18:38:20.007

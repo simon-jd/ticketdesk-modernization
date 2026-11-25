@@ -1,0 +1,2 @@
+cores	0	6
+standardBasv2Family	0	10

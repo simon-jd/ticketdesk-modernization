@@ -1,0 +1,2 @@
+$ td-replay compare --baseline golden --candidate docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/direct/candidate.jsonl --out-dir docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/direct/compare
+compared 262, matched 261, mismatched 1 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261109/step4-blob/golden-blob/direct/compare/report.md

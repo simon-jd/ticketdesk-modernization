@@ -1,0 +1,10 @@
+## restore drill (not-restorable), deadline 15 s after its start: exit 1
+restored database: Basic (0.161 1/Day), deleted right after the drill
+disaster (marker writes stopped) 2026-11-11T18:58:17Z
+restore requested 2026-11-11T18:58:17.876Z (point in time 2026-11-11T18:58:17Z)
+attempt 1 2026-11-11T18:58:17.895Z rc=1: stub: the point in time is not restorable yet 
+2026-11-11T18:58:29Z restore-drill: not measured: session deadline (point in time not restored by the deadline (attempt 2); RTO and RPO not measured)
+## not-measured.txt
+2026-11-11T18:58:29Z restore-drill: not measured: session deadline (point in time not restored by the deadline (attempt 2); RTO and RPO not measured)
+## result.json written: no; helm called: 0
+## restore call still running: 0

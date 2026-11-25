@@ -1,0 +1,6 @@
+push items: 1 x 6
+
+push items per ticket: 10001 ticket x 2
+push items per ticket: 10002 new ticket x 2
+push items per ticket: 10002 ticket x 2
+

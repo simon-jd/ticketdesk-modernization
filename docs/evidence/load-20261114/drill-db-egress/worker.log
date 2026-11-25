@@ -1,0 +1,400 @@
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10902 events 48666 to destination 17 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11017 events 48667 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10791 events 48668 to destination 25 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10981 events 48669 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10683 events 48670 to destination 30 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10995 events 48671 to destination 4 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11029 events 48672: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11036 events 48673: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10954 events 48674 to destination 16 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10989 events 48675 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11006 events 48676 to destination 5 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11037 events 48677: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10796 events 48678 to destination 15 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10951 events 48679 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11038 events 48680: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10971 events 48681 to destination 2 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11030 events 48682 to destination 29 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10977 events 48683 to destination 26 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11039 events 48684: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10993 events 48685 to destination 24 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11005 events 48686 to destination 10 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11029 events 48687 to destination 23 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10870 events 48688 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11040 events 48689: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48690 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11041 events 48691: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10954 events 48692 to destination 16 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11001 events 48693 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10954 events 48694 to destination 16 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11016 events 48695 to destination 21 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10660 events 48696 to destination 33 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11017 events 48697 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10956 events 48698 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10886 events 48699 to destination 9 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10909 events 48700 to destination 5 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11026 events 48701 to destination 14 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10651 events 48702 to destination 21 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 10992 events 48703: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10980 events 48704 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10989 events 48705 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11017 events 48706 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11042 events 48707: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11025 events 48708 to destination 7 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11043 events 48709: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11011 events 48710 to destination 24 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11016 events 48711 to destination 21 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10651 events 48712 to destination 21 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48713 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11044 events 48714: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11045 events 48715: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10954 events 48716 to destination 16 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10942 events 48717 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11017 events 48718 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10954 events 48719 to destination 16 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10902 events 48720 to destination 17 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11046 events 48721: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10727 events 48722 to destination 35 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11047 events 48723: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11048 events 48724: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10983 events 48725 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11049 events 48726: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10791 events 48727 to destination 25 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11037 events 48728 to destination 28 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10956 events 48729 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10796 events 48730 to destination 15 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11030 events 48731 to destination 29 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11000 events 48732 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10715 events 48733 to destination 8 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11039 events 48734 to destination 25 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10715 events 48735 to destination 8 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11050 events 48736: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48737 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10683 events 48738 to destination 30 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10942 events 48739 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11051 events 48740: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11001 events 48741 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11005 events 48742 to destination 10 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11052 events 48743: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11017 events 48744 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11041 events 48745 to destination 22 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11053 events 48746: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11054 events 48747: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10981 events 48748 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10902 events 48749 to destination 17 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11055 events 48750: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11056 events 48751: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10958 events 48752 to destination 23 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11026 events 48753 to destination 14 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10956 events 48754 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11010 events 48755 to destination 6 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10996 events 48756 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11033 events 48757 to destination 18 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10940 events 48758 to destination 8 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11025 events 48759 to destination 7 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11057 events 48760: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10925 events 48761 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10981 events 48762 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11058 events 48763: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11059 events 48764: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11060 events 48765: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11026 events 48766 to destination 14 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11037 events 48767 to destination 28 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10963 events 48768 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10683 events 48769 to destination 30 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10989 events 48770 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11037 events 48771 to destination 28 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11061 events 48772: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11048 events 48773 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10954 events 48774 to destination 16 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10774 events 48775 to destination 16 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11043 events 48776 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11062 events 48777: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11045 events 48778 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10981 events 48779 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11063 events 48780: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48781 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11048 events 48782 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10983 events 48783 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10956 events 48784 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11064 events 48785: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10715 events 48786 to destination 8 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11065 events 48787: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10971 events 48788 to destination 2 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11052 events 48789 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48790 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11017 events 48791 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11066 events 48792: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10998 events 48793 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11000 events 48794 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11067 events 48795: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10651 events 48796 to destination 21 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48797 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11068 events 48798: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10989 events 48799 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11026 events 48800 to destination 14 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10902 events 48801 to destination 17 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10942 events 48802 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10791 events 48803 to destination 25 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11069 events 48804: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11070 events 48805: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11010 events 48806 to destination 6 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11071 events 48807: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 10796 events 48808: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11038 events 48809 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48810 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11045 events 48811 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48812 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11072 events 48813: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11073 events 48814: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10988 events 48815 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11074 events 48816: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11001 events 48817 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11075 events 48818: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11051 events 48819 to destination 27 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48820 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 10989 events 48821: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10956 events 48822 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11076 events 48823: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11077 events 48824: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11018 events 48825 to destination 15 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10971 events 48826 to destination 2 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11048 events 48827 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10998 events 48828 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11078 events 48829: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11055 events 48830 to destination 33 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10791 events 48831 to destination 25 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10933 events 48832 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11079 events 48833: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10902 events 48834 to destination 17 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10886 events 48835 to destination 9 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11054 events 48836 to destination 18 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10951 events 48837 to destination 11 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11057 events 48838 to destination 5 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10791 events 48839 to destination 25 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11080 events 48840: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10715 events 48841 to destination 8 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11081 events 48842: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11082 events 48843: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10902 events 48844 to destination 17 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11083 events 48845: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11057 events 48846 to destination 5 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11084 events 48847: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10998 events 48848 to destination 34 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11001 events 48849 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10963 events 48850 to destination 37 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10956 events 48851 to destination 31 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11085 events 48852: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11086 events 48853: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10791 events 48854 to destination 25 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11087 events 48855: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11001 events 48856 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11069 events 48857 to destination 20 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11088 events 48858: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11089 events 48859: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11090 events 48860: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11074 events 48861 to destination 35 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11091 events 48862: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10991 events 48863 to destination 36 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Ticket 11092 events 48864: nothing sent (no recipient with an e-mail destination)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 11055 events 48865 to destination 33 (attempt 1)

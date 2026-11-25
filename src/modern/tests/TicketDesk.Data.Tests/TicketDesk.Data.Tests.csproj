@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Data.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TicketDesk.Data\TicketDesk.Data.csproj" />
+    <!-- deterministic synthetic data and the EF6-implied schema for scratch databases -->
+    <ProjectReference Include="..\..\..\..\tools\Seed\TicketDesk.Seed\TicketDesk.Seed.csproj" />
+    <ProjectReference Include="..\..\TicketDesk.Database\TicketDesk.Database.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\*.cs" Link="Shared\%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

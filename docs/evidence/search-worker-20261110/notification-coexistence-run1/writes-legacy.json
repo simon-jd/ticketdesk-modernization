@@ -1,0 +1,17 @@
+{
+  "phase": "legacy",
+  "writes": [
+    {
+      "kind": "create",
+      "ticket": 10002,
+      "backend": "legacy; route=ticket.new.post; reason=switched-back",
+      "status": 302
+    },
+    {
+      "kind": "comment",
+      "ticket": 10001,
+      "backend": "legacy; route=activity.add-comment; reason=switched-back",
+      "status": 200
+    }
+  ]
+}

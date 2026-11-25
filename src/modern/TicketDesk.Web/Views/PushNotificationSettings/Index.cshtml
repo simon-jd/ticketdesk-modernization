@@ -1,0 +1,256 @@
+@* Port of the legacy Views/PushNotificationSettings/Index.cshtml (TicketDesk 2.5, Ms-PL). *@
+@model TicketDesk.Web.Controllers.PushNotificationSettingsController.Page
+@using IndexStrings = TicketDesk.Localization.Views.PushNotificationSettings.Index
+@using PushStrings = TicketDesk.Localization.PushNotifications.Strings
+@using TicketDesk.Web.Controllers
+@{
+    var s = Model.Settings;
+    var st = ViewData.ModelState;
+    string I(string path) => st.TryGetValue(path, out var e) && e.AttemptedValue != null ? e.AttemptedValue : s.Int(path).ToString(System.Globalization.CultureInfo.InvariantCulture);
+    LegacyField B(string name, string label) => new(name, label) { Required = true };
+    LegacyField N(string name, string label) => new(name, label) { Required = true, Number = true };
+    IHtmlContent Number(LegacyField f) => new HtmlString(LegacyForm.TextBox(f, I(f.Name), "form-control input-sm text-box single-line", st).ToString()!.Replace("type=\"text\"", "type=\"number\""));
+    var mode = s.Int("BroadcastSettings.BroadcastMode");
+    var emailField = new LegacyField("BroadcastSettings.SendToCustomEmailAddress", PushStrings.SendToCustomEmailAddress) { Email = true };
+}
+@functions {
+    static string Markup(IHtmlContent c) { using var w = new StringWriter(); c.WriteTo(w, System.Text.Encodings.Web.HtmlEncoder.Default); return w.ToString(); }
+    static string Option(string value, string text, bool selected) =>
+        (selected ? $"<option selected=\"selected\" value=\"{value}\">" : $"<option value=\"{value}\">") + System.Net.WebUtility.HtmlEncode(text) + "</option>\r\n";
+}
+@section title
+{
+    @IndexStrings.Title
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#useCurrentUrlButton').on('click', function () {
+                $('#siteRootUrl').val('@Model.CurrentRootUrl');
+            });
+
+            //Fix local url validation
+            var originalMethods = {
+                url: $.validator.methods.url
+            };
+            $.validator.methods.url = function (value, element) {
+                return this.optional(element) || (/^https?:\/\/\w+(\.\w+)*(:[0-9]+)?\/?(\/[.\w]*)*$/).test(value);
+            };
+
+        });
+    </script>
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-9 col-lg-offset-1 col-sm-12">@IndexStrings.Legend</legend>
+            <div class="col-lg-9 col-lg-offset-1 col-sm-12">
+                @if (Model.Saved)
+                {
+                            <div class="alert alert-success">
+                                @IndexStrings.Saved_Alert
+                                <div class="text-muted">The server has been restarted, there may be a brief delay while the system re-initializes. </div>
+                            </div>
+                }
+<form action="/admin/push-notification-settings" class="form-horizontal" method="post">@Html.AntiForgeryToken()                            <div class="panel panel-info">
+
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">@IndexStrings.Delivery_Header</h2>
+                                </div>
+                                <div class="panel-body">
+                                    <partial name="_ListDeliveryProviderSettings" model="s" />
+                                </div>
+
+
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">@IndexStrings.General_Header</h2>
+                                </div>
+                                <div class="panel-body">
+                                    @LegacyForm.ValidationSummary(st, excludePropertyErrors: true)
+
+                                    <input id="ApplicationName" name="ApplicationName" type="hidden" value="TicketDesk" />
+                                    <div class="form-group">
+                                        @LegacyForm.Label(B("IsEnabled", PushStrings.NotificationsEnabled), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            <label class="checkbox-inline">
+                                                @LegacyForm.CheckBox(B("IsEnabled", PushStrings.NotificationsEnabled), s.Bool("IsEnabled"))
+                                                @PushStrings.NotificationsEnabled_Prompt
+                                            </label>
+                                            @LegacyForm.ValidationMessage(B("IsEnabled", PushStrings.NotificationsEnabled), st)
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @LegacyForm.Label(B("IsBackgroundQueueEnabled", PushStrings.BackgroundQueueEnabled), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            <label class="checkbox-inline">
+                                                @LegacyForm.CheckBox(B("IsBackgroundQueueEnabled", PushStrings.BackgroundQueueEnabled), s.Bool("IsBackgroundQueueEnabled"))
+                                                @PushStrings.BackgroundQueueEnabled_Prompt
+                                            </label>
+                                            <span class="help-block">@Html.Raw(PushStrings.BackgroundQueueEnabled_Description)</span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="siteRootUrl" class="col-md-4 col-sm-4 control-label">@IndexStrings.SiteRootUrl</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="input-group input-group-sm">
+                                                <input id="siteRootUrl"
+                                                       name="siteRootUrl"
+                                                       class="form-control input-sm"
+                                                       type="url"
+                                                       data-val="true"
+                                                       data-val-url="@IndexStrings.SiteRootUrl_Validation"
+                                                       value="@Model.SiteRootUrl" />
+                                                <span class="input-group-btn">
+                                                    <button id="useCurrentUrlButton"
+                                                            type="button"
+                                                            data-toggle="tooltip"
+                                                            data-placement="bottom"
+                                                            title="@IndexStrings.UseCurrentURL" class="btn btn-default btn-sm">
+                                                        <i class="fa fa-link"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <div class="field-validation-valid" data-valmsg-for="siteRootUrl" data-valmsg-replace="true"></div>
+                                            <span class="help-block">
+                                                @IndexStrings.SiteRootUrl_Help
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @LegacyForm.Label(N("DeliveryIntervalMinutes", PushStrings.DeliveryAttemptInterval), "col-md-4 col-sm-4  control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            @Number(N("DeliveryIntervalMinutes", PushStrings.DeliveryAttemptInterval))
+                                            @LegacyForm.ValidationMessage(N("DeliveryIntervalMinutes", PushStrings.DeliveryAttemptInterval), st)
+                                            <span class="help-block">@PushStrings.DeliveryAttemptInterval_Description</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @LegacyForm.Label(N("RetryAttempts", PushStrings.NumberOfRetryAttempts), "col-md-4 col-sm-4  control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            @Number(N("RetryAttempts", PushStrings.NumberOfRetryAttempts))
+                                            @LegacyForm.ValidationMessage(N("RetryAttempts", PushStrings.NumberOfRetryAttempts), st)
+                                            <span class="help-block">@PushStrings.NumberOfRetryAttempts_Description</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @LegacyForm.Label(N("RetryIntervalMinutes", PushStrings.InitialRetryInterval), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            @Number(N("RetryIntervalMinutes", PushStrings.InitialRetryInterval))
+                                            @LegacyForm.ValidationMessage(N("RetryIntervalMinutes", PushStrings.InitialRetryInterval), st)
+                                            <span class="help-block">@PushStrings.InitialRetryInterval_Description</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">@IndexStrings.BroadcastNotification_Header</h2>
+                                </div>
+                                <div class="panel-body ">
+                                    <div class="form-group">
+                                        @LegacyForm.Label(B("BroadcastSettings.IsBroadcastEnabled", PushStrings.IsBroadcastEnabled), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            <label class="checkbox-inline">
+                                                @LegacyForm.CheckBox(B("BroadcastSettings.IsBroadcastEnabled", PushStrings.IsBroadcastEnabled), s.Bool("BroadcastSettings.IsBroadcastEnabled"))
+                                                @PushStrings.IsBroadcastEnabled_Prompt
+                                            </label>
+                                            
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="BroadcastSettings_BroadcastMode">@PushStrings.BroadcastMode</label>
+                                        <div class="col-md-8 col-sm-8">
+
+                                            <select class="form-control" data-val="true" data-val-required="@string.Format(TicketDesk.Localization.Validation.FieldRequired, PushStrings.BroadcastMode)" id="BroadcastSettings_BroadcastMode" name="BroadcastSettings.BroadcastMode">@Html.Raw(Option("0", PushStrings.PushNotificationBroadcastModeAllStaff, mode == 0) + Option("1", PushStrings.PushNotificationBroadcastModeCustomAddress, mode == 1))</select>
+
+                                            <span class="help-block">@PushStrings.BroadcastMode_Description</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="BroadcastSettings_SendToCustomEmailDisplayName">@PushStrings.SendToCustomEmailDisplayName</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <input class="form-control input-sm text-box single-line" id="BroadcastSettings_SendToCustomEmailDisplayName" name="BroadcastSettings.SendToCustomEmailDisplayName" type="text" value="@(s.Text("BroadcastSettings.SendToCustomEmailDisplayName") ?? "")" />
+
+                                            <span class="help-block">@PushStrings.SendToCustomEmailDisplayName_Description</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label" for="BroadcastSettings_SendToCustomEmailAddress">@PushStrings.SendToCustomEmailAddress</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            @Html.Raw(Markup(LegacyForm.TextBox(emailField, s.Text("BroadcastSettings.SendToCustomEmailAddress"), "form-control input-sm text-box single-line")).Replace("type=\"text\"", "type=\"email\""))
+                                            <span class="field-validation-valid text-danger" data-valmsg-for="BroadcastSettings.SendToCustomEmailDisplayName" data-valmsg-replace="true"></span>
+
+                                            <span class="help-block">@PushStrings.SendToCustomEmailAddress_Description</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                                <div class="panel-heading">
+                                    <h2 class="panel-title">@IndexStrings.AntiNoise_Header</h2>
+                                </div>
+                                <div class="panel-body ">
+                                    <div class="form-group">
+                                        @LegacyForm.Label(B("AntiNoiseSettings.ExcludeSubscriberEvents", PushStrings.ExcludeSubscribersOwnEvents), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            <label class="checkbox-inline">
+                                                @LegacyForm.CheckBox(B("AntiNoiseSettings.ExcludeSubscriberEvents", PushStrings.ExcludeSubscribersOwnEvents), s.Bool("AntiNoiseSettings.ExcludeSubscriberEvents"))
+                                                @PushStrings.ExcludeSubscribersOwnEvents_Prompt
+                                            </label>
+                                            @LegacyForm.ValidationMessage(B("AntiNoiseSettings.ExcludeSubscriberEvents", PushStrings.ExcludeSubscribersOwnEvents), st)
+                                            <span class="help-block">@PushStrings.ExcludeSubscribersOwnEvents_Description</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @LegacyForm.Label(B("AntiNoiseSettings.IsConsolidationEnabled", PushStrings.ConsolidateNotifications), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            <label class="checkbox-inline">
+                                                @LegacyForm.CheckBox(B("AntiNoiseSettings.IsConsolidationEnabled", PushStrings.ConsolidateNotifications), s.Bool("AntiNoiseSettings.IsConsolidationEnabled"))
+                                                @PushStrings.ConsolidateNotifications_Prompt
+                                            </label>
+                                            @LegacyForm.ValidationMessage(B("AntiNoiseSettings.IsConsolidationEnabled", PushStrings.ConsolidateNotifications), st)
+                                            <span class="help-block">@PushStrings.ConsolidateNotifications_Description</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @LegacyForm.Label(N("AntiNoiseSettings.InitialConsolidationDelayMinutes", PushStrings.InitialConsolidationDelay), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            @Number(N("AntiNoiseSettings.InitialConsolidationDelayMinutes", PushStrings.InitialConsolidationDelay))
+                                            @LegacyForm.ValidationMessage(N("AntiNoiseSettings.InitialConsolidationDelayMinutes", PushStrings.InitialConsolidationDelay), st)
+                                            <span class="help-block">@PushStrings.InitialConsolidationDelay_Description</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @LegacyForm.Label(N("AntiNoiseSettings.MaxConsolidationDelayMinutes", PushStrings.MaximumConsolidationDelay), "col-md-4 col-sm-4 control-label")
+                                        <div class="col-md-8 col-sm-8">
+                                            @Number(N("AntiNoiseSettings.MaxConsolidationDelayMinutes", PushStrings.MaximumConsolidationDelay))
+                                            @LegacyForm.ValidationMessage(N("AntiNoiseSettings.MaxConsolidationDelayMinutes", PushStrings.MaximumConsolidationDelay), st)
+                                            <span class="help-block">@PushStrings.MaximumConsolidationDelay_Description</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel-footer">
+                                    <div class="">
+                                        <button type="submit" class="btn btn-success" tabindex="10"><i class="fa fa-save"></i>&nbsp;&nbsp;@IndexStrings.SaveOption</button>&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+</form>
+            </div>
+        </fieldset>
+    </div>
+</main>

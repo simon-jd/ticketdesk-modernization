@@ -1,0 +1,32 @@
+{
+  "value": [
+    {
+      "id": "/subscriptions/<subscription-id>/resourcegroups/rg-ticketdesk-lab/providers/microsoft.insights/components/appi-tdlab-swedencentral/providers/Microsoft.AlertsManagement/alerts/7b08ded2-0e51-468d-bbf8-bcf5d651f000",
+      "name": "alert-tdlab-failed-requests",
+      "properties": {
+        "essentials": {
+          "actionStatus": {
+            "isSuppressed": false
+          },
+          "alertRule": "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/metricAlerts/alert-tdlab-failed-requests",
+          "alertState": "New",
+          "description": "The new app answers failed requests (Application Insights requests/failed, count per minute above the threshold).",
+          "lastModifiedDateTime": "2026-11-12T07:44:11.9179153Z",
+          "lastModifiedUserName": "System",
+          "monitorCondition": "Resolved",
+          "monitorConditionResolvedDateTime": "2026-11-12T07:44:12.5600755Z",
+          "monitorService": "Platform",
+          "severity": "Sev2",
+          "signalType": "Metric",
+          "sourceCreatedId": "<subscription-id>_rg-ticketdesk-lab_Microsoft.Insights_metricAlerts_alert-tdlab-failed-requests_-845159294",
+          "startDateTime": "2026-11-12T07:39:21.2120413Z",
+          "targetResource": "/subscriptions/<subscription-id>/resourcegroups/rg-ticketdesk-lab/providers/microsoft.insights/components/appi-tdlab-swedencentral",
+          "targetResourceGroup": "rg-ticketdesk-lab",
+          "targetResourceName": "appi-tdlab-swedencentral",
+          "targetResourceType": "components"
+        }
+      },
+      "type": "microsoft.alertsmanagement/alerts"
+    }
+  ]
+}

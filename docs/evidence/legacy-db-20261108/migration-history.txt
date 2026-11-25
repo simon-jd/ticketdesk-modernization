@@ -1,0 +1,3 @@
+TicketDeskCore|23|201801181017087_Td2.5.022
+TicketDeskIdentity|1|202611080041203_AutomaticMigration
+TicketDeskPushNotifications|1|202611080041219_AutomaticMigration

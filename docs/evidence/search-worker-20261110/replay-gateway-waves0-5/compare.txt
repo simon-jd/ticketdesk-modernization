@@ -1,0 +1,2 @@
+$ td-replay compare --baseline tests/characterization/golden/legacy-golden.jsonl.xz --candidate docs/evidence/search-worker-20261110/replay-gateway-waves0-5/gateway.jsonl --out-dir docs/evidence/search-worker-20261110/replay-gateway-waves0-5/compare-golden-gateway
+compared 262, matched 152, mismatched 112 (missing 0, extra 2) -> docs/evidence/search-worker-20261110/replay-gateway-waves0-5/compare-golden-gateway/report.md

@@ -1,0 +1,39 @@
+# swedencentral region checks (2026-11-08T07:32:08Z, subscription 'Azure for Students')
+$ az vm image list-skus -l swedencentral -p MicrosoftWindowsServer -f WindowsServer --query "[?starts_with(name,'2025-datacenter') && contains(name,'smalldisk')].name"
+2025-datacenter-azure-edition-core-smalldisk
+2025-datacenter-azure-edition-smalldisk
+2025-datacenter-core-smalldisk
+2025-datacenter-core-smalldisk-g2
+2025-datacenter-smalldisk
+2025-datacenter-smalldisk-g2
+$ az vm image list -l swedencentral -p MicrosoftWindowsServer -f WindowsServer -s 2025-datacenter-core-smalldisk-g2 --all --query '[-1].version'
+26100.33674.261024
+$ az aks get-versions -l swedencentral --query 'values[].[version, isPreview, capabilities.supportPlan]'
+1.37	None	KubernetesOfficial,AKSLongTermSupport
+1.36	None	KubernetesOfficial,AKSLongTermSupport
+1.35	None	KubernetesOfficial,AKSLongTermSupport
+1.34	None	KubernetesOfficial,AKSLongTermSupport
+1.33	None	AKSLongTermSupport
+1.32	None	AKSLongTermSupport
+1.31	None	AKSLongTermSupport
+# AKS Free tier: sku_tier = "Free" is accepted in the plan (plan-aks.txt); Retail Prices API lists only the 'FreeTierInfrastructureCost Uptime SLA' meter ($0.05/h) for it in swedencentral
+$ GET /subscriptions/<sub>/providers/Microsoft.Sql/locations/swedencentral/capabilities?api-version=2023-08-01 -> [name, status, reason]
+Sweden Central
+Available
+None
+$ same with include=supportedEditions -> 12.0 / GeneralPurpose / GP_S_Gen5_2: status, supportedFreeLimitExhaustionBehaviors
+[
+  {
+    "free": [
+      {
+        "exhaustionBehaviorType": "AutoPause",
+        "status": "Default"
+      },
+      {
+        "exhaustionBehaviorType": "BillOverUsage",
+        "status": "Available"
+      }
+    ],
+    "status": "Available"
+  }
+]

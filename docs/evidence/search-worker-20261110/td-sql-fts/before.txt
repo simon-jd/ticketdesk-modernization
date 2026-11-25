@@ -1,0 +1,9 @@
+# before recreate, 2026-11-10T17:22:56Z
+image mcr.microsoft.com/mssql/server:2022-latest sha256:fc010e5c955453eabc4a24d2f304103e26176fe89796b564f039c45e77a8ebc1
+16.0.4262.2 CU25 Developer Edition (64-bit) full-text=0
+TicketDesk ONLINE
+TicketDeskL ONLINE
+TicketDeskSynth ONLINE
+TicketDesk 10000 45649 10
+TicketDeskL 1000000 4538818 9
+TicketDeskSynth 10000 45649 9

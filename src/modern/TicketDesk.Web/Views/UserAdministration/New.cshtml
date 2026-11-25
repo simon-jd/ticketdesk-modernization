@@ -1,0 +1,64 @@
+@* Port of the legacy Views/UserAdministration/New.cshtml (TicketDesk 2.5, Ms-PL). *@
+@using NewStrings = TicketDesk.Localization.Views.UserAdministration.New
+@using TicketDesk.Web.Controllers
+@{
+    var f = UserController.RegisterFields.ToDictionary(x => x.Name);
+    var form = Context.Request.HasFormContentType ? Context.Request.Form : null;
+    string? V(string name) => form?[name].FirstOrDefault();
+}
+@section title
+{
+    @NewStrings.Title
+}
+@section Scripts {
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-sm-12">@NewStrings.Legend</legend>
+            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+<form action="/admin/new" class="form-horizontal" method="post" role="form">@Html.AntiForgeryToken()                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">@NewStrings.Header</h2>
+                        </div>
+                        <div class="panel-body">
+                            @LegacyForm.ValidationSummary(ViewData.ModelState)
+                            <div class="form-group">
+                                @LegacyForm.Label(f["UserName"], "col-sm-3 control-label")
+                                <div class="col-sm-9">
+                                    @LegacyForm.TextBox(f["UserName"], V("UserName"), state: ViewData.ModelState)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @LegacyForm.Label(f["Email"], "col-sm-3 control-label")
+                                <div class="col-sm-9">
+                                    @LegacyForm.TextBox(f["Email"], V("Email"), state: ViewData.ModelState)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @LegacyForm.Label(f["Password"], "col-sm-3 control-label")
+                                <div class="col-sm-9">
+                                    @LegacyForm.Password(f["Password"], state: ViewData.ModelState)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @LegacyForm.Label(f["ConfirmPassword"], "col-sm-3 control-label")
+                                <div class="col-sm-9">
+                                    @LegacyForm.Password(f["ConfirmPassword"], state: ViewData.ModelState)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @LegacyForm.Label(f["DisplayName"], "col-sm-3 control-label")
+                                <div class="col-sm-9">
+                                    @LegacyForm.TextBox(f["DisplayName"], V("DisplayName"), state: ViewData.ModelState)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <button type="submit" class="btn btn-success" tabindex="10">@NewStrings.SaveOption</button>&nbsp;&nbsp;
+                        </div>
+                    </div>
+</form>            </div>
+        </fieldset>
+    </div>
+</main>

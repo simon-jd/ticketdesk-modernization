@@ -1,0 +1,30 @@
+## 2026-11-14T04:11:20Z before
+ 20:11:20 up 5 days, 20:49,  8 users,  load average: 7.33, 5.40, 5.51
+               total        used        free      shared  buff/cache   available
+Mem:             123          38          19           0          66          84
+# per-CPU busy % over 3 s (0-31)
+0:2 1:0 2:3 3:4 4:9 5:0 6:2 7:0 8:2 9:0 10:1 11:4 12:2 13:0 14:2 15:0 16:3 17:21 18:100 19:80 20:16 21:28 22:100 23:78 24:9 25:5 26:96 27:100 28:68 29:72 30:26 31:24
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 101  26 2329487 clang++-21
+ 100  27 2329433 clang++-21
+ 100  22 2329437 clang++-21
+ 100  21 2329489 clang++-21
+99.5  19 2329435 clang++-21
+99.4  18 2329444 clang++-21
+96.0  29 2329484 clang++-21
+## 2026-11-14T04:12:29Z after
+ 20:12:29 up 5 days, 20:50,  9 users,  load average: 8.77, 6.23, 5.79
+               total        used        free      shared  buff/cache   available
+Mem:             123          39          18           0          67          84
+# per-CPU busy % over 3 s (0-31)
+0:8 1:1 2:3 3:1 4:3 5:0 6:4 7:1 8:4 9:1 10:3 11:0 12:4 13:1 14:3 15:1 16:31 17:3 18:100 19:72 20:58 21:3 22:100 23:45 24:96 25:7 26:1 27:100 28:18 29:73 30:28 31:88
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 101  24 2339321 clang++-21
+ 100  20 2339278 clang++-21
+ 100  27 2339315 clang++-21
+ 100  16 2339319 clang++-21
+ 100  18 2339352 clang++-21
+ 100  22 2339354 clang++-21
+95.9  29 2339317 clang++-21

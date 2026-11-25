@@ -1,0 +1,20 @@
+== start 2026-11-11T08:45:01Z
+15fb06b Merge branch 'ws/retire' into modernize
+== contract-TicketDesk 2026-11-11T08:45:01Z
+exit 0
+== contract-TicketDeskL 2026-11-11T08:45:03Z
+exit 0
+== dotnet-test 2026-11-11T08:45:05Z
+exit 0
+== vitest 2026-11-11T08:45:36Z
+exit 0
+== build-web 2026-11-11T08:45:39Z
+exit 0
+== replay 2026-11-11T08:45:40Z
+exit 1
+== e2e 2026-11-11T08:50:45Z
+exit 0
+== done 2026-11-11T08:50:58Z
+== replay2 2026-11-11T08:52:07Z
+exit 0
+== replay2-done 2026-11-11T08:52:38Z

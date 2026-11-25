@@ -1,0 +1,7 @@
+# Build context = repository root (see Dockerfile): only td-db and the central build props.
+*
+!src/modern/Directory.Build.props
+!src/modern/Directory.Packages.props
+!src/modern/TicketDesk.Database/
+**/bin/
+**/obj/

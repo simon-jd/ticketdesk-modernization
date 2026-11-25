@@ -1,0 +1,7 @@
+$ ops/dev/td-db-app-login.sh apply && ops/dev/vm-db-contract.sh
+login td_modern_app ready
+user td_modern_app ready
+grants: 56 on 21 objects; fixed roles of td_modern_app: 0
+
+applied contract/C0001__assigned_date_contract.sql in 0.07 s
+1 script(s) applied

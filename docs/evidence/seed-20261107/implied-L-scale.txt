@@ -1,0 +1,89 @@
+$ TD_SEED_DB=TicketDeskSynth ops/dev/seed.sh run --scale L --seed 42 --json docs/evidence/seed-20261107/implied-L-scale.json
+seeding scale L (1,000,000 tickets, 25,000 users, 25 projects), seed 42
+reset done in 4.4s
+projects/users loaded (25000 users) in 1.5s
+  100,000 tickets loaded (14.0s)
+  200,000 tickets loaded (27.1s)
+  300,000 tickets loaded (41.5s)
+  400,000 tickets loaded (55.7s)
+  500,000 tickets loaded (68.8s)
+  600,000 tickets loaded (82.2s)
+  700,000 tickets loaded (96.5s)
+  800,000 tickets loaded (112.3s)
+  900,000 tickets loaded (126.2s)
+  1,000,000 tickets loaded (140.2s)
+constraints re-validated (142.0s)
+{
+  "scale": "L",
+  "seed": 42,
+  "tickets": 1000000,
+  "users": 25000,
+  "projects": 25,
+  "resetSeconds": 4.36,
+  "loadSeconds": 141.95,
+  "totalSeconds": 150.99,
+  "rowsWritten": {
+    "[dbo].[Projects]": 24,
+    "[dbo].[IdentityUsers]": 25000,
+    "[dbo].[IdentityUserRoles]": 25000,
+    "[dbo].[Tickets]": 1000000,
+    "[dbo].[TicketTags]": 1461932,
+    "[dbo].[TicketSubscribers]": 2029356,
+    "[dbo].[TicketEvents]": 4538818,
+    "[dbo].[TicketEventNotifications]": 9612684
+  },
+  "tables": [
+    {
+      "table": "[dbo].[Projects]",
+      "rows": 25,
+      "checksum": 1135201523
+    },
+    {
+      "table": "[dbo].[IdentityUsers]",
+      "rows": 25000,
+      "checksum": 1003136694
+    },
+    {
+      "table": "[dbo].[IdentityUserRoles]",
+      "rows": 25000,
+      "checksum": 1052770570
+    },
+    {
+      "table": "[dbo].[Tickets]",
+      "rows": 1000000,
+      "checksum": -1913460026
+    },
+    {
+      "table": "[dbo].[TicketTags]",
+      "rows": 1461932,
+      "checksum": -374859007
+    },
+    {
+      "table": "[dbo].[TicketSubscribers]",
+      "rows": 2029356,
+      "checksum": -1148740701
+    },
+    {
+      "table": "[dbo].[TicketEvents]",
+      "rows": 4538818,
+      "checksum": -1467578240
+    },
+    {
+      "table": "[dbo].[TicketEventNotifications]",
+      "rows": 9612684,
+      "checksum": -334362186
+    }
+  ],
+  "untrustedOrDisabledForeignKeys": 0
+}
+
+real	2m31.205s
+user	0m39.094s
+sys	0m1.960s
+Changed database context to 'TicketDeskSynth'.
+database_name                                                                                                                    database_size      unallocated space 
+-------------------------------------------------------------------------------------------------------------------------------- ------------------ ------------------
+TicketDeskSynth                                                                                                                  7760.00 MB         11.13 MB          
+reserved           data               index_size         unused            
+------------------ ------------------ ------------------ ------------------
+7074680 KB         2983752 KB         3959504 KB         131424 KB         

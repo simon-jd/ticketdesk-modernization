@@ -1,0 +1,10 @@
+# KVM unattended install timing, 2026-11-08 (raw lines)
+$ ops/onprem/vm/vmctl.sh install --force          (from qemu.log)
+2026-11-08T00:07:31Z qemu start install=1 accel=[-accel kvm -cpu host,hv_relaxed,hv_vapic,hv_spinlocks=0x1fff,hv_time]
+$ timeout 1500 bash -c "until vmctl.sh ssh hostname; do sleep 15; done"   (started right after install returned)
+SSH_UP after 210s
+$ (guest) Win32_OperatingSystem InstallDate / first-boot log
+InstallDate    : 11/8/2026 12:10:33 AM
+[2026-11-08 00:11:17Z] Remove Windows Defender feature (lab only), then reboot
+$ (guest) LastBootUpTime after the first-boot reboot
+2026-11-08T00:11:52.5000000Z

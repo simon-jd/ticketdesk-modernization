@@ -1,0 +1,37 @@
+# Self-hosted agent (ops/ado/agent.sh). 2026-11-11T08:46:37Z
+## package: vsts-agent-linux-x64-5.281.1.tar.gz from download.agent.dev.azure.com (URL from the org's _apis/distributedtask/packages/agent), sha256 c9579f76fd71a013e3b9010155454e20592d935134e4fcd04adc5283a820167e verified; registered 2026-11-11T04:49:14Z (pool lab-host, id 11, autoProvision off, added to project TicketDesk only)
+## status
+tmux td-ado-agent: running
+{
+  "pool": "lab-host",
+  "agents": [
+    {
+      "id": 17,
+      "name": "lab-host-1",
+      "version": "5.281.1",
+      "status": "online",
+      "enabled": true,
+      "busy": "Build"
+    }
+  ]
+}
+## process: user, parent, environment keys of the listener (values of PATH/AZURE_CONFIG_DIR shown, nothing else)
+labuser 1175195 1175185    03:38:52 ~/Desktop/ticketdesk-modernization/.tools/ado-agent/bin/Agent.Listener run
+_ AZURE_CONFIG_DIR AZURE_CORE_COLLECT_TELEMETRY DOTNET_CLI_TELEMETRY_OPTOUT DOTNET_NOLOGO DOTNET_ROOT HOME LANG LOGNAME PATH PLAYWRIGHT_BROWSERS_PATH PWD SHELL SHLVL TD_W TERM TF_PLUGIN_CACHE_DIR USER 
+AZURE_CONFIG_DIR=~/Desktop/ticketdesk-modernization/.tools/ado-agent/.azure-empty
+PATH=~/Desktop/ticketdesk-modernization/.tools/node/bin:~/Desktop/ticketdesk-modernization/.tools/dotnet:~/.dotnet/tools:~/Desktop/ticketdesk-modernization/.tools/bin:/usr/local/bin:/usr/bin:/bin
+AZURE_CONFIG_DIR: files az itself creates on the CI's 'az account show'; azureProfile.json subscriptions: 0 (no account)
+## .env / .path the agent hands to jobs
+LANG=C.UTF-8
+~/Desktop/ticketdesk-modernization/.tools/node/bin:~/Desktop/ticketdesk-modernization/.tools/dotnet:~/.dotnet/tools:~/Desktop/ticketdesk-modernization/.tools/bin:/usr/local/bin:/usr/bin:/bin
+## CI run 8 (modernize), step 'No inherited Azure login'
+========================== Starting Command Output ===========================
+[command]/usr/bin/bash --noprofile --norc ~/Desktop/ticketdesk-modernization/.tools/ado-agent/_work/_temp/5e48740a-01a0-4164-a227-ffa4ee6b1281.sh
+AZURE_CONFIG_DIR=~/Desktop/ticketdesk-modernization/.tools/ado-agent/.azure-empty
+az account show: ERROR: Please run 'az login' to setup account.
+OK: no Azure login inherited by the job
+
+##[section]Finishing: No inherited Azure login
+## stop / start
+ops/ado/agent.sh stop   # Ctrl-C into tmux td-ado-agent; the listener deletes its session and exits (tee -i keeps the pipe open meanwhile)
+ops/ado/agent.sh start  # new tmux session td-ado-agent; ops/ado/agent.sh remove unregisters it (PAT) at the end of the project

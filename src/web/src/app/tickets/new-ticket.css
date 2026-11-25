@@ -1,0 +1,17 @@
+.ticket-form { max-width: 52rem; }
+.field { display: flex; flex-direction: column; gap: 0.25rem; margin: 0 0 1rem; }
+.field label { font-weight: 600; }
+.field input[type="text"], .field textarea { width: 100%; }
+.row { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.row .field { min-width: 12rem; }
+fieldset.row { border: 1px solid var(--border); border-radius: 4px; padding: 0.75rem 1rem 0; margin: 0 0 1rem; }
+legend { font-weight: 600; padding: 0 0.25rem; }
+.checkbox { flex-direction: row; align-items: center; gap: 0.5rem; }
+.req { color: var(--danger); }
+.hint { margin: 0; color: var(--muted); font-size: 0.875rem; }
+.error { margin: 0; color: var(--danger); font-weight: 600; }
+[aria-invalid="true"] { border-color: var(--danger); border-width: 2px; }
+.error-summary h2 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+.error-summary ul { margin: 0; padding-left: 1.2rem; }
+.error-summary a { color: var(--danger); }
+.actions { display: flex; align-items: center; gap: 1rem; }

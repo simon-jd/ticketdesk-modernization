@@ -1,0 +1,36 @@
+# Proves that the Azure Resource Manager service connection "ticketdesk-lab-arm" authenticates (workload identity
+# federation: Entra app ticketdesk-lab-ado, no secret) without creating anything: the job asks Azure DevOps for the
+# connection's OIDC token, exchanges it at Entra ID for an ARM access token, and makes read-only ARM calls. Run by hand
+# (ops/ado/runs.sh queue sc-check); the aks session runs it again with withRoles=true after it grants Contributor on
+# rg-ticketdesk-lab, which adds the normal AzureCLI@2 login (that task needs a visible subscription, so it cannot run
+# before the role exists - its presence is also the stage's explicit reference to the connection that the OIDC API needs).
+name: sc-check-$(Date:yyyyMMdd)$(Rev:.r)
+trigger: none
+pr: none
+parameters:
+  - name: withRoles
+    displayName: The identity has its role on rg-ticketdesk-lab (run the AzureCLI@2 check too)
+    type: boolean
+    default: false
+pool:
+  name: lab-host
+variables:
+  - group: td-lab-azure # non-secret identifiers: tenant, client id, subscription, service connection id
+steps:
+  - checkout: self
+    fetchDepth: 1
+  - script: bash azure-pipelines/scripts/sc-check.sh
+    displayName: Service connection token exchange (read-only)
+    env:
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  - task: AzureCLI@2
+    displayName: AzureCLI@2 with the service connection (read-only)
+    condition: and(succeeded(), ${{ parameters.withRoles }})
+    inputs:
+      azureSubscription: ticketdesk-lab-arm
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        az account show --query "{subscription:name, principal:user.name, type:user.type}" -o json
+        az group show -n "$TD_ARM_RESOURCE_GROUP" --query "{name:name, location:location, owner:tags.owner, ttl:tags.ttl}" -o json
+        az role assignment list --assignee "$TD_ARM_CLIENT_ID" --all --query "[].{role:roleDefinitionName, scope:scope}" -o table

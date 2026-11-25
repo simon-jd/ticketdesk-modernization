@@ -1,0 +1,32 @@
+@* Port of the legacy Views/Home/Index.cshtml (TicketDesk 2.5, Ms-PL). *@
+@using HomeIndex = TicketDesk.Localization.Views.Home.Index
+
+@section title{ TicketDesk }
+@section customHeader{}
+@section scripts{}
+
+<main role="main" class="row">
+    <article class="col-md-8 left-side-box">
+        <a class="hidden-md hidden-lg" href="https://github.com/nulldesk/ticketdesk">@Html.Raw(HomeIndex.ForkMe)</a>
+
+        <div class="container-responsive">
+            <fieldset style="min-height: 350px; padding-right: 25px;">
+                <legend>
+                    @Html.Raw(HomeIndex.Welcome)
+                </legend>
+                @if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WEBSITE_SITE_NAME")))
+                {
+                    <div class="alert alert-info">
+                        <h5>@HomeIndex.Congrat_Azure</h5>
+                    </div>
+                }
+                @Html.Raw(HomeIndex.Instructions)
+            </fieldset>
+
+        </div>
+    </article>
+    <aside class="col-md-4 right-side-box">
+        <a class="hidden-xs hidden-sm" href="https://github.com/nulldesk/ticketdesk">@Html.Raw(HomeIndex.ForkMe)</a>
+        @Html.Raw(HomeIndex.ChangeList)
+    </aside>
+</main>

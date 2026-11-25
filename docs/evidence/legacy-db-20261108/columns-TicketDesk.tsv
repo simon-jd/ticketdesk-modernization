@@ -1,0 +1,110 @@
+dbo.__MigrationHistory.ContextKey	nvarchar	300	not null	
+dbo.__MigrationHistory.MigrationId	nvarchar	150	not null	
+dbo.__MigrationHistory.Model	varbinary	max	not null	
+dbo.__MigrationHistory.ProductVersion	nvarchar	32	not null	
+dbo.ApplicationSettings.ApplicationName	nvarchar	128	not null	
+dbo.ApplicationSettings.ClientSettingsJson	nvarchar	max	null	
+dbo.ApplicationSettings.PermissionsSettingsJson	nvarchar	max	null	
+dbo.ApplicationSettings.SecuritySettingsJson	nvarchar	max	null	
+dbo.ApplicationSettings.SelectListSettingsJson	nvarchar	max	null	
+dbo.IdentityRoles.Description	nvarchar	500	null	
+dbo.IdentityRoles.Discriminator	nvarchar	128	not null	
+dbo.IdentityRoles.DisplayName	nvarchar	100	null	
+dbo.IdentityRoles.Id	nvarchar	128	not null	
+dbo.IdentityRoles.Name	nvarchar	256	not null	
+dbo.IdentityUserClaims.ClaimType	nvarchar	max	null	
+dbo.IdentityUserClaims.ClaimValue	nvarchar	max	null	
+dbo.IdentityUserClaims.Id	int	4	not null	identity
+dbo.IdentityUserClaims.UserId	nvarchar	128	not null	
+dbo.IdentityUserLogins.LoginProvider	nvarchar	128	not null	
+dbo.IdentityUserLogins.ProviderKey	nvarchar	128	not null	
+dbo.IdentityUserLogins.UserId	nvarchar	128	not null	
+dbo.IdentityUserRoles.RoleId	nvarchar	128	not null	
+dbo.IdentityUserRoles.UserId	nvarchar	128	not null	
+dbo.IdentityUsers.AccessFailedCount	int	4	not null	
+dbo.IdentityUsers.DisplayName	nvarchar	100	not null	
+dbo.IdentityUsers.Email	nvarchar	256	null	
+dbo.IdentityUsers.EmailConfirmed	bit	1	not null	
+dbo.IdentityUsers.Id	nvarchar	128	not null	
+dbo.IdentityUsers.LockoutEnabled	bit	1	not null	
+dbo.IdentityUsers.LockoutEndDateUtc	datetime	8	null	
+dbo.IdentityUsers.PasswordHash	nvarchar	max	null	
+dbo.IdentityUsers.PhoneNumber	nvarchar	max	null	
+dbo.IdentityUsers.PhoneNumberConfirmed	bit	1	not null	
+dbo.IdentityUsers.SecurityStamp	nvarchar	max	null	
+dbo.IdentityUsers.TwoFactorEnabled	bit	1	not null	
+dbo.IdentityUsers.UserName	nvarchar	256	not null	
+dbo.Projects.ProjectDescription	nvarchar	500	null	
+dbo.Projects.ProjectId	int	4	not null	identity
+dbo.Projects.ProjectName	nvarchar	100	not null	
+dbo.Projects.Version	timestamp	8	not null	
+dbo.TicketEventNotifications.EventId	int	4	not null	
+dbo.TicketEventNotifications.IsNew	bit	1	not null	
+dbo.TicketEventNotifications.IsRead	bit	1	not null	
+dbo.TicketEventNotifications.SubscriberId	nvarchar	256	not null	
+dbo.TicketEventNotifications.TicketId	int	4	not null	
+dbo.TicketEventNotifications.Version	timestamp	8	not null	
+dbo.TicketEvents.Comment	nvarchar	max	null	
+dbo.TicketEvents.EventBy	nvarchar	256	not null	
+dbo.TicketEvents.EventDate	datetimeoffset	10	not null	
+dbo.TicketEvents.EventDescription	nvarchar	500	null	
+dbo.TicketEvents.EventId	int	4	not null	identity
+dbo.TicketEvents.ForActivity	int	4	not null	
+dbo.TicketEvents.IsHtml	bit	1	not null	
+dbo.TicketEvents.TicketId	int	4	not null	
+dbo.TicketEvents.Version	timestamp	8	not null	
+dbo.Tickets.ActualDuration	decimal	9	null	
+dbo.Tickets.AffectsCustomer	bit	1	not null	
+dbo.Tickets.AssignedTo	nvarchar	256	null	
+dbo.Tickets.Category	nvarchar	50	not null	
+dbo.Tickets.CreatedBy	nvarchar	256	not null	
+dbo.Tickets.CreatedDate	datetimeoffset	10	not null	
+dbo.Tickets.CurrentStatusDate	datetimeoffset	10	not null	
+dbo.Tickets.CurrentStatusSetBy	nvarchar	256	not null	
+dbo.Tickets.Details	nvarchar	max	not null	
+dbo.Tickets.DueDate	datetimeoffset	10	null	
+dbo.Tickets.EstimatedDuration	decimal	9	null	
+dbo.Tickets.IsHtml	bit	1	not null	
+dbo.Tickets.LastUpdateBy	nvarchar	256	not null	
+dbo.Tickets.LastUpdateDate	datetimeoffset	10	not null	
+dbo.Tickets.Owner	nvarchar	256	not null	
+dbo.Tickets.Priority	nvarchar	25	null	
+dbo.Tickets.ProjectId	int	4	not null	
+dbo.Tickets.ResolutionDate	datetimeoffset	10	null	
+dbo.Tickets.TagList	nvarchar	100	null	
+dbo.Tickets.TargetDate	datetimeoffset	10	null	
+dbo.Tickets.TicketId	int	4	not null	identity
+dbo.Tickets.TicketStatus	int	4	not null	
+dbo.Tickets.TicketType	nvarchar	50	not null	
+dbo.Tickets.Title	nvarchar	500	not null	
+dbo.Tickets.Version	timestamp	8	not null	
+dbo.TicketSubscribers.SubscriberId	nvarchar	256	not null	
+dbo.TicketSubscribers.TicketId	int	4	not null	
+dbo.TicketTags.TagName	nvarchar	100	not null	
+dbo.TicketTags.TicketId	int	4	not null	
+dbo.TicketTags.TicketTagId	int	4	not null	identity
+dbo.UserSettings.ListSettingsJson	nvarchar	max	null	
+dbo.UserSettings.SelectedProjectId	int	4	null	
+dbo.UserSettings.UserId	nvarchar	256	not null	
+notifications.ApplicationPushNotificationSettings.ApplicationName	nvarchar	128	not null	
+notifications.ApplicationPushNotificationSettings.PushNotificationSettingsJson	nvarchar	max	null	
+notifications.PushNotificationDestinations.DestinationAddress	nvarchar	256	null	
+notifications.PushNotificationDestinations.DestinationId	int	4	not null	identity
+notifications.PushNotificationDestinations.DestinationType	nvarchar	50	null	
+notifications.PushNotificationDestinations.SubscriberId	nvarchar	256	null	
+notifications.PushNotificationDestinations.SubscriberName	nvarchar	100	null	
+notifications.PushNotificationItems.ContentSourceId	int	4	not null	
+notifications.PushNotificationItems.ContentSourceType	nvarchar	100	not null	
+notifications.PushNotificationItems.CreatedDate	datetimeoffset	10	not null	
+notifications.PushNotificationItems.DeliveryStatus	int	4	not null	
+notifications.PushNotificationItems.DestinationId	int	4	not null	
+notifications.PushNotificationItems.MessageContent	nvarchar	max	null	
+notifications.PushNotificationItems.PushNotificationItemId	int	4	not null	identity
+notifications.PushNotificationItems.RetryCount	int	4	not null	
+notifications.PushNotificationItems.ScheduledSendDate	datetimeoffset	10	null	
+notifications.PushNotificationItems.SubscriberId	nvarchar	256	not null	
+notifications.SubscriberPushNotificationSettings.IsEnabled	bit	1	not null	
+notifications.SubscriberPushNotificationSettings.SubscriberId	nvarchar	256	not null	
+notifications.TicketPushNotificationItems.CanceledEventsList	nvarchar	max	null	
+notifications.TicketPushNotificationItems.PushNotificationItemId	int	4	not null	
+notifications.TicketPushNotificationItems.TicketEventsList	nvarchar	max	null	

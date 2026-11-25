@@ -1,0 +1,15 @@
+# 2026-11-09T01:42:31Z td-legacy-publish-b4edcc3.zip deployed on the lab VM; Azurite 3.37.0 via 10.0.2.2; ops/windows/Test-TdBlobStore.ps1
+PASS  save a pending file
+PASS  list pending files
+PASS  commit: rename pending -> ticket folder
+PASS  content survives the rename
+PASS  size after the rename
+PASS  rename onto an existing file is refused
+PASS  existing target unchanged
+PASS  rename of a missing file is refused
+PASS  rename within a folder
+PASS  rename a folder
+PASS  read after the folder rename
+PASS  delete
+0 failure(s)
+exit=0

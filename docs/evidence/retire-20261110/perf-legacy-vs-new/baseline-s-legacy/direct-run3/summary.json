@@ -1,0 +1,187 @@
+{
+  "target": "https://localhost:8443",
+  "rate_per_s": 10,
+  "warmup_s": 30,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "p(90)": 75.2338374,
+      "p(95)": 89.7477672,
+      "p(99)": 113.21945590999991,
+      "max": 147.390577,
+      "count": 1164,
+      "min": 3.588185,
+      "med": 25.893891,
+      "avg": 32.12817407302403
+    },
+    "failed": {
+      "rate": 0,
+      "passes": 0,
+      "fails": 1164
+    }
+  },
+  "checks": {
+    "fails": 0,
+    "rate": 1,
+    "passes": 680
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "med": 57.552568,
+        "avg": 62.593460495000016,
+        "p(90)": 93.76180299999999,
+        "p(95)": 105.41902549999998,
+        "p(99)": 116.26710507999998,
+        "max": 121.608727,
+        "count": 200,
+        "min": 35.070715
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 200
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "p(90)": 54.78526830000002,
+        "p(95)": 64.86308205,
+        "p(99)": 84.6954572099999,
+        "max": 102.65646,
+        "count": 684,
+        "min": 3.588185,
+        "med": 5.8486735,
+        "avg": 18.825254077485354
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 684
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "max": 127.067532,
+        "count": 96,
+        "min": 29.882228,
+        "med": 68.773622,
+        "avg": 67.26293479166667,
+        "p(90)": 104.89648349999999,
+        "p(95)": 113.11507475,
+        "p(99)": 119.25653889999998
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 96
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "max": 56.267383,
+        "count": 94,
+        "min": 10.08808,
+        "med": 17.658654,
+        "avg": 22.235981404255316,
+        "p(90)": 38.971232,
+        "p(95)": 44.71089385,
+        "p(99)": 50.65315620999996
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 94
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "avg": 38.384497122222214,
+        "p(90)": 80.40810010000003,
+        "p(95)": 100.26701615,
+        "p(99)": 119.07963961999998,
+        "max": 147.390577,
+        "count": 90,
+        "min": 13.165552,
+        "med": 25.9580855
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 90,
+        "rate": 0
+      }
+    }
+  },
+  "iterations": {
+    "count": 785,
+    "rate": 8.71398375891106
+  },
+  "dropped_iterations": {
+    "rate": 1.2876714853932267,
+    "count": 116
+  },
+  "vus_max": {
+    "value": 37,
+    "min": 20,
+    "max": 37
+  },
+  "root_group_checks": [
+    {
+      "passes": 37,
+      "fails": 0,
+      "name": "signed in (302 to /)",
+      "path": "::signed in (302 to /)",
+      "id": "fdcd4b15f72aec2317ac2c1533ca239e"
+    },
+    {
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 291,
+      "fails": 0,
+      "name": "list 200",
+      "path": "::list 200"
+    },
+    {
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 284,
+      "fails": 0
+    },
+    {
+      "fails": 0,
+      "name": "filter 200",
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 120
+    },
+    {
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 62,
+      "fails": 0
+    },
+    {
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 62,
+      "fails": 0,
+      "name": "comment saved"
+    },
+    {
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 37,
+      "fails": 0
+    },
+    {
+      "name": "created ticket 200",
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 37,
+      "fails": 0
+    }
+  ]
+}

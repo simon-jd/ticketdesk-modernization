@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- dotnet-coverage settings for the CI: the app and tool assemblies, not the tests or the test identity provider. -->
+<Configuration>
+  <CodeCoverage>
+    <ModulePaths>
+      <Include>
+        <ModulePath>.*[\\/]TicketDesk\.[^\\/]*\.dll$</ModulePath>
+        <ModulePath>.*[\\/]td-[^\\/]*\.dll$</ModulePath>
+      </Include>
+      <Exclude>
+        <ModulePath>.*\.Tests\.dll$</ModulePath>
+        <ModulePath>.*TicketDesk\.TestIdp\.dll$</ModulePath>
+        <ModulePath>.*TicketDesk\.SqlPerf\.dll$</ModulePath>
+      </Exclude>
+    </ModulePaths>
+    <IncludeTestAssembly>false</IncludeTestAssembly>
+  </CodeCoverage>
+</Configuration>

@@ -1,0 +1,558 @@
+{
+  "generated": "2026-11-08T20:49:22.6656023+00:00",
+  "baseline": {
+    "file": "docs/evidence/legacy-adapters-20261108/step3-expand-schema/golden.jsonl",
+    "target": "https://localhost:8443/",
+    "runId": "legacy-run1",
+    "exchanges": 262,
+    "errors": 0
+  },
+  "candidate": {
+    "file": "docs/evidence/legacy-adapters-20261108/step3-expand-schema/direct/candidate.jsonl",
+    "target": "https://localhost:8443/",
+    "runId": "candidate-direct",
+    "exchanges": 262,
+    "errors": 0
+  },
+  "compared": 262,
+  "matched": 261,
+  "mismatched": 1,
+  "missingInCandidate": 0,
+  "extraInCandidate": 0,
+  "routes": [
+    {
+      "routeKey": "GET /auto-complete/tag-list",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "body-json": 1
+      }
+    },
+    {
+      "routeKey": "GET /",
+      "requests": 29,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /about",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /access-denied",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/change-password",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/edit-profile",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/manage",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/application-settings/{action=index}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/data-management/demo",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/new",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/project/new",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/project/{projectId:int}",
+      "requests": 4,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/projects",
+      "requests": 5,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/configure-provider",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/list-providers",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/{action=index}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/search-manager",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/user/{id?}",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/users/page/{page:int?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/users/{page:int?}",
+      "requests": 7,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /bundles/{bundle}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /content/{bundle}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /emailtest/index/{id}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /file/get-attachments-info",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /file/{id}/{fileName}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/check-upgrade-progress",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/legacy-migration",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/upgrade-database",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /index",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /language",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /navigation/change-project/{projectId:int}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /search",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /search/{term}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "requests": 6,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket-activity/load-activity",
+      "requests": 21,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/new",
+      "requests": 8,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/ticket-details",
+      "requests": 5,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/ticket-events",
+      "requests": 6,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/ticket-files",
+      "requests": 7,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/{id:int}",
+      "requests": 14,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/pageList/{listName=mytickets}/{page:int?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/reset-user-lists",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/sortList/{listName=opentickets}/{page:int?}",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "requests": 16,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/register",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/sign-in",
+      "requests": 19,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/sign-out",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /account/change-password",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /account/edit-profile",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/application-settings/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/new",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/delete/{projectId:int}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/new",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/{projectId:int}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/push-notification-settings/configure-provider",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/push-notification-settings/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/user/delete/{id?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/user/{id?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /file/delete",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /file/upload",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/add-comment",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/assign",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/cancel-more-info",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/close",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/edit-ticket-info",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/force-close",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/give-up",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/modify-attachments",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/pass",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/reassign",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/reopen",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/request-more-info",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/resolve",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/supply-more-info",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/take-over",
+      "requests": 4,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket/change-ticket-subscription",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket/new",
+      "requests": 8,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /tickets/filterList/{listName=opentickets}/{page:int?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /user/register",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /user/sign-in",
+      "requests": 14,
+      "mismatches": 0,
+      "kinds": {}
+    }
+  ],
+  "mismatches": [
+    {
+      "key": "ticket-list#015.0",
+      "journey": "ticket-list",
+      "step": "tag autocomplete",
+      "routeKey": "GET /auto-complete/tag-list",
+      "method": "GET",
+      "path": "/auto-complete/tag-list?term=net",
+      "kinds": [
+        "body-json"
+      ],
+      "diffs": [
+        {
+          "kind": "json-value",
+          "path": "$[0].id",
+          "expected": "\u0022network-041\u0022",
+          "actual": "\u0022network\u0022"
+        },
+        {
+          "kind": "json-value",
+          "path": "$[0].text",
+          "expected": "\u0022network-041\u0022",
+          "actual": "\u0022network\u0022"
+        },
+        {
+          "kind": "json-value",
+          "path": "$[2].id",
+          "expected": "\u0022network\u0022",
+          "actual": "\u0022network-041\u0022"
+        },
+        {
+          "kind": "json-value",
+          "path": "$[2].text",
+          "expected": "\u0022network\u0022",
+          "actual": "\u0022network-041\u0022"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

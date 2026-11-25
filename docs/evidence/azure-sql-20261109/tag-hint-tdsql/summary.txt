@@ -1,0 +1,7 @@
+procedure | tag | n | elapsed ms median [runs] | CPU ms median [runs] | total
+dbo.usp_TicketList (forced plan 226) | printer | 5 | 24.3 [20.3, 20.3, 24.3, 24.3, 24.3] | 111 [104, 107, 111, 116, 118] | 188919
+dbo.usp_TicketList (forced plan 226) | mobile-108 | 5 | 20.3 [20.3, 20.3, 20.3, 20.3, 24.4] | 48 [46, 47, 48, 48, 49] | 1967
+dbo.usp_TicketList_hint (USE HINT, no forcing) | printer | 5 | 20.3 [16.2, 16.2, 20.3, 28.3, 28.3] | 77 [70, 74, 77, 82, 86] | 188919
+dbo.usp_TicketList_hint (USE HINT, no forcing) | mobile-108 | 5 | 28.4 [24.3, 24.3, 28.4, 32.4, 40.6] | 61 [59, 59, 61, 72, 75] | 1967
+count statement (plan cache): forced-plan and hint both ran with DOP 8 (last_dop = min_dop = max_dop = 8); see STMT lines
+timer: SYSDATETIME() in the container advances in ~4 ms steps; serial plan 136 for comparison: printer 72 ms, mobile-108 48 ms (docs/evidence/sql-querystore-20261107/force-plan-summary.txt)

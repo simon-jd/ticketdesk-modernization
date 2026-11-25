@@ -1,0 +1,42 @@
+# container smoke run on lab-host, --network host, port 18080; first run with ConnectionStrings__TicketDesk -> td-sql TicketDeskSynth (value not recorded)
+$ docker image inspect ticketdesk-web:r1-modern-core --format 'User={{.Config.User}} Size={{.Size}} Entrypoint={{.Config.Entrypoint}}'
+User=1654 Size=261169406 Entrypoint=[dotnet TicketDesk.Web.dll]
+$ docker image ls ticketdesk-web:r1-modern-core
+ticketdesk-web:r1-modern-core dbe28a3be523 261MB
+$ docker top td-mc-smoke -o uid,user,cmd
+Error response from daemon: Couldn't find PID field in ps output
+$ curl http://127.0.0.1:18080/health/live
+HTTP 200
+{"status":"Healthy","checks":[]}
+$ curl http://127.0.0.1:18080/health/ready
+HTTP 200
+{"status":"Degraded","checks":[{"name":"database","status":"Healthy","description":"database reachable"},{"name":"legacy","status":"Degraded","description":"legacy unreachable"}]}
+$ curl http://127.0.0.1:18080/api/projects
+HTTP 401
+
+$ curl http://127.0.0.1:18080/api/tickets?sort=Details
+HTTP 401
+
+$ curl http://127.0.0.1:18080/openapi/v1.json
+HTTP 200
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "TicketDesk API",
+    "description": "Endpoints of the new TicketDesk app. Every path not listed here is served by the legacy app through the gateway. Authentication: the new app's Identity cookie.",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/tic
+$ docker exec td-mc-smoke sh -c id   (chiseled image: no shell expected)
+OCI runtime exec failed: exec failed: unable to start container process: exec: "sh": executable file not found in $PATH
+warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
+      Storing keys in a directory '/home/app/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      Now listening on: http://[::]:18080
+      HTTP request failed after 69.847ms
+$ ps -o uid,user,cmd -p $(docker inspect -f '{{.State.Pid}}' td-mc-smoke)   (container started without a connection string)
+  UID USER     CMD
+ 1654 1654     dotnet TicketDesk.Web.dll
+$ curl http://127.0.0.1:18080/health/ready
+{"status":"Unhealthy","checks":[{"name":"database","status":"Unhealthy","description":"ConnectionStrings:TicketDesk is not configured."},{"name":"legacy","status":"Degraded","description":"legacy unreachable"}]} HTTP 503

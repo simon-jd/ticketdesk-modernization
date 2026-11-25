@@ -1,0 +1,131 @@
+{
+  "gateway": "https://localhost:5443/",
+  "legacy": "https://localhost:8443/",
+  "legacy_page": "ticket/new",
+  "new_page": "account/manage",
+  "checks": 16,
+  "failed": [],
+  "steps": [
+    {
+      "step": "A new app: sign-in page",
+      "ok": true,
+      "status": 200,
+      "backend": "modern; route=user.sign-in.get"
+    },
+    {
+      "step": "A new app: sign-in post issues .AspNet.ApplicationCookie",
+      "ok": true,
+      "status": 302,
+      "backend": "modern; route=user.sign-in.post",
+      "set_cookie": [
+        ".AspNet.ApplicationCookie"
+      ]
+    },
+    {
+      "step": "A legacy direct: GET https://localhost:8443/ticket/new signed in",
+      "ok": true,
+      "status": 200,
+      "backend": "legacy (no marker)",
+      "user": "{admin}",
+      "location": null
+    },
+    {
+      "step": "A legacy via gateway: GET https://localhost:5443/ticket/new signed in",
+      "ok": true,
+      "status": 200,
+      "backend": "legacy (no marker)",
+      "user": "{admin}",
+      "location": null
+    },
+    {
+      "step": "A new app: GET https://localhost:5443/account/manage signed in",
+      "ok": true,
+      "status": 200,
+      "backend": "modern; route=account.manage",
+      "user": "{admin}",
+      "location": null
+    },
+    {
+      "step": "A new app: sign-out deletes the cookie",
+      "ok": true,
+      "status": 302,
+      "backend": "modern; route=user.sign-out"
+    },
+    {
+      "step": "A legacy direct after sign-out: GET https://localhost:8443/ticket/new anonymous (challenge)",
+      "ok": true,
+      "status": 302,
+      "backend": "legacy (no marker)",
+      "user": null,
+      "location": "https://localhost:8443/user/sign-in?ReturnUrl=%2Fticket%2Fnew"
+    },
+    {
+      "step": "A new app after sign-out: GET https://localhost:5443/account/manage anonymous (challenge)",
+      "ok": true,
+      "status": 302,
+      "backend": "modern; route=account.manage",
+      "user": null,
+      "location": "https://localhost:5443/user/sign-in?ReturnUrl=%2Faccount%2Fmanage"
+    },
+    {
+      "step": "B legacy direct: sign-in page",
+      "ok": true,
+      "status": 200,
+      "backend": "legacy (no marker)"
+    },
+    {
+      "step": "B legacy direct: sign-in post issues .AspNet.ApplicationCookie",
+      "ok": true,
+      "status": 302,
+      "backend": "legacy (no marker)",
+      "set_cookie": [
+        ".AspNet.ApplicationCookie"
+      ]
+    },
+    {
+      "step": "B new app: GET https://localhost:5443/account/manage signed in",
+      "ok": true,
+      "status": 200,
+      "backend": "modern; route=account.manage",
+      "user": "{admin}",
+      "location": null
+    },
+    {
+      "step": "B new app (admin role): GET https://localhost:5443/admin/users signed in",
+      "ok": true,
+      "status": 200,
+      "backend": "modern; route=admin.users",
+      "user": "{admin}",
+      "location": null
+    },
+    {
+      "step": "B legacy direct: GET https://localhost:8443/ticket/new signed in",
+      "ok": true,
+      "status": 200,
+      "backend": "legacy (no marker)",
+      "user": "{admin}",
+      "location": null
+    },
+    {
+      "step": "B legacy direct: sign-out deletes the cookie",
+      "ok": true,
+      "status": 302
+    },
+    {
+      "step": "B new app after sign-out: GET https://localhost:5443/account/manage anonymous (challenge)",
+      "ok": true,
+      "status": 302,
+      "backend": "modern; route=account.manage",
+      "user": null,
+      "location": "https://localhost:5443/user/sign-in?ReturnUrl=%2Faccount%2Fmanage"
+    },
+    {
+      "step": "B legacy direct after sign-out: GET https://localhost:8443/ticket/new anonymous (challenge)",
+      "ok": true,
+      "status": 302,
+      "backend": "legacy (no marker)",
+      "user": null,
+      "location": "https://localhost:8443/user/sign-in?ReturnUrl=%2Fticket%2Fnew"
+    }
+  ]
+}

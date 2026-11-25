@@ -1,0 +1,62 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:8443 -e TD_RATE=30 -e TD_WARMUP_S=30 -e TD_MEASURE_S=120 -e TD_PRE_VUS=110 -e TD_MAX_VUS=110 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+time="2026-11-13T20:16:25-08:00" level=error msg="TypeError: Cannot read property 'match' of undefined or null\n\tat create (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:171:22(19))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:8443/tickets/filterList\": request timeout"
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:25-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket/8235\": request timeout"
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:8443/tickets/filterList\": request timeout"
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:25-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:25-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:25-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat comment (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:159:34(8))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:25-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket/2447\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket/new\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'match' of undefined or null\n\tat create (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:171:22(19))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket-activity/load-activity?ticketId=10195&activity=AddComment\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'match' of undefined or null\n\tat token (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:88:29(4))\n\tat comment (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:163:40(59))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket/864\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket/2207\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat comment (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:159:34(8))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat filter (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:28(7))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket/8798\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat filter (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:150:28(7))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/ticket/9756\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:8443/tickets/opentickets\": request timeout"
+time="2026-11-13T20:16:26-08:00" level=error msg="TypeError: Cannot read property 'matchAll' of undefined or null\n\tat list (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:135:23(32))\n\tat comment (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:159:34(8))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:191:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+{
+ "all": {
+  "duration_ms": {
+   "avg": 903.2063921394978,
+   "p(90)": 514.0293026000027,
+   "p(95)": 3508.362274100003,
+   "p(99)": 30000.31929134,
+   "max": 30001.133823,
+   "count": 4975,
+   "min": 6.651248,
+   "med": 50.844325
+  },
+  "failed": {
+   "fails": 4894,
+   "rate": 0.01628140703517588,
+   "passes": 81
+  }
+ },
+ "dropped": {
+  "count": 1752,
+  "rate": 11.59213490149846
+ }
+}

@@ -1,0 +1,7 @@
+@* S3 (Round 5): each language is a form that posts to /language?name=xx with the antiforgery token (links in the legacy app). *@
+@foreach (var item in TicketDesk.Localization.LegacyCulture.Cultures)
+{
+    <li>
+        <form action="/language?name=@item.Key" class="td-menu-post" method="post">@Html.AntiForgeryToken()<button type="submit">@item.Value</button></form>
+    </li>
+}

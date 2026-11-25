@@ -1,0 +1,12 @@
+# 2026-11-13T22:33:25Z git 39f8016f (+uncommitted) target --project src/modern/tests/TicketDesk.Database.Tests args 
+run 1 rc=0 total=103 failed=0 9.5s load=4.39
+run 2 rc=0 total=103 failed=0 8.6s load=4.87
+run 3 rc=0 total=103 failed=0 9.1s load=6.98
+run 4 rc=0 total=103 failed=0 13.9s load=7.03
+run 5 rc=0 total=103 failed=0 10.9s load=6.58
+run 6 rc=0 total=103 failed=0 13.7s load=6.49
+run 7 rc=0 total=103 failed=0 8.5s load=6.18
+run 8 rc=0 total=103 failed=0 8.6s load=6.16
+run 9 rc=0 total=103 failed=0 11.3s load=6.06
+run 10 rc=0 total=103 failed=0 12.0s load=6.49
+# done 2026-11-13T22:35:11Z: 10/10 clean

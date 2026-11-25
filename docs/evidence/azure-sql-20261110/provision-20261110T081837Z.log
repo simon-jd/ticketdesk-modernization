@@ -1,0 +1,46 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261110081854
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script8.ps1 -Steps fetch+migrate -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-80690ee.zip -BundleSha256 897e87202cfc55d44228e88b67016f8627acf50c94676fcf9a489ceaedb661dd -PublishBlob td-legacy-publish-80690ee.zip -PublishSha256 28f447e9dbff57bf69452697e7b315b25eae1448eea662693682d1035fcddbc5 -AdminEmail <admin-email> -RunId 20261110T081837Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-12> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-2106795.zip -SqlToolsSha256 97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4 -DotnetVersion 10.0.14 -Database azure
+Process ID: 4160
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-10T08:18:54Z] provision run 20261110T081837Z on tdlab-legacy, steps: fetch+migrate
+[2026-11-10T08:18:54Z] ==== step fetch
+[2026-11-10T08:18:54Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-80690ee.zip (38,658 bytes, sha256 897E87202CFC55D44228E88B67016F8627ACF50C94676FCF9A489CEAEDB661DD)
+[2026-11-10T08:18:54Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Move-TdFileStore.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Test-TdBlobStore.ps1, Update-TdSqlServer.ps1
+[2026-11-10T08:18:54Z] publish package already extracted (same SHA-256)
+[2026-11-10T08:18:54Z] step fetch done in 0.3s
+[2026-11-10T08:18:54Z] ==== step migrate
+    IX_Tickets_Open_Unassigned: AssignedTo included
+applied expand/V0006__open_unassigned_include_assignee.sql in 0.10 s
+applied programmable/R__usp_ticket_list.sql in 0.03 s
+2 script(s) applied
+applied  expand/V0001__tickets_assigned_date.sql                      2026-11-09 01:49:05Z 13 ms by sa
+applied  expand/V0002__tickets_assigned_date_backfill.sql             2026-11-09 01:49:05Z 219 ms by sa
+applied  expand/V0003__ticket_list_and_report_indexes.sql             2026-11-09 01:49:05Z 330 ms by sa
+applied  expand/V0004__tickets_rebuild_after_backfill.sql             2026-11-09 01:49:05Z 2 ms by sa
+applied  expand/V0005__assigned_date_trigger_null_changes.sql         2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_assignee_workload.sql             2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_open_tickets_aging.sql            2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_time_to_close.sql                 2026-11-09 01:49:05Z 2 ms by sa
+applied  expand/V0006__open_unassigned_include_assignee.sql           2026-11-10 08:18:55Z 66 ms by <client-id-12>@<tenant-id>
+applied  programmable/R__usp_ticket_list.sql                          2026-11-10 08:18:55Z 13 ms by <client-id-12>@<tenant-id>
+contract contract/C0001__assigned_date_contract.sql (after legacy retirement)
+[2026-11-10T08:18:56Z] step migrate done in 1.5s
+[2026-11-10T08:18:56Z] TDTIMINGS {"fetch":0.3,"migrate":1.5} total 1.9s
+**********************
+Windows PowerShell transcript end
+End time: 20261110081856
+**********************

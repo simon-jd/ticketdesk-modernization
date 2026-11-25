@@ -1,0 +1,14 @@
+name|index_id|pages|rows
+----|--------|-----|----
+PK_dbo.Tickets|1|107141|1000000
+IX_ProjectId|2|1772|1000000
+IX_Tickets_Open_Status|9|3702|500169
+IX_Tickets_Open_Unassigned|10|539|104837
+IX_Tickets_Open_Assignee|11|8317|500169
+IX_Tickets_Open_Owner|12|7448|500169
+IX_Tickets_LastUpdateDate|13|3134|1000000
+IX_Tickets_Project_LastUpdateDate|14|3137|1000000
+IX_Tickets_Closed_StatusDate|15|6991|499831
+PK_dbo.TicketTags|1|6610|1461932
+IX_TicketId|2|2544|1461932
+IX_TicketTags_TagName|4|6289|1461932

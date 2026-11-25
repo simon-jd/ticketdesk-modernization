@@ -1,0 +1,73 @@
+$ TD_SEED_DB=TicketDeskSynth ops/dev/seed.sh run --scale S --seed 42 --json docs/evidence/seed-20261107/implied-S-run2.json
+seeding scale S (10,000 tickets, 250 users, 5 projects), seed 42
+reset done in 0.8s
+projects/users loaded (250 users) in 0.1s
+  10,000 tickets loaded (1.7s)
+constraints re-validated (1.9s)
+{
+  "scale": "S",
+  "seed": 42,
+  "tickets": 10000,
+  "users": 250,
+  "projects": 5,
+  "resetSeconds": 0.77,
+  "loadSeconds": 1.86,
+  "totalSeconds": 2.69,
+  "rowsWritten": {
+    "[dbo].[Projects]": 4,
+    "[dbo].[IdentityUsers]": 250,
+    "[dbo].[IdentityUserRoles]": 250,
+    "[dbo].[Tickets]": 10000,
+    "[dbo].[TicketTags]": 14698,
+    "[dbo].[TicketSubscribers]": 20125,
+    "[dbo].[TicketEvents]": 45649,
+    "[dbo].[TicketEventNotifications]": 95999
+  },
+  "tables": [
+    {
+      "table": "[dbo].[Projects]",
+      "rows": 5,
+      "checksum": -79698357
+    },
+    {
+      "table": "[dbo].[IdentityUsers]",
+      "rows": 250,
+      "checksum": -880079850
+    },
+    {
+      "table": "[dbo].[IdentityUserRoles]",
+      "rows": 250,
+      "checksum": -635567099
+    },
+    {
+      "table": "[dbo].[Tickets]",
+      "rows": 10000,
+      "checksum": -1870039954
+    },
+    {
+      "table": "[dbo].[TicketTags]",
+      "rows": 14698,
+      "checksum": 1625653311
+    },
+    {
+      "table": "[dbo].[TicketSubscribers]",
+      "rows": 20125,
+      "checksum": -1540965507
+    },
+    {
+      "table": "[dbo].[TicketEvents]",
+      "rows": 45649,
+      "checksum": -995213503
+    },
+    {
+      "table": "[dbo].[TicketEventNotifications]",
+      "rows": 95999,
+      "checksum": 1910869743
+    }
+  ],
+  "untrustedOrDisabledForeignKeys": 0
+}
+
+real	0m2.943s
+user	0m1.196s
+sys	0m0.118s

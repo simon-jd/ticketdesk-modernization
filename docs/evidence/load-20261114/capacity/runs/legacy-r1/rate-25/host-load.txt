@@ -1,0 +1,30 @@
+## 2026-11-14T01:18:37Z before
+ 17:18:37 up 5 days, 17:56, 12 users,  load average: 5.02, 9.40, 9.91
+               total        used        free      shared  buff/cache   available
+Mem:             123          38          23           0          63          85
+# per-CPU busy % over 3 s (0-31)
+0:2 1:0 2:3 3:2 4:5 5:3 6:6 7:1 8:6 9:0 10:3 11:1 12:4 13:0 14:4 15:1 16:7 17:7 18:6 19:6 20:8 21:10 22:8 23:9 24:4 25:3 26:3 27:3 28:17 29:16 30:17 31:16
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 200   0 1293892 ps
+48.3  26 1049942 sqlservr
+28.9  20 1253588 td-legacy-vm
+12.9  20 2646229 auto-app
+11.1  12    8349 grok-bot
+ 4.1   6 1293824 sshd-session
+ 2.8   0 4019112 sqlservr
+## 2026-11-14T01:21:24Z after
+ 17:21:24 up 5 days, 17:59, 13 users,  load average: 9.36, 9.21, 9.72
+               total        used        free      shared  buff/cache   available
+Mem:             123          41          20           0          63          81
+# per-CPU busy % over 3 s (0-31)
+0:2 1:0 2:8 3:1 4:3 5:0 6:2 7:1 8:3 9:0 10:2 11:1 12:2 13:0 14:2 15:1 16:71 17:44 18:85 19:8 20:68 21:98 22:3 23:37 24:70 25:82 26:40 27:15 28:72 29:34 30:64 31:29
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 100  20 1311415 cc1plus
+ 100  26 1311444 cc1plus
+ 100  17 1311448 cc1plus
+ 100  18 1311454 cc1plus
+ 100  28 1311479 cc1plus
+ 100  27 1311483 cc1plus
+ 100   1 1311484 ps

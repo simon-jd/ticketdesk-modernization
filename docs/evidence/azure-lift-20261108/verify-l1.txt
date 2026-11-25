@@ -1,0 +1,44 @@
+# azure_verify 2026-11-08T15:59:03Z
+OK    resource group exists                          true
+OK    RG location / tags                             swedencentral ticketdesk agent-azure-lift
+OK    every resource has the 4 tags (SQL master exempt) none
+OK    all resources in swedencentral (DNS zones global) none
+OK    VNet                                           vnet-tdlab-swedencentral 10.42.0.0/16
+OK    subnet snet-vm: prefix, NSG, no default outbound 10.42.1.0/24 nsg-tdlab-vm false
+OK    subnet snet-pe: prefix, NSG, no default outbound 10.42.2.0/24 nsg-tdlab-pe false
+OK    subnet snet-aks: prefix, NSG, no default outbound 10.42.16.0/22 nsg-tdlab-aks false
+OK    nsg-tdlab-vm DenyInternetInbound               Deny 4000 Internet
+OK    nsg-tdlab-pe DenyInternetInbound               Deny 4000 Internet
+OK    nsg-tdlab-aks DenyInternetInbound              Deny 4000 Internet
+OK    nsg-tdlab-vm: only 443, from one /32           443 0 <home-ip>/32
+OK    nsg-tdlab-vm: no other inbound Allow           none
+OK    snet-vm service endpoints                      Microsoft.KeyVault Microsoft.Storage
+OK    no inbound Allow from Internet/* anywhere      none
+OK    Key Vault rbac / soft delete / purge prot.     true true 7 None
+OK    Key Vault firewall default action              Deny
+OK    Key Vault secrets present (names only)         appinsights-connection-string sql-connection-string td-app-admin-password td-sql-sa-password vm-tdlab-legacy-admin-password
+OK    VM size / image / patch mode                   Standard_B2as_v2 2025-datacenter-core-smalldisk-g2 Manual false
+OK    VM OS disk Standard_LRS 30-32 GB               Standard_LRS 32
+OK    VM system-assigned identity, Trusted Launch    SystemAssigned TrustedLaunch true
+OK    VM identity roles (names, scopes)              Key Vault Secrets User:vaults/kv-tdlab-36d2d4 Storage Blob Data Contributor:containers/backups Storage Blob Data Contributor:containers/logs Storage Blob Data Reader:containers/artifacts
+OK    public IP DNS label                            tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com
+OK    no RDP/WinRM/SSH reachable: VM NIC has no NSG of its own none
+OK    storage: LRS, TLS1.2, shared keys off, no public blobs Standard_LRS TLS1_2 false false
+OK    storage firewall: Deny, home IP + snet-vm      Deny 1 1
+OK    storage containers private                     artifacts:None backups:None logs:None
+OK    Key Vault allows snet-vm                       snet-vm
+OK    Key Vault lift secrets + certificate (names only) td-app-admin-password td-sql-sa-password / td-iis-legacy
+OK    Log Analytics daily cap / retention            0.1 30 PerGB2018
+OK    App Insights is workspace-based                log-tdlab-swedencentral
+OK    action group has an e-mail receiver            1
+OK    SQL public access / Entra-only                 Disabled true
+OK    SQL DB free offer                              true AutoPause GP_S_Gen5_2
+OK    SQL private endpoint connection                Approved
+OK    SQL DNS zone linked to the VNet                Completed
+OK    SQL server minimal TLS                         1.2
+OK    privatelink.database.windows.net A record      10.42.2.4
+OK    Entra app ticketdesk-lab-web                   exists
+OK    Entra app roles                                TdAdministrators TdHelpDeskUsers TdInternalUsers TdPendingUsers
+OK    service principal assignment required          true
+OK    signed-in user has TdAdministrators            5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a01
+# 0 failed

@@ -1,0 +1,266 @@
+{
+  "source": "https://localhost:8443/",
+  "note": "Snapshot of the legacy System.Web.Optimization bundles; regenerate with ops/dev/export-legacy-bundles.py",
+  "bundles": [
+    {
+      "path": "/content/styles",
+      "file": "content.styles.css",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public",
+      "v": "vAJ7kzGNIPCiS1cqG0zO-xMYJcga5pwrhPuwn-AXqCk1",
+      "bytes": 151172,
+      "sha256": "d9097c612f5fa7716d6324c519de9add9e9314d424a06588314d59b6483d2e03",
+      "linkVerified": true
+    },
+    {
+      "path": "/content/datepicker",
+      "file": "content.datepicker.css",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public",
+      "v": "XixlEiYUTpB02OgIbJV4PuAI0fky3csmgC-XsU9aGgQ1",
+      "bytes": 16064,
+      "sha256": "c705eedb5bd35da99e6ba855bcb2939046560d13f380110ab2d6f59400b34ddd",
+      "linkVerified": false
+    },
+    {
+      "path": "/content/wizard",
+      "file": "content.wizard.css",
+      "contentType": "text/css",
+      "cacheControl": "public",
+      "v": "47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU1",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "linkVerified": false
+    },
+    {
+      "path": "/content/select2",
+      "file": "content.select2.css",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public",
+      "v": "bivs1ICJRISw7QgkXsRrVU76mWrFwAIe5ZT3FL-pqu01",
+      "bytes": 26479,
+      "sha256": "3141f70885ffad314c190bef6cd0d731169c50feae5c85825fb455d2f7516855",
+      "linkVerified": false
+    },
+    {
+      "path": "/content/editor",
+      "file": "content.editor.css",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public",
+      "v": "lQawZBG5DINbOExkASb71QlnMm_5dPeouaSuiaQdXTY1",
+      "bytes": 10309,
+      "sha256": "d922424e4988cadef466a3f406850fb3fb8d34b0ea9e2fca972dff447e77c9c5",
+      "linkVerified": false
+    },
+    {
+      "path": "/content/summernote",
+      "file": "content.summernote.css",
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public",
+      "v": "uqaTUyyl1ybfnRophbxK67RFVj7i3h6nFHO70LO6Bmw1",
+      "bytes": 10697,
+      "sha256": "85eeb888d2e894e4dc4a773423463108b851720e7cb7cf003e42b118e96fb016",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/datepicker",
+      "file": "bundles.datepicker.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "ZjAsf6601YI2HBbjEX2NtWve5syJnTgwrqooZ7F_lxU1",
+      "bytes": 26875,
+      "sha256": "6dbcbcb2a1d8f499a84a1d1052db5438ba55b519c6330fb805ee228fcfb1457c",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/editticket",
+      "file": "bundles.editticket.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "NTnWzRVvjVlSGwx4FS1M4yOyU_uQnURcjC2Knhjmhqc1",
+      "bytes": 4219,
+      "sha256": "5bb198d9bd602532740561acc20b1a396c55d1f3aad137595611f23782f5a972",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/application-settings",
+      "file": "bundles.application-settings.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "if8KwNfaWBR8wlbmxc9nz94g6NbeHU3qHbkhiGN0TI81",
+      "bytes": 841,
+      "sha256": "8ca66d03c1d78f9e956e242623542950f10214b08ada2bba3ff708f13b0c77e8",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/ticketcenter",
+      "file": "bundles.ticketcenter.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "b-OIKqwOeDrK6vFw7ZWTqwXAD3Wi7N2Z2KVXU13AzcE1",
+      "bytes": 1552,
+      "sha256": "2705f8fa8f85e0933f6173c002c116fbf1f0d09801304e414a551829b4822df3",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/admin-users",
+      "file": "bundles.admin-users.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "ZnkFzVXPhQ_adeDf3UIQ_WPg0TRynpxJq_W5ykZ_zi41",
+      "bytes": 1088,
+      "sha256": "efc0de7c89a5f12ac6aa5e35a63e18b60bfac23870a5e6ddd8158c8b8e13f6ef",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/project-settings",
+      "file": "bundles.project-settings.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "btKNjPocDUC6Au1Q491jUaQTCEB_vvadPC4ygC6hEK81",
+      "bytes": 687,
+      "sha256": "612867baacdbaf265bb93235402b7e0c722d41bcef6f5e8ecdfd9ab78564ab21",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/search",
+      "file": "bundles.search.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "5mG7GAaEEynxjP-dlyFDmB6TljdqqR_cgACO8kDGY6w1",
+      "bytes": 814,
+      "sha256": "e1e5757fd130defa44df9c6a4f7d9bc04233078abfc3e388be09a2e5b635a5a1",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/admin-edit-user",
+      "file": "bundles.admin-edit-user.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "Urrwx62uakDo48OkDpfcEWP4U8Zze2sTmN7tht_T7Eo1",
+      "bytes": 390,
+      "sha256": "33e4d4393a13186aec2640efb902faaf57b4f6495c98cc5111de17b7ff1b3d88",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/editor",
+      "file": "bundles.editor.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "el2S_2j439LTJjcGJjlQ8wt5lsT0U8iNoj9MBShHWrI1",
+      "bytes": 36300,
+      "sha256": "81844e945eb15c837c2ced5be533e135a543969f138b0b7450d8fa250fd40c45",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/select2",
+      "file": "bundles.select2.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "TGNj_vwVtodjSqLDlazC63_9L6aanQX-D2yjfV2hDGY1",
+      "bytes": 100225,
+      "sha256": "f0b5cccd633c2494f0e18cae532c4ceba9da824c1ea292bcc293a8e4f5dcc626",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/summernote",
+      "file": "bundles.summernote.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "vOJwNETJQdxUv3GYO0w8vb3ph3UdxIDLSUB16AYXhPw1",
+      "bytes": 73867,
+      "sha256": "0c8b28ddb532767bb35911683ad4ea5c1c73acbd818803f2defcf1a62469ee0a",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/markdown",
+      "file": "bundles.markdown.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "elRP2Ur12sUyx374ZsCXaoFZWwZt5b1y_Tbv2mg_DOc1",
+      "bytes": 38757,
+      "sha256": "8e8bbe0e67e565a162141e788f39f691f9e5957d048adc0ad768f6ff24b8c1e0",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/common",
+      "file": "bundles.common.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "8QY0TD-utrltnyHvtQGmV6ymnsv8YxSEgr-zQOrQ_fk1",
+      "bytes": 176480,
+      "sha256": "97cfaf55b5504a2c70dd7421e8a61f38f49f1ba5f7229cf87b78bf7a89434989",
+      "linkVerified": true
+    },
+    {
+      "path": "/bundles/modernizr",
+      "file": "bundles.modernizr.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1",
+      "bytes": 11095,
+      "sha256": "9e83216908224ffbc39992a5e60f93ca21b8e2240ba28025ba679c4b70f7112d",
+      "linkVerified": true
+    },
+    {
+      "path": "/bundles/select2_locale_en-US",
+      "file": "bundles.select2_locale_en-US.js",
+      "contentType": "text/javascript",
+      "cacheControl": "public",
+      "v": "47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU1",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/common_locale_en-US",
+      "file": "bundles.common_locale_en-US.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "yWXq95-Ht2mu7mlu4KXVhNgML3XM1wIDXuBPXhgS9PE1",
+      "bytes": 404,
+      "sha256": "3c41810e3817d786e26f25cb4425888851a3484d8f0c25d6b8ddd4c3fd9a8cc4",
+      "linkVerified": true
+    },
+    {
+      "path": "/bundles/summernote_locale_en-US",
+      "file": "bundles.summernote_locale_en-US.js",
+      "contentType": "text/javascript",
+      "cacheControl": "public",
+      "v": "47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU1",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/select2_locale_pt-BR",
+      "file": "bundles.select2_locale_pt-BR.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "Wtq5Q3BwVs-kddN8NnZOhZZ2xcqjonvkT5nsKUSW0TU1",
+      "bytes": 670,
+      "sha256": "e0452c60c23f194470592d1f22c57fbeb29cc15a138712d5ad2063b0897d4609",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/common_locale_pt-BR",
+      "file": "bundles.common_locale_pt-BR.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "zPleBwmzcbayLG5cd_VoHK6Tik1a5Jv-st7AphC6iqg1",
+      "bytes": 2946,
+      "sha256": "5de26a5c8dbfc8257610ef826a4d98d2c2e34724cb0f8736d9aebae4925ea682",
+      "linkVerified": false
+    },
+    {
+      "path": "/bundles/summernote_locale_pt-BR",
+      "file": "bundles.summernote_locale_pt-BR.js",
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public",
+      "v": "v2rC3nPkTafg-RHekMorQdY5OU9aYL-s5giga98Emo01",
+      "bytes": 1746,
+      "sha256": "a234ce37edf269504b7434187e19b1f32a1ba22e0cb7b7573a63e4154f61bb59",
+      "linkVerified": false
+    }
+  ]
+}

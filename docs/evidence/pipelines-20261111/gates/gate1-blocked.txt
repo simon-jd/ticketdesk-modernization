@@ -1,0 +1,6 @@
+# 2026-11-11T05:25:17Z attempt to complete PR 2 while the build policy is rejected
+HTTP 403 PATCH https://dev.azure.com/<ado-org>/TicketDesk/_apis/git/repositories/TicketDesk/pullrequests/2?api-version=7.1
+{"$id":"1","innerException":null,"message":"CI (azure-pipelines/ci.yml) must succeed to update modernize.","typeName":"Microsoft.TeamFoundation.Git.Server.GitPullRequestUpdateRejectedByPolicyException, Microsoft.TeamFoundation.Git.Server","typeKey":"GitPullRequestUpdateRejectedByPolicyException","errorCode":0,"eventId":3000}
+exit=1
+PR 2 active merge=succeeded demo/gate-failing-test -> modernize source=97085334 merged=8aafe1b8 closed=- "Gate demo 1: failing test"
+  policy Build blocking=true status=rejected build=6 buildOutputPreview=Build, test, images

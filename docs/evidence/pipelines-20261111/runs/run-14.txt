@@ -1,0 +1,26 @@
+run 14 ci-20261111.11 ci refs/pull/4/merge 26672578 status=completed result=succeeded reason=pullRequest queued=2026-11-11T08:56:45.3365282Z start=2026-11-11T08:56:48.0058409Z finish=2026-11-11T08:59:37.6085917Z
+Checkpoint completed  succeeded    0 s      Checkpoint
+Job        completed  succeeded    113 s    Build, test, images
+Stage      completed  succeeded    167 s    CI
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    1 s      Checkout TicketDesk@refs/pull/4/merge to s
+Task       completed  succeeded    7 s      Angular - npm ci, Vitest, build
+Task       completed  succeeded    61 s     .NET - restore, build, tests + coverage
+Task       completed  succeeded    10 s     Playwright E2E (new app alone)
+Task       completed  succeeded    9 s      Golden replay (new app alone)
+Task       completed  succeeded    3 s      Container images (web, worker) + smoke
+Task       completed  succeeded    4 s      Publish .NET test results
+Task       completed  succeeded    3 s      Publish Vitest + Playwright results
+Task       completed  succeeded    11 s     Publish .NET coverage
+Task       completed  succeeded    2 s      Publish CI output (summaries, replay report, images)
+Task       completed  succeeded    1 s      Post-job: Checkout TicketDesk@refs/pull/4/merge to s
+Task       completed  succeeded    0 s      Finalize Job
+Job        completed  succeeded    33 s     Static gates
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@refs/pull/4/merge to s
+Task       completed  succeeded    0 s      No inherited Azure login
+Task       completed  succeeded    3 s      terraform fmt -check + validate
+Task       completed  succeeded    26 s     Vulnerable packages (NuGet, npm)
+Task       completed  succeeded    2 s      Publish audit output
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@refs/pull/4/merge to s
+Task       completed  succeeded    0 s      Finalize Job

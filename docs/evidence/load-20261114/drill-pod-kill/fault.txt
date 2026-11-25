@@ -1,0 +1,2 @@
+Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+pod "td-web-7746b5c8c-jrbtx" force deleted from ticketdesk namespace

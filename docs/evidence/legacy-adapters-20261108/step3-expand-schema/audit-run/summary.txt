@@ -1,0 +1,7 @@
+2026-11-08T20:51:37Z == direct
+2026-11-08T20:51:56Z 2026-11-08T20:51:56Z reset to baseline-s done in 19 s
+2026-11-08T20:52:12Z 2026-11-08T20:52:12Z deployed td-legacy-publish-35d7b5e.zip (sha256 488696957d298c069f5683e94d6abb4333b11d695f6eef21bc3bbe20ef215369) in 16 s
+2026-11-08T20:52:12Z td-db migrate: 9 script(s) applied
+2026-11-08T20:52:14Z prepare: audit trigger installed
+2026-11-08T20:52:37Z replay: replayed 262 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/legacy-adapters-20261108/step3-expand-schema/audit-run/direct/candidate.jsonl (0 journey errors)
+2026-11-08T20:52:38Z compare: compared 262, matched 261, mismatched 1 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/step3-expand-schema/audit-run/direct/compare/report.md

@@ -1,0 +1,41 @@
+2026-11-12T06:41:51Z provision 20261112T064151Z on vm-tdlab-legacy: fetch+prereqs+site+sqltools+import+azsql-users+migrate+aks-sql-user+deploy+verify SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-2> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-ca0443f.zip SqlToolsSha256=c6bbec40dfb0650961d1c1b5a411bec62317fbd3e6e8758e2d00b8cd5e484a50 DotnetVersion=10.0.14 Database=azure BacpacBlob=bacpac/ticketdesk-baseline-s-shared.bacpac BacpacSha256=20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9 SharedCookieKeyRing=database DataProtectionKeyId=https://kv-tdlab-36d2d4.vault.azure.net/keys/td-dataprotection AksAppIdentityName=id-tdlab-app AksAppClientId=<client-id-19>
+---- ComponentStatus/StdOut/succeeded
+publish\Views\UserAdministration\Index.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\New.cshtml
+	  			C:\TdBuild\publish\Views\UserAdministration\_UserList.cshtml
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51        49         2         0         0         0
+   Files :       816       816         0         0         0         0
+   Bytes :   42.06 m   42.06 m         0         0         0         0
+   Times :   0:00:02   0:00:01                       0:00:00   0:00:01
+
+
+   Speed :           25,220,881 Bytes/sec.
+   Speed :            1,443.150 MegaBytes/min.
+   Ended : Thursday, November 12, 2026 6:46:14 AM
+
+[2026-11-12T06:46:14Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-12T06:46:14Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-12T06:46:14Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-12T06:46:14Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-12T06:46:14Z] INFO   database: Azure SQL, ManagedIdentity (tcp:sql-tdlab-36d2d4.database.windows.net,1433)
+[2026-11-12T06:46:14Z] INFO   shared sign-in cookie: on (key ring: database)
+[2026-11-12T06:46:14Z] INFO   key ring wrapped with Key Vault key https://kv-tdlab-36d2d4.vault.azure.net/keys/td-dataprotection (managed identity)
+[2026-11-12T06:46:14Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SqlAuthentication=ManagedIdentity, appSettings/ticketdesk:SharedCookieKeyRing, appSettings/ticketdesk:DataProtectionKeyVaultKeyId, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-12T06:46:45Z] INFO   warm-up http://localhost/ -> 200 in 31.3s
+[2026-11-12T06:46:45Z] deploy: database azure, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-12T06:46:45Z] step deploy done in 35.2s
+[2026-11-12T06:46:45Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33822","display_version":"24H2","last_boot_utc":"2026-11-12T06:28:40.3722560Z","database":"azure","sql":"12.0.2000.8 SQL Azure GP_S_Gen5_2","app_db":"tcp:sql-tdlab-36d2d4.database.windows.net,1433","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.257.0","signature_updated_utc":"2026-11-11T22:12:20.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10","private_key_usable":true},"https_home":{"status":200,"ms":23,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":{},"rows":{"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":14,"dbo.ApplicationSettings":1,"dbo.DataProtectionKeys":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-12T06:46:53Z] step verify done in 7.5s
+[2026-11-12T06:46:53Z] TDTIMINGS {"fetch":7.3,"prereqs":162.1,"site":8.3,"sqltools":13.1,"import":38.2,"azsql-users":0.6,"migrate":2.1,"aks-sql-user":0.4,"deploy":35.2,"verify":7.5} total 275.8s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261112T064151Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261112T064151Z steps=fetch+prereqs+site+sqltools+import+azsql-users+migrate+aks-sql-user+deploy+verify elapsed_s=337 rc=0

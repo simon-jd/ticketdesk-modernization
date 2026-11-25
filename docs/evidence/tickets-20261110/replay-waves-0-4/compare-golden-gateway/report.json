@@ -1,0 +1,2184 @@
+{
+  "generated": "2026-11-10T07:37:34.5999373+00:00",
+  "baseline": {
+    "file": "docs/evidence/tickets-20261110/replay-waves-0-4/baseline.jsonl",
+    "target": "https://localhost:8443/",
+    "runId": "legacy-run1",
+    "exchanges": 262,
+    "errors": 0
+  },
+  "candidate": {
+    "file": "docs/evidence/tickets-20261110/replay-waves-0-4/gateway.jsonl",
+    "target": "https://localhost:5443/",
+    "runId": "gateway",
+    "exchanges": 263,
+    "errors": 0
+  },
+  "compared": 262,
+  "matched": 199,
+  "mismatched": 64,
+  "missingInCandidate": 0,
+  "extraInCandidate": 1,
+  "routes": [
+    {
+      "routeKey": "GET /ticket-activity/load-activity",
+      "requests": 21,
+      "mismatches": 21,
+      "kinds": {
+        "header": 21
+      }
+    },
+    {
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "requests": 16,
+      "mismatches": 13,
+      "kinds": {
+        "header": 12,
+        "set-cookie": 2,
+        "body-html": 13,
+        "status": 1,
+        "location": 1
+      }
+    },
+    {
+      "routeKey": "GET /ticket/{id:int}",
+      "requests": 14,
+      "mismatches": 12,
+      "kinds": {
+        "header": 12,
+        "body-html": 12
+      }
+    },
+    {
+      "routeKey": "GET /ticket/new",
+      "requests": 8,
+      "mismatches": 8,
+      "kinds": {
+        "header": 8,
+        "set-cookie": 7,
+        "body-html": 8
+      }
+    },
+    {
+      "routeKey": "GET /tickets/sortList/{listName=opentickets}/{page:int?}",
+      "requests": 3,
+      "mismatches": 3,
+      "kinds": {
+        "header": 3,
+        "body-html": 3
+      }
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/{action=index}",
+      "requests": 2,
+      "mismatches": 2,
+      "kinds": {
+        "body-html": 2
+      }
+    },
+    {
+      "routeKey": "GET /file/get-attachments-info",
+      "requests": 2,
+      "mismatches": 1,
+      "kinds": {
+        "status": 1,
+        "body-text": 1
+      }
+    },
+    {
+      "routeKey": "GET /tickets/pageList/{listName=mytickets}/{page:int?}",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "header": 1,
+        "body-html": 1
+      }
+    },
+    {
+      "routeKey": "POST /admin/push-notification-settings/{action=index}",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "body-html": 1
+      }
+    },
+    {
+      "routeKey": "POST /tickets/filterList/{listName=opentickets}/{page:int?}",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "header": 1,
+        "body-html": 1
+      }
+    },
+    {
+      "routeKey": "GET /",
+      "requests": 29,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /about",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /access-denied",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/change-password",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/edit-profile",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/manage",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/application-settings/{action=index}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/data-management/demo",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/new",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/project/new",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/project/{projectId:int}",
+      "requests": 4,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/projects",
+      "requests": 5,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/configure-provider",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/list-providers",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/search-manager",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/user/{id?}",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/users/page/{page:int?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/users/{page:int?}",
+      "requests": 7,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /auto-complete/tag-list",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /bundles/{bundle}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /content/{bundle}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /emailtest/index/{id}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /file/{id}/{fileName}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/check-upgrade-progress",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/legacy-migration",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/upgrade-database",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /index",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /language",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /navigation/change-project/{projectId:int}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /search",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /search/{term}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "requests": 6,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/ticket-details",
+      "requests": 5,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/ticket-events",
+      "requests": 6,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/ticket-files",
+      "requests": 7,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/reset-user-lists",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/register",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/sign-in",
+      "requests": 19,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/sign-out",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /account/change-password",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /account/edit-profile",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/application-settings/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/new",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/delete/{projectId:int}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/new",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/{projectId:int}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/push-notification-settings/configure-provider",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/user/delete/{id?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/user/{id?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /file/delete",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /file/upload",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/add-comment",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/assign",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/cancel-more-info",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/close",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/edit-ticket-info",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/force-close",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/give-up",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/modify-attachments",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/pass",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/reassign",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/reopen",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/request-more-info",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/resolve",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/supply-more-info",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket-activity/take-over",
+      "requests": 4,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket/change-ticket-subscription",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /ticket/new",
+      "requests": 8,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /user/register",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /user/sign-in",
+      "requests": 14,
+      "mismatches": 0,
+      "kinds": {}
+    }
+  ],
+  "mismatches": [
+    {
+      "key": "ticket-list#002.0",
+      "journey": "ticket-list",
+      "step": "ticket center default list",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#003.1",
+      "journey": "ticket-list",
+      "step": "ticket index redirects to the list",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#004.0",
+      "journey": "ticket-list",
+      "step": "my tickets",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/mytickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#005.0",
+      "journey": "ticket-list",
+      "step": "unassigned",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/unassigned",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#006.0",
+      "journey": "ticket-list",
+      "step": "assigned to me",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/assignedToMe",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#007.0",
+      "journey": "ticket-list",
+      "step": "history",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/historytickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#008.0",
+      "journey": "ticket-list",
+      "step": "open tickets",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/opentickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#009.0",
+      "journey": "ticket-list",
+      "step": "open tickets page 2",
+      "routeKey": "GET /tickets/pageList/{listName=mytickets}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/pageList/opentickets/2",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#010.0",
+      "journey": "ticket-list",
+      "step": "filter open tickets",
+      "routeKey": "POST /tickets/filterList/{listName=opentickets}/{page:int?}",
+      "method": "POST",
+      "path": "/tickets/filterList",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#011.0",
+      "journey": "ticket-list",
+      "step": "sort by title",
+      "routeKey": "GET /tickets/sortList/{listName=opentickets}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/sortList/opentickets?columnName=Title",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "attribute",
+          "path": "html/body[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/@class",
+          "expected": "clickable",
+          "actual": "clickable overdue"
+        },
+        {
+          "kind": "attribute",
+          "path": "html/body[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[43]/@class",
+          "expected": "clickable",
+          "actual": "clickable overdue"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#012.0",
+      "journey": "ticket-list",
+      "step": "sort by title again (flip)",
+      "routeKey": "GET /tickets/sortList/{listName=opentickets}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/sortList/opentickets?columnName=Title",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "attribute",
+          "path": "html/body[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/@class",
+          "expected": "clickable",
+          "actual": "clickable overdue"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#013.0",
+      "journey": "ticket-list",
+      "step": "add priority to sort",
+      "routeKey": "GET /tickets/sortList/{listName=opentickets}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/sortList/opentickets?columnName=Priority\u0026isMultiSort=true",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "attribute",
+          "path": "html/body[1]/div[1]/div[2]/div[1]/table[1]/tbody[1]/tr[4]/@class",
+          "expected": "clickable",
+          "actual": "clickable overdue"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#014.1",
+      "journey": "ticket-list",
+      "step": "reset list settings",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-list#017.0",
+      "journey": "ticket-list",
+      "step": "open tickets in project 2",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/opentickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#002.0",
+      "journey": "ticket-create-view",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#003.1",
+      "journey": "ticket-create-view",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10001",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#004.0",
+      "journey": "ticket-create-view",
+      "step": "view ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10001",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#011.1",
+      "journey": "ticket-create-view",
+      "step": "unknown ticket redirects to list",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#002.0",
+      "journey": "ticket-edit",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#003.1",
+      "journey": "ticket-edit",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10002",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#004.0",
+      "journey": "ticket-edit",
+      "step": "load EditTicketInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10002\u0026activity=EditTicketInfo",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#002.0",
+      "journey": "ticket-comment",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#003.1",
+      "journey": "ticket-comment",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10003",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#004.0",
+      "journey": "ticket-comment",
+      "step": "load AddComment form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10003\u0026activity=AddComment",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#002.0",
+      "journey": "ticket-assign",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#003.1",
+      "journey": "ticket-assign",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10004",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#004.0",
+      "journey": "ticket-assign",
+      "step": "load Assign form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10004\u0026activity=Assign",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#002.0",
+      "journey": "ticket-close",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#003.1",
+      "journey": "ticket-close",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10005",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#004.0",
+      "journey": "ticket-close",
+      "step": "load TakeOver form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10005\u0026activity=TakeOver",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#006.0",
+      "journey": "ticket-close",
+      "step": "load Resolve form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10005\u0026activity=Resolve",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#008.0",
+      "journey": "ticket-close",
+      "step": "load Close form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10005\u0026activity=Close",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#010.0",
+      "journey": "ticket-close",
+      "step": "view closed ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10005",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#002.0",
+      "journey": "ticket-workflow",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#003.1",
+      "journey": "ticket-workflow",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10006",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#004.0",
+      "journey": "ticket-workflow",
+      "step": "load TakeOver form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#006.0",
+      "journey": "ticket-workflow",
+      "step": "load RequestMoreInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=RequestMoreInfo",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#008.0",
+      "journey": "ticket-workflow",
+      "step": "load CancelMoreInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=CancelMoreInfo",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#010.0",
+      "journey": "ticket-workflow",
+      "step": "load RequestMoreInfo form (2)",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=RequestMoreInfo",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#012.0",
+      "journey": "ticket-workflow",
+      "step": "load SupplyMoreInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=SupplyMoreInfo",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#014.0",
+      "journey": "ticket-workflow",
+      "step": "load Pass form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=Pass",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#016.0",
+      "journey": "ticket-workflow",
+      "step": "load ReAssign form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=ReAssign",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#018.0",
+      "journey": "ticket-workflow",
+      "step": "load TakeOver form (2)",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#020.0",
+      "journey": "ticket-workflow",
+      "step": "load GiveUp form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=GiveUp",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#022.0",
+      "journey": "ticket-workflow",
+      "step": "load Assign form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=Assign",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#024.0",
+      "journey": "ticket-workflow",
+      "step": "load TakeOver form (3)",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#026.0",
+      "journey": "ticket-workflow",
+      "step": "load ForceClose form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=ForceClose",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#028.0",
+      "journey": "ticket-workflow",
+      "step": "load ReOpen form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=ReOpen",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#030.0",
+      "journey": "ticket-workflow",
+      "step": "view reopened ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10006",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "attachments#002.0",
+      "journey": "attachments",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "attachments#006.0",
+      "journey": "attachments",
+      "step": "pending attachments info",
+      "routeKey": "GET /file/get-attachments-info",
+      "method": "GET",
+      "path": "/file/get-attachments-info?tempId=da6a5d4c-8f66-4aac-a60f-361c41d9abe9",
+      "kinds": [
+        "status",
+        "body-text"
+      ],
+      "diffs": [
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "500",
+          "actual": "200"
+        },
+        {
+          "kind": "body-text",
+          "path": "line 1",
+          "expected": "",
+          "actual": "[{\u0022name\u0022:\u0022replay-note.txt\u0022,\u0022size\u0022:29,\u0022isAttached\u0022:false,\u0022type\u0022:\u0022text/plain\u0022,\u0022url\u0022:\u0022/file/{guid}/replay-note.txt\u0022}]"
+        }
+      ]
+    },
+    {
+      "key": "attachments#007.1",
+      "journey": "attachments",
+      "step": "create ticket with attachment",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10007",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "attachments#011.0",
+      "journey": "attachments",
+      "step": "load ModifyAttachments form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10007\u0026activity=ModifyAttachments",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "admin-settings#010.0",
+      "journey": "admin-settings",
+      "step": "push notification settings",
+      "routeKey": "GET /admin/push-notification-settings/{action=index}",
+      "method": "GET",
+      "path": "/admin/push-notification-settings",
+      "kinds": [
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "attribute",
+          "path": "html/body[1]/div[1]/main[1]/div[1]/fieldset[1]/div[1]/form[1]/div[1]/div[4]/div[3]/div[1]/div[1]/input[1]/@value",
+          "expected": "https://localhost",
+          "actual": "https://localhost:5443"
+        },
+        {
+          "kind": "text",
+          "path": "html/body[1]/script[5]/text()[1]",
+          "expected": "$(document).ready(function () { $(\u0027#useCurrentUrlButton\u0027).on(\u0027click\u0027, function () { $(\u0027#siteRootUrl\u0027).val(\u0027https://localhost\u0027); }); //Fix local url validation var originalMethods = { url: $.validator.methods.url }; $.validator.methods.url = function (value, element) { return this.optional(element) || (/^https?:\\/\\/\\w\u002B(\\.\\w\u002B)*(:[0-9]\u002B)?\\/?(\\/[.\\w]*)*$/).test(value); }; });",
+          "actual": "$(document).ready(function () { $(\u0027#useCurrentUrlButton\u0027).on(\u0027click\u0027, function () { $(\u0027#siteRootUrl\u0027).val(\u0027https://localhost:5443\u0027); }); //Fix local url validation var originalMethods = { url: $.validator.methods.url }; $.validator.methods.url = function (value, element) { return this.optional(element) || (/^https?:\\/\\/\\w\u002B(\\.\\w\u002B)*(:[0-9]\u002B)?\\/?(\\/[.\\w]*)*$/).test(value); }; });"
+        }
+      ]
+    },
+    {
+      "key": "admin-changes#004.0",
+      "journey": "admin-changes",
+      "step": "push notification settings",
+      "routeKey": "GET /admin/push-notification-settings/{action=index}",
+      "method": "GET",
+      "path": "/admin/push-notification-settings",
+      "kinds": [
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "attribute",
+          "path": "html/body[1]/div[1]/main[1]/div[1]/fieldset[1]/div[1]/form[1]/div[1]/div[4]/div[3]/div[1]/div[1]/input[1]/@value",
+          "expected": "https://localhost",
+          "actual": "https://localhost:5443"
+        },
+        {
+          "kind": "text",
+          "path": "html/body[1]/script[5]/text()[1]",
+          "expected": "$(document).ready(function () { $(\u0027#useCurrentUrlButton\u0027).on(\u0027click\u0027, function () { $(\u0027#siteRootUrl\u0027).val(\u0027https://localhost\u0027); }); //Fix local url validation var originalMethods = { url: $.validator.methods.url }; $.validator.methods.url = function (value, element) { return this.optional(element) || (/^https?:\\/\\/\\w\u002B(\\.\\w\u002B)*(:[0-9]\u002B)?\\/?(\\/[.\\w]*)*$/).test(value); }; });",
+          "actual": "$(document).ready(function () { $(\u0027#useCurrentUrlButton\u0027).on(\u0027click\u0027, function () { $(\u0027#siteRootUrl\u0027).val(\u0027https://localhost:5443\u0027); }); //Fix local url validation var originalMethods = { url: $.validator.methods.url }; $.validator.methods.url = function (value, element) { return this.optional(element) || (/^https?:\\/\\/\\w\u002B(\\.\\w\u002B)*(:[0-9]\u002B)?\\/?(\\/[.\\w]*)*$/).test(value); }; });"
+        }
+      ]
+    },
+    {
+      "key": "admin-changes#005.0",
+      "journey": "admin-changes",
+      "step": "save push notification settings unchanged",
+      "routeKey": "POST /admin/push-notification-settings/{action=index}",
+      "method": "POST",
+      "path": "/admin/push-notification-settings",
+      "kinds": [
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "attribute",
+          "path": "html/body[1]/div[1]/main[1]/div[1]/fieldset[1]/div[1]/form[1]/div[1]/div[4]/div[3]/div[1]/div[1]/input[1]/@value",
+          "expected": "https://localhost",
+          "actual": "https://localhost:5443"
+        },
+        {
+          "kind": "text",
+          "path": "html/body[1]/script[5]/text()[1]",
+          "expected": "$(document).ready(function () { $(\u0027#useCurrentUrlButton\u0027).on(\u0027click\u0027, function () { $(\u0027#siteRootUrl\u0027).val(\u0027https://localhost\u0027); }); //Fix local url validation var originalMethods = { url: $.validator.methods.url }; $.validator.methods.url = function (value, element) { return this.optional(element) || (/^https?:\\/\\/\\w\u002B(\\.\\w\u002B)*(:[0-9]\u002B)?\\/?(\\/[.\\w]*)*$/).test(value); }; });",
+          "actual": "$(document).ready(function () { $(\u0027#useCurrentUrlButton\u0027).on(\u0027click\u0027, function () { $(\u0027#siteRootUrl\u0027).val(\u0027https://localhost:5443\u0027); }); //Fix local url validation var originalMethods = { url: $.validator.methods.url }; $.validator.methods.url = function (value, element) { return this.optional(element) || (/^https?:\\/\\/\\w\u002B(\\.\\w\u002B)*(:[0-9]\u002B)?\\/?(\\/[.\\w]*)*$/).test(value); }; });"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#002.0",
+      "journey": "internal-user",
+      "step": "ticket center",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets",
+      "kinds": [
+        "header",
+        "set-cookie",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "set-cookie",
+          "path": "Set-Cookie",
+          "expected": "",
+          "actual": ".TicketDesk.Antiforgery; httponly; path=/; samesite=strict"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#003.0",
+      "journey": "internal-user",
+      "step": "my tickets",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/mytickets",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[1]/form[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#004.0",
+      "journey": "internal-user",
+      "step": "unassigned (help desk only)",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets/unassigned",
+      "kinds": [
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "500",
+          "actual": "302"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "",
+          "actual": "/access-denied"
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/meta[1]",
+          "expected": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E",
+          "actual": "\u003Ctitle\u003EObject moved"
+        },
+        {
+          "kind": "removed",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/hgroup[1]",
+          "expected": "\u003Chgroup\u003EError. An error occurred while processing your request.",
+          "actual": "\u003Ch2\u003EObject moved to here ."
+        }
+      ]
+    },
+    {
+      "key": "internal-user#006.0",
+      "journey": "internal-user",
+      "step": "new ticket page",
+      "routeKey": "GET /ticket/new",
+      "method": "GET",
+      "path": "/ticket/new",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[12]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#007.1",
+      "journey": "internal-user",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10008",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#008.0",
+      "journey": "internal-user",
+      "step": "view own ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10008",
+      "kinds": [
+        "header",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/div[1]/main[1]/input[1]",
+          "actual": "\u003Cinput name=\u0022__RequestVerificationToken\u0022 type=\u0022hidden\u0022 value=\u0022{antiforgery}\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/body[1]/script[13]",
+          "actual": "\u003Cscript type=\u0022text/javascript\u0022\u003E(function () { // S3 RequestVerificationToken var token = $(\u0027input[name=\u0022__RequestVerificationToken\u0022]\u0027).first().val(); $\u2026"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#010.0",
+      "journey": "internal-user",
+      "step": "load AddComment form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10008\u0026activity=AddComment",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Cache-Control",
+          "expected": "s-maxage=0, private",
+          "actual": "no-store, no-cache"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#004.1",
+      "journey": "internal-user",
+      "step": "unassigned (help desk only)",
+      "routeKey": "GET /access-denied",
+      "method": "GET",
+      "path": "/access-denied",
+      "kinds": [
+        "extra"
+      ],
+      "diffs": [
+        {
+          "kind": "extra",
+          "path": "internal-user#004.1",
+          "actual": "GET /access-denied"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

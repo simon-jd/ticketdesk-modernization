@@ -1,0 +1,62 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:5493 -e TD_RATE=100 -e TD_WARMUP_S=30 -e TD_MEASURE_S=120 -e TD_PRE_VUS=320 -e TD_MAX_VUS=320 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/58939\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/347836\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/582833\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket-activity/load-activity?ticketId=1001813&activity=AddComment\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=error msg="TypeError: Cannot read property 'match' of undefined or null\n\tat token (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:93:29(4))\n\tat comment (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:179:40(59))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/405679\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/760174\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=unassigned&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/106577\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/248723\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/ticket-details?ticketId=127011\": request timeout"
+time="2026-11-13T21:03:52-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:53-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:5493/ticket/new\": request timeout"
+time="2026-11-13T21:03:53-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/699943\": request timeout"
+time="2026-11-13T21:03:53-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:53-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:5493/ticket-activity/add-comment?ticketId=1001813\": request timeout"
+time="2026-11-13T21:03:53-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/new\": request timeout"
+time="2026-11-13T21:03:53-08:00" level=error msg="TypeError: Cannot read property 'match' of undefined or null\n\tat create (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:187:22(19))\n\tat default (file://~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js:207:54(41))\n" executor=constant-arrival-rate hint="script exception" scenario=mix source=stacktrace
+time="2026-11-13T21:03:53-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/880430\": request timeout"
+time="2026-11-13T21:03:53-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:54-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/813208\": request timeout"
+time="2026-11-13T21:03:54-08:00" level=warning msg="Request Failed" error="Post \"https://localhost:5493/ticket/new\": request timeout"
+time="2026-11-13T21:03:54-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:55-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:56-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/api/tickets?list=opentickets&page=1&pageSize=20\": request timeout"
+time="2026-11-13T21:03:56-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/300263\": request timeout"
+time="2026-11-13T21:03:56-08:00" level=warning msg="Request Failed" error="Get \"https://localhost:5493/ticket/794447\": request timeout"
+time="2026-11-13T21:05:33-08:00" level=warning msg="The test has generated metrics with 100013 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+{
+ "all": {
+  "duration_ms": {
+   "avg": 2177.8966895634594,
+   "p(90)": 4912.1758315,
+   "p(95)": 5498.330007449999,
+   "p(99)": 6488.774223049995,
+   "max": 18502.987497,
+   "count": 17050,
+   "min": 0.70869,
+   "med": 1715.3727115000002
+  },
+  "failed": {
+   "rate": 0.0026392961876832845,
+   "passes": 45,
+   "fails": 17005
+  }
+ },
+ "dropped": {
+  "count": 4040,
+  "rate": 26.109038720595876
+ }
+}

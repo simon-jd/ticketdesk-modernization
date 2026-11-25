@@ -1,0 +1,1401 @@
+# load average 5.23 5.08 2.45
+Changed database context to 'TicketDeskL'.
+=== forced plan 226
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 129 ms,  elapsed time = 42 ms.
+ SQL Server Execution Times:
+   CPU time = 129 ms,  elapsed time = 42 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 130 ms,  elapsed time = 44 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 168 ms,  elapsed time = 59 ms.
+ SQL Server Execution Times:
+   CPU time = 168 ms,  elapsed time = 59 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 169 ms,  elapsed time = 60 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 114 ms,  elapsed time = 44 ms.
+ SQL Server Execution Times:
+   CPU time = 114 ms,  elapsed time = 44 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 115 ms,  elapsed time = 45 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 112 ms,  elapsed time = 29 ms.
+ SQL Server Execution Times:
+   CPU time = 112 ms,  elapsed time = 29 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 113 ms,  elapsed time = 31 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 110 ms,  elapsed time = 21 ms.
+ SQL Server Execution Times:
+   CPU time = 110 ms,  elapsed time = 21 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 110 ms,  elapsed time = 23 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 35 ms,  elapsed time = 10 ms.
+ SQL Server Execution Times:
+   CPU time = 35 ms,  elapsed time = 10 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 12 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 12 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 47 ms,  elapsed time = 24 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 34 ms,  elapsed time = 11 ms.
+ SQL Server Execution Times:
+   CPU time = 34 ms,  elapsed time = 11 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 47 ms,  elapsed time = 24 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 11 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 11 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 49 ms,  elapsed time = 24 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 39 ms,  elapsed time = 8 ms.
+ SQL Server Execution Times:
+   CPU time = 39 ms,  elapsed time = 8 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 52 ms,  elapsed time = 22 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 37 ms,  elapsed time = 11 ms.
+ SQL Server Execution Times:
+   CPU time = 38 ms,  elapsed time = 11 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 14 ms,  elapsed time = 14 ms.
+ SQL Server Execution Times:
+   CPU time = 15 ms,  elapsed time = 14 ms.
+ SQL Server Execution Times:
+   CPU time = 53 ms,  elapsed time = 26 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+=== forced plan 136
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 88 ms,  elapsed time = 88 ms.
+ SQL Server Execution Times:
+   CPU time = 88 ms,  elapsed time = 88 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 2 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 2 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 91 ms,  elapsed time = 90 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 74 ms,  elapsed time = 74 ms.
+ SQL Server Execution Times:
+   CPU time = 75 ms,  elapsed time = 74 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 76 ms,  elapsed time = 76 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 68 ms,  elapsed time = 68 ms.
+ SQL Server Execution Times:
+   CPU time = 68 ms,  elapsed time = 68 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 70 ms,  elapsed time = 69 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 70 ms,  elapsed time = 70 ms.
+ SQL Server Execution Times:
+   CPU time = 70 ms,  elapsed time = 70 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 2 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 73 ms,  elapsed time = 72 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- common tag (printer)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 66 ms,  elapsed time = 65 ms.
+ SQL Server Execution Times:
+   CPU time = 66 ms,  elapsed time = 65 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 1 ms.
+ SQL Server Execution Times:
+   CPU time = 67 ms,  elapsed time = 67 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 49 ms,  elapsed time = 48 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 35 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 35 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 48 ms,  elapsed time = 48 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 12 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 12 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 48 ms,  elapsed time = 48 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 1 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 35 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 35 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 12 ms.
+ SQL Server Execution Times:
+   CPU time = 49 ms,  elapsed time = 48 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+--- rare tag (mobile-108)
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 36 ms,  elapsed time = 35 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+SQL Server parse and compile time: 
+   CPU time = 0 ms, elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 13 ms,  elapsed time = 13 ms.
+ SQL Server Execution Times:
+   CPU time = 49 ms,  elapsed time = 48 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+ SQL Server Execution Times:
+   CPU time = 0 ms,  elapsed time = 0 ms.
+plan_id|is_forced_plan|force_failure_count|last_force_failure_reason_desc

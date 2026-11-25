@@ -1,0 +1,7 @@
+25 percent processed.
+50 percent processed.
+75 percent processed.
+100 percent processed.
+Processed 10176 pages for database 'TicketDeskBacpac', file 'TicketDesk' on file 1.
+Processed 1 pages for database 'TicketDeskBacpac', file 'TicketDesk_log' on file 1.
+RESTORE DATABASE successfully processed 10177 pages in 0.043 seconds (1848.871 MB/sec).

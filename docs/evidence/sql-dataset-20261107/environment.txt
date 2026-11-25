@@ -1,0 +1,5 @@
+# date: 2026-11-08T00:42:48Z
+# host: lab-host 32 cores, 123 GB RAM
+# sql: 16.0.4262.2 CU25 Developer Edition (64-bit)
+# git: e509ff9
+# dotnet: 10.0.403

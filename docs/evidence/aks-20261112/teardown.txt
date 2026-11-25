@@ -1,0 +1,27 @@
+# teardown after session-20261112T062534Z (2026-11-12T08:44:06Z)
+soft-deleted vaults before: kv-tdlab-36d2d4 
+purge rc=0
+soft-deleted vaults after: 
+TTL_HOURS in this shell: unset (infra/azure.mk default 4)
+## make azure-down (group already gone; refresh-only of stage none, which the session's destroy could not run: TTL_HOURS=3.25 reached make)
+rg-ticketdesk-lab does not exist
+terraform state refreshed (deleted resources dropped)
+## make azure-plan STAGE=none
+  # time_rotating.attachments_sas[0] will be destroyed
+  # module.files[0].time_sleep.rbac_propagation will be destroyed
+  # module.keyvault[0].time_sleep.rbac_propagation will be destroyed
+Plan: 0 to add, 0 to change, 3 to destroy.
+## make azure-down-foundation (stage none: the 3 local time_* resources only, nothing in Azure)
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Destruction complete after 0s[0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Destruction complete after 0s[0m
+[0m[1mtime_rotating.attachments_sas[0]: Destruction complete after 0s[0m
+Apply complete! Resources: 0 added, 0 changed, 3 destroyed.[0m
+stage foundation down end 2026-11-12T08:46:02Z elapsed_s=21 rc=0
+## make azure-plan STAGE=none
+No changes. Your infrastructure matches the configuration.
+## end state 2026-11-12T08:46:12Z
+rg-ticketdesk-lab exists: false; rg-ticketdesk-lab-aksnodes exists: false
+resources tagged project=ticketdesk: 0
+resources tagged owner=agent-aks: 0
+soft-deleted vaults: 0
+tmux td-aks-session: ended

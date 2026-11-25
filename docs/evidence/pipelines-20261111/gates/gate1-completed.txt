@@ -1,0 +1,5 @@
+# 2026-11-11T05:28:23Z complete PR 2 after the fix (build policy approved)
+PR 2 -> active merge=queued
+PR 2 completed merge=succeeded demo/gate-failing-test -> modernize source=ac82e30a merged=ac82e30a closed=2026-11-11T05:28:24.8004203Z "Gate demo 1: failing test"
+  policy Build blocking=true status=approved build=7 buildOutputPreview=
+refs/heads/modernize ac82e30ac20945aaba9db8c0b0f035195a9196b0

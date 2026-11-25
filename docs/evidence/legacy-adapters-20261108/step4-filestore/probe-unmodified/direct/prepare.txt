@@ -1,0 +1,2 @@
+2026-11-08T20:59:12Z td-azurite up: http://127.0.0.1:10000/devstoreaccount1 (VM: http://10.0.2.2:10000/devstoreaccount1), image mcr.microsoft.com/azure-storage/azurite:3.37.0
+2026-11-08T20:59:12Z reset: empty store (baseline-s state)

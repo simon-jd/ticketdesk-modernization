@@ -1,0 +1,367 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "ticket center default list (help desk: unassigned)",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "list unassigned",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "list assignedToMe",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "list mytickets",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "list opentickets",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "list historytickets",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "opentickets page 2 (partial)",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "opentickets sort by Title (partial)",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "opentickets sort by Title again: descending",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "opentickets add Priority to the sort",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "mytickets filter status=Active, assignedTo=anyone",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "unassigned filter status=Any",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "opentickets (to pick a ticket)",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "a ticket link on the list",
+      "ok": true,
+      "detail": "20 links"
+    },
+    {
+      "check": "ticket page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "ticket details panel",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "ticket events panel",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "ticket files panel",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "reset the admin's list settings",
+      "ok": true,
+      "detail": "HTTP 200"
+    }
+  ],
+  "steps": [
+    {
+      "label": "ticket center default list (help desk: unassigned)",
+      "path": "/tickets",
+      "status": 200,
+      "start": "2026-11-08T01:22:59.207Z",
+      "end": "2026-11-08T01:22:59.242Z"
+    },
+    {
+      "label": "list unassigned",
+      "path": "/tickets/unassigned",
+      "status": 200,
+      "start": "2026-11-08T01:22:59.542Z",
+      "end": "2026-11-08T01:22:59.576Z"
+    },
+    {
+      "label": "list assignedToMe",
+      "path": "/tickets/assignedToMe",
+      "status": 200,
+      "start": "2026-11-08T01:22:59.876Z",
+      "end": "2026-11-08T01:22:59.914Z"
+    },
+    {
+      "label": "list mytickets",
+      "path": "/tickets/mytickets",
+      "status": 200,
+      "start": "2026-11-08T01:23:00.214Z",
+      "end": "2026-11-08T01:23:00.260Z"
+    },
+    {
+      "label": "list opentickets",
+      "path": "/tickets/opentickets",
+      "status": 200,
+      "start": "2026-11-08T01:23:00.560Z",
+      "end": "2026-11-08T01:23:00.601Z"
+    },
+    {
+      "label": "list historytickets",
+      "path": "/tickets/historytickets",
+      "status": 200,
+      "start": "2026-11-08T01:23:00.901Z",
+      "end": "2026-11-08T01:23:00.936Z"
+    },
+    {
+      "label": "opentickets page 2 (partial)",
+      "path": "/tickets/pageList/opentickets/2",
+      "status": 200,
+      "start": "2026-11-08T01:23:01.236Z",
+      "end": "2026-11-08T01:23:01.272Z"
+    },
+    {
+      "label": "opentickets sort by Title (partial)",
+      "path": "/tickets/sortList/opentickets?columnName=Title",
+      "status": 200,
+      "start": "2026-11-08T01:23:01.572Z",
+      "end": "2026-11-08T01:23:01.627Z"
+    },
+    {
+      "label": "opentickets sort by Title again: descending",
+      "path": "/tickets/sortList/opentickets?columnName=Title",
+      "status": 200,
+      "start": "2026-11-08T01:23:01.927Z",
+      "end": "2026-11-08T01:23:01.970Z"
+    },
+    {
+      "label": "opentickets add Priority to the sort",
+      "path": "/tickets/sortList/opentickets?columnName=Priority&isMultiSort=true",
+      "status": 200,
+      "start": "2026-11-08T01:23:02.270Z",
+      "end": "2026-11-08T01:23:02.359Z"
+    },
+    {
+      "label": "mytickets filter status=Active, assignedTo=anyone",
+      "path": "/tickets/filterList/mytickets?pageSize=20&ticketStatus=Active&owner=anyone&assignedTo=anyone",
+      "status": 200,
+      "start": "2026-11-08T01:23:02.659Z",
+      "end": "2026-11-08T01:23:02.696Z"
+    },
+    {
+      "label": "unassigned filter status=Any",
+      "path": "/tickets/filterList/unassigned?pageSize=20&ticketStatus=Any&owner=anyone&assignedTo=unassigned",
+      "status": 200,
+      "start": "2026-11-08T01:23:02.996Z",
+      "end": "2026-11-08T01:23:03.039Z"
+    },
+    {
+      "label": "opentickets (to pick a ticket)",
+      "path": "/tickets/opentickets",
+      "status": 200,
+      "start": "2026-11-08T01:23:03.339Z",
+      "end": "2026-11-08T01:23:03.381Z"
+    },
+    {
+      "label": "ticket page",
+      "path": "/ticket/39",
+      "status": 200,
+      "start": "2026-11-08T01:23:03.681Z",
+      "end": "2026-11-08T01:23:03.722Z"
+    },
+    {
+      "label": "ticket details panel",
+      "path": "/ticket/ticket-details?ticketId=39",
+      "status": 200,
+      "start": "2026-11-08T01:23:04.022Z",
+      "end": "2026-11-08T01:23:04.041Z"
+    },
+    {
+      "label": "ticket events panel",
+      "path": "/ticket/ticket-events?ticketId=39",
+      "status": 200,
+      "start": "2026-11-08T01:23:04.341Z",
+      "end": "2026-11-08T01:23:04.359Z"
+    },
+    {
+      "label": "ticket files panel",
+      "path": "/ticket/ticket-files?ticketId=39",
+      "status": 200,
+      "start": "2026-11-08T01:23:04.659Z",
+      "end": "2026-11-08T01:23:04.686Z"
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 18
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 29,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 23
+    },
+    {
+      "method": "GET",
+      "url": "/tickets",
+      "status": 200,
+      "ms": 35
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/unassigned",
+      "status": 200,
+      "ms": 34
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/assignedToMe",
+      "status": 200,
+      "ms": 38
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/mytickets",
+      "status": 200,
+      "ms": 45
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/opentickets",
+      "status": 200,
+      "ms": 41
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/historytickets",
+      "status": 200,
+      "ms": 35
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/pageList/opentickets/2",
+      "status": 200,
+      "ms": 36
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/sortList/opentickets?columnName=Title",
+      "status": 200,
+      "ms": 55
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/sortList/opentickets?columnName=Title",
+      "status": 200,
+      "ms": 43
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/sortList/opentickets?columnName=Priority&isMultiSort=true",
+      "status": 200,
+      "ms": 88
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/filterList/mytickets?pageSize=20&ticketStatus=Active&owner=anyone&assignedTo=anyone",
+      "status": 200,
+      "ms": 37
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/filterList/unassigned?pageSize=20&ticketStatus=Any&owner=anyone&assignedTo=unassigned",
+      "status": 200,
+      "ms": 43
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/opentickets",
+      "status": 200,
+      "ms": 42
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/39",
+      "status": 200,
+      "ms": 40
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/ticket-details?ticketId=39",
+      "status": 200,
+      "ms": 19
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/ticket-events?ticketId=39",
+      "status": 200,
+      "ms": 18
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/ticket-files?ticketId=39",
+      "status": 200,
+      "ms": 27
+    },
+    {
+      "method": "GET",
+      "url": "/tickets/reset-user-lists",
+      "status": 302,
+      "ms": 40,
+      "location": "/tickets"
+    },
+    {
+      "method": "GET",
+      "url": "/tickets",
+      "status": 200,
+      "ms": 36
+    }
+  ]
+}

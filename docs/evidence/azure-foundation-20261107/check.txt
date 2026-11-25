@@ -1,0 +1,7 @@
+$ make azure-check   # 2026-11-08T01:27:26Z
+Terraform has been successfully initialized!
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && terraform fmt -check -recursive infra/terraform
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && umask 077 && cd infra/terraform/envs/lab && export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv) && export TF_VAR_subscription_id=$ARM_SUBSCRIPTION_ID TF_VAR_tenant_id=$(az account show --query tenantId -o tsv) && export TF_VAR_ttl_utc=$(date -u -d "+4 hours" +%Y-%m-%dT%H:%M:%SZ) && terraform validate
+Success! The configuration is valid.
+rc=0
+# tflint: not run (not on the allowed-downloads list in AGENT-RULES.md)

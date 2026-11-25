@@ -1,0 +1,30 @@
+## 2026-11-14T04:12:32Z before
+ 20:12:32 up 5 days, 20:50, 10 users,  load average: 8.77, 6.23, 5.79
+               total        used        free      shared  buff/cache   available
+Mem:             123          39          18           0          67          84
+# per-CPU busy % over 3 s (0-31)
+0:4 1:1 2:4 3:0 4:3 5:0 6:5 7:1 8:5 9:1 10:5 11:1 12:5 13:15 14:4 15:2 16:39 17:64 18:100 19:1 20:45 21:5 22:90 23:71 24:68 25:2 26:35 27:100 28:26 29:97 30:20 31:66
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 100  23 2339571 clang++-21
+ 100  27 2339569 clang++-21
+ 100  18 2339352 clang++-21
+ 100  17 2339573 clang++-21
+ 100  20 2339678 clang++-21
+99.0  26 2339645 clang++-21
+96.4  29 2339641 clang++-21
+## 2026-11-14T04:15:12Z after
+ 20:15:12 up 5 days, 20:53,  8 users,  load average: 9.28, 8.16, 6.64
+               total        used        free      shared  buff/cache   available
+Mem:             123          37          19           0          67          85
+# per-CPU busy % over 3 s (0-31)
+0:3 1:0 2:3 3:0 4:6 5:1 6:6 7:2 8:4 9:0 10:5 11:0 12:2 13:0 14:4 15:0 16:92 17:3 18:4 19:6 20:100 21:3 22:10 23:5 24:4 25:6 26:14 27:4 28:11 29:11 30:9 31:7
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 353  25 2363927 java
+ 200   8 2364114 airflow schedul
+ 100  20 2359885 utcp_sim_tests
+99.9  29 2358078 utcp_sim_tests
+30.3  21 1253588 td-legacy-vm
+22.0  26 1049942 sqlservr
+12.4   6 2646229 auto-app

@@ -1,0 +1,922 @@
+{
+  "set": "search",
+  "database": "TicketDeskLSearch",
+  "capturedAt": "2026-11-10T18:50:13.8542902\u002B00:00",
+  "source": "ws/search-worker, V0012 \u002B hash-joined subscriptions",
+  "values": {
+    "staff (help desk user with the most open assigned tickets)": "639e9f0b-9d04-496b-ac9d-05fd59324a0d",
+    "heavyOwner (owner with the most tickets)": "56f30d74-d7a7-45c0-a637-a561bacf0c2e",
+    "lightOwner (first owner, by id, with 3-10 open tickets)": "0000c0eb-b831-4f66-8401-e0b58f54b70b",
+    "bigProject (most tickets)": "1",
+    "smallProject (fewest tickets)": "25",
+    "tag (most used)": "printer",
+    "detailTicket (most events)": "202856",
+    "asOf": "2026-10-31T17:00:00.0000000\u002B00:00"
+  },
+  "scenarios": [
+    {
+      "name": "search-printer",
+      "description": "GET /search?term=printer (golden query; 66,582 titles at L)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top4) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@top4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-network",
+      "description": "GET /search?term=network (golden path query)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top4) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022network\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022network\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022network\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022network\u0022"
+            },
+            {
+              "name": "@top4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-team",
+      "description": "GET /search?term=team (most frequent title word, 167,045 titles at L)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top4) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022team\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022team\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022team\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022team\u0022"
+            },
+            {
+              "name": "@top4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-two-words",
+      "description": "GET /search?term=printer network (either word)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top4) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022network\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022network\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022network\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022network\u0022"
+            },
+            {
+              "name": "@top4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-required",
+      "description": "GET /search?term=\u002Bprinter \u002Bremote (both words, any field)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top6) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nWHERE (CONTAINS((t.Title, t.Details, t.TagList), @m4) OR EXISTS (SELECT 1 FROM dbo.TicketEvents e WHERE e.TicketId = t.TicketId AND CONTAINS(e.Comment, @m4)))\n  AND (CONTAINS((t.Title, t.Details, t.TagList), @m5) OR EXISTS (SELECT 1 FROM dbo.TicketEvents e WHERE e.TicketId = t.TicketId AND CONTAINS(e.Comment, @m5)))\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022remote\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022remote\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022remote\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022 OR \u0022remote\u0022"
+            },
+            {
+              "name": "@m4",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@m5",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022remote\u0022"
+            },
+            {
+              "name": "@top6",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-excluded",
+      "description": "GET /search?term=printer -remote",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top5) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nWHERE NOT (CONTAINS((t.Title, t.Details, t.TagList), @m4) OR EXISTS (SELECT 1 FROM dbo.TicketEvents e WHERE e.TicketId = t.TicketId AND CONTAINS(e.Comment, @m4)))\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@m4",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022remote\u0022"
+            },
+            {
+              "name": "@top5",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-phrase",
+      "description": "GET /search?term=\u0022remote staff\u0022",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top4) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022remote staff\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022remote staff\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022remote staff\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022remote staff\u0022"
+            },
+            {
+              "name": "@top4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-prefix",
+      "description": "GET /search?term=print*",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top4) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022print*\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022print*\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022print*\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022print*\u0022"
+            },
+            {
+              "name": "@top4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-tag-field",
+      "description": "GET /search?term=tags:printer",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c0) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n)\nSELECT TOP (@top1) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@top1",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-ticket-id",
+      "description": "GET /search?term=\u003Cdetail ticket id\u003E",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n    UNION ALL SELECT t.TicketId, 3000.0 FROM dbo.Tickets t WHERE t.TicketId IN (@id4)\n)\nSELECT TOP (@top5) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022202856\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022202856\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022202856\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022202856\u0022"
+            },
+            {
+              "name": "@id4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "202856"
+            },
+            {
+              "name": "@top5",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-project",
+      "description": "GET /search?term=printer, selected project = biggest",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top5) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nWHERE t.ProjectId = @project4\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@project4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "1"
+            },
+            {
+              "name": "@top5",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-internal-user",
+      "description": "GET /search?term=printer as an internal user (S12 filter; owner with the most tickets)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top5) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nLEFT HASH JOIN (SELECT s.TicketId FROM dbo.TicketSubscribers s WHERE s.SubscriberId = @viewer4 GROUP BY s.TicketId) mine ON mine.TicketId = t.TicketId\nWHERE (t.Owner = @viewer4 OR t.CreatedBy = @viewer4 OR t.AssignedTo = @viewer4 OR mine.TicketId IS NOT NULL)\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022printer\u0022"
+            },
+            {
+              "name": "@viewer4",
+              "sqlDbType": "NVarChar",
+              "size": 256,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "56f30d74-d7a7-45c0-a637-a561bacf0c2e"
+            },
+            {
+              "name": "@top5",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "search-no-hits",
+      "description": "GET /search?term=zzqqxxnohits (golden query)",
+      "commands": [
+        {
+          "commandType": "Text",
+          "text": "WITH hits (TicketId, Score) AS (\n    SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM CONTAINSTABLE(dbo.Tickets, Details, @c1) ft\n    UNION ALL SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags \u003E 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @c2) ft LEFT HASH JOIN (SELECT TicketId, COUNT(*) AS Tags FROM dbo.TicketTags GROUP BY TicketId) n ON n.TicketId = ft.[KEY]\n    UNION ALL SELECT e.TicketId, ft.[RANK] * 0.75 FROM CONTAINSTABLE(dbo.TicketEvents, Comment, @c3) ft JOIN dbo.TicketEvents e ON e.EventId = ft.[KEY]\n)\nSELECT TOP (@top4) h.TicketId, CAST(SUM(h.Score) AS float) AS Score\nFROM hits h JOIN dbo.Tickets t ON t.TicketId = h.TicketId\nGROUP BY h.TicketId\nORDER BY Score DESC, h.TicketId;\n",
+          "parameters": [
+            {
+              "name": "@c0",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022zzqqxxnohits\u0022"
+            },
+            {
+              "name": "@c1",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022zzqqxxnohits\u0022"
+            },
+            {
+              "name": "@c2",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022zzqqxxnohits\u0022"
+            },
+            {
+              "name": "@c3",
+              "sqlDbType": "NVarChar",
+              "size": 4000,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.String",
+              "value": "\u0022zzqqxxnohits\u0022"
+            },
+            {
+              "name": "@top4",
+              "sqlDbType": "Int",
+              "size": 0,
+              "precision": 0,
+              "scale": 0,
+              "direction": "Input",
+              "isNullable": false,
+              "clrType": "System.Int32",
+              "value": "20"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

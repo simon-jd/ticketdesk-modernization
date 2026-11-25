@@ -1,0 +1,214 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261109064951
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script11.ps1 -Steps azsql-wake+freeze+export+import+azsql-users+reconcile+switch -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-16b9c41.zip -BundleSha256 00b40152034e57770f8137566329ebe894bed4f0c0dd2811238c672309f74255 -PublishBlob td-legacy-publish-9fd2eed.zip -PublishSha256 94e210adb6826cb0a906869eb9c35c2e34c7cbde1aeed9a1c9e24b83449f9fcf -AdminEmail <admin-email> -RunId 20261109T064939Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-17> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-fdff374.zip -SqlToolsSha256 a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e -DotnetVersion 10.0.14 -Database azure
+Process ID: 2940
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-09T06:49:51Z] provision run 20261109T064939Z on tdlab-legacy, steps: azsql-wake+freeze+export+import+azsql-users+reconcile+switch
+[2026-11-09T06:49:51Z] ==== step azsql-wake
+[2026-11-09T06:49:51Z] TDMARK azsql_online 2026-11-09T06:49:51.972Z
+[2026-11-09T06:49:51Z] Azure SQL sqldb-ticketdesk answered after 0.2 s (ONLINE)
+[2026-11-09T06:49:51Z] step azsql-wake done in 0.2s
+[2026-11-09T06:49:51Z] ==== step freeze
+[2026-11-09T06:49:51Z] TDMARK freeze_start 2026-11-09T06:49:51.993Z
+[2026-11-09T06:49:52Z] TDMARK write_denied 2026-11-09T06:49:52.017Z
+[2026-11-09T06:49:52Z] TDMARK frozen 2026-11-09T06:49:52.035Z
+[2026-11-09T06:49:52Z] writes frozen: DENY INSERT, UPDATE, DELETE to [IIS AppPool\TicketDesk]; no app transaction open
+[2026-11-09T06:49:52Z] step freeze done in 0s
+[2026-11-09T06:49:52Z] ==== step export
+[2026-11-09T06:49:52Z] TDMARK export_start 2026-11-09T06:49:52.039Z
+[2026-11-09T06:49:59Z] TDMARK copy_restored 2026-11-09T06:49:59.805Z
+[2026-11-09T06:49:59Z] export copy: dropped Windows users: IIS AppPool\TicketDesk
+Connecting to database 'TicketDeskExport' on server 'tcp:localhost,1433'.
+Extracting schema
+Extracting schema from database
+Resolving references in schema model
+Validating schema model
+Validating schema model for data package
+Validating schema
+Processing tables for data extraction
+Exporting data from database
+Exporting data
+Processing Export.
+Processing Table '[dbo].[IdentityUserClaims]'.
+Processing Table '[dbo].[__MigrationHistory]'.
+Processing Table '[dbo].[Projects]'.
+Processing Table '[notifications].[SubscriberPushNotificationSettings]'.
+Processing Table '[dbo].[IdentityUsers]'.
+Processing Table '[dbo].[ApplicationSettings]'.
+Processing Table '[notifications].[TicketPushNotificationItems]'.
+Processing Table '[notifications].[PushNotificationDestinations]'.
+Processing Table '[dbo].[Tickets]'.
+Processing Table '[dbo].[TicketTags]'.
+Processing Table '[notifications].[ApplicationPushNotificationSettings]'.
+Processing Table '[dbo].[IdentityUserRoles]'.
+Processing Table '[dbo].[TicketEventNotifications]'.
+Processing Table '[dbo].[UserSettings]'.
+Processing Table '[notifications].[PushNotificationItems]'.
+Processing Table '[dbo].[__ModernSchemaHistory]'.
+Processing Table '[dbo].[IdentityUserLogins]'.
+Processing Table '[dbo].[IdentityRoles]'.
+Processing Table '[dbo].[TicketEvents]'.
+Processing Table '[dbo].[TicketSubscribers]'.
+Successfully exported database and saved it to file 'C:\TdMedia\ticketdesk.bacpac'.
+Time elapsed 0:00:18.26
+[2026-11-09T06:50:21Z] TDMARK exported 2026-11-09T06:50:21.676Z
+[2026-11-09T06:50:21Z] BACPAC 3,639,038 bytes, sha256 5658B9A2450CEC7362A23EBAD6B41A3B1FE9B02F77C517A78162787D09EE0262
+[2026-11-09T06:50:21Z] step export done in 29.7s
+[2026-11-09T06:50:21Z] ==== step import
+[2026-11-09T06:50:21Z] target sqldb-ticketdesk: GeneralPurpose GP_S_Gen5_2
+[2026-11-09T06:50:21Z] TDMARK import_start 2026-11-09T06:50:21.897Z
+Importing to database 'sqldb-ticketdesk' on server 'tcp:sql-tdlab-36d2d4.database.windows.net,1433'.
+Creating deployment plan
+Initializing deployment
+*** A project which specifies SQL Server 2022 as the target platform may experience compatibility issues with Microsoft Azure SQL Database v12.
+*** The object [data_0] exists in the target, but it will not be dropped even though you selected the 'Generate drop statements for objects that are in the target database but that are not in the source' check box.
+*** The object [log] exists in the target, but it will not be dropped even though you selected the 'Generate drop statements for objects that are in the target database but that are not in the source' check box.
+Verifying deployment plan
+Analyzing deployment plan
+Importing package schema and data into database
+Updating database
+Importing data
+Processing Import.
+Disabling indexes.
+Disabling index 'RoleNameIndex'.
+Disabling index 'IX_UserId'.
+Disabling index 'IX_UserId'.
+Disabling index 'IX_RoleId'.
+Disabling index 'IX_UserId'.
+Disabling index 'UserNameIndex'.
+Disabling index 'IX_EventId'.
+Disabling index 'IX_SubscriberUserName'.
+Disabling index 'IX_TicketId_EventId'.
+Disabling index 'IX_TicketId_SubscriberId'.
+Disabling index 'IX_TicketId'.
+Disabling index 'IX_ProjectId'.
+Disabling index 'IX_Tickets_Closed_StatusDate'.
+Disabling index 'IX_Tickets_LastUpdateDate'.
+Disabling index 'IX_Tickets_Open_Assignee'.
+Disabling index 'IX_Tickets_Open_Owner'.
+Disabling index 'IX_Tickets_Open_Status'.
+Disabling index 'IX_Tickets_Open_Unassigned'.
+Disabling index 'IX_Tickets_Project_LastUpdateDate'.
+Disabling index 'IX_TicketId'.
+Disabling index 'IX_TicketId'.
+Disabling index 'IX_TicketTags_TagName'.
+Disabling index 'IX_SubscriberDestination'.
+Disabling index 'IX_PushNotificationTarget'.
+Disabling index 'IX_PushNotificationItemId'.
+Processing Table '[dbo].[__MigrationHistory]'.
+Processing Table '[dbo].[__ModernSchemaHistory]'.
+Processing Table '[dbo].[ApplicationSettings]'.
+Processing Table '[dbo].[IdentityRoles]'.
+Processing Table '[dbo].[IdentityUserClaims]'.
+Processing Table '[dbo].[IdentityUserLogins]'.
+Processing Table '[dbo].[IdentityUserRoles]'.
+Processing Table '[dbo].[IdentityUsers]'.
+Processing Table '[dbo].[Projects]'.
+Processing Table '[dbo].[TicketEventNotifications]'.
+Processing Table '[dbo].[TicketEvents]'.
+Processing Table '[dbo].[Tickets]'.
+Processing Table '[dbo].[TicketSubscribers]'.
+Processing Table '[dbo].[TicketTags]'.
+Processing Table '[dbo].[UserSettings]'.
+Processing Table '[notifications].[ApplicationPushNotificationSettings]'.
+Processing Table '[notifications].[PushNotificationDestinations]'.
+Processing Table '[notifications].[PushNotificationItems]'.
+Processing Table '[notifications].[SubscriberPushNotificationSettings]'.
+Processing Table '[notifications].[TicketPushNotificationItems]'.
+Enabling indexes.
+Enabling index 'RoleNameIndex'.
+Enabling index 'IX_UserId'.
+Enabling index 'IX_UserId'.
+Enabling index 'IX_RoleId'.
+Enabling index 'IX_UserId'.
+Enabling index 'UserNameIndex'.
+Enabling index 'IX_EventId'.
+Enabling index 'IX_SubscriberUserName'.
+Enabling index 'IX_TicketId_EventId'.
+Enabling index 'IX_TicketId_SubscriberId'.
+Enabling index 'IX_TicketId'.
+Enabling index 'IX_ProjectId'.
+Enabling index 'IX_Tickets_Closed_StatusDate'.
+Enabling index 'IX_Tickets_LastUpdateDate'.
+Enabling index 'IX_Tickets_Open_Assignee'.
+Enabling index 'IX_Tickets_Open_Owner'.
+Enabling index 'IX_Tickets_Open_Status'.
+Enabling index 'IX_Tickets_Open_Unassigned'.
+Enabling index 'IX_Tickets_Project_LastUpdateDate'.
+Enabling index 'IX_TicketId'.
+Enabling index 'IX_TicketId'.
+Enabling index 'IX_TicketTags_TagName'.
+Enabling index 'IX_SubscriberDestination'.
+Enabling index 'IX_PushNotificationTarget'.
+Enabling index 'IX_PushNotificationItemId'.
+Successfully imported database.
+Time elapsed 0:00:36.03
+[2026-11-09T06:50:58Z] TDMARK imported 2026-11-09T06:50:58.273Z
+[2026-11-09T06:50:58Z] step import done in 36.5s
+[2026-11-09T06:50:58Z] ==== step azsql-users
+[2026-11-09T06:50:58Z] contained user [vm-tdlab-legacy] (app id <client-id-1>, TYPE E): db_datareader, db_datawriter
+[2026-11-09T06:50:58Z] step azsql-users done in 0.7s
+[2026-11-09T06:50:58Z] ==== step reconcile
+[2026-11-09T06:50:58Z] TDMARK reconcile_start 2026-11-09T06:50:58.975Z
+reconcile TicketDesk -> sqldb-ticketdesk: MATCH (20 tables, 3.71 s)
+table                                     source rows    target rows  sha256 (first 16) result
+dbo.ApplicationSettings                             1              1  bdb1f7e09cd48861  ok
+dbo.IdentityRoles                                   4              4  a360df5d50019dec  ok
+dbo.IdentityUserClaims                              0              0  e3b0c44298fc1c14  ok
+dbo.IdentityUserLogins                              0              0  e3b0c44298fc1c14  ok
+dbo.IdentityUserRoles                             251            251  29eb7a5471a6a0eb  ok
+dbo.IdentityUsers                                 251            251  5d40de7932c36221  ok
+dbo.Projects                                        5              5  c77fe9183fea7e7f  ok
+                                         excluded (rowversion): Version
+dbo.TicketEventNotifications                   96,049         96,049  3a8cd49ef5688e55  ok
+                                         excluded (rowversion): Version
+dbo.TicketEvents                               45,674         45,674  b268fe5432530231  ok
+                                         excluded (rowversion): Version
+dbo.Tickets                                    10,000         10,000  48514bfc386338fe  ok
+                                         excluded (rowversion): Version
+dbo.TicketSubscribers                          20,125         20,125  7565e6e2f79da9df  ok
+dbo.TicketTags                                 14,698         14,698  77bb41591876abf4  ok
+dbo.UserSettings                                    1              1  4d820522f554cb78  ok
+dbo.__MigrationHistory                             25             25  b35d9d5ba769ea7f  ok
+dbo.__ModernSchemaHistory                           9              9  dbe6091d6a4fc758  ok
+notifications.ApplicationPushNotificationSettings              1              1  9418a5310a6b0152  ok
+notifications.PushNotificationDestinations              1              1  f120e56bf575a66d  ok
+notifications.PushNotificationItems                 0              0  e3b0c44298fc1c14  ok
+notifications.SubscriberPushNotificationSettings              1              1  d4081e0ac06f9883  ok
+notifications.TicketPushNotificationItems              0              0  e3b0c44298fc1c14  ok
+[2026-11-09T06:51:02Z] TDMARK reconciled 2026-11-09T06:51:02.952Z
+[2026-11-09T06:51:02Z] step reconcile done in 4s
+[2026-11-09T06:51:02Z] ==== step switch
+[2026-11-09T06:51:02Z] TDMARK switch_start 2026-11-09T06:51:02.956Z
+[2026-11-09T06:51:03Z] INFO   Azure SQL with the managed identity: first-run setup disabled
+[2026-11-09T06:51:03Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-09T06:51:03Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-09T06:51:03Z] INFO   database: Azure SQL, ManagedIdentity (tcp:sql-tdlab-36d2d4.database.windows.net,1433)
+PS>TerminatingError(Deploy-TdApp.ps1): "Exception calling "Replace" with "3" argument(s): "The path is not of a legal form.""
+>> TerminatingError(Deploy-TdApp.ps1): "Exception calling "Replace" with "3" argument(s): "The path is not of a legal form.""
+>> TerminatingError(Deploy-TdApp.ps1): "Exception calling "Replace" with "3" argument(s): "The path is not of a legal form.""
+>> TerminatingError(Deploy-TdApp.ps1): "Exception calling "Replace" with "3" argument(s): "The path is not of a legal form.""
+[2026-11-09T06:51:03Z] FAILED: Exception calling "Replace" with "3" argument(s): "The path is not of a legal form."
+[2026-11-09T06:51:03Z] at <ScriptBlock>, C:\TdOps\windows\Deploy-TdApp.ps1: line 174
+at Invoke-Ops, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script11.ps1: line 122
+at Invoke-AppDeploy, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script11.ps1: line 178
+at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script11.ps1: line 392
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script11.ps1: line 473
+[2026-11-09T06:51:03Z] TDTIMINGS {"azsql-wake":0.2,"freeze":0,"export":29.7,"import":36.5,"azsql-users":0.7,"reconcile":4} total 71.9s
+**********************
+Windows PowerShell transcript end
+End time: 20261109065103
+**********************

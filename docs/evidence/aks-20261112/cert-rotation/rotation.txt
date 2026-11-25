@@ -1,0 +1,10 @@
+rotation start 2026-11-12T07:05:31Z
+{
+  "expires": "2029-02-14T07:05:31+00:00",
+  "notBefore": "2026-11-12T07:05:31+00:00",
+  "thumbprint": "1683C0C151A383D01C2E95E2E0B970CFF8F55A66",
+  "version": "https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy/855594019e7a4e7c97e0f1e910364333"
+}
+new version in Key Vault after 2 s (2026-11-12T07:05:33Z)
+IIS binding updated through the managed identity after 67 s (2026-11-12T07:06:38Z), provision rc=0
+smoke after 77 s (2026-11-12T07:06:48Z), rc=0: {"command": "smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 11, "seconds": 9.3}

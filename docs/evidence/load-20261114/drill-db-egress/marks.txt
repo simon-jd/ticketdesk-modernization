@@ -1,0 +1,4 @@
+start 2026-11-14T05:14:51.715Z rate 75 for 360 s, fault db-egress at +120 s
+fault 2026-11-14T05:16:51.738Z iptables DROP web pods (10.244.0.10 ) -> 192.168.192.3:1433 in the node (established connections included)
+recover 2026-11-14T05:17:52.116Z rules removed
+end 2026-11-14T05:20:54.828Z

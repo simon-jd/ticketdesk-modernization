@@ -1,0 +1,7 @@
+failed TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(method: "GET", path: "/first-run-setup/upgrade-database", route: "setup.upgrade-database") (207ms)
+  from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+  Assert.Equal() Failure: Values differ
+  Expected: 24
+  Actual:   25
+    at TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(String method, String path, String route) in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/RetiredRoutesTests.cs:50
+    at TicketDesk.Web.Tests.RetiredRoutesTests.First_run_setup_answers_410_with_a_pointer_and_runs_nothing_X1(String method, String path, String route) in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/RetiredRoutesTests.cs:51

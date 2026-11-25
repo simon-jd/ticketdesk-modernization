@@ -1,0 +1,1 @@
+compared 262, matched 147, mismatched 117 (missing 0, extra 2) -> ~/Desktop/ticketdesk-modernization/wt-aks/docs/evidence/aks-20261112/golden-v1/compare/report.md

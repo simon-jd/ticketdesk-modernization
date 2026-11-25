@@ -1,0 +1,3 @@
+# date: 2026-11-08T01:19:34Z  git: 45a646c
+# backup: ~/Desktop/ticketdesk-modernization/vm/exports/ticketdesk-clean.bak  sha256: 5b8c6a63e25699fe435d27a2955fc6ac04d31dd0feb511bb7addf62ade6c4c3d  size: 4678144 bytes
+# sql: 16.0.4262.2 CU25 Developer Edition (64-bit)

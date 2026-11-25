@@ -1,0 +1,10 @@
+# 2026-11-11T15:45:40Z kind: v2 installed as release ticketdesk, probe 1/s (reads + writes on ticket 9993), three helm upgrades v2 -> v2 (contract job: nothing to apply), $TD_W/logs/aks/diag-500.sh
+upgrade 1 2026-11-11T15:44:22.356Z
+done 1 2026-11-11T15:44:26.278Z
+upgrade 2 2026-11-11T15:44:36.429Z
+done 2 2026-11-11T15:44:40.659Z
+upgrade 3 2026-11-11T15:44:50.745Z
+done 3 2026-11-11T15:44:53.982Z
+probe: reads 104 (0 failed), writes 50 (0 failed)
+(looked for the single HTTP 500 of /api/tickets that case-ok.txt shows 3 s after its stub upgrade: not reproduced; the web log has no error besides the emulator's queue not being ready at start)
+(superseded: the 500 is a deadlock between the list read and the probe's comment write, see ../deadlock/; it did not show here by chance)

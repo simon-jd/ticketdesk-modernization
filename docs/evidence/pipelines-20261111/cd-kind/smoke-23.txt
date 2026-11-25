@@ -1,0 +1,8 @@
+========================== Starting Command Output ===========================
+[command]/usr/bin/bash --noprofile --norc ~/Desktop/ticketdesk-modernization/.tools/ado-agent/_work/_temp/43a16240-92e7-4b98-bff7-0a00d9a6cf27.sh
+# 2026-11-11T18:43:25Z kind cluster td-cd, http://127.0.0.1:18480
+td-web      1     ticketdesk-web:ci-22
+td-worker   1     ticketdesk-worker:ci-22
+
+##[error]Bash exited with code '56'.
+##[section]Finishing: Smoke

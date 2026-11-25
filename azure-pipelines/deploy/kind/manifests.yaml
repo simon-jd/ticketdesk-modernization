@@ -1,0 +1,113 @@
+# CD kind environment (cluster td-cd): the same shape as the AKS deployment - web + worker Deployments, non-root, probes,
+# rolling update without unavailability, configuration from Secrets - in plain manifests. __TAG__ and __DEPLOYED__ (UTC time
+# of the deployment: every CD run rolls the pods, also for the same tag) are filled in by cd-kind.sh.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ticketdesk
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: td-web
+  namespace: ticketdesk
+  labels: { app.kubernetes.io/name: td-web, app.kubernetes.io/part-of: ticketdesk }
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  selector:
+    matchLabels: { app.kubernetes.io/name: td-web }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: td-web, app.kubernetes.io/part-of: ticketdesk }
+      annotations: { ticketdesk/image-tag: "__TAG__", ticketdesk/deployed-at: "__DEPLOYED__" }
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 30
+      securityContext: { runAsNonRoot: true, runAsUser: 1654, runAsGroup: 1654, fsGroup: 1654, seccompProfile: { type: RuntimeDefault } }
+      containers:
+        - name: web
+          image: ticketdesk-web:__TAG__
+          imagePullPolicy: Never
+          ports: [{ name: http, containerPort: 8080 }]
+          env:
+            - { name: ASPNETCORE_ENVIRONMENT, value: Production }
+            - { name: DOTNET_gcServer, value: "0" }
+            - { name: Legacy__Enabled, value: "false" }
+            - { name: Attachments__Store, value: Local }
+            - name: ConnectionStrings__TicketDesk
+              valueFrom: { secretKeyRef: { name: td-db, key: connection } }
+            - name: Notifications__ServiceBus__ConnectionString
+              valueFrom: { secretKeyRef: { name: td-sb, key: connection } }
+          lifecycle:
+            # as the aks chart: keep serving while the endpoint removal reaches kube-proxy, then stop (CD run 23: without it
+            # the first request after the rollout was routed to the deleted pod's IP and hung until docker-proxy reset it)
+            preStop:
+              sleep: { seconds: 10 }
+          startupProbe: { httpGet: { path: /health/live, port: http }, periodSeconds: 2, failureThreshold: 60 }
+          livenessProbe: { httpGet: { path: /health/live, port: http }, periodSeconds: 20, timeoutSeconds: 3 }
+          readinessProbe: { httpGet: { path: /health/ready, port: http }, periodSeconds: 10, timeoutSeconds: 5 }
+          resources:
+            requests: { cpu: 100m, memory: 256Mi }
+            limits: { memory: 768Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: [ALL] } }
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+            - { name: app-data, mountPath: /app/App_Data }
+      volumes:
+        - { name: tmp, emptyDir: { sizeLimit: 256Mi } }
+        - { name: app-data, emptyDir: { sizeLimit: 256Mi } }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: td-web
+  namespace: ticketdesk
+spec:
+  type: NodePort
+  selector: { app.kubernetes.io/name: td-web }
+  ports: [{ name: http, port: 80, targetPort: http, nodePort: 30480 }]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: td-worker
+  namespace: ticketdesk
+  labels: { app.kubernetes.io/name: td-worker, app.kubernetes.io/part-of: ticketdesk }
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels: { app.kubernetes.io/name: td-worker }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: td-worker, app.kubernetes.io/part-of: ticketdesk }
+      annotations: { ticketdesk/image-tag: "__TAG__", ticketdesk/deployed-at: "__DEPLOYED__" }
+    spec:
+      automountServiceAccountToken: false
+      securityContext: { runAsNonRoot: true, runAsUser: 1654, runAsGroup: 1654, fsGroup: 1654, seccompProfile: { type: RuntimeDefault } }
+      containers:
+        - name: worker
+          image: ticketdesk-worker:__TAG__
+          imagePullPolicy: Never
+          env:
+            - { name: DOTNET_ENVIRONMENT, value: Production }
+            - { name: DOTNET_gcServer, value: "0" }
+            - { name: Worker__Mail__PickupDirectory, value: /mail }
+            - name: ConnectionStrings__TicketDesk
+              valueFrom: { secretKeyRef: { name: td-db, key: connection } }
+            - name: Notifications__ServiceBus__ConnectionString
+              valueFrom: { secretKeyRef: { name: td-sb, key: connection } }
+          resources:
+            requests: { cpu: 50m, memory: 192Mi }
+            limits: { memory: 512Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: [ALL] } }
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+            - { name: mail, mountPath: /mail }
+      volumes:
+        - { name: tmp, emptyDir: { sizeLimit: 128Mi } }
+        - { name: mail, emptyDir: { sizeLimit: 128Mi } }

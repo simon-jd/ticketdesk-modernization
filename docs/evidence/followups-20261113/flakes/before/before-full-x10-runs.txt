@@ -1,0 +1,12 @@
+# 2026-11-13T18:03:02Z git be095b9 target --solution src/modern/TicketDesk.Modern.sln args 
+run 1 rc=2 total=746 failed=1 29.8s load=4.39
+run 2 rc=2 total=746 failed=1 22.4s load=5.50
+run 3 rc=0 total=746 failed=0 23.1s load=5.98
+run 4 rc=0 total=746 failed=0 26.8s load=5.85
+run 5 rc=2 total=746 failed=1 26.5s load=6.16
+run 6 rc=0 total=746 failed=0 26.1s load=6.53
+run 7 rc=2 total=746 failed=1 28.1s load=6.81
+run 8 rc=0 total=746 failed=0 27.8s load=6.43
+run 9 rc=0 total=746 failed=0 27.1s load=7.08
+run 10 rc=2 total=746 failed=1 29.8s load=7.08
+# done 2026-11-13T18:07:30Z: 5/10 clean

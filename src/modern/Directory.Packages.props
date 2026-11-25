@@ -1,0 +1,45 @@
+<Project>
+  <PropertyGroup>
+    <!-- lets the pins below override transitive versions (NuGet audit warnings are errors here) -->
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.14" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.14" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.14" />
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.14" />
+    <!-- td-db create-admin: ASP.NET Core Identity's PasswordHasher (the app's hasher) without the ASP.NET Core shared framework,
+         so the td-db image stays on the plain .NET runtime; same version as the framework the web host runs on -->
+    <PackageVersion Include="Microsoft.Extensions.Identity.Core" Version="10.0.14" />
+    <!-- shared sign-in: the Data Protection key ring in the shared database (dbo.DataProtectionKeys), read by the legacy app too -->
+    <PackageVersion Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="10.0.14" />
+    <!-- the shared attachment store (Azure Blob; Azurite in the lab), same container and blob names as the legacy app -->
+    <PackageVersion Include="Azure.Storage.Blobs" Version="12.30.1" />
+    <!-- EF Core 10.0.14 asks for >= 6.1.7; pinned to the version tools/ already uses so the repo runs one SqlClient -->
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="7.1.1" />
+    <!-- Entra authentication for Azure SQL (td-db: managed identity; web/worker on AKS: workload identity); SqlClient 7 ships it as a separate package -->
+    <PackageVersion Include="Microsoft.Data.SqlClient.Extensions.Azure" Version="7.1.1" />
+    <!-- transitive via Microsoft.Data.SqlClient 7.1.1 (9.0.18 has GHSA-2fmv-rv2c-59x7, GHSA-846f-f764-76mx), same pin as tools/ -->
+    <PackageVersion Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
+    <!-- ticket text rendering (Tickets module): current sanitizer; AngleSharp pinned to the version tools/ (replay comparer) uses -->
+    <PackageVersion Include="HtmlSanitizer" Version="11.0.26" />
+    <PackageVersion Include="AngleSharp" Version="1.10.0" />
+    <!-- notification delivery (round 3): the write path publishes to Service Bus (emulator in the lab), the worker sends SMTP -->
+    <PackageVersion Include="Azure.Messaging.ServiceBus" Version="7.21.0" />
+    <PackageVersion Include="MailKit" Version="4.18.2" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.14" />
+    <!-- AKS round (round 4): Azure resources through the pods' workload identity (no keys or passwords): Data Protection key ring
+         wrapped with a Key Vault key, Service Bus by namespace, Azure SQL "Active Directory Workload Identity" (SqlClient extension
+         above); request telemetry to Application Insights (alerts and SLOs). All off unless configured. -->
+    <PackageVersion Include="Azure.Identity" Version="1.21.0" />
+    <!-- the same version as the legacy app's (net48, packages.config): each key's XML names its decryptor type with the assembly
+         version, and .NET Framework cannot load a newer version than the one in its bin folder (KeyVaultKeyRingTests checks it) -->
+    <PackageVersion Include="Azure.Extensions.AspNetCore.DataProtection.Keys" Version="1.6.1" />
+    <PackageVersion Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.6.0" />
+    <!-- tests -->
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.14" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageVersion Include="xunit.v3" Version="4.0.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,125 @@
+# CD of the TicketDesk modernization (Azure DevOps project TicketDesk, self-hosted pool lab-host).
+# Triggered by every successful CI run on modernize (pipeline resource "ci"), or queued by hand / by the aks session
+# (ops/ado/queue-cd.sh). Each stage deploys into an Azure DevOps environment whose Approval check names the user: the
+# run waits until the user clicks Approve in Azure DevOps (agents never approve).
+#   kind     environment kind-local: kind cluster td-cd on the agent host (azure-pipelines/deploy/kind/cd-kind.sh)
+#   aks_lab  environment aks-lab: images to the session's ACR, Helm chart ops/k8s/ticketdesk to the session's AKS, through
+#            the service connection ticketdesk-lab-arm (workload identity federation). Off unless deployAks=true: the
+#            AKS cluster exists only during the aks agent's Azure session, which queues this stage itself.
+# The "ci" pipeline-resource trigger is registered when a push changes this file on the definition's default branch
+# (modernize) while the definition is enabled; a definition saved through the REST API does not register it (2026-11-11:
+# cd was created before this file reached modernize and was disabled when it did, so CI runs 15/20/22 started no CD run).
+# Images: the CI keeps every ci-<run id> tag for 30 h (azure-pipelines/scripts/image-prune.sh) > the 24 h approval timeout.
+name: cd-$(Date:yyyyMMdd)$(Rev:.r)
+trigger: none
+pr: none
+
+resources:
+  pipelines:
+    - pipeline: ci
+      source: ci
+      trigger:
+        branches:
+          include: [modernize]
+
+parameters:
+  - name: imageTag
+    displayName: Image tag (auto = ci-<run id of the CI run this CD run consumes>)
+    type: string
+    default: auto
+  - name: deployKind
+    displayName: Deploy to kind-local
+    type: boolean
+    default: true
+  - name: deployAks
+    displayName: Deploy to aks-lab (only during the aks Azure session)
+    type: boolean
+    default: false
+  - name: acrName
+    displayName: aks-lab - ACR name (without .azurecr.io)
+    type: string
+    default: none
+  - name: aksName
+    displayName: aks-lab - AKS cluster name
+    type: string
+    default: none
+  - name: helmValues
+    displayName: aks-lab - Helm values files in the repo, space separated
+    type: string
+    default: ops/k8s/ticketdesk/values.yaml
+  - name: helmSet
+    displayName: aks-lab - extra Helm --set values (key=value,key=value)
+    type: string
+    default: none
+
+pool:
+  name: lab-host
+
+variables:
+  - group: td-lab-azure # non-secret identifiers (tenant, client id, subscription, resource group)
+  - name: imageTag
+    ${{ if eq(parameters.imageTag, 'auto') }}:
+      value: ci-$(resources.pipeline.ci.runID)
+    ${{ else }}:
+      value: ${{ parameters.imageTag }}
+
+stages:
+  - stage: kind
+    displayName: kind-local
+    condition: ${{ parameters.deployKind }}
+    jobs:
+      - deployment: kind
+        displayName: Deploy to kind (td-cd)
+        environment: kind-local
+        timeoutInMinutes: 20
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: none
+                - checkout: self
+                  clean: true
+                  fetchDepth: 1
+                - script: mkdir -p "$(Build.ArtifactStagingDirectory)/cd-kind" && bash azure-pipelines/deploy/kind/cd-kind.sh up
+                  displayName: kind cluster, relay, Service Bus emulator
+                - script: bash azure-pipelines/deploy/kind/cd-kind.sh db
+                  displayName: td-db migrate (database TicketDesk_cd)
+                - script: bash azure-pipelines/deploy/kind/cd-kind.sh deploy $(imageTag)
+                  displayName: Deploy $(imageTag)
+                - script: bash azure-pipelines/deploy/kind/cd-kind.sh smoke $(Build.ArtifactStagingDirectory)/cd-kind
+                  displayName: Smoke
+                - publish: $(Build.ArtifactStagingDirectory)/cd-kind
+                  artifact: cd-kind
+                  condition: succeededOrFailed()
+
+  - stage: aks_lab
+    displayName: aks-lab
+    dependsOn: []
+    condition: ${{ parameters.deployAks }}
+    jobs:
+      - deployment: aks
+        displayName: Deploy to AKS (lab)
+        environment: aks-lab
+        timeoutInMinutes: 30
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: none
+                - checkout: self
+                  clean: true
+                  fetchDepth: 1
+                - task: AzureCLI@2
+                  displayName: Images to ACR, Helm upgrade on AKS, rollout, smoke
+                  inputs:
+                    azureSubscription: ticketdesk-lab-arm
+                    scriptType: bash
+                    scriptLocation: scriptPath
+                    scriptPath: azure-pipelines/deploy/aks/cd-aks.sh
+                    arguments: >-
+                      --acr ${{ parameters.acrName }} --aks ${{ parameters.aksName }} --tag $(imageTag)
+                      --values "${{ parameters.helmValues }}" --set "${{ parameters.helmSet }}"
+                      --out $(Build.ArtifactStagingDirectory)/cd-aks
+                - publish: $(Build.ArtifactStagingDirectory)/cd-aks
+                  artifact: cd-aks
+                  condition: succeededOrFailed()

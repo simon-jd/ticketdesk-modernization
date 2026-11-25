@@ -1,0 +1,409 @@
+### search.search-excluded.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 10.712, DOP 8, memory grant 211464 KB (used 82304)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 41 ms
+        Compute Scalar [parallel] [batch] | rows 227,104 (est 207,977), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 227,104 (est 207,977), execs 8, cpu 65 ms
+            Hash Match (Inner Join) [parallel] [batch] | rows 238,853 (est 238,493), execs 8, cpu 21 ms
+              Concatenation [parallel] [batch] | rows 260,571 (est 260,204), execs 8
+                Compute Scalar [parallel] [batch] | rows 66,582 (est 66,582), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 66,582 (est 66,582), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 8 ms
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 32 ms
+                    Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 1 ms
+                      Table-valued function FulltextMatch [parallel] | rows 193,989 (est 193,619), execs 8, cpu 1 ms
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 163 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 51 ms
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 2), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1078,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Hash Match (Left Anti Semi Join) [parallel] [batch] | rows 227,104 (est 91,656), execs 8, cpu 14 ms
+                Hash Match (Left Anti Semi Join) [parallel] [batch] | rows 247,770 (est 100,000), execs 8, cpu 12 ms
+                  Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 247,770 (est 100,000), execs 8, reads 1,791, cpu 36 ms, where: PROBE(Opt_Bitmap1073,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+                  Hash Match (Inner Join) [parallel] [batch] | rows 0 (est 1), execs 8, cpu 52 ms
+                    Index Scan TicketEvents.IX_TicketId [parallel] [batch] | rows 1,125,915 (est 453,882), execs 8, reads 8,031, cpu 192 ms, where: PROBE(Opt_Bitmap1072,TicketDeskLSearch.TicketEvents.TicketId as e.TicketId)
+                    Filter [parallel] | rows 0 (est 1), execs 8, where: PROBE(Opt_Bitmap1070,FulltextMatch.docid)
+                      Table-valued function FulltextMatch [parallel] | rows 0 (est 1), execs 8
+                Filter [parallel] | rows 20,666 (est 8,344), execs 8, cpu 1 ms, where: PROBE(Opt_Bitmap1074,FulltextMatch.docid)
+                  Table-valued function FulltextMatch [parallel] | rows 83,438 (est 8,344), execs 8
+
+### search.search-internal-user.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 82.369, DOP 8, memory grant 210696 KB (used 79488)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 1 ms
+        Compute Scalar [parallel] [batch] | rows 17,018 (est 226,910), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 17,018 (est 226,910), execs 8
+            Hash Match (Inner Join) [parallel] [batch] | rows 17,903 (est 260,204), execs 8, cpu 22 ms
+              Concatenation [parallel] [batch] | rows 260,571 (est 260,204), execs 8
+                Compute Scalar [parallel] [batch] | rows 66,582 (est 66,582), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 66,582 (est 66,582), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 8 ms
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 32 ms
+                    Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 2 ms
+                      Table-valued function FulltextMatch [parallel] | rows 193,989 (est 193,619), execs 8, cpu 2 ms
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 165 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 52 ms
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 2), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1061,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Nested Loops (Left Semi Join) [parallel] | rows 17,018 (est 100,000), execs 8, cpu 938 ms
+                Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 247,770 (est 100,000), execs 8, reads 107,968, cpu 457 ms, where: PROBE(Opt_Bitmap1053,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+                Concatenation [parallel] | rows 17,018 (est 1), execs 247,770, cpu 387 ms
+                  Filter [parallel] | rows 17,013 (est 1), execs 247,770, cpu 38 ms, where: TicketDeskLSearch.Tickets.Owner as t.Owner=@viewer4 OR TicketDeskLSearch.Tickets.CreatedBy as t.CreatedBy=@vie...
+                    Constant Scan [parallel] | rows 17,013 (est 1), execs 247,770
+                  Clustered Index Seek TicketSubscribers.PK_dbo.TicketSubscribers [parallel] | rows 5 (est 1), execs 230,757, reads 923,028, cpu 322 ms, seek: TicketDeskLSearch.Tickets.TicketId as t.TicketId
+
+### search.search-network.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 4.256, DOP 8, memory grant 242440 KB (used 77568)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 43 ms
+        Compute Scalar [parallel] [batch] | rows 218,763 (est 258,387), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 218,763 (est 258,387), execs 8, cpu 52 ms
+            Adaptive Join (Inner Join) [parallel] | rows 238,268 (est 316,648), execs 8
+              Concatenation [parallel] [batch] | rows 238,268 (est 316,648), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 116,517), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 116,517), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 126,492 (est 200,128), execs 8
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 126,492 (est 200,128), execs 8, cpu 24 ms
+                    Compute Scalar [parallel] [batch] | rows 126,492 (est 200,128), execs 8
+                      Table-valued function FulltextMatch [parallel] | rows 126,492 (est 200,128), execs 8
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 162 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 50 ms
+                Adaptive Join (Inner Join) [parallel] | rows 111,776 (est 1), execs 8, cpu 215 ms
+                  Compute Scalar [parallel] | rows 111,776 (est 2), execs 8, cpu 9 ms
+                    Table-valued function FulltextMatch [parallel] | rows 111,776 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] [batch] | rows 111,776 (est 1), execs 8, reads 8,031, cpu 186 ms, where: PROBE(Opt_Bitmap1046,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 218,763 (est 100,000), execs 8, reads 1,791, cpu 36 ms, where: PROBE(Opt_Bitmap1044,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+              Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: Union1010
+
+### search.search-no-hits.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 4.256, DOP 8, memory grant 235656 KB (used 15616)
+  Top | rows 0 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 0 (est 20)
+      Sort [parallel] [batch] | rows 0 (est 20), execs 8
+        Compute Scalar [parallel] [batch] | rows 0 (est 258,387), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 0 (est 258,387), execs 8
+            Adaptive Join (Inner Join) [parallel] | rows 0 (est 316,648), execs 8
+              Concatenation [parallel] [batch] | rows 0 (est 316,648), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 116,517), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 116,517), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 200,128), execs 8
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 0 (est 200,128), execs 8
+                    Compute Scalar [parallel] [batch] | rows 0 (est 200,128), execs 8
+                      Table-valued function FulltextMatch [parallel] | rows 0 (est 200,128), execs 8
+                    Compute Scalar [parallel] | rows 0 (est 213,624)
+                      Compute Scalar [parallel] | rows 0 (est 213,624)
+                        Hash Match (Aggregate) [parallel] | rows 0 (est 213,624)
+                          Index Scan TicketTags.IX_TicketId [parallel] | rows 0 (est 1,461,930)
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 2), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1046,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Scan Tickets.IX_ProjectId [parallel] | rows 0 (est 100,000), where: PROBE(Opt_Bitmap1044,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+              Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: Union1010
+
+### search.search-phrase.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 4.256, DOP 8, memory grant 250440 KB (used 26368)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 12 ms
+        Compute Scalar [parallel] [batch] | rows 83,438 (est 258,387), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 83,438 (est 258,387), execs 8, cpu 17 ms
+            Adaptive Join (Inner Join) [parallel] | rows 83,438 (est 316,648), execs 8
+              Concatenation [parallel] [batch] | rows 83,438 (est 316,648), execs 8
+                Compute Scalar [parallel] [batch] | rows 83,438 (est 116,517), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 83,438 (est 116,517), execs 8, cpu 6 ms
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 200,128), execs 8
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 0 (est 200,128), execs 8
+                    Compute Scalar [parallel] [batch] | rows 0 (est 200,128), execs 8
+                      Table-valued function FulltextMatch [parallel] | rows 0 (est 200,128), execs 8
+                    Compute Scalar [parallel] | rows 0 (est 213,624)
+                      Compute Scalar [parallel] | rows 0 (est 213,624)
+                        Hash Match (Aggregate) [parallel] | rows 0 (est 213,624)
+                          Index Scan TicketTags.IX_TicketId [parallel] | rows 0 (est 1,461,930)
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 2), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1046,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 83,438 (est 100,000), execs 8, reads 1,791, cpu 40 ms, where: PROBE(Opt_Bitmap1044,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+              Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: Union1010
+
+### search.search-prefix.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 4.256, DOP 8, memory grant 238920 KB (used 81664)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 57 ms
+        Compute Scalar [parallel] [batch] | rows 285,319 (est 258,387), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 285,319 (est 258,387), execs 8, cpu 77 ms
+            Adaptive Join (Inner Join) [parallel] | rows 307,172 (est 316,648), execs 8
+              Concatenation [parallel] [batch] | rows 307,172 (est 316,648), execs 8
+                Compute Scalar [parallel] [batch] | rows 113,183 (est 116,517), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 113,183 (est 116,517), execs 8, cpu 8 ms
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 193,989 (est 200,128), execs 8, cpu 8 ms
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 193,989 (est 200,128), execs 8, cpu 31 ms
+                    Compute Scalar [parallel] [batch] | rows 193,989 (est 200,128), execs 8, cpu 2 ms
+                      Table-valued function FulltextMatch [parallel] | rows 193,989 (est 200,128), execs 8, cpu 8 ms
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 168 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 57 ms
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 2), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1046,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 285,319 (est 100,000), execs 8, reads 1,791, cpu 45 ms, where: PROBE(Opt_Bitmap1044,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+              Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: Union1010
+
+### search.search-printer.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 4.256, DOP 8, memory grant 224584 KB (used 81920)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 43 ms
+        Compute Scalar [parallel] [batch] | rows 247,770 (est 258,387), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 247,770 (est 258,387), execs 8, cpu 63 ms
+            Adaptive Join (Inner Join) [parallel] | rows 260,571 (est 316,648), execs 8
+              Concatenation [parallel] [batch] | rows 260,571 (est 316,648), execs 8
+                Compute Scalar [parallel] [batch] | rows 66,582 (est 116,517), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 66,582 (est 116,517), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 193,989 (est 200,128), execs 8, cpu 8 ms
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 193,989 (est 200,128), execs 8, cpu 31 ms
+                    Compute Scalar [parallel] [batch] | rows 193,989 (est 200,128), execs 8, cpu 3 ms
+                      Table-valued function FulltextMatch [parallel] | rows 193,989 (est 200,128), execs 8, cpu 3 ms
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 163 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 52 ms
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 2), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1046,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 247,770 (est 100,000), execs 8, reads 1,791, cpu 35 ms, where: PROBE(Opt_Bitmap1044,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+              Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: Union1010
+
+### search.search-project.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 2.818, DOP 8, memory grant 213384 KB (used 84608)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 9 ms
+        Compute Scalar [parallel] [batch] | rows 52,857 (est 48,346), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 52,857 (est 48,346), execs 8, cpu 9 ms
+            Adaptive Join (Inner Join) [parallel] [batch] | rows 55,580 (est 230,573), execs 8
+              Concatenation [parallel] [batch] | rows 260,571 (est 260,204), execs 8
+                Compute Scalar [parallel] [batch] | rows 66,582 (est 66,582), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 66,582 (est 66,582), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 8 ms
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 31 ms
+                    Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 2 ms
+                      Table-valued function FulltextMatch [parallel] | rows 193,989 (est 193,619), execs 8, cpu 3 ms
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 167 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 57 ms
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 2), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1043,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Seek Tickets.IX_ProjectId [parallel] [batch] | rows 213,064 (est 213,064), execs 8, reads 388, cpu 7 ms, seek: @project4
+              Index Seek Tickets.IX_ProjectId [parallel] | rows 0 (est 1), seek: @project4
+
+### search.search-required.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 11.035, DOP 8, memory grant 367432 KB (used 180224)
+  Top | rows 20 (est 1)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 1)
+      Sort [parallel] [batch] | rows 900 (est 1), execs 8
+        Compute Scalar [parallel] [batch] | rows 20,666 (est 1), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 20,666 (est 1), execs 8
+            Hash Match (Inner Join) [parallel] [batch] | rows 36,820 (est 1), execs 8, cpu 17 ms
+              Concatenation [parallel] [batch] | rows 338,445 (est 343,646), execs 8
+                Compute Scalar [parallel] [batch] | rows 144,456 (est 150,020), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 144,456 (est 150,020), execs 8, cpu 2 ms
+                Compute Scalar [parallel] [batch] | rows 0 (est 4), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 4), execs 8
+                Compute Scalar [parallel] [batch] | rows 193,989 (est 193,621), execs 8, cpu 8 ms
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 193,989 (est 193,621), execs 8, cpu 26 ms
+                    Compute Scalar [parallel] [batch] | rows 193,989 (est 193,621), execs 8, cpu 2 ms
+                      Table-valued function FulltextMatch [parallel] | rows 193,989 (est 193,621), execs 8, cpu 2 ms
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 160 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 51 ms
+                Adaptive Join (Inner Join) [parallel] | rows 0 (est 1.002), execs 8
+                  Compute Scalar [parallel] | rows 0 (est 4), execs 8
+                    Table-valued function FulltextMatch [parallel] | rows 0 (est 4), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] | rows 0 (est 1), where: PROBE(Opt_Bitmap1104,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Filter [parallel] [batch] | rows 20,666 (est 1.039), execs 8, where: Expr1052 IS NOT NULL OR Expr1053 IS NOT NULL
+                Hash Match (Left Outer Join) [parallel] [batch] | rows 247,770 (est 54.171), execs 8, cpu 18 ms
+                  Nested Loops (Left Outer Join) [parallel] | rows 247,770 (est 54.171), execs 8, cpu 1,721 ms
+                    Hash Match (Inner Join) [parallel] [batch] | rows 247,770 (est 54.171), execs 8, cpu 40 ms
+                      Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 1,000,000 (est 1,000,000), execs 8, reads 1,791, cpu 31 ms
+                      Hash Match (Aggregate) [parallel] [batch] | rows 247,770 (est 22.729), execs 8, cpu 23 ms
+                        Concatenation [parallel] [batch] | rows 247,770 (est 26.02), execs 8
+                          Hash Match (Inner Join) [parallel] [batch] | rows 0 (est 1), execs 8, cpu 210 ms
+                            Index Scan TicketEvents.IX_TicketId [parallel] [batch] | rows 4,538,818 (est 454), execs 8, reads 8,031, cpu 272 ms, where: PROBE(Opt_Bitmap1082,TicketDeskLSearch.TicketEvents.TicketId as e.TicketId)
+                            Filter [parallel] | rows 0 (est 1), execs 8, where: PROBE(Opt_Bitmap1083,FulltextMatch.docid)
+                              Table-valued function FulltextMatch [parallel] | rows 0 (est 1), execs 8
+                          Filter [parallel] | rows 247,770 (est 26.02), execs 8, cpu 17 ms, where: PROBE(Opt_Bitmap1082,FulltextMatch.docid)
+                            Table-valued function FulltextMatch [parallel] | rows 247,770 (est 26.02), execs 8, cpu 4 ms
+                    Compute Scalar [parallel] | rows ? (est 1)
+                      Top [parallel] | rows 0 (est 1), execs 247,770, cpu 1,045 ms
+                        Merge Join (Inner Join) [parallel] | rows 0 (est 1), execs 247,770, cpu 1,034 ms
+                          Index Seek TicketEvents.IX_TicketId [parallel] | rows 247,770 (est 168), execs 247,770, reads 743,766, cpu 333 ms, seek: TicketDeskLSearch.Tickets.TicketId as t.TicketId
+                          Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 247,770, cpu 678 ms
+                  Compute Scalar [parallel] [batch] | rows 20,666 (est 83.442), execs 8
+                    Filter [parallel] | rows 20,666 (est 83.442), execs 8, where: PROBE(Opt_Bitmap1099,FulltextMatch.docid)
+                      Table-valued function FulltextMatch [parallel] | rows 83,438 (est 83.442), execs 8
+
+### search.search-tag-field.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags > 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @...
+  cost 4.044, DOP 8, memory grant 196872 KB (used 72064)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 34 ms
+        Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 6 ms
+          Adaptive Join (Inner Join) [parallel] [batch] | rows 193,989 (est 193,619), execs 8
+            Hash Match (Left Outer Join) [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 29 ms
+              Compute Scalar [parallel] [batch] | rows 193,989 (est 193,619), execs 8, cpu 1 ms
+                Table-valued function FulltextMatch [parallel] | rows 193,989 (est 193,619), execs 8, cpu 1 ms
+              Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                  Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 165 ms
+                    Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 52 ms
+            Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 193,989 (est 100,000), execs 8, reads 1,791, cpu 35 ms, where: PROBE(Opt_Bitmap1018,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+            Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+
+### search.search-team.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 4.256, DOP 8, memory grant 238088 KB (used 71936)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 86 ms
+        Compute Scalar [parallel] [batch] | rows 399,594 (est 258,387), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 399,594 (est 258,387), execs 8, cpu 95 ms
+            Adaptive Join (Inner Join) [parallel] | rows 482,836 (est 316,648), execs 8
+              Concatenation [parallel] [batch] | rows 482,836 (est 316,648), execs 8
+                Compute Scalar [parallel] [batch] | rows 167,045 (est 116,517), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 167,045 (est 116,517), execs 8, cpu 2 ms
+                Compute Scalar [parallel] [batch] | rows 156,104 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 156,104 (est 2), execs 8, cpu 2 ms
+                Compute Scalar [parallel] [batch] | rows 0 (est 200,128), execs 8
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 0 (est 200,128), execs 8
+                    Compute Scalar [parallel] [batch] | rows 0 (est 200,128), execs 8
+                      Table-valued function FulltextMatch [parallel] | rows 0 (est 200,128), execs 8
+                    Compute Scalar [parallel] | rows 0 (est 213,624)
+                      Compute Scalar [parallel] | rows 0 (est 213,624)
+                        Hash Match (Aggregate) [parallel] | rows 0 (est 213,624)
+                          Index Scan TicketTags.IX_TicketId [parallel] | rows 0 (est 1,461,930)
+                Adaptive Join (Inner Join) [parallel] | rows 159,687 (est 1), execs 8, cpu 217 ms
+                  Compute Scalar [parallel] | rows 159,687 (est 2), execs 8, cpu 13 ms
+                    Table-valued function FulltextMatch [parallel] | rows 159,687 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] [batch] | rows 159,687 (est 1), execs 8, reads 8,031, cpu 177 ms, where: PROBE(Opt_Bitmap1046,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 399,594 (est 100,000), execs 8, reads 1,791, cpu 45 ms, where: PROBE(Opt_Bitmap1044,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+              Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: Union1010
+
+### search.search-ticket-id.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 3.539, DOP 1, memory grant 4024 KB (used 3384)
+  Top | rows 1 (est 2.452)
+    Sort [batch] | rows 1 (est 2.452)
+      Compute Scalar | rows 1 (est 2.452)
+        Stream Aggregate (Aggregate) | rows 1 (est 2.452)
+          Nested Loops (Inner Join) | rows 1 (est 14.002)
+            Sort [batch] | rows 1 (est 14.002)
+              Concatenation [batch] | rows 1 (est 14.002)
+                Compute Scalar [batch] | rows 0 (est 4)
+                  Table-valued function FulltextMatch | rows 0 (est 4)
+                Compute Scalar [batch] | rows 0 (est 4)
+                  Table-valued function FulltextMatch | rows 0 (est 4)
+                Compute Scalar [batch] | rows 0 (est 4)
+                  Hash Match (Left Outer Join) [batch] | rows 0 (est 4)
+                    Compute Scalar [batch] | rows 0 (est 4)
+                      Table-valued function FulltextMatch | rows 0 (est 4)
+                    Compute Scalar | rows 0 (est 2.136)
+                      Compute Scalar | rows 0 (est 2.136)
+                        Stream Aggregate (Aggregate) | rows 0 (est 2.136)
+                          Index Scan TicketTags.IX_TicketId | rows 0 (est 14.619), where: PROBE(Opt_Bitmap1024,TicketDeskLSearch.TicketTags.TicketId)
+                Adaptive Join (Inner Join) | rows 0 (est 1.002)
+                  Compute Scalar | rows 0 (est 4)
+                    Table-valued function FulltextMatch | rows 0 (est 4)
+                  Index Scan TicketEvents.IX_TicketId | rows 0 (est 1), where: PROBE(Opt_Bitmap1048,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+                Compute Scalar [batch] | rows 1 (est 1)
+                  Clustered Index Seek Tickets.PK_dbo.Tickets [batch] | rows 1 (est 1), reads 3, seek: @id4
+            Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: Union1012
+
+### search.search-two-words.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 4.256, DOP 8, memory grant 234248 KB (used 94720)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 5,400 (est 20), execs 8, cpu 92 ms
+        Compute Scalar [parallel] [batch] | rows 413,287 (est 258,387), execs 8
+          Hash Match (Aggregate) [parallel] [batch] | rows 413,287 (est 258,387), execs 8, cpu 99 ms
+            Adaptive Join (Inner Join) [parallel] | rows 475,485 (est 316,648), execs 8
+              Concatenation [parallel] [batch] | rows 475,485 (est 316,648), execs 8
+                Compute Scalar [parallel] [batch] | rows 66,582 (est 116,517), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 66,582 (est 116,517), execs 8
+                Compute Scalar [parallel] [batch] | rows 0 (est 2), execs 8
+                  Table-valued function FulltextMatch [parallel] | rows 0 (est 2), execs 8
+                Compute Scalar [parallel] [batch] | rows 297,127 (est 200,128), execs 8, cpu 10 ms
+                  Hash Match (Left Outer Join) [parallel] [batch] | rows 297,127 (est 200,128), execs 8, cpu 37 ms
+                    Compute Scalar [parallel] [batch] | rows 297,127 (est 200,128), execs 8, cpu 1 ms
+                      Table-valued function FulltextMatch [parallel] | rows 297,127 (est 200,128), execs 8, cpu 9 ms
+                    Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                      Compute Scalar [parallel] [batch] | rows 750,206 (est 213,624), execs 8
+                        Hash Match (Aggregate) [parallel] [batch] | rows 750,206 (est 213,624), execs 8, cpu 166 ms
+                          Index Scan TicketTags.IX_TicketId [parallel] [batch] | rows 1,461,932 (est 1,461,930), execs 8, reads 2,583, cpu 57 ms
+                Adaptive Join (Inner Join) [parallel] | rows 111,776 (est 1), execs 8, cpu 207 ms
+                  Compute Scalar [parallel] | rows 111,776 (est 2), execs 8, cpu 10 ms
+                    Table-valued function FulltextMatch [parallel] | rows 111,776 (est 2), execs 8
+                  Index Scan TicketEvents.IX_TicketId [parallel] [batch] | rows 111,776 (est 1), execs 8, reads 8,031, cpu 176 ms, where: PROBE(Opt_Bitmap1046,TicketDeskLSearch.TicketEvents.EventId as e.EventId)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId [parallel] | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 413,287 (est 100,000), execs 8, reads 1,791, cpu 47 ms, where: PROBE(Opt_Bitmap1044,TicketDeskLSearch.Tickets.TicketId as t.TicketId)
+              Clustered Index Seek Tickets.PK_dbo.Tickets [parallel] | rows 0 (est 1), seek: Union1010
+

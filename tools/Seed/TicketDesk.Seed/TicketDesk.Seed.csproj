@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Microsoft.Data.SqlClient needs ICU (it throws in globalization-invariant mode) -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <RootNamespace>TicketDesk.Seed</RootNamespace>
+    <Description>Deterministic synthetic-data generator and SqlBulkCopy loader for the TicketDesk 2.5 schema.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Sql\*.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="TicketDesk.Seed.Tests" />
+  </ItemGroup>
+</Project>

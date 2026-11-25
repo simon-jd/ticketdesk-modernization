@@ -1,0 +1,28 @@
+==== 2026-11-08T00:56:31Z step copy-ops
+
+Name                        Length
+----                        ------
+Backup-TdSite.ps1             5535
+Build-TdLegacy.ps1            4258
+Deploy-TdApp.ps1              5248
+Install-TdBuildTools.ps1      3405
+Install-TdPrerequisites.ps1   2435
+Install-TdSqlExpress.ps1      6409
+Register-TdBackupTask.ps1     2786
+Restore-TdSite.ps1            4894
+Set-TdIisSite.ps1            11877
+TdOps.psm1                    6118
+
+
+
+==== 2026-11-08T00:56:34Z step site
+[2026-11-08T00:56:36Z] SKIP   certificate BF2C568FC97479170492064C3D1A224E0E3DFF5A already in LocalMachine\My
+[2026-11-08T00:56:37Z] CHANGE app pool TicketDesk startMode = OnDemand
+[2026-11-08T00:56:37Z] SKIP   IIS AppPool\TicketDesk already has ReadAndExecute on C:\inetpub\ticketdesk
+[2026-11-08T00:56:37Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T00:56:37Z] SKIP   TLS binding 0.0.0.0:443 present
+[2026-11-08T00:56:38Z] CHANGE W3SVC now depends on WAS/HTTP/MSSQL$SQLEXPRESS
+[2026-11-08T00:56:38Z] SKIP   SQL: database TicketDesk and db_owner login IIS AppPool\TicketDesk present
+[2026-11-08T00:56:38Z] INFO   site TicketDesk -> C:\inetpub\ticketdesk, http 80, https 443, cert BF2C568FC97479170492064C3D1A224E0E3DFF5A (expires 2029-02-09)
+==== 2026-11-08T00:56:40Z done: copy-ops site
+EXIT=0

@@ -1,0 +1,30 @@
+# CI image retention (azure-pipelines/scripts/image-prune.sh), proven on dummy tags 2026-11-11T18:44:09Z
+# Why: CD run 16 was approved after 9.6 h; its images ci-15 had been pruned by the old rule (this run + 3 newest), so
+# 'Deploy ci-15' failed with 'No such image'. New rule: remove a ci-* tag only if it is not this run's tag, not among the
+# 3 newest, and recorded in the ledger more than 30 h ago (24 h kind-local approval timeout + 6 h margin).
+# Test: repository td-prunetest-web, tags ci-1..ci-9 on one existing image id (tags only), private ledger, fixed clock
+# NOW=1794400000; then all dummy tags removed. Command:
+#   CI_IMAGE_LEDGER=<tmp> CI_IMAGE_NOW=<t> CI_IMAGE_KEEP_TAG=<tag> azure-pipelines/scripts/image-prune.sh prune td-prunetest-web
+## test 1: ledger ci-1 40 h, ci-2 35 h, ci-3 29 h, ci-4 10 h, ci-5 2 h, ci-6/7 1 h, ci-8 0 h; ci-9 not in the ledger; this run ci-8
+td-prunetest-web:ci-1 remove: 40.0 h old
+td-prunetest-web:ci-2 remove: 35.0 h old
+td-prunetest-web:ci-3 keep: 29.0 h old (<= 30 h)
+td-prunetest-web:ci-4 keep: 10.0 h old (<= 30 h)
+td-prunetest-web:ci-5 keep: 2.0 h old (<= 30 h)
+td-prunetest-web:ci-6 keep: among the 3 newest
+td-prunetest-web:ci-7 keep: among the 3 newest
+td-prunetest-web:ci-8 keep: this run's tag
+td-prunetest-web:ci-9 keep: among the 3 newest
+left: aks-keepme ci-3 ci-4 ci-5 ci-6 ci-7 ci-8 ci-9 (ci-9 recorded at NOW, so it ages from now)
+## test 2: same ledger, clock +31 h, this run ci-4
+td-prunetest-web:ci-3 remove: 60.0 h old
+td-prunetest-web:ci-4 keep: this run's tag
+td-prunetest-web:ci-5 remove: 33.0 h old
+td-prunetest-web:ci-6 remove: 32.0 h old
+td-prunetest-web:ci-7 keep: among the 3 newest
+td-prunetest-web:ci-8 keep: among the 3 newest
+td-prunetest-web:ci-9 keep: among the 3 newest
+left: aks-keepme ci-4 ci-7 ci-8 ci-9
+## cd-kind.sh deploy with a tag that is gone (ci-15), before anything touches the cluster:
+image ticketdesk-web:ci-15 is not on the agent host (pruned after 30 h by azure-pipelines/scripts/image-prune.sh, or never built). Queue the CD with a CI run that still has its images (imageTag=ci-<run id>; present: ci-19 ci-20 ci-21 ci-22 ) or run the CI again.
+exit=1

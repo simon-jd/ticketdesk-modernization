@@ -1,0 +1,30 @@
+### writes.write-insert.cmd1.stmt1.sqlplan
+statement: INSERT [dbo].[Tickets]([ProjectId], [TicketType], [Category], [Title], [Details], [IsHtml], [TagList], [CreatedBy], [TargetDate], [ResolutionDate], [DueDate], [...
+  cost 0.023, DOP 1, memory grant 0 KB (used 0)
+  Assert | rows 1 (est 1), where: CASE WHEN Expr1015 IS NULL THEN (0) ELSE NULL END
+    Nested Loops (Left Semi Join) | rows 1 (est 1)
+      Clustered Index Insert (Insert) Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3
+        Compute Scalar | rows 1 (est 1)
+          Compute Scalar | rows 1 (est 1)
+            Constant Scan | rows 1 (est 1)
+      Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: TicketDeskLBase.Tickets.ProjectId
+
+### writes.write-insert.cmd1.stmt2.sqlplan
+statement: SELECT [TicketId], [CreatedDate], [Version] FROM [dbo].[Tickets] WHERE @@ROWCOUNT > 0 AND [TicketId] = scope_identity()
+  cost 0.003, DOP 1, memory grant 0 KB (used 0)
+  Filter | rows 1 (est 1), where: @@rowcount>(0)
+    Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: scope_identity()
+
+### writes.write-reassign.cmd1.stmt1.sqlplan
+statement: UPDATE [dbo].[Tickets] SET [AssignedTo] = @0, [LastUpdateBy] = @1, [LastUpdateDate] = @2 WHERE (([TicketId] = @3) AND ([Version] = @4))
+  cost 0.013, DOP 1, memory grant 0 KB (used 0)
+  Clustered Index Update (Update) Tickets.PK_dbo.Tickets | rows 1 (est 1)
+    Compute Scalar | rows 1 (est 1)
+      Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @3, where: TicketDeskLBase.Tickets.Version=CONVERT_IMPLICIT(timestamp,@4,0)
+
+### writes.write-reassign.cmd1.stmt2.sqlplan
+statement: SELECT [Version] FROM [dbo].[Tickets] WHERE @@ROWCOUNT > 0 AND [TicketId] = @3
+  cost 0.003, DOP 1, memory grant 0 KB (used 0)
+  Filter | rows 1 (est 1), where: @@rowcount>(0)
+    Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @3
+

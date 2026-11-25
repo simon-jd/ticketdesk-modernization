@@ -1,0 +1,7 @@
+# 2026-11-10T18:49:48Z td-db migrate on td-sql TicketDeskLSearch
+    IX_Tickets_Open_Unassigned: AssignedTo included
+applied expand/V0006__open_unassigned_include_assignee.sql in 0.17 s
+    created IX_TicketSubscribers_SubscriberId
+applied expand/V0012__ticket_subscribers_by_subscriber.sql in 1.01 s
+applied programmable/R__usp_ticket_list.sql in 0.03 s
+3 script(s) applied

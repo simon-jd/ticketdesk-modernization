@@ -1,0 +1,20 @@
+.back { margin: 0 0 0.25rem; }
+.ticket-head h1 { margin-bottom: 0.4rem; }
+.ticket-no { color: var(--muted); }
+.head-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; align-items: center; margin: 0 0 1rem; color: var(--muted); }
+.ticket-layout { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 1.5rem; }
+@media (max-width: 60rem) { .ticket-layout { grid-template-columns: 1fr; } }
+.ticket-text { overflow-wrap: anywhere; }
+
+.files { padding-left: 1.2rem; }
+.muted { color: var(--muted); }
+.events { list-style: none; margin: 0; padding: 0; }
+.event { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+.event-head { margin: 0 0 0.25rem; display: flex; flex-wrap: wrap; gap: 0 0.5rem; }
+.ticket-fields { background: var(--surface-alt); border-radius: 4px; padding: 0.25rem 1rem 1rem; align-self: start; }
+.ticket-fields dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 0.75rem; margin: 0; }
+.ticket-fields dt { font-weight: 600; }
+.ticket-fields dd { margin: 0; }
+.tag { display: inline-block; margin: 0 0.25rem 0.25rem 0; padding: 0 0.45rem; border: 1px solid var(--border); border-radius: 3px; background: var(--surface); font-size: 0.85rem; }
+.saved { margin: 0.5rem 0; min-height: 1.5em; }
+.saved .alert { display: inline-block; margin: 0; padding: 0.25rem 0.75rem; }

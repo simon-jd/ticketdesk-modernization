@@ -1,0 +1,28 @@
+@* Port of the legacy Views/TicketCenter/Index.cshtml (TicketDesk 2.5, Ms-PL). *@
+@model TicketDesk.Web.Controllers.TicketCenterViewModel
+@using TicketCenterIndex = TicketDesk.Localization.Views.TicketCenter.Index
+
+@section title{ @TicketCenterIndex.Title }
+
+<main style="display: none;">
+
+        <partial name="_ListMenu" model="Model" />
+
+        <partial name="_TicketList" model="Model" />
+
+</main>
+
+@section scripts{
+    @Bundles.Scripts("~/bundles/ticketcenter")
+    <partial name="_AntiforgeryAjax" />
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('main').show();
+            $.ajaxSetup({ cache: false });
+            ticketCenter.filters.setupFilterForm();
+            ticketCenter.makeClicky();
+        });
+
+    </script>
+}

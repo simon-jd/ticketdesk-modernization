@@ -1,0 +1,26 @@
+image: { registry: "acrtdlab36d2d4.azurecr.io", tag: "aks-v1", dbTag: "aks-v2b", pullPolicy: IfNotPresent }
+azure:
+  workloadIdentity: true
+  tenantId: "<tenant-id>"
+  appClientId: "<client-id-19>"
+  migratorClientId: "<client-id-2>"
+  keyVault: { enabled: true, name: "kv-tdlab-36d2d4", csiIdentityClientId: "<client-id-14>" }
+database:
+  connectionString: "Server=tcp:sql-tdlab-36d2d4.database.windows.net,1433;Database=sqldb-ticketdesk;Authentication=Active Directory Workload Identity;Encrypt=True;TrustServerCertificate=False;Connect Timeout=30;Application Name=TicketDesk.Web"
+  migrator:
+    connectionString: "Server=tcp:sql-tdlab-36d2d4.database.windows.net,1433;Database=sqldb-ticketdesk;Authentication=Active Directory Workload Identity;Encrypt=True;TrustServerCertificate=False;Connect Timeout=60;Application Name=td-db"
+web:
+  sharedCookie: true
+  keyVaultKeyId: "https://kv-tdlab-36d2d4.vault.azure.net/keys/td-dataprotection"
+  attachments: { store: Blob }
+  serviceBus: { fullyQualifiedNamespace: "sb-tdlab-36d2d4.servicebus.windows.net", queue: "ticket-notifications" }
+  tls: { source: csi }
+  service:
+    type: LoadBalancer
+    dnsLabel: "tdlab-aks-36d2d4"
+    loadBalancerSourceRanges: [<admin_source_cidrs>]
+  legacy:
+    enabled: true
+    baseUrl: "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com/"
+    hostAlias: { ip: "10.42.1.4", hostname: "tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com" }
+    caConfigMap: td-lab-ca

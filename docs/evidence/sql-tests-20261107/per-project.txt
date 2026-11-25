@@ -1,0 +1,7 @@
+TicketDesk.Data.Tests: 28
+TicketDesk.Identity.Tests: 32
+TicketDesk.Modules.Tests: 55
+TicketDesk.Web.Tests: 71
+TicketDesk.Database.Tests: 91
+TicketDesk.Replay.Tests: 88
+TicketDesk.Seed.Tests: 20

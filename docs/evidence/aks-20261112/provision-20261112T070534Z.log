@@ -1,0 +1,40 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261112070555
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script2.ps1 -Steps fetch+site+verify -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-ca0443f.zip -BundleSha256 1e13b85a55b49f9534d0c93fec97d0bc6d9897daa859af94beca35f7d1be4ea2 -PublishBlob td-legacy-publish-b4c1428.zip -PublishSha256 6b187486966bfd95177019735d9208f85b250e8de0bc70ec85f1acfbefa88562 -AdminEmail <admin-email> -RunId 20261112T070534Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-2> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-ca0443f.zip -SqlToolsSha256 c6bbec40dfb0650961d1c1b5a411bec62317fbd3e6e8758e2d00b8cd5e484a50 -DotnetVersion 10.0.14 -Database azure
+Process ID: 3720
+PSVersion: 5.1.26100.33822
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33822
+BuildVersion: 10.0.26100.33822
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-12T07:05:55Z] provision run 20261112T070534Z on tdlab-legacy, steps: fetch+site+verify
+[2026-11-12T07:05:55Z] ==== step fetch
+[2026-11-12T07:05:55Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-ca0443f.zip (41,257 bytes, sha256 1E13B85A55B49F9534D0C93FEC97D0BC6D9897DAA859AF94BECA35F7D1BE4EA2)
+[2026-11-12T07:05:55Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Move-TdFileStore.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, td_modern_app_role.sql, Test-TdBlobStore.ps1, Update-TdSqlServer.ps1
+[2026-11-12T07:05:55Z] publish package already extracted (same SHA-256)
+[2026-11-12T07:05:55Z] step fetch done in 0.3s
+[2026-11-12T07:05:55Z] ==== step site
+[2026-11-12T07:05:56Z] no SQL Express on this host: site without a local database
+[2026-11-12T07:05:56Z] CHANGE imported certificate 1683C0C151A383D01C2E95E2E0B970CFF8F55A66 (CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab)
+[2026-11-12T07:05:56Z] SKIP   IIS AppPool\TicketDesk already has ReadAndExecute on C:\inetpub\ticketdesk
+[2026-11-12T07:05:56Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-12T07:05:57Z] CHANGE TLS binding 0.0.0.0:443 -> 1683C0C151A383D01C2E95E2E0B970CFF8F55A66
+[2026-11-12T07:05:58Z] INFO   site TicketDesk -> C:\inetpub\ticketdesk, http 80, https 443, cert 1683C0C151A383D01C2E95E2E0B970CFF8F55A66 (expires 2029-02-14)
+[2026-11-12T07:05:58Z] step site done in 2.5s
+[2026-11-12T07:05:58Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33822","display_version":"24H2","last_boot_utc":"2026-11-12T06:28:40.3722560Z","database":"azure","sql":"12.0.2000.8 SQL Azure GP_S_Gen5_2","app_db":"tcp:sql-tdlab-36d2d4.database.windows.net,1433","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.257.0","signature_updated_utc":"2026-11-11T22:12:20.0000000Z"},"tls":{"thumbprint":"1683C0C151A383D01C2E95E2E0B970CFF8F55A66","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-14","private_key_usable":true},"https_home":{"status":200,"ms":15,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":{},"rows":{"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":14,"dbo.ApplicationSettings":1,"dbo.DataProtectionKeys":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":96183,"dbo.TicketEvents":45748,"dbo.Tickets":10009,"dbo.TicketSubscribers":20138,"dbo.TicketTags":14716,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":2,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":2,"notifications.TicketPushNotificationItems":0}}
+[2026-11-12T07:05:59Z] step verify done in 1.4s
+[2026-11-12T07:05:59Z] TDTIMINGS {"fetch":0.3,"site":2.5,"verify":1.4} total 4.3s
+**********************
+Windows PowerShell transcript end
+End time: 20261112070559
+**********************

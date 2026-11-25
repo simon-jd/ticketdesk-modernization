@@ -1,0 +1,13 @@
+# 2026-11-08T00:31:14Z git 2d01eac  (test METHODS, a theory counts once; executed cases incl. theory rows are in dotnet-test.txt)
+$ TicketDesk.Web.Tests -list full | grep "Display name:" | grep -cE "\.(GatewayTests|GatewayEdgeTests)\."
+18
+$ TicketDesk.Web.Tests -list full | grep "Display name:" | grep -cE "\.ApiTests\."
+14
+$ TicketDesk.Web.Tests -list full | grep "Display name:" | grep -c .
+38
+$ TicketDesk.Data.Tests -list full | grep "Display name:" | grep -cE "\.(EfBehaviourTests|ModelTests)\."
+18
+# schema mapped by TicketDeskDbContext, counted in TicketDeskSynth (dbo, without __MigrationHistory):
+tables 13
+columns 84
+foreign keys 10

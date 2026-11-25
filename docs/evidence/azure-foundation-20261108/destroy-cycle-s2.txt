@@ -1,0 +1,28 @@
+# cycle S2 destroy (apply of stages/none.tfvars)
+# command: make azure-up/down-foundation (bash wrapper in tmux), swedencentral, terraform 1.17.1, azurerm 5.13.0, azuread 3.10.0, azapi 2.13.0, host lab-host
+# lines kept: stage start/end, plan summary, per-resource Creation/Destruction complete, errors; IDs redacted
+stage foundation down (to none) start 2026-11-08T15:12:57Z
+Plan: 0 to add, 0 to change, 20 to destroy.
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Destruction complete after 1s
+module.monitoring[0].azurerm_application_insights.this: Destruction complete after 2s
+module.sql[0].azapi_resource.database: Destruction complete after 16s
+module.keyvault[0].azurerm_key_vault.this: Destruction complete after 11s
+module.monitoring[0].azurerm_log_analytics_workspace.this: Destruction complete after 21s
+module.sql[0].azurerm_private_endpoint.sql: Destruction complete after 35s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Destruction complete after 4s
+module.network[0].azurerm_network_security_group.vm: Destruction complete after 2s
+module.network[0].azurerm_subnet_network_security_group_association.pe: Destruction complete after 9s
+module.network[0].azurerm_network_security_group.pe: Destruction complete after 2s
+module.network[0].azurerm_subnet_network_security_group_association.aks: Destruction complete after 14s
+module.sql[0].azurerm_mssql_server.this: Destruction complete after 16s
+module.network[0].azurerm_network_security_group.aks: Destruction complete after 3s
+module.network[0].azurerm_subnet.vm: Destruction complete after 22s
+module.network[0].azurerm_subnet.pe: Destruction complete after 28s
+module.network[0].azurerm_subnet.aks: Destruction complete after 34s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Destruction complete after 2m16s
+module.network[0].azurerm_virtual_network.this: Destruction complete after 12s
+module.sql[0].azurerm_private_dns_zone.sql: Destruction complete after 33s
+azurerm_resource_group.lab[0]: Destruction complete after 27s
+Apply complete! Resources: 0 added, 0 changed, 20 destroyed.
+stage foundation down end 2026-11-08T15:16:37Z elapsed_s=220 rc=0
+EXIT=0

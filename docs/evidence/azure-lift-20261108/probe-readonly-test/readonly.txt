@@ -1,0 +1,14 @@
+2026-11-08T16:20:28Z provision 20261108T162028Z on vm-tdlab-legacy: db-readonly 
+provision 20261108T162028Z steps=db-readonly elapsed_s=33 rc=0
+2026-11-08T16:20:28Z provision 20261108T162028Z on vm-tdlab-legacy: db-readonly 
+---- ComponentStatus/StdOut/succeeded
+[2026-11-08T16:20:45Z] provision run 20261108T162028Z on tdlab-legacy, steps: db-readonly
+[2026-11-08T16:20:45Z] ==== step db-readonly
+[2026-11-08T16:20:49Z] TicketDesk READ_ONLY
+[2026-11-08T16:20:49Z] step db-readonly done in 3.3s
+[2026-11-08T16:20:49Z] TDTIMINGS {"db-readonly":3.3} total 3.4s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T162028Z.log
+---- ComponentStatus/StdErr/succeeded
+
+Alive[################################################################]  100.0000%Finished[#############################################################]  100.0000%
+provision 20261108T162028Z steps=db-readonly elapsed_s=33 rc=0

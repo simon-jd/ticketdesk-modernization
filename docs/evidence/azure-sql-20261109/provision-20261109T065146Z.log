@@ -1,0 +1,27 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261109065206
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script12.ps1 -Steps unfreeze -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-16b9c41.zip -BundleSha256 00b40152034e57770f8137566329ebe894bed4f0c0dd2811238c672309f74255 -PublishBlob td-legacy-publish-9fd2eed.zip -PublishSha256 94e210adb6826cb0a906869eb9c35c2e34c7cbde1aeed9a1c9e24b83449f9fcf -AdminEmail <admin-email> -RunId 20261109T065146Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-17> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-fdff374.zip -SqlToolsSha256 a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e -DotnetVersion 10.0.14 -Database express
+Process ID: 3624
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-09T06:52:06Z] provision run 20261109T065146Z on tdlab-legacy, steps: unfreeze
+[2026-11-09T06:52:07Z] ==== step unfreeze
+[2026-11-09T06:52:07Z] TDMARK unfrozen 2026-11-09T06:52:07.153Z
+[2026-11-09T06:52:07Z] step unfreeze done in 0.1s
+[2026-11-09T06:52:07Z] TDTIMINGS {"unfreeze":0.1} total 0.3s
+**********************
+Windows PowerShell transcript end
+End time: 20261109065207
+**********************

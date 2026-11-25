@@ -1,0 +1,41 @@
+$ ops/onprem/provision-legacy.sh copy-ops deploy
+==== 2026-11-08T15:52:23Z step copy-ops
+
+Name                        Length
+----                        ------
+Backup-TdSite.ps1             5535
+Build-TdLegacy.ps1            4361
+Deploy-TdApp.ps1              7185
+Install-TdBuildTools.ps1      3405
+Install-TdPrerequisites.ps1   2435
+Install-TdSqlExpress.ps1      6409
+Register-TdBackupTask.ps1     2946
+Restore-TdSite.ps1            4894
+Set-TdIisSite.ps1            11877
+TdOps.psm1                    6118
+
+
+
+==== 2026-11-08T15:52:26Z step deploy
+[2026-11-08T15:52:27Z] INFO   database has 19 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+		C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments.gen
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments_2
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\_0.cfs
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        65         0        65         0         0         1
+   Files :       840         1       839         0         0         3
+   Bytes :   69.90 m    11.4 k   69.89 m         0         0    3.99 m
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Sunday, November 8, 2026 3:52:29 PM
+
+[2026-11-08T15:52:29Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 3, App_Data kept)
+[2026-11-08T15:52:30Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T15:52:30Z] CHANGE Web.config: connectionStrings/TicketDesk, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-08T15:52:32Z] INFO   warm-up http://localhost/ -> 200 in 2.2s
+==== 2026-11-08T15:52:32Z done: copy-ops deploy

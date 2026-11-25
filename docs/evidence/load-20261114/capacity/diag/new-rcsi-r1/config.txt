@@ -1,0 +1,2 @@
+BACKUP DATABASE successfully processed 11090 pages in 0.083 seconds (1043.815 MB/sec).
+rcsi=1 snapshot=ON

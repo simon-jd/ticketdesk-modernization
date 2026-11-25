@@ -1,0 +1,60 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261109063425
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script4.ps1 -Steps restore+deploy+verify -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-893be2a.zip -BundleSha256 4559bac163076a4bf838d9dbb7cfca4e44b40169b9dc5bccd67139c0eb332b32 -PublishBlob td-legacy-publish-9fd2eed.zip -PublishSha256 94e210adb6826cb0a906869eb9c35c2e34c7cbde1aeed9a1c9e24b83449f9fcf -AdminEmail <admin-email> -RunId 20261109T063415Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-17> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-fdff374.zip -SqlToolsSha256 a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e -DotnetVersion 10.0.14 -RestorePrefix seed -RestoreName baseline-s-shared -Database express
+Process ID: 4712
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-09T06:34:25Z] provision run 20261109T063415Z on tdlab-legacy, steps: restore+deploy+verify
+[2026-11-09T06:34:25Z] ==== step restore
+[2026-11-09T06:34:26Z] CHANGE downloaded 1 files (83,456,512 bytes) from https://sttdlab36d2d4.blob.core.windows.net/backups/seed/baseline-s-shared/ in 0.8s
+[2026-11-09T06:34:26Z] WARN   no manifest.json in seed/baseline-s-shared (staged export): files not checked against a manifest
+[2026-11-09T06:34:26Z] no site.zip: database only
+[2026-11-09T06:34:29Z] CHANGE stopped app pool TicketDesk
+[2026-11-09T06:34:33Z] CHANGE restored TicketDesk from C:\TdBackups\from-blob\baseline-s-shared\TicketDesk.bak
+[2026-11-09T06:34:33Z] INFO   mapped IIS AppPool\TicketDesk as db_owner in TicketDesk
+[2026-11-09T06:34:33Z] INFO   started app pool TicketDesk
+[2026-11-09T06:34:33Z] INFO   restore complete in 6.8s
+ROWCOUNTS {"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":9,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}
+[2026-11-09T06:34:33Z] step restore done in 8s
+[2026-11-09T06:34:33Z] ==== step deploy
+[2026-11-09T06:34:34Z] INFO   database has 20 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51         0        51         0         0         0
+   Files :       810         1       809         0         0         0
+   Bytes :   41.04 m    15.0 k   41.02 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Monday, November 9, 2026 6:34:34 AM
+
+[2026-11-09T06:34:34Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-09T06:34:34Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-09T06:34:34Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-09T06:34:34Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-09T06:34:34Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-09T06:34:41Z] INFO   warm-up http://localhost/ -> 200 in 7.3s
+[2026-11-09T06:34:41Z] deploy: database express, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-09T06:34:41Z] step deploy done in 8.4s
+[2026-11-09T06:34:41Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-09T00:11:39.9391330Z","database":"express","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","app_db":".\\SQLEXPRESS","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.201.0","signature_updated_utc":"2026-11-08T19:08:07.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10","private_key_usable":true},"https_home":{"status":200,"ms":24,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":{},"rows":{"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":9,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-09T06:34:46Z] step verify done in 4.1s
+[2026-11-09T06:34:46Z] TDTIMINGS {"restore":8,"deploy":8.4,"verify":4.1} total 20.6s
+**********************
+Windows PowerShell transcript end
+End time: 20261109063446
+**********************

@@ -1,0 +1,24 @@
+# 2026-11-13T18:30:36Z  git 9d7e7d99 (+ uncommitted)  td-sql TicketDesk_r5firstadmin (scratch)
+$ td-seed schema --create-database            (TD_SQL_CONN = the scratch database)
+EF6-implied schema created
+$ td-db migrate --contract --legacy-retired   (TD_DB_CONN)
+15 script(s) applied
+$ (users: 0, administrators: 0)
+$ td-db create-admin --email first.admin@lab.ticketdesk.test --display-name 'Lab First Admin' --password-file $WORK/pw
+created administrator first.admin@lab.ticketdesk.test (id a4e509a1-4e94-4aac-b5df-96fa7ca971fa); no notifications tables: e-mail destination not added
+sign in at /user/sign-in; further accounts: Admin, Users
+exit 0
+$ td-db create-admin --email second.admin@lab.ticketdesk.test --display-name Second --password-stdin < $WORK/pw   (a second run)
+td-db: refused: the database has 1 administrator(s) already; they manage accounts in the app (Admin, Users)
+exit 1
+$ td-db create-admin ... --password <value>   (refused before anything runs)
+td-db: a password is never an argument (the process list and the shell history show it): use --password-stdin or --password-file FILE
+exit 2
+$ (users: 1, administrators: 1)
+$ (stored hash: format byte 0x01 = Identity V3)
+$ curl https://localhost:5489/health/ready -> 200
+$ GET /user/sign-in -> form with a token: yes
+$ POST /user/sign-in (the administrator's e-mail and password) -> 302 https://localhost:5489/; sign-in cookie set: yes
+$ GET /admin/users -> 200; lists 'Lab First Admin': yes
+$ (password hash after the sign-in: unchanged, no rehash needed)
+# app log: 10 lines, 0 with error/fail

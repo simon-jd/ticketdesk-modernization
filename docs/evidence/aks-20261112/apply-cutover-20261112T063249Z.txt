@@ -1,0 +1,1785 @@
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && umask 077 && cd infra/terraform/envs/lab && export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv) && export TF_VAR_subscription_id=$ARM_SUBSCRIPTION_ID TF_VAR_tenant_id=$(az account show --query tenantId -o tsv) && export TF_VAR_ttl_utc=$(date -u -d "+4 hours" +%Y-%m-%dT%H:%M:%SZ) && source ~/Desktop/ticketdesk-modernization/wt-aks/scripts/tf_lift_env.sh ~/Desktop/ticketdesk-modernization ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/azure-lift.pfx && terraform init -input=false -backend-config=path=~/Desktop/ticketdesk-modernization/.tfstate/lab/terraform.tfstate
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing modules...[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Reusing version 5.13.0 of hashicorp/azurerm from the dependency lock file
+- Reusing version 3.10.0 of hashicorp/azuread from the dependency lock file
+- Reusing version 2.13.0 of azure/azapi from the dependency lock file
+- Reusing version 3.9.1 of hashicorp/random from the dependency lock file
+- Reusing version 0.14.2 of hashicorp/time from the dependency lock file
+- Using previously-installed hashicorp/azurerm v5.13.0
+- Using previously-installed hashicorp/azuread v3.10.0
+- Using previously-installed azure/azapi v2.13.0
+- Using previously-installed hashicorp/random v3.9.1
+- Using previously-installed hashicorp/time v0.14.2
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+ledger running estimate $14.96 / cap $15.00: OK
+apply stage cutover start 2026-11-12T06:32:52Z
+module.vm[0].random_password.admin: Refreshing state... [id=none]
+data.azuread_client_config.current: Reading...
+data.azuread_service_principal.ado[0]: Reading...
+data.azuread_client_config.current: Read complete after 0s [id=<tenant-id>-04b07795-8ddb-461a-bbee-02f9e1bf7b46-<principal-id-8>]
+data.azuread_user.me: Reading...
+module.entra[0].azuread_application.web: Refreshing state... [id=/applications/<principal-id-13>]
+module.entra[0].azuread_application_password.web[0]: Refreshing state... [id=<principal-id-13>/password/<credential-id-1>]
+module.entra[0].azuread_service_principal.web: Refreshing state... [id=/servicePrincipals/<principal-id-3>]
+data.azuread_user.me: Read complete after 1s [id=/users/<principal-id-8>]
+data.azuread_service_principal.ado[0]: Read complete after 1s [id=/servicePrincipals/<principal-id-4>]
+module.entra[0].azuread_app_role_assignment.admin: Refreshing state... [id=/servicePrincipals/<principal-id-3>/appRoleAssignedTo/3xZGhjjnlEiJClDyDCBVODYduw25U0lGkIFJr1ojvg0]
+data.azurerm_subscription.current: Reading...
+data.azurerm_client_config.current: Reading...
+azurerm_resource_group.lab[0]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab]
+data.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD0wNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDY7b2JqZWN0SWQ9PHByaW5jaXBhbC1pZC04PjtzdWJzY3JpcHRpb25JZD08c3Vic2NyaXB0aW9uLWlkPjt0ZW5hbnRJZD08dGVuYW50LWlkPg==]
+data.azurerm_subscription.current: Read complete after 0s [id=/subscriptions/<subscription-id>]
+azurerm_user_assigned_identity.sql_deploy[0]: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-tdlab-sqldeploy]
+module.vm[0].azurerm_public_ip.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/publicIPAddresses/pip-tdlab-legacy]
+module.network[0].azurerm_network_security_group.vm: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm]
+module.network[0].azurerm_network_security_group.pe: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe]
+module.network[0].azurerm_virtual_network.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral]
+module.network[0].azurerm_network_security_group.aks: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks]
+module.network[0].azurerm_subnet.vm: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm]
+module.network[0].azurerm_subnet.aks: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks]
+module.network[0].azurerm_subnet.pe: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe]
+module.network[0].azurerm_subnet_network_security_group_association.pe: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe]
+module.network[0].azurerm_subnet_network_security_group_association.aks: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks]
+module.network[0].azurerm_subnet_network_security_group_association.vm: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm]
+module.keyvault[0].azurerm_key_vault.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4]
+module.vm[0].azurerm_network_interface.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-tdlab-legacy]
+module.vm[0].azurerm_windows_virtual_machine.this: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/virtualMachines/vm-tdlab-legacy]
+module.keyvault[0].azurerm_role_assignment.admin: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-64>]
+module.keyvault[0].time_sleep.rbac_propagation: Refreshing state... [id=2026-11-12T06:32:14Z]
+module.vm[0].azurerm_role_assignment.kv_secrets_user: Refreshing state... [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-54>]
+module.vm[0].azurerm_key_vault_secret.admin_password: Refreshing state... [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/vm-tdlab-legacy-admin-password/dd7fe21da4ca42109db6c1df38d5f048]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # data.azurerm_storage_account_sas.attachments[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "azurerm_storage_account_sas" "attachments" {
+      + connection_string = (sensitive value)
+      + expiry            = (known after apply)
+      + https_only        = true
+      + id                = (known after apply)
+      + sas               = (sensitive value)
+      + start             = (known after apply)
+
+      + permissions {
+          + add     = true
+          + create  = true
+          + delete  = true
+          + filter  = false
+          + list    = true
+          + process = false
+          + read    = true
+          + tag     = false
+          + update  = false
+          + write   = true
+        }
+
+      + resource_types {
+          + container = true
+          + object    = true
+          + service   = false
+        }
+
+      + services {
+          + blob  = true
+          + file  = false
+          + queue = false
+          + table = false
+        }
+    }
+
+  # azurerm_federated_identity_credential.app["td-web"] will be created
+  + resource "azurerm_federated_identity_credential" "app" {
+      + audience                  = [
+          + "api://AzureADTokenExchange",
+        ]
+      + id                        = (known after apply)
+      + issuer                    = (known after apply)
+      + name                      = "fic-td-web"
+      + subject                   = "system:serviceaccount:ticketdesk:td-web"
+      + user_assigned_identity_id = (known after apply)
+    }
+
+  # azurerm_federated_identity_credential.app["td-worker"] will be created
+  + resource "azurerm_federated_identity_credential" "app" {
+      + audience                  = [
+          + "api://AzureADTokenExchange",
+        ]
+      + id                        = (known after apply)
+      + issuer                    = (known after apply)
+      + name                      = "fic-td-worker"
+      + subject                   = "system:serviceaccount:ticketdesk:td-worker"
+      + user_assigned_identity_id = (known after apply)
+    }
+
+  # azurerm_federated_identity_credential.migrator[0] will be created
+  + resource "azurerm_federated_identity_credential" "migrator" {
+      + audience                  = [
+          + "api://AzureADTokenExchange",
+        ]
+      + id                        = (known after apply)
+      + issuer                    = (known after apply)
+      + name                      = "fic-td-migrator"
+      + subject                   = "system:serviceaccount:ticketdesk:td-migrator"
+      + user_assigned_identity_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-tdlab-sqldeploy"
+    }
+
+  # azurerm_key_vault_certificate.aks_web[0] will be created
+  + resource "azurerm_key_vault_certificate" "aks_web" {
+      + certificate_attribute           = (known after apply)
+      + certificate_data                = (known after apply)
+      + certificate_data_base64         = (known after apply)
+      + id                              = (known after apply)
+      + key_vault_id                    = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                            = "td-aks-web"
+      + resource_manager_id             = (known after apply)
+      + resource_manager_versionless_id = (known after apply)
+      + secret_id                       = (known after apply)
+      + tags                            = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + thumbprint                      = (known after apply)
+      + version                         = (known after apply)
+      + versionless_id                  = (known after apply)
+      + versionless_secret_id           = (known after apply)
+
+      + certificate {
+          + contents = (sensitive value)
+          + password = (sensitive value)
+        }
+
+      + certificate_policy (known after apply)
+    }
+
+  # azurerm_key_vault_certificate.iis[0] will be created
+  + resource "azurerm_key_vault_certificate" "iis" {
+      + certificate_attribute           = (known after apply)
+      + certificate_data                = (known after apply)
+      + certificate_data_base64         = (known after apply)
+      + id                              = (known after apply)
+      + key_vault_id                    = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                            = "td-iis-legacy"
+      + resource_manager_id             = (known after apply)
+      + resource_manager_versionless_id = (known after apply)
+      + secret_id                       = (known after apply)
+      + tags                            = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + thumbprint                      = (known after apply)
+      + version                         = (known after apply)
+      + versionless_id                  = (known after apply)
+      + versionless_secret_id           = (known after apply)
+
+      + certificate {
+          + contents = (sensitive value)
+          + password = (sensitive value)
+        }
+
+      + certificate_policy (known after apply)
+    }
+
+  # azurerm_key_vault_key.dataprotection[0] will be created
+  + resource "azurerm_key_vault_key" "dataprotection" {
+      + curve                   = (known after apply)
+      + e                       = (known after apply)
+      + id                      = (known after apply)
+      + key_opts                = [
+          + "wrapKey",
+          + "unwrapKey",
+        ]
+      + key_size                = 2048
+      + key_type                = "RSA"
+      + key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + n                       = (known after apply)
+      + name                    = "td-dataprotection"
+      + public_key_openssh      = (known after apply)
+      + public_key_pem          = (known after apply)
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+      + x                       = (known after apply)
+      + y                       = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.app_admin[0] will be created
+  + resource "azurerm_key_vault_secret" "app_admin" {
+      + content_type            = "password"
+      + id                      = (known after apply)
+      + key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                    = "td-app-admin-password"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.appinsights[0] will be created
+  + resource "azurerm_key_vault_secret" "appinsights" {
+      + content_type            = "text/plain"
+      + id                      = (known after apply)
+      + key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                    = "appinsights-connection-string"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.attachments[0] will be created
+  + resource "azurerm_key_vault_secret" "attachments" {
+      + content_type            = "connection string with an account SAS"
+      + expiration_date         = (known after apply)
+      + id                      = (known after apply)
+      + key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                    = "td-attachments-connection"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.remoteapp_key[0] will be created
+  + resource "azurerm_key_vault_secret" "remoteapp_key" {
+      + content_type            = "guid"
+      + id                      = (known after apply)
+      + key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                    = "td-remoteapp-api-key"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.sql_connection_string[0] will be created
+  + resource "azurerm_key_vault_secret" "sql_connection_string" {
+      + content_type            = "text/plain"
+      + id                      = (known after apply)
+      + key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                    = "sql-connection-string"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_key_vault_secret.sql_sa[0] will be created
+  + resource "azurerm_key_vault_secret" "sql_sa" {
+      + content_type            = "password"
+      + id                      = (known after apply)
+      + key_vault_id            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + name                    = "td-sql-sa-password"
+      + resource_id             = (known after apply)
+      + resource_versionless_id = (known after apply)
+      + tags                    = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + value                   = (sensitive value)
+      + value_wo                = (write-only attribute)
+      + version                 = (known after apply)
+      + versionless_id          = (known after apply)
+    }
+
+  # azurerm_monitor_action_group.drill[0] will be created
+  + resource "azurerm_monitor_action_group" "drill" {
+      + enabled             = true
+      + id                  = (known after apply)
+      + location            = "global"
+      + name                = "ag-tdlab-drill"
+      + resource_group_name = "rg-ticketdesk-lab"
+      + short_name          = "tddrill"
+      + tags                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+    }
+
+  # azurerm_monitor_metric_alert.failed_requests[0] will be created
+  + resource "azurerm_monitor_metric_alert" "failed_requests" {
+      + auto_mitigate            = true
+      + description              = "The new app answers failed requests (Application Insights requests/failed, count per minute above the threshold)."
+      + enabled                  = true
+      + frequency                = "PT1M"
+      + id                       = (known after apply)
+      + name                     = "alert-tdlab-failed-requests"
+      + resource_group_name      = "rg-ticketdesk-lab"
+      + scopes                   = (known after apply)
+      + severity                 = 2
+      + tags                     = {
+          + "est_usd_per_hour" = "0.0001"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + target_resource_location = (known after apply)
+      + target_resource_type     = (known after apply)
+      + window_size              = "PT1M"
+
+      + action {
+          + action_group_id = (known after apply)
+        }
+
+      + criteria {
+          + aggregation            = "Count"
+          + metric_name            = "requests/failed"
+          + metric_namespace       = "microsoft.insights/components"
+          + operator               = "GreaterThan"
+          + skip_metric_validation = false
+          + threshold              = 2
+        }
+    }
+
+  # azurerm_role_assignment.ado_aks_rbac_admin[0] will be created
+  + resource "azurerm_role_assignment" "ado_aks_rbac_admin" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-4>"
+      + principal_type                   = "ServicePrincipal"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Azure Kubernetes Service RBAC Admin"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.ado_rg_contributor[0] will be created
+  + resource "azurerm_role_assignment" "ado_rg_contributor" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-4>"
+      + principal_type                   = "ServicePrincipal"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab"
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.app_dataprotection_key[0] will be created
+  + resource "azurerm_role_assignment" "app_dataprotection_key" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Key Vault Crypto User"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.app_servicebus["Azure Service Bus Data Receiver"] will be created
+  + resource "azurerm_role_assignment" "app_servicebus" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Azure Service Bus Data Receiver"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.app_servicebus["Azure Service Bus Data Sender"] will be created
+  + resource "azurerm_role_assignment" "app_servicebus" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Azure Service Bus Data Sender"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.vm_artifacts_reader[0] will be created
+  + resource "azurerm_role_assignment" "vm_artifacts_reader" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-15>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.vm_blob_writer["backups"] will be created
+  + resource "azurerm_role_assignment" "vm_blob_writer" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-15>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.vm_blob_writer["logs"] will be created
+  + resource "azurerm_role_assignment" "vm_blob_writer" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-15>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_role_assignment.vm_dataprotection_key[0] will be created
+  + resource "azurerm_role_assignment" "vm_dataprotection_key" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-15>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Key Vault Crypto User"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # azurerm_user_assigned_identity.app[0] will be created
+  + resource "azurerm_user_assigned_identity" "app" {
+      + client_id           = (known after apply)
+      + id                  = (known after apply)
+      + location            = "swedencentral"
+      + name                = "id-tdlab-app"
+      + principal_id        = (known after apply)
+      + resource_group_name = "rg-ticketdesk-lab"
+      + tags                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + tenant_id           = (known after apply)
+    }
+
+  # random_password.sql_sa[0] will be created
+  + resource "random_password" "sql_sa" {
+      + bcrypt_hash      = (sensitive value)
+      + id               = (known after apply)
+      + length           = 24
+      + lower            = true
+      + min_lower        = 2
+      + min_numeric      = 2
+      + min_special      = 2
+      + min_upper        = 2
+      + number           = true
+      + numeric          = true
+      + override_special = "!#%*-_=+"
+      + result           = (sensitive value)
+      + special          = true
+      + upper            = true
+    }
+
+  # random_uuid.remoteapp_key[0] will be created
+  + resource "random_uuid" "remoteapp_key" {
+      + id     = (known after apply)
+      + result = (known after apply)
+    }
+
+  # time_rotating.attachments_sas[0] will be created
+  + resource "time_rotating" "attachments_sas" {
+      + day              = (known after apply)
+      + hour             = (known after apply)
+      + id               = (known after apply)
+      + minute           = (known after apply)
+      + month            = (known after apply)
+      + rfc3339          = (known after apply)
+      + rotation_days    = 7
+      + rotation_rfc3339 = (known after apply)
+      + second           = (known after apply)
+      + unix             = (known after apply)
+      + year             = (known after apply)
+    }
+
+  # module.aks[0].azurerm_container_registry.this will be created
+  + resource "azurerm_container_registry" "this" {
+      + admin_enabled                                = false
+      + admin_password                               = (sensitive value)
+      + admin_username                               = (known after apply)
+      + anonymous_pull_enabled                       = false
+      + azuread_authentication_as_arm_policy_enabled = true
+      + data_endpoint_host_names                     = (known after apply)
+      + export_policy_enabled                        = true
+      + id                                           = (known after apply)
+      + location                                     = "swedencentral"
+      + login_server                                 = (known after apply)
+      + name                                         = "acrtdlab36d2d4"
+      + network_rule_bypass_for_tasks_enabled        = false
+      + network_rule_bypass_option                   = "AzureServices"
+      + network_rule_set                             = (known after apply)
+      + public_network_access_enabled                = true
+      + resource_group_name                          = "rg-ticketdesk-lab"
+      + role_assignment_mode                         = "LegacyRegistryPermissions"
+      + sku                                          = "Basic"
+      + tags                                         = {
+          + "est_usd_per_hour" = "0.0069"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + zone_redundancy_enabled                      = false
+    }
+
+  # module.aks[0].azurerm_kubernetes_cluster.this will be created
+  + resource "azurerm_kubernetes_cluster" "this" {
+      + ai_toolchain_operator_enabled       = false
+      + current_kubernetes_version          = (known after apply)
+      + dns_prefix                          = "aks-tdlab"
+      + fqdn                                = (known after apply)
+      + http_application_routing_zone_name  = (known after apply)
+      + id                                  = (known after apply)
+      + kube_admin_config                   = (sensitive value)
+      + kube_admin_config_raw               = (sensitive value)
+      + kube_config                         = (sensitive value)
+      + kube_config_raw                     = (sensitive value)
+      + kubernetes_version                  = (known after apply)
+      + local_account_disabled              = true
+      + location                            = "swedencentral"
+      + name                                = "aks-tdlab-swedencentral"
+      + node_os_upgrade_channel             = "None"
+      + node_resource_group                 = "rg-ticketdesk-lab-aksnodes"
+      + node_resource_group_id              = (known after apply)
+      + oidc_issuer_enabled                 = true
+      + oidc_issuer_url                     = (known after apply)
+      + portal_fqdn                         = (known after apply)
+      + private_cluster_enabled             = false
+      + private_cluster_public_fqdn_enabled = false
+      + private_dns_zone_id                 = (known after apply)
+      + private_fqdn                        = (known after apply)
+      + resource_group_name                 = "rg-ticketdesk-lab"
+      + role_based_access_control_enabled   = true
+      + run_command_enabled                 = true
+      + sku_tier                            = "Free"
+      + support_plan                        = "KubernetesOfficial"
+      + tags                                = {
+          + "est_usd_per_hour" = "0.1708"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + workload_identity_enabled           = true
+
+      + api_server_access_profile {
+          + authorized_ip_ranges                = [
+              + "<home-ip>/32",
+            ]
+          + virtual_network_integration_enabled = false
+        }
+
+      + auto_scaler_profile (known after apply)
+
+      + azure_active_directory_role_based_access_control {
+          + azure_rbac_enabled = true
+          + tenant_id          = "<tenant-id>"
+        }
+
+      + bootstrap_profile (known after apply)
+
+      + default_node_pool {
+          + kubelet_disk_type           = (known after apply)
+          + max_pods                    = (known after apply)
+          + name                        = "system"
+          + node_count                  = 1
+          + node_labels                 = (known after apply)
+          + orchestrator_version        = (known after apply)
+          + os_disk_size_gb             = 30
+          + os_disk_type                = "Managed"
+          + os_sku                      = "AzureLinux"
+          + scale_down_mode             = "Delete"
+          + tags                        = {
+              + "est_usd_per_hour" = "0.0858"
+              + "owner"            = "agent-aks"
+              + "project"          = "ticketdesk"
+              + "ttl"              = "2026-11-12T09:40:36Z"
+            }
+          + temporary_name_for_rotation = "systemtmp"
+          + type                        = "VirtualMachineScaleSets"
+          + ultra_ssd_enabled           = false
+          + vm_size                     = "Standard_B2as_v2"
+          + vnet_subnet_id              = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks"
+          + workload_runtime            = (known after apply)
+
+          + upgrade_settings {
+              + max_surge = "1"
+            }
+        }
+
+      + identity {
+          + principal_id = (known after apply)
+          + tenant_id    = (known after apply)
+          + type         = "SystemAssigned"
+        }
+
+      + key_vault_secrets_provider {
+          + secret_identity          = (known after apply)
+          + secret_rotation_enabled  = true
+          + secret_rotation_interval = "2m"
+        }
+
+      + kubelet_identity (known after apply)
+
+      + network_profile {
+          + dns_service_ip      = "172.16.0.10"
+          + ip_versions         = (known after apply)
+          + load_balancer_sku   = "standard"
+          + network_data_plane  = "cilium"
+          + network_mode        = (known after apply)
+          + network_plugin      = "azure"
+          + network_plugin_mode = "overlay"
+          + network_policy      = "cilium"
+          + outbound_type       = "loadBalancer"
+          + pod_cidr            = "192.168.0.0/16"
+          + pod_cidrs           = (known after apply)
+          + service_cidr        = "172.16.0.0/16"
+          + service_cidrs       = (known after apply)
+
+          + load_balancer_profile (known after apply)
+
+          + nat_gateway_profile (known after apply)
+        }
+
+      + node_provisioning_profile {
+          + default_node_pools = "Auto"
+          + mode               = "Manual"
+        }
+
+      + windows_profile (known after apply)
+    }
+
+  # module.aks[0].azurerm_role_assignment.admin_acr_push will be created
+  + resource "azurerm_role_assignment" "admin_acr_push" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-8>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "AcrPush"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.aks[0].azurerm_role_assignment.cluster_admin will be created
+  + resource "azurerm_role_assignment" "cluster_admin" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-8>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Azure Kubernetes Service RBAC Cluster Admin"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.aks[0].azurerm_role_assignment.csi_kv_secrets_user will be created
+  + resource "azurerm_role_assignment" "csi_kv_secrets_user" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Key Vault Secrets User"
+      + scope                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4"
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.aks[0].azurerm_role_assignment.kubelet_acr_pull will be created
+  + resource "azurerm_role_assignment" "kubelet_acr_pull" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "AcrPull"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = true
+    }
+
+  # module.aks[0].azurerm_role_assignment.subnet_network_contributor will be created
+  + resource "azurerm_role_assignment" "subnet_network_contributor" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Network Contributor"
+      + scope                            = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks"
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.files[0].azurerm_role_assignment.operator will be created
+  + resource "azurerm_role_assignment" "operator" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-8>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.files[0].azurerm_storage_account.this will be created
+  + resource "azurerm_storage_account" "this" {
+      + access_tier                                    = "Hot"
+      + account_kind                                   = "StorageV2"
+      + account_replication_type                       = "LRS"
+      + account_replication_type_migrating_to          = (known after apply)
+      + account_replication_type_migration_in_progress = (known after apply)
+      + account_tier                                   = "Standard"
+      + allow_nested_items_to_be_public                = false
+      + cross_tenant_replication_enabled               = false
+      + default_to_oauth_authentication                = true
+      + dns_endpoint_type                              = "Standard"
+      + https_traffic_only_enabled                     = true
+      + id                                             = (known after apply)
+      + infrastructure_encryption_enabled              = false
+      + is_hns_enabled                                 = false
+      + large_file_share_enabled                       = (known after apply)
+      + local_user_enabled                             = false
+      + location                                       = "swedencentral"
+      + min_tls_version                                = "TLS1_2"
+      + name                                           = "sttdlabfiles36d2d4"
+      + nfsv3_enabled                                  = false
+      + primary_access_key                             = (sensitive value)
+      + primary_blob_connection_string                 = (sensitive value)
+      + primary_blob_endpoint                          = (known after apply)
+      + primary_blob_host                              = (known after apply)
+      + primary_blob_internet_endpoint                 = (known after apply)
+      + primary_blob_internet_host                     = (known after apply)
+      + primary_blob_microsoft_endpoint                = (known after apply)
+      + primary_blob_microsoft_host                    = (known after apply)
+      + primary_connection_string                      = (sensitive value)
+      + primary_dfs_endpoint                           = (known after apply)
+      + primary_dfs_host                               = (known after apply)
+      + primary_dfs_internet_endpoint                  = (known after apply)
+      + primary_dfs_internet_host                      = (known after apply)
+      + primary_dfs_microsoft_endpoint                 = (known after apply)
+      + primary_dfs_microsoft_host                     = (known after apply)
+      + primary_file_endpoint                          = (known after apply)
+      + primary_file_host                              = (known after apply)
+      + primary_file_internet_endpoint                 = (known after apply)
+      + primary_file_internet_host                     = (known after apply)
+      + primary_file_microsoft_endpoint                = (known after apply)
+      + primary_file_microsoft_host                    = (known after apply)
+      + primary_location                               = (known after apply)
+      + primary_queue_endpoint                         = (known after apply)
+      + primary_queue_host                             = (known after apply)
+      + primary_queue_microsoft_endpoint               = (known after apply)
+      + primary_queue_microsoft_host                   = (known after apply)
+      + primary_table_endpoint                         = (known after apply)
+      + primary_table_host                             = (known after apply)
+      + primary_table_microsoft_endpoint               = (known after apply)
+      + primary_table_microsoft_host                   = (known after apply)
+      + primary_web_endpoint                           = (known after apply)
+      + primary_web_host                               = (known after apply)
+      + primary_web_internet_endpoint                  = (known after apply)
+      + primary_web_internet_host                      = (known after apply)
+      + primary_web_microsoft_endpoint                 = (known after apply)
+      + primary_web_microsoft_host                     = (known after apply)
+      + public_network_access                          = "Enabled"
+      + public_network_access_enabled                  = (known after apply)
+      + queue_encryption_key_type                      = "Service"
+      + resource_group_name                            = "rg-ticketdesk-lab"
+      + secondary_access_key                           = (sensitive value)
+      + secondary_blob_connection_string               = (sensitive value)
+      + secondary_blob_endpoint                        = (known after apply)
+      + secondary_blob_host                            = (known after apply)
+      + secondary_blob_internet_endpoint               = (known after apply)
+      + secondary_blob_internet_host                   = (known after apply)
+      + secondary_blob_microsoft_endpoint              = (known after apply)
+      + secondary_blob_microsoft_host                  = (known after apply)
+      + secondary_connection_string                    = (sensitive value)
+      + secondary_dfs_endpoint                         = (known after apply)
+      + secondary_dfs_host                             = (known after apply)
+      + secondary_dfs_internet_endpoint                = (known after apply)
+      + secondary_dfs_internet_host                    = (known after apply)
+      + secondary_dfs_microsoft_endpoint               = (known after apply)
+      + secondary_dfs_microsoft_host                   = (known after apply)
+      + secondary_file_endpoint                        = (known after apply)
+      + secondary_file_host                            = (known after apply)
+      + secondary_file_internet_endpoint               = (known after apply)
+      + secondary_file_internet_host                   = (known after apply)
+      + secondary_file_microsoft_endpoint              = (known after apply)
+      + secondary_file_microsoft_host                  = (known after apply)
+      + secondary_location                             = (known after apply)
+      + secondary_queue_endpoint                       = (known after apply)
+      + secondary_queue_host                           = (known after apply)
+      + secondary_queue_microsoft_endpoint             = (known after apply)
+      + secondary_queue_microsoft_host                 = (known after apply)
+      + secondary_table_endpoint                       = (known after apply)
+      + secondary_table_host                           = (known after apply)
+      + secondary_table_microsoft_endpoint             = (known after apply)
+      + secondary_table_microsoft_host                 = (known after apply)
+      + secondary_web_endpoint                         = (known after apply)
+      + secondary_web_host                             = (known after apply)
+      + secondary_web_internet_endpoint                = (known after apply)
+      + secondary_web_internet_host                    = (known after apply)
+      + secondary_web_microsoft_endpoint               = (known after apply)
+      + secondary_web_microsoft_host                   = (known after apply)
+      + sftp_enabled                                   = false
+      + shared_access_key_enabled                      = true
+      + smb_oauth_enabled                              = false
+      + table_encryption_key_type                      = "Service"
+      + tags                                           = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+
+      + blob_properties (known after apply)
+
+      + network_rules {
+          + bypass                     = [
+              + "AzureServices",
+            ]
+          + default_action             = "Deny"
+          + ip_rules                   = [
+              + "<home-ip>",
+            ]
+          + virtual_network_subnet_ids = [
+              + "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks",
+              + "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm",
+            ]
+        }
+
+      + routing (known after apply)
+
+      + share_properties (known after apply)
+    }
+
+  # module.files[0].azurerm_storage_container.this["ticketdesk-attachments"] will be created
+  + resource "azurerm_storage_container" "this" {
+      + container_access_type             = "private"
+      + default_encryption_scope          = (known after apply)
+      + encryption_scope_override_enabled = true
+      + has_immutability_policy           = (known after apply)
+      + has_legal_hold                    = (known after apply)
+      + id                                = (known after apply)
+      + metadata                          = (known after apply)
+      + name                              = "ticketdesk-attachments"
+      + storage_account_id                = (known after apply)
+      + url                               = (known after apply)
+    }
+
+  # module.files[0].time_sleep.rbac_propagation will be created
+  + resource "time_sleep" "rbac_propagation" {
+      + create_duration = "60s"
+      + id              = (known after apply)
+    }
+
+  # module.monitoring[0].azurerm_application_insights.this will be created
+  + resource "azurerm_application_insights" "this" {
+      + app_id                               = (known after apply)
+      + application_type                     = "web"
+      + connection_string                    = (sensitive value)
+      + daily_data_cap_in_gb                 = 100
+      + daily_data_cap_notifications_enabled = true
+      + force_customer_storage_for_profiler  = false
+      + id                                   = (known after apply)
+      + instrumentation_key                  = (sensitive value)
+      + internet_ingestion_enabled           = true
+      + internet_query_enabled               = true
+      + ip_masking_enabled                   = true
+      + local_authentication_enabled         = true
+      + location                             = "swedencentral"
+      + name                                 = "appi-tdlab-swedencentral"
+      + resource_group_name                  = "rg-ticketdesk-lab"
+      + retention_in_days                    = 90
+      + sampling_percentage                  = 100
+      + tags                                 = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + workspace_id                         = (known after apply)
+    }
+
+  # module.monitoring[0].azurerm_log_analytics_workspace.this will be created
+  + resource "azurerm_log_analytics_workspace" "this" {
+      + allow_resource_only_permissions = true
+      + daily_quota_gb                  = 0.1
+      + id                              = (known after apply)
+      + internet_ingestion_access_type  = "Enabled"
+      + internet_query_access_type      = "Enabled"
+      + local_authentication_enabled    = true
+      + location                        = "swedencentral"
+      + name                            = "log-tdlab-swedencentral"
+      + primary_shared_key              = (sensitive value)
+      + resource_group_name             = "rg-ticketdesk-lab"
+      + retention_in_days               = 30
+      + secondary_shared_key            = (sensitive value)
+      + sku                             = "PerGB2018"
+      + tags                            = {
+          + "est_usd_per_hour" = "0.0125"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + workspace_id                    = (known after apply)
+    }
+
+  # module.monitoring[0].azurerm_monitor_action_group.email[0] will be created
+  + resource "azurerm_monitor_action_group" "email" {
+      + enabled             = true
+      + id                  = (known after apply)
+      + location            = "global"
+      + name                = "ag-tdlab-email"
+      + resource_group_name = "rg-ticketdesk-lab"
+      + short_name          = "tdlab"
+      + tags                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+
+      + email_receiver {
+          + email_address           = "<alert_email>"
+          + name                    = "owner"
+          + use_common_alert_schema = true
+        }
+    }
+
+  # module.servicebus[0].azurerm_servicebus_namespace.this will be created
+  + resource "azurerm_servicebus_namespace" "this" {
+      + capacity                            = 0
+      + default_primary_connection_string   = (sensitive value)
+      + default_primary_key                 = (sensitive value)
+      + default_secondary_connection_string = (sensitive value)
+      + default_secondary_key               = (sensitive value)
+      + endpoint                            = (known after apply)
+      + id                                  = (known after apply)
+      + local_auth_enabled                  = false
+      + location                            = "swedencentral"
+      + minimum_tls_version                 = "1.2"
+      + name                                = "sb-tdlab-36d2d4"
+      + premium_messaging_partitions        = 0
+      + public_network_access_enabled       = true
+      + resource_group_name                 = "rg-ticketdesk-lab"
+      + sku                                 = "Basic"
+      + tags                                = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+
+      + network_rule_set (known after apply)
+    }
+
+  # module.servicebus[0].azurerm_servicebus_queue.notifications will be created
+  + resource "azurerm_servicebus_queue" "notifications" {
+      + auto_delete_on_idle                     = (known after apply)
+      + batched_operations_enabled              = true
+      + dead_lettering_on_message_expiration    = true
+      + default_message_ttl                     = "PT1H"
+      + duplicate_detection_history_time_window = "PT10M"
+      + express_enabled                         = false
+      + id                                      = (known after apply)
+      + lock_duration                           = "PT1M"
+      + max_delivery_count                      = 5
+      + max_message_size_in_kilobytes           = (known after apply)
+      + max_size_in_megabytes                   = (known after apply)
+      + name                                    = "ticket-notifications"
+      + namespace_id                            = (known after apply)
+      + partitioning_enabled                    = false
+      + requires_duplicate_detection            = false
+      + requires_session                        = false
+      + status                                  = "Active"
+    }
+
+  # module.sql[0].azapi_resource.database will be created
+  + resource "azapi_resource" "database" {
+      + body                      = {
+          + properties = {
+              + autoPauseDelay                   = 60
+              + collation                        = "SQL_Latin1_General_CP1_CI_AS"
+              + freeLimitExhaustionBehavior      = "AutoPause"
+              + maxSizeBytes                     = 34359738368
+              + minCapacity                      = 0.5
+              + requestedBackupStorageRedundancy = "Local"
+              + useFreeLimit                     = true
+              + zoneRedundant                    = false
+            }
+          + sku        = {
+              + capacity = 2
+              + family   = "Gen5"
+              + name     = "GP_S_Gen5"
+              + tier     = "GeneralPurpose"
+            }
+        }
+      + id                        = (known after apply)
+      + ignore_body_changes       = (write-only attribute)
+      + ignore_casing             = false
+      + ignore_missing_property   = true
+      + ignore_null_property      = false
+      + location                  = "swedencentral"
+      + name                      = "sqldb-ticketdesk"
+      + output                    = (known after apply)
+      + parent_id                 = (known after apply)
+      + response_export_values    = {
+          + current_service_objective   = "properties.currentServiceObjectiveName"
+          + free_limit_exhaustion       = "properties.freeLimitExhaustionBehavior"
+          + requested_backup_redundancy = "properties.requestedBackupStorageRedundancy"
+          + status                      = "properties.status"
+          + use_free_limit              = "properties.useFreeLimit"
+        }
+      + schema_validation_enabled = true
+      + sensitive_body            = (write-only attribute)
+      + tags                      = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + type                      = "Microsoft.Sql/servers/databases@2025-01-01"
+    }
+
+  # module.sql[0].azurerm_mssql_server.this will be created
+  + resource "azurerm_mssql_server" "this" {
+      + administrator_login                      = (known after apply)
+      + administrator_login_password_wo          = (write-only attribute)
+      + connection_policy                        = "Default"
+      + express_vulnerability_assessment_enabled = false
+      + fully_qualified_domain_name              = (known after apply)
+      + id                                       = (known after apply)
+      + location                                 = "swedencentral"
+      + minimum_tls_version                      = "1.2"
+      + name                                     = "sql-tdlab-36d2d4"
+      + outbound_network_restriction_enabled     = false
+      + primary_user_assigned_identity_id        = (known after apply)
+      + public_network_access_enabled            = false
+      + resource_group_name                      = "rg-ticketdesk-lab"
+      + restorable_dropped_database_ids          = (known after apply)
+      + tags                                     = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + version                                  = "12.0"
+
+      + azuread_administrator {
+          + azuread_authentication_only = true
+          + login_username              = "id-tdlab-sqldeploy"
+          + object_id                   = "<principal-id-11>"
+          + tenant_id                   = (known after apply)
+        }
+    }
+
+  # module.sql[0].azurerm_private_dns_zone.sql will be created
+  + resource "azurerm_private_dns_zone" "sql" {
+      + id                                                    = (known after apply)
+      + max_number_of_record_sets                             = (known after apply)
+      + max_number_of_virtual_network_links                   = (known after apply)
+      + max_number_of_virtual_network_links_with_registration = (known after apply)
+      + name                                                  = "privatelink.database.windows.net"
+      + number_of_record_sets                                 = (known after apply)
+      + resource_group_name                                   = "rg-ticketdesk-lab"
+      + tags                                                  = {
+          + "est_usd_per_hour" = "0.0007"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+
+      + soa_record (known after apply)
+    }
+
+  # module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql will be created
+  + resource "azurerm_private_dns_zone_virtual_network_link" "sql" {
+      + id                   = (known after apply)
+      + name                 = "pdnslink-sql-tdlab"
+      + private_dns_zone_id  = (known after apply)
+      + registration_enabled = false
+      + resolution_policy    = (known after apply)
+      + tags                 = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+      + virtual_network_id   = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral"
+    }
+
+  # module.sql[0].azurerm_private_endpoint.sql will be created
+  + resource "azurerm_private_endpoint" "sql" {
+      + custom_dns_configs            = (known after apply)
+      + custom_network_interface_name = "nic-pe-sql-tdlab"
+      + id                            = (known after apply)
+      + location                      = "swedencentral"
+      + name                          = "pe-sql-tdlab"
+      + network_interface             = (known after apply)
+      + private_dns_zone_configs      = (known after apply)
+      + resource_group_name           = "rg-ticketdesk-lab"
+      + subnet_id                     = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe"
+      + tags                          = {
+          + "est_usd_per_hour" = "0.01"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+
+      + private_dns_zone_group {
+          + id                   = (known after apply)
+          + name                 = "default"
+          + private_dns_zone_ids = (known after apply)
+        }
+
+      + private_service_connection {
+          + is_manual_connection           = false
+          + name                           = "psc-sql"
+          + private_connection_resource_id = (known after apply)
+          + private_ip_address             = (known after apply)
+          + subresource_names              = [
+              + "sqlServer",
+            ]
+        }
+    }
+
+  # module.storage[0].azurerm_role_assignment.operator will be created
+  + resource "azurerm_role_assignment" "operator" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = "<principal-id-8>"
+      + principal_type                   = (known after apply)
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Storage Blob Data Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_account.this will be created
+  + resource "azurerm_storage_account" "this" {
+      + access_tier                                    = "Hot"
+      + account_kind                                   = "StorageV2"
+      + account_replication_type                       = "LRS"
+      + account_replication_type_migrating_to          = (known after apply)
+      + account_replication_type_migration_in_progress = (known after apply)
+      + account_tier                                   = "Standard"
+      + allow_nested_items_to_be_public                = false
+      + cross_tenant_replication_enabled               = false
+      + default_to_oauth_authentication                = true
+      + dns_endpoint_type                              = "Standard"
+      + https_traffic_only_enabled                     = true
+      + id                                             = (known after apply)
+      + infrastructure_encryption_enabled              = false
+      + is_hns_enabled                                 = false
+      + large_file_share_enabled                       = (known after apply)
+      + local_user_enabled                             = false
+      + location                                       = "swedencentral"
+      + min_tls_version                                = "TLS1_2"
+      + name                                           = "sttdlab36d2d4"
+      + nfsv3_enabled                                  = false
+      + primary_access_key                             = (sensitive value)
+      + primary_blob_connection_string                 = (sensitive value)
+      + primary_blob_endpoint                          = (known after apply)
+      + primary_blob_host                              = (known after apply)
+      + primary_blob_internet_endpoint                 = (known after apply)
+      + primary_blob_internet_host                     = (known after apply)
+      + primary_blob_microsoft_endpoint                = (known after apply)
+      + primary_blob_microsoft_host                    = (known after apply)
+      + primary_connection_string                      = (sensitive value)
+      + primary_dfs_endpoint                           = (known after apply)
+      + primary_dfs_host                               = (known after apply)
+      + primary_dfs_internet_endpoint                  = (known after apply)
+      + primary_dfs_internet_host                      = (known after apply)
+      + primary_dfs_microsoft_endpoint                 = (known after apply)
+      + primary_dfs_microsoft_host                     = (known after apply)
+      + primary_file_endpoint                          = (known after apply)
+      + primary_file_host                              = (known after apply)
+      + primary_file_internet_endpoint                 = (known after apply)
+      + primary_file_internet_host                     = (known after apply)
+      + primary_file_microsoft_endpoint                = (known after apply)
+      + primary_file_microsoft_host                    = (known after apply)
+      + primary_location                               = (known after apply)
+      + primary_queue_endpoint                         = (known after apply)
+      + primary_queue_host                             = (known after apply)
+      + primary_queue_microsoft_endpoint               = (known after apply)
+      + primary_queue_microsoft_host                   = (known after apply)
+      + primary_table_endpoint                         = (known after apply)
+      + primary_table_host                             = (known after apply)
+      + primary_table_microsoft_endpoint               = (known after apply)
+      + primary_table_microsoft_host                   = (known after apply)
+      + primary_web_endpoint                           = (known after apply)
+      + primary_web_host                               = (known after apply)
+      + primary_web_internet_endpoint                  = (known after apply)
+      + primary_web_internet_host                      = (known after apply)
+      + primary_web_microsoft_endpoint                 = (known after apply)
+      + primary_web_microsoft_host                     = (known after apply)
+      + public_network_access                          = "Enabled"
+      + public_network_access_enabled                  = (known after apply)
+      + queue_encryption_key_type                      = "Service"
+      + resource_group_name                            = "rg-ticketdesk-lab"
+      + secondary_access_key                           = (sensitive value)
+      + secondary_blob_connection_string               = (sensitive value)
+      + secondary_blob_endpoint                        = (known after apply)
+      + secondary_blob_host                            = (known after apply)
+      + secondary_blob_internet_endpoint               = (known after apply)
+      + secondary_blob_internet_host                   = (known after apply)
+      + secondary_blob_microsoft_endpoint              = (known after apply)
+      + secondary_blob_microsoft_host                  = (known after apply)
+      + secondary_connection_string                    = (sensitive value)
+      + secondary_dfs_endpoint                         = (known after apply)
+      + secondary_dfs_host                             = (known after apply)
+      + secondary_dfs_internet_endpoint                = (known after apply)
+      + secondary_dfs_internet_host                    = (known after apply)
+      + secondary_dfs_microsoft_endpoint               = (known after apply)
+      + secondary_dfs_microsoft_host                   = (known after apply)
+      + secondary_file_endpoint                        = (known after apply)
+      + secondary_file_host                            = (known after apply)
+      + secondary_file_internet_endpoint               = (known after apply)
+      + secondary_file_internet_host                   = (known after apply)
+      + secondary_file_microsoft_endpoint              = (known after apply)
+      + secondary_file_microsoft_host                  = (known after apply)
+      + secondary_location                             = (known after apply)
+      + secondary_queue_endpoint                       = (known after apply)
+      + secondary_queue_host                           = (known after apply)
+      + secondary_queue_microsoft_endpoint             = (known after apply)
+      + secondary_queue_microsoft_host                 = (known after apply)
+      + secondary_table_endpoint                       = (known after apply)
+      + secondary_table_host                           = (known after apply)
+      + secondary_table_microsoft_endpoint             = (known after apply)
+      + secondary_table_microsoft_host                 = (known after apply)
+      + secondary_web_endpoint                         = (known after apply)
+      + secondary_web_host                             = (known after apply)
+      + secondary_web_internet_endpoint                = (known after apply)
+      + secondary_web_internet_host                    = (known after apply)
+      + secondary_web_microsoft_endpoint               = (known after apply)
+      + secondary_web_microsoft_host                   = (known after apply)
+      + sftp_enabled                                   = false
+      + shared_access_key_enabled                      = false
+      + smb_oauth_enabled                              = false
+      + table_encryption_key_type                      = "Service"
+      + tags                                           = {
+          + "est_usd_per_hour" = "0"
+          + "owner"            = "agent-aks"
+          + "project"          = "ticketdesk"
+          + "ttl"              = "2026-11-12T09:40:36Z"
+        }
+
+      + blob_properties (known after apply)
+
+      + network_rules {
+          + bypass                     = [
+              + "AzureServices",
+            ]
+          + default_action             = "Deny"
+          + ip_rules                   = [
+              + "<home-ip>",
+            ]
+          + virtual_network_subnet_ids = [
+              + "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm",
+            ]
+        }
+
+      + routing (known after apply)
+
+      + share_properties (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_container.this["artifacts"] will be created
+  + resource "azurerm_storage_container" "this" {
+      + container_access_type             = "private"
+      + default_encryption_scope          = (known after apply)
+      + encryption_scope_override_enabled = true
+      + has_immutability_policy           = (known after apply)
+      + has_legal_hold                    = (known after apply)
+      + id                                = (known after apply)
+      + metadata                          = (known after apply)
+      + name                              = "artifacts"
+      + storage_account_id                = (known after apply)
+      + url                               = (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_container.this["backups"] will be created
+  + resource "azurerm_storage_container" "this" {
+      + container_access_type             = "private"
+      + default_encryption_scope          = (known after apply)
+      + encryption_scope_override_enabled = true
+      + has_immutability_policy           = (known after apply)
+      + has_legal_hold                    = (known after apply)
+      + id                                = (known after apply)
+      + metadata                          = (known after apply)
+      + name                              = "backups"
+      + storage_account_id                = (known after apply)
+      + url                               = (known after apply)
+    }
+
+  # module.storage[0].azurerm_storage_container.this["logs"] will be created
+  + resource "azurerm_storage_container" "this" {
+      + container_access_type             = "private"
+      + default_encryption_scope          = (known after apply)
+      + encryption_scope_override_enabled = true
+      + has_immutability_policy           = (known after apply)
+      + has_legal_hold                    = (known after apply)
+      + id                                = (known after apply)
+      + metadata                          = (known after apply)
+      + name                              = "logs"
+      + storage_account_id                = (known after apply)
+      + url                               = (known after apply)
+    }
+
+  # module.storage[0].time_sleep.rbac_propagation will be created
+  + resource "time_sleep" "rbac_propagation" {
+      + create_duration = "60s"
+      + id              = (known after apply)
+    }
+
+Plan: 54 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + acr_login_server              = (known after apply)
+  + acr_name                      = "acrtdlab36d2d4"
+  + aks_cluster                   = "aks-tdlab-swedencentral"
+  + aks_csi_identity_client_id    = (known after apply)
+  + aks_node_resource_group       = "rg-ticketdesk-lab-aksnodes"
+  + aks_node_vm_size              = "Standard_B2as_v2"
+  + aks_oidc_issuer_url           = (known after apply)
+  + aks_subnet_cidr               = "10.42.16.0/22"
+  + aks_web_certificate_name      = "td-aks-web"
+  + app_identity_client_id        = (known after apply)
+  + app_identity_name             = "id-tdlab-app"
+  + app_insights_id               = (known after apply)
+  + dataprotection_key_id         = (known after apply)
+  ~ est_usd_per_hour              = "0.0000" -> "0.2951"
+  + failed_requests_alert_id      = (known after apply)
+  + files_account                 = "sttdlabfiles36d2d4"
+  + files_blob_endpoint           = (known after apply)
+  + log_analytics_workspace       = "log-tdlab-swedencentral"
+  + servicebus_namespace          = "sb-tdlab-36d2d4.servicebus.windows.net"
+  + servicebus_queue              = "ticket-notifications"
+  ~ sql_admin                     = "<alert_email>" -> "id-tdlab-sqldeploy"
+  + sql_database                  = "sqldb-ticketdesk"
+  + sql_database_properties       = (known after apply)
+  + sql_private_endpoint_ip       = (known after apply)
+  + sql_server_fqdn               = (known after apply)
+  + storage_account               = "sttdlab36d2d4"
+  + storage_blob_endpoint         = (known after apply)
+random_uuid.remoteapp_key[0]: Creating...
+random_uuid.remoteapp_key[0]: Creation complete after 0s [id=<remoteapp-key-2>]
+random_password.sql_sa[0]: Creating...
+time_rotating.attachments_sas[0]: Creating...
+time_rotating.attachments_sas[0]: Creation complete after 0s [id=2026-11-12T06:33:04Z]
+random_password.sql_sa[0]: Creation complete after 0s [id=none]
+azurerm_user_assigned_identity.app[0]: Creating...
+azurerm_role_assignment.ado_rg_contributor[0]: Creating...
+azurerm_monitor_action_group.drill[0]: Creating...
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Creating...
+module.sql[0].azurerm_private_dns_zone.sql: Creating...
+module.monitoring[0].azurerm_log_analytics_workspace.this: Creating...
+module.servicebus[0].azurerm_servicebus_namespace.this: Creating...
+module.sql[0].azurerm_mssql_server.this: Creating...
+module.aks[0].azurerm_container_registry.this: Creating...
+module.files[0].azurerm_storage_account.this: Creating...
+azurerm_monitor_action_group.drill[0]: Creation complete after 3s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/actionGroups/ag-tdlab-drill]
+module.storage[0].azurerm_storage_account.this: Creating...
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Creation complete after 4s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/actionGroups/ag-tdlab-email]
+azurerm_key_vault_key.dataprotection[0]: Creating...
+azurerm_key_vault_key.dataprotection[0]: Creation complete after 5s [id=https://kv-tdlab-36d2d4.vault.azure.net/keys/td-dataprotection/4dcfc408da4e40f19a1993a875c82492]
+azurerm_key_vault_secret.remoteapp_key[0]: Creating...
+azurerm_user_assigned_identity.app[0]: Still creating... [00m10s elapsed]
+module.sql[0].azurerm_private_dns_zone.sql: Still creating... [00m10s elapsed]
+azurerm_role_assignment.ado_rg_contributor[0]: Still creating... [00m10s elapsed]
+module.sql[0].azurerm_mssql_server.this: Still creating... [00m10s elapsed]
+module.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m10s elapsed]
+module.aks[0].azurerm_container_registry.this: Still creating... [00m10s elapsed]
+module.servicebus[0].azurerm_servicebus_namespace.this: Still creating... [00m10s elapsed]
+module.files[0].azurerm_storage_account.this: Still creating... [00m10s elapsed]
+azurerm_key_vault_secret.remoteapp_key[0]: Creation complete after 4s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-remoteapp-api-key/973e95fc3bba410cb138630a2cb7cd51]
+azurerm_key_vault_certificate.aks_web[0]: Creating...
+module.storage[0].azurerm_storage_account.this: Still creating... [00m10s elapsed]
+module.servicebus[0].azurerm_servicebus_namespace.this: Creation complete after 19s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ServiceBus/namespaces/sb-tdlab-36d2d4]
+azurerm_key_vault_certificate.iis[0]: Creating...
+module.aks[0].azurerm_container_registry.this: Creation complete after 19s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ContainerRegistry/registries/acrtdlab36d2d4]
+azurerm_key_vault_secret.app_admin[0]: Creating...
+azurerm_role_assignment.ado_rg_contributor[0]: Still creating... [00m20s elapsed]
+azurerm_user_assigned_identity.app[0]: Still creating... [00m20s elapsed]
+module.sql[0].azurerm_private_dns_zone.sql: Still creating... [00m20s elapsed]
+module.sql[0].azurerm_mssql_server.this: Still creating... [00m20s elapsed]
+module.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m20s elapsed]
+module.files[0].azurerm_storage_account.this: Still creating... [00m20s elapsed]
+azurerm_key_vault_certificate.aks_web[0]: Creation complete after 7s [id=https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-aks-web/94696c2c6c4646508f8e00338a0f0697]
+azurerm_key_vault_secret.sql_sa[0]: Creating...
+azurerm_key_vault_certificate.iis[0]: Creation complete after 3s [id=https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy/269e0197634b44e9a873999e33a9069c]
+azurerm_role_assignment.vm_dataprotection_key[0]: Creating...
+azurerm_key_vault_secret.app_admin[0]: Creation complete after 2s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-app-admin-password/39f72bdda2924ba784d17a18eccf32b0]
+module.servicebus[0].azurerm_servicebus_queue.notifications: Creating...
+module.storage[0].azurerm_storage_account.this: Still creating... [00m20s elapsed]
+module.files[0].azurerm_storage_account.this: Creation complete after 23s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlabfiles36d2d4]
+module.aks[0].azurerm_role_assignment.admin_acr_push: Creating...
+azurerm_key_vault_secret.sql_sa[0]: Creation complete after 4s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-sql-sa-password/1c23fc6ad2724f00bd671128c1083c2b]
+module.files[0].azurerm_role_assignment.operator: Creating...
+module.servicebus[0].azurerm_servicebus_queue.notifications: Creation complete after 5s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ServiceBus/namespaces/sb-tdlab-36d2d4/queues/ticket-notifications]
+module.files[0].azurerm_storage_container.this["ticketdesk-attachments"]: Creating...
+module.storage[0].azurerm_storage_account.this: Creation complete after 24s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4]
+data.azurerm_storage_account_sas.attachments[0]: Reading...
+data.azurerm_storage_account_sas.attachments[0]: Read complete after 0s [id=2f22915d368f2256aa758e4eef2603b25447421be124ec2a42957bdf05648aa6]
+module.storage[0].azurerm_role_assignment.operator: Creating...
+azurerm_user_assigned_identity.app[0]: Still creating... [00m30s elapsed]
+azurerm_role_assignment.ado_rg_contributor[0]: Still creating... [00m30s elapsed]
+module.sql[0].azurerm_private_dns_zone.sql: Still creating... [00m30s elapsed]
+module.sql[0].azurerm_mssql_server.this: Still creating... [00m30s elapsed]
+module.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m30s elapsed]
+azurerm_role_assignment.vm_dataprotection_key[0]: Still creating... [00m10s elapsed]
+azurerm_user_assigned_identity.app[0]: Creation complete after 32s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-tdlab-app]
+module.storage[0].azurerm_storage_container.this["logs"]: Creating...
+azurerm_role_assignment.ado_rg_contributor[0]: Creation complete after 33s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Authorization/roleAssignments/<role-assignment-61>]
+module.storage[0].azurerm_storage_container.this["artifacts"]: Creating...
+module.sql[0].azurerm_private_dns_zone.sql: Creation complete after 33s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net]
+module.storage[0].azurerm_storage_container.this["backups"]: Creating...
+module.aks[0].azurerm_role_assignment.admin_acr_push: Still creating... [00m10s elapsed]
+module.files[0].azurerm_role_assignment.operator: Still creating... [00m10s elapsed]
+module.files[0].azurerm_storage_container.this["ticketdesk-attachments"]: Still creating... [00m10s elapsed]
+module.storage[0].azurerm_role_assignment.operator: Still creating... [00m10s elapsed]
+module.files[0].azurerm_storage_container.this["ticketdesk-attachments"]: Creation complete after 11s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlabfiles36d2d4/blobServices/default/containers/ticketdesk-attachments]
+azurerm_key_vault_secret.attachments[0]: Creating...
+module.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m40s elapsed]
+module.sql[0].azurerm_mssql_server.this: Still creating... [00m40s elapsed]
+azurerm_key_vault_secret.attachments[0]: Creation complete after 2s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-attachments-connection/f5d56aed98524526b4e6fb4af44bbbb6]
+azurerm_role_assignment.app_dataprotection_key[0]: Creating...
+azurerm_role_assignment.vm_dataprotection_key[0]: Still creating... [00m20s elapsed]
+module.storage[0].azurerm_storage_container.this["logs"]: Still creating... [00m10s elapsed]
+module.storage[0].azurerm_storage_container.this["artifacts"]: Still creating... [00m10s elapsed]
+module.storage[0].azurerm_storage_container.this["backups"]: Still creating... [00m10s elapsed]
+module.aks[0].azurerm_role_assignment.admin_acr_push: Still creating... [00m20s elapsed]
+module.files[0].azurerm_role_assignment.operator: Still creating... [00m20s elapsed]
+module.storage[0].azurerm_storage_container.this["logs"]: Creation complete after 12s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Receiver"]: Creating...
+module.storage[0].azurerm_storage_container.this["artifacts"]: Creation complete after 12s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Sender"]: Creating...
+module.storage[0].azurerm_storage_container.this["backups"]: Creation complete after 12s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Creating...
+module.monitoring[0].azurerm_log_analytics_workspace.this: Creation complete after 45s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.OperationalInsights/workspaces/log-tdlab-swedencentral]
+module.monitoring[0].azurerm_application_insights.this: Creating...
+module.storage[0].azurerm_role_assignment.operator: Still creating... [00m20s elapsed]
+module.monitoring[0].azurerm_application_insights.this: Creation complete after 5s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/components/appi-tdlab-swedencentral]
+azurerm_role_assignment.vm_artifacts_reader[0]: Creating...
+module.sql[0].azurerm_mssql_server.this: Still creating... [00m50s elapsed]
+azurerm_role_assignment.app_dataprotection_key[0]: Still creating... [00m10s elapsed]
+azurerm_role_assignment.vm_dataprotection_key[0]: Still creating... [00m30s elapsed]
+azurerm_role_assignment.vm_dataprotection_key[0]: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/keys/td-dataprotection/providers/Microsoft.Authorization/roleAssignments/<role-assignment-4>]
+azurerm_role_assignment.vm_blob_writer["logs"]: Creating...
+module.aks[0].azurerm_role_assignment.admin_acr_push: Still creating... [00m30s elapsed]
+module.aks[0].azurerm_role_assignment.admin_acr_push: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ContainerRegistry/registries/acrtdlab36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-48>]
+azurerm_role_assignment.vm_blob_writer["backups"]: Creating...
+module.files[0].azurerm_role_assignment.operator: Still creating... [00m30s elapsed]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Receiver"]: Still creating... [00m10s elapsed]
+module.files[0].azurerm_role_assignment.operator: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlabfiles36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-66>]
+module.files[0].time_sleep.rbac_propagation: Creating...
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Sender"]: Still creating... [00m10s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still creating... [00m10s elapsed]
+module.storage[0].azurerm_role_assignment.operator: Still creating... [00m30s elapsed]
+module.storage[0].azurerm_role_assignment.operator: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-2>]
+module.aks[0].azurerm_kubernetes_cluster.this: Creating...
+azurerm_role_assignment.vm_artifacts_reader[0]: Still creating... [00m10s elapsed]
+module.sql[0].azurerm_mssql_server.this: Still creating... [01m00s elapsed]
+azurerm_role_assignment.app_dataprotection_key[0]: Still creating... [00m20s elapsed]
+azurerm_role_assignment.vm_blob_writer["logs"]: Still creating... [00m10s elapsed]
+azurerm_role_assignment.vm_blob_writer["backups"]: Still creating... [00m10s elapsed]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Receiver"]: Still creating... [00m20s elapsed]
+module.files[0].time_sleep.rbac_propagation: Still creating... [00m10s elapsed]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Sender"]: Still creating... [00m20s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still creating... [00m20s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [00m10s elapsed]
+azurerm_role_assignment.vm_artifacts_reader[0]: Still creating... [00m20s elapsed]
+module.sql[0].azurerm_mssql_server.this: Still creating... [01m10s elapsed]
+azurerm_role_assignment.app_dataprotection_key[0]: Still creating... [00m30s elapsed]
+azurerm_role_assignment.app_dataprotection_key[0]: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/keys/td-dataprotection/providers/Microsoft.Authorization/roleAssignments/<role-assignment-38>]
+azurerm_key_vault_secret.appinsights[0]: Creating...
+azurerm_role_assignment.vm_blob_writer["logs"]: Still creating... [00m20s elapsed]
+azurerm_key_vault_secret.appinsights[0]: Creation complete after 2s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/appinsights-connection-string/2bafe030faed406aa60c5b6312ddb77d]
+azurerm_monitor_metric_alert.failed_requests[0]: Creating...
+azurerm_role_assignment.vm_blob_writer["backups"]: Still creating... [00m20s elapsed]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Receiver"]: Still creating... [00m30s elapsed]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Receiver"]: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ServiceBus/namespaces/sb-tdlab-36d2d4/queues/ticket-notifications/providers/Microsoft.Authorization/roleAssignments/<role-assignment-44>]
+module.storage[0].time_sleep.rbac_propagation: Creating...
+module.files[0].time_sleep.rbac_propagation: Still creating... [00m20s elapsed]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Sender"]: Still creating... [00m30s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still creating... [00m30s elapsed]
+azurerm_role_assignment.app_servicebus["Azure Service Bus Data Sender"]: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ServiceBus/namespaces/sb-tdlab-36d2d4/queues/ticket-notifications/providers/Microsoft.Authorization/roleAssignments/<role-assignment-51>]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [00m20s elapsed]
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Creation complete after 33s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/pdnslink-sql-tdlab]
+azurerm_role_assignment.vm_artifacts_reader[0]: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts/providers/Microsoft.Authorization/roleAssignments/<role-assignment-23>]
+module.sql[0].azurerm_mssql_server.this: Still creating... [01m20s elapsed]
+module.sql[0].azurerm_mssql_server.this: Creation complete after 1m21s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4]
+module.sql[0].azurerm_private_endpoint.sql: Creating...
+module.sql[0].azapi_resource.database: Creating...
+azurerm_role_assignment.vm_blob_writer["logs"]: Still creating... [00m30s elapsed]
+azurerm_role_assignment.vm_blob_writer["logs"]: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs/providers/Microsoft.Authorization/roleAssignments/<role-assignment-36>]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [00m10s elapsed]
+azurerm_role_assignment.vm_blob_writer["backups"]: Still creating... [00m30s elapsed]
+module.storage[0].time_sleep.rbac_propagation: Still creating... [00m10s elapsed]
+module.files[0].time_sleep.rbac_propagation: Still creating... [00m30s elapsed]
+azurerm_role_assignment.vm_blob_writer["backups"]: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups/providers/Microsoft.Authorization/roleAssignments/<role-assignment-5>]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [00m30s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [00m10s elapsed]
+module.sql[0].azapi_resource.database: Still creating... [00m10s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [00m20s elapsed]
+module.storage[0].time_sleep.rbac_propagation: Still creating... [00m20s elapsed]
+module.files[0].time_sleep.rbac_propagation: Still creating... [00m40s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [00m40s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [00m20s elapsed]
+module.sql[0].azapi_resource.database: Still creating... [00m20s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [00m30s elapsed]
+module.storage[0].time_sleep.rbac_propagation: Still creating... [00m30s elapsed]
+module.files[0].time_sleep.rbac_propagation: Still creating... [00m50s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [00m50s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [00m30s elapsed]
+module.sql[0].azapi_resource.database: Still creating... [00m30s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [00m40s elapsed]
+module.storage[0].time_sleep.rbac_propagation: Still creating... [00m40s elapsed]
+module.files[0].time_sleep.rbac_propagation: Still creating... [01m00s elapsed]
+module.files[0].time_sleep.rbac_propagation: Creation complete after 1m0s [id=2026-11-12T06:35:09Z]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [01m00s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [00m40s elapsed]
+module.sql[0].azapi_resource.database: Still creating... [00m40s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [00m50s elapsed]
+module.storage[0].time_sleep.rbac_propagation: Still creating... [00m50s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [01m10s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [00m50s elapsed]
+module.sql[0].azapi_resource.database: Still creating... [00m50s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [01m00s elapsed]
+module.storage[0].time_sleep.rbac_propagation: Still creating... [01m00s elapsed]
+module.storage[0].time_sleep.rbac_propagation: Creation complete after 1m0s [id=2026-11-12T06:35:29Z]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [01m20s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [01m00s elapsed]
+module.sql[0].azapi_resource.database: Still creating... [01m00s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [01m10s elapsed]
+module.sql[0].azapi_resource.database: Creation complete after 1m3s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4/databases/sqldb-ticketdesk]
+azurerm_key_vault_secret.sql_connection_string[0]: Creating...
+azurerm_key_vault_secret.sql_connection_string[0]: Creation complete after 2s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/sql-connection-string/e64292485ec147fb9a9916e93437c030]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [01m30s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [01m10s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [01m20s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [01m40s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [01m20s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [01m30s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [01m50s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [01m30s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [01m40s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [02m00s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [01m40s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [01m50s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [02m10s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Still creating... [01m50s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [02m00s elapsed]
+module.sql[0].azurerm_private_endpoint.sql: Creation complete after 1m56s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateEndpoints/pe-sql-tdlab]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [02m20s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [02m10s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [02m30s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [02m20s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [02m40s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Still creating... [02m30s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [02m50s elapsed]
+azurerm_monitor_metric_alert.failed_requests[0]: Creation complete after 2m37s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/metricAlerts/alert-tdlab-failed-requests]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [03m00s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [03m10s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [03m20s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [03m30s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [03m40s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [03m50s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [04m00s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [04m10s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [04m20s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [04m30s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [04m40s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Still creating... [04m50s elapsed]
+module.aks[0].azurerm_kubernetes_cluster.this: Creation complete after 4m56s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ContainerService/managedClusters/aks-tdlab-swedencentral]
+module.aks[0].azurerm_role_assignment.kubelet_acr_pull: Creating...
+module.aks[0].azurerm_role_assignment.cluster_admin: Creating...
+module.aks[0].azurerm_role_assignment.subnet_network_contributor: Creating...
+azurerm_federated_identity_credential.migrator[0]: Creating...
+module.aks[0].azurerm_role_assignment.csi_kv_secrets_user: Creating...
+azurerm_federated_identity_credential.app["td-web"]: Creating...
+azurerm_role_assignment.ado_aks_rbac_admin[0]: Creating...
+azurerm_federated_identity_credential.app["td-worker"]: Creating...
+module.aks[0].azurerm_role_assignment.kubelet_acr_pull: Still creating... [00m10s elapsed]
+module.aks[0].azurerm_role_assignment.cluster_admin: Still creating... [00m10s elapsed]
+module.aks[0].azurerm_role_assignment.subnet_network_contributor: Still creating... [00m10s elapsed]
+azurerm_federated_identity_credential.migrator[0]: Still creating... [00m10s elapsed]
+azurerm_role_assignment.ado_aks_rbac_admin[0]: Still creating... [00m10s elapsed]
+azurerm_federated_identity_credential.app["td-worker"]: Still creating... [00m10s elapsed]
+module.aks[0].azurerm_role_assignment.csi_kv_secrets_user: Still creating... [00m10s elapsed]
+azurerm_federated_identity_credential.app["td-web"]: Still creating... [00m10s elapsed]
+module.aks[0].azurerm_role_assignment.subnet_network_contributor: Still creating... [00m20s elapsed]
+module.aks[0].azurerm_role_assignment.kubelet_acr_pull: Still creating... [00m20s elapsed]
+module.aks[0].azurerm_role_assignment.cluster_admin: Still creating... [00m20s elapsed]
+module.aks[0].azurerm_role_assignment.csi_kv_secrets_user: Still creating... [00m20s elapsed]
+azurerm_federated_identity_credential.app["td-worker"]: Still creating... [00m20s elapsed]
+azurerm_federated_identity_credential.migrator[0]: Still creating... [00m20s elapsed]
+azurerm_federated_identity_credential.app["td-web"]: Still creating... [00m20s elapsed]
+azurerm_role_assignment.ado_aks_rbac_admin[0]: Still creating... [00m20s elapsed]
+module.aks[0].azurerm_role_assignment.cluster_admin: Still creating... [00m30s elapsed]
+module.aks[0].azurerm_role_assignment.subnet_network_contributor: Still creating... [00m30s elapsed]
+module.aks[0].azurerm_role_assignment.kubelet_acr_pull: Still creating... [00m30s elapsed]
+azurerm_federated_identity_credential.migrator[0]: Still creating... [00m30s elapsed]
+azurerm_role_assignment.ado_aks_rbac_admin[0]: Still creating... [00m30s elapsed]
+azurerm_federated_identity_credential.app["td-web"]: Still creating... [00m30s elapsed]
+module.aks[0].azurerm_role_assignment.csi_kv_secrets_user: Still creating... [00m30s elapsed]
+azurerm_federated_identity_credential.app["td-worker"]: Still creating... [00m30s elapsed]
+azurerm_federated_identity_credential.migrator[0]: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-tdlab-sqldeploy/federatedIdentityCredentials/fic-td-migrator]
+module.aks[0].azurerm_role_assignment.kubelet_acr_pull: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ContainerRegistry/registries/acrtdlab36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-50>]
+azurerm_federated_identity_credential.app["td-web"]: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-tdlab-app/federatedIdentityCredentials/fic-td-web]
+module.aks[0].azurerm_role_assignment.csi_kv_secrets_user: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-14>]
+module.aks[0].azurerm_role_assignment.cluster_admin: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ContainerService/managedClusters/aks-tdlab-swedencentral/providers/Microsoft.Authorization/roleAssignments/<role-assignment-3>]
+module.aks[0].azurerm_role_assignment.subnet_network_contributor: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks/providers/Microsoft.Authorization/roleAssignments/<role-assignment-19>]
+azurerm_role_assignment.ado_aks_rbac_admin[0]: Creation complete after 32s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ContainerService/managedClusters/aks-tdlab-swedencentral/namespaces/ticketdesk/providers/Microsoft.Authorization/roleAssignments/<role-assignment-33>]
+azurerm_federated_identity_credential.app["td-worker"]: Still creating... [00m40s elapsed]
+azurerm_federated_identity_credential.app["td-worker"]: Still creating... [00m50s elapsed]
+azurerm_federated_identity_credential.app["td-worker"]: Still creating... [01m00s elapsed]
+azurerm_federated_identity_credential.app["td-worker"]: Creation complete after 1m1s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-tdlab-app/federatedIdentityCredentials/fic-td-worker]
+
+Apply complete! Resources: 54 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+acr_login_server = "acrtdlab36d2d4.azurecr.io"
+acr_name = "acrtdlab36d2d4"
+aks_cluster = "aks-tdlab-swedencentral"
+aks_csi_identity_client_id = "<client-id-14>"
+aks_node_resource_group = "rg-ticketdesk-lab-aksnodes"
+aks_node_vm_size = "Standard_B2as_v2"
+aks_oidc_issuer_url = "https://swedencentral.oic.prod-aks.azure.com/<tenant-id>/<oidc-issuer-id-2>/"
+aks_subnet_cidr = "10.42.16.0/22"
+aks_web_certificate_name = "td-aks-web"
+app_identity_client_id = "<client-id-19>"
+app_identity_name = "id-tdlab-app"
+app_insights_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/components/appi-tdlab-swedencentral"
+dataprotection_key_id = "https://kv-tdlab-36d2d4.vault.azure.net/keys/td-dataprotection"
+entra_app_role_ids = {
+  "TdAdministrators" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a01"
+  "TdHelpDeskUsers" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a02"
+  "TdInternalUsers" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a03"
+  "TdPendingUsers" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a04"
+}
+entra_client_id = "<client-id-10>"
+entra_client_secret = <sensitive>
+est_usd_per_hour = "0.2951"
+failed_requests_alert_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/metricAlerts/alert-tdlab-failed-requests"
+files_account = "sttdlabfiles36d2d4"
+files_blob_endpoint = "https://sttdlabfiles36d2d4.blob.core.windows.net/"
+key_vault_name = "kv-tdlab-36d2d4"
+key_vault_uri = "https://kv-tdlab-36d2d4.vault.azure.net/"
+log_analytics_workspace = "log-tdlab-swedencentral"
+resource_group = "rg-ticketdesk-lab"
+servicebus_namespace = "sb-tdlab-36d2d4.servicebus.windows.net"
+servicebus_queue = "ticket-notifications"
+sql_admin = "id-tdlab-sqldeploy"
+sql_database = "sqldb-ticketdesk"
+sql_database_properties = {
+  "current_service_objective" = "GP_S_Gen5_2"
+  "free_limit_exhaustion" = "AutoPause"
+  "requested_backup_redundancy" = "Local"
+  "status" = "Online"
+  "use_free_limit" = true
+}
+sql_deploy_identity_client_id = "<client-id-2>"
+sql_private_endpoint_ip = "10.42.2.4"
+sql_server_fqdn = "sql-tdlab-36d2d4.database.windows.net"
+storage_account = "sttdlab36d2d4"
+storage_blob_endpoint = "https://sttdlab36d2d4.blob.core.windows.net/"
+tenant_id = "<tenant-id>"
+vm_fqdn = "tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+vm_name = "vm-tdlab-legacy"
+vm_private_ip = "10.42.1.4"
+vm_public_ip = "20.91.202.251"
+vnet_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral"
+2026-11-12T06:40:11Z ttl-sync: group ttl 2026-11-12T09:40:36Z; 0 resource(s) re-tagged
+apply stage cutover end 2026-11-12T06:40:11Z elapsed_s=439 rc=0
+2026-11-12T06:40:14Z ttl-sync: group ttl 2026-11-12T09:40:36Z; 0 resource(s) re-tagged

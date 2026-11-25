@@ -1,0 +1,7 @@
+2026-11-08T20:56:25Z == direct
+2026-11-08T20:56:45Z 2026-11-08T20:56:45Z reset to baseline-s done in 19 s
+2026-11-08T20:57:03Z replay: replayed 262 exchanges in 15 journeys against https://localhost:8443/ -> docs/evidence/legacy-adapters-20261108/baseline-s-shared/direct/candidate.jsonl (0 journey errors)
+2026-11-08T20:57:05Z compare: compared 262, matched 261, mismatched 1 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/baseline-s-shared/direct/compare/report.md
+2026-11-08T20:57:05Z == gateway
+2026-11-08T20:57:24Z 2026-11-08T20:57:24Z reset to baseline-s done in 19 s
+2026-11-08T20:57:45Z gateway: replayed 262 exchanges in 15 journeys against https://localhost:5443/ -> docs/evidence/legacy-adapters-20261108/baseline-s-shared/gateway/gateway.jsonl (0 journey errors) compared 262, matched 258, mismatched 4 (missing 0, extra 0) -> docs/evidence/legacy-adapters-20261108/baseline-s-shared/gateway/compare-golden-gateway/report.md 

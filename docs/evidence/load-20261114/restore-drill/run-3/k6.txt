@@ -1,0 +1,40 @@
+$ taskset -c 16-19 k6 run -e TD_TARGET=https://localhost:18453 -e TD_RATE=40 -e TD_WARMUP_S=0 -e TD_MEASURE_S=420 -e TD_PRE_VUS=140 -e TD_MAX_VUS=140 -e TD_REQ_TIMEOUT=30s -e TD_SETUP_SIGNIN=1 --out csv=k6.csv.gz tests/perf/ticketdesk-mix.js
+# (k6 progress lines dropped)
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+     execution: local
+        script: ~/Desktop/ticketdesk-modernization/wt-load/tests/perf/ticketdesk-mix.js
+        output: csv (~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/restore-drill/run-3/k6.csv.gz)
+     scenarios: (100.00%) 1 scenario, 140 max VUs, 7m30s max duration (incl. graceful stop):
+              * mix: 40.00 iterations/s for 7m0s (maxVUs: 140, gracefulStop: 30s)
+Run    [ 100% ] setup()
+Run    [ 100% ] setup()
+Run    [ 100% ] setup()
+time="2026-11-13T22:05:27-08:00" level=warning msg="Insufficient VUs, reached 140 active VUs and cannot initialize more" executor=constant-arrival-rate scenario=mix
+time="2026-11-13T22:07:37-08:00" level=warning msg="The test has generated metrics with 100006 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+{
+ "all": {
+  "duration_ms": {
+   "count": 31404,
+   "min": 0.415579,
+   "med": 6.987564,
+   "avg": 56.1104562142401,
+   "p(90)": 19.1144231,
+   "p(95)": 22.9718315,
+   "p(99)": 64.13919924000011,
+   "max": 12169.956966
+  },
+  "failed": {
+   "rate": 0.02958221882562731,
+   "passes": 929,
+   "fails": 30475
+  }
+ },
+ "dropped": {
+  "count": 341,
+  "rate": 0.8059594856965177
+ }
+}

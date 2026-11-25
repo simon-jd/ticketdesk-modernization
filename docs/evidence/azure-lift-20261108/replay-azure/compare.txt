@@ -1,0 +1,2 @@
+compared 262, matched 259, mismatched 3 (missing 0, extra 0) -> docs/evidence/azure-lift-20261108/replay-azure/compare/report.md
+compare rc=0

@@ -1,0 +1,129 @@
+{
+  "command": "smoke",
+  "base": "https://localhost:8443",
+  "ok": true,
+  "checks_passed": 9,
+  "checks_total": 9,
+  "requests": 11,
+  "seconds": 1.3,
+  "checks": [
+    {
+      "check": "home page over HTTPS",
+      "ok": true,
+      "detail": "HTTP 200, title='TicketDesk'"
+    },
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "new ticket form",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "create ticket",
+      "ok": true,
+      "detail": "HTTP 200, landed on /ticket/38"
+    },
+    {
+      "check": "view ticket",
+      "ok": true,
+      "detail": "ticket #38"
+    },
+    {
+      "check": "comment form",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "add comment",
+      "ok": true,
+      "detail": "HTTP 200, 0 bytes"
+    },
+    {
+      "check": "comment visible in ticket events",
+      "ok": true,
+      "detail": "HTTP 200"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 18
+    },
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 18
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 24,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 27
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/new",
+      "status": 200,
+      "ms": 54
+    },
+    {
+      "method": "POST",
+      "url": "/ticket/new",
+      "status": 302,
+      "ms": 220,
+      "location": "/ticket/38"
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/38",
+      "status": 200,
+      "ms": 583
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/38",
+      "status": 200,
+      "ms": 40
+    },
+    {
+      "method": "GET",
+      "url": "/ticket-activity/load-activity?activity=AddComment&ticketId=38",
+      "status": 200,
+      "ms": 111
+    },
+    {
+      "method": "POST",
+      "url": "/ticket-activity/add-comment",
+      "status": 200,
+      "ms": 76
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/ticket-events?ticketId=38",
+      "status": 200,
+      "ms": 94
+    }
+  ],
+  "ticket_id": 38,
+  "title": "Smoke test ticket 20261108T010131Z",
+  "comment": "Smoke comment 20261108T010131Z"
+}

@@ -1,0 +1,19 @@
+@* S3 (Round 5): what a GET of /user/sign-out answers. Nothing happens until the button posts (with the antiforgery token). *@
+@using TicketDesk.Localization.Views.Shared
+@section title
+{
+    @_Layout.LogOff
+}
+<main>
+    <div class="container">
+        <fieldset>
+            <legend class="col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1 col-sm-12">@_Layout.LogOff</legend>
+            <div class="col-lg-7 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12">
+                <form action="/user/sign-out" method="post" id="signOutForm">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary">@_Layout.LogOff</button>
+                </form>
+            </div>
+        </fieldset>
+    </div>
+</main>

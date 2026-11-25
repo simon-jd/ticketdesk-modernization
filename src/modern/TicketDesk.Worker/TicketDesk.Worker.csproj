@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Worker</RootNamespace>
+    <Description>Notification delivery (replaces the legacy in-process push-notification timer and the PushNotifications WebJob): reads ticket-notification messages from Service Bus, renders the legacy ticket e-mail, sends it, retries with backoff, dead-letters poison messages.</Description>
+    <UserSecretsId>ticketdesk-worker-lab</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Azure.Messaging.ServiceBus" />
+    <PackageReference Include="MailKit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicketDesk.Data\TicketDesk.Data.csproj" />
+    <ProjectReference Include="..\TicketDesk.Localization\TicketDesk.Localization.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Notifications\TicketDesk.Notifications.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Settings\TicketDesk.Settings.csproj" />
+    <ProjectReference Include="..\Modules\TicketDesk.Tickets\TicketDesk.Tickets.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="TicketDesk.Worker.Tests" />
+  </ItemGroup>
+</Project>

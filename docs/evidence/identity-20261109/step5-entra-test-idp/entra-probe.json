@@ -1,0 +1,67 @@
+{
+  "login_hint": "entra.helpdesk@lab.test",
+  "checks": 10,
+  "failed": [],
+  "steps": [
+    {
+      "step": "sign-in page offers Entra ID",
+      "ok": true,
+      "status": 200,
+      "backend": "modern; route=user.sign-in.get"
+    },
+    {
+      "step": "challenge redirects to the identity provider with PKCE",
+      "ok": true,
+      "status": 302,
+      "authorize": "http://127.0.0.1:5590/7d1a0e7c-3c1e-4f6a-9a51-2f0b6c1d0001/v2.0/authorize"
+    },
+    {
+      "step": "identity provider answers with form_post",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "step": "callback /signin-oidc accepted",
+      "ok": true,
+      "status": 302,
+      "location": "/user/sign-in/entra/callback"
+    },
+    {
+      "step": "account linked/provisioned and .AspNet.ApplicationCookie issued",
+      "ok": true,
+      "status": 302,
+      "location": "/"
+    },
+    {
+      "step": "new app page shows the Entra user",
+      "ok": true,
+      "status": 200,
+      "url": "https://localhost:5443/account/manage",
+      "backend": "modern; route=account.manage"
+    },
+    {
+      "step": "legacy page direct shows the Entra user",
+      "ok": true,
+      "status": 200,
+      "url": "https://localhost:8443/ticket/new",
+      "backend": "legacy (no marker)"
+    },
+    {
+      "step": "legacy page via gateway shows the Entra user",
+      "ok": true,
+      "status": 200,
+      "url": "https://localhost:5443/ticket/new",
+      "backend": "legacy (no marker)"
+    },
+    {
+      "step": "sign-out on the legacy app",
+      "ok": true,
+      "status": 302
+    },
+    {
+      "step": "new app anonymous after the legacy sign-out",
+      "ok": true,
+      "status": 302
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+<div class="page-head">
+  <h1 tabindex="-1">{{ listTitle() }}</h1>
+  <a routerLink="/ticket/new" class="button button-primary">New ticket</a>
+</div>
+
+<nav class="list-tabs" aria-label="Ticket lists">
+  <ul>
+    @for (l of lists(); track l.name) {
+      @let target = listLink(l.name);
+      <li>
+        <a [routerLink]="target.commands" [queryParams]="target.queryParams" [attr.aria-current]="l.name === query().list ? 'page' : null"
+           [class.active]="l.name === query().list">{{ l.displayName }}</a>
+      </li>
+    }
+  </ul>
+</nav>
+
+<form class="filters" aria-label="Filter the list" (submit)="$event.preventDefault()">
+  @if (filters().status) {
+    <div class="field">
+      <label for="filter-status">Status</label>
+      <select id="filter-status" (change)="filter('status', $any($event.target).value)">
+        <option value="" [selected]="!query().status">Any status</option>
+        @for (s of statuses; track s) {
+          <option [value]="s" [selected]="s === query().status">{{ statusLabel(s) }}</option>
+        }
+      </select>
+    </div>
+  }
+  @if (options.hasValue()) {
+    @if (filters().owner) {
+      <div class="field">
+        <label for="filter-owner">Owner</label>
+        <select id="filter-owner" (change)="filter('owner', $any($event.target).value)">
+          <option value="" [selected]="!query().owner">Anyone</option>
+          @for (u of options.value().internalUsers; track u.id) {
+            <option [value]="u.id" [selected]="u.id === query().owner">{{ u.displayName }}</option>
+          }
+        </select>
+      </div>
+    }
+    @if (filters().assignedTo) {
+      <div class="field">
+        <label for="filter-assigned">Assigned to</label>
+        <select id="filter-assigned" (change)="filter('assignedTo', $any($event.target).value)">
+          <option value="" [selected]="!query().assignedTo">Anyone</option>
+          @for (u of options.value().helpDeskUsers; track u.id) {
+            <option [value]="u.id" [selected]="u.id === query().assignedTo">{{ u.displayName }}</option>
+          }
+        </select>
+      </div>
+    }
+    @if (session.info()!.multiProject) {
+      <div class="field">
+        <label for="filter-project">Project</label>
+        <select id="filter-project" (change)="filter('projectId', $any($event.target).value)">
+          <option value="" [selected]="query().projectId === null">All projects</option>
+          @for (p of options.value().projects; track p.projectId) {
+            <option [value]="p.projectId" [selected]="p.projectId === query().projectId">{{ p.projectName }}</option>
+          }
+        </select>
+      </div>
+    }
+  }
+  <div class="field">
+    <label for="filter-size">Per page</label>
+    <select id="filter-size" (change)="filter('pageSize', $any($event.target).value)">
+      @for (n of pageSizes; track n) {
+        <option [value]="n" [selected]="n === query().pageSize">{{ n }}</option>
+      }
+    </select>
+  </div>
+  @let reset = resetLink();
+  <a class="reset" [routerLink]="reset.commands" [queryParams]="reset.queryParams">Reset filters</a>
+</form>
+
+<p class="range" role="status" aria-live="polite">
+  @if (tickets.isLoading()) { <span class="loading">Loading tickets…</span> } @else { {{ range() }} }
+</p>
+
+@if (loadError(); as error) {
+  <div class="alert alert-error" role="alert"><p>The list could not be loaded: {{ error }}</p></div>
+}
+
+@if (tickets.hasValue()) {
+  @let page = tickets.value();
+  @if (page.items.length > 0) {
+    <div class="table-wrap">
+      <table class="tickets">
+        <caption class="visually-hidden">{{ listTitle() }}, {{ range() }}. Column headers sort the list.</caption>
+        <thead>
+          <tr>
+            @for (c of columns(); track c.field) {
+              <th scope="col" [attr.aria-sort]="ariaSort(c.field)">
+                <button type="button" class="sort" (click)="sortBy(c.field)">
+                  {{ c.label }}
+                  <span class="sort-mark" aria-hidden="true">{{ ariaSort(c.field) === 'ascending' ? '▲' : ariaSort(c.field) === 'descending' ? '▼' : '' }}</span>
+                </button>
+              </th>
+            }
+            @if (session.info()!.multiProject) { <th scope="col">Project</th> }
+          </tr>
+        </thead>
+        <tbody>
+          @for (t of page.items; track t.ticketId) {
+            <tr>
+              <td class="num">{{ t.ticketId }}</td>
+              <td class="title"><a [routerLink]="['/ticket', t.ticketId]">{{ t.title }}</a></td>
+              <td><span class="badge status-{{ t.status }}">{{ statusLabel(t.status) }}</span></td>
+              <td>{{ t.priority }}</td>
+              <td>{{ t.ticketType }}</td>
+              <td>{{ t.category }}</td>
+              <td>{{ t.owner.displayName }}</td>
+              <td>{{ t.assignedTo?.displayName }}</td>
+              <td class="date"><time [attr.datetime]="t.lastUpdateDate">{{ datePart(t.lastUpdateDate) }}</time></td>
+              <td class="date">
+                @if (t.dueDate) {
+                  <time [attr.datetime]="datePart(t.dueDate)">{{ datePart(t.dueDate) }}</time>
+                  @switch (due(t.dueDate, t.status)) {
+                    @case ('overdue') { <span class="badge due-overdue">Overdue</span> }
+                    @case ('today') { <span class="badge due-today">Due today</span> }
+                  }
+                }
+              </td>
+              @if (session.info()!.multiProject) { <td>{{ projectNames().get(t.projectId) }}</td> }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <p class="empty">No tickets match. <a [routerLink]="reset.commands" [queryParams]="reset.queryParams">Reset the filters</a> or <a routerLink="/ticket/new">create a ticket</a>.</p>
+  }
+
+  @if (page.totalPages > 1) {
+    <nav class="pager" aria-label="Pages">
+      <ul>
+        @if (page.page > 1) {
+          @let prev = pageLink(page.page - 1);
+          <li><a [routerLink]="prev.commands" [queryParams]="prev.queryParams" rel="prev">Previous</a></li>
+        }
+        @for (n of pages(); track n) {
+          @let target = pageLink(n);
+          <li>
+            @if (n === page.page) {
+              <a [routerLink]="target.commands" [queryParams]="target.queryParams" aria-current="page" class="current">
+                <span class="visually-hidden">Page </span>{{ n }}
+              </a>
+            } @else {
+              <a [routerLink]="target.commands" [queryParams]="target.queryParams"><span class="visually-hidden">Page </span>{{ n }}</a>
+            }
+          </li>
+        }
+        @if (page.page < page.totalPages) {
+          @let next = pageLink(page.page + 1);
+          <li><a [routerLink]="next.commands" [queryParams]="next.queryParams" rel="next">Next</a></li>
+        }
+      </ul>
+      <p class="pager-total">Page {{ page.page }} of {{ page.totalPages }}</p>
+    </nav>
+  }
+}

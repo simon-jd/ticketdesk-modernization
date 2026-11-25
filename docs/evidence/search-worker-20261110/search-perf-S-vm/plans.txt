@@ -1,0 +1,369 @@
+### search.search-excluded.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 1.172, DOP 0, memory grant 7416 KB (used 3256)
+  Top | rows 20 (est 20), cpu 22 ms
+    Sort | rows 20 (est 20), cpu 22 ms
+      Compute Scalar | rows ? (est 2,006)
+        Stream Aggregate (Aggregate) | rows 2,183 (est 2,006), cpu 21 ms
+          Sort | rows 2,281 (est 2,304), cpu 21 ms
+            Hash Match (Left Anti Semi Join) | rows 2,281 (est 2,304), cpu 20 ms
+              Hash Match (Left Anti Semi Join) | rows 2,509 (est 2,512), cpu 19 ms
+                Hash Match (Inner Join) | rows 2,509 (est 2,512), cpu 5 ms
+                  Concatenation | rows 2,509 (est 2,512), cpu 3 ms
+                    Compute Scalar | rows ? (est 644)
+                      Table-valued function FulltextMatch | rows 644 (est 644)
+                    Compute Scalar | rows ? (est 2)
+                      Table-valued function FulltextMatch | rows 0 (est 2)
+                    Compute Scalar | rows ? (est 1,865)
+                      Hash Match (Left Outer Join) | rows 1,865 (est 1,865), cpu 2 ms
+                        Compute Scalar | rows ? (est 1,865)
+                          Table-valued function FulltextMatch | rows 1,865 (est 1,865)
+                        Compute Scalar | rows ? (est 7,554)
+                          Compute Scalar | rows ? (est 7,554)
+                            Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                              Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28
+                    Nested Loops (Inner Join) | rows 0 (est 1)
+                      Compute Scalar | rows ? (est 2)
+                        Table-valued function FulltextMatch | rows 0 (est 2)
+                      Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+                  Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+                Hash Match (Inner Join) | rows 0 (est 1), cpu 13 ms
+                  Index Scan TicketEvents.UX_TicketEvents_EventId | rows 45,649 (est 45,649), reads 81, cpu 4 ms
+                  Table-valued function FulltextMatch | rows 0 (est 2)
+              Table-valued function FulltextMatch | rows 828 (est 832)
+
+### search.search-internal-user.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 2.283, DOP 0, memory grant 3016 KB (used 1600)
+  Top | rows 20 (est 20), cpu 12 ms
+    Sort | rows 20 (est 20), cpu 12 ms
+      Compute Scalar | rows ? (est 106)
+        Stream Aggregate (Aggregate) | rows 368 (est 106), cpu 12 ms
+          Sort | rows 389 (est 633), cpu 12 ms
+            Filter | rows 389 (est 633), cpu 12 ms, where: TicketDesk.Tickets.Owner as t.Owner=@viewer4 OR TicketDesk.Tickets.CreatedBy as t.CreatedBy=@viewer4 OR Ticket...
+              Hash Match (Left Outer Join) | rows 2,509 (est 2,873), cpu 11 ms, WARNING SpillToTempDb, WARNING HashSpillDetails
+                Hash Match (Inner Join) | rows 2,509 (est 2,512), cpu 10 ms
+                  Concatenation | rows 2,509 (est 2,512), cpu 4 ms
+                    Compute Scalar | rows ? (est 644)
+                      Table-valued function FulltextMatch | rows 644 (est 644)
+                    Compute Scalar | rows ? (est 2)
+                      Table-valued function FulltextMatch | rows 0 (est 2)
+                    Compute Scalar | rows ? (est 1,865)
+                      Hash Match (Left Outer Join) | rows 1,865 (est 1,865), cpu 4 ms
+                        Compute Scalar | rows ? (est 1,865)
+                          Table-valued function FulltextMatch | rows 1,865 (est 1,865)
+                        Compute Scalar | rows ? (est 7,554)
+                          Compute Scalar | rows ? (est 7,554)
+                            Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 2 ms
+                              Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28, cpu 1 ms
+                    Nested Loops (Inner Join) | rows 0 (est 1)
+                      Compute Scalar | rows ? (est 2)
+                        Table-valued function FulltextMatch | rows 0 (est 2)
+                      Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+                  Clustered Index Scan Tickets.PK_dbo.Tickets | rows 10,000 (est 10,000), reads 1,338, cpu 3 ms
+                Compute Scalar | rows ? (est 1,437)
+                  Index Seek TicketSubscribers.IX_TicketSubscribers_SubscriberId | rows 1,437 (est 1,437), reads 19, seek: @viewer4
+
+### search.search-network.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.41, DOP 0, memory grant 4224 KB (used 1408)
+  Top | rows 20 (est 20), cpu 7 ms
+    Sort | rows 20 (est 20), cpu 7 ms
+      Compute Scalar | rows ? (est 2,502)
+        Hash Match (Aggregate) | rows 2,216 (est 2,502), cpu 7 ms
+          Hash Match (Inner Join) | rows 2,401 (est 3,082), cpu 6 ms
+            Concatenation | rows 2,401 (est 3,082), cpu 4 ms
+              Compute Scalar | rows ? (est 1,158)
+                Table-valued function FulltextMatch | rows 0 (est 1,158)
+              Compute Scalar | rows ? (est 2)
+                Table-valued function FulltextMatch | rows 0 (est 2)
+              Compute Scalar | rows ? (est 1,921)
+                Hash Match (Left Outer Join) | rows 1,300 (est 1,921), cpu 2 ms
+                  Compute Scalar | rows ? (est 1,921)
+                    Table-valued function FulltextMatch | rows 1,300 (est 1,921)
+                  Compute Scalar | rows ? (est 7,554)
+                    Compute Scalar | rows ? (est 7,554)
+                      Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                        Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28
+              Nested Loops (Inner Join) | rows 1,101 (est 1), cpu 1 ms
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 1,101 (est 2)
+                Index Seek TicketEvents.UX_TicketEvents_EventId | rows 1,101 (est 1), execs 1,101, reads 2,202, cpu 1 ms, seek: FulltextMatch.docid
+            Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+
+### search.search-no-hits.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.41, DOP 0, memory grant 4224 KB (used 128)
+  Top | rows 0 (est 20)
+    Sort | rows 0 (est 20)
+      Compute Scalar | rows ? (est 2,502)
+        Hash Match (Aggregate) | rows 0 (est 2,502)
+          Hash Match (Inner Join) | rows 0 (est 3,082)
+            Concatenation | rows 0 (est 3,082)
+              Compute Scalar | rows ? (est 1,158)
+                Table-valued function FulltextMatch | rows 0 (est 1,158)
+              Compute Scalar | rows ? (est 2)
+                Table-valued function FulltextMatch | rows 0 (est 2)
+              Compute Scalar | rows ? (est 1,921)
+                Hash Match (Left Outer Join) | rows 0 (est 1,921)
+                  Compute Scalar | rows ? (est 1,921)
+                    Table-valued function FulltextMatch | rows 0 (est 1,921)
+                  Compute Scalar | rows ? (est 7,554)
+                    Compute Scalar | rows ? (est 7,554)
+                      Stream Aggregate (Aggregate) | rows 0 (est 7,554)
+                        Index Scan TicketTags.IX_TicketId | rows 0 (est 14,698)
+              Nested Loops (Inner Join) | rows 0 (est 1)
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 0 (est 2)
+                Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+            Index Scan Tickets.IX_ProjectId | rows 0 (est 10,000)
+
+### search.search-phrase.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.41, DOP 0, memory grant 4224 KB (used 1280)
+  Top | rows 20 (est 20), cpu 3 ms
+    Sort | rows 20 (est 20), cpu 3 ms
+      Compute Scalar | rows ? (est 2,502)
+        Hash Match (Aggregate) | rows 828 (est 2,502), cpu 3 ms
+          Hash Match (Inner Join) | rows 828 (est 3,082), cpu 3 ms
+            Concatenation | rows 828 (est 3,082)
+              Compute Scalar | rows ? (est 1,158)
+                Table-valued function FulltextMatch | rows 828 (est 1,158)
+              Compute Scalar | rows ? (est 2)
+                Table-valued function FulltextMatch | rows 0 (est 2)
+              Compute Scalar | rows ? (est 1,921)
+                Hash Match (Left Outer Join) | rows 0 (est 1,921)
+                  Compute Scalar | rows ? (est 1,921)
+                    Table-valued function FulltextMatch | rows 0 (est 1,921)
+                  Compute Scalar | rows ? (est 7,554)
+                    Compute Scalar | rows ? (est 7,554)
+                      Stream Aggregate (Aggregate) | rows 0 (est 7,554)
+                        Index Scan TicketTags.IX_TicketId | rows 0 (est 14,698)
+              Nested Loops (Inner Join) | rows 0 (est 1)
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 0 (est 2)
+                Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+            Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20, cpu 1 ms
+
+### search.search-prefix.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.41, DOP 0, memory grant 4224 KB (used 1408)
+  Top | rows 20 (est 20), cpu 6 ms
+    Sort | rows 20 (est 20), cpu 6 ms
+      Compute Scalar | rows ? (est 2,502)
+        Hash Match (Aggregate) | rows 2,788 (est 2,502), cpu 6 ms
+          Hash Match (Inner Join) | rows 2,989 (est 3,082), cpu 5 ms
+            Concatenation | rows 2,989 (est 3,082), cpu 3 ms
+              Compute Scalar | rows ? (est 1,158)
+                Table-valued function FulltextMatch | rows 1,124 (est 1,158)
+              Compute Scalar | rows ? (est 2)
+                Table-valued function FulltextMatch | rows 0 (est 2)
+              Compute Scalar | rows ? (est 1,921)
+                Hash Match (Left Outer Join) | rows 1,865 (est 1,921), cpu 3 ms
+                  Compute Scalar | rows ? (est 1,921)
+                    Table-valued function FulltextMatch | rows 1,865 (est 1,921)
+                  Compute Scalar | rows ? (est 7,554)
+                    Compute Scalar | rows ? (est 7,554)
+                      Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                        Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28, cpu 1 ms
+              Nested Loops (Inner Join) | rows 0 (est 1)
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 0 (est 2)
+                Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+            Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+
+### search.search-printer.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.41, DOP 0, memory grant 4224 KB (used 1408)
+  Top | rows 20 (est 20), cpu 6 ms
+    Sort | rows 20 (est 20), cpu 6 ms
+      Compute Scalar | rows ? (est 2,502)
+        Hash Match (Aggregate) | rows 2,398 (est 2,502), cpu 6 ms
+          Hash Match (Inner Join) | rows 2,509 (est 3,082), cpu 5 ms
+            Concatenation | rows 2,509 (est 3,082), cpu 3 ms
+              Compute Scalar | rows ? (est 1,158)
+                Table-valued function FulltextMatch | rows 644 (est 1,158)
+              Compute Scalar | rows ? (est 2)
+                Table-valued function FulltextMatch | rows 0 (est 2)
+              Compute Scalar | rows ? (est 1,921)
+                Hash Match (Left Outer Join) | rows 1,865 (est 1,921), cpu 3 ms
+                  Compute Scalar | rows ? (est 1,921)
+                    Table-valued function FulltextMatch | rows 1,865 (est 1,921)
+                  Compute Scalar | rows ? (est 7,554)
+                    Compute Scalar | rows ? (est 7,554)
+                      Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                        Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28
+              Nested Loops (Inner Join) | rows 0 (est 1)
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 0 (est 2)
+                Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+            Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+
+### search.search-project.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.285, DOP 0, memory grant 3488 KB (used 1408)
+  Top | rows 20 (est 20), cpu 4 ms
+    Sort | rows 20 (est 20), cpu 4 ms
+      Compute Scalar | rows ? (est 839)
+        Stream Aggregate (Aggregate) | rows 914 (est 839), cpu 4 ms
+          Sort | rows 948 (est 963), cpu 4 ms
+            Hash Match (Inner Join) | rows 948 (est 963), cpu 4 ms
+              Concatenation | rows 2,509 (est 2,512), cpu 3 ms
+                Compute Scalar | rows ? (est 644)
+                  Table-valued function FulltextMatch | rows 644 (est 644)
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 0 (est 2)
+                Compute Scalar | rows ? (est 1,865)
+                  Hash Match (Left Outer Join) | rows 1,865 (est 1,865), cpu 2 ms
+                    Compute Scalar | rows ? (est 1,865)
+                      Table-valued function FulltextMatch | rows 1,865 (est 1,865)
+                    Compute Scalar | rows ? (est 7,554)
+                      Compute Scalar | rows ? (est 7,554)
+                        Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                          Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28, cpu 1 ms
+                Nested Loops (Inner Join) | rows 0 (est 1)
+                  Compute Scalar | rows ? (est 2)
+                    Table-valued function FulltextMatch | rows 0 (est 2)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+              Index Seek Tickets.IX_ProjectId | rows 3,835 (est 3,835), reads 9, seek: @project4
+
+### search.search-required.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 1.096, DOP 0, memory grant 9368 KB (used 4088)
+  Top | rows 20 (est 1), cpu 181 ms
+    Sort | rows 20 (est 1), cpu 181 ms
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 215 (est 1), cpu 181 ms
+          Sort | rows 379 (est 1), cpu 181 ms
+            Nested Loops (Left Semi Join) | rows 379 (est 1), cpu 180 ms
+              Hash Match (Inner Join) | rows 2,660 (est 1), cpu 16 ms
+                Concatenation | rows 3,273 (est 3,344), cpu 3 ms
+                  Compute Scalar | rows ? (est 1,472)
+                    Table-valued function FulltextMatch | rows 1,408 (est 1,472)
+                  Compute Scalar | rows ? (est 4)
+                    Table-valued function FulltextMatch | rows 0 (est 4)
+                  Compute Scalar | rows ? (est 1,867)
+                    Hash Match (Left Outer Join) | rows 1,865 (est 1,867), cpu 2 ms
+                      Compute Scalar | rows ? (est 1,867)
+                        Table-valued function FulltextMatch | rows 1,865 (est 1,867)
+                      Compute Scalar | rows ? (est 7,554)
+                        Compute Scalar | rows ? (est 7,554)
+                          Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                            Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28
+                  Nested Loops (Inner Join) | rows 0 (est 1)
+                    Compute Scalar | rows ? (est 4)
+                      Table-valued function FulltextMatch | rows 0 (est 4)
+                    Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+                Hash Match (Left Semi Join) | rows 2,398 (est 1.503), cpu 11 ms
+                  Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+                  Concatenation | rows 2,398 (est 2,512), cpu 9 ms
+                    Hash Match (Inner Join) | rows 0 (est 1), cpu 9 ms
+                      Index Scan TicketEvents.UX_TicketEvents_EventId | rows 45,649 (est 45,649), reads 81, cpu 3 ms
+                      Table-valued function FulltextMatch | rows 0 (est 2)
+                    Table-valued function FulltextMatch | rows 2,398 (est 2,511)
+              Concatenation | rows 379 (est 1), execs 2,660, cpu 163 ms
+                Hash Match (Inner Join) | rows 0 (est 1), execs 2,660, cpu 143 ms
+                  Index Seek TicketEvents.IX_TicketId | rows 12,269 (est 4.565), execs 2,660, reads 5,345, cpu 7 ms, seek: TicketDesk.Tickets.TicketId as t.TicketId
+                  Table-valued function FulltextMatch | rows 0 (est 2), execs 2,660, cpu 76 ms
+                Table-valued function FulltextMatch | rows 379 (est 1), execs 2,660, cpu 19 ms
+
+### search.search-tag-field.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.5 / SQRT(CASE WHEN n.Tags > 0 THEN n.Tags ELSE 1 END) FROM CONTAINSTABLE(dbo.Tickets, TagList, @...
+  cost 0.299, DOP 0, memory grant 3296 KB (used 1408)
+  Top | rows 20 (est 20), cpu 4 ms
+    Sort | rows 20 (est 20), cpu 4 ms
+      Compute Scalar | rows ? (est 1,865)
+        Hash Match (Inner Join) | rows 1,865 (est 1,865), cpu 4 ms
+          Hash Match (Left Outer Join) | rows 1,865 (est 1,865), cpu 2 ms
+            Compute Scalar | rows ? (est 1,865)
+              Table-valued function FulltextMatch | rows 1,865 (est 1,865)
+            Compute Scalar | rows ? (est 7,554)
+              Compute Scalar | rows ? (est 7,554)
+                Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                  Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28
+          Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+
+### search.search-team.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.41, DOP 0, memory grant 4224 KB (used 1424)
+  Top | rows 20 (est 20), cpu 5 ms
+    Sort | rows 20 (est 20), cpu 5 ms
+      Compute Scalar | rows ? (est 2,502)
+        Hash Match (Aggregate) | rows 3,849 (est 2,502), cpu 4 ms
+          Hash Match (Inner Join) | rows 4,687 (est 3,082), cpu 4 ms
+            Concatenation | rows 4,687 (est 3,082), cpu 1 ms
+              Compute Scalar | rows ? (est 1,158)
+                Table-valued function FulltextMatch | rows 1,657 (est 1,158)
+              Compute Scalar | rows ? (est 2)
+                Table-valued function FulltextMatch | rows 1,485 (est 2)
+              Compute Scalar | rows ? (est 1,921)
+                Hash Match (Left Outer Join) | rows 0 (est 1,921)
+                  Compute Scalar | rows ? (est 1,921)
+                    Table-valued function FulltextMatch | rows 0 (est 1,921)
+                  Compute Scalar | rows ? (est 7,554)
+                    Compute Scalar | rows ? (est 7,554)
+                      Stream Aggregate (Aggregate) | rows 0 (est 7,554)
+                        Index Scan TicketTags.IX_TicketId | rows 0 (est 14,698)
+              Nested Loops (Inner Join) | rows 1,545 (est 1), cpu 1 ms
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 1,545 (est 2)
+                Index Seek TicketEvents.UX_TicketEvents_EventId | rows 1,545 (est 1), execs 1,545, reads 3,090, seek: FulltextMatch.docid
+            Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+
+### search.search-ticket-id.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.166, DOP 0, memory grant 1656 KB (used 32)
+  Top | rows 1 (est 2.489)
+    Sort | rows 1 (est 2.489)
+      Compute Scalar | rows ? (est 2.489)
+        Stream Aggregate (Aggregate) | rows 1 (est 2.489)
+          Nested Loops (Inner Join) | rows 1 (est 13.997)
+            Sort | rows 1 (est 14)
+              Concatenation | rows 1 (est 14)
+                Compute Scalar | rows ? (est 4)
+                  Table-valued function FulltextMatch | rows 0 (est 4)
+                Compute Scalar | rows ? (est 4)
+                  Table-valued function FulltextMatch | rows 0 (est 4)
+                Compute Scalar | rows ? (est 4)
+                  Hash Match (Left Outer Join) | rows 0 (est 4)
+                    Compute Scalar | rows ? (est 4)
+                      Table-valued function FulltextMatch | rows 0 (est 4)
+                    Compute Scalar | rows ? (est 7,554)
+                      Compute Scalar | rows ? (est 7,554)
+                        Stream Aggregate (Aggregate) | rows 0 (est 7,554)
+                          Index Scan TicketTags.IX_TicketId | rows 0 (est 14,698)
+                Nested Loops (Inner Join) | rows 0 (est 1)
+                  Compute Scalar | rows ? (est 4)
+                    Table-valued function FulltextMatch | rows 0 (est 4)
+                  Index Seek TicketEvents.UX_TicketEvents_EventId | rows 0 (est 1), seek: FulltextMatch.docid
+                Compute Scalar | rows ? (est 1)
+                  Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @id4
+            Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: Union1012
+
+### search.search-two-words.cmd1.stmt1.sqlplan
+statement: WITH hits (TicketId, Score) AS ( SELECT ft.[KEY], ft.[RANK] * 2.0 FROM CONTAINSTABLE(dbo.Tickets, Title, @c0) ft UNION ALL SELECT ft.[KEY], ft.[RANK] * 1.0 FROM...
+  cost 0.41, DOP 0, memory grant 4224 KB (used 1440)
+  Top | rows 20 (est 20), cpu 9 ms
+    Sort | rows 20 (est 20), cpu 9 ms
+      Compute Scalar | rows ? (est 2,502)
+        Hash Match (Aggregate) | rows 4,068 (est 2,502), cpu 8 ms
+          Hash Match (Inner Join) | rows 4,683 (est 3,082), cpu 7 ms
+            Concatenation | rows 4,683 (est 3,082), cpu 4 ms
+              Compute Scalar | rows ? (est 1,158)
+                Table-valued function FulltextMatch | rows 644 (est 1,158)
+              Compute Scalar | rows ? (est 2)
+                Table-valued function FulltextMatch | rows 0 (est 2)
+              Compute Scalar | rows ? (est 1,921)
+                Hash Match (Left Outer Join) | rows 2,938 (est 1,921), cpu 3 ms
+                  Compute Scalar | rows ? (est 1,921)
+                    Table-valued function FulltextMatch | rows 2,938 (est 1,921)
+                  Compute Scalar | rows ? (est 7,554)
+                    Compute Scalar | rows ? (est 7,554)
+                      Stream Aggregate (Aggregate) | rows 7,554 (est 7,554), cpu 1 ms
+                        Index Scan TicketTags.IX_TicketId | rows 14,698 (est 14,698), reads 28, cpu 1 ms
+              Nested Loops (Inner Join) | rows 1,101 (est 1)
+                Compute Scalar | rows ? (est 2)
+                  Table-valued function FulltextMatch | rows 1,101 (est 2)
+                Index Seek TicketEvents.UX_TicketEvents_EventId | rows 1,101 (est 1), execs 1,101, reads 2,202, seek: FulltextMatch.docid
+            Index Scan Tickets.IX_ProjectId | rows 10,000 (est 10,000), reads 20
+

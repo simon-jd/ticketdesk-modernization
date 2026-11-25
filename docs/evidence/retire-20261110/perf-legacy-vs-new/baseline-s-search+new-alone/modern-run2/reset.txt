@@ -1,0 +1,8 @@
+guest shutdown requested over ssh
+stopped after 5s
+disk reverted to baseline-s-search
+2026-11-11T05:05:51Z reset: empty store (baseline-s state)
+started: tmux td-legacy-vm, pid 1165560
+ssh up after ~0s
+2026-11-11T05:06:05Z app ready (4 s)
+2026-11-11T05:06:05Z reset to baseline-s-search done in 21 s

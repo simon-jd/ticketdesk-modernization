@@ -1,0 +1,8 @@
+guest shutdown requested over ssh
+stopped after 5s
+disk reverted to baseline-s-identity
+2026-11-09T06:51:22Z reset: empty store (baseline-s state)
+started: tmux td-legacy-vm, pid 281353
+ssh up after ~0s
+2026-11-09T06:51:37Z app ready (5 s)
+2026-11-09T06:51:37Z reset to baseline-s-identity done in 22 s

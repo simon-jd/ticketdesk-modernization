@@ -1,0 +1,160 @@
+<h1 tabindex="-1">New ticket</h1>
+
+@if (options.isLoading()) {
+  <p class="loading" role="status">Loading the form…</p>
+}
+@if (options.error()) {
+  <div class="alert alert-error" role="alert"><p>The form could not be loaded. <a href="/ticket/new">Try again</a></p></div>
+}
+
+@if (options.hasValue() && permissions(); as p) {
+  @let o = options.value();
+  @if (errorSummary().length > 0 || general().length > 0) {
+    <div class="alert alert-error error-summary" role="alert" tabindex="-1" #summary aria-labelledby="summary-heading">
+      <h2 id="summary-heading">The ticket was not created</h2>
+      <ul>
+        @for (g of general(); track $index) { <li>{{ g }}</li> }
+        @for (e of errorSummary(); track e.field) {
+          <li><a [href]="'#field-' + e.field" (click)="focusField($event, e.field)">{{ e.label }}: {{ e.message }}</a></li>
+        }
+      </ul>
+    </div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate class="ticket-form">
+    <p class="hint">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+
+    @if (multiProject()) {
+      <div class="field">
+        <label for="field-projectId">Project <span class="req" aria-hidden="true">*</span></label>
+        <select id="field-projectId" formControlName="projectId" required [attr.aria-invalid]="!!error('projectId')" [attr.aria-describedby]="describedBy('projectId')">
+          <option value="">Choose a project</option>
+          @for (pr of o.projects; track pr.projectId) { <option [value]="pr.projectId">{{ pr.projectName }}</option> }
+        </select>
+        @if (error('projectId'); as m) { <p class="error" id="projectId-error">{{ m }}</p> }
+      </div>
+    }
+
+    <div class="field">
+      <label for="field-title">Title <span class="req" aria-hidden="true">*</span></label>
+      <input id="field-title" type="text" formControlName="title" required maxlength="500" autocomplete="off"
+             [attr.aria-invalid]="!!error('title')" [attr.aria-describedby]="describedBy('title')" />
+      @if (error('title'); as m) { <p class="error" id="title-error">{{ m }}</p> }
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="field-ticketType">Type <span class="req" aria-hidden="true">*</span></label>
+        <select id="field-ticketType" formControlName="ticketType" required [attr.aria-invalid]="!!error('ticketType')" [attr.aria-describedby]="describedBy('ticketType')">
+          <option value="">Choose a type</option>
+          @for (x of o.ticketTypes; track x) { <option [value]="x">{{ x }}</option> }
+        </select>
+        @if (error('ticketType'); as m) { <p class="error" id="ticketType-error">{{ m }}</p> }
+      </div>
+      <div class="field">
+        <label for="field-category">Category <span class="req" aria-hidden="true">*</span></label>
+        <select id="field-category" formControlName="category" required [attr.aria-invalid]="!!error('category')" [attr.aria-describedby]="describedBy('category')">
+          <option value="">Choose a category</option>
+          @for (x of o.categories; track x) { <option [value]="x">{{ x }}</option> }
+        </select>
+        @if (error('category'); as m) { <p class="error" id="category-error">{{ m }}</p> }
+      </div>
+      @if (p.canSetPriority) {
+        <div class="field">
+          <label for="field-priority">Priority</label>
+          <select id="field-priority" formControlName="priority" [attr.aria-invalid]="!!error('priority')" [attr.aria-describedby]="describedBy('priority')">
+            <option value="">None</option>
+            @for (x of o.priorities; track x) { <option [value]="x">{{ x }}</option> }
+          </select>
+          @if (error('priority'); as m) { <p class="error" id="priority-error">{{ m }}</p> }
+        </div>
+      }
+    </div>
+
+    <div class="field">
+      <label for="field-details">Details <span class="req" aria-hidden="true">*</span></label>
+      <textarea id="field-details" formControlName="details" rows="10" required
+                [attr.aria-invalid]="!!error('details')" [attr.aria-describedby]="describedBy('details', 'details-hint')"></textarea>
+      <p class="hint" id="details-hint">Markdown works: **bold**, *italic*, lists with "- ", links as &lt;https://example.com&gt;.</p>
+      @if (error('details'); as m) { <p class="error" id="details-error">{{ m }}</p> }
+    </div>
+
+    @if (p.canSetTags) {
+      <div class="field">
+        <label for="field-tagList">Tags</label>
+        <input id="field-tagList" type="text" formControlName="tagList" maxlength="100" autocomplete="off"
+               [attr.aria-invalid]="!!error('tagList')" [attr.aria-describedby]="describedBy('tagList', 'tags-hint')" />
+        <p class="hint" id="tags-hint">Separate tags with commas.</p>
+        @if (error('tagList'); as m) { <p class="error" id="tagList-error">{{ m }}</p> }
+      </div>
+    }
+
+    <div class="row">
+      @if (p.canSetOwner) {
+        <div class="field">
+          <label for="field-owner">Owner</label>
+          <select id="field-owner" formControlName="owner" [attr.aria-invalid]="!!error('owner')" [attr.aria-describedby]="describedBy('owner')">
+            @for (u of o.internalUsers; track u.id) { <option [value]="u.id">{{ u.displayName }}</option> }
+          </select>
+          @if (error('owner'); as m) { <p class="error" id="owner-error">{{ m }}</p> }
+        </div>
+      }
+      @if (p.canSetAssignedTo) {
+        <div class="field">
+          <label for="field-assignedTo">Assigned to</label>
+          <select id="field-assignedTo" formControlName="assignedTo" [attr.aria-invalid]="!!error('assignedTo')" [attr.aria-describedby]="describedBy('assignedTo')">
+            <option value="">Unassigned</option>
+            @for (u of o.helpDeskUsers; track u.id) { <option [value]="u.id">{{ u.displayName }}</option> }
+          </select>
+          @if (error('assignedTo'); as m) { <p class="error" id="assignedTo-error">{{ m }}</p> }
+        </div>
+      }
+    </div>
+
+    <fieldset class="row">
+      <legend>Dates and effort</legend>
+      <div class="field">
+        <label for="field-dueDate">Due date</label>
+        <input id="field-dueDate" type="date" formControlName="dueDate" />
+      </div>
+      <div class="field">
+        <label for="field-targetDate">Target date</label>
+        <input id="field-targetDate" type="date" formControlName="targetDate" />
+      </div>
+      <div class="field">
+        <label for="field-resolutionDate">Resolution date</label>
+        <input id="field-resolutionDate" type="date" formControlName="resolutionDate" />
+      </div>
+      <div class="field">
+        <label for="field-estimatedDuration">Estimated hours</label>
+        <input id="field-estimatedDuration" type="text" inputmode="decimal" formControlName="estimatedDuration"
+               [attr.aria-invalid]="!!error('estimatedDuration')" [attr.aria-describedby]="describedBy('estimatedDuration')" />
+        @if (error('estimatedDuration'); as m) { <p class="error" id="estimatedDuration-error">{{ m }}</p> }
+      </div>
+      <div class="field">
+        <label for="field-actualDuration">Actual hours</label>
+        <input id="field-actualDuration" type="text" inputmode="decimal" formControlName="actualDuration"
+               [attr.aria-invalid]="!!error('actualDuration')" [attr.aria-describedby]="describedBy('actualDuration')" />
+        @if (error('actualDuration'); as m) { <p class="error" id="actualDuration-error">{{ m }}</p> }
+      </div>
+    </fieldset>
+
+    <div class="field">
+      <label for="field-files">Attachments</label>
+      <input id="field-files" type="file" multiple (change)="pickFiles($event)" aria-describedby="files-hint" />
+      <p class="hint" id="files-hint">
+        @if (files().length > 0) { {{ files().length }} file(s) chosen: {{ fileNames() }} } @else { Optional. Files are uploaded when you create the ticket. }
+      </p>
+    </div>
+
+    <div class="field checkbox">
+      <input id="field-affectsCustomer" type="checkbox" formControlName="affectsCustomer" />
+      <label for="field-affectsCustomer">Affects a customer</label>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="button button-primary" [disabled]="submitting()">{{ submitting() ? 'Creating…' : 'Create ticket' }}</button>
+      <a routerLink="/tickets">Cancel</a>
+    </div>
+  </form>
+}

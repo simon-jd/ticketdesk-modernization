@@ -1,0 +1,16 @@
+# 2026-11-08T20:44:53Z legacy app: td-legacy-publish-35d7b5e.zip on the lab VM (https://localhost:8443/), after the step-2 gateway replay
+# users: seeded admin, help desk, internal (td-seed scale S); key from .secrets/legacy-remoteapp.env (not printed)
+$ TD_REMOTEAPP_API_KEY=*** TD_PROBE_USERS='aria.thomas.00004@seed.ticketdesk.test amara.king.00041@seed.ticketdesk.test ali.chen.00238@seed.ticketdesk.test' TD_PROBE_PASSWORDS=*** dotnet run --file ops/dev/remote-auth-probe.cs -- https://localhost:8443/ --forwarded-host localhost:5443
+PASS  sign-in user 1: legacy cookie .AspNet.ApplicationCookie issued
+PASS  user 1 + key: HTTP 200 application/octet-stream, 494 bytes -> authenticated=True type=ApplicationCookie name=aria.thomas.00004@seed.ticketdesk.test given_name=Aria Thomas roles=[TdAdministrators] claims=6
+PASS  sign-in user 2: legacy cookie .AspNet.ApplicationCookie issued
+PASS  user 2 + key: HTTP 200 application/octet-stream, 491 bytes -> authenticated=True type=ApplicationCookie name=amara.king.00041@seed.ticketdesk.test given_name=Amara King roles=[TdHelpDeskUsers] claims=6
+PASS  sign-in user 3: legacy cookie .AspNet.ApplicationCookie issued
+PASS  user 3 + key: HTTP 200 application/octet-stream, 487 bytes -> authenticated=True type=ApplicationCookie name=ali.chen.00238@seed.ticketdesk.test given_name=Ali Chen roles=[TdInternalUsers] claims=6
+PASS  cookie + wrong key: HTTP 400, 11 bytes
+PASS  cookie + no key: HTTP 400, 11 bytes
+PASS  cookie + key, no x-migration-authenticate, no original-url: HTTP 400
+PASS  no cookie + key (challenge): HTTP 302 Location https://localhost:5443/user/sign-in?ReturnUrl=%2Fsystemweb-adapters%2Fauthenticate%3Foriginal-url%3D%252Fticketcenter
+PASS  return after sign-in (no migration header, original-url): HTTP 302 Location /ticketcenter
+0 failure(s)
+rc=0

@@ -1,0 +1,24 @@
+agents: lab-host-1 online enabled=true job=none
+runs waiting for an approval (left alone): 16(notStarted) ; runs queued for or running on the agent: none
+preflight ok: agent free, nothing queued, Azure Repos modernize 4540ad1d has this session's chart and CD script
+added 17 rows K1.1-K1.17 (1.97 USD)
+ledger running estimate $13.70 / cap $13.70: OK
+2026-11-11T17:44:00.356Z SESSION start cert
+2026-11-11T17:44:00Z certificate for tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com present
+subject=O=TicketDesk Lab, CN=tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com
+issuer=O=TicketDesk Lab, CN=TicketDesk Lab Root CA
+serial=12337EC53147DEE98219906A9EBB4B041875B965
+notAfter=Feb 13 04:43:56 2029 GMT
+X509v3 Subject Alternative Name: 
+    DNS:tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com, DNS:localhost, DNS:td-web.ticketdesk.svc, IP Address:127.0.0.1
+2026-11-11T17:44:00.549Z SESSION ok cert
+2026-11-11T17:44:00.554Z SESSION rebuild from zero: start (empty resource group)
+2026-11-11T17:44:00.557Z SESSION start apply
+2026-11-11T17:57:55Z VM AllocationFailed: retry with VM size Standard_B2als_v2
+2026-11-11T18:02:11Z VM AllocationFailed: retry with VM size Standard_B2s_v2
+lift.sh: no VM size left after AllocationFailed (see ~/Desktop/ticketdesk-modernization/wt-aks/docs/evidence/aks-20261111/apply-cutover-20261111T174400Z.txt)
+2026-11-11T18:06:23.442Z SESSION FAILED apply
+2026-11-11T18:06:23.444Z SESSION destroy
+destroy end 2026-11-11T18:17:29.797Z elapsed_s=666; RG exists=false; node RG exists=false
+2026-11-11T18:17:32.613Z SESSION destroyed: RG exists=false
+closed 17 rows K1.*

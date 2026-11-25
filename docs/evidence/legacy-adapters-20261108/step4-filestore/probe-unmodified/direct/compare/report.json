@@ -1,0 +1,2807 @@
+{
+  "generated": "2026-11-08T20:59:34.7507247+00:00",
+  "baseline": {
+    "file": "docs/evidence/legacy-adapters-20261108/step4-filestore/probe-unmodified/golden.jsonl",
+    "target": "https://localhost:8443/",
+    "runId": "legacy-run1",
+    "exchanges": 262,
+    "errors": 0
+  },
+  "candidate": {
+    "file": "docs/evidence/legacy-adapters-20261108/step4-filestore/probe-unmodified/direct/candidate.jsonl",
+    "target": "https://localhost:8443/",
+    "runId": "candidate-direct",
+    "exchanges": 175,
+    "errors": 8
+  },
+  "compared": 175,
+  "matched": 162,
+  "mismatched": 100,
+  "missingInCandidate": 87,
+  "extraInCandidate": 0,
+  "routes": [
+    {
+      "routeKey": "GET /ticket-activity/load-activity",
+      "requests": 21,
+      "mismatches": 21,
+      "kinds": {
+        "missing": 21
+      }
+    },
+    {
+      "routeKey": "GET /ticket/{id:int}",
+      "requests": 14,
+      "mismatches": 13,
+      "kinds": {
+        "missing": 13
+      }
+    },
+    {
+      "routeKey": "POST /ticket/new",
+      "requests": 8,
+      "mismatches": 8,
+      "kinds": {
+        "error": 8,
+        "status": 8,
+        "location": 8,
+        "body-html": 8
+      }
+    },
+    {
+      "routeKey": "GET /ticket/ticket-files",
+      "requests": 7,
+      "mismatches": 7,
+      "kinds": {
+        "missing": 7
+      }
+    },
+    {
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "requests": 6,
+      "mismatches": 6,
+      "kinds": {
+        "missing": 6
+      }
+    },
+    {
+      "routeKey": "GET /ticket/ticket-events",
+      "requests": 6,
+      "mismatches": 6,
+      "kinds": {
+        "missing": 6
+      }
+    },
+    {
+      "routeKey": "GET /ticket/ticket-details",
+      "requests": 5,
+      "mismatches": 5,
+      "kinds": {
+        "missing": 5
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/take-over",
+      "requests": 4,
+      "mismatches": 4,
+      "kinds": {
+        "missing": 4
+      }
+    },
+    {
+      "routeKey": "POST /file/upload",
+      "requests": 3,
+      "mismatches": 3,
+      "kinds": {
+        "status": 2,
+        "header": 2,
+        "body-text": 2,
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "GET /file/get-attachments-info",
+      "requests": 2,
+      "mismatches": 2,
+      "kinds": {
+        "header": 1,
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/add-comment",
+      "requests": 2,
+      "mismatches": 2,
+      "kinds": {
+        "missing": 2
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/assign",
+      "requests": 2,
+      "mismatches": 2,
+      "kinds": {
+        "missing": 2
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/request-more-info",
+      "requests": 2,
+      "mismatches": 2,
+      "kinds": {
+        "missing": 2
+      }
+    },
+    {
+      "routeKey": "POST /ticket/change-ticket-subscription",
+      "requests": 2,
+      "mismatches": 2,
+      "kinds": {
+        "missing": 2
+      }
+    },
+    {
+      "routeKey": "GET /",
+      "requests": 29,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "GET /auto-complete/tag-list",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "body-json": 1
+      }
+    },
+    {
+      "routeKey": "GET /file/{id}/{fileName}",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "requests": 16,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "GET /user/sign-out",
+      "requests": 2,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /file/delete",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "status": 1,
+        "header": 1,
+        "body-text": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/cancel-more-info",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/close",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/edit-ticket-info",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/force-close",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/give-up",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/modify-attachments",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/pass",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/reassign",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/reopen",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/resolve",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "POST /ticket-activity/supply-more-info",
+      "requests": 1,
+      "mismatches": 1,
+      "kinds": {
+        "missing": 1
+      }
+    },
+    {
+      "routeKey": "GET /about",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /access-denied",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/change-password",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/edit-profile",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /account/manage",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/application-settings/{action=index}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/data-management/demo",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/new",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/project/new",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/project/{projectId:int}",
+      "requests": 4,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/projects",
+      "requests": 5,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/configure-provider",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/list-providers",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/push-notification-settings/{action=index}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/search-manager",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/user/{id?}",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/users/page/{page:int?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /admin/users/{page:int?}",
+      "requests": 7,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /bundles/{bundle}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /content/{bundle}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /emailtest/index/{id}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/check-upgrade-progress",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/legacy-migration",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/upgrade-database",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /first-run-setup/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /index",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /language",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /navigation/change-project/{projectId:int}",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /search",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /search/{term}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/new",
+      "requests": 8,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /ticket/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/pageList/{listName=mytickets}/{page:int?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/reset-user-lists",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /tickets/sortList/{listName=opentickets}/{page:int?}",
+      "requests": 3,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/register",
+      "requests": 2,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "GET /user/sign-in",
+      "requests": 19,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /account/change-password",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /account/edit-profile",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/application-settings/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/new",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/delete/{projectId:int}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/new",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/project/{projectId:int}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/push-notification-settings/configure-provider",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/push-notification-settings/{action=index}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/user/delete/{id?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /admin/user/{id?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /tickets/filterList/{listName=opentickets}/{page:int?}",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /user/register",
+      "requests": 1,
+      "mismatches": 0,
+      "kinds": {}
+    },
+    {
+      "routeKey": "POST /user/sign-in",
+      "requests": 14,
+      "mismatches": 0,
+      "kinds": {}
+    }
+  ],
+  "mismatches": [
+    {
+      "key": "ticket-list#015.0",
+      "journey": "ticket-list",
+      "step": "tag autocomplete",
+      "routeKey": "GET /auto-complete/tag-list",
+      "method": "GET",
+      "path": "/auto-complete/tag-list?term=net",
+      "kinds": [
+        "body-json"
+      ],
+      "diffs": [
+        {
+          "kind": "json-value",
+          "path": "$[0].id",
+          "expected": "\u0022network-041\u0022",
+          "actual": "\u0022network\u0022"
+        },
+        {
+          "kind": "json-value",
+          "path": "$[0].text",
+          "expected": "\u0022network-041\u0022",
+          "actual": "\u0022network\u0022"
+        },
+        {
+          "kind": "json-value",
+          "path": "$[2].id",
+          "expected": "\u0022network\u0022",
+          "actual": "\u0022network-041\u0022"
+        },
+        {
+          "kind": "json-value",
+          "path": "$[2].text",
+          "expected": "\u0022network\u0022",
+          "actual": "\u0022network-041\u0022"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#003.0",
+      "journey": "ticket-create-view",
+      "step": "create ticket",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "ticket-create-view#003.0",
+          "actual": "step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#003.1",
+      "journey": "ticket-create-view",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#003.1",
+          "expected": "GET /ticket/10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#004.0",
+      "journey": "ticket-create-view",
+      "step": "view ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#004.0",
+          "expected": "GET /ticket/10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#005.0",
+      "journey": "ticket-create-view",
+      "step": "ticket details panel",
+      "routeKey": "GET /ticket/ticket-details",
+      "method": "GET",
+      "path": "/ticket/ticket-details?ticketId=10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#005.0",
+          "expected": "GET /ticket/ticket-details?ticketId=10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#006.0",
+      "journey": "ticket-create-view",
+      "step": "ticket events panel",
+      "routeKey": "GET /ticket/ticket-events",
+      "method": "GET",
+      "path": "/ticket/ticket-events?ticketId=10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#006.0",
+          "expected": "GET /ticket/ticket-events?ticketId=10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#007.0",
+      "journey": "ticket-create-view",
+      "step": "ticket files panel",
+      "routeKey": "GET /ticket/ticket-files",
+      "method": "GET",
+      "path": "/ticket/ticket-files?ticketId=10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#007.0",
+          "expected": "GET /ticket/ticket-files?ticketId=10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#008.0",
+      "journey": "ticket-create-view",
+      "step": "activity buttons",
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "method": "GET",
+      "path": "/ticket-activity/activity-buttons?ticketId=10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#008.0",
+          "expected": "GET /ticket-activity/activity-buttons?ticketId=10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#009.0",
+      "journey": "ticket-create-view",
+      "step": "unsubscribe",
+      "routeKey": "POST /ticket/change-ticket-subscription",
+      "method": "POST",
+      "path": "/ticket/change-ticket-subscription?ticketId=10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#009.0",
+          "expected": "POST /ticket/change-ticket-subscription?ticketId=10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#010.0",
+      "journey": "ticket-create-view",
+      "step": "subscribe again",
+      "routeKey": "POST /ticket/change-ticket-subscription",
+      "method": "POST",
+      "path": "/ticket/change-ticket-subscription?ticketId=10001",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#010.0",
+          "expected": "POST /ticket/change-ticket-subscription?ticketId=10001",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#011.0",
+      "journey": "ticket-create-view",
+      "step": "unknown ticket redirects to list",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/999999999",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#011.0",
+          "expected": "GET /ticket/999999999",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-create-view#011.1",
+      "journey": "ticket-create-view",
+      "step": "unknown ticket redirects to list",
+      "routeKey": "GET /tickets/{listName?}/{page:int?}",
+      "method": "GET",
+      "path": "/tickets",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-create-view#011.1",
+          "expected": "GET /tickets",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#003.0",
+      "journey": "ticket-edit",
+      "step": "create ticket",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "ticket-edit#003.0",
+          "actual": "step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#003.1",
+      "journey": "ticket-edit",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10002",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-edit#003.1",
+          "expected": "GET /ticket/10002",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#004.0",
+      "journey": "ticket-edit",
+      "step": "load EditTicketInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10002\u0026activity=EditTicketInfo",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-edit#004.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10002\u0026activity=EditTicketInfo",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#005.0",
+      "journey": "ticket-edit",
+      "step": "submit EditTicketInfo",
+      "routeKey": "POST /ticket-activity/edit-ticket-info",
+      "method": "POST",
+      "path": "/ticket-activity/edit-ticket-info?ticketId=10002",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-edit#005.0",
+          "expected": "POST /ticket-activity/edit-ticket-info?ticketId=10002",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#006.0",
+      "journey": "ticket-edit",
+      "step": "ticket details panel",
+      "routeKey": "GET /ticket/ticket-details",
+      "method": "GET",
+      "path": "/ticket/ticket-details?ticketId=10002",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-edit#006.0",
+          "expected": "GET /ticket/ticket-details?ticketId=10002",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#007.0",
+      "journey": "ticket-edit",
+      "step": "ticket events panel",
+      "routeKey": "GET /ticket/ticket-events",
+      "method": "GET",
+      "path": "/ticket/ticket-events?ticketId=10002",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-edit#007.0",
+          "expected": "GET /ticket/ticket-events?ticketId=10002",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#008.0",
+      "journey": "ticket-edit",
+      "step": "ticket files panel",
+      "routeKey": "GET /ticket/ticket-files",
+      "method": "GET",
+      "path": "/ticket/ticket-files?ticketId=10002",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-edit#008.0",
+          "expected": "GET /ticket/ticket-files?ticketId=10002",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-edit#009.0",
+      "journey": "ticket-edit",
+      "step": "activity buttons",
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "method": "GET",
+      "path": "/ticket-activity/activity-buttons?ticketId=10002",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-edit#009.0",
+          "expected": "GET /ticket-activity/activity-buttons?ticketId=10002",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#003.0",
+      "journey": "ticket-comment",
+      "step": "create ticket",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "ticket-comment#003.0",
+          "actual": "step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#003.1",
+      "journey": "ticket-comment",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10003",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-comment#003.1",
+          "expected": "GET /ticket/10003",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#004.0",
+      "journey": "ticket-comment",
+      "step": "load AddComment form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10003\u0026activity=AddComment",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-comment#004.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10003\u0026activity=AddComment",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#005.0",
+      "journey": "ticket-comment",
+      "step": "submit AddComment",
+      "routeKey": "POST /ticket-activity/add-comment",
+      "method": "POST",
+      "path": "/ticket-activity/add-comment?ticketId=10003",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-comment#005.0",
+          "expected": "POST /ticket-activity/add-comment?ticketId=10003",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-comment#006.0",
+      "journey": "ticket-comment",
+      "step": "ticket events panel",
+      "routeKey": "GET /ticket/ticket-events",
+      "method": "GET",
+      "path": "/ticket/ticket-events?ticketId=10003",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-comment#006.0",
+          "expected": "GET /ticket/ticket-events?ticketId=10003",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#003.0",
+      "journey": "ticket-assign",
+      "step": "create ticket",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "ticket-assign#003.0",
+          "actual": "step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#003.1",
+      "journey": "ticket-assign",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10004",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-assign#003.1",
+          "expected": "GET /ticket/10004",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#004.0",
+      "journey": "ticket-assign",
+      "step": "load Assign form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10004\u0026activity=Assign",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-assign#004.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10004\u0026activity=Assign",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#005.0",
+      "journey": "ticket-assign",
+      "step": "submit Assign",
+      "routeKey": "POST /ticket-activity/assign",
+      "method": "POST",
+      "path": "/ticket-activity/assign?ticketId=10004",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-assign#005.0",
+          "expected": "POST /ticket-activity/assign?ticketId=10004",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#006.0",
+      "journey": "ticket-assign",
+      "step": "ticket details panel",
+      "routeKey": "GET /ticket/ticket-details",
+      "method": "GET",
+      "path": "/ticket/ticket-details?ticketId=10004",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-assign#006.0",
+          "expected": "GET /ticket/ticket-details?ticketId=10004",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#007.0",
+      "journey": "ticket-assign",
+      "step": "ticket events panel",
+      "routeKey": "GET /ticket/ticket-events",
+      "method": "GET",
+      "path": "/ticket/ticket-events?ticketId=10004",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-assign#007.0",
+          "expected": "GET /ticket/ticket-events?ticketId=10004",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#008.0",
+      "journey": "ticket-assign",
+      "step": "ticket files panel",
+      "routeKey": "GET /ticket/ticket-files",
+      "method": "GET",
+      "path": "/ticket/ticket-files?ticketId=10004",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-assign#008.0",
+          "expected": "GET /ticket/ticket-files?ticketId=10004",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-assign#009.0",
+      "journey": "ticket-assign",
+      "step": "activity buttons",
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "method": "GET",
+      "path": "/ticket-activity/activity-buttons?ticketId=10004",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-assign#009.0",
+          "expected": "GET /ticket-activity/activity-buttons?ticketId=10004",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#003.0",
+      "journey": "ticket-close",
+      "step": "create ticket",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "ticket-close#003.0",
+          "actual": "step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#003.1",
+      "journey": "ticket-close",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#003.1",
+          "expected": "GET /ticket/10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#004.0",
+      "journey": "ticket-close",
+      "step": "load TakeOver form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10005\u0026activity=TakeOver",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#004.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10005\u0026activity=TakeOver",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#005.0",
+      "journey": "ticket-close",
+      "step": "submit TakeOver",
+      "routeKey": "POST /ticket-activity/take-over",
+      "method": "POST",
+      "path": "/ticket-activity/take-over?ticketId=10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#005.0",
+          "expected": "POST /ticket-activity/take-over?ticketId=10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#006.0",
+      "journey": "ticket-close",
+      "step": "load Resolve form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10005\u0026activity=Resolve",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#006.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10005\u0026activity=Resolve",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#007.0",
+      "journey": "ticket-close",
+      "step": "submit Resolve",
+      "routeKey": "POST /ticket-activity/resolve",
+      "method": "POST",
+      "path": "/ticket-activity/resolve?ticketId=10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#007.0",
+          "expected": "POST /ticket-activity/resolve?ticketId=10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#008.0",
+      "journey": "ticket-close",
+      "step": "load Close form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10005\u0026activity=Close",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#008.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10005\u0026activity=Close",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#009.0",
+      "journey": "ticket-close",
+      "step": "submit Close",
+      "routeKey": "POST /ticket-activity/close",
+      "method": "POST",
+      "path": "/ticket-activity/close?ticketId=10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#009.0",
+          "expected": "POST /ticket-activity/close?ticketId=10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#010.0",
+      "journey": "ticket-close",
+      "step": "view closed ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#010.0",
+          "expected": "GET /ticket/10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#011.0",
+      "journey": "ticket-close",
+      "step": "ticket details panel",
+      "routeKey": "GET /ticket/ticket-details",
+      "method": "GET",
+      "path": "/ticket/ticket-details?ticketId=10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#011.0",
+          "expected": "GET /ticket/ticket-details?ticketId=10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#012.0",
+      "journey": "ticket-close",
+      "step": "ticket events panel",
+      "routeKey": "GET /ticket/ticket-events",
+      "method": "GET",
+      "path": "/ticket/ticket-events?ticketId=10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#012.0",
+          "expected": "GET /ticket/ticket-events?ticketId=10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#013.0",
+      "journey": "ticket-close",
+      "step": "ticket files panel",
+      "routeKey": "GET /ticket/ticket-files",
+      "method": "GET",
+      "path": "/ticket/ticket-files?ticketId=10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#013.0",
+          "expected": "GET /ticket/ticket-files?ticketId=10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-close#014.0",
+      "journey": "ticket-close",
+      "step": "activity buttons",
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "method": "GET",
+      "path": "/ticket-activity/activity-buttons?ticketId=10005",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-close#014.0",
+          "expected": "GET /ticket-activity/activity-buttons?ticketId=10005",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#003.0",
+      "journey": "ticket-workflow",
+      "step": "create ticket",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "ticket-workflow#003.0",
+          "actual": "step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#003.1",
+      "journey": "ticket-workflow",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#003.1",
+          "expected": "GET /ticket/10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#004.0",
+      "journey": "ticket-workflow",
+      "step": "load TakeOver form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#004.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#005.0",
+      "journey": "ticket-workflow",
+      "step": "submit TakeOver",
+      "routeKey": "POST /ticket-activity/take-over",
+      "method": "POST",
+      "path": "/ticket-activity/take-over?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#005.0",
+          "expected": "POST /ticket-activity/take-over?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#006.0",
+      "journey": "ticket-workflow",
+      "step": "load RequestMoreInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=RequestMoreInfo",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#006.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=RequestMoreInfo",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#007.0",
+      "journey": "ticket-workflow",
+      "step": "submit RequestMoreInfo",
+      "routeKey": "POST /ticket-activity/request-more-info",
+      "method": "POST",
+      "path": "/ticket-activity/request-more-info?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#007.0",
+          "expected": "POST /ticket-activity/request-more-info?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#008.0",
+      "journey": "ticket-workflow",
+      "step": "load CancelMoreInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=CancelMoreInfo",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#008.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=CancelMoreInfo",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#009.0",
+      "journey": "ticket-workflow",
+      "step": "submit CancelMoreInfo",
+      "routeKey": "POST /ticket-activity/cancel-more-info",
+      "method": "POST",
+      "path": "/ticket-activity/cancel-more-info?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#009.0",
+          "expected": "POST /ticket-activity/cancel-more-info?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#010.0",
+      "journey": "ticket-workflow",
+      "step": "load RequestMoreInfo form (2)",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=RequestMoreInfo",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#010.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=RequestMoreInfo",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#011.0",
+      "journey": "ticket-workflow",
+      "step": "submit RequestMoreInfo (2)",
+      "routeKey": "POST /ticket-activity/request-more-info",
+      "method": "POST",
+      "path": "/ticket-activity/request-more-info?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#011.0",
+          "expected": "POST /ticket-activity/request-more-info?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#012.0",
+      "journey": "ticket-workflow",
+      "step": "load SupplyMoreInfo form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=SupplyMoreInfo",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#012.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=SupplyMoreInfo",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#013.0",
+      "journey": "ticket-workflow",
+      "step": "submit SupplyMoreInfo",
+      "routeKey": "POST /ticket-activity/supply-more-info",
+      "method": "POST",
+      "path": "/ticket-activity/supply-more-info?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#013.0",
+          "expected": "POST /ticket-activity/supply-more-info?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#014.0",
+      "journey": "ticket-workflow",
+      "step": "load Pass form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=Pass",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#014.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=Pass",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#015.0",
+      "journey": "ticket-workflow",
+      "step": "submit Pass",
+      "routeKey": "POST /ticket-activity/pass",
+      "method": "POST",
+      "path": "/ticket-activity/pass?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#015.0",
+          "expected": "POST /ticket-activity/pass?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#016.0",
+      "journey": "ticket-workflow",
+      "step": "load ReAssign form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=ReAssign",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#016.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=ReAssign",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#017.0",
+      "journey": "ticket-workflow",
+      "step": "submit ReAssign",
+      "routeKey": "POST /ticket-activity/reassign",
+      "method": "POST",
+      "path": "/ticket-activity/reassign?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#017.0",
+          "expected": "POST /ticket-activity/reassign?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#018.0",
+      "journey": "ticket-workflow",
+      "step": "load TakeOver form (2)",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#018.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#019.0",
+      "journey": "ticket-workflow",
+      "step": "submit TakeOver (2)",
+      "routeKey": "POST /ticket-activity/take-over",
+      "method": "POST",
+      "path": "/ticket-activity/take-over?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#019.0",
+          "expected": "POST /ticket-activity/take-over?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#020.0",
+      "journey": "ticket-workflow",
+      "step": "load GiveUp form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=GiveUp",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#020.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=GiveUp",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#021.0",
+      "journey": "ticket-workflow",
+      "step": "submit GiveUp",
+      "routeKey": "POST /ticket-activity/give-up",
+      "method": "POST",
+      "path": "/ticket-activity/give-up?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#021.0",
+          "expected": "POST /ticket-activity/give-up?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#022.0",
+      "journey": "ticket-workflow",
+      "step": "load Assign form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=Assign",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#022.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=Assign",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#023.0",
+      "journey": "ticket-workflow",
+      "step": "submit Assign",
+      "routeKey": "POST /ticket-activity/assign",
+      "method": "POST",
+      "path": "/ticket-activity/assign?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#023.0",
+          "expected": "POST /ticket-activity/assign?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#024.0",
+      "journey": "ticket-workflow",
+      "step": "load TakeOver form (3)",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#024.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=TakeOver",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#025.0",
+      "journey": "ticket-workflow",
+      "step": "submit TakeOver (3)",
+      "routeKey": "POST /ticket-activity/take-over",
+      "method": "POST",
+      "path": "/ticket-activity/take-over?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#025.0",
+          "expected": "POST /ticket-activity/take-over?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#026.0",
+      "journey": "ticket-workflow",
+      "step": "load ForceClose form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=ForceClose",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#026.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=ForceClose",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#027.0",
+      "journey": "ticket-workflow",
+      "step": "submit ForceClose",
+      "routeKey": "POST /ticket-activity/force-close",
+      "method": "POST",
+      "path": "/ticket-activity/force-close?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#027.0",
+          "expected": "POST /ticket-activity/force-close?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#028.0",
+      "journey": "ticket-workflow",
+      "step": "load ReOpen form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10006\u0026activity=ReOpen",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#028.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10006\u0026activity=ReOpen",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#029.0",
+      "journey": "ticket-workflow",
+      "step": "submit ReOpen",
+      "routeKey": "POST /ticket-activity/reopen",
+      "method": "POST",
+      "path": "/ticket-activity/reopen?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#029.0",
+          "expected": "POST /ticket-activity/reopen?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#030.0",
+      "journey": "ticket-workflow",
+      "step": "view reopened ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#030.0",
+          "expected": "GET /ticket/10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#031.0",
+      "journey": "ticket-workflow",
+      "step": "ticket details panel",
+      "routeKey": "GET /ticket/ticket-details",
+      "method": "GET",
+      "path": "/ticket/ticket-details?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#031.0",
+          "expected": "GET /ticket/ticket-details?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#032.0",
+      "journey": "ticket-workflow",
+      "step": "ticket events panel",
+      "routeKey": "GET /ticket/ticket-events",
+      "method": "GET",
+      "path": "/ticket/ticket-events?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#032.0",
+          "expected": "GET /ticket/ticket-events?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#033.0",
+      "journey": "ticket-workflow",
+      "step": "ticket files panel",
+      "routeKey": "GET /ticket/ticket-files",
+      "method": "GET",
+      "path": "/ticket/ticket-files?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#033.0",
+          "expected": "GET /ticket/ticket-files?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "ticket-workflow#034.0",
+      "journey": "ticket-workflow",
+      "step": "activity buttons",
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "method": "GET",
+      "path": "/ticket-activity/activity-buttons?ticketId=10006",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "ticket-workflow#034.0",
+          "expected": "GET /ticket-activity/activity-buttons?ticketId=10006",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#003.0",
+      "journey": "attachments",
+      "step": "upload pending file",
+      "routeKey": "POST /file/upload",
+      "method": "POST",
+      "path": "/file/upload?tempId=dfc51453-464d-4aec-b8c4-a5cb0bef194c",
+      "kinds": [
+        "status",
+        "header",
+        "body-text"
+      ],
+      "diffs": [
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "200",
+          "actual": "500"
+        },
+        {
+          "kind": "header",
+          "path": "Content-Type",
+          "expected": "application/json;charset=utf-8",
+          "actual": "text/html;charset=utf-8"
+        },
+        {
+          "kind": "body-text",
+          "path": "line 1",
+          "expected": "{\u0022message\u0022:\u0022\u0022}",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "key": "attachments#004.0",
+      "journey": "attachments",
+      "step": "upload a second pending file",
+      "routeKey": "POST /file/upload",
+      "method": "POST",
+      "path": "/file/upload?tempId=dfc51453-464d-4aec-b8c4-a5cb0bef194c",
+      "kinds": [
+        "status",
+        "header",
+        "body-text"
+      ],
+      "diffs": [
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "200",
+          "actual": "500"
+        },
+        {
+          "kind": "header",
+          "path": "Content-Type",
+          "expected": "application/json;charset=utf-8",
+          "actual": "text/html;charset=utf-8"
+        },
+        {
+          "kind": "body-text",
+          "path": "line 1",
+          "expected": "{\u0022message\u0022:\u0022\u0022}",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "key": "attachments#005.0",
+      "journey": "attachments",
+      "step": "delete the second pending file",
+      "routeKey": "POST /file/delete",
+      "method": "POST",
+      "path": "/file/delete",
+      "kinds": [
+        "status",
+        "header",
+        "body-text"
+      ],
+      "diffs": [
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "200",
+          "actual": "500"
+        },
+        {
+          "kind": "header",
+          "path": "Content-Type",
+          "expected": "application/json;charset=utf-8",
+          "actual": "text/html;charset=utf-8"
+        },
+        {
+          "kind": "body-text",
+          "path": "line 1",
+          "expected": "{\u0022message\u0022:\u0022\u0022}",
+          "actual": ""
+        }
+      ]
+    },
+    {
+      "key": "attachments#006.0",
+      "journey": "attachments",
+      "step": "pending attachments info",
+      "routeKey": "GET /file/get-attachments-info",
+      "method": "GET",
+      "path": "/file/get-attachments-info?tempId=dfc51453-464d-4aec-b8c4-a5cb0bef194c",
+      "kinds": [
+        "header"
+      ],
+      "diffs": [
+        {
+          "kind": "header",
+          "path": "Content-Type",
+          "expected": "application/json;charset=utf-8",
+          "actual": "text/html;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "key": "attachments#007.0",
+      "journey": "attachments",
+      "step": "create ticket with attachment",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "attachments#007.0",
+          "actual": "step \u0027create ticket with attachment\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "attachments#007.1",
+      "journey": "attachments",
+      "step": "create ticket with attachment",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10007",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#007.1",
+          "expected": "GET /ticket/10007",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#008.0",
+      "journey": "attachments",
+      "step": "ticket files panel",
+      "routeKey": "GET /ticket/ticket-files",
+      "method": "GET",
+      "path": "/ticket/ticket-files?ticketId=10007",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#008.0",
+          "expected": "GET /ticket/ticket-files?ticketId=10007",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#009.0",
+      "journey": "attachments",
+      "step": "attached files info",
+      "routeKey": "GET /file/get-attachments-info",
+      "method": "GET",
+      "path": "/file/get-attachments-info?id=10007",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#009.0",
+          "expected": "GET /file/get-attachments-info?id=10007",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#010.0",
+      "journey": "attachments",
+      "step": "download attachment",
+      "routeKey": "GET /file/{id}/{fileName}",
+      "method": "GET",
+      "path": "/file/10007/replay-note.txt",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#010.0",
+          "expected": "GET /file/10007/replay-note.txt",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#011.0",
+      "journey": "attachments",
+      "step": "load ModifyAttachments form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10007\u0026activity=ModifyAttachments",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#011.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10007\u0026activity=ModifyAttachments",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#012.0",
+      "journey": "attachments",
+      "step": "upload file for ModifyAttachments",
+      "routeKey": "POST /file/upload",
+      "method": "POST",
+      "path": "/file/upload?tempId=a67ee7d6-2aa8-4331-a785-36472486d6f2",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#012.0",
+          "expected": "POST /file/upload?tempId=a67ee7d6-2aa8-4331-a785-36472486d6f2",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#013.0",
+      "journey": "attachments",
+      "step": "submit ModifyAttachments",
+      "routeKey": "POST /ticket-activity/modify-attachments",
+      "method": "POST",
+      "path": "/ticket-activity/modify-attachments?ticketId=10007",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#013.0",
+          "expected": "POST /ticket-activity/modify-attachments?ticketId=10007",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "attachments#014.0",
+      "journey": "attachments",
+      "step": "ticket files panel after modify",
+      "routeKey": "GET /ticket/ticket-files",
+      "method": "GET",
+      "path": "/ticket/ticket-files?ticketId=10007",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "attachments#014.0",
+          "expected": "GET /ticket/ticket-files?ticketId=10007",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#007.0",
+      "journey": "internal-user",
+      "step": "create ticket",
+      "routeKey": "POST /ticket/new",
+      "method": "POST",
+      "path": "/ticket/new",
+      "kinds": [
+        "error",
+        "status",
+        "location",
+        "body-html"
+      ],
+      "diffs": [
+        {
+          "kind": "error",
+          "path": "internal-user#007.0",
+          "actual": "step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+        },
+        {
+          "kind": "status",
+          "path": "status",
+          "expected": "302",
+          "actual": "500"
+        },
+        {
+          "kind": "location",
+          "path": "Location",
+          "expected": "/ticket/{var:ticketId}",
+          "actual": ""
+        },
+        {
+          "kind": "element",
+          "path": "html/head[1]/title[1]",
+          "expected": "\u003Ctitle\u003EObject moved",
+          "actual": "\u003Cmeta content=\u0022width=device-width\u0022 name=\u0022viewport\u0022\u003E"
+        },
+        {
+          "kind": "added",
+          "path": "html/head[1]/title[2]",
+          "actual": "\u003Ctitle\u003EError"
+        },
+        {
+          "kind": "element",
+          "path": "html/body[1]/h2[1]",
+          "expected": "\u003Ch2\u003EObject moved to here .",
+          "actual": "\u003Chgroup\u003EError. An error occurred while processing your request."
+        }
+      ]
+    },
+    {
+      "key": "internal-user#007.1",
+      "journey": "internal-user",
+      "step": "create ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10008",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "internal-user#007.1",
+          "expected": "GET /ticket/10008",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#008.0",
+      "journey": "internal-user",
+      "step": "view own ticket",
+      "routeKey": "GET /ticket/{id:int}",
+      "method": "GET",
+      "path": "/ticket/10008",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "internal-user#008.0",
+          "expected": "GET /ticket/10008",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#009.0",
+      "journey": "internal-user",
+      "step": "activity buttons",
+      "routeKey": "GET /ticket-activity/activity-buttons",
+      "method": "GET",
+      "path": "/ticket-activity/activity-buttons?ticketId=10008",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "internal-user#009.0",
+          "expected": "GET /ticket-activity/activity-buttons?ticketId=10008",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#010.0",
+      "journey": "internal-user",
+      "step": "load AddComment form",
+      "routeKey": "GET /ticket-activity/load-activity",
+      "method": "GET",
+      "path": "/ticket-activity/load-activity?ticketId=10008\u0026activity=AddComment",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "internal-user#010.0",
+          "expected": "GET /ticket-activity/load-activity?ticketId=10008\u0026activity=AddComment",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#011.0",
+      "journey": "internal-user",
+      "step": "submit AddComment",
+      "routeKey": "POST /ticket-activity/add-comment",
+      "method": "POST",
+      "path": "/ticket-activity/add-comment?ticketId=10008",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "internal-user#011.0",
+          "expected": "POST /ticket-activity/add-comment?ticketId=10008",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#012.0",
+      "journey": "internal-user",
+      "step": "sign out",
+      "routeKey": "GET /user/sign-out",
+      "method": "GET",
+      "path": "/user/sign-out",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "internal-user#012.0",
+          "expected": "GET /user/sign-out",
+          "actual": "not present in candidate run"
+        }
+      ]
+    },
+    {
+      "key": "internal-user#012.1",
+      "journey": "internal-user",
+      "step": "sign out",
+      "routeKey": "GET /",
+      "method": "GET",
+      "path": "/",
+      "kinds": [
+        "missing"
+      ],
+      "diffs": [
+        {
+          "kind": "missing",
+          "path": "internal-user#012.1",
+          "expected": "GET /",
+          "actual": "not present in candidate run"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "https://localhost:8443/ ticket-create-view#003.0: step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing",
+    "https://localhost:8443/ ticket-edit#003.0: step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing",
+    "https://localhost:8443/ ticket-comment#003.0: step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing",
+    "https://localhost:8443/ ticket-assign#003.0: step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing",
+    "https://localhost:8443/ ticket-close#003.0: step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing",
+    "https://localhost:8443/ ticket-workflow#003.0: step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing",
+    "https://localhost:8443/ attachments#007.0: step \u0027create ticket with attachment\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing",
+    "https://localhost:8443/ internal-user#007.0: step \u0027create ticket\u0027 failed: extractor \u0027ticketId\u0027 (location: /ticket/(\\d\u002B)) found nothing"
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "target": "https://localhost:5483",
+  "rate_per_s": 10,
+  "warmup_s": 30,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "avg": 15.406144540421792,
+      "p(90)": 35.9304289,
+      "p(95)": 41.56322194999999,
+      "p(99)": 50.43408059999992,
+      "max": 59.664767,
+      "count": 1138,
+      "min": 1.105842,
+      "med": 9.760109
+    },
+    "failed": {
+      "rate": 0,
+      "passes": 0,
+      "fails": 1138
+    }
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 681,
+    "fails": 0
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "p(99)": 52.917092569999944,
+        "max": 59.664767,
+        "count": 218,
+        "min": 10.720997,
+        "med": 30.0319745,
+        "avg": 27.754435862385325,
+        "p(90)": 43.61667,
+        "p(95)": 46.05430929999998
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 218
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "max": 44.17615,
+        "count": 660,
+        "min": 1.105842,
+        "med": 7.516778,
+        "avg": 10.1774104939394,
+        "p(90)": 26.211924,
+        "p(95)": 29.604382149999996,
+        "p(99)": 36.31058800999997
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 660,
+        "rate": 0
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "max": 56.145387,
+        "count": 83,
+        "min": 13.950038,
+        "med": 35.049399,
+        "avg": 33.09581728915663,
+        "p(90)": 50.5060238,
+        "p(95)": 54.93687589999999,
+        "p(99)": 55.893025439999995
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 83
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "p(99)": 29.460456,
+        "max": 30.840887,
+        "count": 126,
+        "min": 2.413655,
+        "med": 8.956192,
+        "avg": 10.660325492063487,
+        "p(90)": 21.854605,
+        "p(95)": 23.93023925
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 126
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "min": 4.236809,
+        "med": 10.705097,
+        "avg": 13.22511168627451,
+        "p(90)": 22.924693,
+        "p(95)": 24.099394500000002,
+        "p(99)": 27.676627,
+        "max": 28.545073,
+        "count": 51
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 51
+      }
+    }
+  },
+  "iterations": {
+    "count": 901,
+    "rate": 10.009170518895644
+  },
+  "dropped_iterations": null,
+  "vus_max": {
+    "value": 20,
+    "min": 20,
+    "max": 20
+  },
+  "root_group_checks": [
+    {
+      "id": "fdcd4b15f72aec2317ac2c1533ca239e",
+      "passes": 20,
+      "fails": 0,
+      "name": "signed in (302 to /)",
+      "path": "::signed in (302 to /)"
+    },
+    {
+      "passes": 336,
+      "fails": 0,
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89"
+    },
+    {
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 135,
+      "fails": 0,
+      "name": "filter 200"
+    },
+    {
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 83,
+      "fails": 0
+    },
+    {
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 83,
+      "fails": 0,
+      "name": "comment saved"
+    },
+    {
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 326,
+      "fails": 0
+    },
+    {
+      "fails": 0,
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 27
+    },
+    {
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 27,
+      "fails": 0,
+      "name": "created ticket 200"
+    }
+  ]
+}

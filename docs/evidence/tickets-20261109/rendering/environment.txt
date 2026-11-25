@@ -1,0 +1,3 @@
+# date: 2026-11-10T00:54:52Z  git: 4c698d0
+# legacy: LegacyRender.cs compiled on the VM with the .NET Framework csc against C:\inetpub\ticketdesk\bin (MarkdownSharp, HtmlSanitizer, AngleSharp), run with en-US
+# new: ops/dev/render-parity/render-parity.cs (TicketDesk.Tickets LegacyTextRenderer) on .NET 10.0.403, en-US

@@ -1,0 +1,13 @@
+legacy_smoke smoke against https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com at 2026-11-08T16:24:18Z
+  GET  / -> 200 5557ms
+[PASS] home page over HTTPS (HTTP 200, title='TicketDesk')
+  GET  /user/sign-in -> 200 904ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 1563ms -> /
+  GET  / -> 200 1923ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+  GET  /ticket/new -> 200 1613ms
+[PASS] new ticket form (HTTP 200)
+  POST /ticket/new -> 500 1047ms
+[FAIL] create ticket (HTTP 500, landed on /ticket/new, errors: , sent: ['ActualDuration', 'AssignedTo', 'Category', 'Details', 'DueDateAsString', 'EstimatedDuration', 'IsHtml', 'Owner', 'Priority', 'ProjectId', 'ResolutionDateAsString', 'TagList', 'TargetDateAsString', 'TicketId', 'TicketType', 'Title', '__RequestVerificationToken', 'tempId'])
+{"command": "smoke", "ok": false, "checks_passed": 4, "checks_total": 5, "requests": 6, "seconds": 12.6}

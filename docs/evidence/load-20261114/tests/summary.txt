@@ -1,0 +1,40 @@
+# 2026-11-14T06:18:44Z tests on ws/load @ 198845cb (azure-pipelines/scripts/dotnet.sh and web.sh, CI_OUT outside the repo)
+## dotnet test (the runner's own summary)
+Test run summary: Passed!
+  ~/Desktop/ticketdesk-modernization/wt-load/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (17s 085ms)
+  ~/Desktop/ticketdesk-modernization/wt-load/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (25s 624ms)
+  ~/Desktop/ticketdesk-modernization/wt-load/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (1s 018ms)
+  ~/Desktop/ticketdesk-modernization/wt-load/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (5s 483ms)
+  ~/Desktop/ticketdesk-modernization/wt-load/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (6s 297ms)
+  ~/Desktop/ticketdesk-modernization/wt-load/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64) passed (23s 656ms)
+  ~/Desktop/ticketdesk-modernization/wt-load/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (1s 069ms)
+  ~/Desktop/ticketdesk-modernization/wt-load/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (5s 970ms)
+
+  total: 772
+  failed: 0
+  succeeded: 772
+  skipped: 0
+  duration: 25s 846ms
+Code coverage results: ~/Desktop/ticketdesk-modernization/logs/load/ci-out/coverage/dotnet.cobertura.xml.
+TicketDesk.Seed.Tests.dll: total 20, passed 20, failed 0, skipped 0
+TicketDesk.Data.Tests.dll: total 32, passed 32, failed 0, skipped 0
+TicketDesk.Modules.Tests.dll: total 275, passed 275, failed 0, skipped 0
+TicketDesk.Worker.Tests.dll: total 8, passed 8, failed 0, skipped 0
+TicketDesk.Database.Tests.dll: total 103, passed 103, failed 0, skipped 0
+TicketDesk.Replay.Tests.dll: total 103, passed 103, failed 0, skipped 0
+TicketDesk.Web.Tests.dll: total 185, passed 185, failed 0, skipped 0
+TOTAL: total 726, passed 726, failed 0, skipped 0
+
+## TRX count (test-counts.py): 7 TRX files for 8 projects, two projects wrote the same timestamped name, so this count misses one project's 46
+TicketDesk.Seed.Tests.dll: total 20, passed 20, failed 0, skipped 0
+TicketDesk.Data.Tests.dll: total 32, passed 32, failed 0, skipped 0
+TicketDesk.Modules.Tests.dll: total 275, passed 275, failed 0, skipped 0
+TicketDesk.Worker.Tests.dll: total 8, passed 8, failed 0, skipped 0
+TicketDesk.Database.Tests.dll: total 103, passed 103, failed 0, skipped 0
+TicketDesk.Replay.Tests.dll: total 103, passed 103, failed 0, skipped 0
+TicketDesk.Web.Tests.dll: total 185, passed 185, failed 0, skipped 0
+TOTAL: total 726, passed 726, failed 0, skipped 0
+
+## Vitest (npm cache only: npm_config_offline=true)
+vitest-junit.xml: total 30, passed 30, failed 0, skipped 0
+TOTAL: total 30, passed 30, failed 0, skipped 0

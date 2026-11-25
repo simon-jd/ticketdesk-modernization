@@ -1,0 +1,49 @@
+$ TD_PERF_DB=TicketDeskLBase ops/dev/sql-perf.sh bench --cases docs/evidence/sql-before-20261107/cases-naive.json --out docs/evidence/sql-compare-20261107/naive-on-base --warm 20 --cold 5
+[01:23:56] naive/list-default: 3 command(s)
+    cold: median 263 ms server / 267.4 ms client, cpu 1389 ms, reads 109130
+    warm: median 181.5 ms server / 184.7 ms client, cpu 1096.5 ms, reads 109130
+[01:24:02] naive/list-open-p1: 3 command(s)
+    cold: median 284 ms server / 287.0 ms client, cpu 1189 ms, reads 214548
+    warm: median 146.5 ms server / 149.6 ms client, cpu 1040 ms, reads 214548
+[01:24:07] naive/list-open-p500: 3 command(s)
+    cold: median 274 ms server / 277.6 ms client, cpu 1192 ms, reads 214510
+    warm: median 147.5 ms server / 150.8 ms client, cpu 1036 ms, reads 214510
+[01:24:13] naive/list-unassigned: 3 command(s)
+    cold: median 189 ms server / 191.6 ms client, cpu 640 ms, reads 214479
+    warm: median 74 ms server / 76.8 ms client, cpu 549.5 ms, reads 214479
+[01:24:16] naive/list-assignedToMe: 3 command(s)
+    cold: median 172 ms server / 175.8 ms client, cpu 516 ms, reads 214481
+    warm: median 56 ms server / 59.6 ms client, cpu 427 ms, reads 214481
+[01:24:18] naive/list-mytickets-heavy: 3 command(s)
+    cold: median 182 ms server / 185.6 ms client, cpu 588 ms, reads 214480
+    warm: median 67 ms server / 69.5 ms client, cpu 498 ms, reads 214480
+[01:24:21] naive/list-mytickets-light: 3 command(s)
+    cold: median 167 ms server / 170.3 ms client, cpu 534 ms, reads 214408
+    warm: median 59 ms server / 63.0 ms client, cpu 454 ms, reads 214408
+[01:24:24] naive/list-history: 3 command(s)
+    cold: median 246 ms server / 249.9 ms client, cpu 1019 ms, reads 214557
+    warm: median 123.5 ms server / 126.4 ms client, cpu 905 ms, reads 214557
+[01:24:28] naive/list-project-big: 3 command(s)
+    cold: median 164 ms server / 167.0 ms client, cpu 510 ms, reads 107721
+    warm: median 58 ms server / 61.3 ms client, cpu 373.5 ms, reads 107721
+[01:24:31] naive/list-project-small: 3 command(s)
+    cold: median 146 ms server / 148.7 ms client, cpu 269 ms, reads 107384
+    warm: median 27 ms server / 29.6 ms client, cpu 195.5 ms, reads 107384
+[01:24:32] naive/list-status-sort-title: 3 command(s)
+    cold: median 240 ms server / 243.4 ms client, cpu 989 ms, reads 214535
+    warm: median 117.5 ms server / 120.2 ms client, cpu 864.5 ms, reads 214535
+[01:24:37] naive/list-tag: 3 command(s)
+    cold: median 240 ms server / 244.2 ms client, cpu 905 ms, reads 122547
+    warm: median 136 ms server / 138.6 ms client, cpu 840 ms, reads 122547
+[01:24:42] naive/detail: 5 command(s)
+    cold: median 0 ms server / 6.0 ms client, cpu 1 ms, reads 59
+    warm: median 0 ms server / 1.2 ms client, cpu 0 ms, reads 59
+[01:24:42] naive/report-open-aging: 2 command(s)
+    cold: median 141 ms server / 142.4 ms client, cpu 460 ms, reads 107201
+    warm: median 41 ms server / 43.6 ms client, cpu 312 ms, reads 107201
+[01:24:44] naive/report-workload: 5 command(s)
+    cold: median 6573 ms server / 6577.8 ms client, cpu 14023 ms, reads 22296021
+    warm: median 6321.5 ms server / 6327.8 ms client, cpu 14111.5 ms, reads 22295977
+[01:27:37] naive/report-time-to-close: 2 command(s)
+    cold: median 138 ms server / 139.2 ms client, cpu 277 ms, reads 107201
+    warm: median 26.5 ms server / 27.9 ms client, cpu 211 ms, reads 107201

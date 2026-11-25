@@ -1,0 +1,14 @@
+@* The legacy remove-index / populate-index actions are retired with the Lucene index (L4). *@
+@using SearchIndex = TicketDesk.Localization.Views.SearchManager.Index
+
+@section title
+{
+     @SearchIndex.Title
+}
+<div class="contentContainer">
+    <h2>@SearchIndex.Header</h2>
+    <p>
+        This action managed the old Lucene search index, which has been retired. Search now uses SQL Server full-text indexes,
+        which SQL Server keeps up to date by itself. See <a href="/admin/search-manager">@SearchIndex.Header</a> for their state.
+    </p>
+</div>

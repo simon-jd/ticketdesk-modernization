@@ -1,0 +1,6 @@
+subject=O=TicketDesk Lab, CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com
+issuer=O=TicketDesk Lab, CN=TicketDesk Lab Root CA
+notAfter=Feb 12 08:30:54 2029 GMT
+X509v3 Subject Alternative Name: 
+    DNS:tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, DNS:localhost, DNS:tdlab-legacy, IP Address:127.0.0.1
+pfx: ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/azure-sql-rotated.pfx (password in ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-cert.env)

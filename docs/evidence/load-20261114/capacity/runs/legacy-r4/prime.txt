@@ -1,0 +1,1 @@
+legacy rate 10: p50 54.8 p95 3589.2 p99 10455.8 ms, 1030 req, failed 0.00%, dropped 61

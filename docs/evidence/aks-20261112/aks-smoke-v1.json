@@ -1,0 +1,98 @@
+{
+  "command": "app-smoke",
+  "base": "https://tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com",
+  "ok": true,
+  "checks_passed": 7,
+  "checks_total": 7,
+  "requests": 8,
+  "seconds": 6.0,
+  "checks": [
+    {
+      "check": "home page over HTTPS",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign-in page",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "sign in as admin",
+      "ok": true,
+      "detail": "HTTP 200, landed on /"
+    },
+    {
+      "check": "ticket options (API)",
+      "ok": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "check": "new-ticket page",
+      "ok": true,
+      "detail": "HTTP 200, XSRF-TOKEN cookie set"
+    },
+    {
+      "check": "ticket page",
+      "ok": true,
+      "detail": "HTTP 200 /ticket/30"
+    },
+    {
+      "check": "ticket (API)",
+      "ok": true,
+      "detail": "HTTP 200"
+    }
+  ],
+  "requests_log": [
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 569
+    },
+    {
+      "method": "GET",
+      "url": "/user/sign-in",
+      "status": 200,
+      "ms": 612
+    },
+    {
+      "method": "POST",
+      "url": "/user/sign-in",
+      "status": 302,
+      "ms": 831,
+      "location": "/"
+    },
+    {
+      "method": "GET",
+      "url": "/",
+      "status": 200,
+      "ms": 644
+    },
+    {
+      "method": "GET",
+      "url": "/api/tickets/options",
+      "status": 200,
+      "ms": 903
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/new",
+      "status": 200,
+      "ms": 567
+    },
+    {
+      "method": "GET",
+      "url": "/ticket/30",
+      "status": 200,
+      "ms": 603
+    },
+    {
+      "method": "GET",
+      "url": "/api/tickets/30",
+      "status": 200,
+      "ms": 1262
+    }
+  ],
+  "read_only": true
+}

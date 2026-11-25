@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>TicketDesk.Modules.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\TicketDesk.Tickets\TicketDesk.Tickets.csproj" />
+    <ProjectReference Include="..\..\Modules\TicketDesk.Projects\TicketDesk.Projects.csproj" />
+    <ProjectReference Include="..\..\Modules\TicketDesk.Reports\TicketDesk.Reports.csproj" />
+    <ProjectReference Include="..\..\Modules\TicketDesk.Users\TicketDesk.Users.csproj" />
+    <ProjectReference Include="..\..\Modules\TicketDesk.Attachments\TicketDesk.Attachments.csproj" />
+    <ProjectReference Include="..\..\Modules\TicketDesk.Search\TicketDesk.Search.csproj" />
+    <ProjectReference Include="..\..\Modules\TicketDesk.Notifications\TicketDesk.Notifications.csproj" />
+    <ProjectReference Include="..\..\Modules\TicketDesk.Settings\TicketDesk.Settings.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rendering\legacy-render-cases.tsv" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

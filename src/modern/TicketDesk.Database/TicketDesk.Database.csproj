@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TicketDesk.Database</RootNamespace>
+    <AssemblyName>td-db</AssemblyName>
+    <Description>Schema changes for the database the legacy and the new app share (expand / contract SQL scripts with a journal), the per-table reconciliation used for the Azure SQL move, and the first administrator of an empty installation.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" />
+    <PackageReference Include="Microsoft.Data.SqlClient.Extensions.Azure" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\**\*.sql" LogicalName="Migrations/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="TicketDesk.Database.Tests" />
+  </ItemGroup>
+</Project>

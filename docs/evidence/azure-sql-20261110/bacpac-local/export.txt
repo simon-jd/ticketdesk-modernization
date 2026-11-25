@@ -1,0 +1,33 @@
+Connecting to database 'TicketDeskBacpac' on server '127.0.0.1,14333'.
+Extracting schema
+Extracting schema from database
+Resolving references in schema model
+Validating schema model
+Validating schema model for data package
+Validating schema
+Processing tables for data extraction
+Exporting data from database
+Exporting data
+Processing Export.
+Processing Table '[dbo].[IdentityUserClaims]'.
+Processing Table '[notifications].[ApplicationPushNotificationSettings]'.
+Processing Table '[dbo].[IdentityUserRoles]'.
+Processing Table '[dbo].[TicketEventNotifications]'.
+Processing Table '[dbo].[__MigrationHistory]'.
+Processing Table '[dbo].[UserSettings]'.
+Processing Table '[dbo].[Projects]'.
+Processing Table '[notifications].[PushNotificationItems]'.
+Processing Table '[notifications].[SubscriberPushNotificationSettings]'.
+Processing Table '[dbo].[IdentityUsers]'.
+Processing Table '[dbo].[ApplicationSettings]'.
+Processing Table '[dbo].[__ModernSchemaHistory]'.
+Processing Table '[notifications].[TicketPushNotificationItems]'.
+Processing Table '[dbo].[IdentityUserLogins]'.
+Processing Table '[notifications].[PushNotificationDestinations]'.
+Processing Table '[dbo].[Tickets]'.
+Processing Table '[dbo].[IdentityRoles]'.
+Processing Table '[dbo].[TicketEvents]'.
+Processing Table '[dbo].[TicketTags]'.
+Processing Table '[dbo].[TicketSubscribers]'.
+Successfully exported database and saved it to file '~/Desktop/ticketdesk-modernization/vm/exports/azure-sql/ticketdesk-baseline-s-shared.bacpac'.
+Time elapsed 0:00:05.19

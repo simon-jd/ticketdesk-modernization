@@ -1,0 +1,4 @@
+remote authentication key set: True
+AzureStorage: http://10.0.2.2:10000/devstoreaccount1
+httpRuntime targetFramework: 4.8
+deployed package sha256: 488696957D298C069F5683E94D6ABB4333B11D695F6EEF21BC3BBE20EF215369

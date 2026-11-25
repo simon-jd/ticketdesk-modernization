@@ -1,0 +1,70 @@
+{
+ "dir": "drill-sql-restart",
+ "requests": 50281,
+ "failed": 801,
+ "availability_pct": 98.407,
+ "slow_over_500ms": 256,
+ "run_s": 360.0,
+ "marks": [
+  "start 2026-11-14T05:21:45.928Z rate 75 for 360 s, fault sql-restart at +120 s",
+  "fault 2026-11-14T05:23:45.937Z docker restart td-load-sql",
+  "container-up 2026-11-14T05:24:16.616Z",
+  "sql-accepting 2026-11-14T05:24:22.217Z",
+  "end 2026-11-14T05:27:49.414Z"
+ ],
+ "before_fault": {
+  "requests": 16807,
+  "failed": 0,
+  "p95_ms": 23.5
+ },
+ "from_fault": {
+  "requests": 33474,
+  "failed": 801,
+  "p95_ms": 24.4
+ },
+ "first_failure_after_fault_s": 30.4,
+ "last_failure_after_fault_s": 68.5,
+ "failed_by_status": {
+  "500": 690,
+  "400": 111
+ },
+ "last_5xx_after_fault_s": 35.4,
+ "last_conn_after_fault_s": null,
+ "last_4xx_after_fault_s": 68.5,
+ "fault_removed_after_fault_s": 36.3,
+ "recovered_after_fault_s": 69.1,
+ "bad_seconds_after_fault": 27,
+ "error_budget": {
+  "run_budget_requests": 251.4,
+  "run_burn_pct": 318.6,
+  "share_of_30d_budget_pct": 0.0442,
+  "req_per_s": 139.7,
+  "p95_run_ms": 24.1,
+  "latency_slo_met_over_run": true
+ },
+ "readiness": {
+  "samples_1s": 334,
+  "seconds_no_ready_web_pod": 0,
+  "seconds_no_ready_endpoint": 0,
+  "pods_seen": {
+   "td-web-56bf5c4bff-75tsf": "0",
+   "td-worker-5f6f789cd7-6rzv6": "0"
+  },
+  "probe": {
+   "failureThreshold": 3,
+   "httpGet": {
+    "path": "/health/ready",
+    "port": "http",
+    "scheme": "HTTP"
+   },
+   "periodSeconds": 10,
+   "successThreshold": 1,
+   "timeoutSeconds": 8
+  },
+  "unhealthy_events": [
+   "2026-11-14T05:17:49Z   Unhealthy           td-web-5c4484cfbd-g4gs7      3       Readiness probe failed: Get \"http://10.244.0.10:8080/health/ready\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+   "2026-11-14T05:21:03Z   Unhealthy           td-web-5c4484cfbd-g4gs7      7       Readiness probe failed: HTTP probe failed with statuscode: 503",
+   "2026-11-14T05:24:16Z   Unhealthy           td-web-56bf5c4bff-75tsf      1       Readiness probe failed: HTTP probe failed with statuscode: 503"
+  ]
+ }
+}

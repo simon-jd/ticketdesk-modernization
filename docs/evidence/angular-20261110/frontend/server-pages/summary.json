@@ -1,0 +1,261 @@
+{
+  "base": "https://localhost:5463",
+  "chrome": "Chrome/156.0.8078.47",
+  "lighthouse": "12.8.2",
+  "axe": "4.14.0",
+  "preset": "desktop",
+  "runs": 3,
+  "pages": {
+    "sign-in": {
+      "url": "/user/sign-in",
+      "final_url": "/user/sign-in",
+      "performance_runs": [
+        100,
+        100,
+        100
+      ],
+      "performance": 100,
+      "accessibility": 66,
+      "best_practices": 100,
+      "lcp_ms": 567.6329000000001,
+      "fcp_ms": 567.6329000000001,
+      "tbt_ms": 0,
+      "cls": 0.00002596255435892946,
+      "transfer_kb": 412,
+      "lighthouse_failed_a11y_audits": [
+        "color-contrast",
+        "html-has-lang",
+        "link-name",
+        "link-in-text-block",
+        "list",
+        "tabindex"
+      ],
+      "axe_violations": 7,
+      "axe_by_impact": {
+        "serious": {
+          "rules": 6,
+          "nodes": 13
+        },
+        "moderate": {
+          "rules": 1,
+          "nodes": 1
+        }
+      },
+      "axe_rules": [
+        "color-contrast (serious, 8)",
+        "html-has-lang (serious, 1)",
+        "link-in-text-block (serious, 1)",
+        "link-name (serious, 1)",
+        "list (serious, 1)",
+        "page-has-heading-one (moderate, 1)",
+        "tabindex (serious, 1)"
+      ]
+    },
+    "ticket-center": {
+      "url": "/tickets",
+      "final_url": "/tickets",
+      "performance_runs": [
+        100,
+        100,
+        100
+      ],
+      "performance": 100,
+      "accessibility": 65,
+      "best_practices": 100,
+      "lcp_ms": 643.7891,
+      "fcp_ms": 485.28909999999996,
+      "tbt_ms": 0,
+      "cls": 0.029037749686250478,
+      "transfer_kb": 512,
+      "lighthouse_failed_a11y_audits": [
+        "aria-required-children",
+        "button-name",
+        "color-contrast",
+        "html-has-lang",
+        "link-name",
+        "link-in-text-block",
+        "list",
+        "listitem",
+        "select-name"
+      ],
+      "axe_violations": 10,
+      "axe_by_impact": {
+        "critical": {
+          "rules": 3,
+          "nodes": 6
+        },
+        "serious": {
+          "rules": 6,
+          "nodes": 68
+        },
+        "moderate": {
+          "rules": 1,
+          "nodes": 1
+        }
+      },
+      "axe_rules": [
+        "aria-required-children (critical, 1)",
+        "button-name (critical, 1)",
+        "color-contrast (serious, 38)",
+        "html-has-lang (serious, 1)",
+        "link-in-text-block (serious, 21)",
+        "link-name (serious, 1)",
+        "list (serious, 1)",
+        "listitem (serious, 6)",
+        "page-has-heading-one (moderate, 1)",
+        "select-name (critical, 4)"
+      ]
+    },
+    "ticket-detail": {
+      "url": "/ticket/1",
+      "final_url": "/ticket/1",
+      "performance_runs": [
+        98,
+        98,
+        98
+      ],
+      "performance": 98,
+      "accessibility": 71,
+      "best_practices": 100,
+      "lcp_ms": 921.6248,
+      "fcp_ms": 881.6248,
+      "tbt_ms": 0,
+      "cls": 0.001443002364066194,
+      "transfer_kb": 780,
+      "lighthouse_failed_a11y_audits": [
+        "button-name",
+        "color-contrast",
+        "html-has-lang",
+        "link-name",
+        "link-in-text-block",
+        "list"
+      ],
+      "axe_violations": 7,
+      "axe_by_impact": {
+        "critical": {
+          "rules": 1,
+          "nodes": 1
+        },
+        "serious": {
+          "rules": 5,
+          "nodes": 13
+        },
+        "moderate": {
+          "rules": 1,
+          "nodes": 1
+        }
+      },
+      "axe_rules": [
+        "button-name (critical, 1)",
+        "color-contrast (serious, 9)",
+        "html-has-lang (serious, 1)",
+        "link-in-text-block (serious, 1)",
+        "link-name (serious, 1)",
+        "list (serious, 1)",
+        "page-has-heading-one (moderate, 1)"
+      ]
+    },
+    "new-ticket": {
+      "url": "/ticket/new",
+      "final_url": "/ticket/new",
+      "performance_runs": [
+        97,
+        97,
+        97
+      ],
+      "performance": 97,
+      "accessibility": 67,
+      "best_practices": 100,
+      "lcp_ms": 976.0585,
+      "fcp_ms": 976.0585,
+      "tbt_ms": 0,
+      "cls": 0.03765620114992849,
+      "transfer_kb": 798,
+      "lighthouse_failed_a11y_audits": [
+        "button-name",
+        "color-contrast",
+        "html-has-lang",
+        "label",
+        "link-name",
+        "link-in-text-block",
+        "list",
+        "tabindex"
+      ],
+      "axe_violations": 9,
+      "axe_by_impact": {
+        "critical": {
+          "rules": 2,
+          "nodes": 16
+        },
+        "serious": {
+          "rules": 6,
+          "nodes": 26
+        },
+        "moderate": {
+          "rules": 1,
+          "nodes": 1
+        }
+      },
+      "axe_rules": [
+        "button-name (critical, 13)",
+        "color-contrast (serious, 8)",
+        "html-has-lang (serious, 1)",
+        "label (critical, 3)",
+        "link-in-text-block (serious, 1)",
+        "link-name (serious, 1)",
+        "list (serious, 1)",
+        "page-has-heading-one (moderate, 1)",
+        "tabindex (serious, 14)"
+      ]
+    },
+    "admin-users": {
+      "url": "/admin/users",
+      "final_url": "/admin/users",
+      "performance_runs": [
+        100,
+        100,
+        100
+      ],
+      "performance": 100,
+      "accessibility": 73,
+      "best_practices": 100,
+      "lcp_ms": 601.2972,
+      "fcp_ms": 601.2972,
+      "tbt_ms": 0,
+      "cls": 0.00006356215159209643,
+      "transfer_kb": 454,
+      "lighthouse_failed_a11y_audits": [
+        "button-name",
+        "color-contrast",
+        "html-has-lang",
+        "link-name",
+        "link-in-text-block",
+        "list"
+      ],
+      "axe_violations": 7,
+      "axe_by_impact": {
+        "critical": {
+          "rules": 1,
+          "nodes": 1
+        },
+        "serious": {
+          "rules": 5,
+          "nodes": 48
+        },
+        "moderate": {
+          "rules": 1,
+          "nodes": 1
+        }
+      },
+      "axe_rules": [
+        "button-name (critical, 1)",
+        "color-contrast (serious, 44)",
+        "html-has-lang (serious, 1)",
+        "link-in-text-block (serious, 1)",
+        "link-name (serious, 1)",
+        "list (serious, 1)",
+        "page-has-heading-one (moderate, 1)"
+      ]
+    }
+  }
+}

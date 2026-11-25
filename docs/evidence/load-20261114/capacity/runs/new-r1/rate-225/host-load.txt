@@ -1,0 +1,30 @@
+## 2026-11-14T01:36:22Z before
+ 17:36:22 up 5 days, 18:14, 10 users,  load average: 7.47, 8.35, 9.51
+               total        used        free      shared  buff/cache   available
+Mem:             123          42          20           1          62          80
+# per-CPU busy % over 3 s (0-31)
+0:7 1:18 2:26 3:1 4:17 5:4 6:16 7:2 8:11 9:10 10:10 11:20 12:11 13:12 14:16 15:3 16:71 17:79 18:37 19:30 20:37 21:58 22:82 23:74 24:45 25:76 26:63 27:48 28:64 29:50 30:63 31:39
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 291  10 1408632 java
+ 100  25 1408966 cc1plus
+ 100  26 1408970 cc1plus
+ 100  22 1408974 cc1plus
+ 100  23 1409000 cc1plus
+ 100  18 1409050 cc1plus
+98.9  28 1408954 cc1plus
+## 2026-11-14T01:39:02Z after
+ 17:39:02 up 5 days, 18:16, 11 users,  load average: 11.17, 10.06, 10.02
+               total        used        free      shared  buff/cache   available
+Mem:             123          41          21           1          63          82
+# per-CPU busy % over 3 s (0-31)
+0:2 1:2 2:3 3:1 4:3 5:3 6:3 7:1 8:5 9:2 10:4 11:2 12:2 13:1 14:2 15:1 16:35 17:24 18:39 19:11 20:43 21:16 22:31 23:29 24:66 25:15 26:32 27:13 28:18 29:23 30:27 31:27
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 200  23 1444316 ps
+ 150  16 1444294 utcp_unit_tests
+ 114  24 1444236 utcp_unit_tests
+ 100  29 1444314 utcp_unit_tests
+92.1  22 1441378 cmake
+92.1  18 1441379 cmake
+88.8  30 1444160 utcp_unit_tests

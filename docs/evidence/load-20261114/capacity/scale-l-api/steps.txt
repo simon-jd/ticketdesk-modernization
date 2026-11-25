@@ -1,0 +1,4 @@
+new rate 25: p50 6.2 p95 106.3 p99 146.1 ms, 5923 req, failed 0.00%, dropped 0
+new rate 50: p50 13.2 p95 187.6 p99 289.5 ms, 11775 req, failed 0.02%, dropped 0
+new rate 100: p50 1715.4 p95 5498.3 p99 6488.8 ms, 17050 req, failed 0.26%, dropped 4040
+stopped after 100 (far past breaking)

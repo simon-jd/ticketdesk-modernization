@@ -1,0 +1,23 @@
+## case timeout: stub queue-cd queue-cd-timeout
+v2 step start 2026-11-11T15:41:42.574Z: release ticketdesk deployed, image ticketdesk-web:aks-v1
+2026-11-11T15:41:47.679Z approval requested, <scratch>/approval-timeout.txt written
+2026-11-11T15:41:57.689Z queue-cd exit 124 (run 999)
+2026-11-11T15:41:57.991Z fallback: aks.sh deploy v2 (queue-cd exit 124)
+2026-11-11T15:42:04.758Z v2 deployed by: script (aks.sh deploy v2; queue-cd exit 124)
+probe through the v2 step: reads 86 (0 failed), writes 43 (0 failed); failure windows []
+REVISION	UPDATED                 	STATUS         	CHART           	APP VERSION	DESCRIPTION      
+1       	Wed Nov 11 07:41:36 2026	superseded     	ticketdesk-0.1.0	round4     	Install complete 
+2       	Wed Nov 11 07:41:50 2026	pending-upgrade	ticketdesk-0.1.0	round4     	Preparing upgrade
+3       	Wed Nov 11 07:41:57 2026	superseded     	ticketdesk-0.1.0	round4     	Rollback to 1    
+4       	Wed Nov 11 07:41:58 2026	deployed       	ticketdesk-0.1.0	round4     	Upgrade complete 
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                   NOMINATED NODE   READINESS GATES
+td-db-migrate-m6g9g         0/1     Completed   0          27s   10.244.0.9    td-aks-control-plane   <none>           <none>
+td-web-854b9f6574-xxlfz     1/1     Running     0          24s   10.244.0.10   td-aks-control-plane   <none>           <none>
+td-worker-67c9fb6cf-vb92h   1/1     Running     0          24s   10.244.0.11   td-aks-control-plane   <none>           <none>
+-- recovery.txt
+2026-11-11T15:41:57.691Z run 999: cancelled and completed (stub)
+2026-11-11T15:41:57.749Z release ticketdesk: pending-upgrade
+Rollback was a success! Happy Helming!
+2026-11-11T15:41:57.900Z rolled back to revision 1: deployed
+-- approval file: 2026-11-11T15:41:47Z approval requested for the v2 deploy (aks-lab): https://dev.azure.com/<ado-org>/TicketDesk/_build/results?buildId=999
+-- failed probe requests

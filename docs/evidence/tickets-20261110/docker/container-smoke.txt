@@ -1,0 +1,8 @@
+$ TD_LOCK_OWNER=tickets ops/dev/container-smoke.sh ticketdesk-web:r2b-tickets 1   (2026-11-10T07:36:27Z, git 8d72da3)
+image: ticketdesk-web:r2b-tickets (272732451 bytes, configured user 1654)
+process (pid uid args): 794494              1654                dotnet TicketDesk.Web.dll
+health/live: 200
+sign-in (legacy, proxied): 302, backend legacy (not marked)
+GET /ticket/1: 200, 23510 bytes, X-TicketDesk-Backend: modern; route=ticket.view, title: Ticket #1
+panels: ticketDetailPanel, activityButtonsPanel, eventPanel, __RequestVerificationToken
+exit 0

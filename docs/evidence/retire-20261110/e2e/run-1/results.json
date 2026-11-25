@@ -1,0 +1,553 @@
+{
+  "config": {
+    "argv": [
+      "~/Desktop/ticketdesk-modernization/.tools/node-v24.22.2-linux-x64/bin/node",
+      "~/Desktop/ticketdesk-modernization/wt-retire/src/web/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/playwright.config.ts",
+    "rootDir": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "~/Desktop/ticketdesk-modernization/wt-retire/docs/evidence/retire-20261110/e2e/run-1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "sign-in",
+        "name": "sign-in",
+        "testDir": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "/auth\\.setup\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "~/Desktop/ticketdesk-modernization/wt-retire/docs/evidence/retire-20261110/e2e/run-1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "~/Desktop/ticketdesk-modernization/wt-retire/docs/evidence/retire-20261110/e2e/run-1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "sign-in",
+        "testDir": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/e2e",
+        "snapshotDir": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/e2e",
+        "testIgnore": [],
+        "testMatch": {},
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://localhost:5463",
+          "ignoreHTTPSErrors": true,
+          "trace": "off",
+          "screenshot": "only-on-failure",
+          "locale": "en-US"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "sign-in"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "~/Desktop/ticketdesk-modernization/wt-retire/docs/evidence/retire-20261110/e2e/run-1/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/e2e",
+        "snapshotDir": "~/Desktop/ticketdesk-modernization/wt-retire/src/web/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://localhost:5463",
+          "ignoreHTTPSErrors": true,
+          "trace": "off",
+          "screenshot": "only-on-failure",
+          "locale": "en-US",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [
+          "sign-in"
+        ],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "~/Desktop/ticketdesk-modernization/wt-retire/docs/evidence/retire-20261110/e2e/run-1/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth.setup.ts",
+      "file": "auth.setup.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sign in as the admin user",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "sign-in",
+              "projectName": "sign-in",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 742,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T05:22:12.930Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "17e3fe6f4d9d8bd79c6b-7fb348bbb54dcd6ee6c0",
+          "file": "auth.setup.ts",
+          "line": 7,
+          "column": 8
+        },
+        {
+          "title": "sign in as the internal user",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "sign-in",
+              "projectName": "sign-in",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 254,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T05:22:13.728Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "17e3fe6f4d9d8bd79c6b-221f2e99d86a38825436",
+          "file": "auth.setup.ts",
+          "line": 7,
+          "column": 8
+        }
+      ]
+    },
+    {
+      "title": "switch-back.spec.ts",
+      "file": "switch-back.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "switch-back",
+          "file": "switch-back.spec.ts",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "a ticket page switched back is answered by the server page, then by Angular again",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1877,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-11T05:22:14.203Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9846719b0a31f385f445-b73519e9f3e923a56383",
+              "file": "switch-back.spec.ts",
+              "line": 36,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tickets.spec.ts",
+      "file": "tickets.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "workflow on the ticket page: take over, comment, resolve (help desk), close (owner)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 991,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T05:22:17.855Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d0af0b82280f1821db49-6ed5f7cd6b254766a5ab",
+          "file": "tickets.spec.ts",
+          "line": 109,
+          "column": 5
+        },
+        {
+          "title": "anonymous visitors are sent to the sign-in page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 93,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-11T05:22:19.715Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d0af0b82280f1821db49-876674469d80cd903f63",
+          "file": "tickets.spec.ts",
+          "line": 189,
+          "column": 5
+        }
+      ],
+      "suites": [
+        {
+          "title": "as an internal user",
+          "file": "tickets.spec.ts",
+          "line": 29,
+          "column": 6,
+          "specs": [
+            {
+              "title": "list, open a ticket, create one, see it in the list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 894,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-11T05:22:16.139Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d0af0b82280f1821db49-476a4ef1645e54ce1bef",
+              "file": "tickets.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "has only the internal lists; the help-desk lists are refused",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 199,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-11T05:22:17.038Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d0af0b82280f1821db49-31b97b355b4d5005486a",
+              "file": "tickets.spec.ts",
+              "line": 76,
+              "column": 7
+            },
+            {
+              "title": "cannot see the attachments of someone else's ticket, and the API needs the antiforgery header",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-11T05:22:17.243Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d0af0b82280f1821db49-d0577b2fcc32b05542b9",
+              "file": "tickets.spec.ts",
+              "line": 83,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "as an administrator (help desk)",
+          "file": "tickets.spec.ts",
+          "line": 146,
+          "column": 6,
+          "specs": [
+            {
+              "title": "help-desk lists, filters, sorting and paging",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 557,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-11T05:22:18.850Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d0af0b82280f1821db49-c2a0ef7159f25e39cc04",
+              "file": "tickets.spec.ts",
+              "line": 149,
+              "column": 7
+            },
+            {
+              "title": "the new-ticket form explains what is missing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 298,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-11T05:22:19.412Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d0af0b82280f1821db49-ffbf4b2f90c3d45f7797",
+              "file": "tickets.spec.ts",
+              "line": 175,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-11T05:22:12.692Z",
+    "duration": 7163.517,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

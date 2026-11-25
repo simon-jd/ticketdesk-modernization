@@ -1,0 +1,30 @@
+## 2026-11-14T06:09:52Z before
+ 22:09:52 up 5 days, 22:47,  9 users,  load average: 20.14, 15.48, 11.87
+               total        used        free      shared  buff/cache   available
+Mem:             123          47           5           1          72          76
+# per-CPU busy % over 3 s (0-31)
+0:7 1:5 2:5 3:2 4:4 5:4 6:3 7:3 8:6 9:1 10:6 11:2 12:7 13:4 14:4 15:1 16:100 17:99 18:100 19:100 20:100 21:100 22:100 23:100 24:100 25:100 26:100 27:100 28:100 29:99 30:100 31:100
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 100  28 3349349 utcp_sim_tests
+ 100  16 3349246 utcp_unit_tests
+ 100  19 3349265 utcp_unit_tests
+ 100  31 3349268 utcp_unit_tests
+ 100  29 3349343 utcp_sim_tests
+ 100  17 3349398 utcp_sim_tests
+ 100   0 3349460 ps
+## 2026-11-14T06:17:04Z after
+ 22:17:04 up 5 days, 22:54, 10 users,  load average: 12.78, 10.33, 10.63
+               total        used        free      shared  buff/cache   available
+Mem:             123          45           7           1          72          77
+# per-CPU busy % over 3 s (0-31)
+0:10 1:6 2:8 3:5 4:10 5:4 6:8 7:5 8:8 9:5 10:8 11:6 12:10 13:5 14:7 15:5 16:100 17:92 18:99 19:100 20:100 21:97 22:95 23:96 24:99 25:94 26:94 27:97 28:98 29:96 30:100 31:96
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 110  19 3402674 utcp_sim_tests
+ 109  24 3402672 tshark
+ 105  26 3402651 utcp_sim_tests
+ 102  31 3402512 utcp_sim_tests
+ 102  29 3402487 clang++-21
+ 102  22 3402449 utcp_sim_tests
+ 101  23 3402415 clang++-21

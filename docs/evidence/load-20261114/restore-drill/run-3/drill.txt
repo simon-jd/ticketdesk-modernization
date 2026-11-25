@@ -1,0 +1,10 @@
+2026-11-14T06:02:43.284Z app on TicketDesk_load_rd3 (values file)
+full 2026-11-14T06:03:03.293Z -> 2026-11-14T06:03:03.500Z
+log 1 2026-11-14T06:03:33.608Z
+log 2 2026-11-14T06:04:03.686Z
+log 3 2026-11-14T06:04:33.772Z
+log 4 2026-11-14T06:05:03.863Z
+loss 2026-11-14T06:05:20.866Z (dropped 2026-11-14T06:05:26.343Z)
+restore 2026-11-14T06:05:26.347Z -> 2026-11-14T06:05:27.607Z
+app switched 2026-11-14T06:05:31.591Z
+smoke 2026-11-14T06:05:40.136Z (attempt 2): {"command": "smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 11, "seconds": 1.7}

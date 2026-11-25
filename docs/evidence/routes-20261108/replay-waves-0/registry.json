@@ -1,0 +1,8 @@
+{
+  "Migration": {
+    "Routes": {
+      "bundles.styles": "New",
+      "bundles.scripts": "New"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+# cycle S1 apply
+# command: make azure-up/down-foundation (bash wrapper in tmux), swedencentral, terraform 1.17.1, azurerm 5.13.0, azuread 3.10.0, azapi 2.13.0, host lab-host
+# lines kept: stage start/end, plan summary, per-resource Creation/Destruction complete, errors; IDs redacted
+apply stage foundation start 2026-11-08T07:33:54Z
+Plan: 24 to add, 0 to change, 0 to destroy.
+azurerm_resource_group.lab[0]: Creation complete after 23s
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Creation complete after 3s
+module.network[0].azurerm_network_security_group.pe: Creation complete after 4s
+module.network[0].azurerm_network_security_group.vm: Creation complete after 4s
+module.network[0].azurerm_network_security_group.aks: Creation complete after 4s
+module.network[0].azurerm_virtual_network.this: Creation complete after 6s
+module.network[0].azurerm_subnet.vm: Creation complete after 6s
+module.network[0].azurerm_subnet.aks: Creation complete after 12s
+module.network[0].azurerm_subnet.pe: Creation complete after 18s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Creation complete after 18s
+module.sql[0].azurerm_private_dns_zone.sql: Creation complete after 34s
+module.network[0].azurerm_subnet_network_security_group_association.aks: Creation complete after 20s
+module.network[0].azurerm_subnet_network_security_group_association.pe: Creation complete after 18s
+module.monitoring[0].azurerm_log_analytics_workspace.this: Creation complete after 46s
+module.monitoring[0].azurerm_application_insights.this: Creation complete after 5s
+module.sql[0].azurerm_mssql_server.this: Creation complete after 1m4s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Creation complete after 33s
+module.sql[0].azapi_resource.database: Creation complete after 1m2s
+module.keyvault[0].azurerm_key_vault.this: Creation complete after 2m38s
+module.sql[0].azurerm_private_endpoint.sql: Creation complete after 1m56s
+module.keyvault[0].azurerm_role_assignment.admin: Creation complete after 31s
+module.keyvault[0].time_sleep.rbac_propagation: Creation complete after 2m0s
+azurerm_key_vault_secret.sql_connection_string[0]: Creation complete after 3s
+azurerm_key_vault_secret.appinsights[0]: Creation complete after 4s
+Apply complete! Resources: 24 added, 0 changed, 0 destroyed.
+apply stage foundation end 2026-11-08T07:39:45Z elapsed_s=351 rc=0
+EXIT=0

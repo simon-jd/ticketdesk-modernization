@@ -1,0 +1,105 @@
+# Defaults are the AKS shape with everything Azure-specific off; values-kind.yaml and the values aks.sh renders from the
+# Terraform outputs (ops/azure/aks.sh values) fill them in. No secret ever goes into values: on kind they come from
+# Kubernetes secrets created by ops/k8s/kind.sh, on AKS from Key Vault (CSI driver) or not at all (workload identity).
+
+image:
+  registry: ""            # AKS: <acr>.azurecr.io; kind: images loaded into the node (kind load docker-image)
+  tag: dev
+  # td-db image tag when it differs from the app's: the migrate job always runs the newest td-db (the schema journal refuses
+  # an older build once a newer one has applied scripts it does not know), e.g. image v1's release next to v2's td-db
+  dbTag: ""
+  pullPolicy: IfNotPresent
+  web: ticketdesk-web
+  worker: ticketdesk-worker
+  db: ticketdesk-db
+
+azure:
+  workloadIdentity: false # azure.workload.identity/use on the pods, client ids on the service accounts
+  tenantId: ""
+  appClientId: ""         # id-tdlab-app (web, worker)
+  migratorClientId: ""    # id-tdlab-sqldeploy (the td-db migrate job: Azure SQL Entra admin)
+  keyVault:
+    enabled: false        # SecretProviderClass (Key Vault provider of the Secrets Store CSI add-on)
+    name: ""
+    csiIdentityClientId: ""   # the add-on's identity (Key Vault Secrets User)
+    certificateName: td-aks-web
+    appInsightsSecret: appinsights-connection-string
+    attachmentsSecret: td-attachments-connection
+
+database:
+  # Non-secret connection string (AKS: "Authentication=Active Directory Workload Identity"). Empty: secretName/secretKey.
+  connectionString: ""
+  secretName: ""
+  secretKey: connection-string
+  migrator:
+    connectionString: ""
+    secretName: ""
+    secretKey: connection-string
+
+migrate:
+  enabled: true
+  args: ["migrate"]        # after the legacy app is gone: ["migrate", "--contract", "--legacy-retired"]
+  activeDeadlineSeconds: 900
+  resources:
+    requests: { cpu: 50m, memory: 96Mi }
+    limits: { memory: 256Mi }
+
+web:
+  replicas: 1
+  # One B2as_v2 node (2 vCPU / 8 GiB, ~1.9 vCPU and ~5.5 GiB allocatable, ~0.6 vCPU of it requested by AKS's own pods):
+  # web 250m + worker 50m + migrate job 50m leave room for a rolling update (maxSurge 1) of the web pod.
+  resources:
+    requests: { cpu: 250m, memory: 384Mi }
+    limits: { memory: 1Gi }
+  aspnetcoreEnvironment: Production
+  sharedCookie: false               # image v1 only: Authentication:SharedCookie (the legacy app reads the cookie)
+  keyVaultKeyId: ""                 # DataProtection:KeyVaultKeyId
+  legacy:
+    enabled: null                   # image v1: true = YARP fallback to the legacy app, false = none; v2 (no legacy): leave null
+    baseUrl: ""
+    hostAlias: { ip: "", hostname: "" }   # the VM's name -> its private IP (the gateway talks to IIS over the VNet)
+    caConfigMap: ""                 # ConfigMap with the lab CA as <subject-hash>.0 (OpenSSL lookup; SSL_CERT_DIR)
+  attachments:
+    store: Local                    # Blob: the legacy container (connection string from Key Vault or a secret)
+    secretName: ""
+    secretKey: connection-string
+  serviceBus:
+    fullyQualifiedNamespace: ""
+    secretName: ""                  # emulator connection string (kind)
+    secretKey: connection-string
+    queue: ticket-notifications
+  tls:
+    source: none                    # csi (Key Vault certificate) | secret (kubernetes.io/tls, kind) | none
+    secretName: ""
+    reloadInterval: "00:00:10"
+  service:
+    type: ClusterIP                 # AKS: LoadBalancer (port 443 -> Kestrel 8443); kind: NodePort
+    httpsPort: 443
+    nodePort: null
+    dnsLabel: ""                    # service.beta.kubernetes.io/azure-dns-label-name
+    loadBalancerSourceRanges: []
+  telemetry:
+    serviceName: ticketdesk-web
+  migrationRegistry: ""             # optional: contents of migration-registry.json (ConfigMap over the image's file)
+  extraEnv: []
+
+worker:
+  enabled: true
+  replicas: 1
+  resources:
+    requests: { cpu: 50m, memory: 160Mi }
+    limits: { memory: 512Mi }
+  healthPort: 8081
+  mailPickup: true                  # lab: mails as .eml files in an emptyDir (no SMTP relay in the lab)
+  extraEnv: []
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1654
+  runAsGroup: 1654
+  fsGroup: 1654
+  seccompProfile: { type: RuntimeDefault }
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities: { drop: ["ALL"] }

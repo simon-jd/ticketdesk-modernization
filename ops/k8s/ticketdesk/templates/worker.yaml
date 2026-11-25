@@ -1,0 +1,68 @@
+{{- if .Values.worker.enabled }}
+{{- $w := .Values.worker -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: td-worker
+  labels: {{- include "td.labels" . | nindent 4 }}
+    app.kubernetes.io/name: td-worker
+spec:
+  replicas: {{ $w.replicas }}
+  revisionHistoryLimit: 3
+  strategy: { type: Recreate }   # one consumer at a time (MaxConcurrentCalls 1, at-least-once delivery)
+  selector:
+    matchLabels: { app.kubernetes.io/name: td-worker }
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: td-worker
+        {{- include "td.podLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: td-worker
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 60
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: worker
+          image: {{ include "td.image" (list . .Values.image.worker) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - { name: health, containerPort: {{ $w.healthPort }} }
+          env:
+            - { name: DOTNET_gcServer, value: "0" }
+            {{- include "td.dbEnv" (list .Values.database "ConnectionStrings__TicketDesk") | nindent 12 }}
+            {{- include "td.azureEnv" . | nindent 12 }}
+            - { name: Worker__HealthPort, value: {{ $w.healthPort | quote }} }
+            {{- if .Values.web.serviceBus.fullyQualifiedNamespace }}
+            - { name: Notifications__ServiceBus__FullyQualifiedNamespace, value: {{ .Values.web.serviceBus.fullyQualifiedNamespace | quote }} }
+            {{- else }}
+            - name: Notifications__ServiceBus__ConnectionString
+              valueFrom:
+                secretKeyRef: { name: {{ required "web.serviceBus.secretName (worker)" .Values.web.serviceBus.secretName | quote }}, key: {{ .Values.web.serviceBus.secretKey | quote }} }
+            {{- end }}
+            - { name: Notifications__ServiceBus__QueueName, value: {{ .Values.web.serviceBus.queue | quote }} }
+            {{- if $w.mailPickup }}
+            - { name: Worker__Mail__PickupDirectory, value: /tmp/mail }
+            {{- end }}
+            {{- with $w.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          startupProbe:
+            httpGet: { path: /health/live, port: health }
+            periodSeconds: 2
+            failureThreshold: 60
+          livenessProbe:
+            httpGet: { path: /health/live, port: health }
+            periodSeconds: 20
+            failureThreshold: 3
+          readinessProbe:
+            httpGet: { path: /health/ready, port: health }   # the queue processor runs
+            periodSeconds: 10
+            failureThreshold: 3
+          resources: {{- toYaml $w.resources | nindent 12 }}
+          securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+      volumes:
+        - { name: tmp, emptyDir: { sizeLimit: 128Mi } }
+{{- end }}

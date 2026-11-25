@@ -1,0 +1,2 @@
+$ td-replay compare --baseline <previous golden (customErrors Off)> --candidate replay-legacy/legacy-run1.jsonl --out-dir s9/compare-old-golden-vs-new
+compared 262, matched 260, mismatched 2 (missing 0, extra 0) -> docs/evidence/baseline-20261108/s9/compare-old-golden-vs-new/report.md

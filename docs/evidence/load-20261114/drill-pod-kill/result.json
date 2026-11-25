@@ -1,0 +1,66 @@
+{
+ "dir": "drill-pod-kill",
+ "requests": 51272,
+ "failed": 34,
+ "availability_pct": 99.934,
+ "slow_over_500ms": 294,
+ "run_s": 360.0,
+ "marks": [
+  "start 2026-11-14T05:07:57.767Z rate 75 for 360 s, fault pod-kill at +120 s",
+  "fault 2026-11-14T05:09:57.816Z kubectl delete pod td-web-7746b5c8c-jrbtx --grace-period=0 --force",
+  "ready 2026-11-14T05:10:01.189Z td-web-7746b5c8c-b55n4",
+  "end 2026-11-14T05:14:00.575Z"
+ ],
+ "before_fault": {
+  "requests": 16822,
+  "failed": 0,
+  "p95_ms": 23.5
+ },
+ "from_fault": {
+  "requests": 34450,
+  "failed": 34,
+  "p95_ms": 26.0
+ },
+ "first_failure_after_fault_s": 1.1,
+ "last_failure_after_fault_s": 6.4,
+ "failed_by_status": {
+  "0": 32,
+  "500": 2
+ },
+ "last_5xx_after_fault_s": 6.4,
+ "last_conn_after_fault_s": 3.1,
+ "last_4xx_after_fault_s": null,
+ "fault_removed_after_fault_s": 3.4,
+ "recovered_after_fault_s": 6.0,
+ "bad_seconds_after_fault": 5,
+ "error_budget": {
+  "run_budget_requests": 256.4,
+  "run_burn_pct": 13.3,
+  "share_of_30d_budget_pct": 0.0018,
+  "req_per_s": 142.4,
+  "p95_run_ms": 25.0,
+  "latency_slo_met_over_run": true
+ },
+ "readiness": {
+  "samples_1s": 334,
+  "seconds_no_ready_web_pod": 3,
+  "seconds_no_ready_endpoint": 3,
+  "pods_seen": {
+   "td-web-7746b5c8c-jrbtx": "0",
+   "td-worker-77f6989bc9-ds4h2": "0",
+   "td-web-7746b5c8c-b55n4": "0"
+  },
+  "probe": {
+   "failureThreshold": 3,
+   "httpGet": {
+    "path": "/health/ready",
+    "port": "http",
+    "scheme": "HTTP"
+   },
+   "periodSeconds": 10,
+   "successThreshold": 1,
+   "timeoutSeconds": 8
+  },
+  "unhealthy_events": []
+ }
+}

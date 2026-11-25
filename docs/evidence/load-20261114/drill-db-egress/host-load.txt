@@ -1,0 +1,30 @@
+## 2026-11-14T05:14:48Z before
+ 21:14:48 up 5 days, 21:52, 10 users,  load average: 4.90, 6.05, 8.33
+               total        used        free      shared  buff/cache   available
+Mem:             123          48          24           1          52          75
+# per-CPU busy % over 3 s (0-31)
+0:1 1:1 2:1 3:0 4:3 5:1 6:3 7:0 8:2 9:2 10:2 11:0 12:2 13:0 14:3 15:1 16:3 17:3 18:3 19:2 20:100 21:3 22:2 23:2 24:6 25:2 26:5 27:2 28:2 29:3 30:2 31:2
+# top processes by CPU
+%CPU PSR     PID COMMAND
+99.6  20 2901117 utcp_unit_tests
+49.4  26 2902746 dotnet
+43.1  26 1049942 sqlservr
+31.0  10 1253588 td-legacy-vm
+20.9   6 2674001 code
+18.9  24 2902860 dotnet
+12.2   4 2646229 auto-app
+## 2026-11-14T05:20:55Z after
+ 21:20:55 up 5 days, 21:58,  8 users,  load average: 3.64, 4.87, 7.09
+               total        used        free      shared  buff/cache   available
+Mem:             123          51          20           1          52          71
+# per-CPU busy % over 3 s (0-31)
+0:24 1:11 2:19 3:7 4:18 5:7 6:13 7:8 8:19 9:10 10:18 11:7 12:15 13:9 14:20 15:5 16:18 17:19 18:16 19:13 20:14 21:18 22:13 23:12 24:17 25:15 26:13 27:12 28:14 29:16 30:15 31:13
+# top processes by CPU
+%CPU PSR     PID COMMAND
+60.5  26 2902746 dotnet
+43.3  26 1049942 sqlservr
+31.0  14 1253588 td-legacy-vm
+19.6  17 2674001 code
+12.2  21 2646229 auto-app
+11.0   6    8349 grok-bot
+ 9.2  10 2720732 python

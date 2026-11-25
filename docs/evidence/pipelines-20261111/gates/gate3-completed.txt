@@ -1,0 +1,5 @@
+# 2026-11-11T08:59:51Z complete PR 4 after the fix (build 14 approved)
+PR 4 -> active merge=queued
+PR 4 completed merge=succeeded demo/gate-terraform-fmt -> modernize source=5c70418e merged=5c70418e closed=2026-11-11T08:59:52.2385434Z "Gate demo 3: terraform fmt drift"
+  policy Build blocking=true status=approved build=14 buildOutputPreview=
+refs/heads/modernize 5c70418eedb9f4985dcf1934dba98bc9c09e478f

@@ -1,0 +1,17 @@
+{
+  "phase": "new",
+  "writes": [
+    {
+      "kind": "create",
+      "ticket": 10001,
+      "backend": "modern; route=ticket.new.post",
+      "status": 302
+    },
+    {
+      "kind": "comment",
+      "ticket": 10001,
+      "backend": "modern; route=activity.add-comment",
+      "status": 200
+    }
+  ]
+}

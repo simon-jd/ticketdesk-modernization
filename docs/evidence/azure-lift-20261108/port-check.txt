@@ -1,0 +1,10 @@
+# port check from lab-host (the NSG's only allowed source) 2026-11-08T16:09:25Z, target tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com
+tcp/443 open
+tcp/80 no connection (6 s timeout)
+tcp/3389 no connection (6 s timeout)
+tcp/5985 no connection (6 s timeout)
+tcp/5986 no connection (6 s timeout)
+tcp/22 no connection (6 s timeout)
+tcp/1433 no connection (6 s timeout)
+# TLS on 443 (lab CA):
+https://https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com/ -> HTTP 200, verify=0

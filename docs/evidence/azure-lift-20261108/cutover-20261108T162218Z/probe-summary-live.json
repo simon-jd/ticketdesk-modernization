@@ -1,0 +1,160 @@
+{
+  "file": "probe.jsonl",
+  "start": "2026-11-08T16:22:18.276Z",
+  "end": "2026-11-08T16:25:31.155Z",
+  "ticks": 161,
+  "read_requests": 322,
+  "failed_reads": 12,
+  "signins": 2,
+  "failed_signins": 0,
+  "switches": [
+    {
+      "t": "2026-11-08T16:22:18.276Z",
+      "target": "https://localhost:8443"
+    },
+    {
+      "t": "2026-11-08T16:24:31.363Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+    }
+  ],
+  "per_target_path": [
+    {
+      "target": "https://localhost:8443",
+      "path": "/",
+      "requests": 133,
+      "failed": 6,
+      "median_ms": 28,
+      "p95_ms": 40
+    },
+    {
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "requests": 133,
+      "failed": 6,
+      "median_ms": 65,
+      "p95_ms": 97
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 28,
+      "failed": 0,
+      "median_ms": 729,
+      "p95_ms": 763
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 28,
+      "failed": 0,
+      "median_ms": 1314,
+      "p95_ms": 1339
+    }
+  ],
+  "failure_windows": [
+    {
+      "target": "https://localhost:8443",
+      "start": "2026-11-08T16:22:48.384Z",
+      "end": "2026-11-08T16:22:53.383Z",
+      "ticks": 6
+    }
+  ],
+  "failed": [
+    {
+      "t": "2026-11-08T16:22:48.384Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 33,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:48.420Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 35,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:49.369Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 18,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:49.397Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 28,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:50.369Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 18,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:50.388Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 19,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:51.369Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 18,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:51.391Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 22,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:52.384Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 33,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:52.400Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 15,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:53.369Z",
+      "target": "https://localhost:8443",
+      "path": "/",
+      "status": 500,
+      "ms": 17,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-08T16:22:53.383Z",
+      "target": "https://localhost:8443",
+      "path": "/tickets",
+      "status": 500,
+      "ms": 14,
+      "error": "HTTP 500"
+    }
+  ]
+}

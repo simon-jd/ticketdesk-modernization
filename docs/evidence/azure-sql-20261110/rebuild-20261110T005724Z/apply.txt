@@ -1,0 +1,1687 @@
+source ~/Desktop/ticketdesk-modernization/.tools/env.sh && umask 077 && cd infra/terraform/envs/lab && export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv) && export TF_VAR_subscription_id=$ARM_SUBSCRIPTION_ID TF_VAR_tenant_id=$(az account show --query tenantId -o tsv) && export TF_VAR_ttl_utc=$(date -u -d "+5 hours" +%Y-%m-%dT%H:%M:%SZ) && source ~/Desktop/ticketdesk-modernization/wt-azure-sql/scripts/tf_lift_env.sh ~/Desktop/ticketdesk-modernization ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/azure-lift.pfx && terraform init -input=false -backend-config=path=~/Desktop/ticketdesk-modernization/.tfstate/lab/terraform.tfstate
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing modules...[0m
+
+[0m[1mInitializing provider plugins...[0m
+- Reusing version 3.9.1 of hashicorp/random from the dependency lock file
+- Reusing version 0.14.2 of hashicorp/time from the dependency lock file
+- Reusing version 5.13.0 of hashicorp/azurerm from the dependency lock file
+- Reusing version 3.10.0 of hashicorp/azuread from the dependency lock file
+- Reusing version 2.13.0 of azure/azapi from the dependency lock file
+- Using previously-installed hashicorp/random v3.9.1
+- Using previously-installed hashicorp/time v0.14.2
+- Using previously-installed hashicorp/azurerm v5.13.0
+- Using previously-installed hashicorp/azuread v3.10.0
+- Using previously-installed azure/azapi v2.13.0
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+ledger running estimate $9.79 / cap $13.50: OK
+apply stage replatform start 2026-11-10T00:57:25Z
+[0m[1mdata.azuread_client_config.current: Reading...[0m[0m
+[0m[1mdata.azuread_client_config.current: Read complete after 0s [id=<tenant-id>-04b07795-8ddb-461a-bbee-02f9e1bf7b46-<principal-id-8>][0m
+[0m[1mdata.azuread_user.me: Reading...[0m[0m
+[0m[1mmodule.entra[0].azuread_application.web: Refreshing state... [id=/applications/<principal-id-13>][0m
+[0m[1mdata.azuread_user.me: Read complete after 1s [id=/users/<principal-id-8>][0m
+[0m[1mmodule.entra[0].azuread_service_principal.web: Refreshing state... [id=/servicePrincipals/<principal-id-3>][0m
+[0m[1mmodule.entra[0].azuread_app_role_assignment.admin: Refreshing state... [id=/servicePrincipals/<principal-id-3>/appRoleAssignedTo/3xZGhjjnlEiJClDyDCBVODYduw25U0lGkIFJr1ojvg0][0m
+[0m[1mdata.azurerm_subscription.current: Reading...[0m[0m
+[0m[1mdata.azurerm_client_config.current: Reading...[0m[0m
+[0m[1mdata.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD0wNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDY7b2JqZWN0SWQ9PHByaW5jaXBhbC1pZC04PjtzdWJzY3JpcHRpb25JZD08c3Vic2NyaXB0aW9uLWlkPjt0ZW5hbnRJZD08dGVuYW50LWlkPg==][0m
+[0m[1mdata.azurerm_subscription.current: Read complete after 0s [id=/subscriptions/<subscription-id>][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+ [36m<=[0m read (data resources)[0m
+
+Terraform will perform the following actions:
+
+[1m  # data.azurerm_storage_account_sas.attachments[0][0m will be read during apply
+  # (config refers to values not yet known)
+[0m [36m<=[0m[0m data "azurerm_storage_account_sas" "attachments" {
+      [32m+[0m[0m connection_string = (sensitive value)
+      [32m+[0m[0m expiry            = (known after apply)
+      [32m+[0m[0m https_only        = true
+      [32m+[0m[0m id                = (known after apply)
+      [32m+[0m[0m sas               = (sensitive value)
+      [32m+[0m[0m start             = (known after apply)
+
+      [32m+[0m[0m permissions {
+          [32m+[0m[0m add     = true
+          [32m+[0m[0m create  = true
+          [32m+[0m[0m delete  = true
+          [32m+[0m[0m filter  = false
+          [32m+[0m[0m list    = true
+          [32m+[0m[0m process = false
+          [32m+[0m[0m read    = true
+          [32m+[0m[0m tag     = false
+          [32m+[0m[0m update  = false
+          [32m+[0m[0m write   = true
+        }
+
+      [32m+[0m[0m resource_types {
+          [32m+[0m[0m container = true
+          [32m+[0m[0m object    = true
+          [32m+[0m[0m service   = false
+        }
+
+      [32m+[0m[0m services {
+          [32m+[0m[0m blob  = true
+          [32m+[0m[0m file  = false
+          [32m+[0m[0m queue = false
+          [32m+[0m[0m table = false
+        }
+    }
+
+[1m  # azurerm_key_vault_certificate.iis[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_certificate" "iis" {
+      [32m+[0m[0m certificate_attribute           = (known after apply)
+      [32m+[0m[0m certificate_data                = (known after apply)
+      [32m+[0m[0m certificate_data_base64         = (known after apply)
+      [32m+[0m[0m id                              = (known after apply)
+      [32m+[0m[0m key_vault_id                    = (known after apply)
+      [32m+[0m[0m name                            = "td-iis-legacy"
+      [32m+[0m[0m resource_manager_id             = (known after apply)
+      [32m+[0m[0m resource_manager_versionless_id = (known after apply)
+      [32m+[0m[0m secret_id                       = (known after apply)
+      [32m+[0m[0m tags                            = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m thumbprint                      = (known after apply)
+      [32m+[0m[0m version                         = (known after apply)
+      [32m+[0m[0m versionless_id                  = (known after apply)
+      [32m+[0m[0m versionless_secret_id           = (known after apply)
+
+      [32m+[0m[0m certificate {
+          [32m+[0m[0m contents = (sensitive value)
+          [32m+[0m[0m password = (sensitive value)
+        }
+
+      [32m+[0m[0m certificate_policy (known after apply)
+    }
+
+[1m  # azurerm_key_vault_secret.app_admin[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_secret" "app_admin" {
+      [32m+[0m[0m content_type            = "password"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m key_vault_id            = (known after apply)
+      [32m+[0m[0m name                    = "td-app-admin-password"
+      [32m+[0m[0m resource_id             = (known after apply)
+      [32m+[0m[0m resource_versionless_id = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m value                   = (sensitive value)
+      [32m+[0m[0m value_wo                = (write-only attribute)
+      [32m+[0m[0m version                 = (known after apply)
+      [32m+[0m[0m versionless_id          = (known after apply)
+    }
+
+[1m  # azurerm_key_vault_secret.appinsights[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_secret" "appinsights" {
+      [32m+[0m[0m content_type            = "text/plain"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m key_vault_id            = (known after apply)
+      [32m+[0m[0m name                    = "appinsights-connection-string"
+      [32m+[0m[0m resource_id             = (known after apply)
+      [32m+[0m[0m resource_versionless_id = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m value                   = (sensitive value)
+      [32m+[0m[0m value_wo                = (write-only attribute)
+      [32m+[0m[0m version                 = (known after apply)
+      [32m+[0m[0m versionless_id          = (known after apply)
+    }
+
+[1m  # azurerm_key_vault_secret.attachments[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_secret" "attachments" {
+      [32m+[0m[0m content_type            = "connection string with an account SAS"
+      [32m+[0m[0m expiration_date         = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m key_vault_id            = (known after apply)
+      [32m+[0m[0m name                    = "td-attachments-connection"
+      [32m+[0m[0m resource_id             = (known after apply)
+      [32m+[0m[0m resource_versionless_id = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m value                   = (sensitive value)
+      [32m+[0m[0m value_wo                = (write-only attribute)
+      [32m+[0m[0m version                 = (known after apply)
+      [32m+[0m[0m versionless_id          = (known after apply)
+    }
+
+[1m  # azurerm_key_vault_secret.remoteapp_key[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_secret" "remoteapp_key" {
+      [32m+[0m[0m content_type            = "guid"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m key_vault_id            = (known after apply)
+      [32m+[0m[0m name                    = "td-remoteapp-api-key"
+      [32m+[0m[0m resource_id             = (known after apply)
+      [32m+[0m[0m resource_versionless_id = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m value                   = (sensitive value)
+      [32m+[0m[0m value_wo                = (write-only attribute)
+      [32m+[0m[0m version                 = (known after apply)
+      [32m+[0m[0m versionless_id          = (known after apply)
+    }
+
+[1m  # azurerm_key_vault_secret.sql_connection_string[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_secret" "sql_connection_string" {
+      [32m+[0m[0m content_type            = "text/plain"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m key_vault_id            = (known after apply)
+      [32m+[0m[0m name                    = "sql-connection-string"
+      [32m+[0m[0m resource_id             = (known after apply)
+      [32m+[0m[0m resource_versionless_id = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m value                   = (sensitive value)
+      [32m+[0m[0m value_wo                = (write-only attribute)
+      [32m+[0m[0m version                 = (known after apply)
+      [32m+[0m[0m versionless_id          = (known after apply)
+    }
+
+[1m  # azurerm_key_vault_secret.sql_sa[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_secret" "sql_sa" {
+      [32m+[0m[0m content_type            = "password"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m key_vault_id            = (known after apply)
+      [32m+[0m[0m name                    = "td-sql-sa-password"
+      [32m+[0m[0m resource_id             = (known after apply)
+      [32m+[0m[0m resource_versionless_id = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m value                   = (sensitive value)
+      [32m+[0m[0m value_wo                = (write-only attribute)
+      [32m+[0m[0m version                 = (known after apply)
+      [32m+[0m[0m versionless_id          = (known after apply)
+    }
+
+[1m  # azurerm_resource_group.lab[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_resource_group" "lab" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m location = "swedencentral"
+      [32m+[0m[0m name     = "rg-ticketdesk-lab"
+      [32m+[0m[0m tags     = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+    }
+
+[1m  # azurerm_role_assignment.vm_artifacts_reader[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "vm_artifacts_reader" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = (known after apply)
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "Storage Blob Data Reader"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # azurerm_role_assignment.vm_blob_writer["backups"][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "vm_blob_writer" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = (known after apply)
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "Storage Blob Data Contributor"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # azurerm_role_assignment.vm_blob_writer["logs"][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "vm_blob_writer" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = (known after apply)
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "Storage Blob Data Contributor"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # azurerm_user_assigned_identity.sql_deploy[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_user_assigned_identity" "sql_deploy" {
+      [32m+[0m[0m client_id           = (known after apply)
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m location            = "swedencentral"
+      [32m+[0m[0m name                = "id-tdlab-sqldeploy"
+      [32m+[0m[0m principal_id        = (known after apply)
+      [32m+[0m[0m resource_group_name = "rg-ticketdesk-lab"
+      [32m+[0m[0m tags                = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m tenant_id           = (known after apply)
+    }
+
+[1m  # random_password.sql_sa[0][0m will be created
+[0m  [32m+[0m[0m resource "random_password" "sql_sa" {
+      [32m+[0m[0m bcrypt_hash      = (sensitive value)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m length           = 24
+      [32m+[0m[0m lower            = true
+      [32m+[0m[0m min_lower        = 2
+      [32m+[0m[0m min_numeric      = 2
+      [32m+[0m[0m min_special      = 2
+      [32m+[0m[0m min_upper        = 2
+      [32m+[0m[0m number           = true
+      [32m+[0m[0m numeric          = true
+      [32m+[0m[0m override_special = "!#%*-_=+"
+      [32m+[0m[0m result           = (sensitive value)
+      [32m+[0m[0m special          = true
+      [32m+[0m[0m upper            = true
+    }
+
+[1m  # random_uuid.remoteapp_key[0][0m will be created
+[0m  [32m+[0m[0m resource "random_uuid" "remoteapp_key" {
+      [32m+[0m[0m id     = (known after apply)
+      [32m+[0m[0m result = (known after apply)
+    }
+
+[1m  # time_rotating.attachments_sas[0][0m will be created
+[0m  [32m+[0m[0m resource "time_rotating" "attachments_sas" {
+      [32m+[0m[0m day              = (known after apply)
+      [32m+[0m[0m hour             = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m minute           = (known after apply)
+      [32m+[0m[0m month            = (known after apply)
+      [32m+[0m[0m rfc3339          = (known after apply)
+      [32m+[0m[0m rotation_days    = 7
+      [32m+[0m[0m rotation_rfc3339 = (known after apply)
+      [32m+[0m[0m second           = (known after apply)
+      [32m+[0m[0m unix             = (known after apply)
+      [32m+[0m[0m year             = (known after apply)
+    }
+
+[1m  # module.files[0].azurerm_role_assignment.operator[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "operator" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = "<principal-id-8>"
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "Storage Blob Data Contributor"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # module.files[0].azurerm_storage_account.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_storage_account" "this" {
+      [32m+[0m[0m access_tier                                    = "Hot"
+      [32m+[0m[0m account_kind                                   = "StorageV2"
+      [32m+[0m[0m account_replication_type                       = "LRS"
+      [32m+[0m[0m account_replication_type_migrating_to          = (known after apply)
+      [32m+[0m[0m account_replication_type_migration_in_progress = (known after apply)
+      [32m+[0m[0m account_tier                                   = "Standard"
+      [32m+[0m[0m allow_nested_items_to_be_public                = false
+      [32m+[0m[0m cross_tenant_replication_enabled               = false
+      [32m+[0m[0m default_to_oauth_authentication                = true
+      [32m+[0m[0m dns_endpoint_type                              = "Standard"
+      [32m+[0m[0m https_traffic_only_enabled                     = true
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m infrastructure_encryption_enabled              = false
+      [32m+[0m[0m is_hns_enabled                                 = false
+      [32m+[0m[0m large_file_share_enabled                       = (known after apply)
+      [32m+[0m[0m local_user_enabled                             = false
+      [32m+[0m[0m location                                       = "swedencentral"
+      [32m+[0m[0m min_tls_version                                = "TLS1_2"
+      [32m+[0m[0m name                                           = "sttdlabfiles36d2d4"
+      [32m+[0m[0m nfsv3_enabled                                  = false
+      [32m+[0m[0m primary_access_key                             = (sensitive value)
+      [32m+[0m[0m primary_blob_connection_string                 = (sensitive value)
+      [32m+[0m[0m primary_blob_endpoint                          = (known after apply)
+      [32m+[0m[0m primary_blob_host                              = (known after apply)
+      [32m+[0m[0m primary_blob_internet_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_blob_internet_host                     = (known after apply)
+      [32m+[0m[0m primary_blob_microsoft_endpoint                = (known after apply)
+      [32m+[0m[0m primary_blob_microsoft_host                    = (known after apply)
+      [32m+[0m[0m primary_connection_string                      = (sensitive value)
+      [32m+[0m[0m primary_dfs_endpoint                           = (known after apply)
+      [32m+[0m[0m primary_dfs_host                               = (known after apply)
+      [32m+[0m[0m primary_dfs_internet_endpoint                  = (known after apply)
+      [32m+[0m[0m primary_dfs_internet_host                      = (known after apply)
+      [32m+[0m[0m primary_dfs_microsoft_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_dfs_microsoft_host                     = (known after apply)
+      [32m+[0m[0m primary_file_endpoint                          = (known after apply)
+      [32m+[0m[0m primary_file_host                              = (known after apply)
+      [32m+[0m[0m primary_file_internet_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_file_internet_host                     = (known after apply)
+      [32m+[0m[0m primary_file_microsoft_endpoint                = (known after apply)
+      [32m+[0m[0m primary_file_microsoft_host                    = (known after apply)
+      [32m+[0m[0m primary_location                               = (known after apply)
+      [32m+[0m[0m primary_queue_endpoint                         = (known after apply)
+      [32m+[0m[0m primary_queue_host                             = (known after apply)
+      [32m+[0m[0m primary_queue_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m primary_queue_microsoft_host                   = (known after apply)
+      [32m+[0m[0m primary_table_endpoint                         = (known after apply)
+      [32m+[0m[0m primary_table_host                             = (known after apply)
+      [32m+[0m[0m primary_table_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m primary_table_microsoft_host                   = (known after apply)
+      [32m+[0m[0m primary_web_endpoint                           = (known after apply)
+      [32m+[0m[0m primary_web_host                               = (known after apply)
+      [32m+[0m[0m primary_web_internet_endpoint                  = (known after apply)
+      [32m+[0m[0m primary_web_internet_host                      = (known after apply)
+      [32m+[0m[0m primary_web_microsoft_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_web_microsoft_host                     = (known after apply)
+      [32m+[0m[0m public_network_access                          = "Enabled"
+      [32m+[0m[0m public_network_access_enabled                  = (known after apply)
+      [32m+[0m[0m queue_encryption_key_type                      = "Service"
+      [32m+[0m[0m resource_group_name                            = "rg-ticketdesk-lab"
+      [32m+[0m[0m secondary_access_key                           = (sensitive value)
+      [32m+[0m[0m secondary_blob_connection_string               = (sensitive value)
+      [32m+[0m[0m secondary_blob_endpoint                        = (known after apply)
+      [32m+[0m[0m secondary_blob_host                            = (known after apply)
+      [32m+[0m[0m secondary_blob_internet_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_blob_internet_host                   = (known after apply)
+      [32m+[0m[0m secondary_blob_microsoft_endpoint              = (known after apply)
+      [32m+[0m[0m secondary_blob_microsoft_host                  = (known after apply)
+      [32m+[0m[0m secondary_connection_string                    = (sensitive value)
+      [32m+[0m[0m secondary_dfs_endpoint                         = (known after apply)
+      [32m+[0m[0m secondary_dfs_host                             = (known after apply)
+      [32m+[0m[0m secondary_dfs_internet_endpoint                = (known after apply)
+      [32m+[0m[0m secondary_dfs_internet_host                    = (known after apply)
+      [32m+[0m[0m secondary_dfs_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_dfs_microsoft_host                   = (known after apply)
+      [32m+[0m[0m secondary_file_endpoint                        = (known after apply)
+      [32m+[0m[0m secondary_file_host                            = (known after apply)
+      [32m+[0m[0m secondary_file_internet_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_file_internet_host                   = (known after apply)
+      [32m+[0m[0m secondary_file_microsoft_endpoint              = (known after apply)
+      [32m+[0m[0m secondary_file_microsoft_host                  = (known after apply)
+      [32m+[0m[0m secondary_location                             = (known after apply)
+      [32m+[0m[0m secondary_queue_endpoint                       = (known after apply)
+      [32m+[0m[0m secondary_queue_host                           = (known after apply)
+      [32m+[0m[0m secondary_queue_microsoft_endpoint             = (known after apply)
+      [32m+[0m[0m secondary_queue_microsoft_host                 = (known after apply)
+      [32m+[0m[0m secondary_table_endpoint                       = (known after apply)
+      [32m+[0m[0m secondary_table_host                           = (known after apply)
+      [32m+[0m[0m secondary_table_microsoft_endpoint             = (known after apply)
+      [32m+[0m[0m secondary_table_microsoft_host                 = (known after apply)
+      [32m+[0m[0m secondary_web_endpoint                         = (known after apply)
+      [32m+[0m[0m secondary_web_host                             = (known after apply)
+      [32m+[0m[0m secondary_web_internet_endpoint                = (known after apply)
+      [32m+[0m[0m secondary_web_internet_host                    = (known after apply)
+      [32m+[0m[0m secondary_web_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_web_microsoft_host                   = (known after apply)
+      [32m+[0m[0m sftp_enabled                                   = false
+      [32m+[0m[0m shared_access_key_enabled                      = true
+      [32m+[0m[0m smb_oauth_enabled                              = false
+      [32m+[0m[0m table_encryption_key_type                      = "Service"
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+
+      [32m+[0m[0m blob_properties (known after apply)
+
+      [32m+[0m[0m network_rules {
+          [32m+[0m[0m bypass                     = [
+              [32m+[0m[0m "AzureServices",
+            ]
+          [32m+[0m[0m default_action             = "Deny"
+          [32m+[0m[0m ip_rules                   = [
+              [32m+[0m[0m "<home-ip>",
+            ]
+          [32m+[0m[0m virtual_network_subnet_ids = (known after apply)
+        }
+
+      [32m+[0m[0m routing (known after apply)
+
+      [32m+[0m[0m share_properties (known after apply)
+    }
+
+[1m  # module.files[0].azurerm_storage_container.this["ticketdesk-attachments"][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_storage_container" "this" {
+      [32m+[0m[0m container_access_type             = "private"
+      [32m+[0m[0m default_encryption_scope          = (known after apply)
+      [32m+[0m[0m encryption_scope_override_enabled = true
+      [32m+[0m[0m has_immutability_policy           = (known after apply)
+      [32m+[0m[0m has_legal_hold                    = (known after apply)
+      [32m+[0m[0m id                                = (known after apply)
+      [32m+[0m[0m metadata                          = (known after apply)
+      [32m+[0m[0m name                              = "ticketdesk-attachments"
+      [32m+[0m[0m storage_account_id                = (known after apply)
+      [32m+[0m[0m url                               = (known after apply)
+    }
+
+[1m  # module.files[0].time_sleep.rbac_propagation[0m will be created
+[0m  [32m+[0m[0m resource "time_sleep" "rbac_propagation" {
+      [32m+[0m[0m create_duration = "60s"
+      [32m+[0m[0m id              = (known after apply)
+    }
+
+[1m  # module.keyvault[0].azurerm_key_vault.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault" "this" {
+      [32m+[0m[0m access_policy                 = (known after apply)
+      [32m+[0m[0m id                            = (known after apply)
+      [32m+[0m[0m location                      = "swedencentral"
+      [32m+[0m[0m name                          = "kv-tdlab-36d2d4"
+      [32m+[0m[0m public_network_access_enabled = true
+      [32m+[0m[0m purge_protection_enabled      = false
+      [32m+[0m[0m rbac_authorization_enabled    = true
+      [32m+[0m[0m resource_group_name           = "rg-ticketdesk-lab"
+      [32m+[0m[0m sku_name                      = "standard"
+      [32m+[0m[0m soft_delete_retention_days    = 7
+      [32m+[0m[0m tags                          = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m tenant_id                     = "<tenant-id>"
+      [32m+[0m[0m vault_uri                     = (known after apply)
+
+      [32m+[0m[0m network_acls {
+          [32m+[0m[0m bypass                     = "AzureServices"
+          [32m+[0m[0m default_action             = "Deny"
+          [32m+[0m[0m ip_rules                   = [
+              [32m+[0m[0m "<home-ip>",
+            ]
+          [32m+[0m[0m virtual_network_subnet_ids = (known after apply)
+        }
+    }
+
+[1m  # module.keyvault[0].azurerm_role_assignment.admin[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "admin" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = "<principal-id-8>"
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "Key Vault Administrator"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # module.keyvault[0].time_sleep.rbac_propagation[0m will be created
+[0m  [32m+[0m[0m resource "time_sleep" "rbac_propagation" {
+      [32m+[0m[0m create_duration = "120s"
+      [32m+[0m[0m id              = (known after apply)
+    }
+
+[1m  # module.monitoring[0].azurerm_application_insights.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_application_insights" "this" {
+      [32m+[0m[0m app_id                               = (known after apply)
+      [32m+[0m[0m application_type                     = "web"
+      [32m+[0m[0m connection_string                    = (sensitive value)
+      [32m+[0m[0m daily_data_cap_in_gb                 = 100
+      [32m+[0m[0m daily_data_cap_notifications_enabled = true
+      [32m+[0m[0m force_customer_storage_for_profiler  = false
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instrumentation_key                  = (sensitive value)
+      [32m+[0m[0m internet_ingestion_enabled           = true
+      [32m+[0m[0m internet_query_enabled               = true
+      [32m+[0m[0m ip_masking_enabled                   = true
+      [32m+[0m[0m local_authentication_enabled         = true
+      [32m+[0m[0m location                             = "swedencentral"
+      [32m+[0m[0m name                                 = "appi-tdlab-swedencentral"
+      [32m+[0m[0m resource_group_name                  = "rg-ticketdesk-lab"
+      [32m+[0m[0m retention_in_days                    = 90
+      [32m+[0m[0m sampling_percentage                  = 100
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m workspace_id                         = (known after apply)
+    }
+
+[1m  # module.monitoring[0].azurerm_log_analytics_workspace.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_log_analytics_workspace" "this" {
+      [32m+[0m[0m allow_resource_only_permissions = true
+      [32m+[0m[0m daily_quota_gb                  = 0.1
+      [32m+[0m[0m id                              = (known after apply)
+      [32m+[0m[0m internet_ingestion_access_type  = "Enabled"
+      [32m+[0m[0m internet_query_access_type      = "Enabled"
+      [32m+[0m[0m local_authentication_enabled    = true
+      [32m+[0m[0m location                        = "swedencentral"
+      [32m+[0m[0m name                            = "log-tdlab-swedencentral"
+      [32m+[0m[0m primary_shared_key              = (sensitive value)
+      [32m+[0m[0m resource_group_name             = "rg-ticketdesk-lab"
+      [32m+[0m[0m retention_in_days               = 30
+      [32m+[0m[0m secondary_shared_key            = (sensitive value)
+      [32m+[0m[0m sku                             = "PerGB2018"
+      [32m+[0m[0m tags                            = {
+          [32m+[0m[0m "est_usd_per_hour" = "0.0125"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m workspace_id                    = (known after apply)
+    }
+
+[1m  # module.monitoring[0].azurerm_monitor_action_group.email[0][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_monitor_action_group" "email" {
+      [32m+[0m[0m enabled             = true
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m location            = "global"
+      [32m+[0m[0m name                = "ag-tdlab-email"
+      [32m+[0m[0m resource_group_name = "rg-ticketdesk-lab"
+      [32m+[0m[0m short_name          = "tdlab"
+      [32m+[0m[0m tags                = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+
+      [32m+[0m[0m email_receiver {
+          [32m+[0m[0m email_address           = "<school-upn>"
+          [32m+[0m[0m name                    = "owner"
+          [32m+[0m[0m use_common_alert_schema = true
+        }
+    }
+
+[1m  # module.network[0].azurerm_network_security_group.aks[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_security_group" "aks" {
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m location            = "swedencentral"
+      [32m+[0m[0m name                = "nsg-tdlab-aks"
+      [32m+[0m[0m resource_group_name = "rg-ticketdesk-lab"
+      [32m+[0m[0m security_rule       = [
+          [32m+[0m[0m {
+              [32m+[0m[0m access                                     = "Deny"
+              [32m+[0m[0m destination_address_prefix                 = "*"
+              [32m+[0m[0m destination_address_prefixes               = []
+              [32m+[0m[0m destination_application_security_group_ids = []
+              [32m+[0m[0m destination_port_ranges                    = [
+                  [32m+[0m[0m "0-65535",
+                ]
+              [32m+[0m[0m direction                                  = "Inbound"
+              [32m+[0m[0m name                                       = "DenyInternetInbound"
+              [32m+[0m[0m priority                                   = 4000
+              [32m+[0m[0m protocol                                   = "*"
+              [32m+[0m[0m source_address_prefix                      = "Internet"
+              [32m+[0m[0m source_address_prefixes                    = []
+              [32m+[0m[0m source_application_security_group_ids      = []
+              [32m+[0m[0m source_port_range                          = "*"
+              [32m+[0m[0m source_port_ranges                         = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+        ]
+      [32m+[0m[0m tags                = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+    }
+
+[1m  # module.network[0].azurerm_network_security_group.pe[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_security_group" "pe" {
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m location            = "swedencentral"
+      [32m+[0m[0m name                = "nsg-tdlab-pe"
+      [32m+[0m[0m resource_group_name = "rg-ticketdesk-lab"
+      [32m+[0m[0m security_rule       = [
+          [32m+[0m[0m {
+              [32m+[0m[0m access                                     = "Allow"
+              [32m+[0m[0m destination_address_prefix                 = "*"
+              [32m+[0m[0m destination_address_prefixes               = []
+              [32m+[0m[0m destination_application_security_group_ids = []
+              [32m+[0m[0m destination_port_range                     = "1433"
+              [32m+[0m[0m destination_port_ranges                    = []
+              [32m+[0m[0m direction                                  = "Inbound"
+              [32m+[0m[0m name                                       = "AllowSqlFromVnet"
+              [32m+[0m[0m priority                                   = 100
+              [32m+[0m[0m protocol                                   = "Tcp"
+              [32m+[0m[0m source_address_prefix                      = "VirtualNetwork"
+              [32m+[0m[0m source_address_prefixes                    = []
+              [32m+[0m[0m source_application_security_group_ids      = []
+              [32m+[0m[0m source_port_range                          = "*"
+              [32m+[0m[0m source_port_ranges                         = []
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m access                                     = "Deny"
+              [32m+[0m[0m destination_address_prefix                 = "*"
+              [32m+[0m[0m destination_address_prefixes               = []
+              [32m+[0m[0m destination_application_security_group_ids = []
+              [32m+[0m[0m destination_port_ranges                    = [
+                  [32m+[0m[0m "0-65535",
+                ]
+              [32m+[0m[0m direction                                  = "Inbound"
+              [32m+[0m[0m name                                       = "DenyInternetInbound"
+              [32m+[0m[0m priority                                   = 4000
+              [32m+[0m[0m protocol                                   = "*"
+              [32m+[0m[0m source_address_prefix                      = "Internet"
+              [32m+[0m[0m source_address_prefixes                    = []
+              [32m+[0m[0m source_application_security_group_ids      = []
+              [32m+[0m[0m source_port_range                          = "*"
+              [32m+[0m[0m source_port_ranges                         = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m access                                     = "Deny"
+              [32m+[0m[0m destination_address_prefix                 = "*"
+              [32m+[0m[0m destination_address_prefixes               = []
+              [32m+[0m[0m destination_application_security_group_ids = []
+              [32m+[0m[0m destination_port_range                     = "*"
+              [32m+[0m[0m destination_port_ranges                    = []
+              [32m+[0m[0m direction                                  = "Inbound"
+              [32m+[0m[0m name                                       = "DenyOtherVnetInbound"
+              [32m+[0m[0m priority                                   = 3900
+              [32m+[0m[0m protocol                                   = "*"
+              [32m+[0m[0m source_address_prefix                      = "VirtualNetwork"
+              [32m+[0m[0m source_address_prefixes                    = []
+              [32m+[0m[0m source_application_security_group_ids      = []
+              [32m+[0m[0m source_port_range                          = "*"
+              [32m+[0m[0m source_port_ranges                         = []
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+        ]
+      [32m+[0m[0m tags                = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+    }
+
+[1m  # module.network[0].azurerm_network_security_group.vm[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_security_group" "vm" {
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m location            = "swedencentral"
+      [32m+[0m[0m name                = "nsg-tdlab-vm"
+      [32m+[0m[0m resource_group_name = "rg-ticketdesk-lab"
+      [32m+[0m[0m security_rule       = [
+          [32m+[0m[0m {
+              [32m+[0m[0m access                                     = "Allow"
+              [32m+[0m[0m destination_address_prefix                 = "*"
+              [32m+[0m[0m destination_address_prefixes               = []
+              [32m+[0m[0m destination_application_security_group_ids = []
+              [32m+[0m[0m destination_port_range                     = "443"
+              [32m+[0m[0m destination_port_ranges                    = []
+              [32m+[0m[0m direction                                  = "Inbound"
+              [32m+[0m[0m name                                       = "AllowHttpsFromHome"
+              [32m+[0m[0m priority                                   = 100
+              [32m+[0m[0m protocol                                   = "Tcp"
+              [32m+[0m[0m source_address_prefixes                    = [
+                  [32m+[0m[0m "<home-ip>/32",
+                ]
+              [32m+[0m[0m source_application_security_group_ids      = []
+              [32m+[0m[0m source_port_range                          = "*"
+              [32m+[0m[0m source_port_ranges                         = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+          [32m+[0m[0m {
+              [32m+[0m[0m access                                     = "Deny"
+              [32m+[0m[0m destination_address_prefix                 = "*"
+              [32m+[0m[0m destination_address_prefixes               = []
+              [32m+[0m[0m destination_application_security_group_ids = []
+              [32m+[0m[0m destination_port_ranges                    = [
+                  [32m+[0m[0m "0-65535",
+                ]
+              [32m+[0m[0m direction                                  = "Inbound"
+              [32m+[0m[0m name                                       = "DenyInternetInbound"
+              [32m+[0m[0m priority                                   = 4000
+              [32m+[0m[0m protocol                                   = "*"
+              [32m+[0m[0m source_address_prefix                      = "Internet"
+              [32m+[0m[0m source_address_prefixes                    = []
+              [32m+[0m[0m source_application_security_group_ids      = []
+              [32m+[0m[0m source_port_range                          = "*"
+              [32m+[0m[0m source_port_ranges                         = []
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+        ]
+      [32m+[0m[0m tags                = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+    }
+
+[1m  # module.network[0].azurerm_subnet.aks[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_subnet" "aks" {
+      [32m+[0m[0m address_prefixes                              = [
+          [32m+[0m[0m "10.42.16.0/22",
+        ]
+      [32m+[0m[0m default_outbound_access_enabled               = false
+      [32m+[0m[0m id                                            = (known after apply)
+      [32m+[0m[0m name                                          = "snet-aks"
+      [32m+[0m[0m network_security_group_id                     = (known after apply)
+      [32m+[0m[0m network_security_group_id_wo                  = (write-only attribute)
+      [32m+[0m[0m private_endpoint_network_policies             = "Disabled"
+      [32m+[0m[0m private_link_service_network_policies_enabled = true
+      [32m+[0m[0m resource_group_name                           = "rg-ticketdesk-lab"
+      [32m+[0m[0m route_table_id                                = (known after apply)
+      [32m+[0m[0m route_table_id_wo                             = (write-only attribute)
+      [32m+[0m[0m virtual_network_name                          = "vnet-tdlab-swedencentral"
+    }
+
+[1m  # module.network[0].azurerm_subnet.pe[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_subnet" "pe" {
+      [32m+[0m[0m address_prefixes                              = [
+          [32m+[0m[0m "10.42.2.0/24",
+        ]
+      [32m+[0m[0m default_outbound_access_enabled               = false
+      [32m+[0m[0m id                                            = (known after apply)
+      [32m+[0m[0m name                                          = "snet-pe"
+      [32m+[0m[0m network_security_group_id                     = (known after apply)
+      [32m+[0m[0m network_security_group_id_wo                  = (write-only attribute)
+      [32m+[0m[0m private_endpoint_network_policies             = "Enabled"
+      [32m+[0m[0m private_link_service_network_policies_enabled = true
+      [32m+[0m[0m resource_group_name                           = "rg-ticketdesk-lab"
+      [32m+[0m[0m route_table_id                                = (known after apply)
+      [32m+[0m[0m route_table_id_wo                             = (write-only attribute)
+      [32m+[0m[0m virtual_network_name                          = "vnet-tdlab-swedencentral"
+    }
+
+[1m  # module.network[0].azurerm_subnet.vm[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_subnet" "vm" {
+      [32m+[0m[0m address_prefixes                              = [
+          [32m+[0m[0m "10.42.1.0/24",
+        ]
+      [32m+[0m[0m default_outbound_access_enabled               = false
+      [32m+[0m[0m id                                            = (known after apply)
+      [32m+[0m[0m name                                          = "snet-vm"
+      [32m+[0m[0m network_security_group_id                     = (known after apply)
+      [32m+[0m[0m network_security_group_id_wo                  = (write-only attribute)
+      [32m+[0m[0m private_endpoint_network_policies             = "Disabled"
+      [32m+[0m[0m private_link_service_network_policies_enabled = true
+      [32m+[0m[0m resource_group_name                           = "rg-ticketdesk-lab"
+      [32m+[0m[0m route_table_id                                = (known after apply)
+      [32m+[0m[0m route_table_id_wo                             = (write-only attribute)
+      [32m+[0m[0m virtual_network_name                          = "vnet-tdlab-swedencentral"
+
+      [32m+[0m[0m service_endpoint {
+          [32m+[0m[0m service = "Microsoft.KeyVault"
+        }
+      [32m+[0m[0m service_endpoint {
+          [32m+[0m[0m service = "Microsoft.Storage"
+        }
+    }
+
+[1m  # module.network[0].azurerm_subnet_network_security_group_association.aks[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_subnet_network_security_group_association" "aks" {
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m network_security_group_id = (known after apply)
+      [32m+[0m[0m subnet_id                 = (known after apply)
+    }
+
+[1m  # module.network[0].azurerm_subnet_network_security_group_association.pe[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_subnet_network_security_group_association" "pe" {
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m network_security_group_id = (known after apply)
+      [32m+[0m[0m subnet_id                 = (known after apply)
+    }
+
+[1m  # module.network[0].azurerm_subnet_network_security_group_association.vm[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_subnet_network_security_group_association" "vm" {
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m network_security_group_id = (known after apply)
+      [32m+[0m[0m subnet_id                 = (known after apply)
+    }
+
+[1m  # module.network[0].azurerm_virtual_network.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_virtual_network" "this" {
+      [32m+[0m[0m address_space                  = [
+          [32m+[0m[0m "10.42.0.0/16",
+        ]
+      [32m+[0m[0m dns_servers                    = (known after apply)
+      [32m+[0m[0m guid                           = (known after apply)
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m location                       = "swedencentral"
+      [32m+[0m[0m name                           = "vnet-tdlab-swedencentral"
+      [32m+[0m[0m private_endpoint_vnet_policies = "Disabled"
+      [32m+[0m[0m resource_group_name            = "rg-ticketdesk-lab"
+      [32m+[0m[0m subnet                         = (known after apply)
+      [32m+[0m[0m tags                           = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+    }
+
+[1m  # module.sql[0].azapi_resource.database[0m will be created
+[0m  [32m+[0m[0m resource "azapi_resource" "database" {
+      [32m+[0m[0m body                      = {
+          [32m+[0m[0m properties = {
+              [32m+[0m[0m autoPauseDelay                   = 60
+              [32m+[0m[0m collation                        = "SQL_Latin1_General_CP1_CI_AS"
+              [32m+[0m[0m freeLimitExhaustionBehavior      = "AutoPause"
+              [32m+[0m[0m maxSizeBytes                     = 34359738368
+              [32m+[0m[0m minCapacity                      = 0.5
+              [32m+[0m[0m requestedBackupStorageRedundancy = "Local"
+              [32m+[0m[0m useFreeLimit                     = true
+              [32m+[0m[0m zoneRedundant                    = false
+            }
+          [32m+[0m[0m sku        = {
+              [32m+[0m[0m capacity = 2
+              [32m+[0m[0m family   = "Gen5"
+              [32m+[0m[0m name     = "GP_S_Gen5"
+              [32m+[0m[0m tier     = "GeneralPurpose"
+            }
+        }
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m ignore_body_changes       = (write-only attribute)
+      [32m+[0m[0m ignore_casing             = false
+      [32m+[0m[0m ignore_missing_property   = true
+      [32m+[0m[0m ignore_null_property      = false
+      [32m+[0m[0m location                  = "swedencentral"
+      [32m+[0m[0m name                      = "sqldb-ticketdesk"
+      [32m+[0m[0m output                    = (known after apply)
+      [32m+[0m[0m parent_id                 = (known after apply)
+      [32m+[0m[0m response_export_values    = {
+          [32m+[0m[0m current_service_objective   = "properties.currentServiceObjectiveName"
+          [32m+[0m[0m free_limit_exhaustion       = "properties.freeLimitExhaustionBehavior"
+          [32m+[0m[0m requested_backup_redundancy = "properties.requestedBackupStorageRedundancy"
+          [32m+[0m[0m status                      = "properties.status"
+          [32m+[0m[0m use_free_limit              = "properties.useFreeLimit"
+        }
+      [32m+[0m[0m schema_validation_enabled = true
+      [32m+[0m[0m sensitive_body            = (write-only attribute)
+      [32m+[0m[0m tags                      = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m type                      = "Microsoft.Sql/servers/databases@2025-01-01"
+    }
+
+[1m  # module.sql[0].azurerm_mssql_server.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_mssql_server" "this" {
+      [32m+[0m[0m administrator_login                      = (known after apply)
+      [32m+[0m[0m administrator_login_password_wo          = (write-only attribute)
+      [32m+[0m[0m connection_policy                        = "Default"
+      [32m+[0m[0m express_vulnerability_assessment_enabled = false
+      [32m+[0m[0m fully_qualified_domain_name              = (known after apply)
+      [32m+[0m[0m id                                       = (known after apply)
+      [32m+[0m[0m location                                 = "swedencentral"
+      [32m+[0m[0m minimum_tls_version                      = "1.2"
+      [32m+[0m[0m name                                     = "sql-tdlab-36d2d4"
+      [32m+[0m[0m outbound_network_restriction_enabled     = false
+      [32m+[0m[0m primary_user_assigned_identity_id        = (known after apply)
+      [32m+[0m[0m public_network_access_enabled            = false
+      [32m+[0m[0m resource_group_name                      = "rg-ticketdesk-lab"
+      [32m+[0m[0m restorable_dropped_database_ids          = (known after apply)
+      [32m+[0m[0m tags                                     = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m version                                  = "12.0"
+
+      [32m+[0m[0m azuread_administrator {
+          [32m+[0m[0m azuread_authentication_only = true
+          [32m+[0m[0m login_username              = "id-tdlab-sqldeploy"
+          [32m+[0m[0m object_id                   = (known after apply)
+          [32m+[0m[0m tenant_id                   = (known after apply)
+        }
+    }
+
+[1m  # module.sql[0].azurerm_private_dns_zone.sql[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_private_dns_zone" "sql" {
+      [32m+[0m[0m id                                                    = (known after apply)
+      [32m+[0m[0m max_number_of_record_sets                             = (known after apply)
+      [32m+[0m[0m max_number_of_virtual_network_links                   = (known after apply)
+      [32m+[0m[0m max_number_of_virtual_network_links_with_registration = (known after apply)
+      [32m+[0m[0m name                                                  = "privatelink.database.windows.net"
+      [32m+[0m[0m number_of_record_sets                                 = (known after apply)
+      [32m+[0m[0m resource_group_name                                   = "rg-ticketdesk-lab"
+      [32m+[0m[0m tags                                                  = {
+          [32m+[0m[0m "est_usd_per_hour" = "0.0007"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+
+      [32m+[0m[0m soa_record (known after apply)
+    }
+
+[1m  # module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_private_dns_zone_virtual_network_link" "sql" {
+      [32m+[0m[0m id                   = (known after apply)
+      [32m+[0m[0m name                 = "pdnslink-sql-tdlab"
+      [32m+[0m[0m private_dns_zone_id  = (known after apply)
+      [32m+[0m[0m registration_enabled = false
+      [32m+[0m[0m resolution_policy    = (known after apply)
+      [32m+[0m[0m tags                 = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m virtual_network_id   = (known after apply)
+    }
+
+[1m  # module.sql[0].azurerm_private_endpoint.sql[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_private_endpoint" "sql" {
+      [32m+[0m[0m custom_dns_configs            = (known after apply)
+      [32m+[0m[0m custom_network_interface_name = "nic-pe-sql-tdlab"
+      [32m+[0m[0m id                            = (known after apply)
+      [32m+[0m[0m location                      = "swedencentral"
+      [32m+[0m[0m name                          = "pe-sql-tdlab"
+      [32m+[0m[0m network_interface             = (known after apply)
+      [32m+[0m[0m private_dns_zone_configs      = (known after apply)
+      [32m+[0m[0m resource_group_name           = "rg-ticketdesk-lab"
+      [32m+[0m[0m subnet_id                     = (known after apply)
+      [32m+[0m[0m tags                          = {
+          [32m+[0m[0m "est_usd_per_hour" = "0.01"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+
+      [32m+[0m[0m private_dns_zone_group {
+          [32m+[0m[0m id                   = (known after apply)
+          [32m+[0m[0m name                 = "default"
+          [32m+[0m[0m private_dns_zone_ids = (known after apply)
+        }
+
+      [32m+[0m[0m private_service_connection {
+          [32m+[0m[0m is_manual_connection           = false
+          [32m+[0m[0m name                           = "psc-sql"
+          [32m+[0m[0m private_connection_resource_id = (known after apply)
+          [32m+[0m[0m private_ip_address             = (known after apply)
+          [32m+[0m[0m subresource_names              = [
+              [32m+[0m[0m "sqlServer",
+            ]
+        }
+    }
+
+[1m  # module.storage[0].azurerm_role_assignment.operator[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "operator" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = "<principal-id-8>"
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "Storage Blob Data Contributor"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # module.storage[0].azurerm_storage_account.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_storage_account" "this" {
+      [32m+[0m[0m access_tier                                    = "Hot"
+      [32m+[0m[0m account_kind                                   = "StorageV2"
+      [32m+[0m[0m account_replication_type                       = "LRS"
+      [32m+[0m[0m account_replication_type_migrating_to          = (known after apply)
+      [32m+[0m[0m account_replication_type_migration_in_progress = (known after apply)
+      [32m+[0m[0m account_tier                                   = "Standard"
+      [32m+[0m[0m allow_nested_items_to_be_public                = false
+      [32m+[0m[0m cross_tenant_replication_enabled               = false
+      [32m+[0m[0m default_to_oauth_authentication                = true
+      [32m+[0m[0m dns_endpoint_type                              = "Standard"
+      [32m+[0m[0m https_traffic_only_enabled                     = true
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m infrastructure_encryption_enabled              = false
+      [32m+[0m[0m is_hns_enabled                                 = false
+      [32m+[0m[0m large_file_share_enabled                       = (known after apply)
+      [32m+[0m[0m local_user_enabled                             = false
+      [32m+[0m[0m location                                       = "swedencentral"
+      [32m+[0m[0m min_tls_version                                = "TLS1_2"
+      [32m+[0m[0m name                                           = "sttdlab36d2d4"
+      [32m+[0m[0m nfsv3_enabled                                  = false
+      [32m+[0m[0m primary_access_key                             = (sensitive value)
+      [32m+[0m[0m primary_blob_connection_string                 = (sensitive value)
+      [32m+[0m[0m primary_blob_endpoint                          = (known after apply)
+      [32m+[0m[0m primary_blob_host                              = (known after apply)
+      [32m+[0m[0m primary_blob_internet_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_blob_internet_host                     = (known after apply)
+      [32m+[0m[0m primary_blob_microsoft_endpoint                = (known after apply)
+      [32m+[0m[0m primary_blob_microsoft_host                    = (known after apply)
+      [32m+[0m[0m primary_connection_string                      = (sensitive value)
+      [32m+[0m[0m primary_dfs_endpoint                           = (known after apply)
+      [32m+[0m[0m primary_dfs_host                               = (known after apply)
+      [32m+[0m[0m primary_dfs_internet_endpoint                  = (known after apply)
+      [32m+[0m[0m primary_dfs_internet_host                      = (known after apply)
+      [32m+[0m[0m primary_dfs_microsoft_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_dfs_microsoft_host                     = (known after apply)
+      [32m+[0m[0m primary_file_endpoint                          = (known after apply)
+      [32m+[0m[0m primary_file_host                              = (known after apply)
+      [32m+[0m[0m primary_file_internet_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_file_internet_host                     = (known after apply)
+      [32m+[0m[0m primary_file_microsoft_endpoint                = (known after apply)
+      [32m+[0m[0m primary_file_microsoft_host                    = (known after apply)
+      [32m+[0m[0m primary_location                               = (known after apply)
+      [32m+[0m[0m primary_queue_endpoint                         = (known after apply)
+      [32m+[0m[0m primary_queue_host                             = (known after apply)
+      [32m+[0m[0m primary_queue_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m primary_queue_microsoft_host                   = (known after apply)
+      [32m+[0m[0m primary_table_endpoint                         = (known after apply)
+      [32m+[0m[0m primary_table_host                             = (known after apply)
+      [32m+[0m[0m primary_table_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m primary_table_microsoft_host                   = (known after apply)
+      [32m+[0m[0m primary_web_endpoint                           = (known after apply)
+      [32m+[0m[0m primary_web_host                               = (known after apply)
+      [32m+[0m[0m primary_web_internet_endpoint                  = (known after apply)
+      [32m+[0m[0m primary_web_internet_host                      = (known after apply)
+      [32m+[0m[0m primary_web_microsoft_endpoint                 = (known after apply)
+      [32m+[0m[0m primary_web_microsoft_host                     = (known after apply)
+      [32m+[0m[0m public_network_access                          = "Enabled"
+      [32m+[0m[0m public_network_access_enabled                  = (known after apply)
+      [32m+[0m[0m queue_encryption_key_type                      = "Service"
+      [32m+[0m[0m resource_group_name                            = "rg-ticketdesk-lab"
+      [32m+[0m[0m secondary_access_key                           = (sensitive value)
+      [32m+[0m[0m secondary_blob_connection_string               = (sensitive value)
+      [32m+[0m[0m secondary_blob_endpoint                        = (known after apply)
+      [32m+[0m[0m secondary_blob_host                            = (known after apply)
+      [32m+[0m[0m secondary_blob_internet_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_blob_internet_host                   = (known after apply)
+      [32m+[0m[0m secondary_blob_microsoft_endpoint              = (known after apply)
+      [32m+[0m[0m secondary_blob_microsoft_host                  = (known after apply)
+      [32m+[0m[0m secondary_connection_string                    = (sensitive value)
+      [32m+[0m[0m secondary_dfs_endpoint                         = (known after apply)
+      [32m+[0m[0m secondary_dfs_host                             = (known after apply)
+      [32m+[0m[0m secondary_dfs_internet_endpoint                = (known after apply)
+      [32m+[0m[0m secondary_dfs_internet_host                    = (known after apply)
+      [32m+[0m[0m secondary_dfs_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_dfs_microsoft_host                   = (known after apply)
+      [32m+[0m[0m secondary_file_endpoint                        = (known after apply)
+      [32m+[0m[0m secondary_file_host                            = (known after apply)
+      [32m+[0m[0m secondary_file_internet_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_file_internet_host                   = (known after apply)
+      [32m+[0m[0m secondary_file_microsoft_endpoint              = (known after apply)
+      [32m+[0m[0m secondary_file_microsoft_host                  = (known after apply)
+      [32m+[0m[0m secondary_location                             = (known after apply)
+      [32m+[0m[0m secondary_queue_endpoint                       = (known after apply)
+      [32m+[0m[0m secondary_queue_host                           = (known after apply)
+      [32m+[0m[0m secondary_queue_microsoft_endpoint             = (known after apply)
+      [32m+[0m[0m secondary_queue_microsoft_host                 = (known after apply)
+      [32m+[0m[0m secondary_table_endpoint                       = (known after apply)
+      [32m+[0m[0m secondary_table_host                           = (known after apply)
+      [32m+[0m[0m secondary_table_microsoft_endpoint             = (known after apply)
+      [32m+[0m[0m secondary_table_microsoft_host                 = (known after apply)
+      [32m+[0m[0m secondary_web_endpoint                         = (known after apply)
+      [32m+[0m[0m secondary_web_host                             = (known after apply)
+      [32m+[0m[0m secondary_web_internet_endpoint                = (known after apply)
+      [32m+[0m[0m secondary_web_internet_host                    = (known after apply)
+      [32m+[0m[0m secondary_web_microsoft_endpoint               = (known after apply)
+      [32m+[0m[0m secondary_web_microsoft_host                   = (known after apply)
+      [32m+[0m[0m sftp_enabled                                   = false
+      [32m+[0m[0m shared_access_key_enabled                      = false
+      [32m+[0m[0m smb_oauth_enabled                              = false
+      [32m+[0m[0m table_encryption_key_type                      = "Service"
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+
+      [32m+[0m[0m blob_properties (known after apply)
+
+      [32m+[0m[0m network_rules {
+          [32m+[0m[0m bypass                     = [
+              [32m+[0m[0m "AzureServices",
+            ]
+          [32m+[0m[0m default_action             = "Deny"
+          [32m+[0m[0m ip_rules                   = [
+              [32m+[0m[0m "<home-ip>",
+            ]
+          [32m+[0m[0m virtual_network_subnet_ids = (known after apply)
+        }
+
+      [32m+[0m[0m routing (known after apply)
+
+      [32m+[0m[0m share_properties (known after apply)
+    }
+
+[1m  # module.storage[0].azurerm_storage_container.this["artifacts"][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_storage_container" "this" {
+      [32m+[0m[0m container_access_type             = "private"
+      [32m+[0m[0m default_encryption_scope          = (known after apply)
+      [32m+[0m[0m encryption_scope_override_enabled = true
+      [32m+[0m[0m has_immutability_policy           = (known after apply)
+      [32m+[0m[0m has_legal_hold                    = (known after apply)
+      [32m+[0m[0m id                                = (known after apply)
+      [32m+[0m[0m metadata                          = (known after apply)
+      [32m+[0m[0m name                              = "artifacts"
+      [32m+[0m[0m storage_account_id                = (known after apply)
+      [32m+[0m[0m url                               = (known after apply)
+    }
+
+[1m  # module.storage[0].azurerm_storage_container.this["backups"][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_storage_container" "this" {
+      [32m+[0m[0m container_access_type             = "private"
+      [32m+[0m[0m default_encryption_scope          = (known after apply)
+      [32m+[0m[0m encryption_scope_override_enabled = true
+      [32m+[0m[0m has_immutability_policy           = (known after apply)
+      [32m+[0m[0m has_legal_hold                    = (known after apply)
+      [32m+[0m[0m id                                = (known after apply)
+      [32m+[0m[0m metadata                          = (known after apply)
+      [32m+[0m[0m name                              = "backups"
+      [32m+[0m[0m storage_account_id                = (known after apply)
+      [32m+[0m[0m url                               = (known after apply)
+    }
+
+[1m  # module.storage[0].azurerm_storage_container.this["logs"][0m will be created
+[0m  [32m+[0m[0m resource "azurerm_storage_container" "this" {
+      [32m+[0m[0m container_access_type             = "private"
+      [32m+[0m[0m default_encryption_scope          = (known after apply)
+      [32m+[0m[0m encryption_scope_override_enabled = true
+      [32m+[0m[0m has_immutability_policy           = (known after apply)
+      [32m+[0m[0m has_legal_hold                    = (known after apply)
+      [32m+[0m[0m id                                = (known after apply)
+      [32m+[0m[0m metadata                          = (known after apply)
+      [32m+[0m[0m name                              = "logs"
+      [32m+[0m[0m storage_account_id                = (known after apply)
+      [32m+[0m[0m url                               = (known after apply)
+    }
+
+[1m  # module.storage[0].time_sleep.rbac_propagation[0m will be created
+[0m  [32m+[0m[0m resource "time_sleep" "rbac_propagation" {
+      [32m+[0m[0m create_duration = "60s"
+      [32m+[0m[0m id              = (known after apply)
+    }
+
+[1m  # module.vm[0].azurerm_key_vault_secret.admin_password[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_key_vault_secret" "admin_password" {
+      [32m+[0m[0m content_type            = "password"
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m key_vault_id            = (known after apply)
+      [32m+[0m[0m name                    = "vm-tdlab-legacy-admin-password"
+      [32m+[0m[0m resource_id             = (known after apply)
+      [32m+[0m[0m resource_versionless_id = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m value                   = (sensitive value)
+      [32m+[0m[0m value_wo                = (write-only attribute)
+      [32m+[0m[0m version                 = (known after apply)
+      [32m+[0m[0m versionless_id          = (known after apply)
+    }
+
+[1m  # module.vm[0].azurerm_network_interface.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_network_interface" "this" {
+      [32m+[0m[0m accelerated_networking_enabled = false
+      [32m+[0m[0m applied_dns_servers            = (known after apply)
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m internal_domain_name_suffix    = (known after apply)
+      [32m+[0m[0m ip_forwarding_enabled          = false
+      [32m+[0m[0m location                       = "swedencentral"
+      [32m+[0m[0m mac_address                    = (known after apply)
+      [32m+[0m[0m name                           = "nic-tdlab-legacy"
+      [32m+[0m[0m private_ip_address             = (known after apply)
+      [32m+[0m[0m private_ip_addresses           = (known after apply)
+      [32m+[0m[0m resource_group_name            = "rg-ticketdesk-lab"
+      [32m+[0m[0m tags                           = {
+          [32m+[0m[0m "est_usd_per_hour" = "0"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m virtual_machine_id             = (known after apply)
+
+      [32m+[0m[0m ip_configuration {
+          [32m+[0m[0m gateway_load_balancer_frontend_ip_configuration_id = (known after apply)
+          [32m+[0m[0m name                                               = "ipconfig1"
+          [32m+[0m[0m primary                                            = (known after apply)
+          [32m+[0m[0m private_ip_address                                 = (known after apply)
+          [32m+[0m[0m private_ip_address_allocation                      = "Dynamic"
+          [32m+[0m[0m private_ip_address_version                         = "IPv4"
+          [32m+[0m[0m public_ip_address_id                               = (known after apply)
+          [32m+[0m[0m subnet_id                                          = (known after apply)
+        }
+    }
+
+[1m  # module.vm[0].azurerm_public_ip.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_public_ip" "this" {
+      [32m+[0m[0m allocation_method       = "Static"
+      [32m+[0m[0m ddos_protection_mode    = "VirtualNetworkInherited"
+      [32m+[0m[0m domain_name_label       = "tdlab-legacy-36d2d4"
+      [32m+[0m[0m fqdn                    = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m idle_timeout_in_minutes = 4
+      [32m+[0m[0m ip_address              = (known after apply)
+      [32m+[0m[0m ip_version              = "IPv4"
+      [32m+[0m[0m location                = "swedencentral"
+      [32m+[0m[0m name                    = "pip-tdlab-legacy"
+      [32m+[0m[0m resource_group_name     = "rg-ticketdesk-lab"
+      [32m+[0m[0m sku                     = "Standard"
+      [32m+[0m[0m sku_tier                = "Regional"
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "est_usd_per_hour" = "0.005"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+    }
+
+[1m  # module.vm[0].azurerm_role_assignment.kv_secrets_user[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_role_assignment" "kv_secrets_user" {
+      [32m+[0m[0m condition_version                = (known after apply)
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m principal_id                     = (known after apply)
+      [32m+[0m[0m principal_type                   = (known after apply)
+      [32m+[0m[0m role_definition_id               = (known after apply)
+      [32m+[0m[0m role_definition_name             = "Key Vault Secrets User"
+      [32m+[0m[0m scope                            = (known after apply)
+      [32m+[0m[0m skip_service_principal_aad_check = (known after apply)
+    }
+
+[1m  # module.vm[0].azurerm_windows_virtual_machine.this[0m will be created
+[0m  [32m+[0m[0m resource "azurerm_windows_virtual_machine" "this" {
+      [32m+[0m[0m admin_password                                         = (sensitive value)
+      [32m+[0m[0m admin_username                                         = "tdadmin"
+      [32m+[0m[0m allow_extension_operations                             = (known after apply)
+      [32m+[0m[0m automatic_updates_enabled                              = false
+      [32m+[0m[0m bypass_platform_safety_checks_on_user_schedule_enabled = false
+      [32m+[0m[0m computer_name                                          = "tdlab-legacy"
+      [32m+[0m[0m disk_controller_type                                   = (known after apply)
+      [32m+[0m[0m extensions_time_budget                                 = "PT1H30M"
+      [32m+[0m[0m hotpatching_enabled                                    = (known after apply)
+      [32m+[0m[0m id                                                     = (known after apply)
+      [32m+[0m[0m location                                               = "swedencentral"
+      [32m+[0m[0m max_bid_price                                          = -1
+      [32m+[0m[0m name                                                   = "vm-tdlab-legacy"
+      [32m+[0m[0m network_interface_ids                                  = (known after apply)
+      [32m+[0m[0m os_managed_disk_id                                     = (known after apply)
+      [32m+[0m[0m patch_assessment_mode                                  = (known after apply)
+      [32m+[0m[0m patch_mode                                             = "Manual"
+      [32m+[0m[0m platform_fault_domain                                  = -1
+      [32m+[0m[0m priority                                               = "Regular"
+      [32m+[0m[0m private_ip_address                                     = (known after apply)
+      [32m+[0m[0m private_ip_addresses                                   = (known after apply)
+      [32m+[0m[0m provision_vm_agent                                     = true
+      [32m+[0m[0m public_ip_address                                      = (known after apply)
+      [32m+[0m[0m public_ip_addresses                                    = (known after apply)
+      [32m+[0m[0m resource_group_name                                    = "rg-ticketdesk-lab"
+      [32m+[0m[0m secure_boot_enabled                                    = true
+      [32m+[0m[0m size                                                   = "Standard_B2as_v2"
+      [32m+[0m[0m tags                                                   = {
+          [32m+[0m[0m "est_usd_per_hour" = "0.0891"
+          [32m+[0m[0m "owner"            = "agent-azure-sql"
+          [32m+[0m[0m "project"          = "ticketdesk"
+          [32m+[0m[0m "ttl"              = "2026-11-10T05:57:26Z"
+        }
+      [32m+[0m[0m virtual_machine_id                                     = (known after apply)
+      [32m+[0m[0m vm_agent_platform_updates_enabled                      = (known after apply)
+      [32m+[0m[0m vtpm_enabled                                           = true
+
+      [32m+[0m[0m boot_diagnostics {}
+
+      [32m+[0m[0m identity {
+          [32m+[0m[0m identity_ids = (known after apply)
+          [32m+[0m[0m principal_id = (known after apply)
+          [32m+[0m[0m tenant_id    = (known after apply)
+          [32m+[0m[0m type         = "SystemAssigned, UserAssigned"
+        }
+
+      [32m+[0m[0m os_disk {
+          [32m+[0m[0m caching                   = "ReadWrite"
+          [32m+[0m[0m disk_size_gb              = 32
+          [32m+[0m[0m id                        = (known after apply)
+          [32m+[0m[0m name                      = "osdisk-tdlab-legacy"
+          [32m+[0m[0m storage_account_type      = "Standard_LRS"
+          [32m+[0m[0m write_accelerator_enabled = false
+        }
+
+      [32m+[0m[0m source_image_reference {
+          [32m+[0m[0m offer     = "WindowsServer"
+          [32m+[0m[0m publisher = "MicrosoftWindowsServer"
+          [32m+[0m[0m sku       = "2025-datacenter-core-smalldisk-g2"
+          [32m+[0m[0m version   = "latest"
+        }
+
+      [32m+[0m[0m termination_notification (known after apply)
+    }
+
+[1m  # module.vm[0].random_password.admin[0m will be created
+[0m  [32m+[0m[0m resource "random_password" "admin" {
+      [32m+[0m[0m bcrypt_hash      = (sensitive value)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m length           = 24
+      [32m+[0m[0m lower            = true
+      [32m+[0m[0m min_lower        = 2
+      [32m+[0m[0m min_numeric      = 2
+      [32m+[0m[0m min_special      = 2
+      [32m+[0m[0m min_upper        = 2
+      [32m+[0m[0m number           = true
+      [32m+[0m[0m numeric          = true
+      [32m+[0m[0m override_special = "!#%*-_=+"
+      [32m+[0m[0m result           = (sensitive value)
+      [32m+[0m[0m special          = true
+      [32m+[0m[0m upper            = true
+    }
+
+[1mPlan:[0m [0m52 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  [33m~[0m[0m est_usd_per_hour              = "0.0000" [33m->[0m[0m "0.1173"
+  [32m+[0m[0m files_account                 = "sttdlabfiles36d2d4"
+  [32m+[0m[0m key_vault_name                = "kv-tdlab-36d2d4"
+  [32m+[0m[0m key_vault_uri                 = (known after apply)
+  [32m+[0m[0m log_analytics_workspace       = "log-tdlab-swedencentral"
+  [32m+[0m[0m resource_group                = "rg-ticketdesk-lab"
+  [33m~[0m[0m sql_admin                     = "<school-upn>" [33m->[0m[0m "id-tdlab-sqldeploy"
+  [32m+[0m[0m sql_database                  = "sqldb-ticketdesk"
+  [32m+[0m[0m sql_database_properties       = (known after apply)
+  [32m+[0m[0m sql_deploy_identity_client_id = (known after apply)
+  [32m+[0m[0m sql_private_endpoint_ip       = (known after apply)
+  [32m+[0m[0m sql_server_fqdn               = (known after apply)
+  [32m+[0m[0m storage_account               = "sttdlab36d2d4"
+  [32m+[0m[0m storage_blob_endpoint         = (known after apply)
+  [32m+[0m[0m vm_fqdn                       = (known after apply)
+  [32m+[0m[0m vm_name                       = "vm-tdlab-legacy"
+  [32m+[0m[0m vm_public_ip                  = (known after apply)
+  [32m+[0m[0m vnet_id                       = (known after apply)
+[0m[1mrandom_uuid.remoteapp_key[0]: Creating...[0m[0m
+[0m[1mrandom_password.sql_sa[0]: Creating...[0m[0m
+[0m[1mrandom_uuid.remoteapp_key[0]: Creation complete after 0s [id=<remoteapp-key-6>][0m
+[0m[1mmodule.vm[0].random_password.admin: Creating...[0m[0m
+[0m[1mtime_rotating.attachments_sas[0]: Creating...[0m[0m
+[0m[1mtime_rotating.attachments_sas[0]: Creation complete after 0s [id=2026-11-10T00:57:36Z][0m
+[0m[1mmodule.vm[0].random_password.admin: Creation complete after 0s [id=none][0m
+[0m[1mrandom_password.sql_sa[0]: Creation complete after 0s [id=none][0m
+[0m[1mazurerm_resource_group.lab[0]: Creating...[0m[0m
+[0m[1mazurerm_resource_group.lab[0]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mazurerm_resource_group.lab[0]: Still creating... [00m20s elapsed][0m[0m
+[0m[1mazurerm_resource_group.lab[0]: Creation complete after 25s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab][0m
+[0m[1mazurerm_user_assigned_identity.sql_deploy[0]: Creating...[0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Creating...[0m[0m
+[0m[1mmodule.vm[0].azurerm_public_ip.this: Creating...[0m[0m
+[0m[1mmodule.monitoring[0].azurerm_monitor_action_group.email[0]: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_virtual_network.this: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_network_security_group.aks: Creating...[0m[0m
+[0m[1mmodule.monitoring[0].azurerm_log_analytics_workspace.this: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_network_security_group.vm: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_network_security_group.pe: Creating...[0m[0m
+[0m[1mmodule.monitoring[0].azurerm_monitor_action_group.email[0]: Creation complete after 3s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/actionGroups/ag-tdlab-email][0m
+[0m[1mmodule.network[0].azurerm_network_security_group.pe: Creation complete after 4s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-pe][0m
+[0m[1mmodule.network[0].azurerm_network_security_group.aks: Creation complete after 4s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-aks][0m
+[0m[1mmodule.network[0].azurerm_network_security_group.vm: Creation complete after 4s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkSecurityGroups/nsg-tdlab-vm][0m
+[0m[1mmodule.vm[0].azurerm_public_ip.this: Creation complete after 6s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/publicIPAddresses/pip-tdlab-legacy][0m
+[0m[1mmodule.network[0].azurerm_virtual_network.this: Creation complete after 6s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral][0m
+[0m[1mmodule.network[0].azurerm_subnet.pe: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_subnet.aks: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_subnet.vm: Creating...[0m[0m
+[0m[1mazurerm_user_assigned_identity.sql_deploy[0]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet.aks: Creation complete after 6s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks][0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.aks: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_subnet.pe: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet.vm: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet.pe: Creation complete after 12s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe][0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.pe: Creating...[0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Still creating... [00m20s elapsed][0m[0m
+[0m[1mazurerm_user_assigned_identity.sql_deploy[0]: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.aks: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet.vm: Creation complete after 19s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm][0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.vm: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.pe: Still creating... [00m10s elapsed][0m[0m
+[0m[1mazurerm_user_assigned_identity.sql_deploy[0]: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.aks: Creation complete after 19s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-aks][0m
+[0m[1mazurerm_user_assigned_identity.sql_deploy[0]: Creation complete after 34s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-tdlab-sqldeploy][0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Creating...[0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone.sql: Creation complete after 34s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net][0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Creating...[0m[0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.vm: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.pe: Creation complete after 19s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-pe][0m
+[0m[1mmodule.monitoring[0].azurerm_log_analytics_workspace.this: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.network[0].azurerm_subnet_network_security_group_association.vm: Creation complete after 18s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral/subnets/snet-vm][0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Creating...[0m[0m
+[0m[1mmodule.vm[0].azurerm_network_interface.this: Creating...[0m[0m
+[0m[1mmodule.files[0].azurerm_storage_account.this: Creating...[0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_account.this: Creating...[0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_network_interface.this: Creation complete after 3s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/networkInterfaces/nic-tdlab-legacy][0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Creating...[0m[0m
+[0m[1mmodule.monitoring[0].azurerm_log_analytics_workspace.this: Creation complete after 47s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.OperationalInsights/workspaces/log-tdlab-swedencentral][0m
+[0m[1mmodule.monitoring[0].azurerm_application_insights.this: Creating...[0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.files[0].azurerm_storage_account.this: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_account.this: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.monitoring[0].azurerm_application_insights.this: Creation complete after 7s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Insights/components/appi-tdlab-swedencentral][0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.files[0].azurerm_storage_account.this: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_account.this: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Creation complete after 32s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateDnsZones/privatelink.database.windows.net/virtualNetworkLinks/pdnslink-sql-tdlab][0m
+[0m[1mmodule.storage[0].azurerm_storage_account.this: Creation complete after 24s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4][0m
+[0m[1mmodule.storage[0].azurerm_role_assignment.operator: Creating...[0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["backups"]: Creating...[0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["logs"]: Creating...[0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["artifacts"]: Creating...[0m[0m
+[0m[1mmodule.files[0].azurerm_storage_account.this: Creation complete after 28s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlabfiles36d2d4][0m
+[0m[1mmodule.files[0].azurerm_role_assignment.operator: Creating...[0m[0m
+[0m[1mdata.azurerm_storage_account_sas.attachments[0]: Reading...[0m[0m
+[0m[1mmodule.files[0].azurerm_storage_container.this["ticketdesk-attachments"]: Creating...[0m[0m
+[0m[1mdata.azurerm_storage_account_sas.attachments[0]: Read complete after 0s [id=d5e63bf05d3e883b1eeb82f11f3b354e570bf9f301481b3a08ac2433e6a21766][0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_role_assignment.operator: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["backups"]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["logs"]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["artifacts"]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["artifacts"]: Creation complete after 12s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts][0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["logs"]: Creation complete after 12s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs][0m
+[0m[1mmodule.storage[0].azurerm_storage_container.this["backups"]: Creation complete after 12s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups][0m
+[0m[1mmodule.files[0].azurerm_role_assignment.operator: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.files[0].azurerm_storage_container.this["ticketdesk-attachments"]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.files[0].azurerm_storage_container.this["ticketdesk-attachments"]: Creation complete after 13s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlabfiles36d2d4/blobServices/default/containers/ticketdesk-attachments][0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_role_assignment.operator: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.files[0].azurerm_role_assignment.operator: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [01m00s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_role_assignment.operator: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.storage[0].azurerm_role_assignment.operator: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-6>][0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Creating...[0m[0m
+[0m[1mmodule.files[0].azurerm_role_assignment.operator: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.files[0].azurerm_role_assignment.operator: Creation complete after 32s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlabfiles36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-15>][0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Creating...[0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [01m00s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [01m10s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Still creating... [01m00s elapsed][0m[0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [01m10s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_windows_virtual_machine.this: Creation complete after 1m7s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Compute/virtualMachines/vm-tdlab-legacy][0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["backups"]: Creating...[0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["logs"]: Creating...[0m[0m
+[0m[1mazurerm_role_assignment.vm_artifacts_reader[0]: Creating...[0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [01m20s elapsed][0m[0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [01m20s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["logs"]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_artifacts_reader[0]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["backups"]: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [01m30s elapsed][0m[0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [01m30s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_artifacts_reader[0]: Still creating... [00m20s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["backups"]: Still creating... [00m20s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["logs"]: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [01m40s elapsed][0m[0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [01m40s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["logs"]: Still creating... [00m30s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_artifacts_reader[0]: Still creating... [00m30s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["backups"]: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Still creating... [01m50s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_mssql_server.this: Creation complete after 1m52s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4][0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Creating...[0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Creating...[0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["backups"]: Creation complete after 33s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/backups/providers/Microsoft.Authorization/roleAssignments/<role-assignment-52>][0m
+[0m[1mazurerm_role_assignment.vm_artifacts_reader[0]: Creation complete after 33s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/artifacts/providers/Microsoft.Authorization/roleAssignments/<role-assignment-18>][0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [01m50s elapsed][0m[0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["logs"]: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Still creating... [01m00s elapsed][0m[0m
+[0m[1mmodule.storage[0].time_sleep.rbac_propagation: Creation complete after 1m0s [id=2026-11-10T01:00:45Z][0m
+[0m[1mazurerm_role_assignment.vm_blob_writer["logs"]: Creation complete after 45s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Storage/storageAccounts/sttdlab36d2d4/blobServices/default/containers/logs/providers/Microsoft.Authorization/roleAssignments/<role-assignment-1>][0m
+[0m[1mmodule.files[0].time_sleep.rbac_propagation: Creation complete after 1m0s [id=2026-11-10T01:00:51Z][0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [02m00s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [02m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [02m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Still creating... [02m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_key_vault.this: Creation complete after 2m36s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4][0m
+[0m[1mmodule.keyvault[0].azurerm_role_assignment.admin: Creating...[0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [01m00s elapsed][0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Still creating... [01m00s elapsed][0m[0m
+[0m[1mmodule.sql[0].azapi_resource.database: Creation complete after 1m3s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Sql/servers/sql-tdlab-36d2d4/databases/sqldb-ticketdesk][0m
+[0m[1mmodule.keyvault[0].azurerm_role_assignment.admin: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [01m10s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_role_assignment.admin: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [01m20s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_role_assignment.admin: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].azurerm_role_assignment.admin: Creation complete after 30s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-37>][0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Creating...[0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [01m30s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [01m40s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Still creating... [01m50s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.sql[0].azurerm_private_endpoint.sql: Creation complete after 1m56s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/privateEndpoints/pe-sql-tdlab][0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [00m40s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [00m50s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [01m00s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [01m10s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [01m20s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [01m30s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [01m40s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Still creating... [01m50s elapsed][0m[0m
+[0m[1mmodule.keyvault[0].time_sleep.rbac_propagation: Creation complete after 2m0s [id=2026-11-10T01:03:57Z][0m
+[0m[1mazurerm_key_vault_secret.attachments[0]: Creating...[0m[0m
+[0m[1mazurerm_key_vault_secret.app_admin[0]: Creating...[0m[0m
+[0m[1mazurerm_key_vault_secret.remoteapp_key[0]: Creating...[0m[0m
+[0m[1mazurerm_key_vault_secret.appinsights[0]: Creating...[0m[0m
+[0m[1mmodule.vm[0].azurerm_key_vault_secret.admin_password: Creating...[0m[0m
+[0m[1mazurerm_key_vault_secret.sql_connection_string[0]: Creating...[0m[0m
+[0m[1mazurerm_key_vault_secret.sql_sa[0]: Creating...[0m[0m
+[0m[1mmodule.vm[0].azurerm_role_assignment.kv_secrets_user: Creating...[0m[0m
+[0m[1mazurerm_key_vault_certificate.iis[0]: Creating...[0m[0m
+[0m[1mazurerm_key_vault_certificate.iis[0]: Creation complete after 4s [id=https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-iis-legacy/6209147b82f444d4860d9c1000f0062a][0m
+[0m[1mazurerm_key_vault_secret.sql_connection_string[0]: Creation complete after 4s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/sql-connection-string/de75b31ff5694c07b7164fffb9c8b1aa][0m
+[0m[1mazurerm_key_vault_secret.remoteapp_key[0]: Creation complete after 4s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-remoteapp-api-key/534ec3d928314f9ea160189008e4346d][0m
+[0m[1mazurerm_key_vault_secret.appinsights[0]: Creation complete after 5s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/appinsights-connection-string/594d06ad7c2a4e139bc024f5e1c1197a][0m
+[0m[1mazurerm_key_vault_secret.sql_sa[0]: Creation complete after 5s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-sql-sa-password/53a6a3de136a499daabf7693a0191233][0m
+[0m[1mmodule.vm[0].azurerm_key_vault_secret.admin_password: Creation complete after 5s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/vm-tdlab-legacy-admin-password/affa17a3e78f4a20b33ac7cf19fba9ec][0m
+[0m[1mazurerm_key_vault_secret.attachments[0]: Creation complete after 5s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-attachments-connection/0f1cefc7980d402c989628599b71f3bc][0m
+[0m[1mazurerm_key_vault_secret.app_admin[0]: Creation complete after 5s [id=https://kv-tdlab-36d2d4.vault.azure.net/secrets/td-app-admin-password/126230a3273f4f438ce7a8fd9994344b][0m
+[0m[1mmodule.vm[0].azurerm_role_assignment.kv_secrets_user: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_role_assignment.kv_secrets_user: Still creating... [00m20s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_role_assignment.kv_secrets_user: Still creating... [00m30s elapsed][0m[0m
+[0m[1mmodule.vm[0].azurerm_role_assignment.kv_secrets_user: Creation complete after 31s [id=/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.KeyVault/vaults/kv-tdlab-36d2d4/providers/Microsoft.Authorization/roleAssignments/<role-assignment-57>][0m
+[0m[1m[32m
+Apply complete! Resources: 52 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+[0mentra_app_role_ids = {
+  "TdAdministrators" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a01"
+  "TdHelpDeskUsers" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a02"
+  "TdInternalUsers" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a03"
+  "TdPendingUsers" = "5b0f7a1e-2c4d-4e6f-8a9b-0c1d2e3f4a04"
+}
+entra_client_id = "<client-id-10>"
+est_usd_per_hour = "0.1173"
+files_account = "sttdlabfiles36d2d4"
+key_vault_name = "kv-tdlab-36d2d4"
+key_vault_uri = "https://kv-tdlab-36d2d4.vault.azure.net/"
+log_analytics_workspace = "log-tdlab-swedencentral"
+resource_group = "rg-ticketdesk-lab"
+sql_admin = "id-tdlab-sqldeploy"
+sql_database = "sqldb-ticketdesk"
+sql_database_properties = {
+  "current_service_objective" = "GP_S_Gen5_2"
+  "free_limit_exhaustion" = "AutoPause"
+  "requested_backup_redundancy" = "Local"
+  "status" = "Online"
+  "use_free_limit" = true
+}
+sql_deploy_identity_client_id = "<client-id-6>"
+sql_private_endpoint_ip = "10.42.2.4"
+sql_server_fqdn = "sql-tdlab-36d2d4.database.windows.net"
+storage_account = "sttdlab36d2d4"
+storage_blob_endpoint = "https://sttdlab36d2d4.blob.core.windows.net/"
+tenant_id = "<tenant-id>"
+vm_fqdn = "tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+vm_name = "vm-tdlab-legacy"
+vm_public_ip = "135.225.92.206"
+vnet_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral"
+apply stage replatform end 2026-11-10T01:04:28Z elapsed_s=423 rc=0

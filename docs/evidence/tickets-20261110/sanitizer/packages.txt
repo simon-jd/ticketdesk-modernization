@@ -1,0 +1,4 @@
+$ dotnet list src/modern/TicketDesk.Web package --include-transitive | grep -i 'HtmlSanitizer\|AngleSharp'
+   > AngleSharp                                               1.10.0  
+   > AngleSharp.Css                                           1.4.0   
+   > HtmlSanitizer                                            11.0.26 

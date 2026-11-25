@@ -1,0 +1,4 @@
+index after reset (purged by the first deploy): 2 files, 52 bytes
+index after reindex: 4 files, 4192580 bytes
+index after the fixed deploy: 3 files, 4192580 bytes
+search 'printer' after the fixed deploy: 20 ticket links for 'printer'

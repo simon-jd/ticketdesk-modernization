@@ -1,0 +1,95 @@
+# CI of the TicketDesk modernization: Azure DevOps project TicketDesk, self-hosted agent pool "lab-host"
+# (ops/ado/agent.sh). Runs on every push to modernize and, through the branch policy (build validation), on every pull
+# request into modernize. Everything a merge must not break is a failing step here:
+#   checks      no inherited Azure login, terraform fmt -check + validate, NuGet/npm vulnerability audit
+#   build_test  Angular (Vitest, build), .NET build + all tests (td-sql, Azurite, Service Bus emulator on the host) with
+#               coverage, Playwright E2E and the golden replay against the new app alone, container images (+ smoke)
+# Test results (TRX, JUnit) and Cobertura coverage are published to the run. Lab secrets never leave the agent host:
+# azure-pipelines/scripts/ci-lib.sh reads them from $TD_W/.secrets per value and registers them with the log masker.
+name: ci-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  batch: true
+  branches:
+    include: [modernize]
+pr: none # Azure Repos: pull request validation is the branch policy on modernize, not a YAML trigger
+
+pool:
+  name: lab-host
+
+variables:
+  # caches: the agent is persistent, so NuGet/npm caches live in the agent's work folder and survive runs (a Cache@2 task
+  # would re-download a ~650 MB archive on every hit); checkout clean: true still rebuilds the sources from scratch
+  NUGET_PACKAGES: $(Agent.WorkFolder)/_cache/nuget
+  npm_config_cache: $(Agent.WorkFolder)/_cache/npm
+  CI_OUT: $(Build.ArtifactStagingDirectory)
+
+stages:
+  - stage: ci
+    displayName: CI
+    jobs:
+      - job: checks
+        displayName: Static gates
+        timeoutInMinutes: 10
+        steps:
+          - checkout: self
+            clean: true
+            fetchDepth: 1
+          - script: bash azure-pipelines/scripts/no-azure-login.sh
+            displayName: No inherited Azure login
+          - script: bash azure-pipelines/scripts/terraform.sh
+            displayName: terraform fmt -check + validate
+          - script: bash azure-pipelines/scripts/audit.sh
+            displayName: Vulnerable packages (NuGet, npm)
+          - publish: $(Build.ArtifactStagingDirectory)
+            artifact: checks
+            displayName: Publish audit output
+            condition: succeededOrFailed()
+
+      - job: build_test
+        displayName: Build, test, images
+        dependsOn: []
+        timeoutInMinutes: 40
+        steps:
+          - checkout: self
+            clean: true
+            fetchDepth: 1
+          - script: bash azure-pipelines/scripts/web.sh
+            displayName: Angular - npm ci, Vitest, build
+          - script: bash azure-pipelines/scripts/dotnet.sh
+            displayName: .NET - restore, build, tests + coverage
+          - script: bash azure-pipelines/scripts/e2e.sh
+            displayName: Playwright E2E (new app alone)
+          - script: bash azure-pipelines/scripts/replay.sh
+            displayName: Golden replay (new app alone)
+          - script: bash azure-pipelines/scripts/images.sh
+            name: images
+            displayName: Container images (web, worker) + smoke
+          - task: PublishTestResults@2
+            displayName: Publish .NET test results
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: VSTest
+              testResultsFiles: $(Build.ArtifactStagingDirectory)/tests/dotnet/**/*.trx
+              testRunTitle: .NET tests
+              failTaskOnMissingResultsFile: false
+          - task: PublishTestResults@2
+            displayName: Publish Vitest + Playwright results
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: JUnit
+              testResultsFiles: |
+                $(Build.ArtifactStagingDirectory)/tests/web/vitest-junit.xml
+                $(Build.ArtifactStagingDirectory)/tests/e2e/junit.xml
+              testRunTitle: Angular (Vitest, Playwright)
+              failTaskOnMissingResultsFile: false
+          - task: PublishCodeCoverageResults@2
+            displayName: Publish .NET coverage
+            condition: succeededOrFailed()
+            inputs:
+              summaryFileLocation: $(Build.ArtifactStagingDirectory)/coverage/dotnet.cobertura.xml
+              failIfCoverageEmpty: false
+          - publish: $(Build.ArtifactStagingDirectory)
+            artifact: build_test
+            displayName: Publish CI output (summaries, replay report, images)
+            condition: succeededOrFailed()

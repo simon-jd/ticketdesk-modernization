@@ -1,0 +1,2 @@
+$ ops/dev/e2e-db.sh TicketDesk_retire --no-contract
+TicketDesk_retire restored: 10000 tickets     

@@ -1,0 +1,6 @@
+start            2026-11-12T06:25:36Z
+deadline         2026-11-12T09:10:36Z  start + 165 min 0 s; the rows' 180 min - destroy budget 15 min
+before retire-vm 2026-11-12T09:02:36Z  (the VM delete's 480 s kept free)
+watchdog         a step still running 120 s after the deadline is stopped
+planned end      2026-11-12T09:25:36Z  (rows K2.*: destroy finished)
+ttl              2026-11-12T09:40:36Z  (TTL_HOURS 3.25: the reaper's time if the trap never runs)

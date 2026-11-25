@@ -1,0 +1,12 @@
+{
+  "name": "ticketdesk-frontend-baseline",
+  "private": true,
+  "description": "Lighthouse and axe-core baseline of the legacy TicketDesk pages (run with node frontend-baseline.mjs)",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "axe-core": "4.14.0",
+    "lighthouse": "12.8.2",
+    "puppeteer-core": "24.43.1"
+  }
+}

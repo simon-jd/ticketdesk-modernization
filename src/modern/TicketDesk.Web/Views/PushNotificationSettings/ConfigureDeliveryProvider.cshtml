@@ -1,0 +1,89 @@
+@* Port of the legacy Views/PushNotificationSettings/ConfigureDeliveryProvider.cshtml (TicketDesk 2.5, Ms-PL). S6: secret
+   fields are never rendered with a value nor accepted; the form now carries an antiforgery token (S3). *@
+@model TicketDesk.Web.Controllers.PushNotificationSettingsController.ProviderPage
+@using ConfigureStrings = TicketDesk.Localization.Views.PushNotificationSettings.ConfigureDeliveryProvider
+@using PushStrings = TicketDesk.Localization.PushNotifications.Strings
+@using TicketDesk.Settings
+@using TicketDesk.Web.Controllers
+@{
+    string A(string? s) => LegacyRedirectResult.HtmlAttributeEncode(s ?? "");
+    var enabledField = new LegacyField("IsEnabled", PushStrings.Provider) { Required = true };
+}
+@section title
+{
+}
+<main>
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2  col-sm-12">
+<form action="/admin/push-notification-settings/configure-provider" class="form-horizontal" method="post">                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>@ConfigureStrings.Legend</legend>
+                        <input id="ProviderAssemblyQualifiedName" name="ProviderAssemblyQualifiedName" type="hidden" value="@Model.Provider.AssemblyQualifiedName" />
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h2 class="panel-title"><div>@PushNotificationSettingsController.ProviderTitle(Model.Provider)</div></h2>
+                            </div>
+                            <div class="panel-body ">
+                                <div class="form-group">
+                                    @LegacyForm.Label(enabledField, "col-md-4 col-sm-4 control-label")
+                                    <div class="col-md-8 col-sm-8">
+                                        <label class="checkbox-inline">
+                                            @LegacyForm.CheckBox(enabledField, Model.IsEnabled)
+                                            @PushStrings.Provider_Prompt
+                                        </label>
+                                        @LegacyForm.ValidationMessage(enabledField, ViewData.ModelState)
+                                        
+                                    </div>
+                                </div>
+
+                                @foreach (var f in Model.Provider.Fields)
+                                {
+                                    var label = PushNotificationSettingsController.ProviderLabel(f);
+                                    var description = PushNotificationSettingsController.ProviderDescription(f);
+                                    var value = Model.Configuration[f.Name];
+                                    var error = ViewData.ModelState.TryGetValue(f.Name, out var entry) ? entry.Errors.FirstOrDefault()?.ErrorMessage : null;
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">@label</label>
+                                        <div class="col-md-8 col-sm-8">
+
+                                            @if (f.Kind == ProviderFieldKind.Boolean)
+                                            {
+                                                var on = value is System.Text.Json.Nodes.JsonValue v && v.TryGetValue<bool>(out var b) && b;
+                                                <label class="checkbox-inline">
+                                                    @Html.Raw($"<input {(on ? "checked=\"checked\" " : "")}id=\"{f.Name}\" name=\"{f.Name}\" type=\"checkbox\" value=\"true\" /><input name=\"{f.Name}\" type=\"hidden\" value=\"false\" />")
+                                                    @(PushNotificationSettingsController.ProviderPrompt(f) ?? label)
+                                                </label>
+                                            }
+                                            else
+                                            {
+                                                var type = f.Kind switch { ProviderFieldKind.Number => "number", ProviderFieldKind.Password => "password", ProviderFieldKind.Email => "email", _ => "text" };
+                                                var text = f.Secret ? "" : value?.ToString() ?? "";
+                                                var css = error != null ? "input-validation-error form-control input-sm" : "form-control input-sm";
+                                                var secretNote = f.Secret ? $" placeholder=\"{A(Model.SecretConfigured[f.Name] ? "(set in the secret store)" : "(not set: use the secret store)")}\"" : "";
+                                                @Html.Raw($"<input class=\"{css}\" id=\"{f.Name}\" name=\"{f.Name}\"{secretNote} type=\"{type}\" value=\"{A(text)}\" />")@Html.Raw($"<span class=\"{(error != null ? "field-validation-error" : "field-validation-valid")}\" data-valmsg-for=\"{f.Name}\" data-valmsg-replace=\"true\">{System.Net.WebUtility.HtmlEncode(error ?? "")}</span>")
+                                            }
+                                            @if (f.Secret)
+                                            {
+                                                <span class="help-block">@description Stored in the secret store (@PushNotificationSecretsOptions.Key(Model.Provider, f)), never in the database.</span>
+                                            }
+                                            else if (description != null)
+                                            {
+                                                <span class="help-block">@description</span>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="panel-footer">
+                                <button type="submit" class="btn btn-success" tabindex="10"><i class="fa fa-save"></i>&nbsp;&nbsp;@ConfigureStrings.SaveOption</button>&nbsp;&nbsp;
+                                <a href="/admin/push-notification-settings">@ConfigureStrings.BackOption</a>
+                            </div>
+                        </div>
+
+                    </fieldset>
+@Html.AntiForgeryToken()
+</form>
+        </div>
+    </div>
+</main>

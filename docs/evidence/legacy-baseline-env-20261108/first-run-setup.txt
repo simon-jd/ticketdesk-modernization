@@ -1,0 +1,10 @@
+legacy_smoke setup against https://localhost:8443 at 2026-11-08T00:41:11Z
+  GET  / -> 302 39ms -> /first-run-setup
+  GET  /first-run-setup -> 200 3762ms
+[PASS] first-run setup page (redirected to /first-run-setup)
+  POST /first-run-setup/create-database -> 302 6870ms -> /first-run-setup
+  GET  /first-run-setup -> 200 491ms
+[PASS] create database + admin (HTTP 200)
+  GET  / -> 200 3159ms
+[PASS] home page after setup (HTTP 200 /)
+{"command": "setup", "ok": true, "checks_passed": 3, "checks_total": 3, "requests": 5, "seconds": 14.3}

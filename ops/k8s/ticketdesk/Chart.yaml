@@ -1,0 +1,6 @@
+apiVersion: v2
+name: ticketdesk
+description: TicketDesk new app (web + notification worker) with the td-db migrate job that runs before every rollout. One chart for kind (lab) and AKS (workload identity, Key Vault through the Secrets Store CSI driver).
+type: application
+version: 0.1.0
+appVersion: "round4"

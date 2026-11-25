@@ -1,0 +1,23 @@
+deploy v1 start 2026-11-12T06:47:53.779Z
+Release "ticketdesk" does not exist. Installing it now.
+NAME: ticketdesk
+LAST DEPLOYED: Wed Nov 11 22:47:55 2026
+NAMESPACE: ticketdesk
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+deploy v1 end 2026-11-12T06:48:35.822Z elapsed_s=49
+NAME                             READY   STATUS      RESTARTS   AGE   IP              NODE                             NOMINATED NODE   READINESS GATES
+pod/td-db-migrate-zhdtt          0/1     Completed   0          29s   192.168.0.169   aks-system-24446236-vmss000000   <none>           <none>
+pod/td-web-6767768f4d-qhxzv      1/1     Running     0          16s   192.168.0.151   aks-system-24446236-vmss000000   <none>           <none>
+pod/td-worker-57c6ffb4c9-lkrjj   1/1     Running     0          16s   192.168.0.237   aks-system-24446236-vmss000000   <none>           <none>
+
+NAME             TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)         AGE   SELECTOR
+service/td-web   LoadBalancer   172.16.57.193   172.130.35.152   443:32653/TCP   16s   app.kubernetes.io/name=td-web
+
+NAME                      STATUS     COMPLETIONS   DURATION   AGE   CONTAINERS   IMAGES                                            SELECTOR
+job.batch/td-db-migrate   Complete   1/1           13s        31s   td-db        acrtdlab36d2d4.azurecr.io/ticketdesk-db:aks-v2b   batch.kubernetes.io/controller-uid=9a24572c-456b-4a4e-80bd-dc0ad3f2e2f5
+nothing to apply
+0 script(s) applied
+2026-11-12T06:48:39Z deploy v1: 53 s, service IP 172.130.35.152, tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com resolves to 172.130.35.152

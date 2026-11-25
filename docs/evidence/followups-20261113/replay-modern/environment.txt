@@ -1,0 +1,6 @@
+# date: 2026-11-13T22:43:39Z  git: b19f9f9d
+# target: the new app alone at https://localhost:5483/ (TicketDesk.Web Release, Kestrel, lab certificate); no legacy app, no gateway
+# baseline recording: tests/characterization/golden/legacy-golden.jsonl.xz (3fd4c00c73e248ad696481675fa443eeaf7ba1e04c14579e1b104b6cc6e3180b)
+# database: td-sql TicketDesk_r5breplay = fresh copy of TicketDesk, td-db through the contract stage; attachments: empty local folder
+# registry: src/modern/TicketDesk.Web/migration-registry.json (tickets.index=Angular, ticket.view=Angular, ticket.new.get=Angular)
+# host load: 8.84 6.00 5.45

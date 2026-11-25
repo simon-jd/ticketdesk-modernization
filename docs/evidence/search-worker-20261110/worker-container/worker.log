@@ -1,0 +1,8 @@
+info: TicketDesk.Worker.NotificationWorker[0]
+      Delivering ticket notifications from queue ticket-notifications-test
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10000 events 45646 to destination 2 (attempt 1)
+info: TicketDesk.Worker.NotificationWorker[0]
+      Sent ticket 10000 events 45646 to destination 3 (attempt 1)

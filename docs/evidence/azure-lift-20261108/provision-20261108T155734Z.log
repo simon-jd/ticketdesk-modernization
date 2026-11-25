@@ -1,0 +1,108 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261108155800
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script0.ps1 -Steps fetch+prereqs+sql+sqlupdate+site+restore+deploy+backup-task+verify -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-4b88c51-dirty.zip -BundleSha256 fe48f6772b5a29e9bf694e942badcd7546aa69faa7d56d77ee93bd93581efe23 -PublishBlob td-legacy-publish-f510384.zip -PublishSha256 5f08149d6280aad948c1d46289b81503110f2fc57e9dd84bda4add0510aca45a -AdminEmail <admin-email> -RunId 20261108T155734Z -RestorePrefix seed -RestoreName baseline-s
+Process ID: 3896
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-08T15:58:00Z] provision run 20261108T155734Z on tdlab-legacy, steps: fetch+prereqs+sql+sqlupdate+site+restore+deploy+backup-task+verify
+[2026-11-08T15:58:00Z] ==== step fetch
+[2026-11-08T15:58:03Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-4b88c51-dirty.zip (30,258 bytes, sha256 FE48F6772B5A29E9BF694E942BADCD7546AA69FAA7D56D77EE93BD93581EFE23)
+[2026-11-08T15:58:03Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Update-TdSqlServer.ps1
+[2026-11-08T15:58:04Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-legacy-publish-f510384.zip (19,686,422 bytes, sha256 5F08149D6280AAD948C1D46289B81503110F2FC57E9DD84BDA4ADD0510ACA45A)
+[2026-11-08T15:58:08Z] publish package: 840 files
+[2026-11-08T15:58:08Z] step fetch done in 7.2s
+[2026-11-08T15:58:08Z] ==== step prereqs
+[2026-11-08T15:58:15Z] CHANGE installing: Web-Server, Web-WebServer, Web-Default-Doc, Web-Http-Errors, Web-Static-Content, Web-Http-Redirect, Web-Http-Logging, Web-Request-Monitor, Web-Stat-Compression, Web-Dyn-Compression, Web-Filtering, Web-Net-Ext45, Web-Asp-Net45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Mgmt-Tools, Web-Scripting-Tools, NET-Framework-45-ASPNET
+[2026-11-08T16:00:43Z] INFO   .NET Framework 4.x release key 533509
+[2026-11-08T16:00:43Z] INFO   ASP.NET v4.0 registered with IIS
+
+Name                    InstallState
+----                    ------------
+Web-Server                 Installed
+Web-WebServer              Installed
+Web-Default-Doc            Installed
+Web-Http-Errors            Installed
+Web-Static-Content         Installed
+Web-Http-Redirect          Installed
+Web-Http-Logging           Installed
+Web-Request-Monitor        Installed
+Web-Stat-Compression       Installed
+Web-Dyn-Compression        Installed
+Web-Filtering              Installed
+Web-Net-Ext45              Installed
+Web-Asp-Net45              Installed
+Web-ISAPI-Ext              Installed
+Web-ISAPI-Filter           Installed
+Web-Mgmt-Tools             Installed
+Web-Scripting-Tools        Installed
+NET-Framework-45-ASPNET    Installed
+[2026-11-08T16:00:44Z] step prereqs done in 155.3s
+[2026-11-08T16:00:44Z] ==== step sql
+[2026-11-08T16:00:45Z] CHANGE downloaded C:\TdMedia\sql2022-express\SQL2022-SSEI-Expr.exe (3,751,760 bytes, sha256 E2B8E8AAD30D8B1A1922C6C0976C806F0A2E08D04B2DE100A9D70B9F94750BB1)
+[2026-11-08T16:00:45Z] CHANGE downloading Express media (Core)
+[2026-11-08T16:01:06Z] CHANGE extracting SQLEXPR_x64_ENU.exe
+[2026-11-08T16:01:14Z] CHANGE running SQL Server setup for instance SQLEXPRESS (as SYSTEM)
+[2026-11-08T16:05:04Z] CHANGE setup exit 0
+[2026-11-08T16:05:04Z] CHANGE static TCP port 1433
+[2026-11-08T16:05:05Z] CHANGE restarted MSSQL$SQLEXPRESS
+[2026-11-08T16:05:05Z] INFO   sa login enabled, password set
+[2026-11-08T16:05:05Z] INFO   SQL Server 16.0.1000.6 Express Edition (64-bit) on .\SQLEXPRESS, TCP 1433
+[2026-11-08T16:05:05Z] step sql done in 261.8s
+[2026-11-08T16:05:05Z] ==== step sqlupdate
+[2026-11-08T16:05:05Z] INFO   before: Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) Oct 8 2022 05:58:25 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor)
+[2026-11-08T16:05:14Z] CHANGE downloaded C:\TdMedia\sql2022-cu\sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe (491,045,896 bytes, sha256 8F1A7F0AC5F47FF98F5825687C8CCD897563AA835915F2271F908273E962E7E2)
+[2026-11-08T16:05:14Z] CHANGE stopped W3SVC for the patch
+[2026-11-08T16:05:14Z] CHANGE patching SQLEXPRESS with sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe (as SYSTEM)
+[2026-11-08T16:07:54Z] INFO   started W3SVC
+[2026-11-08T16:07:54Z] CHANGE after: Microsoft SQL Server 2022 (RTM-CU27-GDR) (KB5126934) - 16.0.4305.5 (X64) Oct 2 2026 17:28:11 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 <X64> (Build 26100: ) (Hypervisor) (exit 0, 159.7s)
+SQLUPDATE {"host":"tdlab-legacy","instance":"SQLEXPRESS","started_utc":"2026-11-08T16:05:05.9870628Z","target_version":"16.0.4305.5","before":{"product_version":"16.0.1000.6","update_level":"","kb":"","version":"Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) Oct 8 2022 05:58:25 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 \u003cX64\u003e (Build 26100: ) (Hypervisor)"},"package":"https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/secu/2026/10/sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe","package_sha256":"8F1A7F0AC5F47FF98F5825687C8CCD897563AA835915F2271F908273E962E7E2","exit_code":0,"seconds":159.7,"restart_required":false,"action":"patched","after":{"product_version":"16.0.4305.5","update_level":"CU27","kb":"KB5126934","version":"Microsoft SQL Server 2022 (RTM-CU27-GDR) (KB5126934) - 16.0.4305.5 (X64) Oct 2 2026 17:28:11 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Datacenter 10.0 \u003cX64\u003e (Build 26100: ) (Hypervisor)"},"finished_utc":"2026-11-08T16:07:54.0377351Z"}
+[2026-11-08T16:07:54Z] step sqlupdate done in 168.3s
+[2026-11-08T16:07:54Z] ==== step site
+[2026-11-08T16:07:55Z] CHANGE imported certificate 96449D36383AF1798F029D1E77ED04BD8D0EA812 (CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab)
+[2026-11-08T16:07:55Z] CHANGE trusted lab CA CN=TicketDesk Lab Root CA, O=TicketDesk Lab
+[2026-11-08T16:07:55Z] CHANGE created app pool TicketDesk
+[2026-11-08T16:07:55Z] CHANGE app pool TicketDesk processModel.loadUserProfile = True
+[2026-11-08T16:07:55Z] CHANGE app pool TicketDesk processModel.idleTimeout = 00:00:00
+[2026-11-08T16:07:56Z] CHANGE created C:\inetpub\ticketdesk
+[2026-11-08T16:07:56Z] CHANGE created C:\inetpub\ticketdesk\App_Data
+[2026-11-08T16:07:56Z] CHANGE granted IIS AppPool\TicketDesk ReadAndExecute on C:\inetpub\ticketdesk
+[2026-11-08T16:07:56Z] CHANGE granted IIS AppPool\TicketDesk Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T16:07:56Z] CHANGE stopped Default Web Site (port conflict)
+[2026-11-08T16:07:56Z] CHANGE created site TicketDesk
+[2026-11-08T16:07:56Z] CHANGE binding https *:443:
+[2026-11-08T16:07:57Z] CHANGE TLS binding 0.0.0.0:443 -> 96449D36383AF1798F029D1E77ED04BD8D0EA812
+[2026-11-08T16:08:01Z] CHANGE W3SVC now depends on WAS/HTTP/MSSQL$SQLEXPRESS
+[2026-11-08T16:08:01Z] CHANGE SQL: created database (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T16:08:01Z] CHANGE SQL: created login (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T16:08:01Z] CHANGE SQL: created user (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T16:08:01Z] CHANGE SQL: granted db_owner (TicketDesk / IIS AppPool\TicketDesk)
+[2026-11-08T16:08:01Z] INFO   site TicketDesk -> C:\inetpub\ticketdesk, http 80, https 443, cert 96449D36383AF1798F029D1E77ED04BD8D0EA812 (expires 2029-02-10)
+[2026-11-08T16:08:01Z] step site done in 7.6s
+[2026-11-08T16:08:01Z] ==== step restore
+PS>TerminatingError(Get-TdBlobList): "Cannot convert value "ï»¿<?xml version="1.0" encoding="utf-8"?><EnumerationResults ServiceEndpoint="https://sttdlab36d2d4.blob.core.windows.net/" ContainerName="backups"><Prefix>seed/</Prefix><Blobs><Blob><Name>seed/baseline-s/TicketDesk.bak</Name><Properties><Creation-Time>Sun, 08 Nov 2026 15:57:18 GMT</Creation-Time><Last-Modified>Sun, 08 Nov 2026 15:57:18 GMT</Last-Modified><Etag>0x8DF3DB0F735772D</Etag><Content-Length>77717504</Content-Length><Content-Type>application/x-trash</Content-Type><Content-Encoding /><Content-Language /><Content-CRC64 /><Content-MD5>7OMchk0lxv7G7djMV5qpNQ==</Content-MD5><Cache-Control /><Content-Disposition /><BlobType>BlockBlob</BlobType><AccessTier>Hot</AccessTier><AccessTierInferred>true</AccessTierInferred><LeaseStatus>unlocked</LeaseStatus><LeaseState>available</LeaseState><ServerEncrypted>true</ServerEncrypted></Properties><OrMetadata /></Blob></Blobs><NextMarker /></EnumerationResults>" to type "System.Xml.XmlDocument". Error: "The specified node cannot be inserted as the valid child of this node, because the specified node is the wrong type.""
+>> TerminatingError(Get-TdBlobList): "Cannot convert value "ï»¿<?xml version="1.0" encoding="utf-8"?><EnumerationResults ServiceEndpoint="https://sttdlab36d2d4.blob.core.windows.net/" ContainerName="backups"><Prefix>seed/</Prefix><Blobs><Blob><Name>seed/baseline-s/TicketDesk.bak</Name><Properties><Creation-Time>Sun, 08 Nov 2026 15:57:18 GMT</Creation-Time><Last-Modified>Sun, 08 Nov 2026 15:57:18 GMT</Last-Modified><Etag>0x8DF3DB0F735772D</Etag><Content-Length>77717504</Content-Length><Content-Type>application/x-trash</Content-Type><Content-Encoding /><Content-Language /><Content-CRC64 /><Content-MD5>7OMchk0lxv7G7djMV5qpNQ==</Content-MD5><Cache-Control /><Content-Disposition /><BlobType>BlockBlob</BlobType><AccessTier>Hot</AccessTier><AccessTierInferred>true</AccessTierInferred><LeaseStatus>unlocked</LeaseStatus><LeaseState>available</LeaseState><ServerEncrypted>true</ServerEncrypted></Properties><OrMetadata /></Blob></Blobs><NextMarker /></EnumerationResults>" to type "System.Xml.XmlDocument". Error: "The specified node cannot be inserted as the valid child of this node, because the specified node is the wrong type.""
+>> TerminatingError(Get-TdBlobList): "Cannot convert value "ï»¿<?xml version="1.0" encoding="utf-8"?><EnumerationResults ServiceEndpoint="https://sttdlab36d2d4.blob.core.windows.net/" ContainerName="backups"><Prefix>seed/</Prefix><Blobs><Blob><Name>seed/baseline-s/TicketDesk.bak</Name><Properties><Creation-Time>Sun, 08 Nov 2026 15:57:18 GMT</Creation-Time><Last-Modified>Sun, 08 Nov 2026 15:57:18 GMT</Last-Modified><Etag>0x8DF3DB0F735772D</Etag><Content-Length>77717504</Content-Length><Content-Type>application/x-trash</Content-Type><Content-Encoding /><Content-Language /><Content-CRC64 /><Content-MD5>7OMchk0lxv7G7djMV5qpNQ==</Content-MD5><Cache-Control /><Content-Disposition /><BlobType>BlockBlob</BlobType><AccessTier>Hot</AccessTier><AccessTierInferred>true</AccessTierInferred><LeaseStatus>unlocked</LeaseStatus><LeaseState>available</LeaseState><ServerEncrypted>true</ServerEncrypted></Properties><OrMetadata /></Blob></Blobs><NextMarker /></EnumerationResults>" to type "System.Xml.XmlDocument". Error: "The specified node cannot be inserted as the valid child of this node, because the specified node is the wrong type.""
+>> TerminatingError(Get-TdBlobList): "Cannot convert value "ï»¿<?xml version="1.0" encoding="utf-8"?><EnumerationResults ServiceEndpoint="https://sttdlab36d2d4.blob.core.windows.net/" ContainerName="backups"><Prefix>seed/</Prefix><Blobs><Blob><Name>seed/baseline-s/TicketDesk.bak</Name><Properties><Creation-Time>Sun, 08 Nov 2026 15:57:18 GMT</Creation-Time><Last-Modified>Sun, 08 Nov 2026 15:57:18 GMT</Last-Modified><Etag>0x8DF3DB0F735772D</Etag><Content-Length>77717504</Content-Length><Content-Type>application/x-trash</Content-Type><Content-Encoding /><Content-Language /><Content-CRC64 /><Content-MD5>7OMchk0lxv7G7djMV5qpNQ==</Content-MD5><Cache-Control /><Content-Disposition /><BlobType>BlockBlob</BlobType><AccessTier>Hot</AccessTier><AccessTierInferred>true</AccessTierInferred><LeaseStatus>unlocked</LeaseStatus><LeaseState>available</LeaseState><ServerEncrypted>true</ServerEncrypted></Properties><OrMetadata /></Blob></Blobs><NextMarker /></EnumerationResults>" to type "System.Xml.XmlDocument". Error: "The specified node cannot be inserted as the valid child of this node, because the specified node is the wrong type.""
+[2026-11-08T16:08:02Z] FAILED: Cannot convert value "ï»¿<?xml version="1.0" encoding="utf-8"?><EnumerationResults ServiceEndpoint="https://sttdlab36d2d4.blob.core.windows.net/" ContainerName="backups"><Prefix>seed/</Prefix><Blobs><Blob><Name>seed/baseline-s/TicketDesk.bak</Name><Properties><Creation-Time>Sun, 08 Nov 2026 15:57:18 GMT</Creation-Time><Last-Modified>Sun, 08 Nov 2026 15:57:18 GMT</Last-Modified><Etag>0x8DF3DB0F735772D</Etag><Content-Length>77717504</Content-Length><Content-Type>application/x-trash</Content-Type><Content-Encoding /><Content-Language /><Content-CRC64 /><Content-MD5>7OMchk0lxv7G7djMV5qpNQ==</Content-MD5><Cache-Control /><Content-Disposition /><BlobType>BlockBlob</BlobType><AccessTier>Hot</AccessTier><AccessTierInferred>true</AccessTierInferred><LeaseStatus>unlocked</LeaseStatus><LeaseState>available</LeaseState><ServerEncrypted>true</ServerEncrypted></Properties><OrMetadata /></Blob></Blobs><NextMarker /></EnumerationResults>" to type "System.Xml.XmlDocument". Error: "The specified node cannot be inserted as the valid child of this node, because the specified node is the wrong type."
+[2026-11-08T16:08:02Z] at Get-TdBlobList, C:\TdOps\windows\TdOps.psm1: line 204
+at <ScriptBlock>, C:\TdOps\windows\Get-TdBlobBackup.ps1: line 28
+at Invoke-Ops, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 89
+at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 148
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script0.ps1: line 209
+[2026-11-08T16:08:02Z] TDTIMINGS {"fetch":7.2,"prereqs":155.3,"sql":261.8,"sqlupdate":168.3,"site":7.6} total 601.6s
+**********************
+Windows PowerShell transcript end
+End time: 20261108160802
+**********************

@@ -1,0 +1,4 @@
+new rate 150: p50 5.1 p95 27.9 p99 49.0 ms, 34896 req, failed 0.00%, dropped 0
+new rate 200: p50 21.3 p95 161.7 p99 345.2 ms, 46476 req, failed 0.03%, dropped 0
+new rate 250: p50 1408.5 p95 3869.4 p99 4355.3 ms, 48770 req, failed 0.31%, dropped 5966
+new rate 300: p50 1874.4 p95 5162.1 p99 5843.7 ms, 44377 req, failed 0.36%, dropped 16874

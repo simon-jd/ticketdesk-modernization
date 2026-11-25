@@ -1,0 +1,26 @@
+run 18 ci-20261111.14 ci refs/heads/ws/pipelines b882dbbb status=completed result=succeeded reason=manual queued=2026-11-11T09:11:55.5457797Z start=2026-11-11T09:11:58.3009608Z finish=2026-11-11T09:14:59.2109362Z
+Checkpoint completed  succeeded    0 s      Checkpoint
+Stage      completed  succeeded    177 s    CI
+Job        completed  succeeded    39 s     Static gates
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    6 s      Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    0 s      No inherited Azure login
+Task       completed  succeeded    3 s      terraform fmt -check + validate
+Task       completed  succeeded    27 s     Vulnerable packages (NuGet, npm)
+Task       completed  succeeded    1 s      Publish audit output
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    1 s      Finalize Job
+Job        completed  succeeded    102 s    Build, test, images
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    6 s      Angular - npm ci, Vitest, build
+Task       completed  succeeded    48 s     .NET - restore, build, tests + coverage
+Task       completed  succeeded    11 s     Playwright E2E (new app alone)
+Task       completed  succeeded    10 s     Golden replay (new app alone)
+Task       completed  succeeded    3 s      Container images (web, worker) + smoke
+Task       completed  succeeded    4 s      Publish .NET test results
+Task       completed  succeeded    3 s      Publish Vitest + Playwright results
+Task       completed  succeeded    12 s     Publish .NET coverage
+Task       completed  succeeded    3 s      Publish CI output (summaries, replay report, images)
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@ws/pipelines to s
+Task       completed  succeeded    0 s      Finalize Job

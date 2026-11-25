@@ -1,0 +1,11 @@
+# Angular production build (src/web: npm run build), 2026-11-10T18:10:23Z, git d476ac1, Angular 22.2.5, Node v24.22.2
+# raw bytes | gzip -9 | bytes TicketDesk.Web sends with Accept-Encoding: br (ResponseCompression, Brotli Optimal); initial = main + styles
+file,raw,gzip9,br_served
+chunk-B43yjd9g.js,20174,6661,6915
+chunk-B6wDfhgY.js,543,404,363
+chunk-C56xwkmX.js,17929,5858,5998
+chunk-Cs6tvk49.js,17955,5769,5963
+chunk-CYI0CVMY.js,545,367,347
+chunk-D9309TSY.js,52753,12106,12772
+main-F4BRZ2RI.js,294234,91254,93574
+styles-P43MTZNW.css,2219,929,861

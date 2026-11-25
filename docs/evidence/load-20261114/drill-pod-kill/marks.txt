@@ -1,0 +1,4 @@
+start 2026-11-14T05:07:57.767Z rate 75 for 360 s, fault pod-kill at +120 s
+fault 2026-11-14T05:09:57.816Z kubectl delete pod td-web-7746b5c8c-jrbtx --grace-period=0 --force
+ready 2026-11-14T05:10:01.189Z td-web-7746b5c8c-b55n4
+end 2026-11-14T05:14:00.575Z

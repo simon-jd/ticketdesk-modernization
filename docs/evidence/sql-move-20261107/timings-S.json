@@ -1,0 +1,10 @@
+{
+  "scale": "S",
+  "freezeSeconds": 0.13,
+  "exportSeconds": 5.14,
+  "importSeconds": 8.41,
+  "reconcileSeconds": 1.22,
+  "windowSeconds": 14.9,
+  "bacpacBytes": 3550482,
+  "reconcileExitCode": 0
+}

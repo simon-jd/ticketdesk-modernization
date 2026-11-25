@@ -1,0 +1,1361 @@
+### naive.detail.cmd1.stmt1.sqlplan
+statement: SELECT TOP(2) [t].[TicketId], [t].[ActualDuration], [t].[AffectsCustomer], [t].[AssignedTo], [t].[Category], [t].[CreatedBy], [t].[CreatedDate], [t].[CurrentSta...
+  cost 0.007, DOP 1, memory grant 0 KB (used 0)
+  Top | rows 1 (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+      Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: TicketDeskLBase.Tickets.ProjectId as t.ProjectId
+
+### naive.detail.cmd2.stmt1.sqlplan
+statement: SELECT [t0].[TicketId], [t0].[EventId], [t0].[Comment], [t0].[EventBy], [t0].[EventDate], [t0].[EventDescription], [t0].[ForActivity], [t0].[IsHtml], [t0].[Vers...
+  cost 0.011, DOP 1, memory grant 0 KB (used 0)
+  Nested Loops (Inner Join) | rows 17 (est 75.3)
+    Top | rows 1 (est 1)
+      Nested Loops (Inner Join) | rows 1 (est 1)
+        Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+        Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: TicketDeskLBase.Tickets.ProjectId as t.ProjectId
+    Clustered Index Seek TicketEvents.PK_dbo.TicketEvents | rows 17 (est 75.3), reads 6, seek: @ticketId
+
+### naive.detail.cmd3.stmt1.sqlplan
+statement: SELECT [t1].[TicketTagId], [t1].[TagName], [t1].[TicketId], [s0].[TicketId], [s0].[ProjectId] FROM ( SELECT TOP(1) [t].[TicketId], [p].[ProjectId] FROM [dbo].[T...
+  cost 0.031, DOP 1, memory grant 0 KB (used 0)
+  Nested Loops (Inner Join) | rows 2 (est 7.427)
+    Top | rows 1 (est 1)
+      Nested Loops (Inner Join) | rows 1 (est 1)
+        Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+        Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: TicketDeskLBase.Tickets.ProjectId as t.ProjectId
+    Nested Loops (Inner Join) | rows 2 (est 7.427)
+      Index Seek TicketTags.IX_TicketId | rows 2 (est 7.427), reads 3, seek: @ticketId
+      Clustered Index Seek TicketTags.PK_dbo.TicketTags | rows 2 (est 1), execs 2, reads 6, seek: TicketDeskLBase.TicketTags.TicketTagId as t1.TicketTagId
+
+### naive.detail.cmd4.stmt1.sqlplan
+statement: SELECT [t2].[TicketId], [t2].[SubscriberId], [s1].[TicketId], [s1].[ProjectId] FROM ( SELECT TOP(1) [t].[TicketId], [p].[ProjectId] FROM [dbo].[Tickets] AS [t] ...
+  cost 0.01, DOP 1, memory grant 0 KB (used 0)
+  Nested Loops (Inner Join) | rows 3 (est 11.881)
+    Top | rows 1 (est 1)
+      Nested Loops (Inner Join) | rows 1 (est 1)
+        Clustered Index Seek Tickets.PK_dbo.Tickets | rows 1 (est 1), reads 3, seek: @ticketId
+        Clustered Index Seek Projects.PK_dbo.Projects | rows 1 (est 1), reads 2, seek: TicketDeskLBase.Tickets.ProjectId as t.ProjectId
+    Index Seek TicketSubscribers.IX_TicketId | rows 3 (est 11.881), reads 4, seek: @ticketId
+
+### naive.detail.cmd5.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5)
+  cost 0.003, DOP 1, memory grant 1024 KB (used 16)
+  Nested Loops (Inner Join) | rows 5 (est 5)
+    Merge Interval | rows 5 (est 5)
+      Sort (TopN Sort) | rows 5 (est 5), top 5
+        Compute Scalar | rows ? (est 5)
+          Concatenation | rows 5 (est 5)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 5 (est 5), execs 5, reads 20, seek: Expr1016
+
+### naive.list-assignedToMe.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[AssignedTo] = @me
+  cost 78.244, DOP 8, memory grant 136 KB (used 136)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Parallelism (Gather Streams) [parallel] | rows 131 (est 160)
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 131 (est 160), execs 8, reads 107,198, cpu 201 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.AssignedTo as t.Assign...
+
+### naive.list-assignedToMe.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 78.259, DOP 8, memory grant 4616 KB (used 200)
+  warning: MemoryGrantWarning GrantWarningKind=Excessive Grant RequestedMemory=4616 GrantedMemory=4616 MaxUsedMemory=200
+  Top | rows 20 (est 20)
+    Sort | rows 20 (est 20)
+      Parallelism (Gather Streams) [parallel] | rows 131 (est 160)
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 131 (est 160), execs 8, reads 107,198, cpu 202 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.AssignedTo as t.Assign...
+
+### naive.list-assignedToMe.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.004, DOP 1, memory grant 1024 KB (used 24)
+  Nested Loops (Inner Join) | rows 21 (est 27)
+    Merge Interval | rows 21 (est 30)
+      Sort (TopN Sort) | rows 30 (est 30), top 30
+        Compute Scalar | rows ? (est 30)
+          Concatenation | rows 30 (est 30)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 21 (est 27), execs 21, reads 85, seek: Expr1091
+
+### naive.list-default.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t]
+  cost 3.008, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 99 ms
+      Index Scan Tickets.IX_ProjectId | rows 1,000,000 (est 1,000,000), reads 1,771, cpu 86 ms
+
+### naive.list-default.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 317, DOP 8, memory grant 1254224 KB (used 407144)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,285 (est 20), execs 8, cpu 1,497 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 1,000,000 (est 1,000,000), execs 8, reads 107,198, cpu 646 ms
+
+### naive.list-default.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.005, DOP 1, memory grant 1024 KB (used 32)
+  Nested Loops (Inner Join) | rows 40 (est 40), cpu 1 ms
+    Merge Interval | rows 40 (est 40)
+      Sort (TopN Sort) | rows 40 (est 40), top 40
+        Compute Scalar | rows ? (est 40)
+          Concatenation | rows 40 (est 40)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 40 (est 40), execs 40, reads 161, cpu 1 ms, seek: Expr1121
+
+### naive.list-history.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] [t] WHERE [t].[TicketStatus]=@1
+  cost 78.2, DOP 8, memory grant 24776 KB (used 3224)
+  Parallelism (Gather Streams) [parallel] | rows 1 (est 1)
+    Compute Scalar [parallel] [batch] | rows 1 (est 1), execs 8
+      Hash Match (Aggregate) [parallel] [batch] | rows 1 (est 1), execs 8
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 499,831 (est 498,339), execs 8, reads 107,196, cpu 169 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus=(3)
+
+### naive.list-history.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 197, DOP 8, memory grant 926848 KB (used 208720)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,279 (est 20), execs 8, cpu 582 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 499,831 (est 498,339), execs 8, reads 107,198, cpu 270 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus=(3)
+
+### naive.list-history.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.005, DOP 1, memory grant 1024 KB (used 32)
+  Nested Loops (Inner Join) | rows 40 (est 40)
+    Merge Interval | rows 40 (est 40)
+      Sort (TopN Sort) | rows 40 (est 40), top 40
+        Compute Scalar | rows ? (est 40)
+          Concatenation | rows 40 (est 40)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 40 (est 40), execs 40, reads 161, seek: Expr1121
+
+### naive.list-mytickets-heavy.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[Owner] = @me
+  cost 78.247, DOP 8, memory grant 136 KB (used 136)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Parallelism (Gather Streams) [parallel] | rows 8 (est 8)
+        Stream Aggregate (Aggregate) [parallel] | rows 8 (est 8), execs 8, cpu 217 ms
+          Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 34,322 (est 47,521), execs 8, reads 107,198, cpu 217 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.Owner as t.Owner=@me
+
+### naive.list-mytickets-heavy.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 89.499, DOP 8, memory grant 80832 KB (used 14464)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,344 (est 20), execs 8, cpu 276 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 34,322 (est 47,521), execs 8, reads 107,198, cpu 244 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.Owner as t.Owner=@me
+
+### naive.list-mytickets-heavy.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.004, DOP 1, memory grant 1024 KB (used 24)
+  Nested Loops (Inner Join) | rows 21 (est 27)
+    Merge Interval | rows 21 (est 30)
+      Sort (TopN Sort) | rows 30 (est 30), top 30
+        Compute Scalar | rows ? (est 30)
+          Concatenation | rows 30 (est 30)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 21 (est 27), execs 21, reads 84, seek: Expr1091
+
+### naive.list-mytickets-light.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[Owner] = @me
+  cost 78.247, DOP 8, memory grant 136 KB (used 136)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Parallelism (Gather Streams) [parallel] | rows 3 (est 8)
+        Stream Aggregate (Aggregate) [parallel] | rows 3 (est 8), execs 8, cpu 207 ms
+          Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 3 (est 47,521), execs 8, reads 107,198, cpu 207 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.Owner as t.Owner=@me
+
+### naive.list-mytickets-light.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 89.499, DOP 8, memory grant 27840 KB (used 784)
+  warning: MemoryGrantWarning GrantWarningKind=Excessive Grant RequestedMemory=27840 GrantedMemory=27840 MaxUsedMemory=784
+  Top | rows 3 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 3 (est 20)
+      Sort [parallel] | rows 3 (est 20), execs 8, cpu 214 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 3 (est 47,521), execs 8, reads 107,198, cpu 214 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.Owner as t.Owner=@me
+
+### naive.list-mytickets-light.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3)
+  cost 0.003, DOP 1, memory grant 1024 KB (used 16)
+  Nested Loops (Inner Join) | rows 3 (est 3)
+    Merge Interval | rows 3 (est 3)
+      Sort (TopN Sort) | rows 3 (est 3), top 3
+        Compute Scalar | rows ? (est 3)
+          Concatenation | rows 3 (est 3)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 3 (est 3), execs 3, reads 12, seek: Expr1010
+
+### naive.list-open-p1.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] [t] WHERE [t].[TicketStatus]<>@1
+  cost 78.2, DOP 8, memory grant 24776 KB (used 3496)
+  Parallelism (Gather Streams) [parallel] | rows 1 (est 1)
+    Compute Scalar [parallel] [batch] | rows 1 (est 1), execs 8
+      Hash Match (Aggregate) [parallel] [batch] | rows 1 (est 1), execs 8
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 500,169 (est 501,661), execs 8, reads 107,196, cpu 172 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3)
+
+### naive.list-open-p1.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 198, DOP 8, memory grant 932992 KB (used 199840)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,327 (est 20), execs 8, cpu 839 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 500,169 (est 501,661), execs 8, reads 107,198, cpu 298 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3)
+
+### naive.list-open-p1.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.005, DOP 1, memory grant 1024 KB (used 32)
+  Nested Loops (Inner Join) | rows 37 (est 40), cpu 1 ms
+    Merge Interval | rows 37 (est 40)
+      Sort (TopN Sort) | rows 40 (est 40), top 40
+        Compute Scalar | rows ? (est 40)
+          Concatenation | rows 40 (est 40)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 37 (est 40), execs 37, reads 152, cpu 1 ms, seek: Expr1121
+
+### naive.list-open-p500.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] [t] WHERE [t].[TicketStatus]<>@1
+  cost 78.2, DOP 8, memory grant 24776 KB (used 3224)
+  Parallelism (Gather Streams) [parallel] | rows 1 (est 1)
+    Compute Scalar [parallel] [batch] | rows 1 (est 1), execs 8
+      Hash Match (Aggregate) [parallel] [batch] | rows 1 (est 1), execs 8
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 500,169 (est 501,661), execs 8, reads 107,196, cpu 162 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3)
+
+### naive.list-open-p500.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 198, DOP 8, memory grant 355200 KB (used 199848)
+  Top | rows 20 (est 20), cpu 4 ms
+    Parallelism (Gather Streams) [parallel] | rows 10,000 (est 20), cpu 4 ms
+      Sort [parallel] | rows 11,320 (est 20), execs 8, cpu 892 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 500,169 (est 501,661), execs 8, reads 107,198, cpu 321 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3)
+
+### naive.list-open-p500.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.004, DOP 1, memory grant 1024 KB (used 24)
+  Nested Loops (Inner Join) | rows 27 (est 27)
+    Merge Interval | rows 27 (est 30)
+      Sort (TopN Sort) | rows 30 (est 30), top 30
+        Compute Scalar | rows ? (est 30)
+          Concatenation | rows 30 (est 30)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 27 (est 27), execs 27, reads 114, seek: Expr1091
+
+### naive.list-project-big.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[ProjectId] = @projectId
+  cost 0.648, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 18 ms
+      Index Seek Tickets.IX_ProjectId | rows 213,064 (est 214,773), reads 375, cpu 16 ms, seek: @projectId
+
+### naive.list-project-big.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 129, DOP 8, memory grant 402240 KB (used 87376)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,290 (est 20), execs 8, cpu 348 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 213,064 (est 214,773), execs 8, reads 107,198, cpu 218 ms, where: TicketDeskLBase.Tickets.ProjectId as t.ProjectId=@projectId
+
+### naive.list-project-big.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.005, DOP 1, memory grant 1024 KB (used 32)
+  Nested Loops (Inner Join) | rows 36 (est 40), cpu 1 ms
+    Merge Interval | rows 36 (est 40)
+      Sort (TopN Sort) | rows 40 (est 40), top 40
+        Compute Scalar | rows ? (est 40)
+          Concatenation | rows 40 (est 40)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 36 (est 40), execs 36, reads 148, cpu 1 ms, seek: Expr1121
+
+### naive.list-project-small.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[ProjectId] = @projectId
+  cost 0.648, DOP 1, memory grant 0 KB (used 0)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1), cpu 1 ms
+      Index Seek Tickets.IX_ProjectId | rows 12,129 (est 214,773), reads 26, cpu 1 ms, seek: @projectId
+
+### naive.list-project-small.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 129, DOP 8, memory grant 166272 KB (used 5768)
+  warning: MemoryGrantWarning GrantWarningKind=Excessive Grant RequestedMemory=166272 GrantedMemory=166272 MaxUsedMemory=5768
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,303 (est 20), execs 8, cpu 178 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 12,129 (est 214,773), execs 8, reads 107,198, cpu 171 ms, where: TicketDeskLBase.Tickets.ProjectId as t.ProjectId=@projectId
+
+### naive.list-project-small.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.005, DOP 1, memory grant 1024 KB (used 32)
+  Nested Loops (Inner Join) | rows 39 (est 40), cpu 1 ms
+    Merge Interval | rows 39 (est 40)
+      Sort (TopN Sort) | rows 40 (est 40), top 40
+        Compute Scalar | rows ? (est 40)
+          Concatenation | rows 40 (est 40)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 39 (est 40), execs 39, reads 160, cpu 1 ms, seek: Expr1121
+
+### naive.list-status-sort-title.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] IN (@statuses1, @statuses2)
+  cost 78.249, DOP 8, memory grant 24776 KB (used 3496)
+  Parallelism (Gather Streams) [parallel] | rows 1 (est 1)
+    Compute Scalar [parallel] [batch] | rows 1 (est 1), execs 8
+      Hash Match (Aggregate) [parallel] [batch] | rows 1 (est 1), execs 8
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 349,930 (est 353,460), execs 8, reads 107,196, cpu 185 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus=@statuses2 OR TicketDeskLBase.Tickets.TicketStatus as t...
+
+### naive.list-status-sort-title.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 163, DOP 8, memory grant 658816 KB (used 137520)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,358 (est 20), execs 8, cpu 645 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 349,930 (est 353,460), execs 8, reads 107,198, cpu 260 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus=@statuses2 OR TicketDeskLBase.Tickets.TicketStatus as t...
+
+### naive.list-status-sort-title.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.005, DOP 1, memory grant 1024 KB (used 32)
+  Nested Loops (Inner Join) | rows 34 (est 40), cpu 1 ms
+    Merge Interval | rows 34 (est 40)
+      Sort (TopN Sort) | rows 40 (est 40), top 40
+        Compute Scalar | rows ? (est 40)
+          Concatenation | rows 40 (est 40)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 34 (est 40), execs 34, reads 139, cpu 1 ms, seek: Expr1121
+
+### naive.list-tag.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] AS [t] WHERE EXISTS ( SELECT 1 FROM [dbo].[TicketTags] AS [t0] WHERE [t].[TicketId] = [t0].[TicketId] AND [t0].[TagName] = ...
+  cost 6.685, DOP 8, memory grant 62344 KB (used 9216)
+  Parallelism (Gather Streams) [parallel] | rows 1 (est 1)
+    Compute Scalar [parallel] [batch] | rows 1 (est 1), execs 8
+      Hash Match (Aggregate) [parallel] [batch] | rows 1 (est 1), execs 8
+        Hash Match (Right Semi Join) [parallel] [batch] | rows 188,919 (est 125,309), execs 8, cpu 13 ms
+          Clustered Index Scan TicketTags.PK_dbo.TicketTags [parallel] [batch] | rows 188,919 (est 187,602), execs 8, reads 6,701, cpu 99 ms, where: TicketDeskLBase.TicketTags.TagName as t0.TagName=@tag
+          Index Scan Tickets.IX_ProjectId [parallel] [batch] | rows 188,919 (est 100,000), execs 8, reads 1,791, cpu 61 ms, where: PROBE(Opt_Bitmap1014,TicketDeskLBase.Tickets.TicketId as t.TicketId)
+
+### naive.list-tag.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 93.179, DOP 8, memory grant 336456 KB (used 50944)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] [batch] | rows 900 (est 20), execs 8, cpu 189 ms
+        Hash Match (Right Semi Join) [parallel] [batch] | rows 188,919 (est 125,309), execs 8, cpu 13 ms
+          Clustered Index Scan TicketTags.PK_dbo.TicketTags [parallel] [batch] | rows 188,919 (est 187,602), execs 8, reads 6,701, cpu 90 ms, where: TicketDeskLBase.TicketTags.TagName as t0.TagName=@tag
+          Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 188,919 (est 100,000), execs 8, reads 107,196, cpu 330 ms, where: PROBE(Opt_Bitmap1013,TicketDeskLBase.Tickets.TicketId as t.TicketId)
+
+### naive.list-tag.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.005, DOP 1, memory grant 1024 KB (used 32)
+  Nested Loops (Inner Join) | rows 37 (est 40), cpu 1 ms
+    Merge Interval | rows 37 (est 40)
+      Sort (TopN Sort) | rows 40 (est 40), top 40
+        Compute Scalar | rows ? (est 40)
+          Concatenation | rows 40 (est 40)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 37 (est 40), execs 37, reads 150, seek: Expr1121
+
+### naive.list-unassigned.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] [t] WHERE [t].[TicketStatus]<>@1 AND [t].[AssignedTo] IS NULL
+  cost 78.249, DOP 8, memory grant 136 KB (used 136)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Parallelism (Gather Streams) [parallel] | rows 8 (est 8)
+        Stream Aggregate (Aggregate) [parallel] | rows 8 (est 8), execs 8, cpu 198 ms
+          Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 104,837 (est 74,408), execs 8, reads 107,198, cpu 194 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.AssignedTo as t.Assign...
+
+### naive.list-unassigned.cmd2.stmt1.sqlplan
+statement: SELECT [t].[TicketId], [t].[ProjectId], [t].[Title], [t].[TicketType], [t].[Category], [t].[Priority], [t].[TicketStatus], [t].[Owner], [t].[AssignedTo], [t].[C...
+  cost 93.4, DOP 8, memory grant 123008 KB (used 35768)
+  Top | rows 20 (est 20)
+    Parallelism (Gather Streams) [parallel] | rows 20 (est 20)
+      Sort [parallel] | rows 1,532 (est 20), execs 8, cpu 280 ms
+        Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 104,837 (est 74,408), execs 8, reads 107,198, cpu 209 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.AssignedTo as t.Assign...
+
+### naive.list-unassigned.cmd3.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.004, DOP 1, memory grant 1024 KB (used 24)
+  Nested Loops (Inner Join) | rows 20 (est 20)
+    Merge Interval | rows 20 (est 20)
+      Sort (TopN Sort) | rows 20 (est 20), top 20
+        Compute Scalar | rows ? (est 20)
+          Concatenation | rows 20 (est 20)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 20), execs 20, reads 83, seek: Expr1061
+
+### naive.report-open-aging.cmd1.stmt1.sqlplan
+statement: SELECT [t0].[ProjectId], [t0].[TicketStatus], [t0].[Bucket], COUNT(*) AS [Count] FROM ( SELECT [t].[ProjectId], [t].[TicketStatus], CASE WHEN DATEDIFF(hour, [t]...
+  cost 78.245, DOP 8, memory grant 24840 KB (used 3224)
+  Parallelism (Gather Streams) [parallel] | rows 300 (est 375)
+    Compute Scalar [parallel] [batch] | rows 300 (est 375), execs 8
+      Hash Match (Aggregate) [parallel] [batch] | rows 300 (est 375), execs 8
+        Compute Scalar [parallel] [batch] | rows 500,169 (est 501,661), execs 8, cpu 119 ms
+          Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 500,169 (est 501,661), execs 8, reads 107,196, cpu 343 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3)
+
+### naive.report-open-aging.cmd2.stmt1.sqlplan
+statement: SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version] FROM [dbo].[Projects] AS [p]
+  cost 0.003, DOP 1, memory grant 0 KB (used 0)
+  Clustered Index Scan Projects.PK_dbo.Projects | rows 25 (est 25), reads 3
+
+### naive.report-time-to-close.cmd1.stmt1.sqlplan
+statement: SELECT [t].[ProjectId], DATEDIFF(second, [t].[CreatedDate], [t].[CurrentStatusDate]) AS [Seconds] FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] = 3 AND [...
+  cost 78.357, DOP 8, memory grant 136 KB (used 136)
+  Parallelism (Gather Streams) [parallel] | rows 137,203 (est 192,793), cpu 1 ms
+    Compute Scalar [parallel] | rows ? (est 192,793)
+      Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 137,203 (est 192,793), execs 8, reads 107,198, cpu 182 ms, where: TicketDeskLBase.Tickets.CurrentStatusDate as t.CurrentStatusDate>=@r_From AND TicketDeskLBase.Tickets.CurrentS...
+
+### naive.report-time-to-close.cmd2.stmt1.sqlplan
+statement: SELECT [p].[ProjectId], [p].[ProjectDescription], [p].[ProjectName], [p].[Version] FROM [dbo].[Projects] AS [p]
+  cost 0.003, DOP 1, memory grant 0 KB (used 0)
+  Clustered Index Scan Projects.PK_dbo.Projects | rows 25 (est 25), reads 3
+
+### naive.report-workload.cmd1.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM [dbo].[Tickets] [t] WHERE [t].[TicketStatus]<>@1 AND [t].[AssignedTo] IS NULL
+  cost 78.249, DOP 8, memory grant 136 KB (used 136)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Parallelism (Gather Streams) [parallel] | rows 8 (est 8)
+        Stream Aggregate (Aggregate) [parallel] | rows 8 (est 8), execs 8, cpu 214 ms
+          Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 104,837 (est 74,408), execs 8, reads 107,198, cpu 212 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.AssignedTo as t.Assign...
+
+### naive.report-workload.cmd2.stmt1.sqlplan
+statement: SELECT TOP(@p) [t].[AssignedTo], COUNT(CASE WHEN [t].[TicketStatus] = 0 THEN 1 END) AS [Active], COUNT(CASE WHEN [t].[TicketStatus] = 1 THEN 1 END) AS [MoreInfo...
+  cost 5,118, DOP 8, memory grant 20224 KB (used 10944)
+  Top | rows 50 (est 50)
+    Parallelism (Gather Streams) [parallel] | rows 50 (est 50)
+      Sort [parallel] | rows 4,222 (est 50), execs 8, cpu 19 ms
+        Compute Scalar [parallel] | rows ? (est 4,226)
+          Hash Match (Aggregate) [parallel] | rows 4,250 (est 4,226), execs 8, cpu 17 ms
+            Parallelism (Repartition Streams) [parallel] | rows 33,997 (est 33,808), execs 8
+              Hash Match (Partial Aggregate) [parallel] | rows 33,997 (est 33,808), execs 8, cpu 14,155 ms
+                Nested Loops (Left Outer Join) [parallel] | rows 395,332 (est 474,579), execs 8, cpu 13,699 ms
+                  Nested Loops (Left Outer Join) [parallel] | rows 395,332 (est 474,579), execs 8, cpu 9,112 ms
+                    Compute Scalar [parallel] | rows ? (est 474,579)
+                      Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 395,332 (est 474,579), execs 8, reads 106,966, cpu 324 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.AssignedTo as t.Assign...
+                    Compute Scalar [parallel] | rows ? (est 1)
+                      Nested Loops (Inner Join) [parallel] | rows 395,332 (est 1), execs 395,332, cpu 8,624 ms
+                        Stream Aggregate (Aggregate) [parallel] | rows 395,332 (est 1), execs 395,332, cpu 5,982 ms
+                          Filter [parallel] | rows 454,793 (est 49.578), execs 395,332, cpu 5,900 ms, where: ((TicketDeskLBase.TicketEvents.ForActivity as t0.ForActivity&(464))<>(0) OR (TicketDeskLBase.TicketEvents.ForA...
+                            Index Spool (Eager Spool) [parallel] | rows 1,572,853 (est 77.108), execs 395,332, cpu 5,779 ms, seek: TicketDeskLBase.Tickets.TicketId as t.TicketId
+                              Clustered Index Scan TicketEvents.PK_dbo.TicketEvents [parallel] | rows 4,538,818 (est 4,538,820), reads 114,936, cpu 837 ms
+                        Stream Aggregate (Aggregate) [parallel] | rows 395,332 (est 1), execs 395,332, cpu 2,585 ms
+                          Clustered Index Seek TicketEvents.PK_dbo.TicketEvents [parallel] | rows 454,793 (est 72.566), execs 395,332, reads 2,027,855, cpu 2,507 ms, seek: TicketDeskLBase.Tickets.TicketId as t.TicketId, where: ((TicketDeskLBase.TicketEvents.ForActivity as t0.ForActivity&(464))<>(0) OR (TicketDeskLBase.TicketEvents.ForA...
+                  Compute Scalar [parallel] | rows ? (est 1)
+                    Nested Loops (Inner Join) [parallel] | rows 395,332 (est 1), execs 395,332, cpu 4,522 ms
+                      Stream Aggregate (Aggregate) [parallel] | rows 395,332 (est 1), execs 395,332, cpu 2,231 ms
+                        Clustered Index Seek TicketEvents.PK_dbo.TicketEvents [parallel] | rows 454,793 (est 72.566), execs 395,332, reads 2,027,855, cpu 2,159 ms, seek: TicketDeskLBase.Tickets.TicketId as t.TicketId, where: ((TicketDeskLBase.TicketEvents.ForActivity as t1.ForActivity&(464))<>(0) OR (TicketDeskLBase.TicketEvents.ForA...
+                      Stream Aggregate (Aggregate) [parallel] | rows 395,332 (est 1), execs 395,332, cpu 2,222 ms
+                        Clustered Index Seek TicketEvents.PK_dbo.TicketEvents [parallel] | rows 454,793 (est 72.566), execs 395,332, reads 2,027,855, cpu 2,147 ms, seek: TicketDeskLBase.Tickets.TicketId as t.TicketId, where: ((TicketDeskLBase.TicketEvents.ForActivity as t1.ForActivity&(464))<>(0) OR (TicketDeskLBase.TicketEvents.ForA...
+
+### naive.report-workload.cmd3.stmt1.sqlplan
+statement: SELECT COUNT(*) FROM ( SELECT DISTINCT [t].[AssignedTo] FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] <> 3 AND [t].[AssignedTo] IS NOT NULL ) AS [t0]
+  cost 78.295, DOP 8, memory grant 25096 KB (used 6224)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Parallelism (Gather Streams) [parallel] | rows 3 (est 8)
+        Stream Aggregate (Aggregate) [parallel] | rows 3 (est 8), execs 8, cpu 242 ms
+          Hash Match (Aggregate) [parallel] [batch] | rows 4,250 (est 4,226), execs 8, cpu 8 ms
+            Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] [batch] | rows 395,332 (est 474,579), execs 8, reads 107,196, cpu 229 ms, where: TicketDeskLBase.Tickets.TicketStatus as t.TicketStatus<>(3) AND TicketDeskLBase.Tickets.AssignedTo as t.Assign...
+
+### naive.report-workload.cmd4.stmt1.sqlplan
+statement: SELECT [t].[AssignedTo] AS [Key], COUNT(*) AS [Count] FROM [dbo].[Tickets] AS [t] WHERE [t].[TicketStatus] = 3 AND [t].[CurrentStatusDate] >= @windowStart AND [...
+  cost 80.209, DOP 8, memory grant 11208 KB (used 6440)
+  Compute Scalar | rows ? (est 50)
+    Parallelism (Gather Streams) [parallel] | rows 50 (est 50)
+      Stream Aggregate (Aggregate) [parallel] | rows 50 (est 50), execs 8
+        Parallelism (Repartition Streams) [parallel] | rows 343 (est 400), execs 8
+          Stream Aggregate (Aggregate) [parallel] | rows 343 (est 400), execs 8, cpu 263 ms
+            Sort [parallel] | rows 840 (est 3,496), execs 8, cpu 263 ms
+              Filter [parallel] | rows 840 (est 3,496), execs 8, cpu 262 ms, where: TicketDeskLBase.Tickets.AssignedTo as t.AssignedTo=@ids50 OR TicketDeskLBase.Tickets.AssignedTo as t.AssignedT...
+                Clustered Index Scan Tickets.PK_dbo.Tickets [parallel] | rows 70,993 (est 3,496), execs 8, reads 107,198, cpu 188 ms, where: TicketDeskLBase.Tickets.CurrentStatusDate as t.CurrentStatusDate>=@windowStart AND TicketDeskLBase.Tickets.Cur...
+
+### naive.report-workload.cmd5.stmt1.sqlplan
+statement: SELECT [i].[Id], [i].[DisplayName] FROM [dbo].[IdentityUsers] AS [i] WHERE [i].[Id] IN (@ids1, @ids2, @ids3, @ids4, @ids5, @ids6, @ids7, @ids8, @ids9, @ids10, @...
+  cost 0.006, DOP 1, memory grant 1024 KB (used 40)
+  Nested Loops (Inner Join) | rows 50 (est 50), cpu 1 ms
+    Merge Interval | rows 50 (est 50)
+      Sort (TopN Sort) | rows 50 (est 50), top 50
+        Compute Scalar | rows ? (est 50)
+          Concatenation | rows 50 (est 50)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+            Compute Scalar | rows ? (est 1)
+              Constant Scan | rows 1 (est 1)
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 50 (est 50), execs 50, reads 205, cpu 1 ms, seek: Expr1151
+

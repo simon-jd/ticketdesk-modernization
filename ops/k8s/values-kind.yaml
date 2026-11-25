@@ -1,0 +1,22 @@
+# kind (Phase A dry run): the AKS shape without Azure. Images are loaded into the node, secrets are Kubernetes secrets that
+# ops/k8s/kind.sh creates (SQL logins on td-sql, the Service Bus emulator's development connection string, the lab TLS
+# certificate), and the app is reached through the node port mapped to 127.0.0.1:18443.
+image:
+  tag: aks-dev
+  pullPolicy: Never
+database:
+  secretName: td-db
+  migrator:
+    secretName: td-db-migrator
+web:
+  aspnetcoreEnvironment: Production
+  attachments:
+    store: Local
+  serviceBus:
+    secretName: td-sb
+  tls:
+    source: secret
+    secretName: td-tls
+  service:
+    type: NodePort
+    nodePort: 30443

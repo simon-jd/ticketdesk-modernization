@@ -1,0 +1,75 @@
+==== 2026-11-08T01:11:33Z step copy-ops
+
+Name                        Length
+----                        ------
+Backup-TdSite.ps1             5535
+Build-TdLegacy.ps1            4361
+Deploy-TdApp.ps1              6563
+Install-TdBuildTools.ps1      3405
+Install-TdPrerequisites.ps1   2435
+Install-TdSqlExpress.ps1      6409
+Register-TdBackupTask.ps1     2946
+Restore-TdSite.ps1            4894
+Set-TdIisSite.ps1            11877
+TdOps.psm1                    6118
+
+
+
+==== 2026-11-08T01:11:39Z step deploy
+[2026-11-08T01:11:43Z] INFO   database has 19 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+		C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments.gen
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments_3
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\write.lock
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\_0.cfs
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\_0_1.del
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\_1.cfs
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        65         0        65         0         0         1
+   Files :       840         1       839         0         0         6
+   Bytes :   69.90 m    11.4 k   69.89 m         0         0     2.0 k
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           11,765,000 Bytes/sec.
+   Speed :              673.199 MegaBytes/min.
+   Ended : Sunday, November 8, 2026 1:11:46 AM
+
+[2026-11-08T01:11:46Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 3, App_Data kept)
+[2026-11-08T01:11:46Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T01:11:46Z] CHANGE Web.config: connectionStrings/TicketDesk, appSettings/ticketdesk:SetupEnabled
+[2026-11-08T01:11:53Z] INFO   warm-up http://localhost/ -> 200 in 6.6s
+==== 2026-11-08T01:11:53Z done: copy-ops deploy
+EXIT=0
+==== 2026-11-08T01:11:53Z step deploy
+[2026-11-08T01:11:56Z] INFO   database has 19 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+		C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments.gen
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments_1
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        65         0        65         0         0         1
+   Files :       840         1       839         0         0         2
+   Bytes :   69.90 m    11.4 k   69.89 m         0         0        52
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           11,765,000 Bytes/sec.
+   Speed :              673.199 MegaBytes/min.
+   Ended : Sunday, November 8, 2026 1:11:59 AM
+
+[2026-11-08T01:11:59Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 3, App_Data kept)
+[2026-11-08T01:12:00Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T01:12:00Z] CHANGE Web.config: connectionStrings/TicketDesk, appSettings/ticketdesk:SetupEnabled
+[2026-11-08T01:12:06Z] INFO   warm-up http://localhost/ -> 200 in 6.2s
+==== 2026-11-08T01:12:06Z done: deploy
+EXIT(second)=0

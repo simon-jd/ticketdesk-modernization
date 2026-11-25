@@ -1,0 +1,36 @@
+{
+ "full_backup": "2026-11-14T06:10:19.785Z",
+ "log_backup_every_s": 30,
+ "smoke_attempts": 2,
+ "last_log_backup": "2026-11-14T06:12:20.404Z",
+ "loss": "2026-11-14T06:12:37.410Z",
+ "restore_start": "2026-11-14T06:12:40.671Z",
+ "restore_end": "2026-11-14T06:12:41.923Z",
+ "app_switched": "2026-11-14T06:12:45.931Z",
+ "smoke_passed_at": "2026-11-14T06:12:54.338Z",
+ "smoke_ok": true,
+ "rto_s (loss -> smoke passed)": 16.9,
+ "restore_s": 1.3,
+ "switch_s (helm upgrade --wait)": 4.0,
+ "last_committed_event": [
+  "46608",
+  "2026-11-14T06:12:37.3566144Z"
+ ],
+ "last_restored_event": [
+  "46487",
+  "2026-11-14T06:12:20.2842690Z"
+ ],
+ "last_committed_ticket": [
+  "10325",
+  "2026-11-14T06:12:36.9104609Z"
+ ],
+ "last_restored_ticket": [
+  "10276",
+  "2026-11-14T06:12:19.8099136Z"
+ ],
+ "rpo_s (last committed - last restored write)": 17.1,
+ "loss_after_last_log_backup_s": 17.0,
+ "events_committed": 46608,
+ "events_restored": 46487,
+ "events_lost": 121
+}

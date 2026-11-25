@@ -1,0 +1,2 @@
+<customErrors mode="Off" />
+<compilation targetFramework="4.6.2" />

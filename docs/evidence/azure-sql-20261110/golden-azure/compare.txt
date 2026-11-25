@@ -1,0 +1,1 @@
+compared 262, matched 259, mismatched 3 (missing 0, extra 0) -> ~/Desktop/ticketdesk-modernization/wt-azure-sql/docs/evidence/azure-sql-20261110/golden-azure/compare/report.md

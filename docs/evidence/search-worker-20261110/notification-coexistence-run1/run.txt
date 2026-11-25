@@ -1,0 +1,27 @@
+2026-11-10T23:09:19Z reset the VM to baseline-s-search
+2026-11-10T23:09:46Z reset to baseline-s-search done in 27 s
+emulator healthy after ~2 s
+2026-11-10T23:09:46Z owner 0401cce8-760c-4b86-bb16-d5a9609b030e, assignee 06d4eb6e-e294-4465-b130-ba71dca1ebe0; push notifications on (SMTP 10.0.2.2:2525, consolidation off, broadcast to one address)
+push settings and destinations written
+
+app pool restarted
+2026-11-10T23:09:51Z app ready (4 s)
+2026-11-10T23:09:51Z gateway on https://localhost:5444/ (shipped registry, shared cookie, td_modern_app) publishing to Service Bus
+2026-11-10T23:09:57Z worker container td-sw-worker-171851 from ticketdesk-worker:r3-search-worker: 175472              1654                dotnet TicketDesk.Worker.dll
+2026-11-10T23:09:57Z phase 1: ticket writes answered by the new app
+[{"kind": "create", "ticket": 10001, "backend": "modern; route=ticket.new.post", "status": 302}, {"kind": "comment", "ticket": 10001, "backend": "modern; route=activity.add-comment", "status": 200}]
+2026-11-10T23:09:58Z switch ticket writes back to legacy (registry file; ticket.new and the activity group)
+2026-11-10T23:10:01Z phase 2: ticket writes answered by the legacy app (new ticket, comment on ticket 10001)
+[{"kind": "create", "ticket": 10002, "backend": "legacy; route=ticket.new.post; reason=switched-back", "status": 302}, {"kind": "comment", "ticket": 10001, "backend": "legacy; route=activity.add-comment; reason=switched-back", "status": 200}]
+2026-11-10T23:10:03Z waiting for both senders (legacy timer: every minute)
+2026-11-10T23:12:08Z 11 mails in the sink
+push items: 1 x 6
+
+push items per ticket: 10001 ticket x 2
+push items per ticket: 10002 new ticket x 2
+push items per ticket: 10002 ticket x 2
+
+FAIL every write mailed exactly once per expected recipient, by the app that made the write
+FAIL no recipient got the same write twice (no double send)
+PASS both apps wrote and both sent
+{"total": 11, "worker": 5, "legacy": 6, "expected": 10}

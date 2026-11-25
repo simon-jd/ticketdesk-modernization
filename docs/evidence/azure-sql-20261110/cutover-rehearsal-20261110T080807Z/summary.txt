@@ -1,0 +1,17 @@
+result: switched (rehearsal)
+target before the window: {
+  "serviceObjective": "GP_S_Gen5_2",
+  "status": "Online",
+  "useFreeLimit": true
+}
+write freeze on the VM (DENY -> switched, warm): 75.4 s
+  freeze_start -> frozen: 0.0 s
+  export_start -> copy_restored: 8.0 s
+  copy_restored -> exported: 20.4 s
+  import_start -> imported: 37.2 s
+  imported -> reconcile_start: 0.2 s
+  reconcile_start -> reconciled: 4.0 s
+  switch_start -> switched: 5.4 s
+probe: reads 190 (0 failed), writes 135 (42 failed), sign-ins 1 (0 failed)
+probe write downtime (last ok -> first ok): 76.6 s (2026-11-10T08:08:48.656Z -> 2026-11-10T08:10:05.244Z)
+read failure windows: []

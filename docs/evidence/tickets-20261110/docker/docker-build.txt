@@ -1,0 +1,31 @@
+$ docker build -f src/modern/TicketDesk.Web/Dockerfile -t ticketdesk-web:r2b-tickets .   (2026-11-10T07:34:58Z, git 7b0e45b + working tree)
+#1 DONE 0.0s
+#2 DONE 0.2s
+#3 DONE 0.2s
+#4 DONE 0.0s
+#5 DONE 0.0s
+#6 DONE 0.0s
+#7 CACHED
+#8 DONE 0.0s
+#9 DONE 0.0s
+#10 DONE 0.0s
+#11 DONE 0.0s
+#12 DONE 0.0s
+#13 DONE 0.0s
+#14 DONE 0.0s
+#15 DONE 0.0s
+#16 DONE 0.0s
+#17 DONE 0.0s
+#18 DONE 0.0s
+#19 DONE 0.0s
+#20 DONE 4.5s
+#21 DONE 0.0s
+#22 DONE 0.0s
+#23 DONE 0.0s
+#24 DONE 4.4s
+#25 CACHED
+#26 DONE 0.0s
+#27 naming to docker.io/library/ticketdesk-web:r2b-tickets done
+#27 DONE 0.8s
+elapsed 10.81 s
+sha256:e3f8151b8dd5d3ab8a91ee0a365451271f3af87da68a1b5ccf6e397444acb4ee size=272732451 user=1654

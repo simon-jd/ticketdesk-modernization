@@ -1,0 +1,435 @@
+{
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.0"
+ },
+ "url": "https://localhost:8443/ticket/new",
+ "violations": [
+  {
+   "id": "button-name",
+   "impact": "critical",
+   "help": "Buttons must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-11.9.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".hidden-xs.form-group > form[action=\"/search\"][method=\"get\"][role=\"search\"] > .input-group.input-group-sm > .input-group-btn > .btn-default[value=\"go\"][type=\"submit\"]"
+     ],
+     "html": "<button type=\"submit\" value=\"go\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-search\"></i></button>"
+    },
+    {
+     "target": [
+      "button[data-original-title=\"Style\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small dropdown-toggle\" data-toggle=\"dropdown\" title=\"\" tabindex=\"-1\" data-name=\"style\" data-original-title=\"Style\"><i class=\"fa fa-magic\"></i> <span class=\"caret\"></span></button>"
+    },
+    {
+     "target": [
+      "button[data-event=\"bold\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"bold\" tabindex=\"-1\" data-name=\"bold\" data-original-title=\"Bold (CTRL+B)\"><i class=\"fa fa-bold\"></i></button>"
+    },
+    {
+     "target": [
+      "button[data-event=\"italic\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"italic\" tabindex=\"-1\" data-name=\"italic\" data-original-title=\"Italic (CTRL+I)\"><i class=\"fa fa-italic\"></i></button>"
+    },
+    {
+     "target": [
+      ".note-recent-color"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small note-recent-color\" title=\"\" data-event=\"color\" data-value=\"{\"backColor\":\"yellow\"}\" tabindex=\"-1\" data-name=\"color\" data-original-title=\"Recent Color\">"
+    },
+    {
+     "target": [
+      "button[data-original-title=\"More Color\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small dropdown-toggle\" data-toggle=\"dropdown\" title=\"\" tabindex=\"-1\" data-name=\"color\" data-original-title=\"More Color\"> <span class=\"caret\"></span></button>"
+    },
+    {
+     "target": [
+      "button[data-event=\"insertUnorderedList\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"insertUnorderedList\" tabindex=\"-1\" data-name=\"ul\" data-original-title=\"Unordered list (CTRL+SHIFT+NUM7)\"><i class=\"fa fa-list-ul\"></i></button>"
+    },
+    {
+     "target": [
+      "button[data-event=\"insertOrderedList\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"insertOrderedList\" tabindex=\"-1\" data-name=\"ol\" data-original-title=\"Ordered list (CTRL+SHIFT+NUM8)\"><i class=\"fa fa-list-ol\"></i></button>"
+    },
+    {
+     "target": [
+      "button[data-original-title=\"Paragraph\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small dropdown-toggle\" data-toggle=\"dropdown\" title=\"\" tabindex=\"-1\" data-name=\"paragraph\" data-original-title=\"Paragraph\"><i class=\"fa fa-align-left\"></i> <span class=\"caret\"></span></button>"
+    },
+    {
+     "target": [
+      "button[data-name=\"link\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"showLinkDialog\" data-hide=\"true\" tabindex=\"-1\" data-name=\"link\" data-original-title=\"Link (CTRL+K)\"><i class=\"fa fa-link\"></i></button>"
+    },
+    {
+     "target": [
+      "button[data-event=\"insertHorizontalRule\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"insertHorizontalRule\" tabindex=\"-1\" data-name=\"hr\" data-original-title=\"Insert Horizontal Rule (CTRL+ENTER)\"><i class=\"fa fa-minus\"></i></button>"
+    },
+    {
+     "target": [
+      "button[data-event=\"fullscreen\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"fullscreen\" tabindex=\"-1\" data-name=\"fullscreen\" data-original-title=\"Full Screen\"><i class=\"fa fa-arrows-alt\"></i></button>"
+    },
+    {
+     "target": [
+      "button[data-event=\"showHelpDialog\"]"
+     ],
+     "html": "<button type=\"button\" class=\"btn btn-default btn-sm btn-small\" title=\"\" data-event=\"showHelpDialog\" data-hide=\"true\" tabindex=\"-1\" data-name=\"help\" data-original-title=\"Help\"><i class=\"fa fa-question\"></i></button>"
+    }
+   ]
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "li:nth-child(1) > a[href=\"/\"]"
+     ],
+     "html": "<a href=\"/\"><i class=\"fa fa-home\"></i> Home</a>"
+    },
+    {
+     "target": [
+      "li:nth-child(2) > a[href$=\"tickets\"]"
+     ],
+     "html": "<a href=\"/tickets\"><i class=\"fa fa-ticket\"></i> Ticket Center</a>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(2) > .dropdown-toggle[data-toggle=\"dropdown\"][href=\"#\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">\n            {secret:TD_ADMIN_NAME}\n        </span>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(4) > .dropdown-toggle[data-toggle=\"dropdown\"][href=\"#\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">Language</span>"
+    },
+    {
+     "target": [
+      "a[href$=\"about\"] > .hidden-sm"
+     ],
+     "html": "<span class=\"hidden-sm\">About</span>"
+    },
+    {
+     "target": [
+      ".btn-success"
+     ],
+     "html": "<button type=\"submit\" class=\"btn btn-success\" tabindex=\"15\">Create</button>"
+    },
+    {
+     "target": [
+      "a[href$=\"ticket\"]"
+     ],
+     "html": "<a href=\"/ticket\">Back to List</a>"
+    },
+    {
+     "target": [
+      ".text-muted"
+     ],
+     "html": "<p class=\"text-muted\">\n                <a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a> v2.5 | © 2008 - 2026 | NullDesk Solutions (Stephen M. Redd)\n            </p>"
+    }
+   ]
+  },
+  {
+   "id": "html-has-lang",
+   "impact": "serious",
+   "help": "<html> element must have a lang attribute",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/html-has-lang?application=axeAPI",
+   "tags": [
+    "cat.language",
+    "wcag2a",
+    "wcag311",
+    "TTv5",
+    "TT11.a",
+    "EN-301-549",
+    "EN-9.3.1.1",
+    "ACT",
+    "RGAAv4",
+    "RGAA-8.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  },
+  {
+   "id": "label",
+   "impact": "critical",
+   "help": "Form elements must have labels",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label?application=axeAPI",
+   "tags": [
+    "cat.forms",
+    "wcag2a",
+    "wcag412",
+    "section508",
+    "section508.22.n",
+    "TTv5",
+    "TT5.c",
+    "EN-301-549",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-11.1.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "#DueDateAsString"
+     ],
+     "html": "<input class=\"form-control input-sm\" id=\"DueDateAsString\" name=\"DueDateAsString\" tabindex=\"6\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#TargetDateAsString"
+     ],
+     "html": "<input class=\"form-control input-sm\" id=\"TargetDateAsString\" name=\"TargetDateAsString\" tabindex=\"7\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#ResolutionDateAsString"
+     ],
+     "html": "<input class=\"form-control input-sm\" id=\"ResolutionDateAsString\" name=\"ResolutionDateAsString\" tabindex=\"8\" type=\"text\" value=\"\">"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".text-muted > a"
+     ],
+     "html": "<a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a>"
+    }
+   ]
+  },
+  {
+   "id": "link-name",
+   "impact": "serious",
+   "help": "Links must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag244",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.2.4.4",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-6.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".navbar-brand"
+     ],
+     "html": "<a class=\"navbar-brand\" href=\"/\"> </a>"
+    }
+   ]
+  },
+  {
+   "id": "list",
+   "impact": "serious",
+   "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/list?application=axeAPI",
+   "tags": [
+    "cat.structure",
+    "wcag2a",
+    "wcag131",
+    "EN-301-549",
+    "EN-9.1.3.1",
+    "RGAAv4",
+    "RGAA-9.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".nav.navbar-nav:nth-child(1)"
+     ],
+     "html": "<ul class=\"nav navbar-nav\">"
+    }
+   ]
+  },
+  {
+   "id": "page-has-heading-one",
+   "impact": "moderate",
+   "help": "Page should contain a level-one heading",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axeAPI",
+   "tags": [
+    "cat.semantics",
+    "best-practice"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  },
+  {
+   "id": "tabindex",
+   "impact": "serious",
+   "help": "Elements should not have tabindex greater than zero",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/tabindex?application=axeAPI",
+   "tags": [
+    "cat.keyboard",
+    "best-practice"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "#Title"
+     ],
+     "html": "<input autofocus=\"\" class=\"form-control input-s...\" data-val=\"true\" data-val-length=\"The field Title must...\" data-val-length-max=\"500\" data-val-required=\"The Title field is r...\" id=\"Title\" name=\"Title\" placeholder=\"Ticket title\" tabindex=\"1\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#TicketType"
+     ],
+     "html": "<select class=\"form-control input-sm\" data-val=\"true\" data-val-length=\"The field Type must be a string with a maximum length of 50.\" data-val-length-max=\"50\" data-val-required=\"The Type field is required.\" id=\"TicketType\" name=\"TicketType\" tabindex=\"2\">"
+    },
+    {
+     "target": [
+      "#Category"
+     ],
+     "html": "<select class=\"form-control input-sm\" data-val=\"true\" data-val-length=\"The field Category must be a string with a maximum length of 50.\" data-val-length-max=\"50\" data-val-required=\"The Category field is required.\" id=\"Category\" name=\"Category\" tabindex=\"3\">"
+    },
+    {
+     "target": [
+      "#Priority"
+     ],
+     "html": "<select class=\"form-control input-sm\" data-val=\"true\" data-val-length=\"The field Priority must be a string with a maximum length of 25.\" data-val-length-max=\"25\" id=\"Priority\" name=\"Priority\" tabindex=\"4\">"
+    },
+    {
+     "target": [
+      "#affectsCustomer"
+     ],
+     "html": "<input class=\"\" type=\"checkbox\" name=\"affectsCustomer\" id=\"affectsCustomer\" value=\"true\" tabindex=\"5\">"
+    },
+    {
+     "target": [
+      "#DueDateAsString"
+     ],
+     "html": "<input class=\"form-control input-sm\" id=\"DueDateAsString\" name=\"DueDateAsString\" tabindex=\"6\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#TargetDateAsString"
+     ],
+     "html": "<input class=\"form-control input-sm\" id=\"TargetDateAsString\" name=\"TargetDateAsString\" tabindex=\"7\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#ResolutionDateAsString"
+     ],
+     "html": "<input class=\"form-control input-sm\" id=\"ResolutionDateAsString\" name=\"ResolutionDateAsString\" tabindex=\"8\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#EstimatedDuration"
+     ],
+     "html": "<input class=\"form-control input-sm\" data-val=\"true\" data-val-number=\"The field Estimated Duration must be a number.\" id=\"EstimatedDuration\" name=\"EstimatedDuration\" tabindex=\"9\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#ActualDuration"
+     ],
+     "html": "<input class=\"form-control input-sm\" data-val=\"true\" data-val-number=\"The field Actual Duration must be a number.\" id=\"ActualDuration\" name=\"ActualDuration\" tabindex=\"10\" type=\"text\" value=\"\">"
+    },
+    {
+     "target": [
+      "#s2id_autogen1"
+     ],
+     "html": "<input type=\"text\" autocomplete=\"off\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" class=\"select2-input\" id=\"s2id_autogen1\" tabindex=\"11\" placeholder=\"\" style=\"width: 30px;\">"
+    },
+    {
+     "target": [
+      "#Owner"
+     ],
+     "html": "<select class=\"form-control input-sm\" data-val=\"true\" data-val-length=\"The field Owner must be a string with a maximum length of 256.\" data-val-length-max=\"256\" data-val-required=\"The Owner field is required.\" id=\"Owner\" name=\"Owner\" tabindex=\"13\">"
+    },
+    {
+     "target": [
+      "#AssignedTo"
+     ],
+     "html": "<select class=\"form-control input-sm\" data-val=\"true\" data-val-length=\"The field Assigned To must be a string with a maximum length of 256.\" data-val-length-max=\"256\" id=\"AssignedTo\" name=\"AssignedTo\" tabindex=\"14\">"
+    },
+    {
+     "target": [
+      ".btn-success"
+     ],
+     "html": "<button type=\"submit\" class=\"btn btn-success\" tabindex=\"15\">Create</button>"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,3 @@
+$ scripts/azure_reaper.sh   # start of session
+2026-11-08T00:07:09Z reaper: rg-ticketdesk-lab does not exist: nothing to reap
+rc=0

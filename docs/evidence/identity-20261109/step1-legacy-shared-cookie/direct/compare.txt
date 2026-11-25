@@ -1,0 +1,2 @@
+$ td-replay compare --baseline golden --candidate ~/Desktop/ticketdesk-modernization/wt-identity/docs/evidence/identity-20261109/step1-legacy-shared-cookie/direct/candidate.jsonl --out-dir ~/Desktop/ticketdesk-modernization/wt-identity/docs/evidence/identity-20261109/step1-legacy-shared-cookie/direct/compare
+compared 262, matched 262, mismatched 0 (missing 0, extra 0) -> ~/Desktop/ticketdesk-modernization/wt-identity/docs/evidence/identity-20261109/step1-legacy-shared-cookie/direct/compare/report.md

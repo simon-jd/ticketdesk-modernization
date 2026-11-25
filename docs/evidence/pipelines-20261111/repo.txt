@@ -1,0 +1,13 @@
+# Azure Repos: repo TicketDesk in project TicketDesk (private). 2026-11-11T08:45:47Z
+## first push (2026-11-11T04:46:49Z): git push <repo> refs/heads/modernize:refs/heads/modernize -> '* [new branch] modernize -> modernize', real 9.351 s (820 commits incl. upstream NullDesk history, pack 34.29 MiB)
+## repository
+{"name":"TicketDesk","defaultBranch":"refs/heads/modernize","size":44930192,"project":{"name":"TicketDesk","visibility":"private"}}
+## branches now
+refs/heads/demo/gate-failing-test ac82e30a
+refs/heads/demo/gate-vulnerable-package 8466a178
+refs/heads/modernize ac82e30a
+refs/heads/ws/pipelines c7e470d0
+## direct push to modernize after the branch policy (2026-11-11T05:21Z)
+To https://dev.azure.com/<ado-org>/TicketDesk/_git/TicketDesk
+ ! [remote rejected] ws/pipelines -> modernize (TF402455: Pushes to this branch are not permitted; you must use a pull request to update this branch.)
+error: failed to push some refs to 'https://dev.azure.com/<ado-org>/TicketDesk/_git/TicketDesk'

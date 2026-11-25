@@ -1,0 +1,1 @@
+legacy reset: database restored from r6-load-pre.bak, app pool recycled, app ready (14 s); tickets 10001

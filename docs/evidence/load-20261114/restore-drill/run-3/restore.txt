@@ -1,0 +1,21 @@
+Processed 11496 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk' on file 1.
+Processed 2 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk_log' on file 1.
+RESTORE DATABASE successfully processed 11498 pages in 0.164 seconds (547.708 MB/sec).
+Processed 0 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk' on file 1.
+Processed 751 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk_log' on file 1.
+This backup set contains records that were logged before the designated point in time. The database is being left in the restoring state so that more roll forward can be performed.
+RESTORE LOG successfully processed 751 pages in 0.012 seconds (488.932 MB/sec).
+Processed 0 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk' on file 1.
+Processed 908 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk_log' on file 1.
+This backup set contains records that were logged before the designated point in time. The database is being left in the restoring state so that more roll forward can be performed.
+RESTORE LOG successfully processed 908 pages in 0.009 seconds (787.760 MB/sec).
+Processed 0 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk' on file 1.
+Processed 787 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk_log' on file 1.
+This backup set contains records that were logged before the designated point in time. The database is being left in the restoring state so that more roll forward can be performed.
+RESTORE LOG successfully processed 787 pages in 0.009 seconds (683.159 MB/sec).
+Processed 0 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk' on file 1.
+Processed 890 pages for database 'TicketDesk_load_rd3_pitr', file 'TicketDesk_log' on file 1.
+This backup set contains records that were logged before the designated point in time. The database is being left in the restoring state so that more roll forward can be performed.
+RESTORE LOG successfully processed 890 pages in 0.011 seconds (631.747 MB/sec).
+RESTORE DATABASE successfully processed 0 pages in 0.162 seconds (0.000 MB/sec).
+state ONLINE

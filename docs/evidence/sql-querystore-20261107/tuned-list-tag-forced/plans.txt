@@ -1,0 +1,50 @@
+### tuned.list-tag.cmd1.stmt1.sqlplan
+statement: WITH k AS ( SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, '-', ''), '+', ''))) AS Field, CASE WHEN LTRIM(s.value) LIKE '-%' THEN 1 ELSE 0 EN...
+  cost 0.039, DOP 1, memory grant 1024 KB (used 0)
+  warning: PlanAffectingConvert ConvertIssue=Cardinality Estimate Expression=CONVERT(nvarchar(max),[Expr1039],0)
+  Compute Scalar | rows ? (est 1)
+    Nested Loops (Inner Join) | rows 1 (est 1)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort | rows 1 (est 50)
+            Table Spool (Eager Spool) | rows 1 (est 50), reads 5
+              Nested Loops (Left Outer Join) | rows 1 (est 50)
+                Compute Scalar | rows ? (est 50)
+                  Table-valued function STRING_SPLIT | rows 1 (est 50)
+                Filter | rows 1 (est 1), where: CONVERT_IMPLICIT(varchar(17),Union1036,0)=Expr1049
+                  Compute Scalar | rows ? (est 17)
+                    Constant Scan | rows 17 (est 17)
+      Compute Scalar | rows ? (est 1)
+        Stream Aggregate (Aggregate) | rows 1 (est 1)
+          Sort (Distinct Sort) | rows 1 (est 17)
+            Table Spool (Eager Spool) | rows 1 (est 50)
+
+### tuned.list-tag.cmd1.stmt2.sqlplan
+statement: SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM dbo.TicketTags AS g WHERE g.TicketId = t.TicketId AND g.TagName = @Tag...
+  cost 3.442, DOP 8, memory grant 12808 KB (used 9440)
+  Compute Scalar | rows ? (est 1)
+    Stream Aggregate (Aggregate) | rows 1 (est 1)
+      Parallelism (Gather Streams) [parallel] | rows 8 (est 8)
+        Stream Aggregate (Aggregate) [parallel] | rows 8 (est 8), execs 8, cpu 74 ms
+          Hash Match (Right Semi Join) [parallel] | rows 188,919 (est 130,547), execs 8, cpu 73 ms, WARNING SpillToTempDb, WARNING HashSpillDetails
+            Bitmap (Bitmap Create) [parallel] | rows 188,919 (est 188,919), execs 8, cpu 5 ms
+              Parallelism (Repartition Streams) [parallel] | rows 188,919 (est 188,919), execs 8
+                Index Seek TicketTags.IX_TicketTags_TagName [parallel] | rows 188,919 (est 188,919), execs 8, reads 822, cpu 9 ms, seek: @Tag
+            Parallelism (Repartition Streams) [parallel] | rows 196,334 (est 1,000,000), execs 8
+              Index Scan Tickets.IX_ProjectId [parallel] | rows 196,334 (est 1,000,000), execs 8, reads 1,793, cpu 43 ms, where: PROBE(Bitmap1019,Tickets.TicketId as t.TicketId,N'IN ROW')
+
+### tuned.list-tag.cmd1.stmt3.sqlplan
+statement: SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketStatus, t.Owner, o.DisplayName AS OwnerDisplayName, t.AssignedTo, a.Displ...
+  cost 0.653, DOP 1, memory grant 3160 KB (used 1712)
+  Nested Loops (Left Outer Join) | rows 20 (est 20.003)
+    Nested Loops (Left Outer Join) | rows 20 (est 20.003)
+      Sort [batch] | rows 20 (est 20)
+        Nested Loops (Inner Join) | rows 20 (est 20)
+          Top | rows 20 (est 20)
+            Nested Loops (Left Semi Join) | rows 20 (est 20)
+              Index Scan Tickets.IX_Tickets_LastUpdateDate | rows 93 (est 153), reads 3
+              Index Seek TicketTags.IX_TicketTags_TagName | rows 20 (est 1), execs 93, reads 280, seek: @Tag
+          Clustered Index Seek Tickets.PK_dbo.Tickets | rows 20 (est 1), execs 20, reads 60, seek: Tickets.TicketId as t.TicketId
+      Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.Owner as t.Owner
+    Clustered Index Seek IdentityUsers.PK_dbo.IdentityUsers | rows 20 (est 1), execs 20, reads 60, seek: Tickets.AssignedTo as t.AssignedTo
+

@@ -1,0 +1,1 @@
+Error from server (BadRequest): previous terminated container "worker" in pod "td-worker-5f6f789cd7-6rzv6" not found

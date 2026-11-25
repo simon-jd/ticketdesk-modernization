@@ -1,0 +1,22 @@
+# 2026-11-10T07:25:01Z state reconcile after the reaper deleted rg-ticketdesk-lab (cycle R2, ttl 2026-11-10T05:57:26Z)
+2026-11-10T01:00:03Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+2026-11-10T01:15:03Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+2026-11-10T01:30:03Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+2026-11-10T01:45:03Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+2026-11-10T02:00:04Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+2026-11-10T02:15:03Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+2026-11-10T02:30:05Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+2026-11-10T02:45:04Z reaper: rg-ticketdesk-lab ttl 2026-11-10T05:57:26Z (not expired)
+## make azure-down (RG gone -> refresh-only)
+rg-ticketdesk-lab does not exist
+terraform state refreshed (deleted resources dropped)
+## stage none (drops local-only random/time leftovers)
+stage foundation down end 2026-11-10T07:25:27Z elapsed_s=1 rc=1
+## purge the soft-deleted lab vault (a recovered vault would bring back old secrets)
+purged
+## plan none
+Plan: 0 to add, 1 to change, 8 to destroy.
+## Entra app
+ticketdesk-lab-web	<client-id-10>
+## soft-deleted vaults: 0; tagged resources: 0
+soft-deleted workspace (recovered by the next apply): log-tdlab-swedencentral

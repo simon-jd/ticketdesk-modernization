@@ -1,0 +1,21 @@
+## case ok: stub queue-cd queue-cd-ok
+v2 step start 2026-11-11T15:42:25.975Z: release ticketdesk deployed, image ticketdesk-web:aks-v2
+2026-11-11T15:42:31.934Z approval requested, <scratch>/approval-ok.txt written
+2026-11-11T15:42:36.112Z queue-cd exit 0 (run 998)
+2026-11-11T15:42:36.298Z v2 deployed by: cd (run 998, the user's approval)
+probe through the v2 step: reads 62 (1 failed), writes 31 (0 failed); failure windows [{"target": "https://localhost:18443", "start": "2026-11-11T15:42:38.040Z", "end": "2026-11-11T15:42:39.295Z", "ticks": 1}]
+REVISION	UPDATED                 	STATUS         	CHART           	APP VERSION	DESCRIPTION      
+1       	Wed Nov 11 07:41:36 2026	superseded     	ticketdesk-0.1.0	round4     	Install complete 
+2       	Wed Nov 11 07:41:50 2026	pending-upgrade	ticketdesk-0.1.0	round4     	Preparing upgrade
+3       	Wed Nov 11 07:41:57 2026	superseded     	ticketdesk-0.1.0	round4     	Rollback to 1    
+4       	Wed Nov 11 07:41:58 2026	superseded     	ticketdesk-0.1.0	round4     	Upgrade complete 
+5       	Wed Nov 11 07:42:31 2026	deployed       	ticketdesk-0.1.0	round4     	Upgrade complete 
+NAME                        READY   STATUS      RESTARTS   AGE   IP            NODE                   NOMINATED NODE   READINESS GATES
+td-db-migrate-k7tcd         0/1     Completed   0          26s   10.244.0.12   td-aks-control-plane   <none>           <none>
+td-web-854b9f6574-xxlfz     1/1     Running     0          56s   10.244.0.10   td-aks-control-plane   <none>           <none>
+td-worker-67c9fb6cf-vb92h   1/1     Running     0          56s   10.244.0.11   td-aks-control-plane   <none>           <none>
+-- recovery.txt
+(none)
+-- approval file: 2026-11-11T15:42:31Z approval requested for the v2 deploy (aks-lab): https://dev.azure.com/<ado-org>/TicketDesk/_build/results?buildId=998
+-- failed probe requests
+{"t": "2026-11-11T15:42:39.295Z", "tick": 12, "target": "https://localhost:18443", "path": "/tickets", "status": 500, "ms": 1255, "ok": false, "error": "HTTP 500"}

@@ -1,0 +1,14 @@
+$ ops/onprem/baseline/baseline-s.sh reset
+guest shutdown requested over ssh
+stopped after 10s
+disk reverted to baseline-s
+2026-11-09T01:49:56Z reset: empty store (baseline-s state)
+started: tmux td-legacy-vm, pid 3544889
+ssh up after ~0s
+2026-11-09T01:50:10Z app ready (4 s)
+2026-11-09T01:50:10Z reset to baseline-s done in 27 s
+remote authentication key set: True
+AzureStorage: http://10.0.2.2:10000/devstoreaccount1
+httpRuntime targetFramework: 4.8
+deployed package sha256: F1408B12957A6A2BDA46123865D471A2F97247F2E19A5FD5E2939C9411574CF6
+td-azurite Up 17 seconds mcr.microsoft.com/azure-storage/azurite:3.37.0 127.0.0.1:10000->10000/tcp, 10001-10002/tcp

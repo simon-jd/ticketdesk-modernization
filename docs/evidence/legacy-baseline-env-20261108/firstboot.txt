@@ -1,0 +1,31 @@
+**********************
+Windows PowerShell transcript start
+Start time: 20261108001104
+Username: TDLEGACY01\Administrator
+RunAs User: TDLEGACY01\Administrator
+Configuration Name: 
+Machine: TDLEGACY01 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\td-setup\firstboot.ps1
+Process ID: 4292
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-08 00:11:04Z] OpenSSH Server
+[2026-11-08 00:11:07Z] Power button
+
+
+[2026-11-08 00:11:07Z] Lab tuning
+[2026-11-08 00:11:08Z] Activation
+Activating Windows(R), ServerStandardEval edition (753c53a2-4274-4339-8c2e-f66c0b9646c5) ...
+Product activated successfully.
+[2026-11-08 00:11:17Z] Remove Windows Defender feature (lab only), then reboot
+**********************
+Windows PowerShell transcript end
+End time: 20261108001117
+**********************

@@ -1,0 +1,57 @@
+# Service connection ticketdesk-lab-arm (Azure Resource Manager, workload identity federation, manual). 2026-11-11T08:46:02Z
+## Entra app (created 2026-11-11T05:04:53Z with az ad app create / az ad sp create; no secret, no certificate)
+{
+  "displayName": "ticketdesk-lab-ado",
+  "keyCredentials": 0,
+  "notes": "TicketDesk lab: identity of the Azure DevOps service connection (workload identity federation, <ado-org>/TicketDesk). No secrets. Roles only on rg-ticketdesk-lab. Delete at project end.",
+  "passwordCredentials": 0,
+  "signInAudience": "AzureADMyOrg"
+}
+## federated credential (created 2026-11-11T05:05:14Z)
+[
+  {
+    "audiences": [
+      "api://AzureADTokenExchange"
+    ],
+    "issuer": "https://login.microsoftonline.com/<tenant>/v2.0",
+    "name": "ado-ticketdesk-lab-arm",
+    "subject": "/eid1/c/pub/t/<tenant-b64>/a/<app-b64>/sc/<ado-org-id>/<ado-service-connection-id-1>"
+  }
+]
+## role assignments of the identity (any scope)
+count: 0
+## service connection (Azure DevOps)
+{
+  "name": "ticketdesk-lab-arm",
+  "type": "azurerm",
+  "isReady": true,
+  "isShared": false,
+  "scheme": "WorkloadIdentityFederation",
+  "issuerType": "EntraID",
+  "issuer": "https://login.microsoftonline.com/<tenant>/v2.0",
+  "subject": "/eid1/c/pub/t/<tenant-b64>/a/<app-b64>/sc/<ado-org-id>/<ado-service-connection-id-1>",
+  "serviceprincipalid": "<client-id ticketdesk-lab-ado>",
+  "data": {
+    "environment": "AzureCloud",
+    "scopeLevel": "Subscription",
+    "creationMode": "Manual",
+    "identityType": "AppRegistrationManual",
+    "subscriptionId": "<subscription>",
+    "subscriptionName": "Azure for Students"
+  }
+}
+## pipeline sc-check run 5 (2026-11-11T05:14:55Z): token exchange, read-only (log masks issuer/subject/appid as ***)
+========================== Starting Command Output ===========================
+[command]/usr/bin/bash --noprofile --norc ~/Desktop/ticketdesk-modernization/.tools/ado-agent/_work/_temp/ac1b49b7-3eb6-406c-90de-76cb6fba2e7f.sh
+##[section]1. OIDC token of the service connection (Azure DevOps)
+OIDC token claims: {"iss": "***", "sub": "***", "aud": "<ado-oidc-audience>"}
+##[section]2. Entra ID token exchange (client assertion = OIDC token)
+ARM access token: {"token_type":"Bearer","expires_in":3599} claims {"aud": "https://management.azure.com", "iss": "https://sts.windows.net/<tenant>/", "appid": "***", "oid": "<sp-object-id ticketdesk-lab-ado>", "idtyp": "app", "tid": "<tenant>"}
+token is for app ticketdesk-lab-ado / its service principal, audience ARM: True
+##[section]3. read-only ARM calls with that token
+GET /subscriptions -> HTTP 200, subscriptions visible: 0
+GET resource group rg-ticketdesk-lab -> HTTP 403 {"error":"AuthorizationFailed","name":null,"location":null,"tags":{"owner":null,"ttl":null}}
+authenticated: yes (token exchange succeeded); nothing created
+
+##[section]Finishing: Service connection token exchange (read-only)
+## earlier attempts: run 3 (no OIDC token, script bug: body not shown), run 4 (HTTP 400 'There is no explicit reference to service connection ... from current stage'); fixed by declaring the AzureCLI@2 step (runs only with withRoles=true)

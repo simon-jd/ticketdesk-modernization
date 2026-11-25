@@ -1,0 +1,17 @@
+<Project>
+  <!-- Settings for the new TicketDesk app (src/modern/**). Kept out of the repo root on purpose: a root
+       Directory.Build.props would also be imported by the legacy .NET Framework csproj files (plan/DECISIONS.md).
+       tools/ keeps its own props. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Microsoft.Data.SqlClient needs ICU (it throws in globalization-invariant mode) -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <Deterministic>true</Deterministic>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+</Project>

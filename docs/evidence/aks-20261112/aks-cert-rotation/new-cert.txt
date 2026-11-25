@@ -1,0 +1,6 @@
+subject=O=TicketDesk Lab, CN=tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com
+issuer=O=TicketDesk Lab, CN=TicketDesk Lab Root CA
+notAfter=Feb 14 07:07:00 2029 GMT
+X509v3 Subject Alternative Name: 
+    DNS:tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com, DNS:localhost, DNS:td-web.ticketdesk.svc, IP Address:127.0.0.1
+pfx: ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-ca/aks-web-rotated.pfx (password in ~/Desktop/ticketdesk-modernization/.secrets/legacy-lab-cert.env)

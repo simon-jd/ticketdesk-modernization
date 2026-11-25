@@ -1,0 +1,7 @@
+failed TicketDesk.Database.Tests.FullTextMigrationTests.Rows_written_after_the_migration_become_searchable_without_any_hook (2m 04s 443ms)
+  from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64)
+  Assert.True() Failure
+  Expected: True
+  Actual:   False
+    at TicketDesk.Database.Tests.FullTextMigrationTests.Rows_written_after_the_migration_become_searchable_without_any_hook() in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/FullTextMigrationTests.cs:38
+    at TicketDesk.Database.Tests.FullTextMigrationTests.Rows_written_after_the_migration_become_searchable_without_any_hook() in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/FullTextMigrationTests.cs:52

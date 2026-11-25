@@ -1,0 +1,13 @@
+agents: lab-host-1 online enabled=true job=none
+runs waiting for an approval (left alone): 16(notStarted) ; runs queued for or running on the agent: none
+preflight ok: agent free, nothing queued, Azure Repos modernize 4540ad1d has this session's chart and CD script
+added 17 rows K1.1-K1.17 (1.97 USD)
+ledger running estimate $13.70 / cap $13.70: OK
+2026-11-11T17:44:00.356Z SESSION start cert
+2026-11-11T17:44:00.549Z SESSION ok cert
+2026-11-11T17:44:00.554Z SESSION rebuild from zero: start (empty resource group)
+2026-11-11T17:44:00.557Z SESSION start apply
+2026-11-11T18:06:23.442Z SESSION FAILED apply
+2026-11-11T18:06:23.444Z SESSION destroy
+2026-11-11T18:17:32.613Z SESSION destroyed: RG exists=false
+closed 17 rows K1.*

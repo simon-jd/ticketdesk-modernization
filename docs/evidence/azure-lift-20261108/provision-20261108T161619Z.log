@@ -1,0 +1,34 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261108161640
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script3.ps1 -Steps backup-now+verify -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-fbaaf99.zip -BundleSha256 06cea84f9f54af0fb2daaef02640f21fbe5c067b659842467a6cf2b77682e217 -PublishBlob td-legacy-publish-f510384.zip -PublishSha256 5f08149d6280aad948c1d46289b81503110f2fc57e9dd84bda4add0510aca45a -AdminEmail <admin-email> -RunId 20261108T161619Z
+Process ID: 4164
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-08T16:16:40Z] provision run 20261108T161619Z on tdlab-legacy, steps: backup-now+verify
+[2026-11-08T16:16:40Z] ==== step backup-now
+[2026-11-08T16:16:43Z] CHANGE database TicketDesk -> C:\TdBackups\20261108T161640Z\TicketDesk.bak (77,721,600 bytes, 3.1s, verified)
+[2026-11-08T16:16:59Z] CHANGE site files C:\inetpub\ticketdesk -> C:\TdBackups\20261108T161640Z\site.zip (20,700,105 bytes)
+[2026-11-08T16:17:01Z] CHANGE copied 6 files (98,438,117 bytes) to https://sttdlab36d2d4.blob.core.windows.net/backups/tdlab-legacy/20261108T161640Z/ in 1.5s
+[2026-11-08T16:17:01Z] INFO   backup complete: C:\TdBackups\20261108T161640Z
+C:\TdBackups\20261108T161640Z
+[2026-11-08T16:17:01Z] step backup-now done in 21.5s
+[2026-11-08T16:17:01Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-08T15:51:11.0034930Z","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.191.0","signature_updated_utc":"2026-11-08T06:38:16.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10"},"https_home":{"status":200,"ms":16,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":"Ready","rows":{"dbo.__MigrationHistory":25,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":252,"dbo.IdentityUsers":252,"dbo.Projects":5,"dbo.TicketEventNotifications":96043,"dbo.TicketEvents":45678,"dbo.Tickets":10008,"dbo.TicketSubscribers":20136,"dbo.TicketTags":14716,"dbo.UserSettings":3,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":3,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":3,"notifications.TicketPushNotificationItems":0}}
+[2026-11-08T16:17:03Z] step verify done in 1.2s
+[2026-11-08T16:17:03Z] TDTIMINGS {"backup-now":21.5,"verify":1.2} total 22.8s
+**********************
+Windows PowerShell transcript end
+End time: 20261108161703
+**********************

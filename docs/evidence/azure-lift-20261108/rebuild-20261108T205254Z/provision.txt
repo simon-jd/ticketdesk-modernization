@@ -1,0 +1,27 @@
+2026-11-08T21:00:24Z provision 20261108T210024Z on vm-tdlab-legacy: fetch+prereqs+sql+sqlupdate+site+restore+deploy+backup-task+verify RestorePrefix=seed RestoreName=baseline-s
+provision 20261108T210024Z steps=fetch+prereqs+sql+sqlupdate+site+restore+deploy+backup-task+verify elapsed_s=767 rc=0
+[2026-11-08T21:12:08Z] CHANGE Web.config: connectionStrings/TicketDesk, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-08T21:12:37Z] INFO   warm-up http://localhost/ -> 200 in 29.0s
+[2026-11-08T21:12:37Z] step deploy done in 32.4s
+[2026-11-08T21:12:37Z] ==== step backup-task
+[2026-11-08T21:12:37Z] CHANGE registered task 'TicketDesk nightly backup' daily at 02:00 (log C:\TdBackups\backup-task.log)
+
+
+TaskName       : TicketDesk nightly backup
+LastRunTime    : 11/30/1999 12:00:00 AM
+LastTaskResult : 267011
+NextRunTime    : 11/9/2026 2:00:00 AM
+
+
+
+
+[2026-11-08T21:12:37Z] step backup-task done in 0.8s
+[2026-11-08T21:12:37Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-08T19:11:28.4669770Z","sql":"16.0.4305.5 CU27 Express Edition (64-bit)","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.437.1.0","signature_updated_utc":"2025-09-17T02:08:41.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10","private_key_usable":true},"https_home":{"status":200,"ms":68,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":"Ready","rows":{"dbo.__MigrationHistory":25,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-08T21:12:42Z] step verify done in 4.8s
+[2026-11-08T21:12:42Z] TDTIMINGS {"fetch":6.9,"prereqs":182.4,"sql":271.8,"sqlupdate":201.9,"site":6.9,"restore":5.8,"deploy":32.4,"backup-task":0.8,"verify":4.8} total 714.4s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T210024Z.log
+---- ComponentStatus/StdErr/succeeded
+
+Alive[################################################################]  100.0000%Finished[#############################################################]  100.0000%
+provision 20261108T210024Z steps=fetch+prereqs+sql+sqlupdate+site+restore+deploy+backup-task+verify elapsed_s=767 rc=0

@@ -1,0 +1,3 @@
+# 2026-11-10T00:57:01Z ticketdesk-baseline-s-shared.bak (sha256 5acc44467f998d00) -> ticketdesk-baseline-s-shared.bacpac on td-sql, SqlPackage 170.5.96
+bytes: 3637947  sha256: 20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9  seconds: 7
+dropped Windows users: IIS AppPool\TicketDesk 

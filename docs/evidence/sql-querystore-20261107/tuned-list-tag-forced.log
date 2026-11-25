@@ -1,0 +1,5 @@
+# load average 6.77 5.50 2.69; plan 226 forced for query 118
+$ TD_PERF_DB=TicketDeskL ops/dev/sql-perf.sh bench --cases docs/evidence/sql-after-20261107/cases-tuned.json --only list-tag --out docs/evidence/sql-querystore-20261107/tuned-list-tag-forced --warm 20 --cold 5
+[07:28:06] tuned/list-tag: 1 command(s)
+    cold: median 89 ms server / 90.2 ms client, cpu 174 ms, reads 3382
+    warm: median 27 ms server / 28.1 ms client, cpu 115 ms, reads 3126

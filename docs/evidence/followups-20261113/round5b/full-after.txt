@@ -1,0 +1,23 @@
+# 2026-11-13T22:42:31Z git b19f9f9d load 7.95 4.99 5.09
+$ dotnet test --solution src/modern/TicketDesk.Modern.sln -c Release --no-build (CI test environment, TD_MODERN_SEEDED_DB=TicketDesk)
+~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (722ms)
+~/Desktop/ticketdesk-modernization/wt-followups/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (757ms)
+~/Desktop/ticketdesk-modernization/wt-followups/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (4s 140ms)
+~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (4s 243ms)
+~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (5s 438ms)
+~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (15s 688ms)
+~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64) passed (22s 631ms)
+~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (24s 818ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64) passed (15s 688ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Data.Tests/bin/Release/net10.0/TicketDesk.Data.Tests.dll (net10.0|x64) passed (4s 243ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (4s 140ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Modules.Tests/bin/Release/net10.0/TicketDesk.Modules.Tests.dll (net10.0|x64) passed (722ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Worker.Tests/bin/Release/net10.0/TicketDesk.Worker.Tests.dll (net10.0|x64) passed (22s 631ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64) passed (24s 818ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (757ms)
+  ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Identity.Tests/bin/Release/net10.0/TicketDesk.Identity.Tests.dll (net10.0|x64) passed (5s 438ms)
+  total: 772
+  failed: 0
+  succeeded: 772
+  skipped: 0
+  duration: 24s 997ms

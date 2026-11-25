@@ -1,0 +1,17 @@
+ok   A new app: sign-in page {"status": 200, "backend": "modern; route=user.sign-in.get"}
+ok   A new app: sign-in post issues .AspNet.ApplicationCookie {"status": 302, "backend": "modern; route=user.sign-in.post", "set_cookie": [".AspNet.ApplicationCookie"]}
+ok   A legacy direct: GET https://localhost:8443/ticket/new signed in {"status": 200, "backend": "legacy (no marker)", "user": "{admin}", "location": null}
+ok   A legacy via gateway: GET https://localhost:5443/ticket/new signed in {"status": 200, "backend": "legacy (no marker)", "user": "{admin}", "location": null}
+ok   A new app: GET https://localhost:5443/account/manage signed in {"status": 200, "backend": "modern; route=account.manage", "user": "{admin}", "location": null}
+ok   A new app: sign-out deletes the cookie {"status": 302, "backend": "modern; route=user.sign-out"}
+ok   A legacy direct after sign-out: GET https://localhost:8443/ticket/new anonymous (challenge) {"status": 302, "backend": "legacy (no marker)", "user": null, "location": "https://localhost:8443/user/sign-in?ReturnUrl=%2Fticket%2Fnew"}
+ok   A new app after sign-out: GET https://localhost:5443/account/manage anonymous (challenge) {"status": 302, "backend": "modern; route=account.manage", "user": null, "location": "https://localhost:5443/user/sign-in?ReturnUrl=%2Faccount%2Fmanage"}
+ok   B legacy direct: sign-in page {"status": 200, "backend": "legacy (no marker)"}
+ok   B legacy direct: sign-in post issues .AspNet.ApplicationCookie {"status": 302, "backend": "legacy (no marker)", "set_cookie": [".AspNet.ApplicationCookie"]}
+ok   B new app: GET https://localhost:5443/account/manage signed in {"status": 200, "backend": "modern; route=account.manage", "user": "{admin}", "location": null}
+ok   B new app (admin role): GET https://localhost:5443/admin/users signed in {"status": 200, "backend": "modern; route=admin.users", "user": "{admin}", "location": null}
+ok   B legacy direct: GET https://localhost:8443/ticket/new signed in {"status": 200, "backend": "legacy (no marker)", "user": "{admin}", "location": null}
+ok   B legacy direct: sign-out deletes the cookie {"status": 302}
+ok   B new app after sign-out: GET https://localhost:5443/account/manage anonymous (challenge) {"status": 302, "backend": "modern; route=account.manage", "user": null, "location": "https://localhost:5443/user/sign-in?ReturnUrl=%2Faccount%2Fmanage"}
+ok   B legacy direct after sign-out: GET https://localhost:8443/ticket/new anonymous (challenge) {"status": 302, "backend": "legacy (no marker)", "user": null, "location": "https://localhost:8443/user/sign-in?ReturnUrl=%2Fticket%2Fnew"}
+16/16 checks passed

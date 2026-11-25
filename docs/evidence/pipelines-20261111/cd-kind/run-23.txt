@@ -1,0 +1,15 @@
+run 23 cd-20261111.2 cd refs/heads/modernize 4540ad1d status=completed result=failed reason=manual queued=2026-11-11T18:41:48.6579016Z start=2026-11-11T18:43:09.2071339Z finish=2026-11-11T18:45:49.0597021Z
+Checkpoint completed  succeeded    76 s     Checkpoint.Approval
+Checkpoint completed  succeeded    77 s     Checkpoint
+Job        completed  failed       152 s    Deploy to kind (td-cd)
+Stage      completed  failed       156 s    kind-local
+Task       completed  succeeded    0 s      Initialize job
+Task       completed  succeeded    2 s      Checkout TicketDesk@modernize to s
+Task       completed  succeeded    1 s      kind cluster, relay, Service Bus emulator
+Task       completed  succeeded    2 s      td-db migrate (database TicketDesk_cd)
+Task       completed  succeeded    8 s      Deploy ci-22
+Task       completed  failed       136 s    Smoke  ! Bash exited with code '56'.
+Task       completed  succeeded    3 s      PublishPipelineArtifact
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@modernize to s
+Task       completed  succeeded    0 s      Finalize Job
+Stage      completed  skipped      -        aks-lab

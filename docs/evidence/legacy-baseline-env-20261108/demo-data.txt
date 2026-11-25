@@ -1,0 +1,11 @@
+legacy_smoke demo against https://localhost:8443 at 2026-11-08T01:15:46Z
+  GET  /user/sign-in -> 200 24ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 47ms -> /
+  GET  / -> 200 82ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+  GET  /admin/data-management/create-demo-data -> 200 1862ms
+[PASS] create demo data (HTTP 200)
+  GET  /tickets -> 200 5582ms
+[PASS] ticket center after demo data (HTTP 200)
+{"command": "demo", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 12.6}

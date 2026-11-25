@@ -1,0 +1,280 @@
+# $ time docker build -f src/modern/TicketDesk.Web/Dockerfile -t ticketdesk-web:r1-modern-core src/modern   (docker 29.9.2, first build: base images pulled from mcr.microsoft.com)
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.02kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+#2 ...
+
+#3 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra
+#3 DONE 0.7s
+
+#2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+#2 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 184B done
+#4 DONE 0.1s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 resolve mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e 0.1s done
+#6 DONE 0.1s
+
+#7 [runtime 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra@sha256:a9298ccc39c6258ae71228479e2f3f8d2ceb6639a9927262a4b0ff7d319a0e7e
+#7 resolve mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra@sha256:a9298ccc39c6258ae71228479e2f3f8d2ceb6639a9927262a4b0ff7d319a0e7e
+#7 resolve mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra@sha256:a9298ccc39c6258ae71228479e2f3f8d2ceb6639a9927262a4b0ff7d319a0e7e 0.1s done
+#7 DONE 0.3s
+
+#5 [internal] load build context
+#5 transferring context: 115.88kB done
+#5 DONE 0.1s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 0B / 18.46MB 0.2s
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 2.10MB / 18.46MB 0.5s
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 4.19MB / 18.46MB 0.6s
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 5.24MB / 18.46MB 0.8s
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 7.34MB / 18.46MB 0.9s
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 10.49MB / 18.46MB 1.1s
+#6 sha256:44011e69c1cb0416cf3351b6a63eec8ace6c7863108960fce0d7cd9afe9668aa 0B / 531B 0.2s
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 13.63MB / 18.46MB 1.2s
+#6 sha256:44011e69c1cb0416cf3351b6a63eec8ace6c7863108960fce0d7cd9afe9668aa 531B / 531B 0.4s done
+#6 sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 18.46MB / 18.46MB 1.4s done
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 0B / 18.61MB 0.2s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 1.05MB / 194.31MB 0.2s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 0B / 24.45MB 0.2s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 1.05MB / 18.61MB 0.8s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 12.58MB / 194.31MB 0.6s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 2.10MB / 18.61MB 1.1s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 3.15MB / 18.61MB 1.2s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 23.07MB / 194.31MB 1.1s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 4.19MB / 18.61MB 1.4s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 0B / 13.09MB 0.2s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 6.29MB / 18.61MB 1.5s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 8.39MB / 18.61MB 1.7s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 36.70MB / 194.31MB 1.5s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 2.10MB / 24.45MB 1.4s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 10.49MB / 18.61MB 1.8s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 12.58MB / 18.61MB 2.0s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 4.19MB / 24.45MB 1.7s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 1.05MB / 13.09MB 0.8s
+#6 ...
+
+#7 [runtime 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra@sha256:a9298ccc39c6258ae71228479e2f3f8d2ceb6639a9927262a4b0ff7d319a0e7e
+#7 sha256:aa321f753fbffb35cfb92838971b0b1f492495ae64eb64f6a53e1d63ffbef89e 13.09MB / 13.09MB 1.1s done
+#7 sha256:662f7f61bf922a2d8f28cea29368fb4db1c378ccad467133baa7ed88c994c577 152B / 152B 0.1s done
+#7 sha256:d70beb20cb8e7699287582b155f760613dad9ab5f0e7524a89b85d875edfeb14 37.62MB / 37.62MB 2.8s done
+#7 sha256:01c0e3e56e419c387c7dc9f3aebd6692e909d7794c430d5f592ecd9a9c63af79 120B / 120B 0.2s done
+#7 sha256:9be3406e5472fb7904b64e4492fb37ea8642ee4fb23d271df19096c0b0a046da 21.87MB / 21.87MB 1.6s done
+#7 extracting sha256:9be3406e5472fb7904b64e4492fb37ea8642ee4fb23d271df19096c0b0a046da 0.7s done
+#7 extracting sha256:01c0e3e56e419c387c7dc9f3aebd6692e909d7794c430d5f592ecd9a9c63af79 0.0s done
+#7 extracting sha256:d70beb20cb8e7699287582b155f760613dad9ab5f0e7524a89b85d875edfeb14 0.8s done
+#7 extracting sha256:662f7f61bf922a2d8f28cea29368fb4db1c378ccad467133baa7ed88c994c577 0.0s done
+#7 DONE 4.0s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 15.73MB / 18.61MB 2.1s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 50.33MB / 194.31MB 2.0s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 6.29MB / 24.45MB 1.8s
+#6 sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 18.61MB / 18.61MB 2.2s done
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 8.39MB / 24.45MB 2.0s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 10.49MB / 24.45MB 2.1s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 2.10MB / 13.09MB 1.1s
+#6 ...
+
+#7 [runtime 1/3] FROM mcr.microsoft.com/dotnet/aspnet:10.0-noble-chiseled-extra@sha256:a9298ccc39c6258ae71228479e2f3f8d2ceb6639a9927262a4b0ff7d319a0e7e
+#7 extracting sha256:aa321f753fbffb35cfb92838971b0b1f492495ae64eb64f6a53e1d63ffbef89e 0.3s done
+#7 DONE 4.3s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 sha256:5000ccc6e1e6143db7e0c0cfd1729ea8157accfe216a9b6dbb282ff262121f52 155B / 155B 0.2s done
+#6 ...
+
+#8 [runtime 2/3] WORKDIR /app
+#8 DONE 0.1s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 62.91MB / 194.31MB 2.4s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 12.58MB / 24.45MB 2.3s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 3.15MB / 13.09MB 1.2s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 15.73MB / 24.45MB 2.4s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 4.19MB / 13.09MB 1.4s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 0B / 37.62MB 0.2s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 17.83MB / 24.45MB 2.6s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 5.24MB / 13.09MB 1.5s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 2.10MB / 37.62MB 0.3s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 19.92MB / 24.45MB 2.7s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 5.24MB / 37.62MB 0.5s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 75.50MB / 194.31MB 3.0s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 22.02MB / 24.45MB 2.9s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 6.29MB / 13.09MB 1.8s
+#6 sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 24.45MB / 24.45MB 3.0s done
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 7.34MB / 13.09MB 2.0s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 9.44MB / 37.62MB 0.8s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 9.44MB / 13.09MB 2.1s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 12.58MB / 37.62MB 0.9s
+#6 sha256:50a32286000b7407be71d19fe40d8d3e9a3bfd29dd64ca4e7ccb6da722b8390c 0B / 3.61kB 0.2s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 10.49MB / 13.09MB 2.3s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 15.73MB / 37.62MB 1.1s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 19.92MB / 37.62MB 1.2s
+#6 sha256:50a32286000b7407be71d19fe40d8d3e9a3bfd29dd64ca4e7ccb6da722b8390c 3.61kB / 3.61kB 0.3s done
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 88.08MB / 194.31MB 3.6s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 11.53MB / 13.09MB 2.4s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 0B / 17.16MB 0.2s
+#6 sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 13.09MB / 13.09MB 2.6s done
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 23.07MB / 37.62MB 1.4s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 1.05MB / 17.16MB 0.3s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 26.21MB / 37.62MB 1.5s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 4.19MB / 17.16MB 0.5s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 29.36MB / 37.62MB 1.7s
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 0B / 29.77MB 0.2s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 32.51MB / 37.62MB 1.8s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 5.24MB / 17.16MB 0.6s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 34.60MB / 37.62MB 2.0s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 7.34MB / 17.16MB 0.8s
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 3.15MB / 29.77MB 0.5s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 98.57MB / 194.31MB 4.4s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 9.44MB / 17.16MB 0.9s
+#6 sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 37.62MB / 37.62MB 2.2s done
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 10.49MB / 17.16MB 1.1s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 13.63MB / 17.16MB 1.2s
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 7.34MB / 29.77MB 0.8s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 15.73MB / 17.16MB 1.4s
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 10.49MB / 29.77MB 0.9s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 110.10MB / 194.31MB 5.0s
+#6 sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 17.16MB / 17.16MB 1.4s done
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 13.63MB / 29.77MB 1.1s
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 17.83MB / 29.77MB 1.2s
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 23.07MB / 29.77MB 1.4s
+#6 sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 29.77MB / 29.77MB 1.6s done
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 126.88MB / 194.31MB 5.6s
+#6 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 138.41MB / 194.31MB 6.2s
+#6 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 0.9s done
+#6 extracting sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 150.99MB / 194.31MB 6.9s
+#6 extracting sha256:36e06772f126477a8eeab69eef129987986a210515172e94bfca9ceeea447a4b 0.4s done
+#6 extracting sha256:50a32286000b7407be71d19fe40d8d3e9a3bfd29dd64ca4e7ccb6da722b8390c 0.0s done
+#6 extracting sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 163.58MB / 194.31MB 7.4s
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 176.16MB / 194.31MB 7.7s
+#6 extracting sha256:8613dab60051d6eb4e9a03934d48d49dac3904b3571987f882822b3d60a38225 1.0s done
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 188.74MB / 194.31MB 8.0s
+#6 extracting sha256:5000ccc6e1e6143db7e0c0cfd1729ea8157accfe216a9b6dbb282ff262121f52 0.0s done
+#6 extracting sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac
+#6 sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 194.31MB / 194.31MB 8.1s done
+#6 extracting sha256:6999a63fda37b6965db65c62f5301eacc8ae7a9e614c7541dc745a1c1ae04eac 0.3s done
+#6 extracting sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1
+#6 extracting sha256:a622f53da7e621a2242dfda42446ac0574096310d0736e68ebbb9f5544df4db1 0.7s done
+#6 DONE 10.9s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 extracting sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d
+#6 extracting sha256:76daf134beae78622beb1c4ebbb4ec02ab82f198045ffaa5332e9078c61fee8d 9.2s done
+#6 DONE 20.1s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 extracting sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed
+#6 extracting sha256:3107b54bbbcdd5f40a990c04b90e202c23c742b7e7e3019855741e5d069ed7ed 0.2s done
+#6 DONE 20.3s
+
+#6 [build  1/18] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:212fe4cb74627d5adf9817a4088906ae3edff1bd853bb27565d4b46731efe61e
+#6 extracting sha256:44011e69c1cb0416cf3351b6a63eec8ace6c7863108960fce0d7cd9afe9668aa 0.0s done
+#6 extracting sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd
+#6 extracting sha256:53fb47b9dfb556035f337cfdadc83ad0329685e5acc9c7d80459a0789a0345fd 0.6s done
+#6 DONE 21.0s
+
+#9 [build  2/18] WORKDIR /src
+#9 DONE 0.2s
+
+#10 [build  3/18] COPY Directory.Build.props Directory.Packages.props ./
+#10 DONE 0.1s
+
+#11 [build  4/18] COPY TicketDesk.Data/TicketDesk.Data.csproj TicketDesk.Data/
+#11 DONE 0.0s
+
+#12 [build  5/18] COPY TicketDesk.Identity/TicketDesk.Identity.csproj TicketDesk.Identity/
+#12 DONE 0.1s
+
+#13 [build  6/18] COPY Modules/TicketDesk.Tickets/TicketDesk.Tickets.csproj Modules/TicketDesk.Tickets/
+#13 DONE 0.0s
+
+#14 [build  7/18] COPY Modules/TicketDesk.Projects/TicketDesk.Projects.csproj Modules/TicketDesk.Projects/
+#14 DONE 0.1s
+
+#15 [build  8/18] COPY Modules/TicketDesk.Users/TicketDesk.Users.csproj Modules/TicketDesk.Users/
+#15 DONE 0.1s
+
+#16 [build  9/18] COPY Modules/TicketDesk.Attachments/TicketDesk.Attachments.csproj Modules/TicketDesk.Attachments/
+#16 DONE 0.1s
+
+#17 [build 10/18] COPY Modules/TicketDesk.Search/TicketDesk.Search.csproj Modules/TicketDesk.Search/
+#17 DONE 0.1s
+
+#18 [build 11/18] COPY Modules/TicketDesk.Notifications/TicketDesk.Notifications.csproj Modules/TicketDesk.Notifications/
+#18 DONE 0.1s
+
+#19 [build 12/18] COPY TicketDesk.Web/TicketDesk.Web.csproj TicketDesk.Web/
+#19 DONE 0.1s
+
+#20 [build 13/18] RUN dotnet restore TicketDesk.Web/TicketDesk.Web.csproj
+#20 1.173   Determining projects to restore...
+#20 2.696   Restored /src/Modules/TicketDesk.Attachments/TicketDesk.Attachments.csproj (in 150 ms).
+#20 2.696   Restored /src/Modules/TicketDesk.Search/TicketDesk.Search.csproj (in 148 ms).
+#20 2.696   Restored /src/Modules/TicketDesk.Notifications/TicketDesk.Notifications.csproj (in 152 ms).
+#20 6.180   Restored /src/TicketDesk.Identity/TicketDesk.Identity.csproj (in 3.66 sec).
+#20 6.180   Restored /src/Modules/TicketDesk.Projects/TicketDesk.Projects.csproj (in 3.66 sec).
+#20 6.180   Restored /src/Modules/TicketDesk.Tickets/TicketDesk.Tickets.csproj (in 3.66 sec).
+#20 6.180   Restored /src/Modules/TicketDesk.Users/TicketDesk.Users.csproj (in 3.66 sec).
+#20 6.180   Restored /src/TicketDesk.Data/TicketDesk.Data.csproj (in 3.66 sec).
+#20 6.183   Restored /src/TicketDesk.Web/TicketDesk.Web.csproj (in 3.66 sec).
+#20 DONE 6.4s
+
+#21 [build 14/18] COPY TicketDesk.Data/ TicketDesk.Data/
+#21 DONE 0.1s
+
+#22 [build 15/18] COPY TicketDesk.Identity/ TicketDesk.Identity/
+#22 DONE 0.0s
+
+#23 [build 16/18] COPY Modules/ Modules/
+#23 DONE 0.0s
+
+#24 [build 17/18] COPY TicketDesk.Web/ TicketDesk.Web/
+#24 DONE 0.1s
+
+#25 [build 18/18] RUN dotnet publish TicketDesk.Web/TicketDesk.Web.csproj -c Release -o /app --no-restore -p:UseAppHost=false
+#25 4.552   TicketDesk.Attachments -> /src/Modules/TicketDesk.Attachments/bin/Release/net10.0/TicketDesk.Attachments.dll
+#25 4.552   TicketDesk.Search -> /src/Modules/TicketDesk.Search/bin/Release/net10.0/TicketDesk.Search.dll
+#25 4.595   TicketDesk.Notifications -> /src/Modules/TicketDesk.Notifications/bin/Release/net10.0/TicketDesk.Notifications.dll
+#25 4.596   TicketDesk.Data -> /src/TicketDesk.Data/bin/Release/net10.0/TicketDesk.Data.dll
+#25 5.194   TicketDesk.Users -> /src/Modules/TicketDesk.Users/bin/Release/net10.0/TicketDesk.Users.dll
+#25 5.618   TicketDesk.Identity -> /src/TicketDesk.Identity/bin/Release/net10.0/TicketDesk.Identity.dll
+#25 6.241   TicketDesk.Projects -> /src/Modules/TicketDesk.Projects/bin/Release/net10.0/TicketDesk.Projects.dll
+#25 6.512   TicketDesk.Tickets -> /src/Modules/TicketDesk.Tickets/bin/Release/net10.0/TicketDesk.Tickets.dll
+#25 7.718   TicketDesk.Web -> /src/TicketDesk.Web/bin/Release/net10.0/TicketDesk.Web.dll
+#25 7.846   TicketDesk.Web -> /app/
+#25 DONE 8.1s
+
+#26 [runtime 3/3] COPY --from=build /app ./
+#26 DONE 0.1s
+
+#27 exporting to image
+#27 exporting layers
+#27 exporting layers 1.0s done
+#27 exporting manifest sha256:7c40457b683a19ee80eb65405b0e9e24ad9b372156924d242a5c93db2afa4b41 0.0s done
+#27 exporting config sha256:2c0f525b0962a28eb0da715ae2404aea7a942e7703edab8307b8b62afca919c8 0.0s done
+#27 exporting attestation manifest sha256:0f0bd10da7cd761185c5aab42d30b35bf1d82a731d057d9d2ed8875120480bca 0.0s done
+#27 exporting manifest list sha256:dbe28a3be523dc91ead2ef3efc63a8b8d18cbb5044401d9567330d92d1489852 0.0s done
+#27 naming to docker.io/library/ticketdesk-web:r1-modern-core done
+#27 unpacking to docker.io/library/ticketdesk-web:r1-modern-core
+#27 unpacking to docker.io/library/ticketdesk-web:r1-modern-core 1.9s done
+#27 DONE 3.1s
+
+real	0m41.346s
+user	0m0.186s
+sys	0m0.140s

@@ -1,0 +1,1 @@
+smtp sink on 192.168.192.1:2526 -> ~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/drill-pod-kill/mail

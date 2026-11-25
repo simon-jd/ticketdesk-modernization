@@ -1,0 +1,33 @@
+@using TicketDesk.Localization.Views.Shared
+@{
+    var signedIn = User.Identity?.IsAuthenticated == true;
+}
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-user"></i><span class="">
+            @(signedIn ? User.FindFirstValue(ClaimTypes.GivenName) : _Layout.Account)
+        </span>
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+        @if (signedIn)
+        {
+            <li>
+                <a href="/account/manage">@_Layout.MyAccount</a>
+            </li>
+            <li>
+                @* S3 (Round 5): a form that posts with the antiforgery token (a link to a sign-out GET in the legacy app) *@
+                <form action="/user/sign-out" class="td-menu-post" method="post">@Html.AntiForgeryToken()<button type="submit">@_Layout.LogOff</button></form>
+            </li>
+        }
+        else
+        {
+            if (Site.Value.RegisterEnabled)
+            {
+                <li><a href="/user/register" id="registerLink">@_Layout.Register</a></li>
+            }
+            <li><a href="/user/sign-in" id="loginLink">@_Layout.SignIn</a></li>
+        }
+    </ul>
+
+</li>

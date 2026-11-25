@@ -1,0 +1,41 @@
+{{- if .Values.migrate.enabled }}
+# td-db migrate before every install/upgrade (plan/DECISIONS.md 2026-11-08: schema changes are a deploy step, never at
+# app start-up). A failed job fails the helm upgrade, so the old pods keep running on the old schema.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: td-db-migrate
+  labels: {{- include "td.labels" . | nindent 4 }}
+    app.kubernetes.io/name: td-db-migrate
+  annotations:
+    helm.sh/hook: pre-install,pre-upgrade
+    helm.sh/hook-weight: "0"
+    helm.sh/hook-delete-policy: before-hook-creation
+spec:
+  backoffLimit: 1
+  activeDeadlineSeconds: {{ .Values.migrate.activeDeadlineSeconds }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: td-db-migrate
+        {{- include "td.podLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: td-migrator
+      automountServiceAccountToken: false
+      restartPolicy: Never
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: td-db
+          image: {{ if .Values.image.registry }}{{ .Values.image.registry }}/{{ end }}{{ .Values.image.db }}:{{ .Values.image.dbTag | default .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: {{- toYaml .Values.migrate.args | nindent 12 }}
+          env:
+            {{- include "td.dbEnv" (list .Values.database.migrator "TD_DB_CONN") | nindent 12 }}
+            {{- include "td.azureEnv" . | nindent 12 }}
+          resources: {{- toYaml .Values.migrate.resources | nindent 12 }}
+          securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+      volumes:
+        - { name: tmp, emptyDir: { sizeLimit: 64Mi } }
+{{- end }}

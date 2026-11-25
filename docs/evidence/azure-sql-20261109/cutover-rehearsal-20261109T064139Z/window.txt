@@ -1,0 +1,29 @@
+2026-11-09T06:42:11Z provision 20261109T064211Z on vm-tdlab-legacy: freeze+export+import+azsql-users+reconcile+switch SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-17> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=azure
+provision 20261109T064211Z steps=freeze+export+import+azsql-users+reconcile+switch elapsed_s=131 rc=1
+Processing Table '[notifications].[ApplicationPushNotificationSettings]'.
+Processing Table '[dbo].[IdentityUserRoles]'.
+Processing Table '[dbo].[TicketEventNotifications]'.
+Processing Table '[dbo].[UserSettings]'.
+Processing Table '[notifications].[PushNotificationItems]'.
+Processing Table '[dbo].[__ModernSchemaHistory]'.
+Processing Table '[dbo].[IdentityUserLogins]'.
+Processing Table '[dbo].[IdentityRoles]'.
+Processing Table '[dbo].[TicketEvents]'.
+Processing Table '[dbo].[TicketSubscribers]'.
+Successfully exported database and saved it to file 'C:\TdMedia\ticketdesk.bacpac'.
+Time elapsed 0:00:19.38
+[2026-11-09T06:42:48Z] TDMARK exported 2026-11-09T06:42:48.234Z
+[2026-11-09T06:42:48Z] BACPAC 3,638,934 bytes, sha256 9B50136F63419826AD4E94D1D16E29D81EEFEC0E634F438BAB9DD14E51C5744B
+[2026-11-09T06:42:48Z] step export done in 30.9s
+[2026-11-09T06:42:48Z] ==== step import
+[2026-11-09T06:43:40Z] FAILED: Cannot convert the "System.Object[]" value of type "System.Object[]" to type "System.Int32".
+[2026-11-09T06:43:40Z] at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script8.ps1: line 343
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script8.ps1: line 464
+[2026-11-09T06:43:40Z] TDTIMINGS {"freeze":0.1,"export":30.9} total 83.0s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261109T064211Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261109T064211Z steps=freeze+export+import+azsql-users+reconcile+switch elapsed_s=131 rc=1

@@ -1,0 +1,5 @@
+# date: 2026-11-11T05:01:48Z  git: c008ef9  k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64)
+# mix: tests/perf/ticketdesk-mix.js (bc563aa180c3)  rate 10 ops/s  warm-up 30 s  measure 60 s  runs 1
+# legacy VM: 4 vCPU, 8G (vmctl.sh), KVM, qemu user-mode networking, 127.0.0.1 forwards; k6 on the same host
+# gateway: TicketDesk.Web Release, Kestrel https://localhost:5443, YARP -> https://localhost:8443 (ops/dev/replay-gateway.sh --serve )
+# modern: TicketDesk.Web Release alone (ops/dev/serve-modern.sh --vm-db), Kestrel https://localhost:5483, taskset -c 24-27, VM SQL Express as td_modern_app, server pages

@@ -1,0 +1,3 @@
+agents: lab-host-1 online enabled=true job=none
+runs waiting for an approval (left alone): none; runs queued for or running on the agent: none
+preflight ok: agent free, nothing queued, Azure Repos modernize ca0443fa has this session's chart and CD script

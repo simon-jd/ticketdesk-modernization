@@ -1,0 +1,1779 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "TicketDesk API",
+    "description": "Endpoints of the new TicketDesk app. Every path not listed here is served by the legacy app through the gateway. Authentication: the new app's Identity cookie.",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/tickets": {
+      "get": {
+        "tags": [
+          "Tickets"
+        ],
+        "summary": "Pages, filters and sorts tickets.",
+        "description": "Sort fields are whitelisted (S5); unknown fields return 400. Every sort ends with ticketId.",
+        "operationId": "ListTickets",
+        "parameters": [
+          {
+            "name": "Page",
+            "in": "query",
+            "description": "1-based page number (default 1).",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "description": "Items per page, 1-100 (default 20, like the legacy lists).",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "List",
+            "in": "query",
+            "description": "Legacy ticket-center list: unassigned, assignedToMe, mytickets, opentickets, historytickets.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Sort",
+            "in": "query",
+            "description": "Comma-separated sort fields, '-' prefix for descending, e.g. '-lastUpdateDate,title'. Whitelisted fields only.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "description": "Status filter, repeatable: Active, MoreInfo, Resolved, Closed.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "ProjectId",
+            "in": "query",
+            "description": "Project id filter.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Owner",
+            "in": "query",
+            "description": "Owner user id filter.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "AssignedTo",
+            "in": "query",
+            "description": "Assigned user id filter.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Tag",
+            "in": "query",
+            "description": "Tag name filter (exact, case-insensitive).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tickets"
+        ],
+        "summary": "Creates a ticket (the legacy new-ticket form's rules, plus value lists and field permissions).",
+        "description": "Needs the antiforgery request token in the RequestVerificationToken header. The ticket gets the Create (or CreateOnBehalfOf) event, subscribers and notifications like a ticket created on the legacy form.",
+        "operationId": "CreateTicket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewTicketRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketCreated"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/tickets/{id}": {
+      "get": {
+        "tags": [
+          "Tickets"
+        ],
+        "summary": "One ticket with its events, tags and attachment metadata.",
+        "description": "Attachment metadata is returned only to help desk, admins and the ticket's owner, creator, assignee or subscribers (S8).",
+        "operationId": "GetTicket",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/tickets/options": {
+      "get": {
+        "tags": [
+          "Tickets"
+        ],
+        "summary": "Choices of the ticket fields for the caller: projects, types, categories, priorities, users, field permissions.",
+        "operationId": "GetTicketOptions",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketOptions"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/tickets/{id}/activities": {
+      "post": {
+        "tags": [
+          "Tickets"
+        ],
+        "summary": "Performs a workflow activity on a ticket (comment, assign, resolve, close, reopen, ...).",
+        "description": "Needs the antiforgery request token in the RequestVerificationToken header. Only the activities the ticket's `activities` list offers the caller succeed; anything else is a 409 (the ticket changed, or the role may not). EditTicketInfo and ModifyAttachments stay on the server page.",
+        "operationId": "PerformTicketActivity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketActivityRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Lists all projects.",
+        "description": "Ordered by name, like the legacy project menu (NavigationController.ProjectMenu).",
+        "operationId": "ListProjects",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProjectDto"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/migration/routes": {
+      "get": {
+        "tags": [
+          "Migration"
+        ],
+        "summary": "Legacy routes and which app answers them (routes migrated / total).",
+        "operationId": "GetMigrationStatus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MigrationStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/session": {
+      "get": {
+        "tags": [
+          "Session"
+        ],
+        "summary": "The signed-in user, their ticket lists and which pages the Angular front end answers.",
+        "operationId": "GetSession",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionInfo"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/reports/open-tickets": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "summary": "Open tickets by project, status and age bucket.",
+        "description": "Age = whole hours from CreatedDate to asOf; buckets <1d, 1-7d, 7-30d, 30-90d, >90d.",
+        "operationId": "OpenTicketsReport",
+        "parameters": [
+          {
+            "name": "AsOf",
+            "in": "query",
+            "description": "Reference time for ticket age (default: now).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ProjectId",
+            "in": "query",
+            "description": "Project id filter.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpenTicketsReport"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/reports/assignee-workload": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "summary": "Open tickets per assignee, time since assignment, and tickets closed in the last 30 days.",
+        "description": "Rows are the top N assignees by open tickets; hours since assignment come from Tickets.AssignedDate.",
+        "operationId": "AssigneeWorkloadReport",
+        "parameters": [
+          {
+            "name": "AsOf",
+            "in": "query",
+            "description": "Reference time for 'hours since assigned' and the 30-day closed window (default: now).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ProjectId",
+            "in": "query",
+            "description": "Project id filter.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Top",
+            "in": "query",
+            "description": "Number of assignees returned, by open tickets descending (1-500, default 50).",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssigneeWorkloadReport"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/reports/time-to-close": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "summary": "Hours from creation to closing for tickets closed in a window: mean, p50, p90, max.",
+        "description": "Per project and overall; a ticket counts in the window of its current closing date (CurrentStatusDate of a closed ticket).",
+        "operationId": "TimeToCloseReport",
+        "parameters": [
+          {
+            "name": "From",
+            "in": "query",
+            "description": "Start of the closing-date window, inclusive (default: 'to' minus 90 days).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "To",
+            "in": "query",
+            "description": "End of the closing-date window, exclusive (default: now).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ProjectId",
+            "in": "query",
+            "description": "Project id filter.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TimeToCloseReport"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AssigneeWorkloadReport": {
+        "required": [
+          "asOf",
+          "projectId",
+          "unassignedOpen",
+          "assignees",
+          "rows"
+        ],
+        "type": "object",
+        "properties": {
+          "asOf": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "projectId": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "unassignedOpen": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assignees": {
+            "type": "integer",
+            "description": "Number of people with at least one open assigned ticket (rows are the top N of them).",
+            "format": "int32"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssigneeWorkloadRow"
+            }
+          }
+        }
+      },
+      "AssigneeWorkloadRow": {
+        "required": [
+          "assignee",
+          "active",
+          "moreInfo",
+          "resolved",
+          "open",
+          "oldestOpenCreatedDate",
+          "avgHoursSinceAssigned",
+          "maxHoursSinceAssigned",
+          "closedLast30Days"
+        ],
+        "type": "object",
+        "properties": {
+          "assignee": {
+            "$ref": "#/components/schemas/UserRef"
+          },
+          "active": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "moreInfo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "resolved": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "open": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "oldestOpenCreatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "avgHoursSinceAssigned": {
+            "type": "number",
+            "description": "Mean whole hours since the ticket was assigned to its current assignee, over the open tickets.",
+            "format": "double"
+          },
+          "maxHoursSinceAssigned": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "closedLast30Days": {
+            "type": "integer",
+            "description": "Tickets assigned to this person that were closed in the 30 days before asOf.",
+            "format": "int32"
+          }
+        }
+      },
+      "AttachmentInfo": {
+        "required": [
+          "name",
+          "size",
+          "lastModified"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "lastModified": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "HttpValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "detail": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "instance": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "MigrationStatus": {
+        "required": [
+          "total",
+          "routable",
+          "migrated",
+          "retired",
+          "waves",
+          "routes",
+          "unknownIds"
+        ],
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "routable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "migrated": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "retired": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "waves": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WaveStatus"
+            }
+          },
+          "routes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteStatus"
+            }
+          },
+          "unknownIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "angularPages": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "NewTicketRequest": {
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Required when there are several projects; defaults to the only project otherwise.",
+            "format": "int32"
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "details": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isHtml": {
+            "type": "boolean"
+          },
+          "ticketType": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "One of the ticket types of GET /api/tickets/options."
+          },
+          "category": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "One of the categories of GET /api/tickets/options."
+          },
+          "priority": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "One of the priorities, or null. Only with permissions.canSetPriority."
+          },
+          "owner": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "User id; empty means the caller. Someone else only with permissions.canSetOwner."
+          },
+          "assignedTo": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Help-desk user id, or null for unassigned. Only with permissions.canSetAssignedTo."
+          },
+          "tagList": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Comma-separated tags (each 1-100 characters, 100 in all). Only with permissions.canSetTags."
+          },
+          "affectsCustomer": {
+            "type": "boolean"
+          },
+          "dueDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "targetDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "resolutionDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "estimatedDuration": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "actualDuration": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "tempId": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Pending uploads (POST /file/upload with this tempId) to attach to the new ticket.",
+            "format": "uuid"
+          }
+        }
+      },
+      "OpenTicketsReport": {
+        "required": [
+          "asOf",
+          "projectId",
+          "ageBuckets",
+          "totalOpen",
+          "rows"
+        ],
+        "type": "object",
+        "properties": {
+          "asOf": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "projectId": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "ageBuckets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "totalOpen": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenTicketsRow"
+            },
+            "description": "One row per project, status and age bucket that has tickets; ordered by project name, status, bucket."
+          }
+        }
+      },
+      "OpenTicketsRow": {
+        "required": [
+          "projectId",
+          "projectName",
+          "status",
+          "ageBucket",
+          "ageBucketLabel",
+          "tickets"
+        ],
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectName": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/TicketStatus"
+          },
+          "ageBucket": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ageBucketLabel": {
+            "type": "string"
+          },
+          "tickets": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ProjectDto": {
+        "required": [
+          "projectId",
+          "projectName",
+          "projectDescription"
+        ],
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectName": {
+            "type": "string"
+          },
+          "projectDescription": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "ProjectOption": {
+        "required": [
+          "projectId",
+          "projectName"
+        ],
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectName": {
+            "type": "string"
+          }
+        }
+      },
+      "RouteMode": {
+        "enum": [
+          "New",
+          "Angular"
+        ]
+      },
+      "RouteStatus": {
+        "required": [
+          "id",
+          "wave",
+          "verb",
+          "route",
+          "routable",
+          "implemented",
+          "retired",
+          "mode",
+          "note"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "wave": {
+            "type": "string"
+          },
+          "verb": {
+            "type": "string"
+          },
+          "route": {
+            "type": "string"
+          },
+          "routable": {
+            "type": "boolean"
+          },
+          "implemented": {
+            "type": "boolean"
+          },
+          "retired": {
+            "type": "boolean"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/RouteMode"
+          },
+          "note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "SessionInfo": {
+        "required": [
+          "userId",
+          "displayName",
+          "isHelpDesk",
+          "isAdministrator",
+          "lists",
+          "defaultList",
+          "selectedProjectId",
+          "multiProject",
+          "today",
+          "angularPages"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "isHelpDesk": {
+            "type": "boolean"
+          },
+          "isAdministrator": {
+            "type": "boolean"
+          },
+          "lists": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TicketListInfo"
+            },
+            "description": "The ticket-center lists of this user, in menu order (help desk: all five)."
+          },
+          "defaultList": {
+            "type": "string"
+          },
+          "selectedProjectId": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The project chosen in the legacy project menu, or null for all projects (also when there is only one).",
+            "format": "int32"
+          },
+          "multiProject": {
+            "type": "boolean"
+          },
+          "today": {
+            "type": "string",
+            "description": "The server's date for due/overdue markers (TicketDesk:TimeZone), yyyy-MM-dd."
+          },
+          "angularPages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Migration-registry ids of the pages the Angular front end answers now; links to other pages load from the server."
+          }
+        }
+      },
+      "TicketActivity": {
+        "type": "string"
+      },
+      "TicketActivityRequest": {
+        "type": "object",
+        "properties": {
+          "activity": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "One of the activities in the ticket's `activities` list (GET /api/tickets/{id})."
+          },
+          "comment": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Markdown. Required for AddComment, SupplyMoreInfo, RequestMoreInfo, Resolve, ReOpen, GiveUp and ForceClose."
+          },
+          "assignedTo": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Assign, ReAssign, Pass: the help-desk user to assign (required)."
+          },
+          "priority": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Assign, ReAssign, Pass, TakeOver: a new priority (optional)."
+          },
+          "assignToMe": {
+            "type": "boolean",
+            "description": "ReOpen: assign the reopened ticket to the caller."
+          },
+          "reactivate": {
+            "type": "boolean",
+            "description": "SupplyMoreInfo: set the ticket back to Active."
+          }
+        }
+      },
+      "TicketCreated": {
+        "required": [
+          "ticketId"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "TicketDetail": {
+        "required": [
+          "ticketId",
+          "projectId",
+          "projectName",
+          "title",
+          "details",
+          "isHtml",
+          "ticketType",
+          "category",
+          "priority",
+          "status",
+          "affectsCustomer",
+          "owner",
+          "assignedTo",
+          "createdBy",
+          "createdDate",
+          "currentStatusSetBy",
+          "currentStatusDate",
+          "lastUpdateBy",
+          "lastUpdateDate",
+          "dueDate",
+          "targetDate",
+          "resolutionDate",
+          "estimatedDuration",
+          "actualDuration",
+          "tagList",
+          "tags",
+          "events",
+          "attachmentsVisible",
+          "attachments",
+          "detailsHtml",
+          "isSubscribed",
+          "activities"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "isHtml": {
+            "type": "boolean"
+          },
+          "ticketType": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "priority": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TicketStatus"
+          },
+          "affectsCustomer": {
+            "type": "boolean"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/UserRef"
+          },
+          "assignedTo": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserRef"
+              }
+            ]
+          },
+          "createdBy": {
+            "$ref": "#/components/schemas/UserRef"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "currentStatusSetBy": {
+            "$ref": "#/components/schemas/UserRef"
+          },
+          "currentStatusDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdateBy": {
+            "$ref": "#/components/schemas/UserRef"
+          },
+          "lastUpdateDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dueDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "targetDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "resolutionDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "estimatedDuration": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "actualDuration": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "format": "double"
+          },
+          "tagList": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TicketEventDto"
+            },
+            "description": "Newest first, like the legacy ticket-events panel."
+          },
+          "attachmentsVisible": {
+            "type": "boolean",
+            "description": "False when the caller may not see this ticket's attachments (S8); Attachments is then null."
+          },
+          "attachments": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AttachmentInfo"
+            }
+          },
+          "detailsHtml": {
+            "type": "string",
+            "description": "Details as the ticket page shows them: Markdown rendered (unless IsHtml) and sanitized with the legacy allow-lists."
+          },
+          "isSubscribed": {
+            "type": "boolean",
+            "description": "The caller is subscribed to this ticket's notifications."
+          },
+          "activities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The workflow activities the caller may perform now (POST /api/tickets/{id}/activities), in display order."
+          }
+        }
+      },
+      "TicketEventDto": {
+        "required": [
+          "eventId",
+          "eventBy",
+          "eventDate",
+          "eventDescription",
+          "comment",
+          "isHtml",
+          "forActivity",
+          "commentHtml"
+        ],
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eventBy": {
+            "$ref": "#/components/schemas/UserRef"
+          },
+          "eventDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eventDescription": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "comment": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "isHtml": {
+            "type": "boolean"
+          },
+          "forActivity": {
+            "$ref": "#/components/schemas/TicketActivity"
+          },
+          "commentHtml": {
+            "type": "string",
+            "description": "The comment as the ticket page shows it: Markdown rendered (unless IsHtml) and sanitized with the legacy allow-lists."
+          }
+        }
+      },
+      "TicketFieldPermissions": {
+        "required": [
+          "canSetOwner",
+          "canSetAssignedTo",
+          "canSetPriority",
+          "canSetTags"
+        ],
+        "type": "object",
+        "properties": {
+          "canSetOwner": {
+            "type": "boolean"
+          },
+          "canSetAssignedTo": {
+            "type": "boolean"
+          },
+          "canSetPriority": {
+            "type": "boolean"
+          },
+          "canSetTags": {
+            "type": "boolean"
+          }
+        }
+      },
+      "TicketListInfo": {
+        "required": [
+          "name",
+          "displayName"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          }
+        }
+      },
+      "TicketListItem": {
+        "required": [
+          "ticketId",
+          "projectId",
+          "title",
+          "ticketType",
+          "category",
+          "priority",
+          "status",
+          "owner",
+          "assignedTo",
+          "createdDate",
+          "lastUpdateDate",
+          "dueDate",
+          "targetDate",
+          "tagList"
+        ],
+        "type": "object",
+        "properties": {
+          "ticketId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "ticketType": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "priority": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/TicketStatus"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/UserRef"
+          },
+          "assignedTo": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserRef"
+              }
+            ]
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdateDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dueDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "targetDate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "tagList": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "TicketOptions": {
+        "required": [
+          "projects",
+          "ticketTypes",
+          "categories",
+          "priorities",
+          "internalUsers",
+          "helpDeskUsers",
+          "permissions"
+        ],
+        "type": "object",
+        "properties": {
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectOption"
+            },
+            "description": "Projects by name."
+          },
+          "ticketTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "priorities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "internalUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRef"
+            },
+            "description": "Possible owners: internal users, help desk and admins, by display name."
+          },
+          "helpDeskUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRef"
+            },
+            "description": "Possible assignees: help desk and admins, by display name."
+          },
+          "permissions": {
+            "$ref": "#/components/schemas/TicketFieldPermissions"
+          }
+        }
+      },
+      "TicketPage": {
+        "required": [
+          "page",
+          "pageSize",
+          "totalCount",
+          "totalPages",
+          "sort",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TicketListItem"
+            }
+          }
+        }
+      },
+      "TicketStatus": {
+        "enum": [
+          "Active",
+          "MoreInfo",
+          "Resolved",
+          "Closed"
+        ]
+      },
+      "TimeToCloseReport": {
+        "required": [
+          "from",
+          "to",
+          "projectId",
+          "overall",
+          "projects"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "projectId": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "overall": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "description": "All projects together; null when no ticket was closed in the window.",
+                "$ref": "#/components/schemas/TimeToCloseRow"
+              }
+            ]
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TimeToCloseRow"
+            },
+            "description": "Per project, ordered by project name. Hours = DATEDIFF(second, created, closed) / 3600; p50/p90 = PERCENTILE_CONT."
+          }
+        }
+      },
+      "TimeToCloseRow": {
+        "required": [
+          "projectId",
+          "projectName",
+          "closed",
+          "avgHours",
+          "p50Hours",
+          "p90Hours",
+          "maxHours"
+        ],
+        "type": "object",
+        "properties": {
+          "projectId": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "projectName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "closed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "avgHours": {
+            "type": "number",
+            "format": "double"
+          },
+          "p50Hours": {
+            "type": "number",
+            "format": "double"
+          },
+          "p90Hours": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxHours": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "UserRef": {
+        "required": [
+          "id",
+          "displayName"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "WaveStatus": {
+        "required": [
+          "wave",
+          "total",
+          "migrated"
+        ],
+        "type": "object",
+        "properties": {
+          "wave": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "migrated": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Tickets"
+    },
+    {
+      "name": "Projects"
+    },
+    {
+      "name": "Migration"
+    },
+    {
+      "name": "Session"
+    },
+    {
+      "name": "Reports"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+2026-11-09T01:55:59Z reset to baseline-s
+guest shutdown requested over ssh
+stopped after 10s
+disk reverted to baseline-s
+started: tmux td-legacy-vm, pid 3567345
+ssh up after ~0s
+2026-11-09T01:56:24Z patch
+[2026-11-09T01:56:25Z] INFO   before: Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) Oct 8 2022 05:58:25 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Standard Evaluation 10.0 <X64> (Build 26100: ) (Hypervisor)
+[2026-11-09T01:56:26Z] SKIP   have C:\TdMedia\sql2022-cu\sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe
+[2026-11-09T01:56:26Z] CHANGE stopped W3SVC for the patch
+[2026-11-09T01:56:26Z] CHANGE patching SQLEXPRESS with sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe (as SYSTEM)
+[2026-11-09T01:58:04Z] INFO   started W3SVC
+[2026-11-09T01:58:04Z] CHANGE after: Microsoft SQL Server 2022 (RTM-CU27-GDR) (KB5126934) - 16.0.4305.5 (X64) Oct 2 2026 17:28:11 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Standard Evaluation 10.0 <X64> (Build 26100: ) (Hypervisor) (exit 0, 98.2s)
+SQLUPDATE {"host":"TDLEGACY01","instance":"SQLEXPRESS","started_utc":"2026-11-09T01:56:25.8142246Z","target_version":"16.0.4305.5","before":{"product_version":"16.0.1000.6","update_level":"","kb":"","version":"Microsoft SQL Server 2022 (RTM) - 16.0.1000.6 (X64) Oct 8 2022 05:58:25 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Standard Evaluation 10.0 \u003cX64\u003e (Build 26100: ) (Hypervisor)"},"package":"https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/secu/2026/10/sqlserver2022-kb5126934-x64_01742bd8accd82ea7314264b0a5608e28bdd8af0.exe","package_sha256":"8F1A7F0AC5F47FF98F5825687C8CCD897563AA835915F2271F908273E962E7E2","exit_code":0,"seconds":98.2,"restart_required":false,"action":"patched","after":{"product_version":"16.0.4305.5","update_level":"CU27","kb":"KB5126934","version":"Microsoft SQL Server 2022 (RTM-CU27-GDR) (KB5126934) - 16.0.4305.5 (X64) Oct 2 2026 17:28:11 Copyright (C) 2022 Microsoft Corporation Express Edition (64-bit) on Windows Server 2025 Standard Evaluation 10.0 \u003cX64\u003e (Build 26100: ) (Hypervisor)"},"finished_utc":"2026-11-09T01:58:04.7248368Z"}
+2026-11-09T01:58:08Z local app answers 200 after 4 s
+2026-11-09T01:58:08Z stop and save snapshot baseline-s-cu (baseline-s kept)
+guest shutdown requested over ssh
+stopped after 10s
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       os-base               0 B 2026-11-07 16:19:16  0000:00:00.000          0
+2       app-deployed          0 B 2026-11-07 16:38:45  0000:00:00.000          0
+3       installed-clean       0 B 2026-11-07 17:14:24  0000:00:00.000          0
+9       baseline-s-legacy      0 B 2026-11-08 12:54:38  0000:00:00.000          0
+10      baseline-s            0 B 2026-11-08 17:49:29  0000:00:00.000          0
+11      baseline-s-cu         0 B 2026-11-08 17:58:18  0000:00:00.000          0
+Snapshot list:
+ID      TAG               VM_SIZE                DATE        VM_CLOCK     ICOUNT
+1       os-base               0 B 2026-11-07 16:19:16  0000:00:00.000          0
+2       app-deployed          0 B 2026-11-07 16:38:45  0000:00:00.000          0
+3       installed-clean       0 B 2026-11-07 17:14:24  0000:00:00.000          0
+9       baseline-s-legacy      0 B 2026-11-08 12:54:38  0000:00:00.000          0
+10      baseline-s            0 B 2026-11-08 17:49:29  0000:00:00.000          0
+11      baseline-s-cu         0 B 2026-11-08 17:58:18  0000:00:00.000          0
+2026-11-09T01:58:18Z back to baseline-s (the baseline's reference state)
+disk reverted to baseline-s
+started: tmux td-legacy-vm, pid 3575274
+ssh up after ~0s
+2026-11-09T01:58:32Z local app answers 200 after 4 s

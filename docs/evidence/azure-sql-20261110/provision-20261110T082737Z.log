@@ -1,0 +1,167 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261110082756
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script11.ps1 -Steps fetch+import+azsql-users+migrate+deploy+verify -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-80690ee.zip -BundleSha256 897e87202cfc55d44228e88b67016f8627acf50c94676fcf9a489ceaedb661dd -PublishBlob td-legacy-publish-80690ee.zip -PublishSha256 28f447e9dbff57bf69452697e7b315b25eae1448eea662693682d1035fcddbc5 -AdminEmail <admin-email> -RunId 20261110T082737Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-12> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-2106795.zip -SqlToolsSha256 97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4 -DotnetVersion 10.0.14 -Database azure -BacpacBlob bacpac/ticketdesk-baseline-s-shared.bacpac -BacpacSha256 20344303227b5529cdbc4022551a9c31c6196f574a643457dec07e4aca18e2a9
+Process ID: 5000
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-10T08:27:56Z] provision run 20261110T082737Z on tdlab-legacy, steps: fetch+import+azsql-users+migrate+deploy+verify
+[2026-11-10T08:27:56Z] ==== step fetch
+[2026-11-10T08:27:56Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-80690ee.zip (38,658 bytes, sha256 897E87202CFC55D44228E88B67016F8627ACF50C94676FCF9A489CEAEDB661DD)
+[2026-11-10T08:27:56Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Move-TdFileStore.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Test-TdBlobStore.ps1, Update-TdSqlServer.ps1
+[2026-11-10T08:27:56Z] publish package already extracted (same SHA-256)
+[2026-11-10T08:27:56Z] step fetch done in 0.3s
+[2026-11-10T08:27:56Z] ==== step import
+[2026-11-10T08:27:56Z] BACPAC from backups/bacpac/ticketdesk-baseline-s-shared.bacpac
+[2026-11-10T08:27:56Z] target sqldb-ticketdesk: GeneralPurpose GP_S_Gen5_2
+[2026-11-10T08:27:56Z] TDMARK import_start 2026-11-10T08:27:56.958Z
+Importing to database 'sqldb-ticketdesk' on server 'tcp:sql-tdlab-36d2d4.database.windows.net,1433'.
+Creating deployment plan
+Initializing deployment
+*** A project which specifies SQL Server 2022 as the target platform may experience compatibility issues with Microsoft Azure SQL Database v12.
+*** The object [data_0] exists in the target, but it will not be dropped even though you selected the 'Generate drop statements for objects that are in the target database but that are not in the source' check box.
+*** The object [log] exists in the target, but it will not be dropped even though you selected the 'Generate drop statements for objects that are in the target database but that are not in the source' check box.
+Verifying deployment plan
+Analyzing deployment plan
+Importing package schema and data into database
+Updating database
+Importing data
+Processing Import.
+Disabling indexes.
+Disabling index 'RoleNameIndex'.
+Disabling index 'IX_UserId'.
+Disabling index 'IX_UserId'.
+Disabling index 'IX_RoleId'.
+Disabling index 'IX_UserId'.
+Disabling index 'UserNameIndex'.
+Disabling index 'IX_EventId'.
+Disabling index 'IX_SubscriberUserName'.
+Disabling index 'IX_TicketId_EventId'.
+Disabling index 'IX_TicketId_SubscriberId'.
+Disabling index 'IX_TicketId'.
+Disabling index 'IX_ProjectId'.
+Disabling index 'IX_Tickets_Closed_StatusDate'.
+Disabling index 'IX_Tickets_LastUpdateDate'.
+Disabling index 'IX_Tickets_Open_Assignee'.
+Disabling index 'IX_Tickets_Open_Owner'.
+Disabling index 'IX_Tickets_Open_Status'.
+Disabling index 'IX_Tickets_Open_Unassigned'.
+Disabling index 'IX_Tickets_Project_LastUpdateDate'.
+Disabling index 'IX_TicketId'.
+Disabling index 'IX_TicketId'.
+Disabling index 'IX_TicketTags_TagName'.
+Disabling index 'IX_SubscriberDestination'.
+Disabling index 'IX_PushNotificationTarget'.
+Disabling index 'IX_PushNotificationItemId'.
+Processing Table '[dbo].[__MigrationHistory]'.
+Processing Table '[dbo].[__ModernSchemaHistory]'.
+Processing Table '[dbo].[ApplicationSettings]'.
+Processing Table '[dbo].[IdentityRoles]'.
+Processing Table '[dbo].[IdentityUserClaims]'.
+Processing Table '[dbo].[IdentityUserLogins]'.
+Processing Table '[dbo].[IdentityUserRoles]'.
+Processing Table '[dbo].[IdentityUsers]'.
+Processing Table '[dbo].[Projects]'.
+Processing Table '[dbo].[TicketEventNotifications]'.
+Processing Table '[dbo].[TicketEvents]'.
+Processing Table '[dbo].[Tickets]'.
+Processing Table '[dbo].[TicketSubscribers]'.
+Processing Table '[dbo].[TicketTags]'.
+Processing Table '[dbo].[UserSettings]'.
+Processing Table '[notifications].[ApplicationPushNotificationSettings]'.
+Processing Table '[notifications].[PushNotificationDestinations]'.
+Processing Table '[notifications].[PushNotificationItems]'.
+Processing Table '[notifications].[SubscriberPushNotificationSettings]'.
+Processing Table '[notifications].[TicketPushNotificationItems]'.
+Enabling indexes.
+Enabling index 'RoleNameIndex'.
+Enabling index 'IX_UserId'.
+Enabling index 'IX_UserId'.
+Enabling index 'IX_RoleId'.
+Enabling index 'IX_UserId'.
+Enabling index 'UserNameIndex'.
+Enabling index 'IX_EventId'.
+Enabling index 'IX_SubscriberUserName'.
+Enabling index 'IX_TicketId_EventId'.
+Enabling index 'IX_TicketId_SubscriberId'.
+Enabling index 'IX_TicketId'.
+Enabling index 'IX_ProjectId'.
+Enabling index 'IX_Tickets_Closed_StatusDate'.
+Enabling index 'IX_Tickets_LastUpdateDate'.
+Enabling index 'IX_Tickets_Open_Assignee'.
+Enabling index 'IX_Tickets_Open_Owner'.
+Enabling index 'IX_Tickets_Open_Status'.
+Enabling index 'IX_Tickets_Open_Unassigned'.
+Enabling index 'IX_Tickets_Project_LastUpdateDate'.
+Enabling index 'IX_TicketId'.
+Enabling index 'IX_TicketId'.
+Enabling index 'IX_TicketTags_TagName'.
+Enabling index 'IX_SubscriberDestination'.
+Enabling index 'IX_PushNotificationTarget'.
+Enabling index 'IX_PushNotificationItemId'.
+Successfully imported database.
+Time elapsed 0:00:36.85
+[2026-11-10T08:28:34Z] TDMARK imported 2026-11-10T08:28:34.118Z
+[2026-11-10T08:28:34Z] step import done in 37.5s
+[2026-11-10T08:28:34Z] ==== step azsql-users
+[2026-11-10T08:28:34Z] contained user [vm-tdlab-legacy] (app id <client-id-4>, TYPE E): db_datareader, db_datawriter
+[2026-11-10T08:28:34Z] step azsql-users done in 0.2s
+[2026-11-10T08:28:34Z] ==== step migrate
+    IX_Tickets_Open_Unassigned: AssignedTo included
+applied expand/V0006__open_unassigned_include_assignee.sql in 0.11 s
+applied programmable/R__usp_ticket_list.sql in 0.03 s
+2 script(s) applied
+applied  expand/V0001__tickets_assigned_date.sql                      2026-11-09 01:49:05Z 13 ms by sa
+applied  expand/V0002__tickets_assigned_date_backfill.sql             2026-11-09 01:49:05Z 219 ms by sa
+applied  expand/V0003__ticket_list_and_report_indexes.sql             2026-11-09 01:49:05Z 330 ms by sa
+applied  expand/V0004__tickets_rebuild_after_backfill.sql             2026-11-09 01:49:05Z 2 ms by sa
+applied  expand/V0005__assigned_date_trigger_null_changes.sql         2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_assignee_workload.sql             2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_open_tickets_aging.sql            2026-11-09 01:49:05Z 1 ms by sa
+applied  programmable/R__usp_report_time_to_close.sql                 2026-11-09 01:49:05Z 2 ms by sa
+applied  expand/V0006__open_unassigned_include_assignee.sql           2026-11-10 08:28:35Z 72 ms by <client-id-12>@<tenant-id>
+applied  programmable/R__usp_ticket_list.sql                          2026-11-10 08:28:35Z 19 ms by <client-id-12>@<tenant-id>
+contract contract/C0001__assigned_date_contract.sql (after legacy retirement)
+[2026-11-10T08:28:35Z] step migrate done in 1.5s
+[2026-11-10T08:28:35Z] ==== step deploy
+[2026-11-10T08:28:36Z] INFO   Azure SQL with the managed identity: first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        51         0        51         0         0         0
+   Files :       810         1       809         0         0         0
+   Bytes :   41.04 m    15.0 k   41.02 m         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Tuesday, November 10, 2026 8:28:39 AM
+
+[2026-11-10T08:28:39Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-10T08:28:39Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-10T08:28:39Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-10T08:28:39Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-10T08:28:39Z] INFO   database: Azure SQL, ManagedIdentity (tcp:sql-tdlab-36d2d4.database.windows.net,1433)
+[2026-11-10T08:28:39Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SqlAuthentication=ManagedIdentity, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-10T08:28:46Z] INFO   warm-up http://localhost/ -> 200 in 6.7s
+[2026-11-10T08:28:46Z] deploy: database azure, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-10T08:28:46Z] step deploy done in 10.4s
+[2026-11-10T08:28:46Z] ==== step verify
+TDVERIFY {"computer":"tdlab-legacy","os":"Microsoft Windows Server 2025 Datacenter","os_build":"26100.33674","display_version":"24H2","last_boot_utc":"2026-11-10T07:37:37.0893200Z","database":"azure","sql":"12.0.2000.8 SQL Azure GP_S_Gen5_2","app_db":"tcp:sql-tdlab-36d2d4.database.windows.net,1433","defender":{"am_service":true,"antivirus":true,"realtime":true,"signature_version":"1.463.222.0","signature_updated_utc":"2026-11-10T02:04:22.0000000Z"},"tls":{"thumbprint":"96449D36383AF1798F029D1E77ED04BD8D0EA812","subject":"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab","issuer":"CN=TicketDesk Lab Root CA, O=TicketDesk Lab","dns":["tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com","localhost","tdlab-legacy"],"not_after":"2029-02-10","private_key_usable":true},"https_home":{"status":200,"ms":21,"ticketdesk":true},"admin_sign_in":true,"site":"Started","app_pool":"Started","backup_task":{},"rows":{"dbo.__MigrationHistory":25,"dbo.__ModernSchemaHistory":10,"dbo.ApplicationSettings":1,"dbo.IdentityRoles":4,"dbo.IdentityUserClaims":0,"dbo.IdentityUserLogins":0,"dbo.IdentityUserRoles":251,"dbo.IdentityUsers":251,"dbo.Projects":5,"dbo.TicketEventNotifications":95999,"dbo.TicketEvents":45649,"dbo.Tickets":10000,"dbo.TicketSubscribers":20125,"dbo.TicketTags":14698,"dbo.UserSettings":1,"notifications.ApplicationPushNotificationSettings":1,"notifications.PushNotificationDestinations":1,"notifications.PushNotificationItems":0,"notifications.SubscriberPushNotificationSettings":1,"notifications.TicketPushNotificationItems":0}}
+[2026-11-10T08:28:49Z] step verify done in 3.7s
+[2026-11-10T08:28:49Z] TDTIMINGS {"fetch":0.3,"import":37.5,"azsql-users":0.2,"migrate":1.5,"deploy":10.4,"verify":3.7} total 53.7s
+**********************
+Windows PowerShell transcript end
+End time: 20261110082849
+**********************

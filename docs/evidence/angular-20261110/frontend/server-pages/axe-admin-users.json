@@ -1,0 +1,443 @@
+{
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.0"
+ },
+ "url": "https://localhost:5463/admin/users",
+ "violations": [
+  {
+   "id": "button-name",
+   "impact": "critical",
+   "help": "Buttons must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-11.9.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".form-group.hidden-xs > form > .input-group.input-group-sm > .input-group-btn > button[type=\"submit\"][value=\"go\"]"
+     ],
+     "html": "<button type=\"submit\" value=\"go\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-search\"></i></button>"
+    }
+   ]
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "li:nth-child(1) > a[href=\"/\"]"
+     ],
+     "html": "<a href=\"/\"><i class=\"fa fa-home\"></i> Home</a>"
+    },
+    {
+     "target": [
+      "li:nth-child(2) > a[href$=\"tickets\"]"
+     ],
+     "html": "<a href=\"/tickets\"><i class=\"fa fa-ticket\"></i> Ticket Center</a>"
+    },
+    {
+     "target": [
+      "li:nth-child(3) > a[href$=\"new\"]"
+     ],
+     "html": "<a href=\"/ticket/new\"><i class=\"fa fa-plus\"></i> New Ticket</a>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(2) > .dropdown-toggle[href=\"#\"][data-toggle=\"dropdown\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">\n            {secret:TD_ADMIN_NAME}\n        </span>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(4) > .dropdown-toggle[href=\"#\"][data-toggle=\"dropdown\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">Language</span>"
+    },
+    {
+     "target": [
+      "a[href$=\"about\"] > .hidden-sm"
+     ],
+     "html": "<span class=\"hidden-sm\">About</span>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(2) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(3) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/2c8dff1d-8f3f-43e9-8b6d-639b628ab56c\" class=\"jsGuide\">\n                                    Ali Fischer (ali.fischer.00075@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(3) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(4) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(5) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/a9915de8-334e-4d1c-8c71-d2bf59e5c9c9\" class=\"jsGuide\">\n                                    Ali Young (ali.young.00074@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(5) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(6) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(7) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/31168a91-d87f-436e-b31c-49be59c1ff90\" class=\"jsGuide\">\n                                    Amara Clark (amara.clark.00243@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(7) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(8) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(9) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/2314cf61-2552-453f-9b6a-4d00d88bd581\" class=\"jsGuide\">\n                                    Amara Ivanova (amara.ivanova.00188@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(9) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(10) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Help Desk Staff</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(11) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/b37b0e2f-4daf-4361-87ac-e648e33d4251\" class=\"jsGuide\">\n                                    Amara Lewis (amara.lewis.00019@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(11) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Help Desk Staff</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(12) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(13) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/8bf6ee0e-b229-41e1-a0ae-d42c93d60d46\" class=\"jsGuide\">\n                                    Amara Sato (amara.sato.00186@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(13) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(14) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(15) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/5e448f6a-6365-4b62-afb5-63b4c84dfa36\" class=\"jsGuide\">\n                                    Amara Thomas (amara.thomas.00108@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(15) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(16) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(17) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/c66b4413-22d3-466d-a2c1-f722d2a241a6\" class=\"jsGuide\">\n                                    Amelia Harris (amelia.harris.00092@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(17) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(18) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(19) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/84c0abb2-5ebd-49df-9203-7a64f908e934\" class=\"jsGuide\">\n                                    Amelia Tanaka (amelia.tanaka.00080@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(19) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(20) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(21) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/e574d5ef-ff10-477e-b8d6-092877253cdd\" class=\"jsGuide\">\n                                    Amelia Walker (amelia.walker.00046@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(21) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(22) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Help Desk Staff</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(23) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/c88b3d90-6057-4cf8-b141-8c502dc04872\" class=\"jsGuide\">\n                                    Anika Brown (anika.brown.00057@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(23) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(24) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(25) > td:nth-child(1) > .jsGuide"
+     ],
+     "html": "<a href=\"/admin/user/be6de30c-e871-4706-9399-a389014f9dd7\" class=\"jsGuide\">\n                                    Aoife Fischer (aoife.fischer.00007@seed.ticketdesk.test)\n                                </a>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(25) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Help Desk Staff</li>"
+    },
+    {
+     "target": [
+      ".clickable.jsClickable:nth-child(26) > td:nth-child(2) > .list-unstyled > .label.label-default"
+     ],
+     "html": "<li class=\"label label-default\">Internal User</li>"
+    },
+    {
+     "target": [
+      "p"
+     ],
+     "html": "<p class=\"text-muted\">\n                <a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a> v2.5 | © 2008 - 2026 | NullDesk Solutions (Stephen M. Redd)\n            </p>"
+    }
+   ]
+  },
+  {
+   "id": "html-has-lang",
+   "impact": "serious",
+   "help": "<html> element must have a lang attribute",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/html-has-lang?application=axeAPI",
+   "tags": [
+    "cat.language",
+    "wcag2a",
+    "wcag311",
+    "TTv5",
+    "TT11.a",
+    "EN-301-549",
+    "EN-9.3.1.1",
+    "ACT",
+    "RGAAv4",
+    "RGAA-8.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "p > a"
+     ],
+     "html": "<a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a>"
+    }
+   ]
+  },
+  {
+   "id": "link-name",
+   "impact": "serious",
+   "help": "Links must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag244",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.2.4.4",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-6.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".navbar-brand"
+     ],
+     "html": "<a class=\"navbar-brand\" href=\"/\"> </a>"
+    }
+   ]
+  },
+  {
+   "id": "list",
+   "impact": "serious",
+   "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/list?application=axeAPI",
+   "tags": [
+    "cat.structure",
+    "wcag2a",
+    "wcag131",
+    "EN-301-549",
+    "EN-9.1.3.1",
+    "RGAAv4",
+    "RGAA-9.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".nav.navbar-nav:nth-child(1)"
+     ],
+     "html": "<ul class=\"nav navbar-nav\">"
+    }
+   ]
+  },
+  {
+   "id": "page-has-heading-one",
+   "impact": "moderate",
+   "help": "Page should contain a level-one heading",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axeAPI",
+   "tags": [
+    "cat.semantics",
+    "best-practice"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  }
+ ]
+}

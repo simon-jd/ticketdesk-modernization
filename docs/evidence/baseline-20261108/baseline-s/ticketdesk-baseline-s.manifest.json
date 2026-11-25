@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-11-08T01:23:36Z",
+  "source": "ticketdesk-clean.bak restored into td-sql (16.0.4262.2 CU25 Developer Edition (64-bit)), td-seed scale S seed 42",
+  "git": "45a646c",
+  "file": "ticketdesk-baseline-s.bak",
+  "bytes": 77717504,
+  "sha256": "a0b81177a38dfae37f1431ce3c587b75f2bbeef5c1b758c20ec2f3f83c472f9b",
+  "rows": {
+    "dbo.__MigrationHistory": 25,
+    "dbo.ApplicationSettings": 1,
+    "dbo.IdentityRoles": 4,
+    "dbo.IdentityUserClaims": 0,
+    "dbo.IdentityUserLogins": 0,
+    "dbo.IdentityUserRoles": 251,
+    "dbo.IdentityUsers": 251,
+    "dbo.Projects": 5,
+    "dbo.TicketEventNotifications": 95999,
+    "dbo.TicketEvents": 45649,
+    "dbo.Tickets": 10000,
+    "dbo.TicketSubscribers": 20125,
+    "dbo.TicketTags": 14698,
+    "dbo.UserSettings": 0,
+    "notifications.ApplicationPushNotificationSettings": 1,
+    "notifications.PushNotificationDestinations": 1,
+    "notifications.PushNotificationItems": 0,
+    "notifications.SubscriberPushNotificationSettings": 1,
+    "notifications.TicketPushNotificationItems": 0
+  }
+}

@@ -1,0 +1,76 @@
+TIME                   REASON              OBJ                          COUNT   MSG
+2026-11-14T05:07:09Z   Pulled              td-worker-58ddbcdfff-8vs2d   1       Container image "ticketdesk-worker:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:07:09Z   Created             td-worker-58ddbcdfff-8vs2d   1       Container created
+2026-11-14T05:07:09Z   ScalingReplicaSet   td-web                       1       Scaled up replica set td-web-58f4496747 from 0 to 1
+2026-11-14T05:07:09Z   Scheduled           td-worker-58ddbcdfff-8vs2d   1       Successfully assigned ticketdesk/td-worker-58ddbcdfff-8vs2d to td-load-control-plane
+2026-11-14T05:07:09Z   ScalingReplicaSet   td-worker                    1       Scaled up replica set td-worker-58ddbcdfff from 0 to 1
+2026-11-14T05:07:09Z   Scheduled           td-web-58f4496747-jj9b6      1       Successfully assigned ticketdesk/td-web-58f4496747-jj9b6 to td-load-control-plane
+2026-11-14T05:07:09Z   Pulled              td-web-58f4496747-jj9b6      1       Container image "ticketdesk-web:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:07:09Z   Created             td-web-58f4496747-jj9b6      1       Container created
+2026-11-14T05:07:09Z   SuccessfulCreate    td-worker-58ddbcdfff         1       Created pod: td-worker-58ddbcdfff-8vs2d
+2026-11-14T05:07:09Z   SuccessfulCreate    td-web-58f4496747            1       Created pod: td-web-58f4496747-jj9b6
+2026-11-14T05:07:10Z   Started             td-worker-58ddbcdfff-8vs2d   1       Container started
+2026-11-14T05:07:10Z   Started             td-web-58f4496747-jj9b6      1       Container started
+2026-11-14T05:07:17Z   ScalingReplicaSet   td-web                       1       Scaled up replica set td-web-7746b5c8c from 0 to 1
+2026-11-14T05:07:17Z   SuccessfulCreate    td-web-7746b5c8c             1       Created pod: td-web-7746b5c8c-jrbtx
+2026-11-14T05:07:17Z   Killing             td-worker-58ddbcdfff-8vs2d   1       Stopping container worker
+2026-11-14T05:07:17Z   Created             td-web-7746b5c8c-jrbtx       1       Container created
+2026-11-14T05:07:17Z   Pulled              td-web-7746b5c8c-jrbtx       1       Container image "ticketdesk-web:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:07:17Z   SuccessfulCreate    td-worker-77f6989bc9         1       Created pod: td-worker-77f6989bc9-ds4h2
+2026-11-14T05:07:17Z   Scheduled           td-web-7746b5c8c-jrbtx       1       Successfully assigned ticketdesk/td-web-7746b5c8c-jrbtx to td-load-control-plane
+2026-11-14T05:07:17Z   Scheduled           td-worker-77f6989bc9-ds4h2   1       Successfully assigned ticketdesk/td-worker-77f6989bc9-ds4h2 to td-load-control-plane
+2026-11-14T05:07:17Z   ScalingReplicaSet   td-worker                    1       Scaled down replica set td-worker-58ddbcdfff from 1 to 0
+2026-11-14T05:07:17Z   ScalingReplicaSet   td-worker                    1       Scaled up replica set td-worker-77f6989bc9 from 0 to 1
+2026-11-14T05:07:17Z   SuccessfulDelete    td-worker-58ddbcdfff         1       Deleted pod: td-worker-58ddbcdfff-8vs2d
+2026-11-14T05:07:18Z   Created             td-worker-77f6989bc9-ds4h2   1       Container created
+2026-11-14T05:07:18Z   Started             td-worker-77f6989bc9-ds4h2   1       Container started
+2026-11-14T05:07:18Z   Pulled              td-worker-77f6989bc9-ds4h2   1       Container image "ticketdesk-worker:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:07:18Z   Started             td-web-7746b5c8c-jrbtx       1       Container started
+2026-11-14T05:07:20Z   SuccessfulDelete    td-web-58f4496747            1       Deleted pod: td-web-58f4496747-jj9b6
+2026-11-14T05:07:20Z   ScalingReplicaSet   td-web                       1       Scaled down replica set td-web-58f4496747 from 1 to 0
+2026-11-14T05:07:20Z   Killing             td-web-58f4496747-jj9b6      1       Stopping container web
+2026-11-14T05:09:57Z   Scheduled           td-web-7746b5c8c-b55n4       1       Successfully assigned ticketdesk/td-web-7746b5c8c-b55n4 to td-load-control-plane
+2026-11-14T05:09:57Z   Killing             td-web-7746b5c8c-jrbtx       1       Stopping container web
+2026-11-14T05:09:57Z   SuccessfulCreate    td-web-7746b5c8c             1       Created pod: td-web-7746b5c8c-b55n4
+2026-11-14T05:09:58Z   Started             td-web-7746b5c8c-b55n4       1       Container started
+2026-11-14T05:09:58Z   Created             td-web-7746b5c8c-b55n4       1       Container created
+2026-11-14T05:09:58Z   Pulled              td-web-7746b5c8c-b55n4       1       Container image "ticketdesk-web:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:14:10Z   SuccessfulCreate    td-worker-66b695d646         1       Created pod: td-worker-66b695d646-2tmcc
+2026-11-14T05:14:10Z   Killing             td-worker-77f6989bc9-ds4h2   1       Stopping container worker
+2026-11-14T05:14:10Z   ScalingReplicaSet   td-web                       1       Scaled up replica set td-web-5c4484cfbd from 0 to 1
+2026-11-14T05:14:10Z   SuccessfulCreate    td-web-5c4484cfbd            1       Created pod: td-web-5c4484cfbd-g4gs7
+2026-11-14T05:14:10Z   Scheduled           td-worker-66b695d646-2tmcc   1       Successfully assigned ticketdesk/td-worker-66b695d646-2tmcc to td-load-control-plane
+2026-11-14T05:14:10Z   SuccessfulDelete    td-worker-77f6989bc9         1       Deleted pod: td-worker-77f6989bc9-ds4h2
+2026-11-14T05:14:10Z   Created             td-web-5c4484cfbd-g4gs7      1       Container created
+2026-11-14T05:14:10Z   Pulled              td-web-5c4484cfbd-g4gs7      1       Container image "ticketdesk-web:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:14:10Z   Scheduled           td-web-5c4484cfbd-g4gs7      1       Successfully assigned ticketdesk/td-web-5c4484cfbd-g4gs7 to td-load-control-plane
+2026-11-14T05:14:10Z   ScalingReplicaSet   td-worker                    1       Scaled down replica set td-worker-77f6989bc9 from 1 to 0
+2026-11-14T05:14:10Z   ScalingReplicaSet   td-worker                    1       Scaled up replica set td-worker-66b695d646 from 0 to 1
+2026-11-14T05:14:11Z   Pulled              td-worker-66b695d646-2tmcc   1       Container image "ticketdesk-worker:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:14:11Z   Created             td-worker-66b695d646-2tmcc   1       Container created
+2026-11-14T05:14:11Z   Started             td-web-5c4484cfbd-g4gs7      1       Container started
+2026-11-14T05:14:11Z   Started             td-worker-66b695d646-2tmcc   1       Container started
+2026-11-14T05:14:14Z   Killing             td-web-7746b5c8c-b55n4       1       Stopping container web
+2026-11-14T05:14:14Z   SuccessfulDelete    td-web-7746b5c8c             1       Deleted pod: td-web-7746b5c8c-b55n4
+2026-11-14T05:14:14Z   ScalingReplicaSet   td-web                       1       Scaled down replica set td-web-7746b5c8c from 1 to 0
+2026-11-14T05:17:49Z   Unhealthy           td-web-5c4484cfbd-g4gs7      3       Readiness probe failed: Get "http://10.244.0.10:8080/health/ready": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+2026-11-14T05:21:03Z   Unhealthy           td-web-5c4484cfbd-g4gs7      7       Readiness probe failed: HTTP probe failed with statuscode: 503
+2026-11-14T05:21:04Z   ScalingReplicaSet   td-web                       1       Scaled up replica set td-web-56bf5c4bff from 0 to 1
+2026-11-14T05:21:04Z   SuccessfulCreate    td-web-56bf5c4bff            1       Created pod: td-web-56bf5c4bff-75tsf
+2026-11-14T05:21:04Z   Killing             td-worker-66b695d646-2tmcc   1       Stopping container worker
+2026-11-14T05:21:04Z   ScalingReplicaSet   td-worker                    1       Scaled up replica set td-worker-5f6f789cd7 from 0 to 1
+2026-11-14T05:21:04Z   SuccessfulDelete    td-worker-66b695d646         1       Deleted pod: td-worker-66b695d646-2tmcc
+2026-11-14T05:21:04Z   SuccessfulCreate    td-worker-5f6f789cd7         1       Created pod: td-worker-5f6f789cd7-6rzv6
+2026-11-14T05:21:04Z   ScalingReplicaSet   td-worker                    1       Scaled down replica set td-worker-66b695d646 from 1 to 0
+2026-11-14T05:21:04Z   Pulled              td-web-56bf5c4bff-75tsf      1       Container image "ticketdesk-web:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:21:04Z   Created             td-web-56bf5c4bff-75tsf      1       Container created
+2026-11-14T05:21:04Z   Scheduled           td-web-56bf5c4bff-75tsf      1       Successfully assigned ticketdesk/td-web-56bf5c4bff-75tsf to td-load-control-plane
+2026-11-14T05:21:04Z   Started             td-web-56bf5c4bff-75tsf      1       Container started
+2026-11-14T05:21:04Z   Scheduled           td-worker-5f6f789cd7-6rzv6   1       Successfully assigned ticketdesk/td-worker-5f6f789cd7-6rzv6 to td-load-control-plane
+2026-11-14T05:21:05Z   Created             td-worker-5f6f789cd7-6rzv6   1       Container created
+2026-11-14T05:21:05Z   Pulled              td-worker-5f6f789cd7-6rzv6   1       Container image "ticketdesk-worker:ci-42" already present on machine and can be accessed by the pod
+2026-11-14T05:21:05Z   Started             td-worker-5f6f789cd7-6rzv6   1       Container started
+2026-11-14T05:21:07Z   Killing             td-web-5c4484cfbd-g4gs7      1       Stopping container web
+2026-11-14T05:21:07Z   SuccessfulDelete    td-web-5c4484cfbd            1       Deleted pod: td-web-5c4484cfbd-g4gs7
+2026-11-14T05:21:07Z   ScalingReplicaSet   td-web                       1       Scaled down replica set td-web-5c4484cfbd from 1 to 0
+2026-11-14T05:24:16Z   Unhealthy           td-web-56bf5c4bff-75tsf      1       Readiness probe failed: HTTP probe failed with statuscode: 503

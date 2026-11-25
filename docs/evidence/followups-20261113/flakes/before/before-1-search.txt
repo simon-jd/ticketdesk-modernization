@@ -1,0 +1,7 @@
+failed TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up (1m 00s 341ms)
+  from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/bin/Release/net10.0/TicketDesk.Web.Tests.dll (net10.0|x64)
+  Assert.True() Failure
+  Expected: True
+  Actual:   False
+    at TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up() in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/SearchTests.cs:258
+    at TicketDesk.Web.Tests.SearchTests.A_ticket_written_by_the_new_app_is_found_once_the_index_caught_up() in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Web.Tests/SearchTests.cs:260

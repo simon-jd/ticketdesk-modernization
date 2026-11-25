@@ -1,0 +1,26 @@
+run 11 ci-20261111.8 ci refs/pull/3/merge db81c781 status=completed result=succeeded reason=pullRequest queued=2026-11-11T08:47:41.2740822Z start=2026-11-11T08:47:44.1694229Z finish=2026-11-11T08:50:35.6027771Z
+Checkpoint completed  succeeded    0 s      Checkpoint
+Job        completed  succeeded    106 s    Build, test, images
+Stage      completed  succeeded    168 s    CI
+Task       completed  succeeded    1 s      Initialize job
+Task       completed  succeeded    1 s      Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    7 s      Angular - npm ci, Vitest, build
+Task       completed  succeeded    52 s     .NET - restore, build, tests + coverage
+Task       completed  succeeded    10 s     Playwright E2E (new app alone)
+Task       completed  succeeded    10 s     Golden replay (new app alone)
+Task       completed  succeeded    3 s      Container images (web, worker) + smoke
+Task       completed  succeeded    4 s      Publish .NET test results
+Task       completed  succeeded    2 s      Publish Vitest + Playwright results
+Task       completed  succeeded    12 s     Publish .NET coverage
+Task       completed  succeeded    4 s      Publish CI output (summaries, replay report, images)
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    0 s      Finalize Job
+Job        completed  succeeded    35 s     Static gates
+Task       completed  succeeded    1 s      Initialize job
+Task       completed  succeeded    1 s      Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    0 s      No inherited Azure login
+Task       completed  succeeded    3 s      terraform fmt -check + validate
+Task       completed  succeeded    27 s     Vulnerable packages (NuGet, npm)
+Task       completed  succeeded    3 s      Publish audit output
+Task       completed  succeeded    0 s      Post-job: Checkout TicketDesk@refs/pull/3/merge to s
+Task       completed  succeeded    0 s      Finalize Job

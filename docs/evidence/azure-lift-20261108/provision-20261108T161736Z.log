@@ -1,0 +1,27 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261108161756
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script4.ps1 -Steps drill-loss -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-fbaaf99.zip -BundleSha256 06cea84f9f54af0fb2daaef02640f21fbe5c067b659842467a6cf2b77682e217 -PublishBlob td-legacy-publish-f510384.zip -PublishSha256 5f08149d6280aad948c1d46289b81503110f2fc57e9dd84bda4add0510aca45a -AdminEmail <admin-email> -RunId 20261108T161736Z
+Process ID: 864
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-08T16:17:56Z] provision run 20261108T161736Z on tdlab-legacy, steps: drill-loss
+[2026-11-08T16:17:56Z] ==== step drill-loss
+[2026-11-08T16:17:59Z] drill: TicketDesk database dropped, local backup folders deleted
+[2026-11-08T16:17:59Z] step drill-loss done in 3.2s
+[2026-11-08T16:17:59Z] TDTIMINGS {"drill-loss":3.2} total 3.4s
+**********************
+Windows PowerShell transcript end
+End time: 20261108161759
+**********************

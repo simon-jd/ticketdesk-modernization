@@ -1,0 +1,7 @@
+$ TD_PERF_DB=TicketDeskL ops/dev/sql-perf.sh bench --cases docs/evidence/sql-compare-20261107/cases-writes-TicketDeskL.json --out docs/evidence/sql-compare-20261107/writes-on-tuned --warm 20 --cold 5
+[01:32:53] writes/write-reassign: 1 command(s)
+    cold: median 4 ms server / 5.5 ms client, cpu 1 ms, reads 47
+    warm: median 0 ms server / 0.8 ms client, cpu 0 ms, reads 47
+[01:32:53] writes/write-insert: 1 command(s)
+    cold: median 5 ms server / 6.2 ms client, cpu 1 ms, reads 36
+    warm: median 0 ms server / 0.6 ms client, cpu 0 ms, reads 36

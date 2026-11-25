@@ -1,0 +1,13 @@
+# 2026-11-10T17:42:59Z git 49d36e3 host load 2.90 3.35 3.47
+    0 Warning(s)
+    0 Error(s)
+failed TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "admin-settings#004.0", path: "/admin/users/page/1", displayName: "{secret:TD_ADMIN_NAME}", roles: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers") (146ms)
+failed TicketDesk.Web.Tests.WaveParityTests.Signed_in_pages_match_the_golden_recording(key: "admin-settings#003.0", path: "/admin/users", displayName: "{secret:TD_ADMIN_NAME}", roles: "TdAdministrators,TdHelpDeskUsers,TdInternalUsers") (139ms)
+failed TicketDesk.Web.Tests.EntraSignInTests.The_option_is_hidden_when_entra_is_off_so_the_page_stays_the_legacy_one (2s 257ms)
+  total: 687
+  failed: 3
+  succeeded: 638
+  skipped: 46
+# The 3 failures are in TicketDesk.Web.Tests, whose code and tests equal modernize's (no diff): WaveParityTests x2 expect the
+# role display name "Internal User" but the shared td-sql seeded database answers "Internal Users"; EntraSignInTests got a 500
+# while the coordinator's live Entra sign-in check was running. TicketDesk.Database.Tests (this round's tests) all passed.

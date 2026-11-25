@@ -1,0 +1,19 @@
+# date: 2026-11-07T20:51:46Z  git: ba261ee  dotnet: 10.0.403
+# TD_SQL_TEST_CONN points at td-sql (SQL Server 2022 CU25 container, master); value not recorded
+$ dotnet build src/modern/TicketDesk.Modern.sln -c Release
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+$ dotnet test --solution src/modern/TicketDesk.Modern.sln -c Release --no-build
+Running tests from ~/Desktop/ticketdesk-modernization/wt-inventory/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64)
+Running tests from ~/Desktop/ticketdesk-modernization/wt-inventory/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64)
+~/Desktop/ticketdesk-modernization/wt-inventory/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (576ms)
+~/Desktop/ticketdesk-modernization/wt-inventory/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (2s 252ms)
+Test run summary: Passed!
+  ~/Desktop/ticketdesk-modernization/wt-inventory/tools/Seed/TicketDesk.Seed.Tests/bin/Release/net10.0/TicketDesk.Seed.Tests.dll (net10.0|x64) passed (2s 252ms)
+  ~/Desktop/ticketdesk-modernization/wt-inventory/tools/Replay/TicketDesk.Replay.Tests/bin/Release/net10.0/TicketDesk.Replay.Tests.dll (net10.0|x64) passed (576ms)
+  total: 108
+  failed: 0
+  succeeded: 108
+  skipped: 0
+  duration: 2s 497ms

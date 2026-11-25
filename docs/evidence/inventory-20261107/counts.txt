@@ -1,0 +1,27 @@
+# date: 2026-11-07T20:47:19Z  git: 36bfe90 (legacy code unchanged from 110dfed)
+$ find TicketDesk -name "*.csproj" | wc -l
+14
+$ grep -l ": Controller" TicketDesk/TicketDesk.Web.Client/Controllers/*.cs | wc -l
+18
+$ find TicketDesk/TicketDesk.Web.Client/Views -name "*.cshtml" | wc -l
+76
+$ ls TicketDesk/TicketDesk.Domain/Migrations/*.cs | grep -v -e Designer -e Configuration -e DemoDataManager | wc -l   # code-based EF6 migrations (Domain)
+23
+$ ls TicketDesk/TicketDesk.Domain.Legacy/Migrations/*.cs | grep -v -e Designer -e Configuration | wc -l   # Domain.Legacy
+1
+$ grep -h "AutomaticMigrationsEnabled\|ContextKey" TicketDesk/TicketDesk.Web.Identity/Migrations/Configuration.cs TicketDesk/TicketDesk.PushNotifications/Migrations/Configuration.cs
+AutomaticMigrationsEnabled = true;
+ContextKey = "TicketDeskIdentity";
+AutomaticMigrationsEnabled = true;
+ContextKey = "TicketDeskPushNotifications";
+$ find TicketDesk -iname "*test*.csproj" | wc -l   # test projects
+0
+$ grep -rlE "Session\[|TempData" --include=*.cs --include=*.cshtml TicketDesk | wc -l   # Session/TempData users
+0
+$ grep -rli signalr TicketDesk --include=*.cs --include=*.config --include=*.cshtml | wc -l
+0
+$ python3 (routes.csv statistics)
+route rows 89 | MVC rows 87 | controllers 18 | distinct actions 77
+POST endpoints 33 {'emitted-not-validated': 8, 'none': 6, 'validated': 19}
+by wave {'0': 2, '1': 4, '2': 29, '3': 6, '4': 20, '5': 19, 'retire': 9}
+by risk {'L': 32, 'H': 15, 'M': 42}

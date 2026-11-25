@@ -1,0 +1,44 @@
+# 2026-11-09T01:39:06Z state reconcile after the scheduled reaper deleted rg-ticketdesk-lab (23:00-23:04Z)
+state entries before: 50
+false
+rg-ticketdesk-lab does not exist
+terraform state refreshed (deleted resources dropped)
+state entries after refresh-only: 11
+data.azuread_client_config.current
+data.azuread_user.me
+data.azurerm_client_config.current
+data.azurerm_subscription.current
+random_password.sql_sa[0]
+module.entra[0].azuread_app_role_assignment.admin
+module.entra[0].azuread_application.web
+module.entra[0].azuread_service_principal.web
+module.keyvault[0].time_sleep.rbac_propagation
+module.storage[0].time_sleep.rbac_propagation
+module.vm[0].random_password.admin
+## apply stage none (drops the local-only random_password/time_sleep entries)
+  # random_password.sql_sa[0] will be destroyed
+  # module.keyvault[0].time_sleep.rbac_propagation will be destroyed
+  # module.storage[0].time_sleep.rbac_propagation will be destroyed
+  # module.vm[0].random_password.admin will be destroyed
+Plan: 0 to add, 0 to change, 4 to destroy.
+Apply complete! Resources: 0 added, 0 changed, 4 destroyed.
+stage foundation down end 2026-11-09T01:40:02Z elapsed_s=17 rc=0
+## plan stage none
+No changes. Your infrastructure matches the configuration.
+state entries: 7
+module.entra[0].azuread_app_role_assignment.admin
+module.entra[0].azuread_application.web
+module.entra[0].azuread_service_principal.web
+## Entra app
+ticketdesk-lab-web	<appId present>
+## soft-deleted Key Vaults (all, names only)
+kv-tdlab-36d2d4	swedencentral	2026-11-08T23:00:12+00:00	2026-11-15T23:00:12+00:00	rg-ticketdesk-lab
+## soft-deleted Log Analytics workspaces
+log-tdlab-swedencentral	rg-ticketdesk-lab	swedencentral
+## purge the lab vault (soft-deleted by the reaper's RG delete; purge protection off)
+purged kv-tdlab-36d2d4 in 14 s at 2026-11-09T01:40:56Z
+soft-deleted vaults now: 0
+## log-tdlab-swedencentral stays soft-deleted: not billed, purged by Azure after 14 days; recovering it needs the RG,
+## and the next foundation apply in rg-ticketdesk-lab recovers it under the same name (no name conflict).
+## resources tagged project=ticketdesk: 0
+## RG exists: false

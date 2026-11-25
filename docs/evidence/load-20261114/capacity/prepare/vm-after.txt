@@ -1,0 +1,16 @@
+# 2026-11-14T04:43:21Z VM after Round 6 load
+legacy reset: database restored from r6-load-pre.bak, app pool recycled, app ready (20 s); tickets 10001
+## Lucene index rebuilt (the curves' tickets are gone from the database)
+{"command": "reindex", "ok": true, "checks_passed": 4, "checks_total": 4, "requests": 5, "seconds": 6.3}
+21a22
+> 
+row counts DIFFER from vm-before.txt (above)
+{"command": "wait", "ok": true, "checks_passed": 3, "checks_total": 3, "requests": 4, "seconds": 0.1}
+VM-side backup removed
+68E0DC6FEF3FF0DF4284C47B935ACCF4315DFC8228FBA809CB181258C78CB5E1
+## qemu affinity back
+     14 f00000
+     11 ffffffff
+qemu thread masks now:      25 ffffffff 
+row counts: identical to vm-before.txt ignoring blank lines (the 'DIFFER' above was sqlcmd's trailing empty line), 21 tables
+unpin note: threads qemu started while pinned inherited CPUs 20-23 and were not in the saved list; all set back to the original mask ffffffff at 2026-11-14T04:44:02Z

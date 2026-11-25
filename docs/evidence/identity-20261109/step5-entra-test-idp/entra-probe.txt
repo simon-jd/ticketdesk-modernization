@@ -1,0 +1,13 @@
+ok   sign-in page offers Entra ID {"status": 200, "backend": "modern; route=user.sign-in.get"}
+ok   challenge redirects to the identity provider with PKCE {"status": 302, "authorize": "http://127.0.0.1:5590/7d1a0e7c-3c1e-4f6a-9a51-2f0b6c1d0001/v2.0/authorize"}
+ok   identity provider answers with form_post {"status": 200}
+ok   callback /signin-oidc accepted {"status": 302, "location": "/user/sign-in/entra/callback"}
+ok   account linked/provisioned and .AspNet.ApplicationCookie issued {"status": 302, "location": "/"}
+ok   new app page shows the Entra user {"status": 200, "url": "https://localhost:5443/account/manage", "backend": "modern; route=account.manage"}
+ok   legacy page direct shows the Entra user {"status": 200, "url": "https://localhost:8443/ticket/new", "backend": "legacy (no marker)"}
+ok   legacy page via gateway shows the Entra user {"status": 200, "url": "https://localhost:5443/ticket/new", "backend": "legacy (no marker)"}
+ok   sign-out on the legacy app {"status": 302}
+ok   new app anonymous after the legacy sign-out {"status": 302}
+10/10 checks passed
+provisioned: entra.helpdesk@lab.test login=EntraId roles=TdHelpDeskUsers password_hash=none
+

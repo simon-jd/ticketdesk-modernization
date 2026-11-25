@@ -1,0 +1,8 @@
+# 2026-11-11T15:33:35Z cd-aks.sh with a stub az (logs every call), docker/helm/kubectl stubs
+VM present: exit 1; calls: az account show --query name -o tsv;az account show --query user.type -o tsv;az vm list -g rg-ticketdesk-lab --query [?name=='vm-tdlab-legacy'].name -o tsv;; vm-tdlab-legacy still exists in rg-ticketdesk-lab: retire it first (ops/azure/aks.sh retire-vm)
+  docker or helm called: 0
+VM absent: exit 1 (stubs end it later); the first docker call: docker image inspect ticketdesk-web:t
+# aks.sh (the same rule in deploy v2 and in the CD step) with the same stub az
+ak_deploy v2, VM present: exit 1 (v2 contracts the schema: retire the VM first (aks.sh retire-vm))
+ak_deploy_v2_cd, VM present: exit 1 (v2 contracts the schema: retire the VM first (aks.sh retire-vm))
+  helm called by aks.sh: 0

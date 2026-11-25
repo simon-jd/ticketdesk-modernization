@@ -1,0 +1,200 @@
+{{- $w := .Values.web -}}
+{{- if $w.migrationRegistry }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: td-migration-registry
+  labels: {{- include "td.labels" . | nindent 4 }}
+data:
+  migration-registry.json: {{ $w.migrationRegistry | quote }}
+---
+{{- end }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: td-web
+  labels: {{- include "td.labels" . | nindent 4 }}
+    app.kubernetes.io/name: td-web
+spec:
+  replicas: {{ $w.replicas }}
+  revisionHistoryLimit: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }   # a new pod is ready before the old one goes (no failed requests)
+  selector:
+    matchLabels: { app.kubernetes.io/name: td-web }
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: td-web
+        {{- include "td.podLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: td-web
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 30
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if and $w.legacy.enabled $w.legacy.hostAlias.ip }}
+      hostAliases:
+        - ip: {{ $w.legacy.hostAlias.ip | quote }}
+          hostnames: [{{ $w.legacy.hostAlias.hostname | quote }}]
+      {{- end }}
+      containers:
+        - name: web
+          image: {{ include "td.image" (list . .Values.image.web) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - { name: http, containerPort: 8080 }
+            {{- if ne $w.tls.source "none" }}
+            - { name: https, containerPort: 8443 }
+            {{- end }}
+          env:
+            - { name: ASPNETCORE_ENVIRONMENT, value: {{ $w.aspnetcoreEnvironment | quote }} }
+            - { name: DOTNET_gcServer, value: "0" }   # workstation GC: a quarter of a vCPU, one small node
+            {{- include "td.dbEnv" (list .Values.database "ConnectionStrings__TicketDesk") | nindent 12 }}
+            {{- include "td.azureEnv" . | nindent 12 }}
+            - { name: DataProtection__KeyRing, value: Database }
+            {{- if $w.keyVaultKeyId }}
+            - { name: DataProtection__KeyVaultKeyId, value: {{ $w.keyVaultKeyId | quote }} }
+            {{- end }}
+            {{- /* coexistence settings (image v1 only; v2 has no legacy app, no gateway, no shared cookie): emitted only when set */}}
+            {{- if $w.sharedCookie }}
+            - { name: Authentication__SharedCookie__Enabled, value: "true" }
+            {{- end }}
+            {{- if kindIs "bool" $w.legacy.enabled }}
+            - { name: Legacy__Enabled, value: {{ $w.legacy.enabled | quote }} }
+            {{- end }}
+            {{- if $w.legacy.enabled }}
+            - { name: Legacy__BaseUrl, value: {{ required "web.legacy.baseUrl" $w.legacy.baseUrl | quote }} }
+            {{- if $w.legacy.caConfigMap }}
+            # the lab CA next to the system roots: the gateway validates the legacy host's certificate normally
+            - { name: SSL_CERT_DIR, value: "/etc/ssl/certs:/etc/td-ca" }
+            {{- end }}
+            {{- end }}
+            - { name: Attachments__Store, value: {{ $w.attachments.store | quote }} }
+            {{- if eq $w.attachments.store "Blob" }}
+            - name: Attachments__BlobConnectionString
+              valueFrom:
+                {{- if .Values.azure.keyVault.enabled }}
+                secretKeyRef: { name: td-kv, key: attachments-connection }
+                {{- else }}
+                secretKeyRef: { name: {{ required "web.attachments.secretName" $w.attachments.secretName | quote }}, key: {{ $w.attachments.secretKey | quote }} }
+                {{- end }}
+            {{- end }}
+            {{- if $w.serviceBus.fullyQualifiedNamespace }}
+            - { name: Notifications__ServiceBus__FullyQualifiedNamespace, value: {{ $w.serviceBus.fullyQualifiedNamespace | quote }} }
+            {{- else if $w.serviceBus.secretName }}
+            - name: Notifications__ServiceBus__ConnectionString
+              valueFrom:
+                secretKeyRef: { name: {{ $w.serviceBus.secretName | quote }}, key: {{ $w.serviceBus.secretKey | quote }} }
+            {{- end }}
+            - { name: Notifications__ServiceBus__QueueName, value: {{ $w.serviceBus.queue | quote }} }
+            {{- if eq $w.tls.source "csi" }}
+            - { name: Tls__CertificatePath, value: /mnt/kv/tls.pem }
+            {{- else if eq $w.tls.source "secret" }}
+            - { name: Tls__CertificatePath, value: /mnt/tls/tls.crt }
+            - { name: Tls__KeyPath, value: /mnt/tls/tls.key }
+            {{- end }}
+            {{- if ne $w.tls.source "none" }}
+            - { name: Tls__ReloadInterval, value: {{ $w.tls.reloadInterval | quote }} }
+            {{- end }}
+            {{- if .Values.azure.keyVault.enabled }}
+            - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef: { name: td-kv, key: appinsights-connection-string }
+            - { name: OTEL_SERVICE_NAME, value: {{ $w.telemetry.serviceName | quote }} }
+            {{- end }}
+            {{- with $w.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          lifecycle:
+            # keep serving while the endpoint removal reaches kube-proxy / the load balancer, then stop (a rollout without
+            # failed requests; seen on kind: a request routed to the old pod as it exited hung until the client timeout)
+            preStop:
+              sleep: { seconds: 10 }
+          startupProbe:
+            httpGet: { path: /health/live, port: http }
+            periodSeconds: 2
+            failureThreshold: 60
+          livenessProbe:
+            httpGet: { path: /health/live, port: http }
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          readinessProbe:
+            httpGet: { path: /health/ready, port: http }   # database reachable (legacy reachability only degrades)
+            periodSeconds: 10
+            # longer than v1's legacy check (client timeout 5 s): with the VM deleted that check waits the full 5 s and
+            # reports Degraded (HTTP 200); with 5 here the probe itself timed out and v1 flapped NotReady while v2 waited
+            # for its approval (session of 2026-11-12)
+            timeoutSeconds: 8
+            failureThreshold: 3
+          resources: {{- toYaml $w.resources | nindent 12 }}
+          securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+            {{- if eq $w.attachments.store "Local" }}
+            - { name: app-data, mountPath: /app/App_Data }
+            {{- end }}
+            {{- if .Values.azure.keyVault.enabled }}
+            - { name: kv, mountPath: /mnt/kv, readOnly: true }
+            {{- end }}
+            {{- if eq $w.tls.source "secret" }}
+            - { name: tls, mountPath: /mnt/tls, readOnly: true }
+            {{- end }}
+            {{- if and $w.legacy.enabled $w.legacy.caConfigMap }}
+            - { name: td-ca, mountPath: /etc/td-ca, readOnly: true }
+            {{- end }}
+            {{- if $w.migrationRegistry }}
+            - { name: registry, mountPath: /app/migration-registry.json, subPath: migration-registry.json, readOnly: true }
+            {{- end }}
+      volumes:
+        - { name: tmp, emptyDir: { sizeLimit: 256Mi } }
+        {{- if eq $w.attachments.store "Local" }}
+        - { name: app-data, emptyDir: { sizeLimit: 256Mi } }
+        {{- end }}
+        {{- if .Values.azure.keyVault.enabled }}
+        - name: kv
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes: { secretProviderClass: td-kv }
+        {{- end }}
+        {{- if eq $w.tls.source "secret" }}
+        - name: tls
+          secret: { secretName: {{ required "web.tls.secretName" $w.tls.secretName | quote }} }
+        {{- end }}
+        {{- if and $w.legacy.enabled $w.legacy.caConfigMap }}
+        - name: td-ca
+          configMap: { name: {{ $w.legacy.caConfigMap | quote }} }
+        {{- end }}
+        {{- if $w.migrationRegistry }}
+        - name: registry
+          configMap: { name: td-migration-registry }
+        {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: td-web
+  labels: {{- include "td.labels" . | nindent 4 }}
+  {{- if $w.service.dnsLabel }}
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: {{ $w.service.dnsLabel | quote }}
+  {{- end }}
+spec:
+  type: {{ $w.service.type }}
+  selector: { app.kubernetes.io/name: td-web }
+  {{- with $w.service.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges: {{- toYaml . | nindent 4 }}
+  {{- end }}
+  ports:
+    {{- if ne $w.tls.source "none" }}
+    - name: https
+      port: {{ $w.service.httpsPort }}
+      targetPort: https
+      {{- if and (eq $w.service.type "NodePort") $w.service.nodePort }}
+      nodePort: {{ $w.service.nodePort }}
+      {{- end }}
+    {{- else }}
+    - { name: http, port: 80, targetPort: http }
+    {{- end }}

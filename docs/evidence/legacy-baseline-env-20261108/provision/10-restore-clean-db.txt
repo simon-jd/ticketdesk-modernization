@@ -1,0 +1,6 @@
+[2026-11-08T00:46:56Z] CHANGE stopped app pool TicketDesk
+[2026-11-08T00:46:59Z] CHANGE restored TicketDesk from C:\TdBackups\clean\TicketDesk.bak
+[2026-11-08T00:46:59Z] INFO   mapped IIS AppPool\TicketDesk as db_owner in TicketDesk
+[2026-11-08T00:46:59Z] INFO   started app pool TicketDesk
+[2026-11-08T00:46:59Z] INFO   restore complete in 5.0s
+EXIT=0

@@ -1,0 +1,69 @@
+{
+ "dir": "drill-db-egress",
+ "requests": 46080,
+ "failed": 6349,
+ "availability_pct": 86.222,
+ "slow_over_500ms": 735,
+ "run_s": 360.0,
+ "marks": [
+  "start 2026-11-14T05:14:51.715Z rate 75 for 360 s, fault db-egress at +120 s",
+  "fault 2026-11-14T05:16:51.738Z iptables DROP web pods (10.244.0.10 ) -> 192.168.192.3:1433 in the node (established connections included)",
+  "recover 2026-11-14T05:17:52.116Z rules removed",
+  "end 2026-11-14T05:20:54.828Z"
+ ],
+ "before_fault": {
+  "requests": 16817,
+  "failed": 0,
+  "p95_ms": 18.6
+ },
+ "from_fault": {
+  "requests": 29263,
+  "failed": 6349,
+  "p95_ms": 45.0
+ },
+ "first_failure_after_fault_s": 15.6,
+ "last_failure_after_fault_s": 132.6,
+ "failed_by_status": {
+  "500": 5365,
+  "400": 981,
+  "0": 3
+ },
+ "last_5xx_after_fault_s": 80.4,
+ "last_conn_after_fault_s": 60.1,
+ "last_4xx_after_fault_s": 132.6,
+ "fault_removed_after_fault_s": 60.4,
+ "recovered_after_fault_s": 133.0,
+ "bad_seconds_after_fault": 107,
+ "error_budget": {
+  "run_budget_requests": 230.4,
+  "run_burn_pct": 2755.6,
+  "share_of_30d_budget_pct": 0.3827,
+  "req_per_s": 128.0,
+  "p95_run_ms": 28.1,
+  "latency_slo_met_over_run": true
+ },
+ "readiness": {
+  "samples_1s": 332,
+  "seconds_no_ready_web_pod": 54,
+  "seconds_no_ready_endpoint": 54,
+  "pods_seen": {
+   "td-web-5c4484cfbd-g4gs7": "0",
+   "td-worker-66b695d646-2tmcc": "0"
+  },
+  "probe": {
+   "failureThreshold": 3,
+   "httpGet": {
+    "path": "/health/ready",
+    "port": "http",
+    "scheme": "HTTP"
+   },
+   "periodSeconds": 10,
+   "successThreshold": 1,
+   "timeoutSeconds": 8
+  },
+  "unhealthy_events": [
+   "2026-11-14T05:17:49Z   Unhealthy           td-web-5c4484cfbd-g4gs7      3       Readiness probe failed: Get \"http://10.244.0.10:8080/health/ready\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+   "2026-11-14T05:18:11Z   Unhealthy           td-web-5c4484cfbd-g4gs7      6       Readiness probe failed: HTTP probe failed with statuscode: 503"
+  ]
+ }
+}

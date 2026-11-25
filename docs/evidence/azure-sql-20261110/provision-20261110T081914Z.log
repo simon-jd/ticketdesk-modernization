@@ -1,0 +1,32 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261110081925
+Username: WORKGROUP\SYSTEM
+RunAs User: WORKGROUP\SYSTEM
+Configuration Name: 
+Machine: tdlab-legacy (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Unrestricted -File script9.ps1 -Steps fetch+plan-tag -StorageAccount sttdlab36d2d4 -KeyVault kv-tdlab-36d2d4 -Fqdn tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com -BundleBlob td-ops-windows-80690ee.zip -BundleSha256 897e87202cfc55d44228e88b67016f8627acf50c94676fcf9a489ceaedb661dd -PublishBlob td-legacy-publish-80690ee.zip -PublishSha256 28f447e9dbff57bf69452697e7b315b25eae1448eea662693682d1035fcddbc5 -AdminEmail <admin-email> -RunId 20261110T081914Z -SqlServer sql-tdlab-36d2d4.database.windows.net -SqlDatabase sqldb-ticketdesk -DeployClientId <client-id-12> -AppIdentityName vm-tdlab-legacy -SqlToolsBlob td-sqltools-2106795.zip -SqlToolsSha256 97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4 -DotnetVersion 10.0.14 -Database azure
+Process ID: 4988
+PSVersion: 5.1.26100.33648
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.33648
+BuildVersion: 10.0.26100.33648
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+[2026-11-10T08:19:25Z] provision run 20261110T081914Z on tdlab-legacy, steps: fetch+plan-tag
+[2026-11-10T08:19:25Z] ==== step fetch
+[2026-11-10T08:19:25Z] fetched https://sttdlab36d2d4.blob.core.windows.net/artifacts/td-ops-windows-80690ee.zip (38,658 bytes, sha256 897E87202CFC55D44228E88B67016F8627ACF50C94676FCF9A489CEAEDB661DD)
+[2026-11-10T08:19:25Z] scripts: Backup-TdSite.ps1, Build-TdLegacy.ps1, Deploy-TdApp.ps1, Get-TdBlobBackup.ps1, Install-TdBuildTools.ps1, Install-TdPrerequisites.ps1, Install-TdSqlExpress.ps1, Move-TdFileStore.ps1, Register-TdBackupTask.ps1, Restore-TdSite.ps1, Set-TdIisSite.ps1, TdOps.psm1, Test-TdBlobStore.ps1, Update-TdSqlServer.ps1
+[2026-11-10T08:19:25Z] publish package already extracted (same SHA-256)
+[2026-11-10T08:19:25Z] step fetch done in 0.2s
+[2026-11-10T08:19:25Z] ==== step plan-tag
+TDPLAN {"tag":"printer","total":1817,"query_store":"READ_WRITE","forced_plans":0,"query_store_hints":0,"plans":[{"run":1,"plan":1,"statement":"WITH k AS (\n        SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, \u0027-\u0027,","dop":"1","non_parallel_reason":null,"elapsed_ms":"0","cpu_ms":"0","operators":"Compute Scalar,Nested Loops,Stream Aggregate,Sort,Table Spool,Table-valued function,Filter,Constant Scan"},{"run":1,"plan":2,"statement":"SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM ","dop":"0","non_parallel_reason":null,"elapsed_ms":"3","cpu_ms":"3","operators":"Compute Scalar,Stream Aggregate,Parallelism,Hash Match,Bitmap,Index Seek,Index Scan"},{"run":1,"plan":3,"statement":"SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketSta","dop":"1","non_parallel_reason":null,"elapsed_ms":"0","cpu_ms":"0","operators":"Sort,Merge Join,Clustered Index Scan,Nested Loops,Top,Index Scan,Index Seek,Clustered Index Seek"},{"run":2,"plan":1,"statement":"WITH k AS (\n        SELECT s.ordinal AS Ordinal, LTRIM(RTRIM(REPLACE(REPLACE(s.value, \u0027-\u0027,","dop":"1","non_parallel_reason":null,"elapsed_ms":"0","cpu_ms":"0","operators":"Compute Scalar,Nested Loops,Stream Aggregate,Sort,Table Spool,Table-valued function,Filter,Constant Scan"},{"run":2,"plan":2,"statement":"SELECT @TotalCount = COUNT(*) FROM dbo.Tickets AS t WHERE 1 = 1 AND EXISTS (SELECT 1 FROM ","dop":"0","non_parallel_reason":null,"elapsed_ms":"3","cpu_ms":"3","operators":"Compute Scalar,Stream Aggregate,Parallelism,Hash Match,Bitmap,Index Seek,Index Scan"},{"run":2,"plan":3,"statement":"SELECT t.TicketId, t.ProjectId, t.Title, t.TicketType, t.Category, t.Priority, t.TicketSta","dop":"1","non_parallel_reason":null,"elapsed_ms":"0","cpu_ms":"0","operators":"Sort,Merge Join,Clustered Index Scan,Nested Loops,Top,Index Scan,Index Seek,Clustered Index Seek"}]}
+[2026-11-10T08:19:26Z] step plan-tag done in 0.7s
+[2026-11-10T08:19:26Z] TDTIMINGS {"fetch":0.2,"plan-tag":0.7} total 1.0s
+**********************
+Windows PowerShell transcript end
+End time: 20261110081926
+**********************

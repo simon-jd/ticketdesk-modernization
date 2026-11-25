@@ -1,0 +1,23 @@
+$ ops/onprem/provision-legacy.sh deploy   (second run: idempotency)
+==== 2026-11-08T15:52:34Z step deploy
+[2026-11-08T15:52:36Z] INFO   database has 19 tables -> first-run setup disabled
+
+	  			C:\TdBuild\publish\Web.config
+		C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments.gen
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments_1
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        65         0        65         0         0         1
+   Files :       840         1       839         0         0         2
+   Bytes :   69.90 m    11.4 k   69.89 m         0         0        52
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Sunday, November 8, 2026 3:52:38 PM
+
+[2026-11-08T15:52:38Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 3, App_Data kept)
+[2026-11-08T15:52:38Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T15:52:38Z] CHANGE Web.config: connectionStrings/TicketDesk, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-08T15:52:40Z] INFO   warm-up http://localhost/ -> 200 in 2.4s
+==== 2026-11-08T15:52:41Z done: deploy

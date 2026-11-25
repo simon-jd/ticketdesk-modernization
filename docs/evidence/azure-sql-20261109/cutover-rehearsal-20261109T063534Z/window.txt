@@ -1,0 +1,26 @@
+2026-11-09T06:36:05Z provision 20261109T063605Z on vm-tdlab-legacy: freeze+export+import+azsql-users+reconcile+switch SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-17> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=azure
+provision 20261109T063605Z steps=freeze+export+import+azsql-users+reconcile+switch elapsed_s=33 rc=1
+2026-11-09T06:36:05Z provision 20261109T063605Z on vm-tdlab-legacy: freeze+export+import+azsql-users+reconcile+switch SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-17> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-fdff374.zip SqlToolsSha256=a31a507b9a6cc191786b87765136f4e17831e1609480fac9305d0f26230c1a7e DotnetVersion=10.0.14 Database=azure
+---- ComponentStatus/StdOut/succeeded
+[2026-11-09T06:36:12Z] provision run 20261109T063605Z on tdlab-legacy, steps: freeze+export+import+azsql-users+reconcile+switch
+[2026-11-09T06:36:12Z] ==== step freeze
+[2026-11-09T06:36:12Z] TDMARK freeze_start 2026-11-09T06:36:12.176Z
+[2026-11-09T06:36:12Z] TDMARK write_denied 2026-11-09T06:36:12.275Z
+[2026-11-09T06:36:12Z] TDMARK frozen 2026-11-09T06:36:12.295Z
+[2026-11-09T06:36:12Z] writes frozen: DENY INSERT, UPDATE, DELETE to [IIS AppPool\TicketDesk]; no app transaction open
+[2026-11-09T06:36:12Z] step freeze done in 0.1s
+[2026-11-09T06:36:12Z] ==== step export
+[2026-11-09T06:36:12Z] TDMARK export_start 2026-11-09T06:36:12.315Z
+[2026-11-09T06:36:20Z] TDMARK copy_restored 2026-11-09T06:36:20.145Z
+[2026-11-09T06:36:20Z] FAILED: Exception calling "Fill" with "1" argument(s): "The database principal owns a schema in the database, and cannot be dropped."
+[2026-11-09T06:36:20Z] at Invoke-TdSql, C:\TdOps\windows\TdOps.psm1: line 109
+at Invoke-Step, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script5.ps1: line 312
+at <ScriptBlock>, C:\Packages\Plugins\Microsoft.CPlat.Core.RunCommandWindows\1.1.23\Downloads\script5.ps1: line 461
+[2026-11-09T06:36:20Z] TDTIMINGS {"freeze":0.1} total 8.3s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261109T063605Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261109T063605Z steps=freeze+export+import+azsql-users+reconcile+switch elapsed_s=33 rc=1

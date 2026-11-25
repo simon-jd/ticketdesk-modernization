@@ -1,0 +1,25 @@
+#1 [internal] load build definition from Dockerfile
+#1 DONE 0.0s
+#2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:10.0
+#2 DONE 0.1s
+#3 [internal] load metadata for mcr.microsoft.com/dotnet/runtime:10.0-noble-chiseled-extra
+#3 DONE 0.2s
+#4 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:10.0@sha256:fe0fd4e93bd2fbb47c883b7a6369e5c8d3db8bf01cdc5981f6ee35fbdf3ff4fb
+#4 DONE 0.0s
+#5 [runtime 1/3] FROM mcr.microsoft.com/dotnet/runtime:10.0-noble-chiseled-extra@sha256:b64d614c3c1c440abe6d57f510c5a4cfc0ccd56a9b96f96c1503efe4a7ac3e56
+#5 DONE 0.0s
+#6 [internal] load build context
+#6 DONE 0.0s
+#7 [build 2/7] WORKDIR /src
+#8 [build 4/7] COPY src/modern/TicketDesk.Database/TicketDesk.Database.csproj src/modern/TicketDesk.Database/
+#9 [build 3/7] COPY src/modern/Directory.Build.props src/modern/Directory.Packages.props src/modern/
+#10 [build 5/7] RUN dotnet restore src/modern/TicketDesk.Database/TicketDesk.Database.csproj
+#11 [build 6/7] COPY src/modern/TicketDesk.Database/ src/modern/TicketDesk.Database/
+#11 DONE 0.0s
+#12 [build 7/7] RUN dotnet publish src/modern/TicketDesk.Database/TicketDesk.Database.csproj -c Release -o /app --no-restore -p:UseAppHost=false
+#12 DONE 2.3s
+#13 [runtime 2/3] WORKDIR /app
+#14 [runtime 3/3] COPY --from=build /app ./
+#14 DONE 0.1s
+#15 naming to docker.io/library/ticketdesk-db:r5b-followups done
+#15 DONE 2.1s

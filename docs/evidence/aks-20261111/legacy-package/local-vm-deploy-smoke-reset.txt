@@ -1,0 +1,35 @@
+# 2026-11-11T04:48:00Z local VM (lock aks): deploy td-legacy-publish-b4c1428.zip with the shared key ring (no Key Vault key: off locally), legacy smoke, shared key ring rows, reset to baseline-s-search
+   Speed :             6,162.047 MegaBytes/min.
+   Ended : Wednesday, November 11, 2026 4:48:04 AM
+
+[2026-11-11T04:48:04Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 1, App_Data kept)
+[2026-11-11T04:48:04Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-11T04:48:04Z] INFO   file store: Azure Blob (http://10.0.2.2:10000/devstoreaccount1)
+[2026-11-11T04:48:04Z] CHANGE ApplicationInsights.config: no correlation headers to 10.0.2.2
+[2026-11-11T04:48:04Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-11T04:48:04Z] INFO   shared sign-in cookie: on (key ring: database)
+[2026-11-11T04:48:04Z] CHANGE Web.config: connectionStrings/TicketDesk, connectionStrings/AzureStorage, appSettings/ticketdesk:RemoteAppApiKey, appSettings/ticketdesk:SharedCookieKeyRing, appSettings/ticketdesk:SetupEnabled, customErrors/mode=RemoteOnly
+[2026-11-11T04:48:12Z] INFO   warm-up http://localhost/ -> 200 in 7.3s
+2026-11-11T04:48:12Z deployed td-legacy-publish-b4c1428.zip (sha256 6b187486966bfd95177019735d9208f85b250e8de0bc70ec85f1acfbefa88562) in 12 s
+deploy rc=0 12 s
+2026-11-11T04:48:13Z app ready (1 s)
+  POST /ticket/new -> 302 348ms -> /ticket/10009
+  GET  /ticket/10009 -> 200 654ms
+[PASS] create ticket (HTTP 200, landed on /ticket/10009)
+  GET  /ticket/10009 -> 200 53ms
+[PASS] view ticket (ticket #10009)
+  GET  /ticket-activity/load-activity?activity=AddComment&ticketId=10009 -> 200 86ms
+[PASS] comment form (HTTP 200)
+  POST /ticket-activity/add-comment -> 200 78ms
+[PASS] add comment (HTTP 200, 0 bytes)
+  GET  /ticket/ticket-events?ticketId=10009 -> 200 94ms
+[PASS] comment visible in ticket events (HTTP 200)
+{"command": "smoke", "ok": true, "checks_passed": 9, "checks_total": 9, "requests": 11, "seconds": 2.2}
+smoke rc=0
+# 2026-11-11T04:48:16Z reset
+started: tmux td-legacy-vm, pid 1024904
+ssh up after ~0s
+2026-11-11T04:48:52Z app ready (10 s)
+2026-11-11T04:48:52Z reset to baseline-s-search done in 36 s
+reset rc=0
+# 2026-11-11T04:48:52Z done

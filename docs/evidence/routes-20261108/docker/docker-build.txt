@@ -1,0 +1,10 @@
+$ docker build -f src/modern/TicketDesk.Web/Dockerfile -t ticketdesk-web:r2-routes .   # 2026-11-09T02:21:16Z git 277e279
+sha256:6ac6f22d2004a5b221cb5cc3bde4e1901f353c36b8edcd662f561ec2cb64d514
+exit=0 seconds=14
+size=269490464 user=1654
+$ curl -b _culture=pt-BR /about
+HTTP/1.1 200 OK
+X-TicketDesk-Backend: modern; route=home.about
+1
+$ curl /api/migration/routes
+migrated 25 of 89 [('0', 2, 2), ('1', 4, 4), ('2', 14, 29), ('3', 5, 6), ('4', 0, 20), ('5', 0, 19), ('retire', 0, 9)]

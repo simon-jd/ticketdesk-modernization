@@ -1,0 +1,34 @@
+# 2026-11-08T01:06:16Z load average 2.67 5.66 15.39; git e509ff9 + uncommitted TicketDesk.Database
+$ TD_DB_CONN=<TicketDeskL> td-db migrate
+applied expand/V0001__tickets_assigned_date.sql in 0.03 s
+    AssignedDate backfill: through TicketId 200000, 178941 rows
+    AssignedDate backfill: through TicketId 400000, 358240 rows
+    AssignedDate backfill: through TicketId 600000, 537155 rows
+    AssignedDate backfill: through TicketId 800000, 716120 rows
+    AssignedDate backfill: through TicketId 1000000, 895163 rows
+    AssignedDate backfill done: 895163 rows
+applied expand/V0002__tickets_assigned_date_backfill.sql in 7.03 s
+    created IX_Tickets_Open_Status
+    created IX_Tickets_Open_Unassigned
+    created IX_Tickets_Open_Assignee
+    created IX_Tickets_Open_Owner
+    created IX_Tickets_LastUpdateDate
+    created IX_Tickets_Project_LastUpdateDate
+    created IX_Tickets_Closed_StatusDate
+    created IX_TicketTags_TagName
+applied expand/V0003__ticket_list_and_report_indexes.sql in 4.41 s
+applied programmable/R__usp_report_assignee_workload.sql in 0.00 s
+applied programmable/R__usp_report_open_tickets_aging.sql in 0.01 s
+applied programmable/R__usp_report_time_to_close.sql in 0.01 s
+applied programmable/R__usp_ticket_list.sql in 0.01 s
+7 script(s) applied
+wall clock: 11.788926135 s
+$ td-db status
+applied  expand/V0001__tickets_assigned_date.sql                      2026-11-08 01:06:17Z 13 ms by sa
+applied  expand/V0002__tickets_assigned_date_backfill.sql             2026-11-08 01:06:24Z 7027 ms by sa
+applied  expand/V0003__ticket_list_and_report_indexes.sql             2026-11-08 01:06:29Z 4409 ms by sa
+applied  programmable/R__usp_report_assignee_workload.sql             2026-11-08 01:06:29Z 2 ms by sa
+applied  programmable/R__usp_report_open_tickets_aging.sql            2026-11-08 01:06:29Z 1 ms by sa
+applied  programmable/R__usp_report_time_to_close.sql                 2026-11-08 01:06:29Z 2 ms by sa
+applied  programmable/R__usp_ticket_list.sql                          2026-11-08 01:06:29Z 5 ms by sa
+contract contract/C0001__assigned_date_contract.sql (after legacy retirement)

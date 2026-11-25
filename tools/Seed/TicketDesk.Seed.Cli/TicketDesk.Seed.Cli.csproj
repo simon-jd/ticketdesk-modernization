@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Microsoft.Data.SqlClient needs ICU (it throws in globalization-invariant mode) -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>td-seed</AssemblyName>
+    <RootNamespace>TicketDesk.Seed.Cli</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicketDesk.Seed\TicketDesk.Seed.csproj" />
+  </ItemGroup>
+</Project>

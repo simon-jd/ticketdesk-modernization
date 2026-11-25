@@ -1,0 +1,37 @@
+aks.sh session --dry-run: nothing is created. Steps, in order (TAG_V1=aks-v1, TAG_V2=aks-v2b, TTL_HOURS=3.25):
+  ledger        rows K2.* into docs/dev/azure-spend.md (before anything exists); total <= $TD_LEDGER_CAP (15.00) or no start
+  cert          lab CA certificate of the app endpoint
+  apply-vm      -target=module.vm[0]: group, network, Key Vault, deploy identity, the VM (fallback sizes; stop if none)  ~6 min
+  apply         the rest of stage cutover: SQL + DNS zone, monitoring, ACR, Service Bus, AKS, alert, roles   ~10 min
+  kube          kubeconfig, node allocatable vs requests                                               ~1 min
+  images        push ticketdesk-{web,worker,db}:$TAG_V1 and :$TAG_V2 (built before the session)      ~4 min
+  vm-data       BACPAC -> Azure SQL, contained users, migrate, legacy deploy on the VM, legacy smoke   ~12 min
+  deploy-v1     helm: migrate job, web (gateway to the VM over the VNet), worker; app smoke (= rebuild from zero)  ~5 min
+  golden-v1     golden replay through AKS (before any session write: read-only smoke)                   ~6 min
+  cutover       probe on the VM, switched to AKS: failed requests                                      ~2 min
+  vm-cert       VM certificate rotation (R3 path) with the gateway's legacy check polled               ~4 min
+  aks-cert      AKS certificate rotation from Key Vault: time to pick up, failed requests              ~4 min
+  retire-vm     stage aks: the VM deleted (legacy retired; v1 keeps serving, its fallback unused)      ~6 min
+  deploy-v2     CD pipeline (queue-cd.sh, the user's approval, timeout $TD_CD_TIMEOUT 1800 s or the time to the deadline) or the script; pre-upgrade job td-db migrate --contract --legacy-retired, then v2   ~5-37 min
+  golden-v2     golden replay on v2                                                                    ~6 min
+  alert-drill   fault -> fired -> recover -> resolved                                                  ~18 min
+  slo           availability and p95 latency KQL over the session                                      ~3 min
+  restore-drill point-in-time restore: RTO, RPO; restored database deleted                             ~25 min
+  destroy       stage none / RG delete (trap: also on any failure, stop or the deadline)               ~15 min
+  deadline      start + 165 min (rows' 180 - destroy 15); steps before retire-vm until start + 157 min; a step still running 2 min after it is stopped; past it: "not measured: session deadline", destroy (retire-vm and destroy never skipped)
+checks:
+  ledger total now: 12.98 USD; ledger running estimate $12.98 / cap $15.00: OK
+  rows K2.* the session adds first: 1.98 USD -> total 14.96 vs cap 15.00: fits
+  window: rows K2.* start .. start + 180 min; deadline start + 165 min; before retire-vm start + 157 min; ttl start + 195 min (TTL_HOURS 3.25)
+  worst case (trap dead: the reaper deletes the group at ttl = start + 3.25 h, VM never retired): 2.18 -> 15.16
+    + the reaper's lag (next run within 15 min, ~11 min to delete): 2.30 -> 15.28
+    (with the earlier 4 h ttl: 2.39 -> 15.37; per hour past the plan: AKS 0.1808, VM 0.0941)
+  resource group rg-ticketdesk-lab exists: false
+  images :aks-v1: present
+  images :aks-v2b: present
+  app certificate: subject=O=TicketDesk Lab, CN=tdlab-aks-36d2d4.swedencentral.cloudapp.azure.com notAfter=Feb 13 04:43:56 2029 GMT 
+  legacy package: ~/Desktop/ticketdesk-modernization/vm/artifacts/aks/td-legacy-publish-b4c1428.zip
+  BACPAC: 3637947 ~/Desktop/ticketdesk-modernization/vm/exports/azure-sql/ticketdesk-baseline-s-shared.bacpac
+  CD path: preflight ok: agent free, nothing queued, Azure Repos modernize 4540ad1d has this session's chart and CD script
+  quota swedencentral: cores 0 6/standardBasv2Family 0 10/
+  helm template v1/v2: v1 ok v2 ok (no Legacy__/SharedCookie settings, contract job)

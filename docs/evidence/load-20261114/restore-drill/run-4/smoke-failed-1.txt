@@ -1,0 +1,9 @@
+legacy_smoke smoke against https://localhost:18453 at 2026-11-14T06:12:45Z
+  GET  / -> 200 19ms
+[PASS] home page over HTTPS (HTTP 200, title='TicketDesk')
+  GET  /user/sign-in -> 200 24ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 429ms -> /
+  GET  / -> 500 4332ms
+[FAIL] sign in as admin (HTTP 500, landed on /)
+{"command": "smoke", "ok": false, "checks_passed": 2, "checks_total": 3, "requests": 4, "seconds": 4.8}

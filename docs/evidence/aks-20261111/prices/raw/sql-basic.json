@@ -1,0 +1,52 @@
+{
+ "fetched_utc": "2026-11-11T04:36:25Z",
+ "url": "https://prices.azure.com/api/retail/prices?%24filter=currencyCode+eq+%27USD%27+and+priceType+eq+%27Consumption%27+and+armRegionName+eq+%27swedencentral%27+and+serviceName+eq+%27SQL+Database%27+and+productName+eq+%27SQL+Database+Single+Basic%27&api-version=2023-01-01-preview",
+ "pages": 1,
+ "count": 2,
+ "items": [
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.161,
+   "unitPrice": 0.161,
+   "armRegionName": "swedencentral",
+   "location": "SE Central",
+   "effectiveStartDate": "2021-06-08T00:00:00Z",
+   "meterId": "d2f7f1ea-0e6f-5aea-8514-76622e7637c2",
+   "meterName": "B Secondary Active DTU",
+   "productId": "DZH318Z0BQGZ",
+   "skuId": "DZH318Z0BQGZ/007R",
+   "productName": "SQL Database Single Basic",
+   "skuName": "B Secondary Active",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1/Day",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": ""
+  },
+  {
+   "currencyCode": "USD",
+   "tierMinimumUnits": 0.0,
+   "retailPrice": 0.161,
+   "unitPrice": 0.161,
+   "armRegionName": "swedencentral",
+   "location": "SE Central",
+   "effectiveStartDate": "2021-06-08T00:00:00Z",
+   "meterId": "ed717c09-8bfb-58ad-9eeb-3d3f47e8fac9",
+   "meterName": "B DTU",
+   "productId": "DZH318Z0BQGZ",
+   "skuId": "DZH318Z0BQGZ/007V",
+   "productName": "SQL Database Single Basic",
+   "skuName": "B",
+   "serviceName": "SQL Database",
+   "serviceId": "DZH3180HX10K",
+   "serviceFamily": "Databases",
+   "unitOfMeasure": "1/Day",
+   "type": "Consumption",
+   "isPrimaryMeterRegion": true,
+   "armSkuName": ""
+  }
+ ]
+}

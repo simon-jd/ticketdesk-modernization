@@ -1,0 +1,233 @@
+{
+ "testEngine": {
+  "name": "axe-core",
+  "version": "4.14.0"
+ },
+ "url": "https://localhost:5463/ticket/1",
+ "violations": [
+  {
+   "id": "button-name",
+   "impact": "critical",
+   "help": "Buttons must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-11.9.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".form-group.hidden-xs > form > .input-group.input-group-sm > .input-group-btn > button[type=\"submit\"][value=\"go\"]"
+     ],
+     "html": "<button type=\"submit\" value=\"go\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-search\"></i></button>"
+    }
+   ]
+  },
+  {
+   "id": "color-contrast",
+   "impact": "serious",
+   "help": "Elements must meet minimum color contrast ratio thresholds",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2aa",
+    "wcag143",
+    "TTv5",
+    "TT13.c",
+    "EN-301-549",
+    "EN-9.1.4.3",
+    "ACT",
+    "RGAAv4",
+    "RGAA-3.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "li:nth-child(1) > a[href=\"/\"]"
+     ],
+     "html": "<a href=\"/\"><i class=\"fa fa-home\"></i> Home</a>"
+    },
+    {
+     "target": [
+      "li:nth-child(2) > a[href$=\"tickets\"]"
+     ],
+     "html": "<a href=\"/tickets\"><i class=\"fa fa-ticket\"></i> Ticket Center</a>"
+    },
+    {
+     "target": [
+      "li:nth-child(3) > a[href$=\"new\"]"
+     ],
+     "html": "<a href=\"/ticket/new\"><i class=\"fa fa-plus\"></i> New Ticket</a>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(2) > .dropdown-toggle[href=\"#\"][data-toggle=\"dropdown\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">\n            {secret:TD_ADMIN_NAME}\n        </span>"
+    },
+    {
+     "target": [
+      ".dropdown:nth-child(4) > .dropdown-toggle[href=\"#\"][data-toggle=\"dropdown\"] > span:nth-child(2)"
+     ],
+     "html": "<span class=\"\">Language</span>"
+    },
+    {
+     "target": [
+      "a[href$=\"about\"] > .hidden-sm"
+     ],
+     "html": "<span class=\"hidden-sm\">About</span>"
+    },
+    {
+     "target": [
+      ".panel-default.panel:nth-child(1) > .panel-heading > .small.text-muted"
+     ],
+     "html": "<div class=\"text-muted small\" style=\"text-indent: 1em;\">\n                Tuesday, October 6, 2026\n                3:43 PM\n            </div>"
+    },
+    {
+     "target": [
+      ".panel-default.panel:nth-child(2) > .panel-heading > .small.text-muted"
+     ],
+     "html": "<div class=\"text-muted small\" style=\"text-indent: 1em;\">\n                Tuesday, October 6, 2026\n                5:07 AM\n            </div>"
+    },
+    {
+     "target": [
+      "footer > p"
+     ],
+     "html": "<p class=\"text-muted\">\n                <a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a> v2.5 | © 2008 - 2026 | NullDesk Solutions (Stephen M. Redd)\n            </p>"
+    }
+   ]
+  },
+  {
+   "id": "html-has-lang",
+   "impact": "serious",
+   "help": "<html> element must have a lang attribute",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/html-has-lang?application=axeAPI",
+   "tags": [
+    "cat.language",
+    "wcag2a",
+    "wcag311",
+    "TTv5",
+    "TT11.a",
+    "EN-301-549",
+    "EN-9.3.1.1",
+    "ACT",
+    "RGAAv4",
+    "RGAA-8.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  },
+  {
+   "id": "link-in-text-block",
+   "impact": "serious",
+   "help": "Links must be distinguishable without relying on color",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=axeAPI",
+   "tags": [
+    "cat.color",
+    "wcag2a",
+    "wcag141",
+    "TTv5",
+    "TT13.a",
+    "EN-301-549",
+    "EN-9.1.4.1",
+    "RGAAv4",
+    "RGAA-10.6.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "footer > p > a"
+     ],
+     "html": "<a href=\"https://github.com/NullDesk/TicketDesk\">TicketDesk</a>"
+    }
+   ]
+  },
+  {
+   "id": "link-name",
+   "impact": "serious",
+   "help": "Links must have discernible text",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-name?application=axeAPI",
+   "tags": [
+    "cat.name-role-value",
+    "wcag2a",
+    "wcag244",
+    "wcag412",
+    "section508",
+    "section508.22.a",
+    "TTv5",
+    "TT6.a",
+    "EN-301-549",
+    "EN-9.2.4.4",
+    "EN-9.4.1.2",
+    "ACT",
+    "RGAAv4",
+    "RGAA-6.2.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".navbar-brand"
+     ],
+     "html": "<a class=\"navbar-brand\" href=\"/\"> </a>"
+    }
+   ]
+  },
+  {
+   "id": "list",
+   "impact": "serious",
+   "help": "<ul> and <ol> must only directly contain <li>, <script> or <template> elements",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/list?application=axeAPI",
+   "tags": [
+    "cat.structure",
+    "wcag2a",
+    "wcag131",
+    "EN-301-549",
+    "EN-9.1.3.1",
+    "RGAAv4",
+    "RGAA-9.3.1"
+   ],
+   "nodes": [
+    {
+     "target": [
+      ".nav.navbar-nav:nth-child(1)"
+     ],
+     "html": "<ul class=\"nav navbar-nav\">"
+    }
+   ]
+  },
+  {
+   "id": "page-has-heading-one",
+   "impact": "moderate",
+   "help": "Page should contain a level-one heading",
+   "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axeAPI",
+   "tags": [
+    "cat.semantics",
+    "best-practice"
+   ],
+   "nodes": [
+    {
+     "target": [
+      "html"
+     ],
+     "html": "<html class=\" js flexbox flexboxl...\" style=\"\">"
+    }
+   ]
+  }
+ ]
+}

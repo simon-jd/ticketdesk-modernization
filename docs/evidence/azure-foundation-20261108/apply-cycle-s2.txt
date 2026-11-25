@@ -1,0 +1,28 @@
+# cycle S2 apply
+# command: make azure-up/down-foundation (bash wrapper in tmux), swedencentral, terraform 1.17.1, azurerm 5.13.0, azuread 3.10.0, azapi 2.13.0, host lab-host
+# lines kept: stage start/end, plan summary, per-resource Creation/Destruction complete, errors; IDs redacted
+apply stage foundation start 2026-11-08T07:45:53Z
+Plan: 24 to add, 0 to change, 0 to destroy.
+azurerm_resource_group.lab[0]: Creation complete after 25s
+module.network[0].azurerm_network_security_group.vm: Creation complete after 3s
+module.network[0].azurerm_network_security_group.aks: Creation complete after 3s
+module.monitoring[0].azurerm_monitor_action_group.email[0]: Creation complete after 3s
+module.network[0].azurerm_network_security_group.pe: Creation complete after 3s
+module.network[0].azurerm_virtual_network.this: Creation complete after 5s
+module.network[0].azurerm_subnet.pe: Creation complete after 6s
+module.network[0].azurerm_subnet.aks: Creation complete after 11s
+module.network[0].azurerm_subnet.vm: Creation complete after 17s
+module.network[0].azurerm_subnet_network_security_group_association.pe: Creation complete after 17s
+module.network[0].azurerm_subnet_network_security_group_association.aks: Creation complete after 17s
+module.sql[0].azurerm_private_dns_zone.sql: Creation complete after 34s
+module.network[0].azurerm_subnet_network_security_group_association.vm: Creation complete after 16s
+module.monitoring[0].azurerm_log_analytics_workspace.this: Creation complete after 46s
+module.monitoring[0].azurerm_application_insights.this: Creation complete after 5s
+module.sql[0].azurerm_mssql_server.this: Creation complete after 1m1s
+module.sql[0].azurerm_private_dns_zone_virtual_network_link.sql: Creation complete after 32s
+module.sql[0].azapi_resource.database: Creation complete after 1m4s
+module.sql[0].azurerm_private_endpoint.sql: Creation complete after 1m57s
+Error: waiting for Key Vault (Subscription: "<subscription-id>"
+Key Vault Name: "kv-tdlab-36d2d4") to become available: connecting to "https://kv-tdlab-36d2d4.vault.azure.net/": Get "https://kv-tdlab-36d2d4.vault.azure.net/": dial tcp: lookup kv-tdlab-36d2d4.vault.azure.net on 127.0.0.53:53: server misbehaving
+apply stage foundation end 2026-11-08T07:49:30Z elapsed_s=217 rc=1
+EXIT=2

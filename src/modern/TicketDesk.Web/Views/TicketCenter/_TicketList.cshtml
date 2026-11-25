@@ -1,0 +1,138 @@
+@* Port of the legacy Views/TicketCenter/_TicketList.cshtml (TicketDesk 2.5, Ms-PL). Also the AJAX answer of pageList,
+   filterList and sortList (no layout). *@
+@model TicketDesk.Web.Controllers.TicketCenterViewModel
+@using TicketDesk.Data.Entities
+@using TicketCenterIndex = TicketDesk.Localization.Views.TicketCenter.Index
+@using DomainStrings = TicketDesk.Localization.Domain.Strings
+@using InfraStrings = TicketDesk.Localization.Infrastructure.Strings
+@{
+    var list = Model.Current;
+    var listName = Uri.EscapeDataString(list.ListName);
+    IHtmlContent Header(string column, string text)
+    {
+        var sort = list.SortColumns.FindIndex(s => s.ColumnName == column);
+        var href = $"/tickets/sortList/{listName}/{Model.CurrentPage}?ColumnName={Uri.EscapeDataString(column)}";
+        return LegacyHtml.SortableColumnHeader(href, text, InfraStrings.RemoveColumnsFromSort,
+            sort >= 0 ? sort + 1 : null, sort >= 0 ? list.SortColumns[sort].SortDirection == TicketDesk.Tickets.TicketCenter.SortDirection.Ascending : null);
+    }
+    string StatusName(TicketStatus s) => s switch
+    {
+        TicketStatus.Active => DomainStrings.TicketStatusActive,
+        TicketStatus.MoreInfo => DomainStrings.TicketStatusMoreInfo,
+        TicketStatus.Resolved => DomainStrings.TicketStatusResolved,
+        TicketStatus.Closed => DomainStrings.TicketStatusClosed,
+        _ => s.ToString(),
+    };
+    string ShortDate(DateTimeOffset? d) => d.HasValue ? d.Value.Date.ToShortDateString() : string.Empty;
+}
+<div id="ticketList" class="panel panel-default">
+    <div class="panel-heading row-no-padding">
+        <partial name="_FilterBar" model="Model" />
+    </div>
+    <div class="panel-body" style="padding: 0;">
+        <div class="table-responsive">
+            <table class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>
+                            @Header("TicketId", TicketCenterIndex.TicketList_ID)
+                        </th>
+                        <th>
+                            @Header("Title", TicketCenterIndex.TicketList_Title)
+                        </th>
+                        <th>
+                            @Header("TicketStatus", TicketCenterIndex.TicketList_Status)
+                        </th>
+                        <th class="hidden-xs">
+                            @Header("Owner", TicketCenterIndex.TicketList_Owner)
+                        </th>
+                        <th>
+                            @Header("AssignedTo", TicketCenterIndex.TicketList_Assigned)
+                        </th>
+                        <th class="hidden-sm hidden-xs">
+                            @Header("TicketType", TicketCenterIndex.TicketList_Type)
+                        </th>
+                        <th class="hidden-sm hidden-xs">
+                            @Header("Category", TicketCenterIndex.TicketList_Category)
+                        </th>
+                        <th class="hidden-sm hidden-xs">
+                            @Header("Priority", TicketCenterIndex.TicketList_Priority)
+                        </th>
+                        <th>
+                            @Header("TargetDate", TicketCenterIndex.TicketList_Target)
+                        </th>
+                        <th>
+                            @Header("DueDate", TicketCenterIndex.TicketList_Due)
+                        </th>
+                        <th class="hidden-sm hidden-xs">
+                            @Header("CreatedDate", TicketCenterIndex.TicketList_Created)
+                        </th>
+                        <th>
+                            @Header("LastUpdateDate", TicketCenterIndex.TicketList_Updated)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="ticketItems">
+
+                    @foreach (var item in Model.Tickets.Items)
+                    {
+                        <tr class="clickable @(item.IsDue(Model.Today) ? "due" : (item.IsOverDue(Model.Today) ? "overdue" : string.Empty))">
+                            <td colspan="2" style="white-space: normal;">
+                                @* the stray comma after href is in the legacy markup; browsers ignore it, the replay sees it *@
+                                @Html.Raw($"<a href=\"/ticket/{item.TicketId}\", style=\"margin-right: 1ex;\">\r\n    #{item.TicketId}\r\n</a>")
+                                @item.Title
+                                @if (Model.DisplayProjects)
+                                {
+                                    <div>
+                                        <span class="small text-muted">
+                                            <i class="fa fa-book"></i>
+                                            @item.ProjectName
+                                        </span>
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                @StatusName(item.Status)
+                            </td>
+                            <td class="hidden-xs">
+                                @item.OwnerName
+                            </td>
+                            <td>
+                                @item.AssignedToName
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                                @item.TicketType
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                                @item.Category
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                                @item.Priority
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                                @ShortDate(item.TargetDate)
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                                @ShortDate(item.DueDate)
+                            </td>
+                            <td class="hidden-sm hidden-xs">
+                                @item.CreatedDate.ToString("d")<br />
+                                @item.CreatedDate.ToString("t")
+                            </td>
+                            <td>
+                                @item.LastUpdateDate.ToString("d")<br />
+                                @item.LastUpdateDate.ToString("t")
+                            </td>
+
+                        </tr>
+
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+        @LegacyHtml.Pager(Model.Tickets.PageNumber, Model.Tickets.PageCount, p => $"/tickets/pageList/{listName}/{p}", LegacyHtml.AjaxAttributes("ticketCenter.paging.beginChangePage", "GET"))
+    </div>
+</div>

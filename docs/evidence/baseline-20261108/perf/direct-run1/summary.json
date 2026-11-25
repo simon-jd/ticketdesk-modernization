@@ -1,0 +1,184 @@
+{
+  "target": "https://localhost:8443",
+  "rate_per_s": 10,
+  "warmup_s": 30,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "count": 1145,
+      "min": 3.744044,
+      "med": 22.15238,
+      "avg": 24.478358045414826,
+      "p(90)": 50.43456700000001,
+      "p(95)": 57.23720539999999,
+      "p(99)": 75.25635091999996,
+      "max": 109.769911
+    },
+    "failed": {
+      "rate": 0,
+      "passes": 0,
+      "fails": 1145
+    }
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 680,
+    "fails": 0
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "count": 216,
+        "min": 36.018663,
+        "med": 47.2880485,
+        "avg": 49.60655307407405,
+        "p(90)": 61.7645225,
+        "p(95)": 70.09126175,
+        "p(99)": 81.3790332,
+        "max": 94.381836
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 216
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "max": 109.769911,
+        "count": 672,
+        "min": 3.744044,
+        "med": 6.3794135,
+        "avg": 14.957202334821428,
+        "p(90)": 34.417760099999995,
+        "p(95)": 37.504154249999985,
+        "p(99)": 51.705595359999926
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 672
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "p(95)": 69.55670970000001,
+        "p(99)": 73.06486086,
+        "max": 74.476848,
+        "count": 82,
+        "min": 30.475917,
+        "med": 39.436895,
+        "avg": 43.08293056097562,
+        "p(90)": 58.918440900000014
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 82
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "p(95)": 23.1634173,
+        "p(99)": 27.494154119999997,
+        "max": 35.472667,
+        "count": 124,
+        "min": 9.596264,
+        "med": 13.7754035,
+        "avg": 15.270468887096776,
+        "p(90)": 22.069052
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 124
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "p(99)": 86.62455750000001,
+        "max": 97.315889,
+        "count": 51,
+        "min": 14.293817,
+        "med": 30.618872,
+        "avg": 35.98286433333333,
+        "p(90)": 65.360182,
+        "p(95)": 73.0358025
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 51
+      }
+    }
+  },
+  "iterations": {
+    "count": 901,
+    "rate": 10.007001192246594
+  },
+  "dropped_iterations": null,
+  "vus_max": {
+    "value": 20,
+    "min": 20,
+    "max": 20
+  },
+  "root_group_checks": [
+    {
+      "fails": 0,
+      "name": "signed in (302 to /)",
+      "path": "::signed in (302 to /)",
+      "id": "fdcd4b15f72aec2317ac2c1533ca239e",
+      "passes": 20
+    },
+    {
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 134,
+      "fails": 0,
+      "name": "filter 200",
+      "path": "::filter 200"
+    },
+    {
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 334,
+      "fails": 0
+    },
+    {
+      "passes": 328,
+      "fails": 0,
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6"
+    },
+    {
+      "fails": 0,
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 82
+    },
+    {
+      "fails": 0,
+      "name": "comment saved",
+      "path": "::comment saved",
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 82
+    },
+    {
+      "fails": 0,
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket",
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 27
+    },
+    {
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 27,
+      "fails": 0,
+      "name": "created ticket 200",
+      "path": "::created ticket 200"
+    }
+  ]
+}

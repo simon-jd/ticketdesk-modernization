@@ -1,0 +1,47 @@
+@* Port of the legacy Views/TicketCenter/_ListMenu.cshtml (TicketDesk 2.5, Ms-PL). *@
+@model TicketDesk.Web.Controllers.TicketCenterViewModel
+@using TicketDesk.Web.Controllers
+@using TicketCenterIndex = TicketDesk.Localization.Views.TicketCenter.Index
+<div class="row menulist">
+    <ul class="nav nav-tabs pull-right" role="tablist">
+        @foreach (var list in Model.UserLists)
+        {
+            var className = Model.Current.ListName == list.ListName ? "active" : string.Empty;
+            <li class="@className small">
+                <a href="/tickets/@Uri.EscapeDataString(list.ListName)">@TicketCenterViewModel.DisplayName(list)</a>
+            </li>
+        }
+        <li data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="@TicketCenterIndex.ResetAllSettings">
+            <a href="#" class="" data-toggle="modal" data-target="#reset-confirm">
+                <i class="fa fa-repeat"></i> <span class="hidden-xs hidden-sm">@TicketCenterIndex.ResetLists</span>
+            </a>
+
+
+        </li>
+
+    </ul>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="reset-confirm" tabindex="-1" role="dialog" aria-labelledby="reset-confirm-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="@TicketCenterIndex.CloseOption"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="reset-confirm-label">@TicketCenterIndex.Reset_Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-danger">
+                    @TicketCenterIndex.Reser_Alert
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@TicketCenterIndex.CancelOption</button>
+                @* S3 (Round 5): a form that posts with the antiforgery token (a link in the legacy app) *@
+                <form action="/tickets/reset-user-lists" method="post" style="display: inline;">@Html.AntiForgeryToken()<button type="submit" class="btn btn-primary">@TicketCenterIndex.SaveOption</button></form>
+            </div>
+        </div>
+    </div>
+</div>

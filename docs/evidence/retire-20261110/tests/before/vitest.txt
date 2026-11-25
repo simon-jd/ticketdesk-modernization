@@ -1,0 +1,32 @@
+$ (cd src/web && npm test)
+
+> ticketdesk-web@0.0.0 pretest
+> npm run generate:api
+
+
+> ticketdesk-web@0.0.0 generate:api
+> ng-openapi-gen --config ng-openapi-gen.json
+
+
+> ticketdesk-web@0.0.0 test
+> ng test --watch=false
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [0.926 seconds] - 2026-11-11T04:24:26.168Z
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.1.0 [39m[90m~/Desktop/ticketdesk-modernization/wt-retire/src/web[39m
+
+ [32m✓[39m [30m[46m ticketdesk-web [49m[39m src/app/tickets/new-ticket-form.spec.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m [30m[46m ticketdesk-web [49m[39m src/app/tickets/activity-form.spec.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m [30m[46m ticketdesk-web [49m[39m src/app/tickets/format.spec.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m [30m[46m ticketdesk-web [49m[39m src/app/tickets/list-query.spec.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m [30m[46m ticketdesk-web [49m[39m src/app/pages.spec.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 605[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[32m28 passed[39m[22m[90m (28)[39m
+[2m   Start at [22m 20:24:26
+[2m   Duration [22m 1.14s[2m (environment 50%, tests 23%, setup 20%, transform 5%, import 2%, worker 1%)[22m
+
+vitest exit 0

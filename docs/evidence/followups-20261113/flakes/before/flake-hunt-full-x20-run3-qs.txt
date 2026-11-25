@@ -1,0 +1,7 @@
+failed TicketDesk.Database.Tests.MigrationTests.Only_the_tag_count_asks_for_the_parallel_plan (4s 481ms)
+  from ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/bin/Release/net10.0/TicketDesk.Database.Tests.dll (net10.0|x64)
+  Assert.Equal() Failure: Values differ
+  Expected: 2
+  Actual:   1
+    at TicketDesk.Database.Tests.MigrationTests.Only_the_tag_count_asks_for_the_parallel_plan() in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/MigrationTests.cs:112
+    at TicketDesk.Database.Tests.MigrationTests.Only_the_tag_count_asks_for_the_parallel_plan() in ~/Desktop/ticketdesk-modernization/wt-followups/src/modern/tests/TicketDesk.Database.Tests/MigrationTests.cs:115

@@ -1,0 +1,29 @@
+2026-11-10T08:15:47Z provision 20261110T081547Z on vm-tdlab-legacy: fetch+azsql-wake+freeze+export+import+azsql-users+reconcile+switch SqlServer=sql-tdlab-36d2d4.database.windows.net SqlDatabase=sqldb-ticketdesk DeployClientId=<client-id-12> AppIdentityName=vm-tdlab-legacy SqlToolsBlob=td-sqltools-2106795.zip SqlToolsSha256=97a61c145be3da58ff801a713be18aec4852fed39529e660265e9894555835e4 DotnetVersion=10.0.14 Database=azure
+provision 20261110T081547Z steps=fetch+azsql-wake+freeze+export+import+azsql-users+reconcile+switch elapsed_s=93 rc=0
+dbo.__ModernSchemaHistory                           9              9  dbe6091d6a4fc758  ok
+notifications.ApplicationPushNotificationSettings              1              1  9418a5310a6b0152  ok
+notifications.PushNotificationDestinations              1              1  f120e56bf575a66d  ok
+notifications.PushNotificationItems                 0              0  e3b0c44298fc1c14  ok
+notifications.SubscriberPushNotificationSettings              1              1  d4081e0ac06f9883  ok
+notifications.TicketPushNotificationItems              0              0  e3b0c44298fc1c14  ok
+[2026-11-10T08:17:04Z] TDMARK reconciled 2026-11-10T08:17:04.750Z
+[2026-11-10T08:17:04Z] step reconcile done in 4s
+[2026-11-10T08:17:04Z] ==== step switch
+[2026-11-10T08:17:04Z] TDMARK switch_start 2026-11-10T08:17:04.752Z
+[2026-11-10T08:17:05Z] INFO   Azure SQL with the managed identity: first-run setup disabled
+[2026-11-10T08:17:05Z] INFO   file store: Azure Blob (https://sttdlabfiles36d2d4.blob.core.windows.net/)
+[2026-11-10T08:17:05Z] INFO   remote authentication: on (/systemweb-adapters/authenticate)
+[2026-11-10T08:17:05Z] INFO   database: Azure SQL, ManagedIdentity (tcp:sql-tdlab-36d2d4.database.windows.net,1433)
+[2026-11-10T08:17:05Z] CHANGE Web.config: connectionStrings/TicketDesk, appSettings/ticketdesk:SqlAuthentication=ManagedIdentity
+[2026-11-10T08:17:10Z] INFO   warm-up http://localhost/ -> 200 in 4.8s
+[2026-11-10T08:17:10Z] deploy: database azure, remote-app key True, attachments Azure Blob (account SAS from Key Vault)
+[2026-11-10T08:17:10Z] TDMARK switched 2026-11-10T08:17:10.366Z
+[2026-11-10T08:17:10Z] step switch done in 5.6s
+[2026-11-10T08:17:10Z] TDTIMINGS {"fetch":0.3,"azsql-wake":0.3,"freeze":0,"export":29,"import":37.4,"azsql-users":0.2,"reconcile":4,"switch":5.6} total 77.0s
+transcript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261110T081547Z.log
+---- ComponentStatus/StdErr/succeeded
+
+
+Alive[################################################################]  100.0000%
+Finished[#############################################################]  100.0000%
+provision 20261110T081547Z steps=fetch+azsql-wake+freeze+export+import+azsql-users+reconcile+switch elapsed_s=93 rc=0

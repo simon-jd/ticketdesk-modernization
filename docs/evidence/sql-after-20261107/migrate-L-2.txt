@@ -1,0 +1,9 @@
+# 2026-11-08T01:14:20Z load average 32.98 21.17 17.87
+$ td-db migrate   # V0004 + revised procedures
+    rebuilt PK_dbo.Tickets online
+applied expand/V0004__tickets_rebuild_after_backfill.sql in 4.06 s
+applied programmable/R__usp_report_open_tickets_aging.sql in 0.03 s
+applied programmable/R__usp_report_time_to_close.sql in 0.03 s
+applied programmable/R__usp_ticket_list.sql in 0.02 s
+4 script(s) applied
+wall clock: 4.604444757 s

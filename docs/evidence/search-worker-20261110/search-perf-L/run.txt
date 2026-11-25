@@ -1,0 +1,55 @@
+# 2026-11-10T18:13:19Z capture + bench, td-sql TicketDeskLSearch (copy of TicketDeskL + td-db V0010, V0011), load 1.23 2.10 2.66
+captured search/search-printer: 1 command(s)
+captured search/search-network: 1 command(s)
+captured search/search-team: 1 command(s)
+captured search/search-two-words: 1 command(s)
+captured search/search-required: 1 command(s)
+captured search/search-excluded: 1 command(s)
+captured search/search-phrase: 1 command(s)
+captured search/search-prefix: 1 command(s)
+captured search/search-tag-field: 1 command(s)
+captured search/search-ticket-id: 1 command(s)
+captured search/search-project: 1 command(s)
+captured search/search-internal-user: 1 command(s)
+captured search/search-no-hits: 1 command(s)
+[18:13:25] search/search-printer: 1 command(s)
+    cold: median 117 ms server / 118.4 ms client, cpu 505 ms, reads 4378
+    warm: median 98.5 ms server / 99.4 ms client, cpu 468 ms, reads 4378
+[18:13:28] search/search-network: 1 command(s)
+    cold: median 150 ms server / 151.8 ms client, cpu 712 ms, reads 12411
+    warm: median 131.5 ms server / 132.8 ms client, cpu 669.5 ms, reads 12411
+[18:13:32] search/search-team: 1 command(s)
+    cold: median 130 ms server / 131.0 ms client, cpu 567 ms, reads 9826
+    warm: median 113 ms server / 114.1 ms client, cpu 534 ms, reads 9826
+[18:13:35] search/search-two-words: 1 command(s)
+    cold: median 175 ms server / 176.4 ms client, cpu 853 ms, reads 12411
+    warm: median 153.5 ms server / 154.2 ms client, cpu 785.5 ms, reads 12411
+[18:13:40] search/search-required: 1 command(s)
+    cold: median 472 ms server / 472.7 ms client, cpu 2215 ms, reads 756177
+    warm: median 395.5 ms server / 396.8 ms client, cpu 2014.5 ms, reads 756177
+[18:13:51] search/search-excluded: 1 command(s)
+    cold: median 169 ms server / 170.4 ms client, cpu 794 ms, reads 12411
+    warm: median 151 ms server / 152.2 ms client, cpu 745 ms, reads 12411
+[18:13:56] search/search-phrase: 1 command(s)
+    cold: median 39 ms server / 40.3 ms client, cpu 126 ms, reads 1793
+    warm: median 30 ms server / 31.5 ms client, cpu 110 ms, reads 1793
+[18:13:57] search/search-prefix: 1 command(s)
+    cold: median 115 ms server / 115.8 ms client, cpu 517 ms, reads 4378
+    warm: median 104.5 ms server / 105.5 ms client, cpu 500 ms, reads 4378
+[18:14:00] search/search-tag-field: 1 command(s)
+    cold: median 82 ms server / 83.2 ms client, cpu 379 ms, reads 4378
+    warm: median 74 ms server / 75.0 ms client, cpu 369.5 ms, reads 4378
+[18:14:02] search/search-ticket-id: 1 command(s)
+    cold: median 4 ms server / 4.7 ms client, cpu 2 ms, reads 6
+    warm: median 1 ms server / 1.4 ms client, cpu 1 ms, reads 6
+[18:14:02] search/search-project: 1 command(s)
+    cold: median 73 ms server / 73.9 ms client, cpu 349 ms, reads 2978
+    warm: median 65 ms server / 66.0 ms client, cpu 353 ms, reads 2978
+[18:14:05] search/search-internal-user: 1 command(s)
+    cold: median 296 ms server / 296.8 ms client, cpu 1031 ms, reads 1033583
+    warm: median 131 ms server / 132.3 ms client, cpu 847.5 ms, reads 1033583
+[18:14:09] search/search-no-hits: 1 command(s)
+    cold: median 7 ms server / 7.8 ms client, cpu 14 ms, reads 0
+    warm: median 4 ms server / 4.7 ms client, cpu 12 ms, reads 0
+# done 2026-11-10T18:14:11Z, load 4.95 3.08 2.97
+PERF-DONE

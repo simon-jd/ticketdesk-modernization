@@ -1,0 +1,30 @@
+## 2026-11-14T02:11:55Z before
+ 18:11:55 up 5 days, 18:49,  8 users,  load average: 3.52, 4.41, 5.93
+               total        used        free      shared  buff/cache   available
+Mem:             123          38          23           1          63          84
+# per-CPU busy % over 3 s (0-31)
+0:4 1:1 2:3 3:1 4:3 5:2 6:5 7:1 8:3 9:1 10:5 11:0 12:4 13:0 14:4 15:0 16:6 17:6 18:4 19:5 20:10 21:7 22:11 23:9 24:5 25:7 26:4 27:5 28:18 29:18 30:18 31:17
+# top processes by CPU
+%CPU PSR     PID COMMAND
+57.7  26 1584339 dotnet
+45.7  26 1049942 sqlservr
+30.1  23 1253588 td-legacy-vm
+12.9  22 2646229 auto-app
+11.1  20    8349 grok-bot
+ 2.8   0 4019112 sqlservr
+ 2.8   1 4021009 kube-apiserver
+## 2026-11-14T02:14:33Z after
+ 18:14:33 up 5 days, 18:52,  8 users,  load average: 5.41, 5.09, 5.95
+               total        used        free      shared  buff/cache   available
+Mem:             123          38          23           1          63          84
+# per-CPU busy % over 3 s (0-31)
+0:1 1:0 2:8 3:1 4:2 5:0 6:2 7:0 8:3 9:1 10:5 11:0 12:2 13:0 14:1 15:15 16:3 17:2 18:2 19:2 20:100 21:3 22:2 23:3 24:5 25:4 26:2 27:3 28:5 29:6 30:5 31:6
+# top processes by CPU
+%CPU PSR     PID COMMAND
+99.3  20 1607821 utcp_unit_tests
+71.2  26 1584339 dotnet
+47.9  26 1049942 sqlservr
+30.1  22 1253588 td-legacy-vm
+12.9  22 2646229 auto-app
+11.1  25    8349 grok-bot
+ 2.8   0 4019112 sqlservr

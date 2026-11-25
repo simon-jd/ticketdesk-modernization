@@ -1,0 +1,23 @@
+# 2026-11-14T01:11:42Z environment
+git: 9675f3ec (branch ws/load), dirty files: 5
+host: 13th Gen Intel(R) Core(TM) i9-13900K, 32 logical CPUs (P-cores 0-15 with SMT, E-cores 16-31 in 4 clusters of 4 sharing an L2), 123 GB RAM, kernel 7.0.0-42-generic
+k6: k6 v2.3.0 (commit/e088784614, go1.26.8, linux/amd64)
+dotnet: 10.0.403 (runtime Microsoft.AspNetCore.App 10.0.14 [~/Desktop/ticketdesk-modernization/.tools/dotnet/shared/Microsoft.AspNetCore.App])
+helm: v4.3.1+gc0d08d0; kind: kind v0.33.0 go1.26.7 linux/amd64; kubectl: Client Version: v1.37.2
+legacy VM: qemu 10.2.1, KVM, 4 vCPU / 8 GB, Windows Server 2025 Core, IIS 10, SQL Server 2022 Express RTM 16.0.1000.6, user-mode networking (127.0.0.1:8443 -> 443)
+new app SQL: container td-load-sql from ticketdesk/td-sql:2022-fts-16.0.4262.2 with MSSQL_PID=Express (SQL Server 2022 CU25 Express, full-text), --cpuset-cpus 24-27, --memory 8g
+pinning (capacity): legacy vCPU threads 1:1 on CPUs 28-31, qemu's other threads (main loop with the user-mode network, I/O) on 20-23; new app (taskset) and its SQL container (cpuset) together on 24-27; k6 on 16-19; samplers on 0-1
+qemu threads now:
+  1252531 20-23
+  1253588 20-23
+  1253590 20-23
+  1253593 20-23
+  1253594 28
+  1253595 29
+  1253596 30
+  1253597 31
+  1253599 20-23
+  1253600 20-23
+  1253601 20-23
+  1253602 20-23
+td-load-sql cpuset: 24-27, memory 8589934592

@@ -1,0 +1,26 @@
+# 2026-11-13T22:43:02Z  git b19f9f9d
+# image ticketdesk-db:r5b-followups sha256:cca5a679cc9c9dc30c45a0c88678f143e0c28e8cd27d500b99eec9db9db579c4 301499591 bytes, user 1654, entrypoint ["dotnet","td-db.dll"]
+# base: FROM mcr.microsoft.com/dotnet/runtime:10.0-noble-chiseled-extra AS runtime
+$ docker run --rm $IMG create-admin --help
+usage: td-db create-admin --email E --display-name N (--password-stdin | --password-file FILE)
+
+The first administrator of a database that has none (an empty installation: td-seed schema --create-database, then
+td-db migrate --contract --legacy-retired). Connection: TD_DB_CONN. The password comes from standard input (one line)
+or from the first line of FILE, never from the command line; 6 to 100 characters. The account: user name = e-mail, the
+display name, the TdAdministrators role, an Identity V3 hash (the app's hasher), the e-mail destination for
+notifications. Refused (exit 1) while any administrator exists or an account has that e-mail; existing accounts are
+never changed. Exit 0 created, 1 refused, 2 usage or error.
+exit 0
+$ td-seed schema --create-database   (host)
+EF6-implied schema created
+$ docker run --rm --network host --env-file $WORK/env $IMG migrate --contract --legacy-retired
+15 script(s) applied
+$ docker run --rm -i --network host --env-file $WORK/env ticketdesk-db:r5b-followups create-admin --email image.admin@lab.ticketdesk.test --display-name 'Image Admin' --password-stdin < $WORK/pw
+created administrator image.admin@lab.ticketdesk.test (id 1c606367-e8b0-40f9-bd24-8ffbd56b77a2); e-mail destination added
+sign in at /user/sign-in; further accounts: Admin, Users
+exit 0
+$ (the same again: refused)
+td-db: refused: the database has 1 administrator(s) already; they manage accounts in the app (Admin, Users)
+exit 1
+$ (users 1, administrators 1, e-mail destinations 1, hash format byte 0x01)
+# TicketDesk_r5b_image dropped

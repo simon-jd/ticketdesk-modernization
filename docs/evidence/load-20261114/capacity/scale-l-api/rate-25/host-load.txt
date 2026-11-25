@@ -1,0 +1,30 @@
+## 2026-11-14T04:57:46Z before
+ 20:57:46 up 5 days, 21:35, 11 users,  load average: 6.18, 10.00, 10.50
+               total        used        free      shared  buff/cache   available
+Mem:             123          43           8           1          73          79
+# per-CPU busy % over 3 s (0-31)
+0:2 1:0 2:1 3:1 4:2 5:0 6:1 7:0 8:2 9:0 10:1 11:0 12:1 13:2 14:2 15:0 16:100 17:2 18:5 19:3 20:2 21:2 22:1 23:4 24:2 25:2 26:1 27:1 28:2 29:2 30:2 31:8
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 200  21 2688258 ps
+ 168  28 2687673 java
+99.9  16 2673498 utcp_sim_tests
+38.5  26 1049942 sqlservr
+31.0  22 1253588 td-legacy-vm
+19.1  27 2687078 dotnet
+12.3  12 2646229 auto-app
+## 2026-11-14T05:00:24Z after
+ 21:00:24 up 5 days, 21:38, 13 users,  load average: 8.93, 8.94, 9.97
+               total        used        free      shared  buff/cache   available
+Mem:             123          47           2           1          74          75
+# per-CPU busy % over 3 s (0-31)
+0:8 1:60 2:17 3:2 4:13 5:12 6:15 7:9 8:14 9:1 10:13 11:3 12:14 13:5 14:16 15:1 16:61 17:87 18:23 19:50 20:48 21:19 22:61 23:86 24:99 25:98 26:14 27:9 28:74 29:63 30:7 31:69
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 102  21 2707323 cc1plus
+ 100  19 2707248 cc1plus
+ 100  31 2707074 cc1plus
+ 100  20 2707259 cc1plus
+ 100  28 2707289 cc1plus
+ 100  18 2707322 cc1plus
+ 100  24 2707342 cc1plus

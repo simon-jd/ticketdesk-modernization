@@ -1,0 +1,39 @@
+==== 2026-11-08T00:38:04Z step copy-ops
+
+Name                        Length
+----                        ------
+Backup-TdSite.ps1             5535
+Build-TdLegacy.ps1            4258
+Deploy-TdApp.ps1              5248
+Install-TdBuildTools.ps1      3405
+Install-TdPrerequisites.ps1   2435
+Install-TdSqlExpress.ps1      6409
+Register-TdBackupTask.ps1     2786
+Restore-TdSite.ps1            4894
+Set-TdIisSite.ps1            10786
+TdOps.psm1                    6118
+
+
+
+==== 2026-11-08T00:38:15Z step deploy
+
+	  			C:\TdBuild\publish\Web.config
+		C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments.gen
+	  			C:\inetpub\ticketdesk\app_data\ticketdesk-searchindex\segments_1
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :        65         0        65         0         0         1
+   Files :       840         1       839         0         0         2
+   Bytes :   69.90 m    11.4 k   69.89 m         0         0        52
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Sunday, November 8, 2026 12:38:24 AM
+
+[2026-11-08T00:38:24Z] CHANGE mirrored C:\TdBuild\publish -> C:\inetpub\ticketdesk (robocopy rc 3, App_Data kept)
+[2026-11-08T00:38:24Z] SKIP   IIS AppPool\TicketDesk already has Modify on C:\inetpub\ticketdesk\App_Data
+[2026-11-08T00:38:25Z] CHANGE Web.config: connectionStrings/TicketDesk
+[2026-11-08T00:38:32Z] INFO   warm-up http://localhost/ -> 302 -> /first-run-setup in 7.0s
+==== 2026-11-08T00:38:32Z done: copy-ops deploy
+EXIT=0

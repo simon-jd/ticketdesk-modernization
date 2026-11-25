@@ -1,0 +1,38 @@
+@* Replaces the legacy Views/SearchManager/Index.cshtml (TicketDesk 2.5, Ms-PL): the Lucene index it managed is retired (L4).
+   Search runs on SQL Server full-text (td-db V0011), which indexes every write by itself; this page shows the indexes' state. *@
+@model IReadOnlyList<TicketDesk.Search.FullTextIndexInfo>
+@using SearchIndex = TicketDesk.Localization.Views.SearchManager.Index
+
+@section title
+{
+     @SearchIndex.Title
+}
+<div class="contentContainer">
+    <h2>@SearchIndex.Header</h2>
+    <p>
+        Search uses SQL Server full-text indexes. SQL Server updates them after every change to a ticket or comment, whichever
+        application made it, so there is no index to remove or rebuild here.
+    </p>
+    @if (Model.Count == 0)
+    {
+        <p class="text-danger">No full-text index found: run <code>td-db migrate</code> (script V0011) on this database.</p>
+    }
+    else
+    {
+        <table class="table table-condensed" id="fullTextIndexes">
+            <thead><tr><th>Table</th><th>State</th><th>Indexed rows</th><th>Changes waiting</th><th>Last full population</th></tr></thead>
+            <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.TableName</td>
+                    <td>@(i.Ready ? "up to date" : "updating")</td>
+                    <td>@i.ItemCount.ToString("N0")</td>
+                    <td>@i.PendingChanges.ToString("N0")</td>
+                    <td>@(i.CrawlEnd?.ToString("u") ?? "running")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+</div>

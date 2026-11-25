@@ -1,0 +1,182 @@
+{
+  "target": "https://localhost:8443",
+  "rate_per_s": 10,
+  "warmup_s": 0,
+  "measure_s": 60,
+  "users": 37,
+  "all": {
+    "duration_ms": {
+      "p(90)": 96.140664,
+      "p(95)": 113.361732,
+      "p(99)": 1847.069588,
+      "max": 3125.194812,
+      "count": 1151,
+      "min": 6.505255,
+      "med": 46.846444,
+      "avg": 84.27804822762803
+    },
+    "failed": {
+      "rate": 0,
+      "passes": 0,
+      "fails": 1151
+    }
+  },
+  "checks": {
+    "passes": 687,
+    "fails": 0,
+    "rate": 1
+  },
+  "by_op": {
+    "list": {
+      "duration_ms": {
+        "med": 88.1551805,
+        "avg": 186.0269086239668,
+        "p(90)": 119.06649040000003,
+        "p(95)": 576.5112369999997,
+        "p(99)": 2252.21766677,
+        "max": 2572.303788,
+        "count": 242,
+        "min": 77.420476
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 242,
+        "rate": 0
+      }
+    },
+    "view": {
+      "duration_ms": {
+        "avg": 50.444983747706445,
+        "p(90)": 50.60714450000001,
+        "p(95)": 56.264741650000005,
+        "p(99)": 1368.022163060009,
+        "max": 3125.194812,
+        "count": 654,
+        "min": 6.505255,
+        "med": 8.363441
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 654
+      }
+    },
+    "filter": {
+      "duration_ms": {
+        "min": 61.570794,
+        "med": 72.640351,
+        "avg": 87.40228116091951,
+        "p(90)": 90.69021860000001,
+        "p(95)": 124.3863074000001,
+        "p(99)": 411.07521160000005,
+        "max": 430.206333,
+        "count": 87
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 87
+      }
+    },
+    "comment": {
+      "duration_ms": {
+        "p(90)": 37.6595473,
+        "p(95)": 153.77307749999926,
+        "p(99)": 657.38981937,
+        "max": 681.695673,
+        "count": 84,
+        "min": 16.794672,
+        "med": 23.5796855,
+        "avg": 46.519085547619056
+      },
+      "failed": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 84
+      }
+    },
+    "create": {
+      "duration_ms": {
+        "p(95)": 229.33613984999994,
+        "p(99)": 538.5568903700002,
+        "max": 691.916539,
+        "count": 84,
+        "min": 24.111851,
+        "med": 52.2192965,
+        "avg": 89.08215005952384,
+        "p(90)": 117.6950353
+      },
+      "failed": {
+        "passes": 0,
+        "fails": 84,
+        "rate": 0
+      }
+    }
+  },
+  "iterations": {
+    "count": 601,
+    "rate": 9.825328632007096
+  },
+  "dropped_iterations": null,
+  "vus_max": {
+    "value": 50,
+    "min": 50,
+    "max": 50
+  },
+  "vus": {
+    "min": 0,
+    "max": 20,
+    "value": 2
+  },
+  "root_group_checks": [
+    {
+      "name": "list 200",
+      "path": "::list 200",
+      "id": "bb957fc3b3b94304050fa1ff782f2f89",
+      "passes": 242,
+      "fails": 0
+    },
+    {
+      "name": "filter 200",
+      "path": "::filter 200",
+      "id": "42f68b246b0555a83cff395abe51614d",
+      "passes": 87,
+      "fails": 0
+    },
+    {
+      "id": "0e8b9063c4ac60a10bd3debd3da923cd",
+      "passes": 28,
+      "fails": 0,
+      "name": "create 302 to the ticket",
+      "path": "::create 302 to the ticket"
+    },
+    {
+      "path": "::created ticket 200",
+      "id": "3d208ab3776138ce4cadc8e6a532dd7b",
+      "passes": 28,
+      "fails": 0,
+      "name": "created ticket 200"
+    },
+    {
+      "name": "view 200",
+      "path": "::view 200",
+      "id": "97d5c454ec37ef113b34e2ba4429a3d6",
+      "passes": 218,
+      "fails": 0
+    },
+    {
+      "name": "comment 200",
+      "path": "::comment 200",
+      "id": "d6e29c7940d1c89a22fc358565128a56",
+      "passes": 42,
+      "fails": 0
+    },
+    {
+      "id": "b72a444953132773b171f69c12675216",
+      "passes": 42,
+      "fails": 0,
+      "name": "comment saved",
+      "path": "::comment saved"
+    }
+  ]
+}

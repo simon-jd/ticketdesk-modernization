@@ -1,0 +1,6 @@
+rebuild start 2026-11-08T20:52:54Z
+vm_name = "vm-tdlab-legacy"
+vm_public_ip = "74.241.240.76"
+vnet_id = "/subscriptions/<subscription-id>/resourceGroups/rg-ticketdesk-lab/providers/Microsoft.Network/virtualNetworks/vnet-tdlab-swedencentral"
+apply stage lift end 2026-11-08T21:00:04Z elapsed_s=429 rc=0
+apply_end_s=430 stage_end_s=450 provision_end_s=1218 smoke_end_s=1236 smoke_rc=0 end=2026-11-08T21:13:30Z

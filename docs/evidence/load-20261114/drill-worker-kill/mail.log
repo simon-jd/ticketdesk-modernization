@@ -1,0 +1,4 @@
+smtp sink on 192.168.192.1:2526 -> ~/Desktop/ticketdesk-modernization/wt-load/docs/evidence/load-20261114/drill-worker-kill/mail
+held 00863 2026-11-14T05:35:25.034062+00:00
+held 01309 2026-11-14T05:36:26.227037+00:00
+held 01780 2026-11-14T05:37:27.726724+00:00

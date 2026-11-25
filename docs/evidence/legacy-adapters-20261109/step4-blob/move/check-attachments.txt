@@ -1,0 +1,16 @@
+$ python3 -I ops/onprem/filestore/check-attachments.py --manifest manifest-run3.csv   (app on blob)
+  GET  /user/sign-in -> 200 26ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 50ms -> /
+  GET  / -> 200 42ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+ok  GET /file/1/log.txt -> 200, 1200 bytes, md5 FEpAYfGNySkl11RbrQW9Mg== (manifest 1200 bytes, FEpAYfGNySkl11RbrQW9Mg==)
+ok  GET /file/1/scan 2026-11 (v2).pdf -> 200, 1048576 bytes, md5 11A45mjobLc65aSh7NnmBA== (manifest 1048576 bytes, 11A45mjobLc65aSh7NnmBA==)
+ok  GET /file/10007/replay-added.txt -> 200, 13 bytes, md5 g/laInnSmy1FmbPJFTYLJQ== (manifest 13 bytes, g/laInnSmy1FmbPJFTYLJQ==)
+ok  GET /file/10007/replay-note.txt -> 200, 29 bytes, md5 RCkJhsbRgoeDUMWDYRG1Tg== (manifest 29 bytes, RCkJhsbRgoeDUMWDYRG1Tg==)
+ok  GET /file/2/photo.jpg -> 200, 3145728 bytes, md5 Ky8c/L+xFbBGX7Qs8PZSjQ== (manifest 3145728 bytes, Ky8c/L+xFbBGX7Qs8PZSjQ==)
+ok  GET /file/3/empty.dat -> 200, 0 bytes, md5 1B2M2Y8AsgTpgAmY7PhCfg== (manifest 0 bytes, 1B2M2Y8AsgTpgAmY7PhCfg==)
+ok  GET /file/42/rÃ©seau-diagram.png -> 200, 204800 bytes, md5 L/CLVEXLy2pNfPwbe1FSZA== (manifest 204800 bytes, L/CLVEXLy2pNfPwbe1FSZA==)
+ok  GET /file/9999/big.zip -> 200, 5242880 bytes, md5 4dq4fv58GZfadYjlDC4EpQ== (manifest 5242880 bytes, 4dq4fv58GZfadYjlDC4EpQ==)
+8 of 8 committed attachments read back through the app with the manifest's size and MD5
+exit=0

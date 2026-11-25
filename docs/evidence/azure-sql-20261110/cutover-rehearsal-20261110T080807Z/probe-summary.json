@@ -1,0 +1,546 @@
+{
+  "file": "probe.jsonl",
+  "start": "2026-11-10T08:08:07.489Z",
+  "end": "2026-11-10T08:11:58.176Z",
+  "ticks": 95,
+  "read_requests": 190,
+  "failed_reads": 0,
+  "signins": 1,
+  "failed_signins": 0,
+  "switches": [
+    {
+      "t": "2026-11-10T08:08:07.489Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com"
+    }
+  ],
+  "per_target_path": [
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/",
+      "requests": 95,
+      "failed": 0,
+      "median_ms": 746,
+      "p95_ms": 814
+    },
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "/tickets",
+      "requests": 95,
+      "failed": 0,
+      "median_ms": 1377,
+      "p95_ms": 2417
+    }
+  ],
+  "failure_windows": [],
+  "write_requests": 135,
+  "failed_writes": 42,
+  "write_median_ms": 1511,
+  "write_failure_windows": [
+    {
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "start": "2026-11-10T08:08:50.173Z",
+      "end": "2026-11-10T08:09:55.728Z",
+      "ticks": 42
+    }
+  ],
+  "write_downtime": {
+    "last_ok_before": "2026-11-10T08:08:48.656Z",
+    "first_failed": "2026-11-10T08:08:50.173Z",
+    "last_failed": "2026-11-10T08:09:55.728Z",
+    "first_ok_after": "2026-11-10T08:10:05.244Z",
+    "seconds": 76.6
+  },
+  "failed": [
+    {
+      "t": "2026-11-10T08:08:50.173Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1516,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:08:51.616Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1443,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:08:53.377Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1761,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:08:54.870Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1492,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:08:56.342Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1472,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:08:57.810Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1467,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:08:59.375Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1565,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:00.894Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1518,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:02.423Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1529,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:03.984Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1561,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:05.663Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1679,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:07.160Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1497,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:08.629Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1468,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:10.067Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1438,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:11.508Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1441,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:13.428Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1920,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:14.931Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1503,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:16.415Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1484,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:19.418Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 3003,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:20.935Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1516,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:22.401Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1465,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:23.829Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1428,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:25.343Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1514,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:26.823Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1479,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:29.618Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 2795,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:31.121Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1503,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:32.607Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1486,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:34.100Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1492,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:35.579Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1480,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:37.067Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1488,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:38.534Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1467,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:40.015Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1480,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:41.494Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1479,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:42.937Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1442,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:44.404Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1466,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:45.883Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1479,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:47.318Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1435,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:48.789Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1471,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:51.323Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 2534,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:52.793Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1470,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:54.261Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1467,
+      "error": "HTTP 500"
+    },
+    {
+      "t": "2026-11-10T08:09:55.728Z",
+      "target": "https://tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com",
+      "path": "write",
+      "status": 500,
+      "ms": 1467,
+      "error": "HTTP 500"
+    }
+  ],
+  "phases": [
+    {
+      "from": "probe_start",
+      "to": "runcommand_start",
+      "seconds": 30.0,
+      "read_requests": 24,
+      "failed_reads": 0,
+      "write_requests": 17,
+      "failed_writes": 0
+    },
+    {
+      "from": "runcommand_start",
+      "to": "vm_azsql_online",
+      "seconds": 11.8,
+      "read_requests": 11,
+      "failed_reads": 0,
+      "write_requests": 8,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_azsql_online",
+      "to": "vm_freeze_start",
+      "seconds": 0.0,
+      "read_requests": 0,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_freeze_start",
+      "to": "vm_write_denied",
+      "seconds": 0.0,
+      "read_requests": 0,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_write_denied",
+      "to": "vm_frozen",
+      "seconds": 0.0,
+      "read_requests": 0,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_frozen",
+      "to": "vm_export_start",
+      "seconds": 0.0,
+      "read_requests": 0,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_export_start",
+      "to": "vm_copy_restored",
+      "seconds": 8.0,
+      "read_requests": 8,
+      "failed_reads": 0,
+      "write_requests": 5,
+      "failed_writes": 5
+    },
+    {
+      "from": "vm_copy_restored",
+      "to": "vm_exported",
+      "seconds": 20.4,
+      "read_requests": 17,
+      "failed_reads": 0,
+      "write_requests": 13,
+      "failed_writes": 13
+    },
+    {
+      "from": "vm_exported",
+      "to": "vm_import_start",
+      "seconds": 0.2,
+      "read_requests": 0,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_import_start",
+      "to": "vm_imported",
+      "seconds": 37.2,
+      "read_requests": 32,
+      "failed_reads": 0,
+      "write_requests": 23,
+      "failed_writes": 23
+    },
+    {
+      "from": "vm_imported",
+      "to": "vm_reconcile_start",
+      "seconds": 0.2,
+      "read_requests": 1,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_reconcile_start",
+      "to": "vm_reconciled",
+      "seconds": 4.0,
+      "read_requests": 1,
+      "failed_reads": 0,
+      "write_requests": 1,
+      "failed_writes": 1
+    },
+    {
+      "from": "vm_reconciled",
+      "to": "vm_switch_start",
+      "seconds": 0.0,
+      "read_requests": 0,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_switch_start",
+      "to": "vm_switched",
+      "seconds": 5.4,
+      "read_requests": 1,
+      "failed_reads": 0,
+      "write_requests": 0,
+      "failed_writes": 0
+    },
+    {
+      "from": "vm_switched",
+      "to": "runcommand_end",
+      "seconds": 40.8,
+      "read_requests": 31,
+      "failed_reads": 0,
+      "write_requests": 22,
+      "failed_writes": 0
+    },
+    {
+      "from": "runcommand_end",
+      "to": "smoke_passed",
+      "seconds": 12.0,
+      "read_requests": 10,
+      "failed_reads": 0,
+      "write_requests": 7,
+      "failed_writes": 0
+    },
+    {
+      "from": "smoke_passed",
+      "to": "probe_end",
+      "seconds": 61.0,
+      "read_requests": 54,
+      "failed_reads": 0,
+      "write_requests": 38,
+      "failed_writes": 0
+    }
+  ]
+}

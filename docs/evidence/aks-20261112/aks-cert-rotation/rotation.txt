@@ -1,0 +1,12 @@
+rotation start 2026-11-12T07:07:10.869Z, served serial before: 12337EC53147DEE98219906A9EBB4B041875B965
+{
+  "notBefore": "2026-11-12T07:07:00+00:00",
+  "thumbprint": "54A4033EAECCF5FA55335BCA971151BF8CCFE123",
+  "version": "https://kv-tdlab-36d2d4.vault.azure.net/certificates/td-aks-web/1f3c8fa539274d0d8c213a1a2c6444d3"
+}
+new version in Key Vault after 1.6 s
+served serial after: 12337EC53147DEE98219906A9EBB4B041875B968, picked up 62.0 s after the import (CSI rotation poll 2m + Tls:ReloadInterval 10 s)
+probe during the rotation: reads 100 (0 failed)
+# new certificate
+serial=12337EC53147DEE98219906A9EBB4B041875B968
+notAfter=Feb 14 07:07:00 2029 GMT

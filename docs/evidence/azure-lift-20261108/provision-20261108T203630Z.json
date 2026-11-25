@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "code": "ComponentStatus/StdOut/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": "[2026-11-08T20:36:49Z] provision run 20261108T203630Z on tdlab-legacy, steps: verify\n[2026-11-08T20:36:49Z] ==== step verify\nTDVERIFY {\"computer\":\"tdlab-legacy\",\"os\":\"Microsoft Windows Server 2025 Datacenter\",\"os_build\":\"26100.33674\",\"display_version\":\"24H2\",\"last_boot_utc\":\"2026-11-08T15:51:11.0034930Z\",\"sql\":\"16.0.4305.5 CU27 Express Edition (64-bit)\",\"defender\":{\"am_service\":true,\"antivirus\":true,\"realtime\":true,\"signature_version\":\"1.463.191.0\",\"signature_updated_utc\":\"2026-11-08T06:38:16.0000000Z\"},\"tls\":{\"thumbprint\":\"96449D36383AF1798F029D1E77ED04BD8D0EA812\",\"subject\":\"CN=tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com, O=TicketDesk Lab\",\"issuer\":\"CN=TicketDesk Lab Root CA, O=TicketDesk Lab\",\"dns\":[\"tdlab-legacy-36d2d4.swedencentral.cloudapp.azure.com\",\"localhost\",\"tdlab-legacy\"],\"not_after\":\"2029-02-10\",\"private_key_usable\":true},\"https_home\":{\"status\":200,\"ms\":35,\"ticketdesk\":true},\"admin_sign_in\":true,\"site\":\"Started\",\"app_pool\":\"Started\",\"backup_task\":\"Ready\",\"rows\":{\"dbo.__MigrationHistory\":25,\"dbo.ApplicationSettings\":1,\"dbo.IdentityRoles\":4,\"dbo.IdentityUserClaims\":0,\"dbo.IdentityUserLogins\":0,\"dbo.IdentityUserRoles\":251,\"dbo.IdentityUsers\":251,\"dbo.Projects\":5,\"dbo.TicketEventNotifications\":96003,\"dbo.TicketEvents\":45651,\"dbo.Tickets\":10001,\"dbo.TicketSubscribers\":20127,\"dbo.TicketTags\":14699,\"dbo.UserSettings\":1,\"notifications.ApplicationPushNotificationSettings\":1,\"notifications.PushNotificationDestinations\":1,\"notifications.PushNotificationItems\":0,\"notifications.SubscriberPushNotificationSettings\":1,\"notifications.TicketPushNotificationItems\":0}}\n[2026-11-08T20:36:50Z] step verify done in 1.5s\n[2026-11-08T20:36:51Z] TDTIMINGS {\"verify\":1.5} total 1.6s\ntranscript: https://sttdlab36d2d4.blob.core.windows.net/logs/tdlab-legacy/provision-20261108T203630Z.log"
+    },
+    {
+      "code": "ComponentStatus/StdErr/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": ""
+    }
+  ]
+}

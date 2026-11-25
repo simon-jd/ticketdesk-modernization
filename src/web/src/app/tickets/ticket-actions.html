@@ -1,0 +1,72 @@
+<section class="actions" aria-labelledby="actions-heading">
+  <h2 id="actions-heading">Actions</h2>
+  @if (ticket().activities.length > 0) {
+    <ul class="buttons">
+      @for (a of ticket().activities; track a) {
+        <li>
+          <button type="button" class="button" [class.button-primary]="open() === a" [attr.aria-expanded]="open() === a"
+                  aria-controls="activity-form" (click)="start(a)">{{ labels[a] ?? a }}</button>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="muted">No actions are available to you on this ticket.</p>
+  }
+  @if (failure(); as f) { <div class="alert alert-error" role="alert"><p>{{ f }}</p></div> }
+
+  @if (open(); as a) {
+    @let f = fields()!;
+    <form id="activity-form" class="activity-form" (ngSubmit)="submit()" novalidate [attr.aria-label]="labels[a]">
+      <h3>{{ labels[a] }}</h3>
+      @if (f.assignee) {
+        <div class="field">
+          <label for="activity-assignee">Assign to <span class="req" aria-hidden="true">*</span></label>
+          <select #assigneeField id="activity-assignee" name="assignedTo" [(ngModel)]="values.assignedTo" required
+                  [attr.aria-invalid]="!!errors().assignedTo" [attr.aria-describedby]="errors().assignedTo ? 'activity-assignee-error' : null">
+            <option value="">Choose a person</option>
+            @if (options.hasValue()) {
+              @for (u of options.value().helpDeskUsers; track u.id) { <option [value]="u.id">{{ u.displayName }}</option> }
+            }
+          </select>
+          @if (errors().assignedTo; as m) { <p class="error" id="activity-assignee-error">{{ m }}</p> }
+        </div>
+      }
+      @if (f.priority) {
+        <div class="field">
+          <label for="activity-priority">Priority</label>
+          <select id="activity-priority" name="priority" [(ngModel)]="values.priority"
+                  [attr.aria-invalid]="!!errors().priority" [attr.aria-describedby]="errors().priority ? 'activity-priority-error' : null">
+            <option value="">Keep {{ ticket().priority || 'none' }}</option>
+            @if (options.hasValue()) {
+              @for (p of options.value().priorities; track p) { <option [value]="p">{{ p }}</option> }
+            }
+          </select>
+          @if (errors().priority; as m) { <p class="error" id="activity-priority-error">{{ m }}</p> }
+        </div>
+      }
+      <div class="field">
+        <label for="activity-comment">Comment @if (f.commentRequired) { <span class="req" aria-hidden="true">*</span> }</label>
+        <textarea #commentField id="activity-comment" name="comment" rows="4" [(ngModel)]="values.comment" [required]="f.commentRequired"
+                  [attr.aria-invalid]="!!errors().comment" [attr.aria-describedby]="errors().comment ? 'activity-comment-error' : 'activity-comment-hint'"></textarea>
+        <p class="hint" id="activity-comment-hint">Markdown works.</p>
+        @if (errors().comment; as m) { <p class="error" id="activity-comment-error">{{ m }}</p> }
+      </div>
+      @if (f.assignToMe) {
+        <div class="field checkbox">
+          <input id="activity-assign-me" type="checkbox" name="assignToMe" [(ngModel)]="values.assignToMe" />
+          <label for="activity-assign-me">Assign the reopened ticket to me</label>
+        </div>
+      }
+      @if (f.reactivate) {
+        <div class="field checkbox">
+          <input id="activity-reactivate" type="checkbox" name="reactivate" [(ngModel)]="values.reactivate" />
+          <label for="activity-reactivate">Set the ticket back to active</label>
+        </div>
+      }
+      <div class="form-actions">
+        <button type="submit" class="button button-primary" [disabled]="busy()">{{ busy() ? 'Saving…' : labels[a] }}</button>
+        <button type="button" class="button" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  }
+</section>

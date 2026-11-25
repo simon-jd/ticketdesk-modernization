@@ -1,0 +1,30 @@
+## 2026-11-14T05:48:03Z before
+ 21:48:03 up 5 days, 22:25, 10 users,  load average: 14.55, 12.78, 10.21
+               total        used        free      shared  buff/cache   available
+Mem:             123          48          10           1          66          74
+# per-CPU busy % over 3 s (0-31)
+0:4 1:6 2:4 3:1 4:7 5:1 6:5 7:1 8:6 9:1 10:10 11:2 12:6 13:0 14:6 15:1 16:3 17:100 18:100 19:2 20:100 21:2 22:3 23:100 24:100 25:100 26:5 27:4 28:3 29:2 30:100 31:100
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 100   0 3145793 ps
+99.9  30 3098589 fuzz_stack_inpu
+99.9  31 3098595 fuzz_stack_inpu
+99.9  25 3098591 fuzz_stack_inpu
+99.8  17 3098593 fuzz_stack_inpu
+99.8  23 3098590 fuzz_stack_inpu
+99.8  24 3098594 fuzz_stack_inpu
+## 2026-11-14T05:55:16Z after
+ 21:55:16 up 5 days, 22:33, 10 users,  load average: 9.58, 10.07, 9.94
+               total        used        free      shared  buff/cache   available
+Mem:             123          48           9           1          67          74
+# per-CPU busy % over 3 s (0-31)
+0:5 1:1 2:6 3:1 4:5 5:7 6:4 7:1 8:5 9:1 10:3 11:1 12:5 13:0 14:3 15:0 16:49 17:8 18:54 19:100 20:38 21:78 22:2 23:89 24:48 25:56 26:95 27:4 28:95 29:100 30:3 31:6
+# top processes by CPU
+%CPU PSR     PID COMMAND
+ 101  23 3206129 cc1plus
+ 100  16 3206106 cc1plus
+ 100  25 3206102 cc1plus
+ 100  26 3206061 cc1plus
+ 100  29 3206044 cc1plus
+ 100  19 3205893 cc1plus
+ 100  20 3206132 cc1plus

@@ -1,0 +1,29 @@
+@model TicketDesk.Projects.ProjectMenu
+@using TicketDesk.Localization.Controllers
+@{
+    // legacy: an "all projects" item (id 0) first, then the projects by name; the button shows the selected one
+    var items = new List<(int Id, string Name)> { (0, Strings.ModelProjects_DefaultOption) };
+    items.AddRange(Model.Projects.Select(p => (p.ProjectId, p.ProjectName)));
+    var selected = items.FirstOrDefault(i => i.Id == Model.SelectedProjectId);
+}
+<div class="form-group form-group-sm" style="margin-bottom: 0;">
+
+    <div class="input-group input-group-sm">
+        <span class="dropdown">
+            <span class="control-label sr-only">Project: </span>
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <i class="fa fa-book"></i>
+                @(selected.Name ?? items[0].Name)
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+                @* S3 (Round 5): each project is a form that posts with the antiforgery token (links in the legacy app) *@
+                @foreach (var item in items)
+                {
+                    <li><form action="/navigation/change-project/@item.Id" class="td-menu-post" method="post">@Html.AntiForgeryToken()<button type="submit">@item.Name</button></form></li>
+                }
+            </ul>
+        </span>
+    </div>
+</div>

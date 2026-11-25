@@ -1,0 +1,44 @@
+# lift.sh fetch-publish 2026-11-08T15:50:31Z: legacy publish output packaged once on the local VM
+package: td-legacy-publish-f510384.zip
+bytes: 19686422
+sha256: 5f08149d6280aad948c1d46289b81503110f2fc57e9dd84bda4add0510aca45a
+REVISION=f510384
+FILES=840
+BYTES=73298944
+build-info.json:
+﻿{
+    "revision":  "f510384",
+    "configuration":  "Release",
+    "started_utc":  "2026-11-08T00:35:28.4476796Z",
+    "steps":  [
+                  {
+                      "name":  "restore",
+                      "exit":  0,
+                      "seconds":  15.5,
+                      "warnings":  null,
+                      "errors":  null,
+                      "log":  "C:\\TdBuild\\logs\\restore.log"
+                  },
+                  {
+                      "name":  "build",
+                      "exit":  0,
+                      "seconds":  48.5,
+                      "warnings":  4,
+                      "errors":  0,
+                      "log":  "C:\\TdBuild\\logs\\build.log"
+                  },
+                  {
+                      "name":  "publish",
+                      "exit":  0,
+                      "seconds":  9.9,
+                      "warnings":  0,
+                      "errors":  0,
+                      "log":  "C:\\TdBuild\\logs\\publish.log"
+                  }
+              ],
+    "msbuild":  "17.14.60.43110",
+    "nuget":  "7.9.0.83",
+    "publish_files":  840,
+    "publish_bytes":  73298944,
+    "seconds":  75.3
+}

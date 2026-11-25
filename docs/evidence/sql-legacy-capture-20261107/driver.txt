@@ -1,0 +1,45 @@
+$ python3 -I ops/dev/legacy_list_driver.py --json driver.json
+  GET  /user/sign-in -> 200 18ms
+[PASS] sign-in page (HTTP 200)
+  POST /user/sign-in -> 302 29ms -> /
+  GET  / -> 200 23ms
+[PASS] sign in as admin (HTTP 200, landed on /)
+  GET  /tickets -> 200 35ms
+[PASS] ticket center default list (help desk: unassigned) (HTTP 200)
+  GET  /tickets/unassigned -> 200 34ms
+[PASS] list unassigned (HTTP 200)
+  GET  /tickets/assignedToMe -> 200 38ms
+[PASS] list assignedToMe (HTTP 200)
+  GET  /tickets/mytickets -> 200 45ms
+[PASS] list mytickets (HTTP 200)
+  GET  /tickets/opentickets -> 200 41ms
+[PASS] list opentickets (HTTP 200)
+  GET  /tickets/historytickets -> 200 35ms
+[PASS] list historytickets (HTTP 200)
+  GET  /tickets/pageList/opentickets/2 -> 200 36ms
+[PASS] opentickets page 2 (partial) (HTTP 200)
+  GET  /tickets/sortList/opentickets?columnName=Title -> 200 55ms
+[PASS] opentickets sort by Title (partial) (HTTP 200)
+  GET  /tickets/sortList/opentickets?columnName=Title -> 200 43ms
+[PASS] opentickets sort by Title again: descending (HTTP 200)
+  GET  /tickets/sortList/opentickets?columnName=Priority&isMultiSort=true -> 200 88ms
+[PASS] opentickets add Priority to the sort (HTTP 200)
+  GET  /tickets/filterList/mytickets?pageSize=20&ticketStatus=Active&owner=anyone&assignedTo=anyone -> 200 37ms
+[PASS] mytickets filter status=Active, assignedTo=anyone (HTTP 200)
+  GET  /tickets/filterList/unassigned?pageSize=20&ticketStatus=Any&owner=anyone&assignedTo=unassigned -> 200 43ms
+[PASS] unassigned filter status=Any (HTTP 200)
+  GET  /tickets/opentickets -> 200 42ms
+[PASS] opentickets (to pick a ticket) (HTTP 200)
+[PASS] a ticket link on the list (20 links)
+  GET  /ticket/39 -> 200 40ms
+[PASS] ticket page (HTTP 200)
+  GET  /ticket/ticket-details?ticketId=39 -> 200 19ms
+[PASS] ticket details panel (HTTP 200)
+  GET  /ticket/ticket-events?ticketId=39 -> 200 18ms
+[PASS] ticket events panel (HTTP 200)
+  GET  /ticket/ticket-files?ticketId=39 -> 200 27ms
+[PASS] ticket files panel (HTTP 200)
+  GET  /tickets/reset-user-lists -> 302 40ms -> /tickets
+  GET  /tickets -> 200 36ms
+[PASS] reset the admin's list settings (HTTP 200)
+{"ok": true, "steps": 17, "requests": 22}

@@ -25,6 +25,6 @@ public sealed class EntraIdOptions
     public string? TenantId { get; set; }
     /// <summary>False only for a local test identity provider on plain HTTP.</summary>
     public bool RequireHttpsMetadata { get; set; } = true;
-    /// <summary>Label of the second sign-in button on the sign-in page.</summary>
+    /// <summary>Label of the second sign-in button on the sign-in page (set per deployment, e.g. the organization's name).</summary>
     public string DisplayName { get; set; } = "Entra ID";
 }

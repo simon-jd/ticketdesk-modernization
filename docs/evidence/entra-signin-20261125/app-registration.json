@@ -1,0 +1,76 @@
+{
+  "displayName": "ticketdesk-lab-web",
+  "appId": "<client-id>",
+  "signInAudience": "AzureADMyOrg",
+  "web": {
+    "redirectUris": [
+      "https://localhost:5443/signin-oidc"
+    ],
+    "logoutUrl": "https://localhost:5443/signout-oidc",
+    "implicitGrantSettings": {
+      "enableAccessTokenIssuance": false,
+      "enableIdTokenIssuance": false
+    }
+  },
+  "appRoles": [
+    {
+      "value": "TdAdministrators",
+      "displayName": "TicketDesk administrators",
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "isEnabled": true,
+      "id": "<app-role-id>"
+    },
+    {
+      "value": "TdHelpDeskUsers",
+      "displayName": "TicketDesk help desk staff",
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "isEnabled": true,
+      "id": "<app-role-id>"
+    },
+    {
+      "value": "TdInternalUsers",
+      "displayName": "TicketDesk internal users",
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "isEnabled": true,
+      "id": "<app-role-id>"
+    },
+    {
+      "value": "TdPendingUsers",
+      "displayName": "TicketDesk pending users",
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "isEnabled": true,
+      "id": "<app-role-id>"
+    }
+  ],
+  "requiredResourceAccess": [],
+  "passwordCredentials": [
+    {
+      "displayName": "local sign-in 2026-11-25",
+      "endDateTime": "2026-12-24T00:00:00Z",
+      "value": "(not stored here)"
+    }
+  ],
+  "servicePrincipal": {
+    "appRoleAssignmentRequired": false
+  },
+  "appRoleAssignments": [
+    {
+      "principalType": "User",
+      "principal": "<entra-user-object-id>",
+      "appRole": "default access (00000000-0000-0000-0000-000000000000)"
+    },
+    {
+      "principalType": "User",
+      "principal": "<entra-user-object-id>",
+      "appRole": "TdAdministrators"
+    }
+  ]
+}

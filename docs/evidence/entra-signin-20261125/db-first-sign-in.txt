@@ -1,0 +1,23 @@
+# TicketDesk_entra (td-sql), queried 2026-11-25 after the sign-in. Identifiers replaced, see README.md.
+
+## The external login and the user row it points to (dbo.IdentityUserLogins JOIN dbo.IdentityUsers)
+LoginProvider|ProviderKey|UserId|UserName|Email|EmailConfirmed|DisplayName|PasswordHash|LockoutEnabled
+-------------|-----------|------|--------|-----|--------------|-----------|------------|--------------
+EntraId|<entra-user-object-id>|<local-user-id>|<email>|<email>|0|<display-name>|null|1
+
+## Roles of that user (dbo.IdentityUserRoles JOIN dbo.IdentityRoles)
+Role
+----
+TdAdministrators
+
+## Users: source database TicketDesk (copied to TicketDesk_entra with ops/dev/e2e-db.sh before the sign-in) vs TicketDesk_entra
+TicketDesk        users_total=251   rows with this user id=0
+TicketDesk_entra  252  1   (users_total, users_without_password)
+
+## Role counts in TicketDesk_entra
+Name|n
+----|-
+TdAdministrators|7
+TdHelpDeskUsers|37
+TdInternalUsers|206
+TdPendingUsers|2

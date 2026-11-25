@@ -156,9 +156,11 @@ src/web run build`; 276.8 MB, non-root, `docs/evidence/retire-20261110/container
 
 ## Limits
 
-- **Entra ID sign-in was never completed by a real user.** The tenant's consent policy needs an administrator's approval
-  for the lab app (`AADSTS65004`), which was not requested; the code flow, provisioning and role mapping are proven only
-  against a local OpenID Connect test provider (10/10 checks; `docs/evidence/identity-20261110/step8-entra-user-check/`).
+- **Entra ID sign-in with a real account: once, on a local run.** On 2026-11-25 a real person signed in through Entra ID
+  in the operator's own tenant; the first sign-in created the user and mapped its Entra app role to the legacy role
+  (`docs/evidence/entra-signin-20261125/`). That was one account on the app run locally (`ops/dev/entra-local.sh`), not
+  on AKS; the other roles and sign-out are proven against the local OpenID Connect test provider only. The earlier attempt
+  in the university tenant was blocked by its consent policy (`AADSTS65004`).
 - **CI/CD on one self-hosted agent.** The pipelines run in a private Azure DevOps project on a single agent on the lab
   host; the lab secrets stay on that host (read per value and masked), not in an Azure DevOps variable group. CD to AKS
   ran once (run 34, in the 2026-11-12 Azure session). At the end of the project (2026-11-12) the service connection,

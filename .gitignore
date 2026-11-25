@@ -224,6 +224,12 @@ TicketDesk/.vs/
 # Angular build output (src/web: npm run build), served by TicketDesk.Web under /app
 src/modern/TicketDesk.Web/wwwroot/app/
 
+# Local Entra ID sign-in settings and TLS material (ops/dev/entra-local.sh): only the *.example template is tracked
+ops/dev/entra-local.env
+*.entra.env
+appsettings.Local.json
+ops/dev/entra-local-tls/
+
 # Python bytecode (ops/load, ops/dev scripts)
 __pycache__/
 *.pyc

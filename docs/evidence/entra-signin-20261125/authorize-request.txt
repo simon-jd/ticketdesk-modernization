@@ -1,0 +1,16 @@
+# POST /user/sign-in/entra (antiforgery token from GET /user/sign-in) on the running app, 2026-11-25. Values of client_id,
+# code_challenge, nonce and state are per request or identifying and are replaced.
+
+HTTP/2 302
+location: https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize
+  client_id = <client-id>
+  redirect_uri = https://localhost:5443/signin-oidc
+  response_type = code
+  scope = openid profile email
+  code_challenge = <code-challenge>
+  code_challenge_method = S256
+  response_mode = form_post
+  nonce = <nonce>
+  state = <state>
+  x-client-SKU = ID_NET10_0
+  x-client-ver = 8.19.2.0
